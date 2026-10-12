@@ -235,7 +235,11 @@ def tool_kali_run(a):
         argv = ["bash", "-c", str(a["cmd"])]
     if not isinstance(argv, list) or not argv or any(not isinstance(x, str) for x in argv):
         return {"error": "argv 必须是非空字符串数组"}
-    return runtime.kali_execute(a, argv)
+    # 透传 local_file：调用方给了就必须真的上传，绝不静默忽略（否则 Kali 上表现为"文件不存在"）
+    local = a.get("local_file") or None
+    if local and not Path(local).is_file():
+        return {"error": "本机文件不存在: %s" % local}
+    return runtime.kali_execute(a, argv, local=local)
 
 
 # --------------------------------------------------------------------------
@@ -340,6 +344,8 @@ SEC_TOOLS["kali_sage"] = (tool_kali_sage,
 SEC_TOOLS["kali_run"] = (tool_kali_run, "在 Kali 上跑任意命令。危险，需 confirm", {
     "type": "object",
     "properties": {"cmd": {"type": "string"}, "argv": {"type": "array", "items": {"type": "string"}},
+                   "local_file": {"type": "string",
+                                  "description": "本机文件绝对路径，经桥上传并校验 SHA256；命令里用 ../input/<文件名> 引用"},
                    "case": {"type": "string"}, "timeout": {"type": "integer"},
                    "confirm": {"type": "boolean"}}, "required": ["confirm"]})
 for _n, (_t, _d, _dg) in LOCAL_CMDS.items():

@@ -52,8 +52,8 @@
     },
     {
       "path": "docs/skill-installation.md",
-      "sha256": "20c757a4d8a3f36aa90e54d801a54e7c750187ef1303cef5a33a04c67298c931",
-      "bytes": 4312
+      "sha256": "cd3bed389ccd165ab4aeb48e0f1470e56e043a1c94871936306858b744d3717c",
+      "bytes": 4362
     },
     {
       "path": "install-autostart.ps1",
@@ -72,18 +72,18 @@
     },
     {
       "path": "skills/ctf-team-workflow/SKILL.md",
-      "sha256": "17fde0510673b6eca5b2f369fd8d2af0c623663dd1f3386bcc599793ec58dcff",
-      "bytes": 6701
+      "sha256": "edd4c27162a25b98915a34b3a9c7dbce155649a5fb64d1504a733b8235d0897e",
+      "bytes": 6752
     },
     {
       "path": "skills/ctf-team-workflow/agents/openai.yaml",
-      "sha256": "15026f4062664f492cae26f9b96c2388ba7998694b4eff96d28532fe225fa85f",
-      "bytes": 293
+      "sha256": "3ed3dfd0e78a8cfce8ffe6c28bdbc8bddc0708b6fb394d1102aaac396439fd0b",
+      "bytes": 297
     },
     {
       "path": "skills/ctf-team-workflow/scripts/locate_system.py",
-      "sha256": "973482d9379c6f5d7081f50344ff28f18f358383ee6457d5449a680234a8bf25",
-      "bytes": 3283
+      "sha256": "670596a59ff2e4c0866b6ad0608d21dc0b5d3bbfbf3330620f480f36ecd3cddb",
+      "bytes": 3359
     },
     {
       "path": "start.ps1",
@@ -102,8 +102,8 @@
     },
     {
       "path": "tests/test_install_skill.py",
-      "sha256": "1b0b94a0dd56250e298234b924ac3e61485634b719ab5dc3f0b4831358f05fff",
-      "bytes": 7178
+      "sha256": "a6ec985a4d2213570a675caaccfedcf2c9d74875dc77cee1e9d1d90cf847ef60",
+      "bytes": 7328
     },
     {
       "path": "tools/ctf_knowledge.py",
@@ -117,8 +117,8 @@
     },
     {
       "path": "tools/ctf_os.py",
-      "sha256": "3f75291f8709d8a3be70814326bedd0181f6831f10be879374216a519b1aa4eb",
-      "bytes": 46040
+      "sha256": "fc305d6df29cd8764fefb20b9752017ba8e3a7cea28ef331165350689ca77c73",
+      "bytes": 46540
     },
     {
       "path": "tools/ctf_os_runtime.py",
@@ -152,8 +152,8 @@
     },
     {
       "path": "tools/install_skill.py",
-      "sha256": "1d87b87107069f4cf2b33589f74e3c50f668f3dd5f5109605b26e733264aa0e3",
-      "bytes": 5144
+      "sha256": "7f849c677b38a5496f6b3fd8012c2218c6eaebd807ce18e06f479fbd21246cf4",
+      "bytes": 5262
     },
     {
       "path": "tools/muteki_apply_seats.py",

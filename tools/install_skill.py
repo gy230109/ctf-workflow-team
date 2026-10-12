@@ -1,4 +1,4 @@
-"""Install only this project's skill into the current user's local agent directory."""
+"""Team CTF workflow component. See README.md for configuration and verified scope."""
 import argparse
 import hashlib
 import json
