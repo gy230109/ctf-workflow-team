@@ -29,7 +29,6 @@ import ctf_knowledge as knowledge
 import ctf_x64dbg as windows_debug
 import ctf_rea as rea
 import ctf_wp as writeup
-import ctf_jev as jev
 
 DEFAULT_PORT = int(os.environ.get("CTF_OS_PORT", "8787"))
 
@@ -148,7 +147,6 @@ def tool_status(a):
     except Exception as e:
         out["items"].append({"name": "x64dbg", "ok": False, "detail": "%r" % (e,)})
     out["registered_tools"] = len(ALL_TOOLS)
-    out["optional_components"] = {"jev": jev.status()}
     out["all_items_available"] = all(x.get("ok") for x in out["items"])
     out["solving_workflow_verified"] = False
     if a.get("deep") is True:
@@ -527,7 +525,6 @@ ALL_TOOLS.update(knowledge.TOOLS)
 ALL_TOOLS.update(windows_debug.TOOLS)
 ALL_TOOLS.update(rea.TOOLS)
 ALL_TOOLS.update(writeup.TOOLS)
-ALL_TOOLS.update(jev.TOOLS)
 
 # An explicit per-call case prevents parallel agents from mixing challenges.
 for _tool_name, (_fn, _desc, _schema) in ALL_TOOLS.items():
@@ -539,8 +536,7 @@ for _tool_name, (_fn, _desc, _schema) in ALL_TOOLS.items():
 DANGEROUS = {"muteki_dispatch", "kali_run",
              "kali_nmap", "kali_hashcat", "kali_sqlmap",
              "local_sqlmap", "local_ffuf",
-             "pc_run", "pc_submit", "win_debug_start", "win_debug_call",
-             "jev_decide", "jev_triage"}
+             "pc_run", "pc_submit", "win_debug_start", "win_debug_call"}
 
 
 def _call_tool(name, args):

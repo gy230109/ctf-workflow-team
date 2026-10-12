@@ -7,13 +7,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "bde2d21987b1e574d1124bc0829cd7ca6c6a61bf5a3d910e1588c1f9b80f8fd4",
-      "bytes": 2641
+      "sha256": "558c414bf1ddf71b145d62a50a0489c60bd8d6237b85a1baaefed541b1542010",
+      "bytes": 2200
     },
     {
       "path": "README.md",
-      "sha256": "b962ffab7e07164abb4ebdc0f144a50cf58f7b6a3f58eddba6276cf0c6e35627",
-      "bytes": 6792
+      "sha256": "5938dd8505c666afa0f1d56c4a492005cae0134783aa3c0c9a9a02f6c33333dd",
+      "bytes": 6063
     },
     {
       "path": "bridge/kali.ps1",
@@ -29,11 +29,6 @@
       "path": "config/ctf_os.example.json",
       "sha256": "64a5d1a7d5ce5f1a8d3a66caee2fc98e4355bbe6e07fcd27d9324d680995f8f7",
       "bytes": 166
-    },
-    {
-      "path": "config/jev.example.json",
-      "sha256": "7012c3e0adf0b0626663952f56b5f1f6bb8efa8fc7c3d799401b858bf4ae3c9c",
-      "bytes": 170
     },
     {
       "path": "config/rea.example.json",
@@ -52,13 +47,8 @@
     },
     {
       "path": "docs/components.md",
-      "sha256": "590c663ee6f56341ad47df3ff8ea1be0e258bf2f60add5ea3dd4b3083b85cacc",
-      "bytes": 3066
-    },
-    {
-      "path": "docs/jev-integration.md",
-      "sha256": "0357e7cbf118bb1be19eee2513cd0519beb4067681d9b2f8bbe891dd6243dc6c",
-      "bytes": 4552
+      "sha256": "4d4c96fa189896e69d232a7ccc7ff19244f4c6c2afcfb0683658396fdd40f973",
+      "bytes": 2676
     },
     {
       "path": "install-autostart.ps1",
@@ -81,11 +71,6 @@
       "bytes": 368
     },
     {
-      "path": "tests/test_ctf_jev.py",
-      "sha256": "9465467444ec39d42a6b9f7674e082d46c093b3ee3c2e2d24407224d1c9fd97c",
-      "bytes": 11763
-    },
-    {
       "path": "tests/test_ctf_team.py",
       "sha256": "b8d1fc704f57aec6408b6fedb781915c205fbda9ef6b8cb4dffc92fa734a215a",
       "bytes": 3090
@@ -94,11 +79,6 @@
       "path": "tests/test_ctf_wp.py",
       "sha256": "a0febd1998058d02b9777dfd94d4978d34b869d8aa0e2d6adc0cb4002e70a47d",
       "bytes": 6132
-    },
-    {
-      "path": "tools/ctf_jev.py",
-      "sha256": "ca7f61f1fbc96609c89ac02b0f21234c11e08ac4515846bbe484c099f4346c6a",
-      "bytes": 13398
     },
     {
       "path": "tools/ctf_knowledge.py",
@@ -112,8 +92,8 @@
     },
     {
       "path": "tools/ctf_os.py",
-      "sha256": "bb3eae0358d2e0bb27ce9884be37109332b62406653592a8c60aaefc55f9f603",
-      "bytes": 46190
+      "sha256": "3f75291f8709d8a3be70814326bedd0181f6831f10be879374216a519b1aa4eb",
+      "bytes": 46040
     },
     {
       "path": "tools/ctf_os_runtime.py",
@@ -127,8 +107,8 @@
     },
     {
       "path": "tools/ctf_team.py",
-      "sha256": "b57107a33fbf0e494c9fe3506eb183c22196c453a129e781177284fa37b810bc",
-      "bytes": 13088
+      "sha256": "d90f51c42fcca62a3f4c849b482c8b171ad084c3c55c775f998c4401d34f8444",
+      "bytes": 13020
     },
     {
       "path": "tools/ctf_wp.py",
@@ -200,6 +180,6 @@
     "raw_evidence",
     "reference_answers"
   ],
-  "registered_tools": 59,
+  "registered_tools": 56,
   "scope": "portable core plus optional adapters; whole solving workflow not certified"
 }

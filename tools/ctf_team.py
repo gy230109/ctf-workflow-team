@@ -211,8 +211,7 @@ def verify_install():
     core = not ctf_os.runtime.failed(dependencies) and all(deps.get("commands", {}).get(n) for n in ("file", "strings", "objdump", "gdb")) and all(deps.get("python_modules", {}).get(n) for n in ("pwn", "Crypto", "z3", "gmpy2", "sympy"))
     checks.append({"name": "core_guest_dependencies", "ok": core, "detail": deps})
     result = {"ready": all(c.get("ok", c.get("exit") == 0) for c in checks), "checks": checks,
-              "tools": len(ctf_os.ALL_TOOLS), "optional_components": {"jev": ctf_os.jev.status()},
-              "scope": "核心接口与 Kali 环境验收，不代表可选组件或完整自动解题验收"}
+              "tools": len(ctf_os.ALL_TOOLS), "scope": "核心接口与 Kali 环境验收，不代表可选组件或完整自动解题验收"}
     save(BASE / "logs" / "team-setup" / "verification.json", result)
     return result
 

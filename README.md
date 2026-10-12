@@ -44,13 +44,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1
 
 MCP stdio：`command` 填本机 `.venv/Scripts/python.exe` 的绝对路径，`args` 填 `-X utf8 <本机仓库>/tools/ctf_os.py --stdio`。客户端各自配置，示例见 `docs/agent-integration.md`。HTTP 只监听 `127.0.0.1:8787`，接口 `/tools`、`/call`、`/mcp`；本机调用参数对象与 CLI 一致。
 
-团队版注册 59 个入口。包含数论、编码、受限 Python、Kali、知识检索、Muteki、pwn.college、REA、x64dbg、三个 Jev 工具和五个 WP 工具。**可选适配器注册不等于已安装或已认证**；不分发三项依赖队长历史题目的专用校验/爆破脚本。详情见 `docs/components.md`。
-
-## Jev 判断模型
-
-已加入 `jev_status`、`jev_triage`、`jev_decide`，CLI/HTTP/MCP 共用入口；带 `wp_case` 的调用自动进入本题证据和中文 WP。复用本机 `OPENROUTER_API_KEY`，无需额外 SDK 或本地模型权重。配置和示例见 `docs/jev-integration.md`。
-
-部署只检查配置，不调用收费模型；实际调用需 `confirm=true`。Jev 用于题型判断、给定候选评估，执行与 flag 验证仍使用现有工具。设置密钥后重启服务或重新连接 MCP。
+团队版注册 56 个入口。包含数论、编码、受限 Python、Kali、知识检索、Muteki、pwn.college、REA、x64dbg 和五个 WP 工具。**可选适配器注册不等于已安装或已认证**；不分发三项依赖队长历史题目的专用校验/爆破脚本。详情见 `docs/components.md`。
 
 ## 自动 WP
 
@@ -71,14 +65,12 @@ WP 是可复现的中文证据稿，按已验证/未验证/未完成区分。AI 
 ## 已验证
 
 - 本机核心桥已经实测；WP 的隔离、失败保留、完整性与导出规则有自动测试。
-- Jev 请求/返回校验、MCP stdio 和 WP 留证路径通过离线 fixture 测试；未调用真实模型。
 - 发布包只用文件白名单构建；本机账号、配置、原始题目与 VM 镜像均不包含。
 
 ## 未验证
 
 - 另外五台电脑的实际安装、全题型表现、完整比赛解题成功率。
 - 首版可选组件在队友电脑上的安装与账号接入。
-- Jev 真实账号、模型判断效果和 Windows/Kali 端到端联调。
 
 ## 未完成
 

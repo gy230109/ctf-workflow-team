@@ -1,7 +1,0 @@
-{
-  "endpoint": "https://openrouter.ai/api/alpha/decisions",
-  "model": "typesafe/jev-1.13",
-  "api_key_env": "OPENROUTER_API_KEY",
-  "timeout": 20,
-  "max_retries": 2
-}
