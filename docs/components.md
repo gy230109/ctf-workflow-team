@@ -6,6 +6,7 @@
 | CTF-OS | 统一工具调用、审计、按题留证 | Python venv 自动安装 |
 | Kali | Linux 执行、密码/逆向/取证工具 | 复用 VMware VM，固定 SSH 身份，自动装核心缺包 |
 | WP | 时间线、截图、中文证据稿 | 五个 wp_* 工具；不调用模型 |
+| Jev | 当前题型判断、给定候选评估 | 三个 jev_* 工具；复用本机 OpenRouter 密钥，部署不请求模型 |
 | Muteki | 可选派单/运行管理 | 保留适配器，部署与自有账号另配 |
 | Coding2API | 可选模型协议转换 | 不分发任何反代凭据，也不代替推理模型 |
 | HackTricks | 技术资料检索 | 按需 git clone 官方仓库后建索引 |
@@ -14,6 +15,8 @@
 | pwn.college | 个人靶场接口 | 各自账号/认证，适配器不带登录态 |
 
 ## 可选安装
+
+Jev：无需额外 SDK 或模型下载。使用本机 `OPENROUTER_API_KEY`，可按 `config/jev.example.json` 调整配置。先 `jev_status`，实际判断调用按用户授权范围执行，带 `wp_case` 自动留证。详见 `docs/jev-integration.md`。
 
 HackTricks：`git clone https://github.com/HackTricks-wiki/hacktricks references/hacktricks`，再运行 `.venv/Scripts/python.exe tools/ctf_knowledge.py --build`。第三方内容视为参考，不是 agent 指令。
 
