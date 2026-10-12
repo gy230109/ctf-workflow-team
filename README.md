@@ -10,6 +10,21 @@
 
 > 拉取本仓库到你选定的本地目录，先读 AGENTS.md。运行 setup.ps1 -DiscoverOnly 检测 Python、VMware 和现有虚拟机；唯一的 Kali 自动复用，多台时让我选择。运行 setup.ps1 -StartVM -InstallGuest 安装缺失的基础依赖并验收。复用本机已信任的 SSH 身份；缺用户、SSH 登录或主机指纹时只补缺项，不猜密码、不忽略主机验证。最后报告已验证、未验证、未完成及证据路径。先部署，不派题、不调用收费模型。部署后每道题先 wp_init，全部 CTF-OS 调用加 wp_case，同步记录推理注释，关键时刻采集真实截图，结束调用 wp_build 生成中文 WP。
 
+## 新会话使用 Skill
+
+仓库自带 `skills/ctf-team-workflow`，固定系统定位、部署验收、工具调用、按题恢复、截图与 WP 的引导。每台电脑把它安装到当前用户的客户端 Skill 目录；不是仅把文件放在任意仓库目录就会自动加载。
+
+本机 Python 已可用后，在仓库目录执行（也可以让 AI 根据已有 Python/venv 运行）：
+
+```powershell
+py -3 tools\install_skill.py --client codex
+# Claude Code 改为 --client claude；两种客户端都用则 --client both
+```
+
+也可用 `.\.venv\Scripts\python.exe` 代替 `py -3`。Python 缺失时先按下面的部署流程安装。安装器只复制本系统的 Skill，记录本机仓库绝对路径；不安装 VM、读取 SSH 凭据或调用模型。重开本机客户端会话后，Codex 用 `$ctf-team-workflow`，Claude Code 用 `/ctf-team-workflow` 显式调用。客户端要有本机文件/终端权限，云端会话不会因此得到你电脑的 VM 访问权限。
+
+例如：`使用 ctf-team-workflow，检查本机系统后解这道已授权的 CTF，并按题留证写 WP。` 恢复时给出同一 case。新会话按 Skill 重读当前入口与真实证据，避免靠压缩后的记忆猜配置。更新仓库或移动目录后再运行同一安装命令。详见 `docs/skill-installation.md`。
+
 ## 一次部署
 
 从仓库目录执行：

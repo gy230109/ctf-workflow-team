@@ -7,13 +7,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "558c414bf1ddf71b145d62a50a0489c60bd8d6237b85a1baaefed541b1542010",
-      "bytes": 2200
+      "sha256": "5ee53f79a1c9b0c1953a0796ec096b28744424a3a4c9b4b7cd5ec13cf96a0e11",
+      "bytes": 2585
     },
     {
       "path": "README.md",
-      "sha256": "5938dd8505c666afa0f1d56c4a492005cae0134783aa3c0c9a9a02f6c33333dd",
-      "bytes": 6063
+      "sha256": "b40b1493026329ae5a081dce45837109f3f99b8b3fab8c7ae1aa37681506ba6d",
+      "bytes": 7407
     },
     {
       "path": "bridge/kali.ps1",
@@ -51,6 +51,11 @@
       "bytes": 2676
     },
     {
+      "path": "docs/skill-installation.md",
+      "sha256": "20c757a4d8a3f36aa90e54d801a54e7c750187ef1303cef5a33a04c67298c931",
+      "bytes": 4312
+    },
+    {
       "path": "install-autostart.ps1",
       "sha256": "c11abe3ba0870054aeebde4db485073c9ca248fc2697e42bce61166104916ec6",
       "bytes": 1373
@@ -66,6 +71,21 @@
       "bytes": 3656
     },
     {
+      "path": "skills/ctf-team-workflow/SKILL.md",
+      "sha256": "17fde0510673b6eca5b2f369fd8d2af0c623663dd1f3386bcc599793ec58dcff",
+      "bytes": 6701
+    },
+    {
+      "path": "skills/ctf-team-workflow/agents/openai.yaml",
+      "sha256": "15026f4062664f492cae26f9b96c2388ba7998694b4eff96d28532fe225fa85f",
+      "bytes": 293
+    },
+    {
+      "path": "skills/ctf-team-workflow/scripts/locate_system.py",
+      "sha256": "973482d9379c6f5d7081f50344ff28f18f358383ee6457d5449a680234a8bf25",
+      "bytes": 3283
+    },
+    {
       "path": "start.ps1",
       "sha256": "63a02f24409e930e27b4caf48c9a912f8227d9752c6286607c6ac3e73efc3ec3",
       "bytes": 368
@@ -79,6 +99,11 @@
       "path": "tests/test_ctf_wp.py",
       "sha256": "a0febd1998058d02b9777dfd94d4978d34b869d8aa0e2d6adc0cb4002e70a47d",
       "bytes": 6132
+    },
+    {
+      "path": "tests/test_install_skill.py",
+      "sha256": "1b0b94a0dd56250e298234b924ac3e61485634b719ab5dc3f0b4831358f05fff",
+      "bytes": 7178
     },
     {
       "path": "tools/ctf_knowledge.py",
@@ -124,6 +149,11 @@
       "path": "tools/gbdis.py",
       "sha256": "95a44fc1b64a9af25ace022b9808979efe6c2cc5c33a34367a97d828012da8c8",
       "bytes": 6400
+    },
+    {
+      "path": "tools/install_skill.py",
+      "sha256": "1d87b87107069f4cf2b33589f74e3c50f668f3dd5f5109605b26e733264aa0e3",
+      "bytes": 5144
     },
     {
       "path": "tools/muteki_apply_seats.py",

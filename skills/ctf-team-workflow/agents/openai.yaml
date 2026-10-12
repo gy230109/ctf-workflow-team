@@ -1,0 +1,4 @@
+interface:
+  display_name: "CTF 团队解题系统"
+  short_description: "发现本机 CTF 系统，恢复真实题目进度，调用工具并留证生成中文 WP"
+  default_prompt: "使用 $ctf-team-workflow 找到本机系统，检查环境并按真实证据解题、截图和生成 WP。"

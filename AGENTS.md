@@ -12,3 +12,4 @@
 8. 模型候选不能看到参考答案、已恢复密钥、种子与历史 solver。比赛最终答案必须有实际执行或比赛平台验证；格式匹配不代表正确。
 9. 只启动需要的组件。Muteki、Coding2API、REA、Ghidra、x64dbg、知识库及 pwn.college 的安装/身份按本机状态选配；保留已可用账号，不强制 Pi 或本地模型。
 10. 报告分“已验证 / 未验证 / 未完成”，附真实证据路径。未完成部署不要说已部署完，核心自测通过不要说全系统、全题型验收通过。
+11. 用 `tools/install_skill.py --client codex|claude|both` 安装仓库的 `ctf-team-workflow` Skill 到当前用户。新会话/上下文压缩后按 Skill 的定位脚本重读本机入口与当前 case 的真实 WP；不把聊天摘要当配置或完成证据。Skill 中的扩展名称不代表本机已经注册或部署。具体安装与更新见 docs/skill-installation.md。
