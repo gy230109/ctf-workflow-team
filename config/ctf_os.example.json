@@ -1,0 +1,5 @@
+{
+  "kali_bridge": "由 setup.ps1 自动写入本机绝对路径",
+  "kali_python": "由 setup.ps1 自动写入本机 Python 路径",
+  "distribution": "team"
+}
