@@ -1,0 +1,47 @@
+[
+  {
+    "canonical": "cryptohack-11b580d288ae",
+    "aliases": [
+      "google-05d9a93f67c3"
+    ],
+    "related_variants": [],
+    "holdout_propagated": false,
+    "basis": "Alias: same event/year/title across repositories. Shared handouts or same-source near titles: family candidates, kept as separate records."
+  },
+  {
+    "canonical": "cryptohack-79b9a19ecab9",
+    "aliases": [
+      "ductf2021-9c4746b93dab"
+    ],
+    "related_variants": [],
+    "holdout_propagated": false,
+    "basis": "Alias: same event/year/title across repositories. Shared handouts or same-source near titles: family candidates, kept as separate records."
+  },
+  {
+    "canonical": "cryptohack-db1178bea78e",
+    "aliases": [
+      "ductf2021-879fb5ddc3f4"
+    ],
+    "related_variants": [],
+    "holdout_propagated": false,
+    "basis": "Alias: same event/year/title across repositories. Shared handouts or same-source near titles: family candidates, kept as separate records."
+  },
+  {
+    "canonical": "suctf2026-0a04cd10efa0",
+    "aliases": [],
+    "related_variants": [
+      "suctf2026-e0372132cc1c"
+    ],
+    "holdout_propagated": false,
+    "basis": "Alias: same event/year/title across repositories. Shared handouts or same-source near titles: family candidates, kept as separate records."
+  },
+  {
+    "canonical": "suctf2026-18f93000a990",
+    "aliases": [],
+    "related_variants": [
+      "suctf2026-6e4310a5ed86"
+    ],
+    "holdout_propagated": false,
+    "basis": "Alias: same event/year/title across repositories. Shared handouts or same-source near titles: family candidates, kept as separate records."
+  }
+]

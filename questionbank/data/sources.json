@@ -1,0 +1,218 @@
+[
+  {
+    "id": "cryptohack",
+    "repo": "cryptohack/ctf_archive",
+    "commit": "c39e7ec0e31baaa15a20092a17bee25b5c73f778",
+    "commit_date": "2026-09-29T21:40:33Z",
+    "url": "https://github.com/cryptohack/ctf_archive",
+    "tree_entries": 602,
+    "license": "MIT (repository); check included third-party challenge notices",
+    "records": 75,
+    "canonical_records": 75
+  },
+  {
+    "id": "cybench",
+    "repo": "andyzorigin/cybench",
+    "commit": "ca483c6443f17a20ba7d6bac3d274859a1721e51",
+    "commit_date": "2026-09-24T16:06:04Z",
+    "url": "https://github.com/andyzorigin/cybench",
+    "tree_entries": 9734,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 31,
+    "canonical_records": 31
+  },
+  {
+    "id": "ductf2021",
+    "repo": "DownUnderCTF/Challenges_2021_Public",
+    "commit": "e29fbc5bed67550d6f85bc74c63a4712f764b34a",
+    "commit_date": "2022-09-18T10:31:30Z",
+    "url": "https://github.com/DownUnderCTF/Challenges_2021_Public",
+    "tree_entries": 825,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 55,
+    "canonical_records": 53
+  },
+  {
+    "id": "ductf2022",
+    "repo": "DownUnderCTF/Challenges_2022_Public",
+    "commit": "2213706f1a93120bd58b3e47076611d80341c76c",
+    "commit_date": "2022-09-25T21:00:24Z",
+    "url": "https://github.com/DownUnderCTF/Challenges_2022_Public",
+    "tree_entries": 1246,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 59,
+    "canonical_records": 59
+  },
+  {
+    "id": "ductf2023",
+    "repo": "DownUnderCTF/Challenges_2023_Public",
+    "commit": "b48f83db2984bc7fa2ec7879a32d7efb1be8d333",
+    "commit_date": "2023-09-03T09:14:18Z",
+    "url": "https://github.com/DownUnderCTF/Challenges_2023_Public",
+    "tree_entries": 1301,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 56,
+    "canonical_records": 56
+  },
+  {
+    "id": "ductf2024",
+    "repo": "DownUnderCTF/Challenges_2024_Public",
+    "commit": "f2797a33d8f5851508f37e854afceedf85eee8a3",
+    "commit_date": "2024-07-09T17:43:08Z",
+    "url": "https://github.com/DownUnderCTF/Challenges_2024_Public",
+    "tree_entries": 1455,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 51,
+    "canonical_records": 51
+  },
+  {
+    "id": "ductf2025",
+    "repo": "DownUnderCTF/Challenges_2025_Public",
+    "commit": "f423ae945ddb8370bbb4ca86c425dd8b9ed6a33b",
+    "commit_date": "2025-07-20T10:22:19Z",
+    "url": "https://github.com/DownUnderCTF/Challenges_2025_Public",
+    "tree_entries": 1421,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 54,
+    "canonical_records": 54
+  },
+  {
+    "id": "geekgame3",
+    "repo": "PKU-GeekGame/geekgame-3rd",
+    "commit": "279868d814fd8371075e06cf705730c54a3e2a13",
+    "commit_date": "2023-10-26T11:06:24Z",
+    "url": "https://github.com/PKU-GeekGame/geekgame-3rd",
+    "tree_entries": 887,
+    "license": "Consult each year's README; fifth edition prompts/writeups CC BY-NC-4.0, code BSD",
+    "records": 20,
+    "canonical_records": 20
+  },
+  {
+    "id": "geekgame4",
+    "repo": "PKU-GeekGame/geekgame-4th",
+    "commit": "a21d7f7387512ec7ef77720e998d60efa16f2353",
+    "commit_date": "2024-10-31T09:01:52Z",
+    "url": "https://github.com/PKU-GeekGame/geekgame-4th",
+    "tree_entries": 1214,
+    "license": "Consult each year's README; fifth edition prompts/writeups CC BY-NC-4.0, code BSD",
+    "records": 20,
+    "canonical_records": 20
+  },
+  {
+    "id": "geekgame5",
+    "repo": "PKU-GeekGame/geekgame-5th",
+    "commit": "49d80c5d610f32dff3d5d6a865481d20c4744eda",
+    "commit_date": "2025-10-28T14:53:40Z",
+    "url": "https://github.com/PKU-GeekGame/geekgame-5th",
+    "tree_entries": 808,
+    "license": "Consult each year's README; fifth edition prompts/writeups CC BY-NC-4.0, code BSD",
+    "records": 20,
+    "canonical_records": 20
+  },
+  {
+    "id": "google",
+    "repo": "google/google-ctf",
+    "commit": "4a8f8d7808254d40f226ac2ab4604601e0e57d57",
+    "commit_date": "2026-10-02T16:00:52Z",
+    "url": "https://github.com/google/google-ctf",
+    "tree_entries": 51099,
+    "license": "Apache-2.0 (repository); check third-party components",
+    "records": 286,
+    "canonical_records": 285
+  },
+  {
+    "id": "hackergame2022",
+    "repo": "USTC-Hackergame/hackergame2022-writeups",
+    "commit": "8dd02cd4a1e1208d9e6e2c2c84953ef85845af07",
+    "commit_date": "2024-11-30T15:39:21Z",
+    "url": "https://github.com/USTC-Hackergame/hackergame2022-writeups",
+    "tree_entries": 2781,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 32,
+    "canonical_records": 32
+  },
+  {
+    "id": "hackergame2023",
+    "repo": "USTC-Hackergame/hackergame2023-writeups",
+    "commit": "8e142735f69af817f0ce323fac6dfc576dd8f8ef",
+    "commit_date": "2024-11-30T15:47:01Z",
+    "url": "https://github.com/USTC-Hackergame/hackergame2023-writeups",
+    "tree_entries": 1466,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 26,
+    "canonical_records": 26
+  },
+  {
+    "id": "hackergame2024",
+    "repo": "USTC-Hackergame/hackergame2024-writeups",
+    "commit": "deb6fa3f906e2d0e905f5de5b12757d89f54f812",
+    "commit_date": "2024-11-30T15:54:30Z",
+    "url": "https://github.com/USTC-Hackergame/hackergame2024-writeups",
+    "tree_entries": 1808,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 32,
+    "canonical_records": 32
+  },
+  {
+    "id": "mbe",
+    "repo": "RPISEC/MBE",
+    "commit": "200debfff3adf7beeff5e597e9ca9493b779a77e",
+    "commit_date": "2021-12-09T17:20:50Z",
+    "url": "https://github.com/RPISEC/MBE",
+    "tree_entries": 123,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 25,
+    "canonical_records": 25
+  },
+  {
+    "id": "nyu",
+    "repo": "NYU-LLM-CTF/NYU_CTF_Bench",
+    "commit": "4c5744f55a31a58e03d6118c9dbb1c18e5bbdfa9",
+    "commit_date": "2025-09-22T19:46:03Z",
+    "url": "https://github.com/NYU-LLM-CTF/NYU_CTF_Bench",
+    "tree_entries": 29126,
+    "license": "GPL-2.0 (repository); original challenge components may have separate terms",
+    "records": 257,
+    "canonical_records": 257
+  },
+  {
+    "id": "pwncollege",
+    "repo": "pwncollege/challenges",
+    "commit": "8c92f5bc3b68eb0b1f7de082d6e1c4b0e47e443d",
+    "commit_date": "2026-10-02T06:06:15Z",
+    "url": "https://github.com/pwncollege/challenges",
+    "tree_entries": 10789,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 840,
+    "canonical_records": 840
+  },
+  {
+    "id": "suctf2026",
+    "repo": "team-su/SUCTF-2026",
+    "commit": "f52d0aec9aa6c7575795edeb317dcfd130d04d99",
+    "commit_date": "2026-09-08T05:11:43Z",
+    "url": "https://github.com/team-su/SUCTF-2026",
+    "tree_entries": 11540,
+    "license": "see upstream license; personal team training, no public redistribution assumed",
+    "records": 37,
+    "canonical_records": 37
+  },
+  {
+    "id": "cryptohack_online",
+    "url": "https://cryptohack.org/challenges/",
+    "repo": null,
+    "commit": null,
+    "license": "Platform content terms; link-based index; no full prompt redistribution",
+    "records": 240,
+    "canonical_records": 240
+  },
+  {
+    "id": "portswigger",
+    "url": "https://portswigger.net/web-security/all-labs",
+    "repo": null,
+    "commit": null,
+    "license": "Platform content terms; link-based index; no full prompt redistribution",
+    "records": 272,
+    "canonical_records": 272
+  }
+]

@@ -1,0 +1,2712 @@
+[
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/crypto/MissingBits",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/crypto/SLCG",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/crypto/WalkingToTheSeaSide",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/crypto/shuffled-aes",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/intro/skilift",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/misc/avatar",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/rev/rpgo",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/rev/sop",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "cybench",
+    "path": "benchmark/LosFuzzys/GlacierCTF2023_writeups/web/GlacierExchange",
+    "reason": "manifest task in an unresolved Git submodule; no local question metadata"
+  },
+  {
+    "source": "ductf2021",
+    "path": "misc/discord",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "ductf2022",
+    "path": "misc/discord",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "ductf2023",
+    "path": "beginner/discord",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "ductf2023",
+    "path": "beginner/survey",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "ductf2024",
+    "path": "misc/discord",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "ductf2024",
+    "path": "misc/survey",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "ductf2025",
+    "path": "beginner/discord",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "hackergame2022",
+    "path": "official/签到",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "hackergame2024",
+    "path": "official/签到",
+    "reason": "administrative or sign-in task"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-12",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/callee-return",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/relative-dot",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/nano",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/base64",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/bzip2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/touch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-substr",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/command-substitution",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/19-next-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-redirect-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/tail",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/grep-invert",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/callee-saved-registers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/inspecting-registers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/execute",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/setvar",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/unicode-confusion",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/shenanigans/flag-checker-hijack",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-run-stdin",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/challenge-arg",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/your-first-program/exit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-offsets",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/pipe-grep",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/sed",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/libcue-cve-2023-43641",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/25",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/caller-saved-registers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/web-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/mem-stack-align",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/cmp-reverse",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/foreground",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/case-swap",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/sign-extension",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/cat-chase",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/echo",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/grep",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-load",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/introspecting/gdb-launch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/echo",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-where-substr",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/suspend",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/stderr-grep",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/ssh-keygen",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/twos-complement",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/your-first-program/exit-code",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/exit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/24-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/cp",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/dynamic-response",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/19",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/mkdir",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/ls-a",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-where",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack/mem-stack-offsets",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/read-exact",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/timeout",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/reserve-frame",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/first/20",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/gcc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-10-b",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/users/sudo",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-where-one-string",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/env",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/gzip",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/strcmp-stored",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-17-b",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/13",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/bit-and",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/exit-codes",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/socket",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-comment",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/readfile",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/50",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-14",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/zip",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/gdb-scripting",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/url-encoding-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/concurrent-get-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-examine",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/broken-functions",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/terminal",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/persist-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-multi-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/modifying-data",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/shebang",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/destruction/rm-rf-root",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/head",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/switch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/desktop-paste",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/more",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/dmesg",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-10",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/first/10",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/path/path",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/data/tr-delete-newlines",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/procsub-read",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/16",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-double-deref",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/gdb-stack-align",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-set-register",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/cmp-jne",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/hello-hackers/write-exit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/reading-scripts",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/background",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/other/10",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/callee-callback-arg",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-bin-decode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/hello-hackers/write",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/static-response",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/script-else",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/callee-write",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/sort",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/bind",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/challenge",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/introspecting/gdb-starti",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/vim",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/shenanigans/writable-home-dir",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/setting-breakpoints",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/18",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-b64-encode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/export",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-stored-addr",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/open-read-write-hardcode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-simple-nostrip",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/15",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/40-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/find",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/desktop",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-11",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/path/path-win-yours",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-starti",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/17",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-11-a",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/your-first-program/rax",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/atoi-digit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/setuid",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/concurrent-post-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/terminal-multiplexing/detach-attach-tmux",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server-redirect-js",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/ssh",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/ar",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/resume",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-3",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-stepi",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/stale-stack-value",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-20",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/cat",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-struct",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/iterative-get-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/sed",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/and",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-examine-argv1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-redirect-python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/build-frame",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/man",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-hex",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-unicode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/memory-sum",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-where-one",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/persist-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/bash-cve-2014-7186",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/iterative-get-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/date",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/perl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/split",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-metadata",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/first/30",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/modifying-data",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack/mem-argv1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/concurrent-get-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-newline",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/introspecting/strace",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-16",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/60",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/ruby",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/man-search-man",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/tab-completion-command",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/hello-hackers/hello-hackers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-multi-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-host-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/mem-envp",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/your-first-program/exit-code",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/mixed-conversions",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-where-one-random",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/cmp-string",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-word",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/atoi",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/atoi-negative",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/22",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack/mem-stack",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/19-next-2b",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/decoding-hex",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/itoa-minimal",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/30",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-from-file",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/loop-write",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/terminal-multiplexing/find-session",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/make",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-get-multiarg-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/script-if",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/terminal-multiplexing/switch-windows",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server-fetch-post",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-pop",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/socat",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack/mem-pop",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/practice",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/binary-hex-encoding",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/shenanigans/bashrc-trojan",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/twos-complement-encode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/shenanigans/config-snooping",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-load-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/users/su",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/10",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/write-exit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-path-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-17-a",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/twos-complement-dword",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-dereference",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/16",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/data/sort",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-disassemble",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-obfuscate-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/cmp-setz",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/43",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-4",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/other/41",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/accept",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/hello-hackers/read",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/hello/history",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/cp",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/path/which",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-quit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-string",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-cookies-python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-9",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/cat-absolute",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/terminal-multiplexing/switch-windows-tmux",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/23",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/listen",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/playground/operating-systems/system-calls",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/debugging-programs",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/stdout-myflag",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/rev",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/other/45",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/terminal-multiplexing/detach-attach",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/11",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/kill-decoy",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/stdbuf",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-10-a",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/fifo",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-qwords",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/wc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-simple-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/open-read-write",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/socket",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-get-multiarg-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/chmod",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-13",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/42",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/semicolon",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/callee-callback",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/hello/hello",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/ln-s",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/flag",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/setting-breakpoints",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/41",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/other/25",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/modifying-execution",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-escapes",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/accept",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-cookies-curl",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/chown",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-path-python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/shift-left",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/sensai",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/apache-httpd-cve-2014-0117",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/read",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/broken-functions",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/watch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/your-first-program/rax",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-obfuscate-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/relative-dot-local",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/19-next",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/script-pipe",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/chmod-absolute",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-int3",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/modifying-execution",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-header",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/bash",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-7",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-ascii",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/mv",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/whiptail",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/absolute-cwd-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/ls",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/tar",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/61",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/strace",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/bracket-absolute",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/23",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/itoa-two-digits",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/data/cut",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-bin-encode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-dereference",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/path/path-win",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-23",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/xor-reverse",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/open-read-write-rip-relative",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/unmatching",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/15",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/rm",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/emacs",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/your-first-program/movreg",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/shenanigans/process-sniffing",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/challenge-arg-arg",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-decode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/dynamic-response",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/help",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/base32",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/30",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/calc-5-unop",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-2-a",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/web-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-reverse",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/root",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-nested",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/more-hex",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/70",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/variables/setvar-multi",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/mixing",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/chown",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/env",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/mutt-cve-2023-4874",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/your-first-program/building",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/read",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-number",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-18",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/atoi-two-digits",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/static-response",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-qword",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/restart",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/objdump",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/playground/operating-systems/kernel-modules",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/calc-4-bitwise-binops",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/script-args",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/users/su-other",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/awk",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/25",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/destruction/rm-rf-root-search",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/40",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/20",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-b64-decode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/14",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/as",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/nice",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/mv",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-dword",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/10",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-byte",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-21",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/home",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-double-deref",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/destruction/forkbomb",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/examining-memory",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/19",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/multiglob",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/append",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/tab-completion",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/your-first-program/exit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-dereference-self",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/procsub-write",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/calc-3-mul",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/examining-memory",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/sub-reverse",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-15",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/inspecting-registers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/absolute-cwd",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-offsets",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-browser-noform",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/bit-or",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/hello/helloworld",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/add-reverse",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/ps",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/itoa-negative",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server-fetch-params",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/od",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-multi-request-python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-22",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-8",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/stale-stack-data",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/your-first-program/movreg",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/nibbling-on-numbers/twos-complement-short",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/loop",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/itoa",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/hd",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/4",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/wget",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/destruction/disk-doomsday",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/readelf-cve-2021-20294",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/archive/computing-101/mem-triple-deref",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/terminal-multiplexing/launch-screen",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/chmod-flag",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/cpio",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/shenanigans/writable-tmp-dir",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/21",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/find",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/libpng-cve-2017-12652",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-5",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/debugging-refresher/debugging-programs",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-redirect-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/redir-then-grep",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/40",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/asterisk",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/other/30",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/chgrp",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-load",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/24",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/itoa-digit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/path/command-hijack",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/dualpiper",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-stored-addr",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-literal",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-print",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/calc-2-sub",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/man-search",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/absolute",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-6-a",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/tee",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/data/tr",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/stderr-myflag",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-byte",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-hex-bytes",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/19-next-3",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/chgrp-random",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-from-arg-file",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/kill",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/building-a-web-server/bind",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/42-1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/endian-escapades/endian-struct-scrambled",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/case-upper",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-flask",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/question",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/hello-hackers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/welcome/welcome/vscode",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server-include-js",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/listen",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/man/builtins",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/memory/mem-load-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/script",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/concurrent-post-server",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-launch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/permissions/chmod",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/input-restrictions/20",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/calc-1-add",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/libxml-cve-2023-28484",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/gdb-stack-align-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/24-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/what-is-a-bug/sudo-cve-2021-3156",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/execution",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/printf-numbers",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/destruction/rm-rf-root-read",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-6",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/unexpected-input/10",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/playground/operating-systems/checkpoint-restore",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/data-dealings/password-simple-2",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/start-backgrounded",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/cat",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/memory/mem-dereference-self",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/18",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/processes/int",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/building-a-web-server/exit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-query",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-path-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/the-stack-revisited/caller-frame",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-limit",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-host-nc",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/paths/relative-naked",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/ed",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server-redirect",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/your-first-program/building",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/filesystem-quest",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-cookies-netcat",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/introspecting/gdb-run-args",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/shift-right",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/or",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/xxd",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-get-parameters",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-17",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/debugging-refresher/gdb-scripting",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/expansion/30",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/shell-lin-do/other/20",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-form-browser",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-browser",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-host-python",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/talking-web/http-server-fetch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/commands/diff",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/data/head",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/less",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/computing-101/assembly-crash-course/level-19",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/legacy/fundamentals/sql-playground/sql-composite-conditions",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/chaining/script-elif",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/users/su-crack",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/hello-hackers/write",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/atoi-terminate",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/bracket",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/setarch",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/piping/stdin",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/program-misuse/genisoimage",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/assembly-assortment/is-even",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/numbers-as-strings/atoi-argv1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/data/tr-delete",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/linux-luminarium/globbing/tab-completion-options",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  },
+  {
+    "source": "pwncollege",
+    "path": "challenges/computing-101/control-flow/cmp-setz-argv1",
+    "reason": "foundational or non-CTF course; excluded from CTF counts"
+  }
+]

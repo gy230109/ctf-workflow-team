@@ -1,0 +1,18 @@
+{
+  "catalog_records": 2488,
+  "canonical_records": 2485,
+  "public_metadata_reference_fields_absent": true,
+  "literal_flag_patterns_absent_from_public_metadata": true,
+  "known_holdout_families_do_not_cross_training": true,
+  "sqlite_integrity": "ok",
+  "fts5_query": "passed",
+  "downloaded_files_verified": 86,
+  "downloaded_tasks_complete": 66,
+  "starter_assignments_unique": 36,
+  "example_task_directories": 6,
+  "runtime_verified": 0,
+  "solving_verified": 0,
+  "windows_kali_integration_verified_here": false,
+  "unit_tests_passed": 10,
+  "original_specialist_modules_unchanged": true
+}

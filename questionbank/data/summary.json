@@ -1,0 +1,46 @@
+{
+  "built_at": "2026-10-13T10:46:22.008356+00:00",
+  "records": 2488,
+  "canonical_records": 2485,
+  "alias_records": 3,
+  "families": 1952,
+  "sources": 20,
+  "repository_sources": 18,
+  "categories": {
+    "crypto": 517,
+    "web": 587,
+    "reverse": 351,
+    "misc": 552,
+    "forensics": 53,
+    "pwn": 425
+  },
+  "splits": {
+    "practice": 2197,
+    "holdout": 231,
+    "development": 57
+  },
+  "content_types": {
+    "competition_ctf": 1108,
+    "online_lab": 512,
+    "guided_exercise": 865
+  },
+  "readiness": {
+    "public_handouts": 657,
+    "online_platform": 512,
+    "metadata_only": 360,
+    "environment_source_only": 956
+  },
+  "full_competition_prompts": 0,
+  "competition_prompt_fields_present": 0,
+  "runtime_verified": 0,
+  "solving_verified": 0,
+  "private_answers_distributed": false,
+  "duplicate_detection_limit": "Modified archives and semantically similar tasks may still overlap; known matches and families are isolated.",
+  "export_kind": "public metadata and exact runtime source; handouts downloaded locally",
+  "original_archive_sha256": "307724a137106ad1ae06d475e4fdee44ffbf97892456e8ca4c83f611aedff988",
+  "first_batch_manifest_tasks": 66,
+  "first_batch_manifest_files": 86,
+  "first_batch_manifest_bytes": 8591668,
+  "handouts_in_git": false,
+  "local_downloads_claimed": 0
+}

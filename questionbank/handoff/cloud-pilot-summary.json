@@ -1,0 +1,16 @@
+{
+  "complete_tasks": 66,
+  "downloaded_files": 86,
+  "downloaded_bytes": 8591668,
+  "categories": {
+    "web": 12,
+    "pwn": 12,
+    "reverse": 12,
+    "crypto": 12,
+    "misc": 12,
+    "forensics": 6
+  },
+  "attempts_failed_or_review_required": 23,
+  "runtime_verified": 0,
+  "solving_verified": 0
+}

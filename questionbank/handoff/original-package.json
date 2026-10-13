@@ -1,0 +1,45 @@
+{
+  "name": "ctf_questionbank_2026-10-13.zip",
+  "bytes": 8938458,
+  "sha256": "307724a137106ad1ae06d475e4fdee44ffbf97892456e8ca4c83f611aedff988",
+  "files_count": 126,
+  "directory_counts": {
+    "data": 12,
+    "docs": 2,
+    "tests": 1,
+    "examples": 20,
+    "public_handouts": 86
+  },
+  "key_files": [
+    {
+      "path": "ctf-questionbank/bank.py",
+      "bytes": 17951,
+      "sha256": "1d7772ae133b366e760865522488b0a60be3b3a30cc85379588e2ad78e735ea2"
+    },
+    {
+      "path": "ctf-questionbank/data/challenges.csv",
+      "bytes": 736206,
+      "sha256": "fb7e53c841a007f81334f4320b3a3f07a28bda19ac8e69fa68e7ddbb049a2c07"
+    },
+    {
+      "path": "ctf-questionbank/data/challenges.jsonl",
+      "bytes": 4590916,
+      "sha256": "8a60303a19b786b888cdea62187db63ffb9a0af8f783516ec0d9a331385a8c29"
+    },
+    {
+      "path": "ctf-questionbank/data/downloads.json",
+      "bytes": 38336,
+      "sha256": "ae11517974599732d40f8201f0496abd6f6e4a50e64dd8e4f14556399ece0edd"
+    },
+    {
+      "path": "ctf-questionbank/data/questionbank.sqlite",
+      "bytes": 7692288,
+      "sha256": "86ca79f35146ad379a981e967a0056bfd5ba54fbd8261cff8ef359748a20c05f"
+    },
+    {
+      "path": "ctf-questionbank/data/sources.json",
+      "bytes": 7862,
+      "sha256": "0baa852c7ad2c6edeb72e32f085482c751dac7d0df21a4bf00b85a73763d0368"
+    }
+  ]
+}

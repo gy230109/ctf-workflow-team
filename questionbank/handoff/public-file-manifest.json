@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "repository": "gy230109/ctf-workflow-team",
+  "branch": "questionbank-handoff-20261013",
+  "scope": "questionbank/ only; no original binary handouts or expected answers",
+  "original_archive_sha256": "307724a137106ad1ae06d475e4fdee44ffbf97892456e8ca4c83f611aedff988",
+  "files": [
+    {
+      "path": "questionbank/.gitignore",
+      "bytes": 194,
+      "chars": 194,
+      "sha256": "1c5899aa3483ca30ffaf6d487fa3ae06e6950483afb669a5d6a1bc9369ea275d",
+      "git_blob_sha1": "662eb8dead44367270b57ce4f3830f5585f57541"
+    },
+    {
+      "path": "questionbank/AGENT_GUIDE.md",
+      "bytes": 3255,
+      "chars": 1815,
+      "sha256": "27dc43df6808b833b351505501cfc9c613b606961f1bc368e15e6f9b124daf06",
+      "git_blob_sha1": "8f65ac6225e5f236dcb3b3cbbc18b805abf22fdd"
+    },
+    {
+      "path": "questionbank/README.md",
+      "bytes": 4740,
+      "chars": 2618,
+      "sha256": "1354c11d25ee60d78fc0596ebe67b83f0d90b82eb5ab9fe2ebe46cc87017da7f",
+      "git_blob_sha1": "c5120d3b08dde5daee8685275985e657d045cfbd"
+    },
+    {
+      "path": "questionbank/bank.py",
+      "bytes": 17951,
+      "chars": 17951,
+      "sha256": "1d7772ae133b366e760865522488b0a60be3b3a30cc85379588e2ad78e735ea2",
+      "git_blob_sha1": "2a3d1b5f1f6e522fca320eb3c80cd8cdc2cee211"
+    },
+    {
+      "path": "questionbank/data/challenges.csv",
+      "bytes": 736881,
+      "chars": 734417,
+      "sha256": "755fdb56b3f02c1796dfc78273850fa418b02917aa8af4f89e7ec36cfa57d494",
+      "git_blob_sha1": "59a78a27f9348f3bbe1c5b400ebe232feb610e1d"
+    },
+    {
+      "path": "questionbank/data/challenges.jsonl",
+      "bytes": 4347872,
+      "chars": 4227816,
+      "sha256": "618fb0230e14617f269d64374bf3cefe3fa1550096b6026a68fb48df93ee8b55",
+      "git_blob_sha1": "cfbd2339fc332316889379cf2f33279c2e48e5a7"
+    },
+    {
+      "path": "questionbank/data/download-manifest.json",
+      "bytes": 64562,
+      "chars": 64546,
+      "sha256": "e14b77a2fc1b7c5bbe1d6846a8cd2355e6633898f32decaea7cefe747ed43871",
+      "git_blob_sha1": "f00de63d7131b695afcfbdb4203d15349ac48cf2"
+    },
+    {
+      "path": "questionbank/data/downloads.json",
+      "bytes": 3,
+      "chars": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "git_blob_sha1": "0967ef424bce6791893e9a57bb952f80fd536e93"
+    },
+    {
+      "path": "questionbank/data/duplicates.json",
+      "bytes": 1613,
+      "chars": 1613,
+      "sha256": "3f85f3da9317a735e57418deb1b6099571fc9a51d536f4ec47fca69fad3dbc6d",
+      "git_blob_sha1": "d6ab8be9fc73ba1816d331f7a79f0b6550f84cc2"
+    },
+    {
+      "path": "questionbank/data/excluded.json",
+      "bytes": 94891,
+      "chars": 94883,
+      "sha256": "003be6086c2ef8539f9776169cc007a384e3ad43972fb497bf89cf5f135731e9",
+      "git_blob_sha1": "a712e38203cda196d139c12fe8e5e747e26aea72"
+    },
+    {
+      "path": "questionbank/data/prompt-sources.jsonl",
+      "bytes": 722767,
+      "chars": 721858,
+      "sha256": "51d6d1748a1abb02b9900c233a54f71f52189b707b70cb208bef828d5e62afe6",
+      "git_blob_sha1": "1bb3ea97c50bfef50ab6f5adc79c040b500228f8"
+    },
+    {
+      "path": "questionbank/data/sources.json",
+      "bytes": 7862,
+      "chars": 7862,
+      "sha256": "0baa852c7ad2c6edeb72e32f085482c751dac7d0df21a4bf00b85a73763d0368",
+      "git_blob_sha1": "9a93fa4bcdf8343d802aee0dbfa06775d25fad3e"
+    },
+    {
+      "path": "questionbank/data/summary.json",
+      "bytes": 1314,
+      "chars": 1314,
+      "sha256": "ddc44df4eaf011d5bc34e3ed04b198bb700d85f36ad643c605a68c1d9446bc5f",
+      "git_blob_sha1": "c568553b1930962674db40a794f93ad750f35f45"
+    },
+    {
+      "path": "questionbank/data/team-curriculum.json",
+      "bytes": 11910,
+      "chars": 11894,
+      "sha256": "c55bef4257d372db30a812abd97879bb70af6cfe2c524f0a076e3eae55bab2c5",
+      "git_blob_sha1": "b59a856d1caf88cd367afd55bc3376d64715f5d4"
+    },
+    {
+      "path": "questionbank/docs/training.md",
+      "bytes": 3202,
+      "chars": 1900,
+      "sha256": "efc046fe2e0d1ebf3d6f148f3a9b39a5935ccdd46bf15f0db5622bcc1268a987",
+      "git_blob_sha1": "7408bf002daaf8179e8395e91fa4ab38b2aece50"
+    },
+    {
+      "path": "questionbank/handoff/cloud-pilot-summary.json",
+      "bytes": 303,
+      "chars": 303,
+      "sha256": "48d93bc9f32e586177a98a851c430594d050ac0ac847862e61f1e543440cb1cf",
+      "git_blob_sha1": "fe4019b62da3c34609627c78999a7d0ebc38a31e"
+    },
+    {
+      "path": "questionbank/handoff/cloud-validation.json",
+      "bytes": 597,
+      "chars": 597,
+      "sha256": "2964b852fbf0a827a5a395231950efdae6db26297efb5cbb2149b7543b7d7a7e",
+      "git_blob_sha1": "296049391b81ec9e8eea21957e6de725b018d215"
+    },
+    {
+      "path": "questionbank/handoff/original-package-files.json",
+      "bytes": 25004,
+      "chars": 25004,
+      "sha256": "a6d18b3031782653961b3b11cc9a2e7f6a1e05ddfe3bc6f6cff34c74231c1488",
+      "git_blob_sha1": "4b9f8a072720ebf453b2157e90fdba4f1ad2917f"
+    },
+    {
+      "path": "questionbank/handoff/original-package.json",
+      "bytes": 1342,
+      "chars": 1342,
+      "sha256": "6ed976723e5779aa86101858c72ef0c3c35c566639ed2fe329518367d8fa5a20",
+      "git_blob_sha1": "1aed0686daf1baba3768746fb69acdbc212fe076"
+    },
+    {
+      "path": "questionbank/prompt_extract.py",
+      "bytes": 2120,
+      "chars": 2076,
+      "sha256": "bfb7f5e8ed9e4ad371896d18d4b7279e83c60368a9eaa649a7f4d49a53d41795",
+      "git_blob_sha1": "b2d7828c5625b644289deed0a8c116baf4bb24c8"
+    },
+    {
+      "path": "questionbank/rebuild_indexes.py",
+      "bytes": 2547,
+      "chars": 2547,
+      "sha256": "c51287893001b342b40f84d77dbb951d45757acfa05fb5bb478fc3b82a3c0208",
+      "git_blob_sha1": "a914d3521b021078e08f095da1b9c528cf392cf6"
+    },
+    {
+      "path": "questionbank/tests/test_bank.py",
+      "bytes": 6286,
+      "chars": 6274,
+      "sha256": "2081e60270ea7a2f0a004737bf85ed3ef6c94a15bbd6d23509ce8d8005abe871",
+      "git_blob_sha1": "0873d50adf5337ff50945c8b4141b72599b41c17"
+    }
+  ],
+  "self_sha256": "not self-referential; verify via Git commit tree"
+}

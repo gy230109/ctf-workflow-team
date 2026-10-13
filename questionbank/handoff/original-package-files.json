@@ -1,0 +1,636 @@
+{
+  "archive": "ctf_questionbank_2026-10-13.zip",
+  "archive_sha256": "307724a137106ad1ae06d475e4fdee44ffbf97892456e8ca4c83f611aedff988",
+  "files": [
+    {
+      "path": "ctf-questionbank/AGENT_GUIDE.md",
+      "bytes": 3255,
+      "sha256": "27dc43df6808b833b351505501cfc9c613b606961f1bc368e15e6f9b124daf06"
+    },
+    {
+      "path": "ctf-questionbank/README.md",
+      "bytes": 4870,
+      "sha256": "2ea44f55d1eeed97ab49ac109c7f30f9be86475e0467e1cbb6e586105f74db9a"
+    },
+    {
+      "path": "ctf-questionbank/bank.py",
+      "bytes": 17951,
+      "sha256": "1d7772ae133b366e760865522488b0a60be3b3a30cc85379588e2ad78e735ea2"
+    },
+    {
+      "path": "ctf-questionbank/data/challenges.csv",
+      "bytes": 736206,
+      "sha256": "fb7e53c841a007f81334f4320b3a3f07a28bda19ac8e69fa68e7ddbb049a2c07"
+    },
+    {
+      "path": "ctf-questionbank/data/challenges.jsonl",
+      "bytes": 4590916,
+      "sha256": "8a60303a19b786b888cdea62187db63ffb9a0af8f783516ec0d9a331385a8c29"
+    },
+    {
+      "path": "ctf-questionbank/data/download-review.json",
+      "bytes": 2764,
+      "sha256": "f8ef23e8e8738b30e29c118916bdf28f364239a90dfe60c3cdae7a9cfcd60c86"
+    },
+    {
+      "path": "ctf-questionbank/data/downloads.json",
+      "bytes": 38336,
+      "sha256": "ae11517974599732d40f8201f0496abd6f6e4a50e64dd8e4f14556399ece0edd"
+    },
+    {
+      "path": "ctf-questionbank/data/duplicates.json",
+      "bytes": 1613,
+      "sha256": "3f85f3da9317a735e57418deb1b6099571fc9a51d536f4ec47fca69fad3dbc6d"
+    },
+    {
+      "path": "ctf-questionbank/data/excluded.json",
+      "bytes": 94891,
+      "sha256": "003be6086c2ef8539f9776169cc007a384e3ad43972fb497bf89cf5f135731e9"
+    },
+    {
+      "path": "ctf-questionbank/data/pilot-summary.json",
+      "bytes": 303,
+      "sha256": "48d93bc9f32e586177a98a851c430594d050ac0ac847862e61f1e543440cb1cf"
+    },
+    {
+      "path": "ctf-questionbank/data/questionbank.sqlite",
+      "bytes": 7692288,
+      "sha256": "86ca79f35146ad379a981e967a0056bfd5ba54fbd8261cff8ef359748a20c05f"
+    },
+    {
+      "path": "ctf-questionbank/data/sources.json",
+      "bytes": 7862,
+      "sha256": "0baa852c7ad2c6edeb72e32f085482c751dac7d0df21a4bf00b85a73763d0368"
+    },
+    {
+      "path": "ctf-questionbank/data/summary.json",
+      "bytes": 958,
+      "sha256": "601310ca271e84c540550199d0f16d927f0b7a72bb50caf0ec86fc59b2ac5269"
+    },
+    {
+      "path": "ctf-questionbank/data/team-curriculum.json",
+      "bytes": 11910,
+      "sha256": "c55bef4257d372db30a812abd97879bb70af6cfe2c524f0a076e3eae55bab2c5"
+    },
+    {
+      "path": "ctf-questionbank/data/validation.json",
+      "bytes": 597,
+      "sha256": "2964b852fbf0a827a5a395231950efdae6db26297efb5cbb2149b7543b7d7a7e"
+    },
+    {
+      "path": "ctf-questionbank/docs/research.md",
+      "bytes": 8643,
+      "sha256": "9b272ab4ab4ed2d4891a626ea9719a31418595a8006a5a083d183a3d8e2dd92d"
+    },
+    {
+      "path": "ctf-questionbank/docs/training.md",
+      "bytes": 3202,
+      "sha256": "efc046fe2e0d1ebf3d6f148f3a9b39a5935ccdd46bf15f0db5622bcc1268a987"
+    },
+    {
+      "path": "ctf-questionbank/examples/crypto/README.md",
+      "bytes": 102,
+      "sha256": "607795458729c5d6b65b983da66ca70b7435d3fb25e96ba886a3a1771891635b"
+    },
+    {
+      "path": "ctf-questionbank/examples/crypto/attachments/000_complementary.py",
+      "bytes": 150,
+      "sha256": "484b7fe2847db92cc9465ab79c029b0f010d05425779abc5088a2ceb90cd7fb4"
+    },
+    {
+      "path": "ctf-questionbank/examples/crypto/attachments/001_output.txt",
+      "bytes": 89,
+      "sha256": "97af4ddf304c9d36c41b6c2631234edf1979c484ddcf7120028ed6eacf133293"
+    },
+    {
+      "path": "ctf-questionbank/examples/crypto/task.json",
+      "bytes": 1006,
+      "sha256": "6e52305f7041b6f1173a17b62cf296afe142e37610895caf1d6d3e5ea8cc9317"
+    },
+    {
+      "path": "ctf-questionbank/examples/forensics/README.md",
+      "bytes": 149,
+      "sha256": "3edbda7bd079cb522fc11dade1ec0bb04ca0582992bf5ae2faaccf891d786321"
+    },
+    {
+      "path": "ctf-questionbank/examples/forensics/attachments/000_og.jpg",
+      "bytes": 123612,
+      "sha256": "31d73c1f418d150e9fd75a8d2d84ef35c622f5e8f4ef7e76a766922420fd0d36"
+    },
+    {
+      "path": "ctf-questionbank/examples/forensics/task.json",
+      "bytes": 850,
+      "sha256": "150250e3c6280d615a6327e65d0d5a644b0f7d6fceebcaaf2d10a6d570e81006"
+    },
+    {
+      "path": "ctf-questionbank/examples/misc/README.md",
+      "bytes": 248,
+      "sha256": "8a45e3201e06a64b612f529b569ed678fa420e581f00035dd1e7d8507de2ac66"
+    },
+    {
+      "path": "ctf-questionbank/examples/misc/attachments/000_EmuWar.docx",
+      "bytes": 8202,
+      "sha256": "242b11a3a4dee43b9e2c25402e754d61873ea1aa5e58000c504b99d74d73388a"
+    },
+    {
+      "path": "ctf-questionbank/examples/misc/task.json",
+      "bytes": 950,
+      "sha256": "7b1cc6b8906ecb7438cae9b22266bc76bf61856207fcb27a8c68669d2afdda9f"
+    },
+    {
+      "path": "ctf-questionbank/examples/pwn/README.md",
+      "bytes": 135,
+      "sha256": "f2a26b2bdc2ab03777c799a1be8f0feeebb04780897709d42129821a379f516c"
+    },
+    {
+      "path": "ctf-questionbank/examples/pwn/attachments/000_downunderflow",
+      "bytes": 17280,
+      "sha256": "accc7cff86f53b1a669c1b547aea212b693d591b8ebd5fac7490d209b310fda9"
+    },
+    {
+      "path": "ctf-questionbank/examples/pwn/attachments/001_downunderflow.c",
+      "bytes": 790,
+      "sha256": "c2991eb92b246f014468c7bf8cb736202b3912e353fb7bfe034e743c1b6d7547"
+    },
+    {
+      "path": "ctf-questionbank/examples/pwn/task.json",
+      "bytes": 1037,
+      "sha256": "ef85957944b6c00f2e7d576b008d9f92e0e7994c231f47fad2ddd2c8bbc58863"
+    },
+    {
+      "path": "ctf-questionbank/examples/reverse/README.md",
+      "bytes": 155,
+      "sha256": "85cdb7823784cd72099f19d4b49e56230e21e0d0daab95d52d859a1fcaeaad2c"
+    },
+    {
+      "path": "ctf-questionbank/examples/reverse/attachments/000_number-mashing",
+      "bytes": 13416,
+      "sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a"
+    },
+    {
+      "path": "ctf-questionbank/examples/reverse/task.json",
+      "bytes": 865,
+      "sha256": "98180a81a0aa8e7f79d30a62b032f0f6c1ee775e09b1cf1e0cce9fc95532907b"
+    },
+    {
+      "path": "ctf-questionbank/examples/web/README.md",
+      "bytes": 104,
+      "sha256": "5d9d5476fbc713b2d8932a56f22af7bee47f0eeb990b05f23e5e90e1331edc50"
+    },
+    {
+      "path": "ctf-questionbank/examples/web/attachments/000_src.zip",
+      "bytes": 5413,
+      "sha256": "7a000631450dbf153b5d75606ec7b1a98648fa9cb5f8750f4388b0a0052f1014"
+    },
+    {
+      "path": "ctf-questionbank/examples/web/task.json",
+      "bytes": 795,
+      "sha256": "bf507d515e59453641e36048aa7841ab5e4831843cd2614a3a93ac2632c76435"
+    },
+    {
+      "path": "ctf-questionbank/prompt_extract.py",
+      "bytes": 2120,
+      "sha256": "bfb7f5e8ed9e4ad371896d18d4b7279e83c60368a9eaa649a7f4d49a53d41795"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2021-88030b6e92eb/000_challenge.gif",
+      "bytes": 106214,
+      "sha256": "a60e268f7ce989d6700b0228d8903bec5468b85c399f6ddd3deed434408ff8b2"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2021-cc0adb6e0410/000_monorail.wav",
+      "bytes": 731346,
+      "sha256": "d04502aec1643c6f79fcb01491a0a3fbc4090965e833ffb54d2df95dfa7fb68d"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2021-dae0d1660a40/000_og.jpg",
+      "bytes": 123612,
+      "sha256": "31d73c1f418d150e9fd75a8d2d84ef35c622f5e8f4ef7e76a766922420fd0d36"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2022-1a6b8eae08a6/000_doxme",
+      "bytes": 19763,
+      "sha256": "7687a5e69dbece9778beca8b49173e7a02495844b1339442b46977ebc135daa4"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-0e659900e651/000_actually-proxed.tar.gz",
+      "bytes": 2059,
+      "sha256": "2bf8ef88e94f3fc40badc6c538d9271bcd8d557998d4cb77e3bf8020519b5056"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-0f5b39ee9d9f/000_safe-calculator",
+      "bytes": 16072,
+      "sha256": "dc475b6616530b85a8557a646fef8def410b8ef01515c66e05e6efd804392414"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-1b9b0c873ace/000_downunderflow",
+      "bytes": 17280,
+      "sha256": "accc7cff86f53b1a669c1b547aea212b693d591b8ebd5fac7490d209b310fda9"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-1b9b0c873ace/001_downunderflow.c",
+      "bytes": 790,
+      "sha256": "c2991eb92b246f014468c7bf8cb736202b3912e353fb7bfe034e743c1b6d7547"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-25a13081ad18/000_jail",
+      "bytes": 16320,
+      "sha256": "5538bcca11b14c6853af7fbe4593aa37829ba43f256ee8f68b8b2add40f05279"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-297be8046075/000_onebyte",
+      "bytes": 14840,
+      "sha256": "c4ec5f5ace9abc667a4843d1edb4f1ef337dea94a1b917b464c9f3e7f0105a66"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-297be8046075/001_onebyte.c",
+      "bytes": 315,
+      "sha256": "7837384584dfa6edb772e4a52700fed3a5b9b78f01106ccac539ac2bc2c17fc2"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-3b05a7d3aaee/000_ms_flag_checker",
+      "bytes": 15248,
+      "sha256": "dcd3bec4f608e11f3a12ce461100aaf5f621851ee63a1f870d7c90d4e3dd51ae"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-4c15c3f2b94c/000_confusing",
+      "bytes": 17088,
+      "sha256": "b364ffa58c39517a82a668ec11114d04af6e6f8e7b2ebe8ea6c8069b5d20fe15"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-4c15c3f2b94c/001_confusing.c",
+      "bytes": 530,
+      "sha256": "c07dd03b3a95fee70a24e44027331ef1009eea50e1d362d5e82962eae3ed18a6"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-5e562b3a8cc3/000_apbq-rsa-i.py",
+      "bytes": 391,
+      "sha256": "7645ca840d3fbcf5f46f00aa4e79dcb244d8be6ecd87acec481e909a0e87de84"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-5e562b3a8cc3/001_output.txt",
+      "bytes": 2059,
+      "sha256": "3e23a745f5eb3f63d61b44c56b0844b6e9ddf9ced8da3bea307ba43eeca7e4dd"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-6cfa3fbae75a/000_complementary.py",
+      "bytes": 150,
+      "sha256": "484b7fe2847db92cc9465ab79c029b0f010d05425779abc5088a2ceb90cd7fb4"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-6cfa3fbae75a/001_output.txt",
+      "bytes": 89,
+      "sha256": "97af4ddf304c9d36c41b6c2631234edf1979c484ddcf7120028ed6eacf133293"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-6dcc9152a6a9/000_output.txt",
+      "bytes": 306,
+      "sha256": "0ea93e6131b2bc235bcbcb0c3c64d2378004ec171d4dace8ee58076091913040"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-6dcc9152a6a9/001_randomly-chosen.py",
+      "bytes": 162,
+      "sha256": "cde5e6bc3ce9160e0b3252e31ca5f12952fca961b29c4c839d8826d5328110c5"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-76921e3cee98/000_grades_grades_grades.tar.gz",
+      "bytes": 4440,
+      "sha256": "c8dbed4719b318dc9ad43fc6761476d2cca1cf0e2d9d453bb55cb2b0dd51ff5f"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-8db781a10bbb/000_baby-crm.tar.gz",
+      "bytes": 1082956,
+      "sha256": "d134ab0fc04646dc2b1ed2e9467db371f457a40ad5d74d4a69286505ff66bc29"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-9e5d623f1718/000_flag-art.py",
+      "bytes": 407,
+      "sha256": "150afcac53a337fea1b8203c0a066c267453784a4226129cf090cbf99edbe203"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-9e5d623f1718/001_output.txt",
+      "bytes": 2594,
+      "sha256": "9783d6e84c93eb7c19c23b7b70dcd11f2fdbfd881f65f0677abe4d5bfa3739f7"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-be8b820b1f92/000_encrypted-mail.tar.gz",
+      "bytes": 3182,
+      "sha256": "4cb3f8aa4faa900177eb5f4c34f5e8c50f463950dcef31837894470bd7cb5780"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2023-ed3e3aaa7621/000_hhhhh.py",
+      "bytes": 539,
+      "sha256": "d9926d0126f5ed3ded35cf4ca106a914286654f9c39fd9f2e40f0fe743a8bd89"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-02a9b9aefdf4/000_recipe.txt",
+      "bytes": 4800,
+      "sha256": "3da17c5abfe840749732ea429ec7cf1b07af423f2469ccd0e97b54f73f24a517"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-0ab1f8a7012c/000_vector_overflow",
+      "bytes": 25720,
+      "sha256": "9afa5123199a1cda88a48df38b81e7042ac836172fe5e30ddc5692975858cc67"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-0ab1f8a7012c/001_vector_overflow.cpp",
+      "bytes": 489,
+      "sha256": "b0b37f140c822978cf7c6163fd466a7ff1f6500148186c80fb81e556785c5de9"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-11235c8c83f3/000_aaa",
+      "bytes": 30864,
+      "sha256": "909839bfa9eb8771375664ca19b13760362e03ddc7317052a6cd91579e52884e"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-11c0f452490b/000_encrypt.py",
+      "bytes": 128,
+      "sha256": "5746219177cee11ccc66b69ff0fddbf8791bc3d7edad3623f272f1ce8162fad5"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-11c0f452490b/001_passage.enc.txt",
+      "bytes": 5611,
+      "sha256": "5cd3525063a60dd2e1db379511c8e0dde5d281e154e320767f4b2edabf74846d"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-25d50b0e5ef9/000_jmp_flag",
+      "bytes": 34960,
+      "sha256": "8e50dac00da0944823f13cac91d725d5aa8a4adaa83884b4e3ba713233206e63"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-4149137b0a04/000_aea.tar.gz",
+      "bytes": 721364,
+      "sha256": "1959d46e02cb153cfe14b26da493c2c7fd3bb08cf4953c10de37615001333404"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-4490263b36b4/000_number-mashing",
+      "bytes": 13416,
+      "sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-45f9059ec7ff/000_sniffy.zip",
+      "bytes": 356593,
+      "sha256": "acd3e10473dc067c270aaffaf7f4cc32061e4ffc661069187a0a3e12b72b7f9b"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-5e31d958add1/000_badpolicies.zip",
+      "bytes": 17878,
+      "sha256": "2e745e85cc8fbb427e77f0eb1da2e53b1cb45bb5ec45bb7df3ff47926b3fa844"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-7d39bb6e97ef/000_output_censored.txt",
+      "bytes": 111,
+      "sha256": "f45fb255faf9025e3237dc0a8674a0787f4ed72751c23a2d6c480bcd9e75155f"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-7d39bb6e97ef/001_shufflebox.py",
+      "bytes": 227,
+      "sha256": "321b7544b68f03e4d9a1a11e6d52354aefab0163d3f5b46352daf10635d609b5"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-7f0511589096/000_package.json",
+      "bytes": 137,
+      "sha256": "bb268e40e7061a4b594f0d39e45b9078c9cb8167db56b0068f8f646ac04baa12"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-7f0511589096/001_server.js",
+      "bytes": 2323,
+      "sha256": "e52049bdb4555beed740ac9d8c91c1d3bef022b30f2cd20c226cd00d2fd8b65b"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-87c468e1c026/000_EmuWar.docx",
+      "bytes": 8202,
+      "sha256": "242b11a3a4dee43b9e2c25402e754d61873ea1aa5e58000c504b99d74d73388a"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-8867122c12da/000_co2v2.zip",
+      "bytes": 17316,
+      "sha256": "412a5686d315ab3fc420e8d2466d6101f5a83a7e08b5e9f74396e7caa4870f2e"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-8eca83c27167/000_rusty_vault",
+      "bytes": 454144,
+      "sha256": "57603cfb0b1d38b9da1d292f14ad4aefdadcbcca24df3e665e5ed9b8a9ccd9f5"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-92dc0b2e944f/000_sign-in",
+      "bytes": 16776,
+      "sha256": "c447b65d4390c9c03aacb5704138adbb3f05ec913f387826602ceb5b9de5bcdc"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-92dc0b2e944f/001_sign-in.c",
+      "bytes": 2952,
+      "sha256": "3b873a4efc66a2f85eac2788b20f7b26c1c6edc4f299d4f639240f816c798a24"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-9705a85c814a/000_pkijs-eq.tar.gz",
+      "bytes": 18243,
+      "sha256": "d0cde97d054f3c13bd9f524c030c6ea318edc522e2ab905cb56e47e9d7830f64"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-989c7012cad3/000_pressing-buttons.ipa",
+      "bytes": 22433,
+      "sha256": "5ba9a5331684654ff71c236953baf1312fca8d44da35c0cf71b4027f88ceff7c"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-9d57b30860aa/000_pkijs-lt.tar.gz",
+      "bytes": 12123,
+      "sha256": "9f2444dd79debbb9d2f4a4d1f5e670ba1dbf3b2123611695a8ead36f4a30db02"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-b977fdf0103c/000_encoding",
+      "bytes": 442,
+      "sha256": "1c939e6208409971a9e561fc6df468fb916bb73819cb17371ba25651116156be"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-badff3675159/000_dna.rb",
+      "bytes": 1722,
+      "sha256": "8bb77f604357b4d749f557f25ba8f9387717a7644c4196e5e167be9fd26cf429"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-cb616a383cb5/000_pac_shell.tar.gz",
+      "bytes": 870731,
+      "sha256": "471e39dfb08fd30a823bd6b4d73072b3f88eb860d327d6aed588e48b59601793"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-cda344d2f40c/000_co2.zip",
+      "bytes": 12104,
+      "sha256": "29359ecfa74f017814d6a32a0c4cf19f8ab32dba1f6f46677906ce50e14ef8fb"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2024-f1e9e6e454f0/000_dungeon",
+      "bytes": 257304,
+      "sha256": "60c3b1cfec0bf9205c64b8116b383466327079e4752ed86614fa08dab8b035ea"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-037fb095344b/000_main-app.zip",
+      "bytes": 1911,
+      "sha256": "82e1084df48585cd15faf76f9c0fdb8529bf6785668d84a817da31b2cc6143b3"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-0697e4336bc5/000_skippy.exe",
+      "bytes": 267805,
+      "sha256": "9e19255308594d822e9288e082b42e350e63725617cc09da3c3a478258d3b2b9"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-4290c43c6a70/000_server.py",
+      "bytes": 1614,
+      "sha256": "ff42d0fafb262320e400d05988195f7ef4c47821eb4ee2ca119ee8cba3343b38"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-4f5092b951a0/000_key",
+      "bytes": 463,
+      "sha256": "1ff266fe3621c3e1a524855f5e72d104430815d1b551cff78a8289080161f112"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-4f5092b951a0/001_lock",
+      "bytes": 8765,
+      "sha256": "ca38ff9ddd2b5580d5052b95250f75640d8937adfe457b12d7e1165d1c6d02de"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-555f5743a14b/000_src.zip",
+      "bytes": 1824,
+      "sha256": "62da19979f511b8c4e60068e042eb9623d1912e9d4476d678a7377e357bde86c"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-5e46a4d5e2b3/000_s3_presigned_url.txt",
+      "bytes": 352,
+      "sha256": "96d2fd4b52ade4e9fc3cd166e91bd43edbd472d26935874ae5b7efed9ed94e3c"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-5e46a4d5e2b3/001_s3_resource_policy.txt",
+      "bytes": 477,
+      "sha256": "4aaf9da1f397e9e5f125e735cc869fe96e138d94123e6a91d1bf4e054775ca82"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-6a8066b9f2f0/000_gomail.zip",
+      "bytes": 11162,
+      "sha256": "c19c4c5c8bd0f31534e54987c649187357b9a3ed3912a7b355a9f84e2845575f"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-6b12b369589c/000_rocky",
+      "bytes": 22384,
+      "sha256": "ae6ede4dbcb1d20afb12028b1030cba92be65dff474b5cb559e787a269d4dec1"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-8b9f1e1fc954/000_dtmf.txt",
+      "bytes": 428,
+      "sha256": "964cda173fce707e7cca02319466c28d1e3d1b2e60976f627bbeb59925f612dc"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-8db45f4ea3f4/000_passwords.spm",
+      "bytes": 210,
+      "sha256": "d70dda38b7bae1083a903def7c881163059a5a10483caab7361cb89a0a778ac1"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-952642f0f51a/000_src.zip",
+      "bytes": 5413,
+      "sha256": "7a000631450dbf153b5d75606ec7b1a98648fa9cb5f8750f4388b0a0052f1014"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-9c01fd5b3e4d/000_challenge.py",
+      "bytes": 2117,
+      "sha256": "19ebfe94661e8e5750e9dc2d6d6e49fcff46795faa6db80ba2b0cc0b84a1e896"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-9c01fd5b3e4d/001_output.txt",
+      "bytes": 4122,
+      "sha256": "b351a21ba364bf44fec5f659ff9e9c198b6f61e5f2fc1236e4b8bfe4ef770385"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-9d65f6426b53/000_off-dah-rails-m8.zip",
+      "bytes": 7676,
+      "sha256": "360f2cfee5eebf596d2e69d4e391eb24803bbe1620338d4c61020e7fb80691a3"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-b1382015adf9/000_warped.png",
+      "bytes": 1569792,
+      "sha256": "681a388d2cf987dd9f2142fe7e239ffc67d6352d1c6066383f5ae19c6c29cf3d"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-b52c26c12e1b/000_email_server",
+      "bytes": 16576,
+      "sha256": "2b9e28aced3b56353b36ddf23ac7b632d1320aa1471f1d31a4d73928539b9537"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-b52c26c12e1b/001_email_server.c",
+      "bytes": 3164,
+      "sha256": "4e7c9997563904eebbe194caef742b9128de3b4101568c2153cd76edfa962719"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-bb264a3fb562/000_Dockerfile",
+      "bytes": 394,
+      "sha256": "3f997c0f09703e302a0d75b97e925bbe6484f324e41aa1bde053784354ec7669"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-bb264a3fb562/001_certvalidated.py",
+      "bytes": 565,
+      "sha256": "32b53e7f2c496ff92be0866762149840ed1d9069f75436c2de755afdf6821ed5"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-bb264a3fb562/002_root.crt",
+      "bytes": 1277,
+      "sha256": "6926980ba605a1ad3a217da36d537e2c4114dde3519ed0c938abef65b247ac42"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-bffa0ba9a8f7/000_Dockerfile",
+      "bytes": 221,
+      "sha256": "9e883479be3ace46322efde0514cc2d485da2efc9f50b5aee370d224a66a2bd9"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-bffa0ba9a8f7/001_fakeobj.py",
+      "bytes": 367,
+      "sha256": "2fe2285bce32935f248e4d9bc7dd2868f2e46120233d23fc051d9be074857bdb"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-cccd610610ff/000_src.zip",
+      "bytes": 16253,
+      "sha256": "82a826d7b68d3a40d8e550b1f74cdccece6a24afa8c4b18fec04ae87e81d5381"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-ce035a829817/000_src.zip",
+      "bytes": 28668,
+      "sha256": "8615dbbe1ee28f86e80ccd1fb3a5a4f4e893ecc074593895b6c52f847a8e1d69"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-d2fec37d78b9/000_publish.tar.gz",
+      "bytes": 1350280,
+      "sha256": "8dc24b801ca0ce68cc0df4e97c0ae4706be1d891328b18ae872667fd30b14032"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-db1fea3620b9/000_Dockerfile",
+      "bytes": 216,
+      "sha256": "cc5a8479dfe85cc02936cdd15ccd5952b1eb9a1002a5b14ef9cfee6c1cfc629c"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-db1fea3620b9/001_rw.py",
+      "bytes": 488,
+      "sha256": "06dc3012006f372bfbe887ad2e5d73aa5ef6f68e69de71334902641311403b63"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-e969e5a25194/000_access_key.txt",
+      "bytes": 133,
+      "sha256": "a3bace231621cb10160646792dfcaec4e94c1e76d8dd56fa11038e1339a42f72"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/ductf2025-ecf3e063dbc8/000_zeus",
+      "bytes": 16080,
+      "sha256": "89f4651bc375da79c6f04373b1ea89ca5a622e7ae010bf93ca4ae2b13921abf2"
+    },
+    {
+      "path": "ctf-questionbank/public_handouts/hackergame2024-983a07a1eb14/000_zfs.zip",
+      "bytes": 162606,
+      "sha256": "8da3d4371b34aa7a67617554634040e8361546415f906eb7c19f9fd948e2c9e5"
+    },
+    {
+      "path": "ctf-questionbank/tests/test_bank.py",
+      "bytes": 6286,
+      "sha256": "2081e60270ea7a2f0a004737bf85ed3ef6c94a15bbd6d23509ce8d8005abe871"
+    },
+    {
+      "path": "ctf-questionbank/MANIFEST.json",
+      "bytes": 22703,
+      "sha256": "06960de6b4000c9310a2657eb58fd82499be1cf3a26566550dcdc9191de4f55d"
+    }
+  ]
+}

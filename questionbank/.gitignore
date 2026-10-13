@@ -1,0 +1,10 @@
+public_handouts/
+examples/
+data/questionbank.sqlite
+data/questionbank.build.sqlite
+data/downloads.json.tmp
+practice-results.jsonl
+__pycache__/
+tests/__pycache__/
+judge_private/
+_research_cache/
