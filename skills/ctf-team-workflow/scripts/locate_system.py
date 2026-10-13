@@ -66,9 +66,9 @@ def main():
     try:
         result = locate(args.repo)
     except (ValueError, OSError) as exc:
-        print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
+        print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=True))
         return 1
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    print(json.dumps(result, ensure_ascii=True, indent=2))
     return 0
 
 

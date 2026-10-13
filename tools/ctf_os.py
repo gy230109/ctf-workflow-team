@@ -26,9 +26,18 @@ sys.path.insert(0, str(TOOLS_DIR))
 import ctf_mcp_server as solver
 import ctf_os_runtime as runtime
 import ctf_knowledge as knowledge
+import ctf_crypto as cryptanalysis
 import ctf_x64dbg as windows_debug
 import ctf_rea as rea
 import ctf_wp as writeup
+
+# Specialist execution reuses this computer's verified Kali bridge.
+try:
+    import ctf_specialists as specialists
+except ModuleNotFoundError as exc:
+    if exc.name != "ctf_specialists":
+        raise
+    specialists = None
 
 DEFAULT_PORT = int(os.environ.get("CTF_OS_PORT", "8787"))
 
@@ -528,9 +537,12 @@ ALL_TOOLS.update(SEC_TOOLS)
 ALL_TOOLS.update({k:v for k,v in SCRIPT_TOOLS.items() if k == "muteki_run_forensics"})
 ALL_TOOLS.update(PC_TOOLS)
 ALL_TOOLS.update(knowledge.TOOLS)
+ALL_TOOLS.update(cryptanalysis.TOOLS)
 ALL_TOOLS.update(windows_debug.TOOLS)
 ALL_TOOLS.update(rea.TOOLS)
 ALL_TOOLS.update(writeup.TOOLS)
+if specialists is not None:
+    ALL_TOOLS.update(specialists.TOOLS)
 
 # An explicit per-call case prevents parallel agents from mixing challenges.
 for _tool_name, (_fn, _desc, _schema) in ALL_TOOLS.items():
@@ -543,6 +555,8 @@ DANGEROUS = {"muteki_dispatch", "kali_run",
              "kali_nmap", "kali_hashcat", "kali_sqlmap",
              "local_sqlmap", "local_ffuf",
              "pc_run", "pc_submit", "win_debug_start", "win_debug_call"}
+if specialists is not None:
+    DANGEROUS.update(specialists.DANGEROUS)
 
 
 def _call_tool(name, args):

@@ -1,5 +1,9 @@
 # CTF Workflow Team
 
+**第一版已安装的队友，从增量升级开始：** [2026-10-13 升级说明](docs/upgrade-20261013.md)。当前团队版 82 个接口；新增六类专项、经典密码与详细 Trae Skill。保留原有本机配置、Kali/SSH、账号和 WP。先获取新代码，再 `update.ps1 -InstallSpecialists`、`install-trae.ps1`，最后现测依赖；无须重建虚拟机。
+
+Trae 操作与恢复见 [Skill](skills/ctf-team-workflow/SKILL.md) 和 [Trae 接入](skills/ctf-team-workflow/references/trae.md)。题库实际交付与下载状态见 [题库接入](docs/questionbank.md)。
+
 给六人 CTF 队伍使用的统一工具入口：AI 负责分析与调工具，Windows/Kali 负责真实执行，过程自动按题号留证，结束后生成中文 WP。
 
 首版部署支持 **Windows 10/11 + VMware Workstation + 已有 Kali/Debian Linux VM**。不捆绑 VM 镜像、模型账号、私钥、比赛附件或历史答案。VirtualBox 只做发现提示，尚无自动桥接适配。
@@ -59,7 +63,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1
 
 MCP stdio：`command` 填本机 `.venv/Scripts/python.exe` 的绝对路径，`args` 填 `-X utf8 <本机仓库>/tools/ctf_os.py --stdio`。客户端各自配置，示例见 `docs/agent-integration.md`。HTTP 只监听 `127.0.0.1:8787`，接口 `/tools`、`/call`、`/mcp`；本机调用参数对象与 CLI 一致。
 
-团队版注册 56 个入口。包含数论、编码、受限 Python、Kali、知识检索、Muteki、pwn.college、REA、x64dbg 和五个 WP 工具。**可选适配器注册不等于已安装或已认证**；不分发三项依赖队长历史题目的专用校验/爆破脚本。详情见 `docs/components.md`。
+团队版注册 82 个入口。包含原有通用工具、23 个专项入口和 3 个经典密码入口。**可选适配器注册不等于已安装或已认证**；不分发三项依赖队长历史题目的专用校验/爆破脚本，本机专用的 Jev 适配不随本仓库分发。详情见 `docs/components.md` 和 `docs/specialists.md`。
 
 ## 自动 WP
 

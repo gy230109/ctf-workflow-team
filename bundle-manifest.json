@@ -1,204 +1,325 @@
 {
+  "version": "2026.10.13",
   "files": [
     {
       "path": ".gitignore",
-      "sha256": "551882cfa6d1262525466abb52ad0ca5dd36f8bfc6f0d1635a8d661ff0154a06",
-      "bytes": 242
+      "sha256": "8f89131d1ace98807954c8f8b60b26fe47b7d59c765382fb5f5f2263069830d4",
+      "bytes": 333
     },
     {
       "path": "AGENTS.md",
-      "sha256": "5ee53f79a1c9b0c1953a0796ec096b28744424a3a4c9b4b7cd5ec13cf96a0e11",
-      "bytes": 2585
+      "sha256": "25a6b5623e280e5fb2f4c104ee7753255250179bf2c39089361f361366377d5b",
+      "bytes": 3031
     },
     {
       "path": "README.md",
-      "sha256": "b40b1493026329ae5a081dce45837109f3f99b8b3fab8c7ae1aa37681506ba6d",
-      "bytes": 7407
+      "sha256": "bd21ce0573a23780c239113a4e448f0a93cdef40da6694f1bf1b82d94108d711",
+      "bytes": 7934
     },
     {
       "path": "bridge/kali.ps1",
-      "sha256": "64b840e4a4c84782cbcc12c419dde91ac915d919d3ff957d40ff7213aa757d32",
-      "bytes": 242
+      "sha256": "d469d41c29d41d30bdcce19948ff5403bd78def308886b18f0c095f3876ff108",
+      "bytes": 238
     },
     {
       "path": "bridge/kali_bridge.py",
-      "sha256": "3399a7cf0f1a1c3d824d0df33bcbc60e3bbc5600d15093fbe79449c7e3ba8ded",
-      "bytes": 16804
+      "sha256": "172e4a5dfa22bcf4a15aa24841c7a22829eeeac79130531d602f423ca2889ec0",
+      "bytes": 16448
     },
     {
       "path": "config/ctf_os.example.json",
-      "sha256": "64a5d1a7d5ce5f1a8d3a66caee2fc98e4355bbe6e07fcd27d9324d680995f8f7",
-      "bytes": 166
+      "sha256": "1119a0793e63cd200325d60b52b7a547f1de043684663aae5fb9950045c2f0b1",
+      "bytes": 161
+    },
+    {
+      "path": "config/ctf_specialists.example.json",
+      "sha256": "ebef32f64cee91771506613d60335889660011b3be810566445309d5ad02cbcd",
+      "bytes": 254
     },
     {
       "path": "config/rea.example.json",
-      "sha256": "1018e87f0890850b1a10bf6a89a41ad12bd91a3b43fa5a92ecd7cff742e46ade",
-      "bytes": 142
+      "sha256": "38cc7d99e55a703ca5fc66aac6a44f60798c8c9b3cae99714d90f8d16907c58b",
+      "bytes": 137
     },
     {
       "path": "config/x64dbg.example.json",
-      "sha256": "72635487075eb21ee937a276a823839164fe0f1bc97d397fbefe416ef5b559cf",
-      "bytes": 70
+      "sha256": "e636f5721eafcf097c8e4c9748265b354dd0b9d3b0451afb439026a87b30fe0b",
+      "bytes": 67
     },
     {
       "path": "docs/agent-integration.md",
-      "sha256": "9afbe2e825d8fce6e9852ccc65cd2e938f1a485b3990a2e976106c53d96adceb",
-      "bytes": 1111
+      "sha256": "6f66352dd7af16f57c456fd646d432fb56a32bdb3f229473fabf1e51411f6baf",
+      "bytes": 1406
     },
     {
       "path": "docs/components.md",
-      "sha256": "4d4c96fa189896e69d232a7ccc7ff19244f4c6c2afcfb0683658396fdd40f973",
-      "bytes": 2676
+      "sha256": "958669626f6ab0808260fc3f1c2aca57ac4084679bcc0bdeb70fbd548af6f4bb",
+      "bytes": 2907
+    },
+    {
+      "path": "docs/questionbank.md",
+      "sha256": "2f48c31efea4909fc61c39dd96c2acacea00e8bc4fead293cb15a4757e18a99f",
+      "bytes": 1120
     },
     {
       "path": "docs/skill-installation.md",
-      "sha256": "cd3bed389ccd165ab4aeb48e0f1470e56e043a1c94871936306858b744d3717c",
-      "bytes": 4362
+      "sha256": "4b9cc934f5eca499dec5a01e0c512b10eed0117d5538c2575cf6b08e316b91b1",
+      "bytes": 4688
+    },
+    {
+      "path": "docs/specialists.md",
+      "sha256": "4b8bcaa56c075c28765fce9d6b1cb6490e6e1125df7849e8df25a7d792301340",
+      "bytes": 1328
+    },
+    {
+      "path": "docs/upgrade-20261013.md",
+      "sha256": "8cf1b545b7874150c50059c973dc3605e7af2f0de96c931a9199eb78898a992e",
+      "bytes": 2992
     },
     {
       "path": "install-autostart.ps1",
-      "sha256": "c11abe3ba0870054aeebde4db485073c9ca248fc2697e42bce61166104916ec6",
-      "bytes": 1373
+      "sha256": "82143bf7dd41b46401a657f488d3dbaf0e7e154f3c3401334745dc5f3fad4ba5",
+      "bytes": 1358
+    },
+    {
+      "path": "install-trae.ps1",
+      "sha256": "12c0628104c0ad03c81778dcc88a32fd1a97e4c48f1d9930e3cedc6c53ea2102",
+      "bytes": 499
     },
     {
       "path": "requirements.txt",
-      "sha256": "747609b6bbb3daa350b086976cd4e8fc18fcf932c80a3d71977a88cb0eccceb7",
-      "bytes": 55
+      "sha256": "5699c9abe93a2dd643d648b95acf1bee3ed33c0f88b346b143e6a60d57dc10c3",
+      "bytes": 52
     },
     {
       "path": "setup.ps1",
-      "sha256": "65e284189bc968843f3df614f5137654ecf8b40bb870f1935e94d015562da4e1",
-      "bytes": 3656
+      "sha256": "1c63463423d9741f1101c67bf97e544c62eab8789ca4fabe0c39fc10bcaaa85c",
+      "bytes": 3583
     },
     {
       "path": "skills/ctf-team-workflow/SKILL.md",
-      "sha256": "edd4c27162a25b98915a34b3a9c7dbce155649a5fb64d1504a733b8235d0897e",
-      "bytes": 6752
+      "sha256": "f6060d9d467dee8e130775bb9c73c06dd8200dd887e1e4d3f6345808ec845836",
+      "bytes": 5731
     },
     {
       "path": "skills/ctf-team-workflow/agents/openai.yaml",
-      "sha256": "3ed3dfd0e78a8cfce8ffe6c28bdbc8bddc0708b6fb394d1102aaac396439fd0b",
-      "bytes": 297
+      "sha256": "15026f4062664f492cae26f9b96c2388ba7998694b4eff96d28532fe225fa85f",
+      "bytes": 293
+    },
+    {
+      "path": "skills/ctf-team-workflow/references/evidence-recovery.md",
+      "sha256": "258bc5b09a958cc8e2a5be48f9f833949ee518e1530abe19f838c368d1e0f58c",
+      "bytes": 3776
+    },
+    {
+      "path": "skills/ctf-team-workflow/references/optional-components.md",
+      "sha256": "9468ad089556869dcae3ec931ee2fdb96d21bc47d180739fea85d6d9c407a753",
+      "bytes": 2229
+    },
+    {
+      "path": "skills/ctf-team-workflow/references/questionbank.md",
+      "sha256": "e0a7c10dd21f436e0dd0bb31eb2a769462839002d6a6407def45f8aa62501d90",
+      "bytes": 3000
+    },
+    {
+      "path": "skills/ctf-team-workflow/references/solving.md",
+      "sha256": "664563d2325910f6497d0c13abfe3a5b9d5562b2c44d073e9d80dee4a53e902e",
+      "bytes": 5204
+    },
+    {
+      "path": "skills/ctf-team-workflow/references/trae.md",
+      "sha256": "f3055336a91f8de8970f60d82903939873667b335b720e7941f2915414ae8b08",
+      "bytes": 4770
+    },
+    {
+      "path": "skills/ctf-team-workflow/references/upgrade.md",
+      "sha256": "aac910ecdc950629152030ab62d5efe1be4a4ffef06d0375bf09db43058d8af0",
+      "bytes": 3873
     },
     {
       "path": "skills/ctf-team-workflow/scripts/locate_system.py",
-      "sha256": "670596a59ff2e4c0866b6ad0608d21dc0b5d3bbfbf3330620f480f36ecd3cddb",
-      "bytes": 3359
+      "sha256": "ce4118390201323042fd433b8ccafb3a5b92c02ad9c954d9a7b3638ebfba29a6",
+      "bytes": 3281
     },
     {
       "path": "start.ps1",
-      "sha256": "63a02f24409e930e27b4caf48c9a912f8227d9752c6286607c6ac3e73efc3ec3",
-      "bytes": 368
+      "sha256": "05befdbcfdcc2ff3cf79d6f449838ee7f22c5ca1972982392d487ff82402b8ef",
+      "bytes": 440
+    },
+    {
+      "path": "tests/test_ctf_specialists.py",
+      "sha256": "eb6e03fffd68befe2d633a2252c68a32f453603317d89a45a24b7e796abdca70",
+      "bytes": 7957
     },
     {
       "path": "tests/test_ctf_team.py",
-      "sha256": "b8d1fc704f57aec6408b6fedb781915c205fbda9ef6b8cb4dffc92fa734a215a",
-      "bytes": 3090
+      "sha256": "006520d62a450e80f08ce097fe6e43d3a9c0ad0f3eca07ff0c980ea723e5e066",
+      "bytes": 3029
     },
     {
       "path": "tests/test_ctf_wp.py",
-      "sha256": "a0febd1998058d02b9777dfd94d4978d34b869d8aa0e2d6adc0cb4002e70a47d",
-      "bytes": 6132
+      "sha256": "fac4e80a71c2a96e33f4a4e1e92837b5416e2496376cd8a7d39d0221601ad0e8",
+      "bytes": 6000
     },
     {
       "path": "tests/test_install_skill.py",
-      "sha256": "a6ec985a4d2213570a675caaccfedcf2c9d74875dc77cee1e9d1d90cf847ef60",
-      "bytes": 7328
+      "sha256": "1b0b94a0dd56250e298234b924ac3e61485634b719ab5dc3f0b4831358f05fff",
+      "bytes": 7178
+    },
+    {
+      "path": "tests/test_team_upgrade.py",
+      "sha256": "ca2a32bb15695e05eac25e49159b74771924ffed719c06995e401496770a3946",
+      "bytes": 4943
+    },
+    {
+      "path": "tools/ctf_call.py",
+      "sha256": "95c45a817e880d5cd351744e91af7aaaf871379319c27f0770e1eb282876bf07",
+      "bytes": 1101
+    },
+    {
+      "path": "tools/ctf_crypto.py",
+      "sha256": "622cb4ececcd9494f9c3f0e27da2c47aa1b1016f4d68e2428b94eb857216df3e",
+      "bytes": 35362
     },
     {
       "path": "tools/ctf_knowledge.py",
-      "sha256": "8d4e399d8cbc3f4edac523ac16d110cbe7bea771c069d1f65e464bfdd5f295a9",
-      "bytes": 12298
+      "sha256": "7b7b72b44ae428184ad2804a112488265177b2bcfae16eabcf17a01ddcadc2b8",
+      "bytes": 12057
     },
     {
       "path": "tools/ctf_mcp_server.py",
-      "sha256": "7c07474dc54452ac5967a89815970cf2fa874a9eceeb292cafb9bc3b33a317aa",
-      "bytes": 17474
+      "sha256": "af8c3d4f0399a0e1b55a525bce278c69492c1ffe9038831dad76b56275f828b5",
+      "bytes": 17028
     },
     {
       "path": "tools/ctf_os.py",
-      "sha256": "fc305d6df29cd8764fefb20b9752017ba8e3a7cea28ef331165350689ca77c73",
-      "bytes": 46540
+      "sha256": "70adbdef308c9db6e8fe96de4cb786d3d235531ada020449135fee7b8d869b94",
+      "bytes": 45936
     },
     {
       "path": "tools/ctf_os_runtime.py",
-      "sha256": "590c0fc91471cc97a73fa75e9d11dd90e1265be2d240bc6630e8d1a368a8a921",
-      "bytes": 5826
+      "sha256": "74c398a3218105e7a7ad9f45a34ae620cb41c1f399022d273a7ea1021a0e8b41",
+      "bytes": 5696
+    },
+    {
+      "path": "tools/ctf_post.py",
+      "sha256": "35f2d105a2e25cc08c26a541ab444a19fcf752530b38aa4cf9d1b08e9b012af2",
+      "bytes": 1366
     },
     {
       "path": "tools/ctf_rea.py",
-      "sha256": "1278056938f8c32efad982c4231b0bffbdbeafb1179b2da13da3314836ca5e5c",
-      "bytes": 7525
+      "sha256": "56f33da946a525d77f867ea8b5f51053427f42baa085191652f6a235c78f0bf7",
+      "bytes": 7369
+    },
+    {
+      "path": "tools/ctf_specialist_install.py",
+      "sha256": "d9f0409fcc5b356ce168ae1663b4c6e46d44be48a125bd68937f4b021047165e",
+      "bytes": 2614
+    },
+    {
+      "path": "tools/ctf_specialist_worker.py",
+      "sha256": "27028366e7bc6a7b8566adf262f5b4728e4cb623e1eaf04d77622598c02f67b6",
+      "bytes": 29364
+    },
+    {
+      "path": "tools/ctf_specialists.py",
+      "sha256": "1b49cb1ce117ad0c3f1c11dea626eec43c133267280dcaa72a67d0d769341e5a",
+      "bytes": 13533
     },
     {
       "path": "tools/ctf_team.py",
-      "sha256": "d90f51c42fcca62a3f4c849b482c8b171ad084c3c55c775f998c4401d34f8444",
-      "bytes": 13020
+      "sha256": "18ba39b3f2eccde1b8b58567da0aec36346b1d7a20ebf19497b61b85b5249bc2",
+      "bytes": 12782
     },
     {
       "path": "tools/ctf_wp.py",
-      "sha256": "8c7021772a1bf824cfa995bf22fcb730ed2ca5672257d86c5ccd6aa88ac392d4",
-      "bytes": 22417
+      "sha256": "fcbe4d3b90e83ca9f2da2a015a4c5e704d146841a541b8abe1cb239ba1678208",
+      "bytes": 22002
     },
     {
       "path": "tools/ctf_x64dbg.py",
-      "sha256": "13b3c87595cb774939f0c38541a970fa35ef1e5b88c3319a451f6cc99dab4937",
-      "bytes": 10180
+      "sha256": "ebbc82dc3949b5334e35937cf9644bfee0cad95032fde37f4a9a9a51a01aa2da",
+      "bytes": 9986
     },
     {
       "path": "tools/gbdis.py",
-      "sha256": "95a44fc1b64a9af25ace022b9808979efe6c2cc5c33a34367a97d828012da8c8",
-      "bytes": 6400
+      "sha256": "39ca8ba56504fda2fc15d8290bbb68bdec276fe7f0674db3fa78d2ed394526b5",
+      "bytes": 6262
     },
     {
       "path": "tools/install_skill.py",
-      "sha256": "7f849c677b38a5496f6b3fd8012c2218c6eaebd807ce18e06f479fbd21246cf4",
-      "bytes": 5262
+      "sha256": "6fb952c8115fe1325ec1c7e43a256019605fa97682dcff6252e06b8b5b18b516",
+      "bytes": 6557
     },
     {
       "path": "tools/muteki_apply_seats.py",
-      "sha256": "c990146a6142693f3207b0686d11bcda1043ee725a4a1637adade8c5a453c4cc",
-      "bytes": 6236
+      "sha256": "7c9bb3584ec9c04834395139d6446afc772162995eda27ac86767142dbaab306",
+      "bytes": 6069
     },
     {
       "path": "tools/muteki_autopilot.py",
-      "sha256": "99985aa6bcdcc4a074bf32ed31188399c675920de97c0b9b5c00115e70404d39",
-      "bytes": 11654
+      "sha256": "888fcbdcebbe12740ab1b09d7357954c26bb30b83813c42bec82ebf02a0f4248",
+      "bytes": 11369
     },
     {
       "path": "tools/muteki_client.py",
-      "sha256": "7edd01800a139d7c301b40ffec4ed1976a43f38042c544c7f8d900b6ea22cecb",
-      "bytes": 8316
+      "sha256": "2f3522f92a1c18400da9397ad77f3e9723c9e6be050814e0b81340de3fdd5832",
+      "bytes": 8083
     },
     {
       "path": "tools/muteki_run_forensics.py",
-      "sha256": "7c8d1fc191d3857bc215e546e8dec09265ee11faf6cc17b4592c968bbda300c5",
-      "bytes": 6891
+      "sha256": "12894f217d8c0c783337d5dbb7873b9fcf2ad46b6ded037c700ff71759d92191",
+      "bytes": 6691
     },
     {
       "path": "tools/muteki_stall_probe.py",
-      "sha256": "705673eb6e033660fe70dcb6814456f6a98819ddebb7c73fe42c9ed1b166323f",
-      "bytes": 11989
+      "sha256": "4c99f4c529385dd25721d45e66ce2988ed8b852f14cffe47a369ad085fcb7f41",
+      "bytes": 11677
     },
     {
       "path": "tools/muteki_upstream_probe.py",
-      "sha256": "2c73d33f95ad83d24a6933f388a9cebdfb3eb4bed1bbef5c1898f396e7df0593",
-      "bytes": 6180
+      "sha256": "d708f2460c9829637cbca6e34c481693c9f1c1ccfd12ca668d88348b4b68f18c",
+      "bytes": 6009
     },
     {
       "path": "tools/pwncollege/pc_flow.py",
-      "sha256": "70ecea76bf223e8eccd938290ea36598512823a94077712c913aea117f238fb1",
-      "bytes": 13928
+      "sha256": "d5cb18f898c845dde7ca0af8dc04ad645ba439154837f2bc7e1395be1de5e611",
+      "bytes": 13582
     },
     {
       "path": "tools/pwncollege/pc_lib.py",
-      "sha256": "6f811beabf9e1fec9cd2a86531cf035619e12525cb4c1060be8de7484d819651",
-      "bytes": 12676
+      "sha256": "1839b3bda5fc1379e28614a840b978b447b3f7888f800790044a1697c772a80c",
+      "bytes": 12366
+    },
+    {
+      "path": "tools/qwb_inventory.py",
+      "sha256": "29ad59022b5475ffa3a8245d244791c11a01c79d53d0b37f152635fd307d0773",
+      "bytes": 1914
+    },
+    {
+      "path": "tools/qwb_queue.py",
+      "sha256": "d02e8c2958512c13d1eed90a069d4428761b69122521f4be8510f1255b01cbb7",
+      "bytes": 2542
     },
     {
       "path": "tools/team_start.py",
-      "sha256": "cec40a2fe95ac8b3747dae2fd4a293cdc6c1b57a38f3394e61b025933311ec3c",
-      "bytes": 2831
+      "sha256": "a5973738bc0175737f431e98ddfe00e96a5db44bfd3e955076e92a9297fbcdc3",
+      "bytes": 5184
+    },
+    {
+      "path": "tools/team_upgrade.py",
+      "sha256": "a1cd8c67cbd0aefd5b40ece733293d2e441b4c5fb3ff98d849e84ae871c18a21",
+      "bytes": 8787
+    },
+    {
+      "path": "tools/upgrade_install.py",
+      "sha256": "ddcbf02905aca9b16e9e4713555a10718d6d0c6c7dc30c5f62ca9083082edaec",
+      "bytes": 874
+    },
+    {
+      "path": "update.ps1",
+      "sha256": "1f5c9dfb83d854d416320841719b27b972ac39ff56eed2dbb269c6f2f86e44a3",
+      "bytes": 657
     }
   ],
   "excluded": [
@@ -206,10 +327,11 @@
     "private_keys",
     "local_configs",
     "VM_images",
-    "historical_challenges",
     "raw_evidence",
-    "reference_answers"
+    "reference_answers",
+    "personal_training_results"
   ],
-  "registered_tools": 56,
-  "scope": "portable core plus optional adapters; whole solving workflow not certified"
+  "registered_tools": 82,
+  "text_line_endings": "LF",
+  "scope": "portable core and optional adapters; dependency and challenge readiness require local verification"
 }

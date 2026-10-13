@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "python": "",
+  "pip_index": "https://pypi.org/simple",
+  "timeout_seconds": 60,
+  "scope": "this computer's verified Kali bridge",
+  "source_status": "portable team implementation; libraries installed and verified per computer"
+}

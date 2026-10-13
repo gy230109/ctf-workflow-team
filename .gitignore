@@ -17,3 +17,7 @@ references/
 .env
 .env.*
 !.env.example
+ctf-questionbank/attachments/
+ctf-questionbank/downloads/
+ctf-questionbank/runtime/
+ctf-questionbank/answers/

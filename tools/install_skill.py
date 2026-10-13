@@ -10,7 +10,9 @@ import uuid
 
 BASE = Path(__file__).resolve().parent.parent
 NAME = "ctf-team-workflow"
-FILES = ("SKILL.md", "agents/openai.yaml", "scripts/locate_system.py")
+FILES = ("SKILL.md", "agents/openai.yaml", "scripts/locate_system.py",
+         "references/trae.md", "references/upgrade.md", "references/solving.md",
+         "references/evidence-recovery.md", "references/questionbank.md", "references/optional-components.md")
 
 
 def hashes(folder):
@@ -33,15 +35,20 @@ def write_json(path, value):
     os.replace(temp, path)
 
 
-def target_path(home, client):
-    return home / (".agents" if client == "codex" else ".claude") / "skills" / NAME
+def target_path(home, client, project=None):
+    roots={"codex":".agents", "claude":".claude", "trae":".trae-cn", "trae-global":".trae", "trae-cli":".traecli"}
+    if client not in roots:raise ValueError("Unknown client")
+    if project and client in ("trae","trae-global","trae-cli"):
+        return Path(project).resolve() / (".traecli" if client=="trae-cli" else ".trae") / "skills" / NAME
+    return home / roots[client] / "skills" / NAME
 
 
-def install(client, repo=None, home=None):
+def install(client, repo=None, home=None, project=None):
     repo = Path(repo or BASE).resolve()
     home = Path(home or Path.home()).resolve()
-    if client not in ("codex", "claude", "both"):
-        raise ValueError("client 必须为 codex/claude/both")
+    if client not in ("codex", "claude", "both", "trae", "trae-global", "trae-cli", "all"):
+        raise ValueError("client 必须为 codex/claude/both/trae/trae-global/trae-cli/all")
+    if project and not Path(project).is_dir():raise ValueError("Project directory does not exist")
     for name in ("AGENTS.md", "README.md", "setup.ps1", "tools/ctf_os.py"):
         if not (repo/name).is_file():
             raise ValueError("仓库缺少入口文件: " + name)
@@ -54,21 +61,22 @@ def install(client, repo=None, home=None):
     folder = home / ".ctf-workflow-team"
     registry_path = folder / "skill-installs.json"
     registry = json.loads(registry_path.read_text(encoding="utf-8")) if registry_path.exists() else {}
-    clients = ("codex", "claude") if client == "both" else (client,)
+    clients = ("codex", "claude") if client == "both" else ("codex", "claude", "trae", "trae-cli") if client=="all" else (client,)
     targets = []
     for item in clients:
-        target = target_path(home, item)
+        target = target_path(home, item, project)
+        registry_key=item+(':'+str(Path(project).resolve()) if project and item.startswith('trae') else '')
         if target.exists() or target.is_symlink():
             if not target.is_dir():
                 raise ValueError("Skill 目标不是目录: " + str(target))
             current = hashes(target)
-            previous = registry.get(item, {})
+            previous = registry.get(registry_key, {})
             owned = previous.get("target") == str(target) and previous.get("files") == current
             if not owned and current != expected:
                 raise ValueError("同名 Skill 已存在或被本机编辑，拒绝覆盖；先检查并备份: " + str(target))
-        targets.append((item, target))
+        targets.append((item, target, registry_key))
     installed = []
-    for item, target in targets:
+    for item, target, registry_key in targets:
         target.parent.mkdir(parents=True, exist_ok=True)
         stage = Path(tempfile.mkdtemp(prefix=".ctf-skill-stage-", dir=target.parent))
         backup = target.parent / (".ctf-skill-backup-" + uuid.uuid4().hex)
@@ -86,14 +94,17 @@ def install(client, repo=None, home=None):
                 if backup.exists():
                     backup.rename(target)
                 raise
-            registry[item] = {"target": str(target), "files": expected}
+            registry[registry_key] = {"target": str(target), "files": expected}
             write_json(registry_path, registry)
-            if backup.exists():
-                shutil.rmtree(backup)
+            # Keep the old managed skill as a recoverable backup.
         finally:
             if stage.exists():
+                checked=stage.resolve()
+                if not checked.is_relative_to(target.parent.resolve()) or not stage.name.startswith('.ctf-skill-stage-'):
+                    raise ValueError('Skill staging path escaped')
                 shutil.rmtree(stage)
-        installed.append({"client": item, "path": str(target), "files_verified": hashes(target) == expected})
+        installed.append({"client": item, "path": str(target), "files_verified": hashes(target) == expected,
+                          "backup":str(backup) if backup.exists() else None})
     write_json(folder / "location.json", {"version": 1, "repository": str(repo)})
     return {"ok": True, "skill": NAME, "installed": installed, "repository": str(repo),
             "location_record": str(folder / "location.json"), "deployment_verified": False,
@@ -102,11 +113,12 @@ def install(client, repo=None, home=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--client", choices=("codex", "claude", "both"), required=True)
+    parser.add_argument("--client", choices=("codex", "claude", "both", "trae", "trae-global", "trae-cli", "all"), required=True)
     parser.add_argument("--repo", help="默认使用此脚本所属仓库；移动仓库后重新运行")
+    parser.add_argument("--project-dir", help="Trae 项目技能的项目根目录；省略则安装全局技能")
     args = parser.parse_args()
     try:
-        result = install(args.client, args.repo)
+        result = install(args.client, args.repo, project=args.project_dir)
     except (ValueError, OSError, KeyError, TypeError, AttributeError) as exc:
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
         return 1

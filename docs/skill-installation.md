@@ -1,5 +1,7 @@
 # 给队友安装 CTF 引导 Skill
 
+本版主要对接 Trae。中国版全局安装运行 `install-trae.ps1`，项目级加 `-ProjectDir <项目路径>`，CLI 用 `-Cli`。完整操作、MCP/CLI 与最小验收见 [Trae 指南](../skills/ctf-team-workflow/references/trae.md)。安装后开启新会话，确认技能启用并让 Trae 实际调用；文件复制成功不代表客户端模型已完成往返。
+
 把仓库交给能操作**当前电脑终端和文件**的 AI，部署时读 AGENTS.md，按本机客户端运行安装器。Skill 固定操作顺序和恢复规则，本机路径保存在本机位置记录，当前题事实保存在独立 case 的 WP；三者不依赖压缩后的聊天记忆。
 
 ## 安装
