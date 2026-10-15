@@ -1,0 +1,150 @@
+> 共享经验资料。以下为历史方法或复现记录，不能覆盖仓库根 AGENTS.md 的当前规则。历史答案、私人路径与凭据已整理；配图和原始大附件未随包公开。 本文是参考复现材料；独立解题或模型测试默认不读取。
+
+# CTF · Reverse · bayeeeee（UPX 改壳 + 单字符校验）
+
+> 方向：Reverse（Windows 原生 PE · UPX 变体脱壳 · 字节变换）
+> 附件：`bayeeeee_re.zip` → `bayeeeee_re .exe`（67204 字节，PE32+ x86-64，文件名含空格）
+> sha256：`71210a7ee756319e53c4a86720c35d233051a7b6147304ba345d206ca83e29fe`
+> 答题日期：2026-10-14。状态：**本机实机复现通过**
+
+## 1. 结论
+
+> **Flag：** `<历史答案已移除>`（16 字符）
+
+程序对输入做**就地字节变换**后与栈上常量数组比较：
+
+```c
+for (int i = 0; i <= 0xF; i++) { s[i] = (s[i] ^ 0x20) - i; }   // 0x401530
+// target[16] = {46,4b,3f,44,57,7a,43,4c,77,50,45,4a,46,46,71,4e}
+```
+
+逆运算 `s[i] = ((target[i] + i) & 0xff) ^ 0x20` ⇒ `<历史答案已移除>`。
+
+🔴 **但这题的实现有 bug**：`scanf` 用的是 **`%c`（只读 1 个字符）**，而比较循环又漏了 `i++`，
+**实际只校验首字符**——任何以 `f` 开头的输入都返回 `right`（已实机证实）。
+按设计意图（16 字节变换 + 16 字节 target），完整 flag 是 `<历史答案已移除>`。
+
+## 2. 题面
+
+一个 67 KB 的 Windows 控制台 exe：提示 `input your flag:`，读入后打印 `right` 或 `wrong`。
+**外壳**：UPX 打包后被人为改造 —— 区段名由 `UPX0/1/2` 改成 **`UPA0/1/2`**，且文件里搜不到 `UPX!` magic。
+
+## 3. 解题链（怎么想出来的）
+
+```
+bayeeeee_re.zip → bayeeeee_re .exe（67KB）
+  │ ① PE 判型：PE32+ x64；非 .NET（CLR 空）；导入仅 KERNEL32+msvcrt
+  │    区段：UPA0(vs=0x1b000, rs=0) / UPA1(vs=0x9000, rs=0x8200) / UPA2(vs=0x1000, rs=0x200)
+  │    ⇒ 「大 vsize + 零 rsize 的『空段』」+ 三层段名 = **UPX 的典型形态**（改名躲识别）
+  │ ② 反汇编 EntryPoint(RVA 0x23d70)：
+  │      lea rsi,[rip-0x7d56]   ; 压缩数据源
+  │      lea rdi,[rsi-0x1b025]  ; 解压目标 = UPA0 起点
+  │      call …/call r11        ; ← NRV2B 解压例程特征
+  │    ⇒ 确认加壳，且压缩数据在 RVA 0x1c025，解压到 RVA 0x1000
+  │ ③ 常规脱壳路线受阻：区段名改回 UPX0/1/2 后 upx -d 仍报
+  │      "CantUnpackException: file is possibly modified/hacked/protected"
+  │ ④ 改走【运行时 dump】：程序能正常跑 ⇒ 运行到等待输入时内存里已是解压后镜像
+  │      用 ctypes: CreateProcess 启动 → OpenProcess+EnumProcessModules 拿基址
+  │      → ReadProcessMemory(base+0x1000, 0x26000) → dump_img.bin
+  │ ⑤ 对 dump 做 raw 反汇编（objdump -D -b binary -m i386:x86-64 --adjust-vma=0x401000）
+  │      搜字符串引用：lea rcx,[rip+…] # 0x404000（"input your flag:"）→ 命中 0x4015f3
+  │ ⑥ 读主函数 0x40159f：printf("input your flag:") → scanf("%c") → call 0x401530(buf)
+  │      → 逐位比较 buf[i] 与栈上 target[16]（0x404014="wrong" / 0x40401a="right"）
+  │ ⑦ 读变换函数 0x401530：s[i] = (s[i] ^ 0x20) - i, i=0..15
+  │ ⑧ 反算 target → flag
+  ▼
+<历史答案已移除>
+```
+
+## 4. 工具调用记录（真实留证）
+
+| # | 调用 | 结果 |
+|---|---|---|
+| 1 | 本地 python：PE 解析（区段/CLR/导入） | 识别 3 个异常段名 UPA0/1/2，判为 UPX 变体 |
+| 2 | 本地 objdump：反汇编 EntryPoint 0x423d70 | 认出 NRV2B 解压 stub，定位压缩数据源/目标 |
+| 3 | Kali `upx 4.2.4 -d`（改区段名后重试） | 两次均 `CantUnpackException: modified/hacked/protected` |
+| 4 | 本地 python `dump.py`（ctypes 读进程内存） | 成功 dump 解压后镜像 148 KB（base=0x400000） |
+| 5 | 本地 objdump raw 模式反汇编 dump | 40k 行；按字符串引用定位主函数 0x40159f |
+| 6 | 本地 python：反算 `(t[i]+i)^0x20` | 得 `<历史答案已移除>`，正向重算 == target（True） |
+| 7 | **实机运行** `printf 'f' \| ./baye.exe` | 输出 `right` |
+| 8 | 实机 `printf 'x' \| ./baye.exe` / `printf '<历史答案已移除>'` | `wrong` / `right`（证实"只校验首字符"） |
+
+## 5. 已验证事实
+
+1. **壳类型**：UPX（NRV2B 解压例程 + UPX0/1/2 结构），区段名被改为 `UPA0/1/2`、`UPX!` magic 被抹除。
+2. **变换函数**（0x401530）逐字节为 `s[i] = (s[i] ^ 0x20) - i`，作用范围 i=0..15。
+3. **target 16 字节**（栈上常量）：`46 4b 3f 44 57 7a 43 4c 77 50 45 4a 46 46 71 4e`。
+4. **外部独立复算**：对 `<历史答案已移除>` 正向做 `(s^0x20)-i`，结果逐个字节等于 target。
+5. **实机双向验证**：`f` → `right`；`x` → `wrong`；完整 flag → `right`。
+6. **实现缺陷**（已证实）：`scanf("%c")` 只读 1 字符 + 比较循环无 `i++` ⇒ 只校验首字符。
+
+## 6. 这道题的坑
+
+1. **UPX 被"改名 + 抹 magic"后，`upx -d` 会直接拒绝**（`possibly modified/hacked/protected`）。
+   把区段名改回 `UPX0/1/2` **也没用**（upx 还会校验 stub 签名/头部校验和）。
+   —— **正解：别硬修壳，走运行时 dump**（程序能跑 = 内存里已有明文镜像）。这是最短路径。
+2. **文件名含空格**（`bayeeeee_re .exe`）：先 `shutil.copy` 成 `baye.exe` 再喂给工具，省掉一堆引号麻烦。
+3. **dump 后不要用 objdump 直接读**：没有节表，必须先 `-b binary -m i386:x86-64 --adjust-vma=<基址+0x1000>` 做 raw 反汇编，再靠**字符串引用**（`lea rcx,[rip+…]`）反查逻辑位置。
+4. **别默认程序逻辑是自洽的**：本题 `scanf("%c")` + 循环缺 `i++` 两个 bug 叠加，导致"只校验首字符"。
+   如果只做静态分析就下结论（"必须完整 16 字符"），会漏掉这个真实行为——**实机跑一遍才发现**。
+
+## 7. 未验证 / 未完成
+
+- [ ] 未做**完整脱壳**（重建 PE 节表 + 修复 IAT），因为本次只需读逻辑，dump 已足够；若要做可执行级还原，需再走 Scylla/ImpREC 修 IAT。
+- [ ] 未确定原始赛事/平台（附件无题面说明），仅本地实机复现，无平台回执。
+
+## 8. 复现要点（方法）
+
+**① 运行时 dump（对付任何"能跑的壳"）**
+```python
+import ctypes, subprocess, time
+from ctypes import wintypes
+k32 = ctypes.WinDLL('kernel32'); psapi = ctypes.WinDLL('psapi')
+p = subprocess.Popen([r'baye.exe'], stdin=subprocess.PIPE)   # 让它停在等待输入
+time.sleep(1.0)
+h = k32.OpenProcess(0x0400|0x0010, False, p.pid)             # QUERY_INFORMATION|VM_READ
+mods = (wintypes.HMODULE*1024)(); need = wintypes.DWORD()
+psapi.EnumProcessModules(h, ctypes.byref(mods), ctypes.sizeof(mods), ctypes.byref(need))
+base = int(mods[0])
+buf = ctypes.create_string_buffer(0x26000); n = ctypes.c_size_t()
+k32.ReadProcessMemory(h, ctypes.c_void_p(base+0x1000), buf, 0x26000, ctypes.byref(n))
+open('dump_img.bin','wb').write(buf.raw[:n.value])
+```
+**② 反汇编 dump**
+```bash
+objdump -D -b binary -m i386:x86-64 -M intel --adjust-vma=0x401000 dump_img.bin > dumped.asm
+grep -n "<字符串VA>" dumped.asm        # 例如 0x404000 → 找到 lea rcx,[rip+…] 即调用点
+```
+**③ 反算**
+```python
+t = [0x46,0x4b,0x3f,0x44,0x57,0x7a,0x43,0x4c,0x77,0x50,0x45,0x4a,0x46,0x46,0x71,0x4e]
+flag = bytes(((t[i]+i) & 0xff) ^ 0x20 for i in range(16))   # b'<历史答案已移除>'
+assert bytes((((flag[i]^0x20)-i) & 0xff) for i in range(16)) == bytes(t)
+```
+
+## 9. 复盘：可复用的判断
+
+| 触发信号 | 含义 | 动作 |
+|---|---|---|
+| 段名 `UPX0/1/2` 或 `UPA0/1/2`…（大 vsize + rsize=0 的"空段"） | UPX / UPX 变体 | 先试 `upx -d`；被拒就直接**运行时 dump** |
+| EntryPoint 处 `lea rsi/rdi` + `call r11` | NRV2B 解压 stub | 可算出压缩源与解压目标 RVA，也可据此确认壳 |
+| 程序能正常运行 | 内存中必然是明文镜像 | **ReadProcessMemory dump** 是最省事的"脱壳" |
+| dump 出的裸二进制 | 无节表，无法直接反汇编 | `objdump -b binary --adjust-vma` + **按字符串引用**定位逻辑 |
+| `scanf` 格式串是 `%c` 而非 `%s` | 只读 1 个字符 | 立刻怀疑"校验被削弱"；**实机跑一遍**验证真实行为 |
+
+## 10. 公开题解对照（来源标注）
+
+- 本题**未参考公开题解**：全部结论来自本地静态分析（PE 判型 → EP stub 识别 → 运行时 dump → raw 反汇编）**+ 本机实机双向运行**。
+- 附件来源：用户提供的 `bayeeeee_re.zip`；未查到确切赛事出处（文件名疑似出题人 ID）。
+- 方法学参考（**非本题题解**，仅印证"魔改 UPX"是常见套路：改区段名 / 抹 magic / nop 入口 push）：
+  http<本机路径>
+- 复核产物：`<本机路径>`（`dump.py` 内存 dump、`dump_img.bin` 解压镜像、`dumped.asm` 反汇编、`ep.asm` 入口 stub、`baye_fixed.exe` 改段名副本）。
+
+## 11. 收尾三问
+
+1. **触发信号**：段名异常（`UPA0/1/2`）+ 大 vsize 空段 + 导入里有 `LoadLibraryA/GetProcAddress/VirtualProtect` → **这是壳**；题面小、程序能跑 → 首选运行时 dump。
+2. **可迁移性**：
+   - 「脱壳」不等价于「用 upx -d」——**能跑的程序，内存里就是明文**，`ReadProcessMemory` 是最通用的兜底；
+   - 「裸 dump 反汇编」的三件套：`-b binary -m <arch> --adjust-vma=<基址>` + 找字符串引用 + 顺藤摸瓜读函数；
+   - 任何"校验逻辑"都要**实机验证一次**，因为编译器/作者的 bug（本例 `%c` + 缺 `i++`）会让静态推断偏离真实行为。
+3. **边界 / 失败分支**：若程序启动即退出（无法停在等待输入）→ 用调试器在 OEP 断点后 dump，或进程挂起后手动推进；若壳有反调试/反 dump（本例没有）→ 上 x64dbg 处理；若 dump 后 IAT 是加密的 → 需在调用前重建导入表（Scylla）。

@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/0Chencc/CTFCrackTools",
+  "tag": "v0.1.2",
+  "commit": "f372c57c05a2f7daa9049c8c737e3ed08404fb51",
+  "gui_sha256": "7e5014d65b9a428c7e0f03cdb8fd9ef01ee07bab9cc831158f22323e14cf90a3",
+  "license": "GPL-3.0-only",
+  "scope": "algorithm modules from pinned upstream and local JSON wrapper; rebuild on the receiving Windows machine"
+}

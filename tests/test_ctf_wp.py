@@ -40,7 +40,7 @@ class EvidenceTests(unittest.TestCase):
     def test_automatic_ctfos_recording(self):
         result = service.call_tool("math_gcd", {"values": [48, 60], "wp_case": "fixture"})
         self.assertTrue(result["ok"])
-        self.assertEqual(result["wp_record"]["step"], 2)
+        self.assertEqual(result["wp_record"]["step"], 3)
         self.assertEqual(wp.status({"case": "fixture"})["calls"], 1)
 
     def test_case_parameter_records_only_initialized_case(self):

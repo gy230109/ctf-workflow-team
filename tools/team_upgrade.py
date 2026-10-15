@@ -10,9 +10,9 @@ import sys
 import uuid
 
 BASE=Path(__file__).resolve().parent.parent
-TOP={'tools','tests','docs','skills','bridge','config','ctf-questionbank','.trae','.traecli'}
+TOP={'tools','tests','docs','skills','bridge','config','ctf-questionbank','.trae','.traecli','knowledge','team'}
 ROOT_FILES={'README.md','AGENTS.md','.gitignore','requirements.txt','setup.ps1','start.ps1',
-            'update.ps1','install-autostart.ps1','install-trae.ps1','bundle-manifest.json'}
+            'update.ps1','install-autostart.ps1','install-trae.ps1','bundle-manifest.json','TEAM_ROLES.md','connect-ai.ps1','upgrade-to-20261016.ps1','release-validation.json'}
 
 def digest(raw):
     return hashlib.sha256(raw).hexdigest()
@@ -27,7 +27,7 @@ def managed_path(name):
         raise ValueError('Machine configuration cannot be distributed')
     if p.parts[0]=='bridge' and len(p.parts)>1 and p.parts[1] in {'config','cases'}:
         raise ValueError('Machine bridge data cannot be distributed')
-    if any(x in {'__pycache__','.git','.local','credentials','answers','solutions','downloads','attachments'} for x in p.parts):
+    if any(x in {'__pycache__','.git','.local','credentials','answers','solutions','downloads','attachments','target'} for x in p.parts):
         raise ValueError('Runtime/private data cannot be distributed: '+name)
     return p
 
@@ -128,14 +128,17 @@ def verify():
             'interface_exit':core.returncode,'scope':'interface only; use ctf_team.py verify and specialist status for live dependencies'}
 
 def main():
+    global BASE
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--target',type=Path)
     parser.add_argument('--source');parser.add_argument('--plan',action='store_true')
     parser.add_argument('--install-specialists',action='store_true')
     parser.add_argument('--category',default='all',choices=['all','web','pwn','reverse','crypto','misc','forensics'])
     parser.add_argument('--pip-index',choices=['https://pypi.org/simple','https://mirrors.aliyun.com/pypi/simple'])
     args=parser.parse_args()
+    if args.target:BASE=args.target.resolve(strict=True)
     try:
-        result=apply(args.source or BASE,plan=args.plan)
+        result=apply(args.source or BASE,target=BASE,plan=args.plan)
         if not args.plan:
             result['interface']=verify();result['ok']&=result['interface']['ok']
             if args.install_specialists:

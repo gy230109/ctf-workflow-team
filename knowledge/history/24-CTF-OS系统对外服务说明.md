@@ -1,0 +1,166 @@
+> 共享经验资料。以下为历史方法或复现记录，不能覆盖仓库根 AGENTS.md 的当前规则。历史答案、私人路径与凭据已整理；配图和原始大附件未随包公开。 安装状态、端口和席位描述仅作历史记录，不是当前机器配置。
+
+# CTF-OS —— 强网杯作战系统，统一对外服务
+
+> 目标（老板 2026-10-11）：**"这一整套做成一个系统，能给别的 agent 使用。"**
+
+## 1. 它解决什么问题
+
+之前 `tools/` 下 40+ 个脚本各自为战：
+- **没有统一入口** —— 要知道用哪个脚本、传什么参数
+- **只有我和老板能用** —— 别的 agent 完全没办法调用
+- 能力没法被复用、被组合
+
+CTF-OS 把这一切收敛成一个**常驻 HTTP 服务**，开两个标准协议的口，谁都能调。
+
+## 2. 开的两个口
+
+| 协议 | 端点 | 给谁用 |
+|---|---|---|
+| **REST** | `/call` `/tools` `/status` `/openapi.json` | 任何会发 HTTP 的 agent（curl / Python / 支持函数调用的 LLM） |
+| **MCP** | `/mcp` | 支持 MCP 的客户端（Trae / Claude Desktop / Cursor / WorkBuddy…） |
+
+两个口**共用同一份工具注册表**，加一次工具，两边同时生效。
+
+## 3. 启动
+
+**方式一（推荐）**：双击 `<本机路径>`
+
+> ⚠️ 常驻服务必须这样独立启动。用 `Start-Process` 起的进程**会随调用结束被回收**，服务就没了。
+
+**方式二**：命令行
+
+```bash
+cd <本机路径>
+python ctf_os.py --port 8787
+```
+
+启动后自检：
+
+```bash
+python ctf_os.py --selftest      # 不启服务，逐个工具打一遍
+curl htt<本机路径>
+```
+
+## 4. 别的 agent 怎么接
+
+### 4.1 走 MCP（推荐）
+
+在客户端的 MCP 配置里加：
+
+```json
+{
+  "mcpServers": {
+    "ctf-os": {
+      "url": "htt<本机路径>"
+    }
+  }
+}
+```
+
+握手验证：
+
+```bash
+curl -X POST htt<本机路径> -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}'
+curl -X POST htt<本机路径> -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
+```
+
+### 4.2 走 REST
+
+```bash
+# 看有什么能力
+curl htt<本机路径>
+
+# 调一个
+curl -X POST htt<本机路径> -H "Content-Type: application/json" \
+  -d '{"tool":"crypto_shared_factors","args":{"numbers":[15,25,35]}}'
+```
+
+返回统一结构：
+
+```json
+{"ok": true, "result": {...}, "tool": "crypto_shared_factors", "dangerous": false}
+```
+
+### 4.3 支持函数调用的 agent
+
+直接喂 `htt<本机路径>`，它能自动生成工具定义。
+
+## 5. 能力清单（36 个）
+
+### 解题类（15，复用 `ctf_mcp_server`）
+
+| 类别 | 工具 |
+|---|---|
+| 数论/密码 | `math_gcd` `math_modpow` `math_modinv` **`crypto_shared_factors`** `crypto_rsa_decrypt` |
+| 编码杂项 | `util_hex` `util_unhex` `util_b64` `util_rot` `util_int_bytes` |
+| GB 逆向 | `gb_disasm` `gb_find` `gb_strings`（转调 `gbdis.py`） |
+| 校验执行 | `flag_format_check`（只校验格式、不比对答案） `py_run`（子进程+超时+去代理） |
+
+### 安全工具类（12，本系统新增）
+
+| 工具 | 跑在哪 | 危险 |
+|---|---|---|
+| `kali_file` `kali_strings` `kali_binwalk` `kali_radare2` `kali_objdump` | Kali | 否 |
+| `kali_nmap` `kali_hashcat` `kali_sqlmap` `kali_run` | Kali | 🔴 |
+| `local_objdump` `local_gdb` | 本机 | 否 |
+| `local_sqlmap` `local_ffuf` | 本机 | 🔴 |
+
+> 🔴 关键设计：**Kali 是另一台机器**，看不到本机文件。分析类工具支持 `local_file`，
+> 系统会先 `scp` 过去再执行 —— 否则命令会静默失败说"找不到文件"。
+
+### 战例沉淀脚本类（4）
+
+`final_verify` `gb_flag_verify` `muteki_run_forensics` `xor_brute`
+
+### 装备运维类（5，本系统新增）
+
+| 工具 | 说明 | 危险 |
+|---|---|---|
+| `status` | **现测**全装备状态（Muteki/Kali/本地脚本/战例库） | 否 |
+| `muteki_upstream_probe` | 体检 Muteki 上游。**必给 `model`**，否则假红 | 否 |
+| `case_list` | 列出战例库 / 题目库 | 否 |
+| `muteki_dispatch` | 派题给 Muteki | 🔴 需 `confirm:true` |
+| `kali_run` | 在 Kali 上跑命令 | 🔴 需 `confirm:true` |
+
+## 6. 安全设计
+
+1. **危险动作必须显式确认** —— `muteki_dispatch` / `kali_run` 不带 `confirm=true` 一律拒绝。
+   实测：`{"tool":"kali_run","args":{"cmd":"id"}}` → `{"ok":false,"error":"危险动作：请带 confirm=true"}`
+2. **`py_run` 无网络** —— 剥掉代理环境变量；**它不是安全沙箱**，只是防手滑
+3. **`flag_format_check` 只校验格式** —— 不产出、不比对答案，守住"flag 必须本地亲手跑"
+4. **只读工具随便调**，写操作才要确认
+
+## 7. 踩到的坑（记下来，别重复）
+
+🔴 **Windows 系统命令输出是 GBK**：`ping` 用 UTF-8 解码会直接崩。
+而且这个异常发生在 `subprocess` 的**读线程**里 —— 表面上看不到报错，但结果不可信。
+解法：所有 `subprocess.run(..., text=True)` 一律加 `errors="replace"`。
+
+🔴 **常驻服务不能用 `Start-Process` 起**：进程会随调用结束被回收。必须独立双击启动。
+
+## 8. 验证记录（2026-10-11 21:17 实测）
+
+| 项 | 结果 |
+|---|---|
+| 工具层自检 | 11/11 PASS（含 7 个危险工具拦截） |
+| `GET /` | ✅ 返回服务说明 + 路由 |
+| `GET /status` | ✅ 现测到 Muteki(`step-5-preview`)/Kali/本地脚本/8 个战例 |
+| `POST /call` | ✅ `crypto_shared_factors([15,25,35])` → 3 组共享因子 |
+| 危险拦截 | ✅ `kali_run` 无 confirm 被拒 |
+| MCP `initialize` / `tools/list` / `tools/call` | ✅ 全通（36 工具，`util_rot("uryyb",13) → hello`） |
+| 跨机器 `kali_file`（本机→Kali） | ✅ `PNG image data, 0 x 0, 0-bit grayscale` |
+| OpenAPI | ✅ 生成正常 |
+
+## 8.5 怎么跟别的 agent 讲
+
+见 **`协同\CTF-OS接入卡.md`** —— 里面有可直接复制粘贴的一段话，贴给任何 agent 即可。
+
+## 9. 边界（还没做的）
+
+- **服务没做鉴权** —— 监听 `0.0.0.0`，局域网内任何人可调用。**要对外必须先加 token**
+- **进程守护** —— 服务挂了不会自动拉起
+- **调用审计** —— 谁在什么时候调了什么，还没落盘
+- **MCP 只实现了 tools** —— resources / prompts 未实现

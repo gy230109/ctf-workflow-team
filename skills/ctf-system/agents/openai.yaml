@@ -1,0 +1,6 @@
+interface:
+  display_name: "CTF系统"
+  short_description: "一句话调用本机CTF系统，自动发现新版工具并恢复跨AI任务进度"
+  default_prompt: "用 $ctf-system 做这道题，并保存实际操作和结果。"
+policy:
+  allow_implicit_invocation: true

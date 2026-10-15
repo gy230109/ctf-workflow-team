@@ -30,6 +30,7 @@ import ctf_crypto as cryptanalysis
 import ctf_x64dbg as windows_debug
 import ctf_rea as rea
 import ctf_wp as writeup
+import ctf_version
 
 # Specialist execution reuses this computer's verified Kali bridge.
 try:
@@ -38,6 +39,27 @@ except ModuleNotFoundError as exc:
     if exc.name != "ctf_specialists":
         raise
     specialists = None
+
+try:
+    import ctf_extensions as extensions
+except ModuleNotFoundError as exc:
+    if exc.name != "ctf_extensions":
+        raise
+    extensions = None
+
+try:
+    import ctf_ctfd as ctfd
+except ModuleNotFoundError as exc:
+    if exc.name != "ctf_ctfd":
+        raise
+    ctfd = None
+
+try:
+    import ctf_cracktools as cracktools
+except ModuleNotFoundError as exc:
+    if exc.name != "ctf_cracktools":
+        raise
+    cracktools = None
 
 DEFAULT_PORT = int(os.environ.get("CTF_OS_PORT", "8787"))
 
@@ -543,12 +565,20 @@ ALL_TOOLS.update(rea.TOOLS)
 ALL_TOOLS.update(writeup.TOOLS)
 if specialists is not None:
     ALL_TOOLS.update(specialists.TOOLS)
+if extensions is not None:
+    ALL_TOOLS.update(extensions.TOOLS)
+if ctfd is not None:
+    ALL_TOOLS.update(ctfd.TOOLS)
+if cracktools is not None:
+    ALL_TOOLS.update(cracktools.TOOLS)
 
 # An explicit per-call case prevents parallel agents from mixing challenges.
 for _tool_name, (_fn, _desc, _schema) in ALL_TOOLS.items():
     if not _tool_name.startswith("wp_"):
         _schema.setdefault("properties", {})["wp_case"] = {
             "type": "string", "description": "先 wp_init；此调用自动记入指定题号的 WP"}
+        _schema['properties']['wp_purpose'] = {'type':'string','description':'这一步的行动目的，自动写入 WP'}
+        _schema['properties']['wp_expectation'] = {'type':'string','description':'预期检查的现象或条件；不是已验证结论'}
 
 # 危险工具：派单/远程执行/爆破扫描 —— 这些会烧钱、改配置或对外发包
 DANGEROUS = {"muteki_dispatch", "kali_run",
@@ -557,6 +587,12 @@ DANGEROUS = {"muteki_dispatch", "kali_run",
              "pc_run", "pc_submit", "win_debug_start", "win_debug_call"}
 if specialists is not None:
     DANGEROUS.update(specialists.DANGEROUS)
+if extensions is not None:
+    DANGEROUS.update(extensions.DANGEROUS)
+if ctfd is not None:
+    DANGEROUS.update(ctfd.DANGEROUS)
+if cracktools is not None:
+    DANGEROUS.update(cracktools.DANGEROUS)
 
 
 def _call_tool(name, args):
@@ -606,7 +642,16 @@ def call_tool(name, args):
                 writeup.status({"case": wp_case})
             except (ValueError, RuntimeError, OSError) as exc:
                 return {"ok": False, "tool": name, "error": str(exc), "error_code": "wp_preflight_failed"}
-    result = _call_tool(name, {} if args is None else args)
+    operation = None
+    if wp_case:
+        try:
+            operation = writeup.begin_call(wp_case, name, args)
+        except (ValueError, RuntimeError, OSError) as exc:
+            return {'ok':False,'tool':name,'error':str(exc),'error_code':'wp_preflight_failed'}
+    execution_args = {key:value for key,value in (args or {}).items() if key not in ('wp_purpose','wp_expectation')}
+    result = _call_tool(name, execution_args)
+    if operation:
+        result['wp_operation'] = operation
     result.setdefault("tool", name)
     result["duration_ms"] = round((time.monotonic() - started) * 1000, 1)
     call_id = "%d-%s" % (time.time_ns(), secrets.token_hex(4))
@@ -835,7 +880,10 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, self._index())
         if path == "/tools":
             return self._send(200, {"count": len(ALL_TOOLS),
+                                    "version": ctf_version.info(len(ALL_TOOLS)),
                                     "tools": tools_catalog()})
+        if path == "/version":
+            return self._send(200, ctf_version.info(len(ALL_TOOLS)))
         if path == "/status":
             return self._send(200, call_tool("status", {}))
         if path == "/openapi.json":

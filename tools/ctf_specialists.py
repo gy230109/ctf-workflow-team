@@ -8,6 +8,7 @@ import uuid
 
 import ctf_os_runtime as runtime
 import ctf_wp as wp
+import ctf_reverse_route
 
 BASE=Path(__file__).resolve().parent.parent
 CONFIG=BASE/"config/ctf_specialists.local.json"
@@ -20,8 +21,8 @@ PROFILES={
         "tools":["pwn_elf_info","pwn_cyclic","pwn_rop_search"],
         "route":["检查 ELF 架构与保护","依据实际崩溃值计算 cyclic 偏移","检索 ROP gadget","在题目 VM 验证脚本与结果"]},
  "reverse":{"packages":["lief","capstone","angr<10","bitstring<5"],"modules":["lief","capstone","angr"],"commands":["gdb"],
-        "tools":["reverse_binary_info","reverse_disassemble","reverse_symbolic"],
-        "route":["先看文件结构与地址","按证据选区段反汇编；REA/x64dbg 按平台补充","对明确目标进行有界符号执行","将候选交给真实题目程序验证，换算 ASLR 地址"]},
+        "tools":["reverse_binary_info","rea_status","rea_ops","rea_run","reverse_disassemble","reverse_symbolic"],
+        "route":["依据附件魔数分型；提供 local_file 返回明确分支","原生 PE：rea_status/rea_ops 后用 rea_run inspect，再对目标函数调用 function；.NET 用 inspect-managed-members","ELF 走 Kali Ghidra/GDB；APK/DEX 走 jadx；源码先读源码","将候选交给真实题目程序验证，记录成功和拒绝；需要时换算 ASLR 地址"]},
  "crypto":{"packages":["sympy","z3-solver","fpylll","cysignals","pycryptodome"],
         "modules":["sympy","z3","fpylll","Crypto"],"commands":[],
         "tools":["crypto_factor","crypto_crt","crypto_z3","crypto_lll","crypto_aes_decrypt"],
@@ -117,9 +118,11 @@ def execute(operation,args):
 def profile(a):
     a=arguments(a);category=str(a["category"]).lower()
     if category not in PROFILES:raise ValueError("category must be web/pwn/reverse/crypto/misc/forensics")
-    return {"category":category,**PROFILES[category],"environment":"Kali specialist venv through existing bridge",
+    result={"category":category,**PROFILES[category],"environment":"Kali specialist venv through existing bridge; PE static analysis uses host REA",
             "next_step":"ctf_specialist_status 检查实际依赖；每题 wp_init，后续调用加同一 wp_case",
             "route_is_not_a_solution":True,"limits":{"default_timeout_seconds":60,"default_memory_mb":1536}}
+    if category=='reverse':result['reverse_routing']=ctf_reverse_route.route(a)
+    return result
 
 
 def install(a):
@@ -177,9 +180,21 @@ SPECS={
  "forensics_pcap_summary":("forensics_pcap","Scapy 离线逐包汇总，限制读取量；不发包",{"max_packets":I()}),
  "forensics_volatility":("forensics_volatility","Volatility3 离线插件入口；真实内存分析需要镜像与符号",{"plugin":S()})}
 
-TOOLS={"ctf_profile":(profile,"按明确题型返回工具与验证路线",schema({"category":S()})),
+TOOLS={"ctf_profile":(profile,"按题型返回工具路线；reverse 提供 local_file 可按魔数分型并显式选择 REA",schema({"category":S(),"subtype":S()})),
        "ctf_specialist_status":(lambda a:execute("status",a),"现测 Kali 专项环境依赖，不调用模型、不解题",schema()),
        "ctf_install_category":(install,"在专项 venv 按明确题型补依赖（confirm=true）",schema({"category":S(),"confirm":B()}))}
 for name,(operation,description,properties) in SPECS.items():
     TOOLS[name]=(lambda a,op=operation:execute(op,a),description,schema(properties))
 DANGEROUS={"ctf_install_category","web_http_inspect","web_browser_capture"}
+
+# Optional native additions have their own actual dependency status. Their
+# availability must not be inferred from the Python-only specialist probe.
+PROFILES['web']['tools'].append('web_browser_session')
+PROFILES['web']['route'].append('需要连续交互时 web_browser_session；每题独立浏览器，只访问明确许可的同源')
+PROFILES['reverse']['tools']+=['ctf_runtime_status','kali_debug_session','qemu_run']
+PROFILES['pwn']['tools']+=['ctf_runtime_status','kali_debug_session']
+PROFILES['pwn']['route'].append('实际动态调试使用 kali_debug_session/Pwndbg；结束后 close')
+PROFILES['crypto']['tools'].append('crypto_library')
+PROFILES['crypto']['route'].append('高阶方法查 crypto_library，核对适用条件和源码后在 Sage 中导入使用')
+PROFILES['misc']['tools'].append('misc_stego')
+PROFILES['misc']['route'].append('PNG/BMP 用 zsteg；JPEG/WAV 的 steghide 检查/提取与显式词表检索通过 misc_stego')

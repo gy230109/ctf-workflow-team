@@ -1,0 +1,132 @@
+> 共享经验资料。以下为历史方法或复现记录，不能覆盖仓库根 AGENTS.md 的当前规则。历史答案、私人路径与凭据已整理；配图和原始大附件未随包公开。 本文是参考复现材料；独立解题或模型测试默认不读取。
+
+# CTF · Reverse · 特殊的Base64
+
+> 方向：Reverse（Windows 原生 PE · 自定义字母表 Base64）
+> 附件：`base64.zip` → `特殊的Base64.exe`（2014412 字节，PE32+ x86-64，MinGW/GCC 编译，sha256 `7a25a85569f4bdfff002ab0536b6b5f5c1c8bb9dfdc38cc80c3e807fbcebba1c`）
+> 答题日期：2026-10-14。状态：**本机实机复现通过**（正确输出 `The flag is right!!!!!!!!!`）
+
+## 1. 结论
+
+> **Flag：** `<历史答案已移除>`
+
+程序做的是「**换表 Base64**」：输入 flag → 用**自定义 64 字符字母表**编码 → 与内置密文比较。
+
+- 自定义字母表：`AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0987654321/+`
+  （大小写交替 `AaBb…Zz` + 数字**倒序** `0987654321` + 末两位 `/+` 与标准表 `+/` **对调**）
+- 内置密文：`mTyqm7wjODkrNLcWl0eqO8K8gc1BPk1GNLgUpI==`
+- 解法：**换回标准表**再 `base64.b64decode` 即得 flag。
+
+## 2. 题面
+
+一个 2 MB 的 Windows exe，运行后提示 `Please input your flag!!!!`，输入后打印
+`The flag is right!!!!!!!!!` 或 `This is a wrong flag!!!!!!!!`。
+
+## 3. 解题链（怎么想出来的）
+
+```
+base64.zip → 特殊的Base64.exe（2.0MB）
+  │ ① 判型：PE32+ x86-64；CLR 目录为空（非 .NET）；无 MEI/PYZ（非 PyInstaller）；
+  │    导入仅 KERNEL32 + msvcrt ⇒ **MinGW/GCC 原生编译**
+  │    区段名 /4 /19 /31 /45 … 是链接器给未命名段编的号（配合 -ffunction-sections）
+  │ ② 字符串：`Please input your flag!!!!` / `The flag is right!!!!!!!!!` / `This is a wrong flag!!!!!!!!`
+  │    还捡到 `Base64.cpp`、`Base64`、`_Z12base64EncodeSs`（= base64Encode(std::string)）⇒ **栈没剥离，有 COFF 符号表！**
+  │ ③ 解析 COFF 符号表（注意 string table 基址 = 符号表起点 + 符号数×18）：
+  │      main                  RVA 0x1530
+  │      _Z12base64EncodeSs    RVA 0x16c9
+  │      _ZL7baseKey           RVA 0xa9038 (.bss)     ← 自定义字母表
+  │      _GLOBAL__sub_I_main   RVA 0x1bc8             ← baseKey 初始化
+  │ ④ 反汇编 main：base64Encode(input) == target，target 来自 [0x489008]
+  │ ⑤ dump 0x489008 ⇒ 密文 mTyqm7wjODkrNLcWl0eqO8K8gc1BPk1GNLgUpI==
+  │ ⑥ 反汇编 _GLOBAL__sub_I_main → _Z41__static_initialization_and_destruction_0ii：
+  │      std::string baseKey((const char*)0x489090)   ← 字母表常量地址
+  │ ⑦ dump 0x489090 ⇒ AaBbCc…Zz0987654321/+
+  │ ⑧ 换表解码：密文.translate(自定义→标准) → base64.b64decode → 明文
+  ▼
+<历史答案已移除>
+```
+
+## 4. 工具调用记录（真实留证）
+
+| # | 调用 | 结果 |
+|---|---|---|
+| 1 | 本地 python：解压 + PE 头解析（CLR/PyInstaller 特征、导入表、区段） | 判定 MinGW/GCC 原生 x64；排除 .NET 与 PyInstaller |
+| 2 | 本地 python：全量字符串扫描（关键词） | 3 条提示语 + `Base64.cpp` + `_Z12base64EncodeSs` |
+| 3 | 本地 python：**解析 COFF 符号表**（13332 个符号） | 精确定位 main / base64Encode / baseKey / _GLOBAL__sub_I_main |
+| 4 | 本地 objdump：反汇编 main（0x401530） | 看清 `base64Encode(input) == target` 结构，拿到 target 地址 0x489008 |
+| 5 | 本地 objdump：反汇编 `_GLOBAL__sub_I_main` / `__static_initialization_and_destruction_0ii` | 拿到字母表常量地址 0x489090 |
+| 6 | 本地 python：dump 两处常量 | 密文 + 64 字符自定义字母表 |
+| 7 | 本地 python：换表解码 + **反向重编码自校验** | 明文；重编码结果 == 密文（True） |
+| 8 | **实机运行** `printf '<历史答案已移除>\n' \| ./b64.exe` | 输出 `The flag is right!!!!!!!!!` |
+| 9 | 反例 `printf '<历史答案已移除>\n' \| ./b64.exe` | 输出 `This is a wrong flag!!!!!!!!` |
+
+## 5. 已验证事实
+
+1. 自定义字母表共 **64 字符**（`AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0987654321/+`），与标准表逐位不同但**集合等价**（仍是那 64 个符号）。
+2. `base64Encode` 的三字节取 6 位分派序列（`>>2`、`((x&3)<<4)|(y>>4)`、…）与标准 Base64 完全一致，**只换了查表**（反汇编 0x401729 起可见 `baseKey[6bit]`）。
+3. **外部独立复算**：用自定义表对 `<历史答案已移除>` 重新编码，结果 `== mTyqm7wjODkrNLcWl0eqO8K8gc1BPk1GNLgUpI==`（与二进制内密文逐字节一致）。
+4. **实机双向验证**：正确输入 → `The flag is right!!!!!!!!!`；错误输入 → `This is a wrong flag!!!!!!!!`。
+
+## 6. 这道题的坑
+
+1. **中文文件名会把 objdump 打挂**：`特殊的Base64.exe` 直接喂给 objdump 报
+   `Warning: could not locate '????Base64.exe'. reason: Illegal byte sequence`。
+   —— **先复制成 ASCII 名（b64.exe）再反汇编**，两秒钟的事，别去折腾编码。
+2. **COFF 符号表的字符串名要用 string table 基址换算**：
+   `strtab = ptr_sym + n_sym*18`，名字文件偏移 = `strtab + 内偏移`。算错就得到一堆空名字（我第一次就踩了）。
+3. **`baseKey` 不在 `.rdata` 而是 `.bss`**：说明是运行时由全局构造函数构造的 `std::string`；只 dump 静态数据找不到它，**必须跟 `_GLOBAL__sub_I_main`**。
+4. **别忽视"栈没剥离"这个天赐**：MinGW 编译的程序常保留完整符号（连 `_ZL7baseKey` 这种 static 变量都在），有符号表就等于开了地图。
+5. 换表的"特殊性"藏在三处细节里：大小写交替、数字倒序、`/+` 与 `+/` 对调 —— 少看一处就会解出乱码。
+
+## 7. 未验证 / 未完成
+
+- [ ] 事后检索确认出处为 **BUUCTF 平台「特殊的 BASE64」**（flag 内署名 `By_Lich` 为出题人）；未上平台提交，口径"本机实机复现通过"。
+- [ ] 未 Dump 出题人其它隐藏逻辑（本次 main 路径已闭环，无必要）。
+
+## 8. 复现要点（方法）
+
+```python
+import base64
+TABLE = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0987654321/+"
+STD   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+enc   = "mTyqm7wjODkrNLcWl0eqO8K8gc1BPk1GNLgUpI=="
+flag  = base64.b64decode(enc.translate(str.maketrans(TABLE, STD)))
+assert flag == b"<历史答案已移除>"
+# 外部复算：反向重编码必须回到密文
+assert base64.b64encode(flag).decode().translate(str.maketrans(STD, TABLE)) == enc
+```
+
+找字母表/密文的固定套路（本机 objdump + python）：
+```bash
+cp 特殊的Base64.exe b64.exe                 # 中文名先转 ASCII
+objdump -t b64.exe                          # 有符号表最好；没有再解析 COFF
+objdump -d -M intel --start-address=<main> --stop-address=<end+0x20> b64.exe
+# 关注 lea rdx,[rip+...] # 常量地址  →  RVA→文件偏移  →  dump
+```
+
+## 9. 复盘：可复用的判断
+
+| 触发信号 | 含义 | 动作 |
+|---|---|---|
+| 题目名带 "Base64" | 大概率是**换表**或二次编码 | 直奔字母表与密文，别从头逆算法 |
+| exe 区段名是 `/4 /19 /31…`，导入只有 KERNEL32+msvcrt | MinGW/GCC 编译 | 试解析 COFF 符号表（往往带 `baseKey/rightFlag` 这类变量名） |
+| 字符串里出现 `XXX.cpp`、`_Z…`（Itanium mangled） | **符号未剥离** | `objdump -t` 或 python 解析符号表拿地址 |
+| 目标串地址来自 `std::string` 构造的全局对象 | 变量在 `.bss`，运行时初始化 | 追 `_GLOBAL__sub_I_*` / `__static_initialization_and_destruction_0` |
+| 拿到 64 字符的自定义表 | 换表 Base64 | `translate` 到标准表再 `b64decode`；**再用重编码自校验** |
+
+## 10. 公开题解对照（来源标注）
+
+- 本题结论**先由本地独立得出**（PE 判型 → COFF 符号表 → objdump → dump 常量 → 换表解码 → 实机双验），**事后**才检索确认出处为 BUUCTF 平台「特殊的 BASE64」；公开 writeup 结论一致，**仅作对照**：
+  - http<本机路径>
+  - http<本机路径>
+  - http<本机路径>
+- 附件来源：用户提供的 `base64.zip`；flag 内署名 `By_Lich`（出题人）。
+- 复核产物：`<本机路径>`（`b64.exe` ASCII 副本、`coff2.py` 符号表解析、`main.asm`/`init.asm`/`enc.asm` 反汇编、`ok.bin`/`bad.bin` 运行输出）。
+
+## 11. 收尾三问
+
+1. **触发信号**：题名含 "Base64" + 程序只做"编码后比较" → **第一件事是找字母表**（标准表则直接解，自定义表则换表解）。
+2. **可迁移性**：
+   - 「换表类编码题」通用式：`明文 = 标准解码(密文.translate(自定义表→标准表))`，再用**重编码**闭环验证；
+   - 「Windows 逆向」省力式：**先看有没有符号**（MinGW 常留、MSVC 的 pdb 若附带更好），有符号就先按名字定位，再只看那几个函数。
+3. **边界 / 失败分支**：若字母表长度 ≠ 64 或存在重复字符 → 不是简单换表（可能带位移/替换），需要逐位跟进 `base64Encode`；若字符串被加密/压缩导致 dump 不到常量 → 用 x64dbg 在比较前断点直接读运行时内存；若程序加壳（本题无壳）→ 先脱壳。

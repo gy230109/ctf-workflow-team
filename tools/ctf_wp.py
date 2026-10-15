@@ -138,19 +138,37 @@ def init(a):
             "usage": "后续 CTF-OS 调用加 wp_case=<题号> 自动留证；wp_note 补思路；wp_build 生成中文 WP"}
 
 
+def begin_call(case, tool, args):
+    folder = case_dir(case)
+    operation_id = uuid.uuid4().hex
+    with locked(folder):
+        path = folder / 'raw' / (operation_id + '-begin.json')
+        write_json(path, {'tool': tool, 'arguments': args, 'operation_id': operation_id})
+        event = append(folder, 'operation_started', {'operation_id': operation_id, 'tool': tool,
+            'purpose': str(args.get('wp_purpose') or ''), 'expectation': str(args.get('wp_expectation') or '')},
+            [file_record(folder, path, 'operation_input')])
+    return {'operation_id': operation_id, 'step': event['seq']}
+
+
 def record_call(case, args, result):
     folder = case_dir(case)
     if not (folder / "session.json").is_file():
         raise ValueError("先 wp_init；拒绝把调用混入未初始化的题目")
+    from ctf_wp_assets import collect
+    assets, capture_errors = collect(folder, args, result)
     with locked(folder):
         seq = len(verify(folder)) + 1
         path = folder / "raw" / ("%04d-call.json" % seq)
         # Full local evidence, including commands. Never publish this directory.
         write_json(path, {"arguments": args, "response": result})
         event = append(folder, "call", {"tool": result.get("tool"), "ok": result.get("ok"),
+                       'operation_id': (result.get('wp_operation') or {}).get('operation_id'),
+                       'purpose': str(args.get('wp_purpose') or ''), 'expectation': str(args.get('wp_expectation') or ''),
+                       'capture_errors': capture_errors,
                        "source_evidence": result.get("evidence_path"),
-                       "duration_ms": result.get("duration_ms")}, [file_record(folder, path, "tool_output")])
-    return {"case": case, "step": event["seq"], "path": str(path)}
+                       "duration_ms": result.get("duration_ms")}, [file_record(folder, path, "tool_output"), *assets])
+    return {"case": case, "step": event["seq"], "path": str(path), 'assets': len(assets),
+            'operation_id': event['data'].get('operation_id'), 'capture_errors': capture_errors}
 
 
 def note(a):
@@ -212,6 +230,11 @@ def capture(a):
             else:
                 source = "vmrun captureScreen：配置中的 Kali 虚拟机实际画面"
             image_kind = "vm_screenshot"
+        elif mode == 'windows_window':
+            from ctf_wp_windows import capture_window
+            info = capture_window(path, process_id=a.get('process_id'))
+            source = info['source']
+            image_kind = 'windows_screenshot'
         elif mode == "file":
             source_file = Path(a["file_path"]).resolve(strict=True)
             if source_file.suffix.lower() != ".png":
@@ -222,7 +245,7 @@ def capture(a):
             source = str(a["source"])
             image_kind = "imported_image"
         else:
-            raise ValueError("mode 只能为 kali_vm 或 file")
+            raise ValueError("mode 只能为 kali_vm、windows_window 或 file")
         if not path.is_file() or path.read_bytes()[:8] != b"\x89PNG\r\n\x1a\n":
             raise ValueError("截图未生成有效 PNG")
         event = append(folder, "capture", {"source": source, "image_kind": image_kind,
@@ -282,7 +305,7 @@ def scrub(text):
     text = re.sub(r"(?i)\b(?:flag|ctf|gwht|qwb|pwn\.college)\{[^}\n]*\}", "[FLAG 已遮盖]", text)
     text = re.sub(r"(?i)\b(sk-|gh[pousr]_|github_pat_)[A-Za-z0-9_-]{12,}", "[凭据已遮盖]", text)
     text = re.sub(r"(?i)(Bearer\s+)[A-Za-z0-9_.=-]+", r"\1[已遮盖]", text)
-    text = re.sub(r'''(?i)(["']?(?:password|passwd|token|api[_-]?key|authorization|cookie|secret)["']?\s*[:=]\s*)(["'][^"'\n]*["']|[^\s,}\n]+)''', r'\1"[已遮盖]"', text)
+    text = re.sub(r'''(?i)(["']?(?:password|passwd|token|api[_-]?key|authorization|cookie|secret|submission_flag)["']?\s*[:=]\s*)(["'][^"'\n]*["']|[^\s,}\n]+)''', r'\1"[已遮盖]"', text)
     return text
 
 
@@ -313,73 +336,8 @@ def render_log(text, path):
 
 
 def build(a):
-    folder = case_dir(a["case"])
-    if not exists(a["case"]):
-        raise ValueError("先 wp_init")
-    with locked(folder):
-        rows = verify(folder)
-        metadata = json.loads((folder / "session.json").read_text(encoding="utf-8"))
-        # Each export is independent: a previous image-enabled export must not
-        # leak screenshots into a later export that excludes them.
-        report = folder / "reports" / (datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ-") + uuid.uuid4().hex[:8])
-        images = report / "images"
-        images.mkdir(parents=True, exist_ok=True)
-        lines = ["# " + scrub(metadata["title"]) + " — 中文 WP", "",
-                 "- 题型：" + scrub(metadata["category"]), "- 比赛：" + scrub(metadata["competition"]),
-                 "- 题号：" + a["case"], "- 生成时间：" + datetime.now(timezone.utc).isoformat(),
-                 "- 解题状态：未由记录器判定；成功运行某工具不等于解题成功。", "",
-                 "本文由真实记录生成；思路注释来自 agent，原始证据保留在本地。默认遮盖常见凭据及 flag。", "",
-                 "## 已验证", "", "以下只验证调用、返回内容、退出状态与证据完整性。", ""]
-        generated = []
-        screenshots = 0
-        for event in rows:
-            data, seq = event["data"], event["seq"]
-            if event["kind"] == "call":
-                raw = json.loads((folder / event["files"][0]["path"]).read_text(encoding="utf-8"))
-                response = raw["response"]
-                detail = response.get("result", response)
-                text = "参数：\n" + json.dumps(raw["arguments"], ensure_ascii=False, indent=2)
-                text += "\n实际返回：\n" + json.dumps(detail, ensure_ascii=False, indent=2)
-                state = "成功返回" if response.get("ok") is True else "失败（保留错误，不当作成功）"
-                lines += ["### 步骤 %d：%s" % (seq, scrub(data["tool"])), "",
-                          "时间：%s；状态：%s；耗时：%s ms。" % (event["at"], state, data.get("duration_ms")), "",
-                          fence(text), "", "原始证据 SHA256：`%s`。" % event["files"][0]["sha256"], ""]
-                pic = images / ("%04d-log.png" % seq)
-                if render_log(text, pic):
-                    lines += ["![步骤 %d 的日志渲染图（非屏幕截图）](images/%s)" % (seq, pic.name), ""]
-                    generated.append(file_record(report, pic, "log_render"))
-            elif event["kind"] == "capture":
-                if a.get("include_images") is True:
-                    src = folder / event["files"][0]["path"]
-                    pic = images / ("%04d-capture.png" % seq)
-                    shutil.copyfile(src, pic)
-                    lines += ["### 步骤 %d：%s" % (seq, scrub(data["caption"])), "",
-                              "来源：%s；类型：%s；采集时间：%s。" % (scrub(data["source"]), data["image_kind"], event["at"]), "",
-                              "![%s](images/%s)" % (scrub(data["caption"]).replace("]", ""), pic.name), ""]
-                    generated.append(file_record(report, pic, data["image_kind"]))
-                    screenshots += 1
-                else:
-                    lines += ["步骤 %d 有图片证据，默认不导出。检查像素内容后用 include_images=true 生成包含图片的本地 WP。" % seq, ""]
-            elif event["kind"] == "note" and data["status"] == "observed":
-                lines += ["观察注释（引用步骤 %s，由 agent 编写）：%s" % (data["source_step"], scrub(data["text"])), ""]
-        for heading, kind, fallback in (("未验证", "hypothesis", "尚无单独记录的假设；记录器不验证推理正确性。"),
-                                        ("未完成", "todo", "最终结果与比赛平台验收须另行确认；本工具不解题、不提交答案。")):
-            lines += ["## " + heading, ""]
-            notes = [e["data"]["text"] for e in rows if e["kind"] == "note" and e["data"]["status"] == kind]
-            lines += ["- " + scrub(text) for text in notes] or [fallback]
-            lines += [""]
-        lines += ["## 复现与证据", "", "按上述步骤的工具名和参数重跑，核对 stdout、stderr、退出码及输入摘要。",
-                  "原始记录：../timeline.jsonl 与 ../raw/；它们包含未脱敏数据，留在本地。", "",
-                  "时间线检查通过，共 %d 条；末端摘要 `%s`。" % (len(rows), rows[-1]["sha256"]), "",
-                  "摘要用于发现本地意外修改，不是第三方签名。截图不能自动遮盖像素中的敏感信息。", ""]
-        path = report / "writeup.md"
-        path.write_text("\n".join(lines), encoding="utf-8")
-        generated.append(file_record(report, path, "markdown"))
-        write_json(report / "manifest.json", {"case": a["case"], "timeline_head": rows[-1]["sha256"],
-                   "files": generated, "text_redaction": "best_effort", "images_reviewed": False})
-    return {"case": a["case"], "path": str(path), "records": len(rows), "integrity_verified": True,
-            "images_included": screenshots, "solved_verified": False,
-            "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"}
+    from ctf_wp_export import build as export
+    return export(a)
 
 
 def status(a):
@@ -388,9 +346,12 @@ def status(a):
         rows = verify(folder)
         if not exists(a["case"]):
             raise ValueError("WP 尚未初始化")
+    completed = {e['data'].get('operation_id') for e in rows if e['kind'] == 'call'}
+    pending = [e['data'] for e in rows if e['kind'] == 'operation_started' and e['data']['operation_id'] not in completed]
     return {"case": a["case"], "records": len(rows), "integrity_verified": True,
             "calls": sum(e["kind"] == "call" for e in rows),
-            "captures": sum(e["kind"] == "capture" for e in rows), "solved_verified": False}
+            "captures": sum(e["kind"] == "capture" for e in rows), 'pending_operations': pending,
+            'recorded_assets': sum(max(0, len(e.get('files', []))-1) for e in rows if e['kind']=='call'), "solved_verified": False}
 
 
 CASE = {"case": {"type": "string", "description": "独立题号，1–64 位英文/数字/下划线/连字符"}}
@@ -406,10 +367,12 @@ TOOLS = {
     "wp_note": (note, "补充观察/假设/待办；观察必须引用真实证据步骤", schema({
         "text": {"type": "string"}, "status": {"type": "string", "enum": ["observed", "hypothesis", "todo"]},
         "source_step": {"type": "integer"}}, ["text"])),
-    "wp_capture": (capture, "采集 Kali VM 实际截图或导入客户端提供的 PNG；不生成假截图", schema({
-        "mode": {"type": "string", "enum": ["kali_vm", "file"]}, "file_path": {"type": "string"},
+    "wp_capture": (capture, "采集 Kali VM 或指定 Windows 进程的实际截图，或导入客户端 PNG；不生成假截图", schema({
+        "mode": {"type": "string", "enum": ["kali_vm", "windows_window", "file"]}, "file_path": {"type": "string"},
+        'process_id': {'type': 'integer'},
         "source": {"type": "string"}, "caption": {"type": "string"}})),
     "wp_build": (build, "验证证据并生成中文 WP，默认不导出截图；不判定解题成功", schema({
-        "include_images": {"type": "boolean", "default": False}})),
+        "include_images": {"type": "boolean", "default": False}, 'summary': {'type':'string'},
+        'bundle': {'type':'boolean', 'default':True}, 'private_bundle':{'type':'boolean','default':False}})),
     "wp_status": (status, "验证 WP 时间线及文件摘要并查看采集数量", schema()),
 }

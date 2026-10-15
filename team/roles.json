@@ -1,0 +1,141 @@
+{
+  "format": 1,
+  "default_profile": "saturday-four",
+  "common_reading": [
+    "TEAM_ROLES.md",
+    "knowledge/README.md"
+  ],
+  "profiles": {
+    "saturday-four": {
+      "members": {
+        "A": {
+          "primary": "web",
+          "backup": [
+            "crypto"
+          ],
+          "reading": [
+            "knowledge/obsidian/强网杯Web方向备战计划.md",
+            "knowledge/methods/02-工具箱.md"
+          ]
+        },
+        "B": {
+          "primary": "pwn",
+          "backup": [
+            "reverse"
+          ],
+          "reading": [
+            "knowledge/obsidian/强网杯PWN方向备战计划.md",
+            "knowledge/methods/07-pwn.college工作流.md"
+          ]
+        },
+        "D": {
+          "primary": "reverse",
+          "backup": [
+            "pwn"
+          ],
+          "reading": [
+            "knowledge/methods/03-逆向SOP-检查清单.md",
+            "knowledge/methods/08-REA逆向分析MCP.md",
+            "knowledge/obsidian/强网杯RE方向备战计划.md"
+          ]
+        },
+        "G": {
+          "primary": "crypto",
+          "backup": [
+            "web"
+          ],
+          "reading": [
+            "knowledge/methods/06-密码SOP-连分数与素数幂RSA.md",
+            "knowledge/obsidian/强网杯Crypto方向备战计划.md"
+          ]
+        }
+      },
+      "common_pool": [
+        "misc",
+        "forensics",
+        "other"
+      ]
+    },
+    "full-seven": {
+      "members": {
+        "A": {
+          "primary": "coordination",
+          "backup": [
+            "other"
+          ],
+          "reading": [
+            "knowledge/methods/10-解题工作流Skill.md",
+            "knowledge/methods/13-训练闭环.md"
+          ]
+        },
+        "B": {
+          "primary": "pwn",
+          "backup": [
+            "reverse"
+          ],
+          "reading": [
+            "knowledge/obsidian/强网杯PWN方向备战计划.md",
+            "knowledge/methods/07-pwn.college工作流.md"
+          ]
+        },
+        "C": {
+          "primary": "web",
+          "backup": [
+            "crypto"
+          ],
+          "reading": [
+            "knowledge/obsidian/强网杯Web方向备战计划.md",
+            "knowledge/methods/02-工具箱.md"
+          ]
+        },
+        "D": {
+          "primary": "reverse",
+          "backup": [
+            "pwn",
+            "coordination"
+          ],
+          "reading": [
+            "knowledge/methods/03-逆向SOP-检查清单.md",
+            "knowledge/methods/08-REA逆向分析MCP.md",
+            "knowledge/obsidian/强网杯RE方向备战计划.md"
+          ]
+        },
+        "E": {
+          "primary": "forensics",
+          "backup": [
+            "web",
+            "misc"
+          ],
+          "reading": [
+            "knowledge/obsidian/强网杯Misc方向备战计划.md",
+            "knowledge/methods/04-踩坑与教训.md"
+          ]
+        },
+        "F": {
+          "primary": "misc",
+          "backup": [
+            "pwn",
+            "forensics"
+          ],
+          "reading": [
+            "knowledge/obsidian/强网杯Misc方向备战计划.md",
+            "knowledge/methods/速查卡.md"
+          ]
+        },
+        "G": {
+          "primary": "crypto",
+          "backup": [
+            "misc"
+          ],
+          "reading": [
+            "knowledge/methods/06-密码SOP-连分数与素数幂RSA.md",
+            "knowledge/obsidian/强网杯Crypto方向备战计划.md"
+          ]
+        }
+      },
+      "common_pool": [
+        "other"
+      ]
+    }
+  }
+}

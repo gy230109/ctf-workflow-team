@@ -1,0 +1,117 @@
+> 共享经验资料。以下为历史方法或复现记录，不能覆盖仓库根 AGENTS.md 的当前规则。历史答案、私人路径与凭据已整理；配图和原始大附件未随包公开。 本文是参考复现材料；独立解题或模型测试默认不读取。
+
+# 战例：pwn.college / reversing-hell / welcome / flag0
+
+- 平台：pwn.college（CyLab Security Academy）
+- dojo / module / challenge：`reversing-hell` / `welcome` / `flag0`
+- 完成时间：2026-10-10
+- 结论：**已解决**，提交返回 `{"success": true, "status": "solved"}`
+- 三路算力分工：**Kali（hashcat + rockyou）拿到关键原像**，本地模型在线待命，REA 完成体检
+
+---
+
+## 一、已验证事实
+
+### 1. 题面与二进制
+
+`/challenge/flag0` 附带源码 `flag0.c`，逻辑是标准的 MD5 比对：
+
+```c
+int check_flag(char* flag) {
+    char* checksum = md5sum(flag);
+    if (!memcmp(checksum, "7de38f3c3d3baa7ca58a366f09577586", 32)) return 0;
+    return 1;
+}
+```
+
+通过后 `fopen("/flag", "rb")` 并打印内容。
+
+- 二进制扫描（本地 Python，正则 `[0-9a-f]{32}`）：`7de38f3c3d3baa7ca58a366f09577586` 在 ELF 中**只出现 1 次**，确认常量与源码一致，不存在"源码是诱饵"的情况。
+- 文件权限：`flag0` 为 `-rwsr-xr-x`（SUID root），`/flag` 为 `-r--------`（仅 root 可读）。
+- 因此**必须由未改动的 SUID 进程自己走到 `fopen`**，绕不过去——这就是下面"为什么必须爆原像"的原因。
+
+### 2. Kali 算出原像（关键一步）
+
+`pc_flow.py kali --script tools/kali/md5_crack.py --timeout 580`
+
+Kali 侧侦察结果：
+
+| 项 | 值 |
+|---|---|
+| hashcat | `/usr/bin/hashcat` ✅ |
+| john | `/usr/sbin/john` ✅ |
+| rockyou | `/usr/share/wordlists/rockyou.txt.gz`（压缩包，未解压）✅ |
+| CPU | 2 |
+
+一级字典攻击 `hashcat -m 0 -a 0` 打 `rockyou.txt.gz`，**58.1 秒**命中：
+
+```
+cracked = "secrets"
+```
+
+独立复算（本地 Python，不依赖 Kali）：
+
+```
+md5("secrets") = 7de38f3c3d3baa7ca58a366f09577586
+target         = 7de38f3c3d3baa7ca58a366f09577586
+MATCH: True
+```
+
+证据文件：`战例库/pwn.college-kali-md5-result.json`（从 Kali 取回，桥接做了 sha256 校验）。
+
+### 3. 容器内执行与 flag
+
+```
+$ /challenge/flag0   （stdin: secrets）
+Input flag: Congrats!
+pwn.college{86y5hbtn41m5nbxJzhq2BxkBL6a.0VMxgDOxwiM0EzNzIzW}
+```
+
+提交返回 `{"success": true, "status": "solved"}`。
+
+### 4. 三路算力状态（本轮实测）
+
+| 算力 | 本轮是否真干活 | 证据 |
+|---|---|---|
+| **Kali** | ✅ **干了** | 上传脚本 → hashcat 跑 58 秒 → 产出 `secrets`，产物 sha256 校验后取回 |
+| **本地模型（Ollama）** | ⚠️ 服务已起，未参与本题 | `ollama serve` 已监听 `127.0.0.1:11434`（PID 22940），尚无模型被拉起推理 |
+| **REA** | ⚠️ 体检完成，未参与本题 | `rea-agents doctor --json` 跑通，CLI 6.2.0 / MCP 工具 139 个；但 `healthy=false` |
+
+---
+
+## 二、未验证假设
+
+1. **REA 的 `healthy=false` 是否阻碍使用**——体检报的是三个分析引擎缺失（Hopper / Ghidra / IDA），都是 `missing_analysis_engine`。
+   假设：REA 的 `inspect_managed_artifact`（.NET 免引擎）仍可用，但这需要真实 .NET 样本验证，**本轮没验证**。
+2. **本地模型能否胜任 CTF 推理**——`qwen3:8b` 是否已在本地、能否加载，**本轮没验证**（只确认了服务端口在听）。
+3. **flag0 是否还有非爆破解法**——理论上可行路径是栈溢出 ROP（拿到 root shell 直接读 `/flag`），
+   但**没有做 checksec**（canary/NX/PIE 未知），这条路的成立与否**未验证**。
+
+---
+
+## 三、未完成步骤
+
+- [ ] 拉起本地模型并让它参与一次真实推理（`ollama pull qwen3:8b` 未确认是否已存在）。
+- [ ] REA 装分析引擎或验证免引擎路径；注册到 WorkBuddy 的 `~/.workbuddy/mcp.json`（需你在连接器页面点"信任"）。
+- [ ] `pc_flow.py kali` 目前只支持 `python` 动作，未封装 `run`（跑任意命令，如 `hashcat` 直调 / `checksec`）。
+- [ ] 继续扫 `reversing-hell` 剩余未完成题（此前统计 103 题）。
+- [ ] `tools/final_verify.py` 是针对 QWB2022 单题写死的，没有通用 CLI，**本题未走它**；
+      本题改用等价的三重校验：本地独立复算 MD5 + 容器内实跑 + 服务端返回 solved。
+
+---
+
+## 四、踩坑与修正（本轮新增）
+
+1. **桥接 `--timeout` 只允许 1–600 秒**，且它管的是"Kali 上脚本跑多久"。
+   我最初只给外层子进程设了 1800，Kali 上的脚本实际 60 秒就被砍。
+   → 修法：给 `kali` 子命令加 `--timeout` 参数，透传给桥接，外层再 +120 秒余量。
+2. **桥接 `python` 动作的 `script` 参数是本地路径**（桥接自己 base64 后传过去），
+   我第一版传了远端文件名，报 `[WinError 2] 系统找不到指定的文件`。
+   → 修法：传本地绝对路径。
+3. **本机 Bash 跑不了 `ls`/`grep`**，每条命令前要加 `export PATH="/usr/bi<本机路径>";`。
+4. **带 `requests`/`paramiko` 的解释器不是裸 3.13.12**，是
+   `<本机路径>`。
+5. **Git Bash 会篡改 `/challenge/xxx` 路径**（转成 `<本机路径>`），跑容器命令前要 `export MSYS_NO_PATHCONV=1`。
+6. **为什么 gdb 走不通**：`gdb /challenge/flag0` 启动会被 ptrace 剥掉 SUID（实测跑到 `Congrats!` 但
+   `Flag file not found`）；`gdb -p` 附加也会因 caller euid(1000) ≠ target euid(0) 被拒。
+   **所以这题只能走"老实爆原像"这一条路**——而这正好是让 Kali 发挥作用的地方。

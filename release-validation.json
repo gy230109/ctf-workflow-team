@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "release": "2026.10.16",
+  "verified": {
+    "python_compile": true,
+    "targeted_tests": 28,
+    "actual_cli_upgrade_preserves_private_state": true,
+    "actual_stdio_role": "B -> pwn and verified reading paths",
+    "actual_kali_bridge": true,
+    "actual_wp_export": true,
+    "knowledge_hashes_verified": 73,
+    "final_candidate_cli_migration": true,
+    "private_state_preservation": true,
+    "registered_name_restores_pwn_after_upgrade": true,
+    "public_identity_and_private_path_scan": true,
+    "skill_structure": true,
+    "rust_bridge_source_files": 32
+  },
+  "unverified": [
+    "other teammates machines and client model inference",
+    "all optional third-party dependencies",
+    "full challenge-solving success rate",
+    "whole-machine cold start",
+    "Rust bridge rebuild and GUI integration on receiving machines"
+  ],
+  "unfinished": [
+    "per-machine dependency and challenge readiness checks"
+  ],
+  "scope": "self-built fixture, actual stdio role lookup, actual CLI migration preserving private state, real existing Kali bridge and WP export; no real challenge or model benchmark"
+}

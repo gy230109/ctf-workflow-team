@@ -1,0 +1,589 @@
+{
+  "format": 1,
+  "files": [
+    {
+      "path": "knowledge/methods/00-训练总纲.md",
+      "title": "00 · 训练总纲",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "539cfe607576add30b546252cddeb9833881e6a7dfd928bb8f9699e176b94dff"
+    },
+    {
+      "path": "knowledge/history/01-战例-QWB2022-GameMaster-Blackjack.md",
+      "title": "01 · 战例：QWB2022 GameMaster / Blackjack",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "c9d411e14a5a9b4a36be32ed832c551d8ed1c6a18c4001d3e60e9a35a354c71a"
+    },
+    {
+      "path": "knowledge/methods/02-工具箱.md",
+      "title": "02 · 工具箱",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "8d1e83e7cd556dd18b3c907504c59903eaa9cdf663969511c4eb62acd1fcb158"
+    },
+    {
+      "path": "knowledge/methods/03-逆向SOP-检查清单.md",
+      "title": "03 · 逆向 SOP · 检查清单",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "b66f24ca81e0974ef6499524ddade5ed4cf4c5b83249e9c7df1e346ad2ab1d7f"
+    },
+    {
+      "path": "knowledge/methods/04-踩坑与教训.md",
+      "title": "04 · 踩坑与教训",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "eabe3dc11fc615a73cba9b01de8228dae96e6cb407483cdc4c219d03afac9cb8"
+    },
+    {
+      "path": "knowledge/history/05-环境与Kali协同规划.md",
+      "title": "05 · 环境与 Kali 协同规划",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "82d1a80462a2ba868733412fa15fc370dad0e49c37f976c2fdfa43e765df3e0d"
+    },
+    {
+      "path": "knowledge/methods/06-密码SOP-连分数与素数幂RSA.md",
+      "title": "密码 SOP · 连分数与素数幂 RSA",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "022582fb229590492527661580497446b47d1fea45f53e99d1910a3bd1bb002e"
+    },
+    {
+      "path": "knowledge/methods/07-pwn.college工作流.md",
+      "title": "07 · CyLab Security Academy (pwn.college) 解题工作流",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "7ed968a17ad28af1898138ab6a7e8d6ae1980de03a424a0b86a816ae03731997"
+    },
+    {
+      "path": "knowledge/methods/08-REA逆向分析MCP.md",
+      "title": "08 · REA（`rea-agents`）—— 逆向分析 MCP",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "d126908dace667f6bf8ee80b9620a482b7d0e233b73aca86930f0a39b11f405b"
+    },
+    {
+      "path": "knowledge/history/09-本地模型WhiteRabbitNeo.md",
+      "title": "本地模型：WhiteRabbitNeo V3 7B（Q4_K_M）",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "d3a910628fdd51eed5bc51e2a1baf24a1fd0c3dcbde19ad433b199ee06cded40"
+    },
+    {
+      "path": "knowledge/methods/10-解题工作流Skill.md",
+      "title": "解题工作流 Skill：`ctf-orchestrator`",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "5c93f27a7a15e73a03c69b413bf4f3e85158f49d3ebbc653877ee97521ddf84b"
+    },
+    {
+      "path": "knowledge/history/11-分发与脱敏.md",
+      "title": "11 · 分发包：给别人用的那一版",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "9ca5ff47e24454b248566593b88c7f3b29789ae63e0ff21e2d1b26c96cf47822"
+    },
+    {
+      "path": "knowledge/methods/12-经验库与脚本库.md",
+      "title": "12 · 从「死知识」到「会长大」：经验库 + 脚本库",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "43edb716af7527b11c262a21c2b693e53c8cbd91cf2647ba152d0da910d5171e"
+    },
+    {
+      "path": "knowledge/methods/13-训练闭环.md",
+      "title": "13 · 训练闭环：AI 当教练，不当答案生成器",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "8b72b4e71354c1bbc5f7d1329ea850b68ae6f8748aae9ab2c8dcdd0179df2dcd"
+    },
+    {
+      "path": "knowledge/history/14-本机工具职责与解题调度方案.md",
+      "title": "14 · 本机工具职责与 CTF 解题调度方案",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "26b128c3a9dc1ebed232fd9e728a0a7ee5f4284c1af7941513ca9e40475e5a6f"
+    },
+    {
+      "path": "knowledge/history/15-队友部署包评审.md",
+      "title": "15 - 队友部署包评审：ctf-deploy-bundle.zip",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "3550ca55c8b2cf725857e2d434f3f19a2dc41828349b0cda68d9e4a1e5c9bdb4"
+    },
+    {
+      "path": "knowledge/history/16-Muteki单Pi席位修复与验收.md",
+      "title": "Muteki 单 Pi 席位修复与验收",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "4bb54dbe2174280260fa7f4e74ad30867d0cad850bb19e000f40a5ea5550a77c"
+    },
+    {
+      "path": "knowledge/history/17-同学三Agent方案与本机接入安排.md",
+      "title": "同学三 Agent 方案与本机接入安排",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "acf105f9f19bfe6da27d3ea83d1139fe59f20767053e92b21a0fc6edb0775f04"
+    },
+    {
+      "path": "knowledge/history/18-Codex-Coding2API部署与协同验收.md",
+      "title": "Coding2API 本机部署与三席验收",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "01c64ca1df8dc776030acea5ff5e2abed1900bb4217d4b4e0c11d300f439d674"
+    },
+    {
+      "path": "knowledge/history/19-Kali当前状态与执行职责.md",
+      "title": "Kali 当前状态与执行职责",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "781dae8d7581c4a1a5ffd0f19a3bc1e6a1e29393139502228e516bff40b529f5"
+    },
+    {
+      "path": "knowledge/history/20-Muteki空转探针.md",
+      "title": "20 · Muteki 空转探针（stall probe）",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "ecc3a61cf34d2bd62c64a2f9a0ebff69bbcf7120acd8defdafef4bcaa95444eb"
+    },
+    {
+      "path": "knowledge/history/21-pwncollege与Muteki二合一.md",
+      "title": "21 · pwn.college × Muteki 二合一（半自动闭环）",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "2faf063087af9271bd351b70ad26da8cd709d86f9543b5ac51cae4be4ffb0027"
+    },
+    {
+      "path": "knowledge/history/22-Muteki派单死因与全链路诊断.md",
+      "title": "22 - Muteki 派单死因取证与全链路诊断",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "99878f640f8af201e528e4c5b5c04727fcf8fd41582d98fa1cfb7b1f4f2abe91"
+    },
+    {
+      "path": "knowledge/history/23-Trae接入CTF工具链(MCP).md",
+      "title": "Trae 接入作战工具链（CTF-MCP）· 2026-10-11",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "aced7eff16cc94cd3161a76d0050ebbea426dc661b70fcade257d297f9eff3db"
+    },
+    {
+      "path": "knowledge/history/24-CTF-OS系统对外服务说明.md",
+      "title": "CTF-OS —— 强网杯作战系统，统一对外服务",
+      "kind": "history",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "f5992acff26b6d77e0172360c9623bd91bd9c687d26c31f297cb36abe056b9b9"
+    },
+    {
+      "path": "knowledge/methods/秒题索引.md",
+      "title": "秒题索引 · 识别特征 → 一招解法 → 现成命令",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "28b10bb85f1cf627dd1ff935d914bb9c3e209410c7a9fd0c11db755701b2ed59"
+    },
+    {
+      "path": "knowledge/methods/速查卡.md",
+      "title": "速查卡 · 拿到任何附件先跑这 5 步",
+      "kind": "methods",
+      "source": "local-project",
+      "reference_only": false,
+      "sha256": "30d6ceceeba1e2626e6cca68bc1ef9c68d00ae5cefa248cc19a4d04fc237962d"
+    },
+    {
+      "path": "knowledge/cases/pwn.college-babyrev-level03-04.md",
+      "title": "pwn.college / reversing-hell / babyrev / level03 & level04",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "c7ada055deeaa9a2d1e0c5bc6db3e95cbade31d0a00f989228943130cef9d360"
+    },
+    {
+      "path": "knowledge/cases/pwn.college-babyrev-level05.md",
+      "title": "pwn.college / reversing-hell / babyrev / level05",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "bdfb53f15a3d50566743a62bfd4b24772044f0b58ec0f76eb5aa4e85eafd9416"
+    },
+    {
+      "path": "knowledge/cases/pwn.college-babyrev-level06.md",
+      "title": "pwn.college / reversing-hell / babyrev / level06",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "a98e821f321e3105f2cc9a609b48161388f253f55a3253ff00704b079ae88887"
+    },
+    {
+      "path": "knowledge/cases/pwn.college-babyrev-level07.md",
+      "title": "pwn.college / reversing-hell / babyrev / level07",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "2626a778194ca1a5e3a4f770d2c15af6d584e4f58e51b7184efa9fee83d6ce54"
+    },
+    {
+      "path": "knowledge/cases/pwn.college-babyrev-level08.md",
+      "title": "pwn.college / reversing-hell / babyrev / level08",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "82ad5e34f21e559ead07a4a6340086b305a3870fbbad52cda1cdc3be90ce71c2"
+    },
+    {
+      "path": "knowledge/cases/README.md",
+      "title": "战例库",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "481b88805dbeb87c533e2692eb7af40594516b4a2f1de8b819f837c4727ad0fb"
+    },
+    {
+      "path": "knowledge/cases/AliCTF-Reverse-easyandroid/README.md",
+      "title": "AliCTF · Reverse · easyandroid（native 校验 + Unicorn 模拟）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "8851a941b46a67eedec7a528cf768c7b49372d64cff2e40cd3f04228c269b37d"
+    },
+    {
+      "path": "knowledge/cases/Bugku-Crypto-抄错的字符/README.md",
+      "title": "bugku CTF · Crypto · 抄错的字符",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "ea724d500a3f9e78e82314b5b26b4d66952ed756f685a994422ed7812f39d0ef"
+    },
+    {
+      "path": "knowledge/cases/BUUCTF-Reverse-reverse3/README.md",
+      "title": "BUUCTF · Reverse · reverse_3",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "7ccaf8e5137929d7118a0e26f13cc5e0b67cb5747fa9493556fb465c5884b355"
+    },
+    {
+      "path": "knowledge/cases/CTF-Reverse-bayeeeee/README.md",
+      "title": "CTF · Reverse · bayeeeee（UPX 改壳 + 单字符校验）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "c176eac135d4421c1ab674874d9747c397e22b676d14b59b166b3dbb13c10d2c"
+    },
+    {
+      "path": "knowledge/cases/CTF-Reverse-NoString-XOR9/README.md",
+      "title": "CTF · Reverse · NoString.exe（字符串 XOR 0x09 隐藏 + 已知明文反推）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "9d11b30a3786adc755edce3bb28890e1d8ad24c0e07b854b4a633bb5821ea653"
+    },
+    {
+      "path": "knowledge/cases/CTF-Reverse-工程4-CE点击一万次/README.md",
+      "title": "CTF · Reverse · 工程4.exe（VB6 计数器 + Base58）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "67c1df1986b953de33d1d9de89f8e4d17b375fef2d803c0ff7a78d9eaa33a88d"
+    },
+    {
+      "path": "knowledge/cases/CTF-Reverse-开关灯-ConsoleApplication4/README.md",
+      "title": "CTF · Reverse · ConsoleApplication4.exe（开关灯 Lights Out 环形 + 硬编码数组解密）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "f3a61d872fbc3fc2a6ce61e3aec8c3bd784765d8cf07c21541449070eaf3d0c7"
+    },
+    {
+      "path": "knowledge/cases/CTF-Reverse-特殊的Base64/README.md",
+      "title": "CTF · Reverse · 特殊的Base64",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "74e76a459415db8ba20e53548aa69f210a7fb38b60bc0b9c21f8cec52c2d489b"
+    },
+    {
+      "path": "knowledge/cases/CTF-Reverse-马保国杀毒卫士/README.md",
+      "title": "CTF · Reverse · 马保国杀毒卫士（易语言 + 栅栏密码）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "e3644dbd1b094e2c643c2ebb695c5c0a70ae7ab7f87c197d924cad94bdf87df3"
+    },
+    {
+      "path": "knowledge/cases/DUTCTF-Reverse-re1/README.md",
+      "title": "DUTCTF · Reverse · re1",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "44d6a432d077fdfc56914f4568ab1cf9d858261be4ba4d18356578face67a0bd"
+    },
+    {
+      "path": "knowledge/cases/EasyRsa/EasyRsa.md",
+      "title": "战例：EasyRsa（链式 RSA，共用素因子）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "c5919fe33bac570655f28ae0d53ebcdad6cedb9b636a2db1c8965364bea7fa59"
+    },
+    {
+      "path": "knowledge/cases/Factor-20261010/README.md",
+      "title": "Factor · 连分数与素数幂 RSA",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "6afc207019112aa44ab4ff4922758dd35434665009d66b753b195841e3f16c6f"
+    },
+    {
+      "path": "knowledge/cases/HelloSmali2-Reverse-Digest/README.md",
+      "title": "HelloSmali2 · Reverse · Digest（smali 自定义 Base64）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "fbed4d1f2a80e680f9bb3eb3cdcbabdd305a80482568b796e2fcb40fb1e5e562"
+    },
+    {
+      "path": "knowledge/cases/HTV2020-adobesecretreader/README.md",
+      "title": "HackTheVote 2020 · adobesecretreader",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "d9f119abaff5fd1daf8b52d10cd16b1b59de2ce2505b0cd84bcd2ef9b2103979"
+    },
+    {
+      "path": "knowledge/cases/HTV2020-x96/README.md",
+      "title": "HackTheVote 2020 · x96",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "e7d76ec8eefa8d742bc3f07a760529687781596e3916e4caa76242201b2724d7"
+    },
+    {
+      "path": "knowledge/cases/Muteki席位切换-三席/REPORT.md",
+      "title": "Muteki 席位切换（三席 → 主解题 + 串行复核）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "85a4ecf903986b662259abd6d7a25fb17364cd74bb3cadc2becef3048b995fdd"
+    },
+    {
+      "path": "knowledge/cases/Muteki首跑-EasyRsa/DIAGNOSIS.md",
+      "title": "Muteki 首跑诊断报告（EasyRsa，2026-10-11）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "5f074973da934d165833f86ec57f399f50ee28d2d9de72e456187147498318cd"
+    },
+    {
+      "path": "knowledge/cases/Muteki首跑-EasyRsa/writeup.md",
+      "title": "战例：Muteki 首跑验收 —— EasyRsa（链式 RSA，共用素因子）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "1b2249bece4a65bfa539c883b6c75f95fa9327769797c82c7b3261c143c09d13"
+    },
+    {
+      "path": "knowledge/cases/NJCTF-Reverse-SafeBox/README.md",
+      "title": "NJCTF · Reverse · SafeBox（android）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "a882f63a790f9faa863a094bf99e5f2f6d0143e1f220adf93ae8c89977393120"
+    },
+    {
+      "path": "knowledge/cases/QWB-crackme-task_qwxf/README.md",
+      "title": "强网杯 · 强网先锋 crackme（task_qwxf）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "9d85a3b7f61c8d009e5ba366e2628eab8b02992800235b5feaa4f1bc8981c4dd"
+    },
+    {
+      "path": "knowledge/cases/QWB2021-threebody/README.md",
+      "title": "第五届强网杯 2021 · 三体（ThreeBody）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "a65026a9da8cd205959e30a2e2a4e47017a7f9787b6c3991fbaff0b319ea9bb8"
+    },
+    {
+      "path": "knowledge/cases/QWB2022-GameMaster-Blackjack/README.md",
+      "title": "QWB2022 · GameMaster / Blackjack",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "f1e0d0a792df7d47a1e174601a9fff288921060226098609c600209e85c776ae"
+    },
+    {
+      "path": "knowledge/cases/QWB2023-Crypto-babyrsa/README.md",
+      "title": "强网杯 2023 · Crypto · babyrsa",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "3a9a0c67d406ed13ae97d1bbd99aaef2fee34c35692e621c9026358912b417aa"
+    },
+    {
+      "path": "knowledge/cases/QWB2023-Crypto-not_only_rsa/README.md",
+      "title": "强网杯 2023 · Crypto · not_only_rsa（task1）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "8575c8bad9e35fd4da9bdb7107a8a5e5531a9267f17b5af4cc48393d43d17ea0"
+    },
+    {
+      "path": "knowledge/cases/QWB2023-Reverse-ezre/README.md",
+      "title": "强网杯 2023 七强 · Reverse · ezre",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "4e37583dc480dfc861c3d59e47f654c97aef907081ae3228f07a7e69756cd94b"
+    },
+    {
+      "path": "knowledge/cases/QWB2025-Crypto-check-little/README.md",
+      "title": "强网杯 2025 · Crypto · check-little",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "a37d2d516a5e3a5a56060d8a79eb3c2f4c3fb94bb42aaff7f2c411460c68f708"
+    },
+    {
+      "path": "knowledge/cases/比赛-GameBoy/取证记录-20261011.md",
+      "title": "比赛-GameBoy 取证记录（2026-10-11，最终版）",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "5cb86333d85d315d6060ffbc01d285046b6920b867d7941db5d81719681ed032"
+    },
+    {
+      "path": "knowledge/cases/自出-xxd-png/writeup.md",
+      "title": "xxd.png —— 字节即像素",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "9cf4763897262a5c823accc93c3192964158a42eb351d41fe66b472fe88c1493"
+    },
+    {
+      "path": "knowledge/cases/pwn.college/reversing-hell/babyrev__level02-04.md",
+      "title": "战例：pwn.college / reversing-hell / babyrev / level02–04",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "2765cc3e1a94fe0f32fa138d19b00aeaff992a014ce8da9a112aa42e28eebc87"
+    },
+    {
+      "path": "knowledge/cases/pwn.college/reversing-hell/welcome__flag0.md",
+      "title": "战例：pwn.college / reversing-hell / welcome / flag0",
+      "kind": "cases",
+      "source": "local-project",
+      "reference_only": true,
+      "sha256": "ff07221229544a3b70adb4088df867583acdd971b2010cccd58c23000d1162ae"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯Crypto方向备战计划.md",
+      "title": "强网杯Crypto方向备战计划",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "9a2bfefb93eacebe755e2dbf68d77d3a048aa15ad040ea8c4f33b7157e31808d"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯CTF工具链完整清单.md",
+      "title": "强网杯 CTF 工具链完整清单",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "42bbf7877f555ce5d7b993f0d0b85145818c06a9ecc2c180c563c0a8575a8ff7"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯Misc方向备战计划.md",
+      "title": "强网杯Misc方向备战计划",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "658379fc12be17e9a4093e8f874a3ca9f37106e510f357ad6520ee26ce77e562"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯PWN方向备战计划.md",
+      "title": "强网杯PWN方向备战计划",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "7c650d7f471b99db4d5bf67fae4705d96f6cd149b2b1c8ec488cd9bd751f7145"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯RE方向备战计划.md",
+      "title": "强网杯RE方向备战计划",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "57ee33af435ac20d1d21a830273bd73a90a6aa68e2c6333f368101e369495029"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯Web方向备战计划.md",
+      "title": "强网杯 Web 方向备战计划",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "9f37c8ae71c156cbcafe9639d5cd7685d692bd934218b31d2cc5749961dfe37e"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯大师总索引.md",
+      "title": "强网杯大师 · 总索引",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "1a77d704b1989cde6b6f2c2e57dd295ed9a3ccf5127b0c88b659a71e7b163bf1"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯暑期备战计划.md",
+      "title": "🏆 强网杯暑期备战计划（7月1日 — 10月17日）",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "44b2018afda11e49b7cd6100e9e8c72d52710ddc97929bc33234cdb63f001d05"
+    },
+    {
+      "path": "knowledge/obsidian/强网杯每日任务清单.md",
+      "title": "📋 强网杯每日任务清单（7月1日 — 10月17日）",
+      "kind": "obsidian",
+      "source": "obsidian-parent",
+      "reference_only": false,
+      "sha256": "ba922555e6fe91c7b656dbfb86b6b8921f52ac1624146451eb787823b7e6ed32"
+    },
+    {
+      "path": "knowledge/obsidian/_同步说明.md",
+      "title": "同步说明",
+      "kind": "obsidian",
+      "source": "obsidian-project",
+      "reference_only": false,
+      "sha256": "dcf14a5dbfbeff3827d84413da533302a1c9771be5436d8417150d66bd0c4186"
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+[
+  {
+    "algorithm": "3des",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream key/IV",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "aes",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream AES-128-CBC key/IV",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "affine",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed default multipliers",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "ascii",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "atbash",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "bacon",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "base32",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "base58",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "base64",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "base85",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "beaufort",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed default key",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "binary",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "blowfish",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream key/IV",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "brainfuck",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "caesar",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed shift 3",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "capitalize",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "des",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream key/IV",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "hex",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "hmac_sha256",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream HMAC key",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "html_entity",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "jwt",
+    "modes": [
+      "decode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "length",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "lowercase",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "md5",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "morse",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "pbkdf2",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream salt, 10000 iterations, 32-byte key",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "playfair",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed default key",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "polybius",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed default alphabet",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "railfence",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed default rail count",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "rc4",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed upstream key",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "remove_spaces",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "reverse",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "rot13",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "rot47",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "sha1",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "sha256",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "sha512",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "swap_case",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "trim",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "unicode",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "uppercase",
+    "modes": [
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "url",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "uuencode",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": null,
+    "requires_upstream_defaults": false
+  },
+  {
+    "algorithm": "vigenere",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed key KEY",
+    "requires_upstream_defaults": true
+  },
+  {
+    "algorithm": "xor",
+    "modes": [
+      "decode",
+      "encode"
+    ],
+    "parameter_limit": "fixed key key",
+    "requires_upstream_defaults": true
+  }
+]

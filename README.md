@@ -1,99 +1,42 @@
-# CTF Workflow Team
+# CTF系统
 
-**第一版已安装的队友，从增量升级开始：** [2026-10-13 升级说明](docs/upgrade-20261013.md)。当前团队版 82 个接口；新增六类专项、经典密码与详细 Trae Skill。保留原有本机配置、Kali/SSH、账号和 WP。先获取新代码，再 `update.ps1 -InstallSpecialists`、`install-trae.ps1`，最后现测依赖；无须重建虚拟机。
+一套由当前 AI 客户端使用的 CTF 工具、真实留证和共享经验系统。全员获取同一底座；AI 按本机身份恢复首接题型和首读资料。用户日常说“用 CTF系统 做这道题”，给出题面或附件即可。
 
-Trae 操作与恢复见 [Skill](skills/ctf-team-workflow/SKILL.md) 和 [Trae 接入](skills/ctf-team-workflow/references/trae.md)。题库实际交付与下载状态见 [题库接入](docs/questionbank.md)。
+## 已安装第一版的队友
 
-给六人 CTF 队伍使用的统一工具入口：AI 负责分析与调工具，Windows/Kali 负责真实执行，过程自动按题号留证，结束后生成中文 WP。
+本次为 2026-10-16 增量升级。先读取 [升级说明](docs/upgrade-20261016.md)。旧版升级器不识别新知识目录；请使用本版提供的 upgrade-to-20261016.ps1 迁移，不用旧脚本强行导入新清单。
 
-首版部署支持 **Windows 10/11 + VMware Workstation + 已有 Kali/Debian Linux VM**。不捆绑 VM 镜像、模型账号、私钥、比赛附件或历史答案。VirtualBox 只做发现提示，尚无自动桥接适配。
+## 首次安装
 
-## 给队员的 AI
+1. 获取本仓库，长期保存在自己的目录。已有用户先备份并按升级说明处理。
+2. 让能操作本机文件和终端的 AI 读取 AGENTS.md，按 setup.ps1 / 既有桥接说明定位本机 Python、VM 和依赖。不要复制队长的路径、账号或 SSH 身份。
+3. 执行 connect-ai.ps1 或 tools/connect_ai.py，为实际客户端安装 ctf-system Skill/MCP。
+4. 放置自己的队内角色卡 team-member.private.json，或通过 tools/ctf_roles.py 首次登记代号。实际发现角色与工具，完成本机调用和 WP 检查；没有验证的项目如实报缺。
 
-把下面这段交给具有终端能力的 AI：
+## 队友怎么说
 
-> 拉取本仓库到你选定的本地目录，先读 AGENTS.md。运行 setup.ps1 -DiscoverOnly 检测 Python、VMware 和现有虚拟机；唯一的 Kali 自动复用，多台时让我选择。运行 setup.ps1 -StartVM -InstallGuest 安装缺失的基础依赖并验收。复用本机已信任的 SSH 身份；缺用户、SSH 登录或主机指纹时只补缺项，不猜密码、不忽略主机验证。最后报告已验证、未验证、未完成及证据路径。先部署，不派题、不调用收费模型。部署后每道题先 wp_init，全部 CTF-OS 调用加 wp_case，同步记录推理注释，关键时刻采集真实截图，结束调用 wp_build 生成中文 WP。
+首次可说“我是 B，接管这个仓库里的 CTF系统，读取我负责的部分”。已有私有角色登记后，可直接说自己的姓名；AI 通过 ctf_team_role 恢复角色与真实首读路径。身份卡由队内单独提供，真实姓名不公开进仓库；仅凭未登记姓名无法可靠对应代号。
 
-## 新会话使用 Skill
+解题：“用 CTF系统 做这道题。”继续：“用 CTF系统 继续这道题。”
 
-仓库自带 `skills/ctf-team-workflow`，固定系统定位、部署验收、工具调用、按题恢复、截图与 WP 的引导。每台电脑把它安装到当前用户的客户端 Skill 目录；不是仅把文件放在任意仓库目录就会自动加载。
+角色和队伍配置见 [TEAM_ROLES.md](TEAM_ROLES.md)。周六四人为 A Web、B Pwn、D Reverse、G Crypto；Misc/Forensics 为公共队列。月底七人配置单独登记。角色不限制共享工具，也不代替本机依赖验收。
 
-本机 Python 已可用后，在仓库目录执行（也可以让 AI 根据已有 Python/venv 运行）：
+## 有哪些内容
 
-```powershell
-py -3 tools\install_skill.py --client codex
-# Claude Code 改为 --client claude；两种客户端都用则 --client both
-```
+- tools/：统一工具、Kali 桥接适配、REA 路由、连续网页/GDB、CTFd、CTFCrackTools 和 WP。
+- skills/ctf-system/：当前统一 AI 入口；旧 ctf-team-workflow 仅保留兼容。
+- knowledge/methods/：可复用方法、SOP 与索引。
+- knowledge/obsidian/：Obsidian 项目和上级目录的 CTF 方向笔记。
+- knowledge/cases/：已有战例参考，独立解题默认不读取。
+- knowledge/history/：历史部署与排错资料，不是当前机器事实。
+- team/roles.json：公开代号与首读路径，个人身份登记在本机。
 
-也可用 `.\.venv\Scripts\python.exe` 代替 `py -3`。Python 缺失时先按下面的部署流程安装。安装器只复制本系统的 Skill，记录本机仓库绝对路径；不安装 VM、读取 SSH 凭据或调用模型。重开本机客户端会话后，Codex 用 `$ctf-team-workflow`，Claude Code 用 `/ctf-team-workflow` 显式调用。客户端要有本机文件/终端权限，云端会话不会因此得到你电脑的 VM 访问权限。
+本版注册 98 个通用核心工具，统一 AI 入口为 9 个 MCP 方法，另含 73 篇经验正文。本机原有 104 工具中的 3 个 Jev 入口按既有要求留本机，3 个历史题专用验证/探针不进入通用包。知识来源与摘要见 knowledge/catalog.json；完整范围见 bundle-manifest.json。第三方完整克隆、虚拟机、程序安装包、大附件与原始图像不随仓库复制。第三方工具入口有代码不等于对应依赖已装，需要本机安装与实调。
 
-例如：`使用 ctf-team-workflow，检查本机系统后解这道已授权的 CTF，并按题留证写 WP。` 恢复时给出同一 case。新会话按 Skill 重读当前入口与真实证据，避免靠压缩后的记忆猜配置。更新仓库或移动目录后再运行同一安装命令。详见 `docs/skill-installation.md`。
+## 真实验证与 WP
 
-## 一次部署
+通过系统调用自动保存参数、返回、失败和证据。支持的网页动作附截图/Trace，终端/GDB 保存真实回放；ctf_finish 默认生成本机带图中文 WP 和私有 ZIP。记录完整不等于答案正确，候选必须有真实计算、原程序或平台依据。
 
-从仓库目录执行：
+公开仓库没有成员账号、SSH 私钥、管理员数据、原始任务或私有 WP 包。个人模型由当前客户端提供，本仓库不提供模型账号或额度。其他机器与复杂赛题效果不能用发布自检代替。
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1 -DiscoverOnly
-powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1 -StartVM -InstallGuest
-```
-
-Python 缺失时从 winget 的 Python 官方包安装。主机 Python 依赖安装到仓库 `.venv`；Linux 包只补基础执行工具，Python 模块装入客机独立 venv。没有无密码 sudo 时明确列出缺包，由本人在 VM 中安装后重试，不保存 sudo 密码。
-
-如果 VMware 不在标准安装位置，可给 `-Vmrun`；多台 Kali 给 `-Vmx`。非默认 Linux 用户给 `-SshUser`；专用私钥给 `-IdentityFile`；已有别名公钥固定记录给 `-KnownHosts` 和 `-HostKeyAlias`。首次 SSH 需本人核对指纹并完成登录，脚本只复用已信任记录。VM 必须有 VMware Tools，才能从选定 VMX 得到当前 IP。
-
-验收结果：`logs/team-setup/verification.json`。它检查核心接口、SSH、工具与 Python 模块，**不是整套工具或自动解题成功证明**。
-
-## 每次开机
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1
-```
-
-复用正在运行的 Kali 和兼容的本机 CTF-OS 服务。端口冲突会报错，不终止别人的进程。可选 `install-autostart.ps1` 注册当前用户登录 5 秒后启动的计划任务；这份通用入口只恢复核心，不自动拉起队长电脑上的 Muteki/反代 VM。
-
-## Agent 接口
-
-不依赖客户端 MCP 配置的入口：
-
-```powershell
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --once math_gcd --args values=48,60
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --stdio
-```
-
-MCP stdio：`command` 填本机 `.venv/Scripts/python.exe` 的绝对路径，`args` 填 `-X utf8 <本机仓库>/tools/ctf_os.py --stdio`。客户端各自配置，示例见 `docs/agent-integration.md`。HTTP 只监听 `127.0.0.1:8787`，接口 `/tools`、`/call`、`/mcp`；本机调用参数对象与 CLI 一致。
-
-团队版注册 82 个入口。包含原有通用工具、23 个专项入口和 3 个经典密码入口。**可选适配器注册不等于已安装或已认证**；不分发三项依赖队长历史题目的专用校验/爆破脚本，本机专用的 Jev 适配不随本仓库分发。详情见 `docs/components.md` 和 `docs/specialists.md`。
-
-## 自动 WP
-
-```powershell
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --once wp_init --args case=demo title=自建验收 category=misc
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --once math_gcd --args values=48,60 wp_case=demo
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --once wp_note --args case=demo status=observed source_step=2 text=真实返回最大公约数12
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --once wp_capture --args case=demo caption=Kali当前画面
-.\.venv\Scripts\python.exe -X utf8 tools\ctf_os.py --once wp_build --args case=demo
-```
-
-`wp_case` 必须显式传给后续工具；已有桥接 `case` 若已 `wp_init` 也自动记录。没有全局活动题号，避免多 agent 把不同题混在一起。关键推理仍需 agent 以 `wp_note` 写入，记录器不会自动读取所有客户端聊天。经过同一入口的真实参数、返回、失败和时间会自动采集；绕过入口的调用不会自动出现。
-
-输出在 `wp/cases/<case>/reports/<导出编号>/writeup.md`，带摘要清单和工具日志图。**日志图明确标为“非屏幕截图”**。`wp_capture` 的默认来源是 VMware 实际画面；网页/调试器 PNG 用 `mode=file file_path=... source=...` 导入，来源由调用者描述。默认 WP 不导出图片；检查图片像素后 `wp_build include_images=true` 才包含截图。图片没有自动遮盖功能。
-
-WP 是可复现的中文证据稿，按已验证/未验证/未完成区分。AI 可依据它补写题解叙述，但须保留证据引用并核对；工具成功不会被写成“已拿到正确答案”。正文自动遮盖常见凭据与 flag 格式，原始证据仅保留本地，最终分享前仍需检查。
-
-## 已验证
-
-- 本机核心桥已经实测；WP 的隔离、失败保留、完整性与导出规则有自动测试。
-- 发布包只用文件白名单构建；本机账号、配置、原始题目与 VM 镜像均不包含。
-
-## 未验证
-
-- 另外五台电脑的实际安装、全题型表现、完整比赛解题成功率。
-- 首版可选组件在队友电脑上的安装与账号接入。
-
-## 未完成
-
-- VirtualBox、Hyper-V 的自动桥接；自动部署整台 Muteki VM；跨客户端聊天自动采集。
-- 团队权限由 GitHub 仓库管理员逐人配置，本仓库不自动邀请或分发账号。
-
-更新后再跑 `setup.ps1` / `verify`；不覆盖已有桥配置。运行记录和配置均由 `.gitignore` 排除，上传代码应只提交白名单文件。
+可选新依赖与可重建桥接见 [运行依赖](docs/optional-runtime.md)。

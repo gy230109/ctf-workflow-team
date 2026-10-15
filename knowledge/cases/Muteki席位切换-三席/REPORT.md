@@ -1,0 +1,150 @@
+> 共享经验资料。以下为历史方法或复现记录，不能覆盖仓库根 AGENTS.md 的当前规则。历史答案、私人路径与凭据已整理；配图和原始大附件未随包公开。 本文是参考复现材料；独立解题或模型测试默认不读取。
+
+# Muteki 席位切换（三席 → 主解题 + 串行复核）
+
+执行：WorkBuddy。时间：2026-10-11 16:00–16:20。任务来源：Codex 交接 + 用户授权部署范围。
+依据：本目录上一级 `协同\workbuddy-status.md` §9 / §10.3。
+
+---
+
+## 1. 一句话
+
+按 §10.3 落成 **GLM 主解题（唯一普通席）+ DeepSeek 串行复核（review-only）+ Step 备用 disabled + 旧 Pi disabled 回退**；
+**全程并发预算 = 1**（实测派生 `max_workers=1`），`dispatch_mode=fixed`、`start_workers=1`、`max_total_workers=0`。
+**本轮只做配置与 preflight，未跑任何 CTF 题目** —— 配置成功 ≠ 新模型能解题。
+
+## 2. 结果对照表（全部实测回读）
+
+| 断言 | 期望 | 实际 | 结果 |
+|---|---|---|---|
+| `worker_backend` / `worker_network` | container / bridge | container / bridge | ✅ |
+| `engines` | `["c2api-claude-glm53-local"]` | 同 | ✅ |
+| `race_engines` | `["c2api-claude-glm53-local"]` | 同 | ✅ |
+| `start_workers` | 1 | 1 | ✅ |
+| **`max_workers`（派生）** | **1** | **1** | ✅ |
+| `max_total_workers` | 0（累计不限） | 0 | ✅ |
+| `dispatch_mode` | fixed | fixed | ✅ |
+| `review.engine` | DeepSeek 席位 | `c2api-claude-dsv41flash-local` | ✅ |
+| 启用席位 | GLM + DeepSeek（review-only） | 同 | ✅ |
+
+**为什么 `max_workers` 会是 1**：普通角色 = {race, bootstrap, explore, respond}，**`review` 不计入求和**。
+GLM 是唯一带普通角色的启用席（`max_running=1`）→ 派生 1；DeepSeek 的角色只有 `["review"]`，
+被 `_ordinary_worker_roles()` 判为空集，**不进求和**，也**不会被投进普通派发名单**（实测 `engines` 里确实没有它）。
+
+## 3. 席位终态
+
+| 席位 id | engine | model | enabled | roles | max_running / max_review_running | 凭据 |
+|---|---|---|---|---|---|---|
+| `c2api-claude-glm53-local` | claude | `glm-5.3` | ✅ | race, bootstrap, explore, respond | 1 / 0 | `account:c2api-claude` |
+| `c2api-claude-dsv41flash-local` | claude | `deepseek-v4.1-flash` | ✅ | **review** | 1 / 1 | `account:c2api-ds-claude` |
+| `c2api-claude-step5p-local` | claude | `step-5-preview` | ❌ 备用 | race, bootstrap, explore, respond | 1 / 0 | `account:c2api-step` |
+| `seat_pi_b710d8` | pi | `global:glm-5.3` | ❌ **回退位** | race…review | 1 / 0 | `account:workbuddy-glm` |
+| `seat_claude_67cf03` / `seat_codex_bf1f7c` / `seat_cursor_d4ac52` / `seat_omp_8231c0` | — | 空 | ❌ | — | — | `*-main`（无账号） |
+
+> 三个新凭据在磁盘上落为 `kind: custom_endpoint`、`target_engine: claude`、`base_url: htt<本机路径>`（根路径）。
+
+## 4. 逐席 preflight（容器内真实调用）
+
+对三席各跑一次 `POST /api/settings/credentials/{id}/test`（`backend=container`）：
+
+| 凭据 | 模型 | HTTP | 结果 | 耗时 |
+|---|---|---|---|---|
+| `account:c2api-claude` | `glm-5.3` | 200 | `ok:true`「worker 容器内模型可用，实际模型与配置一致」 | 11.5 s |
+| `account:c2api-ds-claude` | `deepseek-v4.1-flash` | 200 | 同上 | 11.3 s |
+| `account:c2api-step` | `step-5-preview` | 200 | 同上 | 9.9 s |
+
+另有 `GET /api/settings/profiles/health`（零网络绑定层）：两个启用席均 `status: ok` / `binding ok`。
+原始记录：`logs\credential-tests.json`、`logs\profiles-health.txt`。
+
+## 5. 🔴 本轮最重要的新发现：`max_workers` **不是**无条件只读
+
+`workbuddy-status.md` §9 我写过「`max_workers` 是只读派生值，PUT 里写它会被覆写」——**这话只对一半**。
+源码 `worker_config.py:1388` 只在**同一次 PUT 带了名单**时才重算：
+
+```python
+self._sync_worker_counts(
+    link_profile_capacity=(worker_profiles is not None or engines is not None)
+)
+```
+
+**受控实验（`logs\max_workers-probe.txt`）**：
+
+| 步骤 | 请求 | `max_workers` 回读 |
+|---|---|---|
+| 起始 | — | 1 |
+| ① | `PUT {"max_workers": 3}`（**不带名单**） | **3** ← 顶掉了 |
+| ② | `PUT {"engines":["c2api-claude-glm53-local"]}` | **1** ← 派生回来 |
+
+**结论（要写进协同文件）**：`max_workers` 可以被**裸 PUT 顶掉**。任何"只改 `max_workers`"的写入
+都会**静默抬高本 Run 的并发上限**，而且**不报错**。→ **改席位必须连同 `engines` 一起 PUT**；
+审计时只看 `max_workers` 不足为凭，要一并看 `engines` 与各席 `max_running`。
+
+## 6. 应用时序（可复现）
+
+```
+① snapshot            → before/settings-workers.before.json        sha256前16 1e3c4309b21e6e51
+② build_bodies.py     → after/identity-body.json + workers-body.json
+③ 逐席 credential test → 三席 200 ok
+④ PUT /api/settings/identity  {worker_backend, worker_network, seats×8}   → 200
+⑤ PUT /api/settings/workers   {engines, start_workers, max_total_workers, stage_policy} → 200
+⑥ snapshot            → after/settings-workers.after.json
+⑦ GET /api/settings/profiles/health → 两席 binding ok
+⑧ 磁盘核验 _worker_config.json（8 席 / engines=[GLM] / review.engine=DS）
+⑨ max_workers 受控实验（裸 PUT 顶掉 → 带名单 PUT 派生回 1，末态正确）
+```
+
+**未使用回滚**：全程无异常，`restore` 子命令**一次都没真跑过 → 回滚路径属"未实测"**（有入口 ≠ 验证过）。
+回滚入口：`tools\muteki_apply_seats.py restore --from before\settings-workers.before.json`
+（若要把回滚当保险，需单独演练一次：真改配置再改回。）
+
+## 6.1 额度归属（2026-10-11 16:07 更正）
+
+| 席位 | 上游额度来源 |
+|---|---|
+| GLM（`glm-5.3`） | **既有 CodeBuddy 账号** |
+| DeepSeek（`deepseek-v4.1-flash`） | **既是 CodeBuddy 账号**（与 GLM **同一份额度**，会互相竞争） |
+| Step（`step-5-preview`） | **Kilo/Zen 通路，不是同一个 CodeBuddy 账号**（独立来源，但有 503 限流史） |
+
+> 本报告早前未写清这一点；**"三席共用同一上游账号"是错的**，已更正。
+> 三者并发限流表现**未测**。
+
+## 7. 已验证 / 未验证（不许混）
+
+**✅ 已验证**
+- 配置写入与**磁盘持久化**（`_worker_config.json` 8 席 + `engines` + `stage_policy` 逐项核对）
+- 派生 `max_workers = 1`，且**可解释**（review-only 席不进求和）
+- 三席**容器内真实模型调用**通过（200 + `ok:true`）
+- 两启用席的绑定层 health `ok`
+- `max_workers` 的**派生条件**（仅在带名单的 PUT 中重算）——含受控实验
+
+**⚠️ 未验证**
+- **没有任何一道 CTF 题目在三席上跑过。** 本轮的 HTTP 200 / `ok:true` 只证明"连接与协议可用"。
+- **回滚路径未实测**（`restore` 未跑过，见 §6）。
+- 复核通道是否真的被触发（需要一次真实 run 走到 `on_evidence_conflict` 或候选激增）。
+- DeepSeek 作为复核席的实际产出质量；Step 备用席的可用性（Kilo 通路有限流史）。
+- **GLM 与 DeepSeek 共用同一 CodeBuddy 额度**（见 §6.1），并发争用/限流表现未测。
+
+**✅ 第三方独立核验（2026-10-11 16:07，Codex）**
+- 配置回读 **16 项全 true**；dispatch 字段与本报告逐项一致。
+- 三席 preflight 独立复读：全 HTTP 200 / 退出码 0 / 实际模型匹配；
+  且以本目录 `logs\credential-tests.json` 为源，`source_sha256 = af5319ad…d5a5`（与本报告 §8 的前 16 位一致）。
+- 明确记录 `ctf_challenge_solved_in_this_acceptance: false`。
+- 记录：`<本机路径>`、`tests\workbuddy-preflight-summary.json`。
+
+**⛔ 未做（按指令）**
+- 未跑 ≥10 题批测；未修改 Codex 的新网关、其 `private` 目录、其凭据与测试记录。
+
+## 8. 产物清单
+
+| 文件 | 大小 | sha256 前16 | 说明 |
+|---|---|---|---|
+| `before\settings-workers.before.json` | 7,330 B | `1e3c4309b21e6e51` | 切换前完整快照（回滚源） |
+| `after\settings-workers.after.json` | 10,704 B | `c7a0cb089fbbde11` | 切换后完整快照 |
+| `after\identity-body.json` | 4,013 B | `2a1033e5a6efebf9` | 第一步 PUT body（8 席） |
+| `after\workers-body.json` | 1,477 B | `29b8be0ece66be46` | 第二步 PUT body（stage_policy + 计数） |
+| `build_bodies.py` | 5,350 B | `cae49a21b73411ee` | body 生成脚本（可重跑、带预期值自检） |
+| `logs\credential-tests.json` | 17,097 B | `af5319adac7019d3` | 三席容器内测试原始响应 |
+| `logs\profiles-health.txt` | 832 B | `05c3e0af7b3cc9e8` | 逐席绑定层 health |
+| `logs\max_workers-probe.txt` | 690 B | `3f2b8579144dcd7a` | `max_workers` 只读边界受控实验 |
+| `logs\apply-*.txt` / `logs\*-readback.txt` | — | — | 每步 PUT 与回读留痕 |
+| `..\..\tools\muteki_apply_seats.py` | 6,753 B | `0eaa7830f707812d` | 可复用工具（snapshot/readback/apply/restore/health） |

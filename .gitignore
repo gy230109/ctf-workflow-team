@@ -9,7 +9,7 @@ bridge/config/known_hosts
 bridge/cases/
 logs/
 wp/cases/
-references/
+/references/
 题目库/
 战例库/
 *.key
@@ -17,6 +17,10 @@ references/
 .env
 .env.*
 !.env.example
+team-member.private.json
+*.private.json
+team/identity*
+tools/cracktools_bridge/target/
 ctf-questionbank/attachments/
 ctf-questionbank/downloads/
 ctf-questionbank/runtime/

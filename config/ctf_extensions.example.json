@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "crypto_library": "/home/REPLACE_USER/ctf-workbench/references/crypto-attacks",
+  "crypto_commit": "NOT_INSTALLED",
+  "zsteg_binary": "/usr/local/bin/zsteg",
+  "pwndbg_binary": "/usr/bin/gdb-multiarch",
+  "session_memory_mb": 768,
+  "sysroots": {}
+}

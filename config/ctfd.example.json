@@ -1,0 +1,5 @@
+{
+  "enabled": false,
+  "base_url": "http://127.0.0.1:8800",
+  "player_credential_file": ".local/ctfd-player.json"
+}
