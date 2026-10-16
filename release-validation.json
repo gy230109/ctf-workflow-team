@@ -1,27 +1,40 @@
 {
   "ok": true,
-  "release": "2026.10.16",
+  "release": "2026.10.16-pcap-health",
   "verified": {
     "python_compile": true,
-    "targeted_tests": 28,
+    "targeted_tests": 55,
     "actual_cli_upgrade_preserves_private_state": true,
     "actual_stdio_role": "B -> pwn and verified reading paths",
     "actual_kali_bridge": true,
     "actual_wp_export": true,
     "knowledge_hashes_verified": 73,
-    "final_candidate_cli_migration": true,
-    "private_state_preservation": true,
-    "registered_name_restores_pwn_after_upgrade": true,
-    "public_identity_and_private_path_scan": true,
-    "skill_structure": true,
-    "rust_bridge_source_files": 32
+    "windows_unit_checks": {
+      "run": 55,
+      "passed": 54,
+      "skipped_linux_specific": 1
+    },
+    "kali_export_budget_checks": {
+      "run": 9,
+      "passed": 9,
+      "includes_real_process_termination": true
+    },
+    "portable_pcap_without_extensions_config": true,
+    "portable_required_artifact_sha256_and_wp": true,
+    "noobctf_fresh_install_and_idempotency": {
+      "indexed_files": 626,
+      "sections": 2399,
+      "pinned_commit": "0d9d8721f1c86f6529363fc63a6b915a1073ff77"
+    },
+    "ctf_system_skill_validated": true,
+    "public_private_path_scan": true
   },
   "unverified": [
     "other teammates machines and client model inference",
     "all optional third-party dependencies",
     "full challenge-solving success rate",
     "whole-machine cold start",
-    "Rust bridge rebuild and GUI integration on receiving machines"
+    "HTTP export budgets are sampled at 100 ms; they are not a filesystem hard quota"
   ],
   "unfinished": [
     "per-machine dependency and challenge readiness checks"

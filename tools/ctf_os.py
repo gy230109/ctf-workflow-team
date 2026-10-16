@@ -31,6 +31,8 @@ import ctf_x64dbg as windows_debug
 import ctf_rea as rea
 import ctf_wp as writeup
 import ctf_version
+import ctf_pcap
+import ctf_task_health
 
 # Specialist execution reuses this computer's verified Kali bridge.
 try:
@@ -559,6 +561,8 @@ ALL_TOOLS.update(SEC_TOOLS)
 ALL_TOOLS.update({k:v for k,v in SCRIPT_TOOLS.items() if k == "muteki_run_forensics"})
 ALL_TOOLS.update(PC_TOOLS)
 ALL_TOOLS.update(knowledge.TOOLS)
+ALL_TOOLS.update(ctf_pcap.TOOLS)
+ALL_TOOLS.update(ctf_task_health.TOOLS)
 ALL_TOOLS.update(cryptanalysis.TOOLS)
 ALL_TOOLS.update(windows_debug.TOOLS)
 ALL_TOOLS.update(rea.TOOLS)
@@ -579,6 +583,7 @@ for _tool_name, (_fn, _desc, _schema) in ALL_TOOLS.items():
             "type": "string", "description": "先 wp_init；此调用自动记入指定题号的 WP"}
         _schema['properties']['wp_purpose'] = {'type':'string','description':'这一步的行动目的，自动写入 WP'}
         _schema['properties']['wp_expectation'] = {'type':'string','description':'预期检查的现象或条件；不是已验证结论'}
+        _schema['properties']['wp_repeat_expected'] = {'type':'boolean','description':'本次为有意复查，不缓存或跳过执行'}
 
 # 危险工具：派单/远程执行/爆破扫描 —— 这些会烧钱、改配置或对外发包
 DANGEROUS = {"muteki_dispatch", "kali_run",
@@ -648,12 +653,15 @@ def call_tool(name, args):
             operation = writeup.begin_call(wp_case, name, args)
         except (ValueError, RuntimeError, OSError) as exc:
             return {'ok':False,'tool':name,'error':str(exc),'error_code':'wp_preflight_failed'}
-    execution_args = {key:value for key,value in (args or {}).items() if key not in ('wp_purpose','wp_expectation')}
+    execution_args = {key:value for key,value in (args or {}).items() if key not in ('wp_purpose','wp_expectation','wp_repeat_expected')}
     result = _call_tool(name, execution_args)
     if operation:
         result['wp_operation'] = operation
     result.setdefault("tool", name)
     result["duration_ms"] = round((time.monotonic() - started) * 1000, 1)
+    if wp_case:
+        try:result['task_health']=ctf_task_health.observe(wp_case,name,args,result)
+        except Exception as exc:result['task_health_error']=str(exc)
     call_id = "%d-%s" % (time.time_ns(), secrets.token_hex(4))
     try:
         path = GM_BASE / "logs" / "calls" / (call_id + ".json")

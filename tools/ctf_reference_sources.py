@@ -15,13 +15,15 @@ SOURCES = {
                     "role": "tool_directory", "license": "CC0-1.0", "reference_only": False},
     "crypto-cat": {"directory": "crypto-cat-ctf", "url": "https://github.com/Crypto-Cat/CTF",
                    "role": "reference_cases", "license": None, "reference_only": True},
+    "noobctf": {"directory":"noobctf", "url":"https://github.com/Lo4pca/NoobCTF",
+                "role":"reference_cases", "license":"CC0-1.0", "reference_only":True},
 }
 TEXT_SUFFIXES = {".md", ".py", ".sage", ".txt", ".c", ".cpp", ".h", ".js", ".sh"}
 
 
 def locations(source):
     if source not in SOURCES:
-        raise ValueError("source 必须为 hacktricks、awesome-ctf 或 crypto-cat")
+        raise ValueError("source 必须为 hacktricks、awesome-ctf、crypto-cat 或 noobctf")
     spec = SOURCES[source]
     return spec, BASE / "references" / spec["directory"], BASE / "references/indexes" / (source + ".sqlite3")
 
@@ -40,6 +42,19 @@ def _open(index):
     connection = sqlite3.connect(index.resolve().as_uri() + "?mode=ro", uri=True, timeout=5)
     connection.row_factory = sqlite3.Row
     return connection
+
+
+def source_bytes(repo, relative):
+    path=repo/relative
+    if path.is_file():
+        if not path.resolve().is_relative_to(repo.resolve()) or path.stat().st_size>524288:
+            raise ValueError('outside source or larger than 512 KiB')
+        return path.read_bytes()
+    # Some upstream names contain ? or other characters Windows cannot create.
+    # Read the tracked Git object without renaming the source or running scripts.
+    result=subprocess.run(['git','-C',str(repo),'show','HEAD:'+relative],capture_output=True,timeout=30)
+    if result.returncode or len(result.stdout)>524288:raise ValueError('source blob unavailable or larger than 512 KiB')
+    return result.stdout
 
 
 def _metadata(connection):
@@ -69,12 +84,20 @@ def build(source):
     spec, repo, index = locations(source)
     if not (repo / ".git").exists():
         raise ValueError("参考 Git 仓库尚未拉取：" + str(repo))
-    if _git(repo, "status", "--porcelain", "--untracked-files=no"):
+    if source!='noobctf' and _git(repo, "status", "--porcelain", "--untracked-files=no"):
         raise ValueError("参考仓库有本地修改，不能标注为上游固定提交")
     commit = _git(repo, "rev-parse", "HEAD")
     tracked = _git(repo, "ls-tree", "-r", "--name-only", "HEAD").splitlines()
     selected = [p for p in tracked if p == "README.md"] if source == "awesome-ctf" else [
-        p for p in tracked if Path(p).suffix.lower() in TEXT_SUFFIXES]
+        p for p in tracked if Path(p).suffix.lower() in TEXT_SUFFIXES and
+        (source!='noobctf' or p.startswith(('CTF/','笔记/')) or p=='README.md')]
+    blobs={}
+    if source=='noobctf':
+        batch=subprocess.run(['git','-C',str(repo),'cat-file','--batch'],input=''.join('HEAD:'+p+'\n' for p in selected).encode(),capture_output=True,timeout=90,check=True).stdout
+        offset=0
+        for p in selected:
+            end=batch.index(b'\n',offset);header=batch[offset:end].split();size=int(header[-1]);offset=end+1
+            blobs[p]=batch[offset:offset+size];offset+=size+1
     index.parent.mkdir(parents=True, exist_ok=True)
     temporary = index.with_name(index.name + ".%d.tmp" % os.getpid())
     files, chunks, excluded = 0, 0, []
@@ -88,9 +111,10 @@ def build(source):
             for relative in sorted(selected):
                 path = (repo / relative).resolve()
                 try:
-                    if not path.is_relative_to(repo.resolve()) or path.stat().st_size > 524288:
+                    if not path.is_relative_to(repo.resolve()):
                         raise ValueError("outside source or larger than 512 KiB")
-                    raw = path.read_bytes()
+                    raw = blobs[relative] if source=='noobctf' else source_bytes(repo,relative)
+                    if len(raw)>524288:raise ValueError('larger than 512 KiB')
                     if b"\0" in raw:
                         raise ValueError("binary content")
                     lines = raw.decode("utf-8-sig").splitlines()
@@ -105,7 +129,7 @@ def build(source):
                         connection.execute("INSERT INTO sections(path,title,heading,start_line,end_line,file_sha256,body) VALUES(?,?,?,?,?,?,?)",
                                            (relative, title, heading, first, last, digest, body))
                         chunks += 1
-            if _git(repo, "status", "--porcelain", "--untracked-files=no") or _git(repo, "rev-parse", "HEAD") != commit:
+            if (source!='noobctf' and _git(repo, "status", "--porcelain", "--untracked-files=no")) or _git(repo, "rev-parse", "HEAD") != commit:
                 raise ValueError("参考仓库在建立索引时发生改变")
             meta = {"source": source, "repo_url": spec["url"], "commit": commit,
                     "built_at": datetime.now(timezone.utc).isoformat(), "tracked_files": len(tracked),
@@ -113,6 +137,7 @@ def build(source):
                     "excluded_files": excluded, "role": spec["role"], "license": spec["license"],
                     "reference_only": spec["reference_only"], "trusted_instructions": False,
                     "retrieval": "local_keyword_fts5", "executes_source": False}
+            if source=='noobctf':meta['source_storage']='tracked Git objects; Windows-incompatible names supported; working tree ignored'
             connection.execute("INSERT INTO metadata VALUES('build',?)", (json.dumps(meta, ensure_ascii=False),))
             connection.execute("INSERT INTO search(search) VALUES('rebuild')")
             connection.execute("INSERT INTO search(search) VALUES('integrity-check')")
@@ -130,7 +155,7 @@ def _authorize(args):
     source = args.get("source")
     spec, repo, index = locations(source)
     if spec["reference_only"] and args.get("allow_reference") is not True:
-        raise ValueError("Crypto-Cat 含题解/solver，独立解题和测评输入默认隔离；仅查阅参考案例时显式设置 allow_reference=true")
+        raise ValueError(source+" 含题解/solver，独立解题和测评输入默认隔离；仅查阅参考案例时显式设置 allow_reference=true")
     return source, spec, repo, index
 
 
@@ -171,7 +196,7 @@ def search(args):
             break
     return {"query": args["query"], "source": source, "normalized_terms": terms, "match_mode": mode,
             "count": len(matches), "matches": matches, "trusted_instructions": False,
-            "usage": "kb_read 需携带同一 source/path；Crypto-Cat 还需 allow_reference=true。检索命中不代表工具已安装、脚本已运行或答案已验证。"}
+            "usage": "kb_read 需携带同一 source/path；参考题解库还需 allow_reference=true。检索命中不代表工具已安装、脚本已运行或答案已验证。"}
 
 
 def read(args):
@@ -180,7 +205,7 @@ def read(args):
     if not isinstance(relative, str):
         raise ValueError("path 必须为检索返回的相对路径")
     path = (repo / relative).resolve()
-    if not path.is_relative_to(repo.resolve()) or not path.is_file():
+    if not path.is_relative_to(repo.resolve()):
         raise ValueError("只允许读取本 source 已收录的文本")
     relative = path.relative_to(repo.resolve()).as_posix()
     first, count = int(args.get("start_line", 1)), int(args.get("lines", 80))
@@ -194,9 +219,10 @@ def read(args):
             raise ValueError("该文件未收录到文本索引")
     finally:
         connection.close()
-    if path.stat().st_size > 524288:
-        raise ValueError("原文已改变或超过读取大小限制")
-    raw = path.read_bytes()
+    if source=='noobctf':
+        raw=subprocess.run(['git','-C',str(repo),'show',meta['commit']+':'+relative],capture_output=True,timeout=30,check=True).stdout
+        if len(raw)>524288:raise ValueError('source blob exceeds 512 KiB')
+    else:raw = source_bytes(repo,relative)
     if hashlib.sha256(raw).hexdigest() != row["file_sha256"]:
         raise ValueError("原文已改变，请重建对应 source 索引")
     lines = raw.decode("utf-8-sig").splitlines()

@@ -59,6 +59,10 @@ def build(a):
                 target=report/'scripts'/source.name;target.parent.mkdir(exist_ok=True)
                 shutil.copyfile(source,target);generated.append(wp.file_record(report,target,kind))
                 lines.extend(['实际工具输入脚本快照：[%s](scripts/%s)。'%(wp.scrub(item.get('original_name',source.name)),target.name),''])
+            elif kind=='data_export' and private:
+                target=report/'data'/source.name;target.parent.mkdir(exist_ok=True)
+                shutil.copyfile(source,target);generated.append(wp.file_record(report,target,kind))
+                lines.extend(['实际工具导出数据：[%s](data/%s)。'%(wp.scrub(item.get('original_name',source.name)),target.name),''])
 
         for event in rows:
             data, seq=event['data'],event['seq']

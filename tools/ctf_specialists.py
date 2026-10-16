@@ -31,8 +31,8 @@ PROFILES={
         "tools":["misc_file_inspect","misc_archive_list","misc_image_inspect"],
         "route":["核对原附件摘要、魔数与字符串","只列压缩包内容，不自动解压","检查图片元数据与格式尾部","按实际特征决定下一种隐写/编码方法"]},
  "forensics":{"packages":["scapy","volatility3"],"modules":["scapy","volatility3"],"commands":["tshark"],
-        "tools":["forensics_pcap_summary","forensics_volatility"],
-        "route":["保留原始证据与摘要","离线汇总流量并定位会话","内存取证先检查插件与符号需求","从真实工具输出复核结论并留 WP"]}}
+        "tools":["forensics_pcap_summary","forensics_pcap","forensics_volatility"],
+        "route":["保留原始证据与摘要","先汇总，再用 forensics_pcap streams/follow/http_objects/dns/usb 按证据定位和导出；USB 仅原始字段","内存取证先检查插件与符号需求","从真实工具输出复核结论并留 WP"]}}
 
 
 def settings():

@@ -4,7 +4,7 @@ from pathlib import Path
 import shutil
 import uuid
 
-KINDS = {'browser_screenshot', 'browser_trace', 'terminal_recording', 'windows_screenshot', 'script_snapshot'}
+KINDS = {'browser_screenshot', 'browser_trace', 'terminal_recording', 'windows_screenshot', 'script_snapshot','data_export'}
 
 
 def collect(folder, args, result):

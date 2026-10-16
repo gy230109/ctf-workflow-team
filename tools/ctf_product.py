@@ -319,7 +319,7 @@ ANALYSIS_TOOLS={'math_gcd','math_modpow','math_modinv','crypto_shared_factors','
  'reverse_disassemble','crypto_factor','crypto_crt','crypto_z3','crypto_lll','crypto_aes_decrypt',
  'misc_file_inspect','misc_archive_list','misc_image_inspect','forensics_pcap_summary','forensics_volatility',
  'ctf_runtime_status','crypto_library','ctfd_status','ctfd_list','ctfd_challenge','ctfd_scoreboard',
- 'cracktools_status','cracktools_run'}
+ 'cracktools_status','cracktools_run','forensics_pcap','ctf_task_health'}
 
 def category_capabilities(catalog,actual,additions=None):
     registered={t['name'] for t in catalog['tools']}

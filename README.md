@@ -31,7 +31,15 @@
 - knowledge/history/：历史部署与排错资料，不是当前机器事实。
 - team/roles.json：公开代号与首读路径，个人身份登记在本机。
 
-本版注册 98 个通用核心工具，统一 AI 入口为 9 个 MCP 方法，另含 73 篇经验正文。本机原有 104 工具中的 3 个 Jev 入口按既有要求留本机，3 个历史题专用验证/探针不进入通用包。知识来源与摘要见 knowledge/catalog.json；完整范围见 bundle-manifest.json。第三方完整克隆、虚拟机、程序安装包、大附件与原始图像不随仓库复制。第三方工具入口有代码不等于对应依赖已装，需要本机安装与实调。
+本版注册 100 个通用核心工具，统一 AI 入口为 9 个 MCP 方法，另含 73 篇经验正文。维护机的 106 工具中，3 个 Jev 入口按既有要求留本机，3 个历史题专用验证/探针不进入通用包。知识来源与摘要见 knowledge/catalog.json；完整范围见 bundle-manifest.json。第三方完整克隆、虚拟机、程序安装包、大附件与原始图像不随仓库复制。第三方工具入口有代码不等于对应依赖已装，需要本机安装与实调。
+
+## 本次新增：流量题、调用效率与参考资料
+
+- `forensics_pcap`：离线汇总、TCP/UDP 会话、TCP 流读取、HTTP 对象导出、DNS 与 USB 原始字段。复用已验证的 Kali 桥、系统 Python 和 TShark，无须启用整套可选运行扩展。数据附件自动进入同题私有 WP。
+- `ctf_task_health`：查看同题新调用次数、工具耗时、连续失败及重复结果；调用结果自动附提示。提示只供复核，不强制换人或停止任务，模型费用未知。
+- NoobCTF 参考检索：运行 `python tools/install_noobctf.py` 拉取固定版本文本并建立索引；使用 `source=noobctf allow_reference=true`。历史题解默认不注入独立解题，下载脚本不执行。完整第三方资料不直接进本仓库。
+
+四人主队列保持不变；新增能力用于改善公共流量题认领、停滞复核和整题交接。详见 [四人分题方案](docs/saturday-four-allocation.md)、[本次升级与用法](docs/pcap-health-upgrade.md)。
 
 ## 真实验证与 WP
 

@@ -27,7 +27,11 @@ python <本Skill目录>/scripts/system.py ctf_start --json <UTF-8参数JSON文�
 
 仅在用户授权的题目范围操作，原工具要求的 `confirm` 仍须满足。区分连接成功、工具成功和答案经过真实验证；导出 WP 不等于题目已解。发生提供方拒绝时保留原因，不换措辞或通道规避。系统不更改当前 AI 的模型账号。
 
-资料检索使用 `kb_search` / `kb_read`，默认 HackTricks。查工具目录可指定 `source=awesome-ctf`，命中条目不代表工具已安装。用户要学习过往案例时，可选 `source=crypto-cat allow_reference=true`；该库含题解和 solver，不加入独立解题、holdout 或模型测评输入。读取时携带搜索返回的 source/path/行号，引用固定提交出处；第三方脚本只作参考数据，不自动执行。
+资料检索使用 `kb_search` / `kb_read`，默认 HackTricks。查工具目录可指定 `source=awesome-ctf`，命中条目不代表工具已安装。用户要学习过往案例时，可选 `source=crypto-cat` 或 `source=noobctf` 并带 `allow_reference=true`；这两库含题解和 solver，不加入独立解题、holdout 或模型测评输入。NoobCTF 缺失时由 AI 按仓库 `tools/install_noobctf.py` 安装固定版本文本和索引，不要求用户找路径；已有仓库冲突按错误保留，不强制覆盖。读取时携带搜索返回的 source/path/行号，引用固定提交出处；第三方脚本只作参考数据，不自动执行。
+
+流量题先查询 `forensics_pcap` 的实时参数，按证据选择 summary、streams，再 follow 指定 TCP stream_id，或 http_objects/dns/usb。提供本题附件 local_file；客机需系统 Python 与 TShark，不要求启用其他扩展。USB 只返回原始字段。实际 TSV、流文本与 HTTP 对象 ZIP 自动加入同题私有 WP；导出文件保持未执行。官方题型不因使用某种工具而改判，公共队列由空闲且工具实际可用的人认领。
+
+调用结果的 `task_health` 提示重复结果、连续失败或累计工具耗时；先复核证据与收益，再选择换假设、暂挂或整题交接。提示不是自动停止指令，80 次/30 分钟只是复核参考；模型费用未知。正常复查可加 `wp_repeat_expected=true`。跨机移交保留原抓包摘要、流号、导出对象、失败与 WP，不能把本机 ctf_progress 当作已实现跨机自动同步。
 
 文本编解码、哈希或多层转换可用 `cracktools_status` 查算法，再用 `cracktools_run` 提交 input 与 steps（每步 algorithm/mode），自动留证。部分古典密码、AES/DES 等操作沿用上游固定参数，需明确 `use_upstream_defaults=true`；题目给自定义密钥时选现有密码工具。只在用户需要操作画布时 `cracktools_open confirm=true`。
 

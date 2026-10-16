@@ -1,8 +1,8 @@
 {
-  "version": "2026.10.16",
-  "registered_tools": 98,
+  "version": "2026.10.16-pcap-health",
+  "registered_tools": 100,
   "mcp_entry_tools": 9,
-  "local_source_tools": 104,
+  "local_source_tools": 106,
   "excluded_tools": [
     "final_verify",
     "gb_flag_verify",
@@ -20,18 +20,18 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "c3b06db9efbc54968d29422f3b6240daf698718da6738135898601ec41a6758f",
-      "bytes": 3064
+      "sha256": "1581fc5f10004a2da34cbccd24b6a1b8fb13f38e67ce8171a2a62cedd4006b2a",
+      "bytes": 4321
     },
     {
       "path": "README.md",
-      "sha256": "5054b55bf9a83bccb9a3162797c03e9f2944d635bbd24020de87741073ae723b",
-      "bytes": 3573
+      "sha256": "6ef834292063c4cd7483455693af6f6f20763b8c559ae3ea58cb7ca4a156c319",
+      "bytes": 4587
     },
     {
       "path": "TEAM_ROLES.md",
-      "sha256": "670ee8bfaecf9007e78f3d7c6b7936b6b58890c34e70e75bdf6e33a86577d87c",
-      "bytes": 2416
+      "sha256": "1b6dd868834f5e20f310d6e18d07301248675422a705bc8495c60c3f44f03689",
+      "bytes": 4240
     },
     {
       "path": "bridge/kali.ps1",
@@ -94,9 +94,19 @@
       "bytes": 2665
     },
     {
+      "path": "docs/pcap-health-upgrade.md",
+      "sha256": "28eef920512c1d1a8095e1e2bd4420bd581cd00ea0a06a5341da96925a0f3776",
+      "bytes": 3740
+    },
+    {
       "path": "docs/questionbank.md",
       "sha256": "2f48c31efea4909fc61c39dd96c2acacea00e8bc4fead293cb15a4757e18a99f",
       "bytes": 1120
+    },
+    {
+      "path": "docs/saturday-four-allocation.md",
+      "sha256": "c9985c944f7926f5bd8a68d5617e0ccebde1126111f16b84b7ae2eef808f8483",
+      "bytes": 11866
     },
     {
       "path": "docs/skill-installation.md",
@@ -115,8 +125,8 @@
     },
     {
       "path": "docs/upgrade-20261016.md",
-      "sha256": "e18898d95aca9c425f6b6f2e0b0eecdb1e9d2c4ffb577379884b3426a835f655",
-      "bytes": 2910
+      "sha256": "99d2535a1847422a2bca131365fd1309d7ddabd8c70534209709cdc7ff09dfc1",
+      "bytes": 3212
     },
     {
       "path": "install-autostart.ps1",
@@ -505,8 +515,8 @@
     },
     {
       "path": "release-validation.json",
-      "sha256": "3817badc75c73399e9a5971f9abece10f3d3509dfffbb55923c69cf4ea538f51",
-      "bytes": 1129
+      "sha256": "c9f1aa8e9c232690355e6ca95bf2d999c706246d0151f62e6b3c00e2eb6c5a17",
+      "bytes": 1493
     },
     {
       "path": "requirements.txt",
@@ -520,8 +530,8 @@
     },
     {
       "path": "skills/ctf-system/SKILL.md",
-      "sha256": "801db62f775a830e83e3c020514fe0b5a0c182f112e04584032aa72f4fc09bc8",
-      "bytes": 5302
+      "sha256": "920488e2ec49e652a7c35461a2a7b659691a30391e0aad96ce16e5a3981ac5cc",
+      "bytes": 6438
     },
     {
       "path": "skills/ctf-system/agents/openai.yaml",
@@ -589,9 +599,24 @@
       "bytes": 3567
     },
     {
+      "path": "tests/test_ctf_pcap_adapter.py",
+      "sha256": "c6d7b483ea1f8cf71fea7acf9c15301be09cbb0031de8b888f9c2c6e829ec6b2",
+      "bytes": 2337
+    },
+    {
+      "path": "tests/test_ctf_pcap_worker.py",
+      "sha256": "e5e1a9cbb6a0f40725f714ea502de7072c6bc7d8ab34b5ce9b428837bc2fab38",
+      "bytes": 7068
+    },
+    {
       "path": "tests/test_ctf_specialists.py",
       "sha256": "eb6e03fffd68befe2d633a2252c68a32f453603317d89a45a24b7e796abdca70",
       "bytes": 7957
+    },
+    {
+      "path": "tests/test_ctf_task_health.py",
+      "sha256": "9a11f776bfc222e4ff7f49b2728496c1db68bd3f90cfd1f2ebbc669833f27055",
+      "bytes": 2739
     },
     {
       "path": "tests/test_ctf_team.py",
@@ -607,6 +632,11 @@
       "path": "tests/test_install_skill.py",
       "sha256": "1b0b94a0dd56250e298234b924ac3e61485634b719ab5dc3f0b4831358f05fff",
       "bytes": 7178
+    },
+    {
+      "path": "tests/test_noobctf_install.py",
+      "sha256": "f35f28a7645a465356459f1074525e149ae625892fa3de5d46b83bb05c91d30b",
+      "bytes": 6067
     },
     {
       "path": "tests/test_team_roles.py",
@@ -855,13 +885,13 @@
     },
     {
       "path": "tools/ctf_extensions.py",
-      "sha256": "c6dbb1bd86ce825ee19d7fd772d58ee997e12f38aca8a5667bbf302f491236e5",
-      "bytes": 7108
+      "sha256": "604c1787f2a0b9bc18e5bd8dab2741c29d965c62df9a94fb18c68f505a51dcb2",
+      "bytes": 7555
     },
     {
       "path": "tools/ctf_knowledge.py",
-      "sha256": "d92adf2e579189cb2a420a550e68f3a3dae9e4914a45e56f21bfa8ce62830682",
-      "bytes": 12872
+      "sha256": "a7c183a2c6c380927ffd10904ff1d78e265ae0ce58c08bd5f81a55352418eeae",
+      "bytes": 12910
     },
     {
       "path": "tools/ctf_mcp_proxy.py",
@@ -875,13 +905,23 @@
     },
     {
       "path": "tools/ctf_os.py",
-      "sha256": "40a0ba77ee86a8d757a2d44d5d53185499f1a5fb3f38555d393bc61d9598ea27",
-      "bytes": 47653
+      "sha256": "cbe3e11b7c4612f69e2351a21f38dfae74fec17d34e3bd70a283720660ad8bbb",
+      "bytes": 48093
     },
     {
       "path": "tools/ctf_os_runtime.py",
       "sha256": "74c398a3218105e7a7ad9f45a34ae620cb41c1f399022d273a7ea1021a0e8b41",
       "bytes": 5696
+    },
+    {
+      "path": "tools/ctf_pcap.py",
+      "sha256": "5207530aaedf83afc617a37c51e36073f3dd6faa8f26a7519939dc4a323fc5cd",
+      "bytes": 1004
+    },
+    {
+      "path": "tools/ctf_pcap_worker.py",
+      "sha256": "ce0d8c9bfe45079f3daab0d279900b6e6845e8a95dca37ccdd50966c5c0f2613",
+      "bytes": 8685
     },
     {
       "path": "tools/ctf_pipeline.py",
@@ -895,8 +935,8 @@
     },
     {
       "path": "tools/ctf_product.py",
-      "sha256": "5935f715d39480487f2a7f9d9aaba6bbcca3767bb6306e74bdc27aba332ea7c9",
-      "bytes": 26043
+      "sha256": "c0e042017ca96fb95a05c784178e8e3d6996802dea1605520b4eb8195f7c83d3",
+      "bytes": 26078
     },
     {
       "path": "tools/ctf_rea.py",
@@ -905,8 +945,8 @@
     },
     {
       "path": "tools/ctf_reference_sources.py",
-      "sha256": "d0d425012b97285d6b1226435fd894a97a485d825f666a69212960b810376050",
-      "bytes": 11753
+      "sha256": "92eed692142848f0551c27109e11779233ed4474bda1dbdd4d5406dfe75c5fc8",
+      "bytes": 13546
     },
     {
       "path": "tools/ctf_reverse_route.py",
@@ -930,8 +970,13 @@
     },
     {
       "path": "tools/ctf_specialists.py",
-      "sha256": "f059200a500c554cfe237c6fb8ee56d6c57be304f1818fab50076b612d5744be",
-      "bytes": 14904
+      "sha256": "ca3299166b62202dc2ae7023f703ec1c7717053e17ca86aefdec33824ba9f618",
+      "bytes": 15004
+    },
+    {
+      "path": "tools/ctf_task_health.py",
+      "sha256": "10fa13d3acf689d26bd064f6a3745f457ff8e8320d95c995f69e8cbc1a769b23",
+      "bytes": 4953
     },
     {
       "path": "tools/ctf_team.py",
@@ -940,8 +985,8 @@
     },
     {
       "path": "tools/ctf_version.py",
-      "sha256": "ca5af82d3782ac80eb6f8bc80d424d458354f137cb0094416dde082ed0f47829",
-      "bytes": 1395
+      "sha256": "b57d70aec2f9d8ea6fde49ecd40030f1026f315527452646e7ec10800b58356d",
+      "bytes": 1472
     },
     {
       "path": "tools/ctf_worker_call.py",
@@ -965,13 +1010,13 @@
     },
     {
       "path": "tools/ctf_wp_assets.py",
-      "sha256": "72b52da0579ca95ab6bf28625a4fea6488cb1cfb21045bff7abba6642270fd89",
-      "bytes": 3101
+      "sha256": "27526949d24893da096cc47d4ed9ffb252a125183a9164feb519e2e1e467cf3d",
+      "bytes": 3115
     },
     {
       "path": "tools/ctf_wp_export.py",
-      "sha256": "aafb56d8ac79cd44abf9c14c7cc7d35aa517e98526665b0a51360fe18d7e1511",
-      "bytes": 11139
+      "sha256": "f18897407f8bbe476aa9b2e0b8827a2fc7e56f64fe893d0a13b431cace5399a2",
+      "bytes": 11516
     },
     {
       "path": "tools/ctf_wp_windows.py",
@@ -992,6 +1037,11 @@
       "path": "tools/install_cracktools.py",
       "sha256": "6a986c49f79fa0448a97a2c2d3013256d21194165f87aef10804b88b2bfc332d",
       "bytes": 1999
+    },
+    {
+      "path": "tools/install_noobctf.py",
+      "sha256": "66668cb7e4cc8306d82e9ab7d2a70e2ca6727fbe16007005cde7960bc98379dc",
+      "bytes": 8069
     },
     {
       "path": "tools/install_skill.py",
