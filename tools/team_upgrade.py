@@ -11,7 +11,7 @@ import uuid
 
 BASE=Path(__file__).resolve().parent.parent
 TOP={'tools','tests','docs','skills','bridge','config','ctf-questionbank','.trae','.traecli','knowledge','team'}
-ROOT_FILES={'README.md','AGENTS.md','.gitignore','requirements.txt','setup.ps1','start.ps1',
+ROOT_FILES={'README.md','AGENTS.md','.gitignore','requirements.txt','requirements-wp.txt','setup.ps1','start.ps1',
             'update.ps1','install-autostart.ps1','install-trae.ps1','bundle-manifest.json','TEAM_ROLES.md','connect-ai.ps1','upgrade-to-20261016.ps1','release-validation.json'}
 
 def digest(raw):

@@ -6,7 +6,8 @@ from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[1]
 FILES=('SKILL.md','agents/openai.yaml','scripts/system.py',
     'references/roles/a-web.md','references/roles/b-pwn.md',
-    'references/roles/d-reverse.md','references/roles/g-crypto.md')
+    'references/roles/d-reverse.md','references/roles/g-crypto.md',
+    'references/wp-guide.md')
 
 def atomic(path,text):
     path.parent.mkdir(parents=True,exist_ok=True)

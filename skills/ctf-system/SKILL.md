@@ -37,4 +37,4 @@ python <本Skill目录>/scripts/system.py ctf_start --json <UTF-8参数JSON文�
 
 文本编解码、哈希或多层转换可用 `cracktools_status` 查算法，再用 `cracktools_run` 提交 input 与 steps（每步 algorithm/mode），自动留证。部分古典密码、AES/DES 等操作沿用上游固定参数，需明确 `use_upstream_defaults=true`；题目给自定义密钥时选现有密码工具。只在用户需要操作画布时 `cracktools_open confirm=true`。
 
-解题同步写 WP：关键工具调用在 arguments 内补 `wp_purpose`（行动目的），可加 `wp_expectation`（预期检查）；系统自动保存开始/完成事件、真实输出和失败。用返回的 `wp_record.step` 给 `ctf_note status=observed source_step=...` 写观察结论，假设和待办分别记录。连续网页会话自动附 PNG/Trace，GDB 会话自动附实际 MI 流回放；需要 PTY 回放的命令用 `kali_terminal_record argv=[...] confirm=true`，普通 JSON 工具沿用原入口。Windows 调试调用尝试采集目标调试器窗口，其他明确目标可 `wp_capture mode=windows_window process_id=...`；无可用画面时保留缺项。`ctf_finish` 默认输出带图的本机 WP 和私有证据 ZIP，图片不必事后重演补拍；公开分享前单独审阅原始文件和像素。发生记录缺项时先读错误，不重跑已执行动作。
+解题同步写 WP：读取 [WP 记录与成稿协议](references/wp-guide.md)，由 AI 负责记录与查缺，用户继续只需说“用 CTF系统做这道题”。关键调用补 `wp_purpose`，观察用返回的 `wp_record.step` 关联 `ctf_note`，假设与待办分别记录。用 `wp_section` 写有证据出处的清晰正文，`wp_review` 查看缺项，再用 `ctf_finish` 从同一份 `report.json` 生成 Markdown、HTML 及可用的 Word/PDF。保留完整技术附录、原始输出和失败；缺依赖、截图失败、未完成操作如实报告，不为补记录重跑动作。导出成功、记录完整与答案经真实验证分别判断；默认文本脱敏，私有包也需核对比赛规则后才能提交。公开前审阅原始附件、正文与截图像素。

@@ -32,6 +32,11 @@ tool arguments. Record evidence-backed findings with ctf_note/source_step.
 Browser screenshots/traces and recorded terminal/debugger streams are attached
 automatically through supported tools. ctf_finish exports a private local WP/ZIP
 with captured images by default; tool success alone never verifies an answer.
+The WP records the original problem and handouts automatically. Use ctf_call with
+wp_section (overview/analysis/solution/validation/reproduction, text, source_steps)
+to write concise supported explanations. wp_review lists draft gaps. ctf_finish
+exports Markdown, HTML, Word and PDF from one model; inspect per-format receipts.
+Do not replay actions to fill evidence gaps. Private exports still need review.
 For team identity and first-reading material use ctf_team_role. Real-name mapping
 comes only from this installation's private identity record or explicit member ID.
 Read shared method/Obsidian notes as needed; reference cases are not default inputs
@@ -138,6 +143,23 @@ class Product:
                 result['ctfd']=self.core('ctfd_status',{})
         return result
 
+    def sync_wp_context(self, folder, task):
+        """Append context once per actual input revision, including old tasks."""
+        payload={'case':task['task_id'],'description':task.get('description',''),
+                 'source':task.get('source',{}),'attachments':[]}
+        for item in task.get('artifacts',[]):
+            path=(folder/item['relative_path']).resolve(strict=True)
+            if not path.is_relative_to(folder.resolve()) or sha(path)!=item['sha256']:
+                raise ValueError('Original attachment checksum changed; WP intake stopped.')
+            payload['attachments'].append({'path':str(path),'name':item['name'],'sha256':item['sha256']})
+        signature=hashlib.sha256(json.dumps(payload,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+        if task.get('wp_context_signature')==signature:return {'ok':True,'unchanged':True}
+        result=self.core('wp_intake',payload)
+        if result.get('ok'):
+            task['wp_context_signature']=signature
+            save(folder/'task.json',task)
+        return result
+
     def start(self, title=None, description='', attachments=None, category='unknown',ctfd_challenge_id=None):
         ctfd_data=None
         if ctfd_challenge_id is not None:
@@ -181,6 +203,10 @@ class Product:
         task['state']='in_progress'
         if ctfd_data is not None:
             task['source']=ctf_ctfd.bind(task_id,ctfd_data)
+        intake=self.sync_wp_context(folder,task)
+        if not intake.get('ok'):
+            task.update(state='initialization_failed',initialization_error=intake);save(folder/'task.json',task)
+            return {'ok':False,'task_id':task_id,'error':intake,'next':'Resolve WP context intake before using tools; original inputs remain saved.'}
         save(folder/'task.json',task)
         return self.progress(task_id)
 
@@ -237,6 +263,10 @@ class Product:
                     task['artifacts'].append(record);existing[target.name.casefold()]=record
                 task['description']=data.get('description') or task['description']
                 task['source']=read(folder/'ctfd-source.json')
+                intake=self.sync_wp_context(folder,task)
+                if not intake.get('ok'):
+                    result['wp_context_error']=intake
+                    task['wp_context_error']=intake
             if tool=='ctfd_submit' and result.get('ok') and actual.get('candidate_verified') is True and actual.get('judge_status')=='correct':
                 task['answer_verified']=True
                 task['platform_verification']={'platform':'CTFd','challenge_id':actual['challenge_id'],'evidence_path':result.get('evidence_path'),
@@ -288,7 +318,10 @@ class Product:
         folder=self.folder(task_id)
         with locked(folder):
             task=read(folder/'task.json')
-            report=self.core('wp_build',{'case':task_id,'include_images':include_images,'summary':summary,'bundle':True,'private_bundle':True})
+            intake=self.sync_wp_context(folder,task)
+            if not intake.get('ok'):return intake
+            report=self.core('wp_build',{'case':task_id,'include_images':include_images,'include_log_renders':False,
+                'summary':summary,'bundle':True,'private_bundle':True})
             if not report.get('ok'):return report
             task.update(state=state,summary=summary,updated_at=now(),report=report)
             save(folder/'task.json',task)

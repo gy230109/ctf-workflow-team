@@ -1,8 +1,8 @@
 {
-  "version": "2026.10.16-role-guides",
-  "registered_tools": 100,
+  "version": "2026.10.16-wp2",
+  "registered_tools": 103,
   "mcp_entry_tools": 9,
-  "local_source_tools": 106,
+  "local_source_tools": 109,
   "excluded_tools": [
     "final_verify",
     "gb_flag_verify",
@@ -20,13 +20,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "084ca492462b151cb2445900c89bcb0994d6d0b0e02e7c9f847b4a615365a26e",
-      "bytes": 4614
+      "sha256": "17b7d734f010c169be42f497c0013ec04d5e369c50b0f3ce3be4687674a32412",
+      "bytes": 6096
     },
     {
       "path": "README.md",
-      "sha256": "e8156ff7924729f1e7e24438ecb7fb21a73eb471aaf708f3e8d72a0f5fa6e580",
-      "bytes": 4902
+      "sha256": "b267fd3d0f1977e14e75afc7eb6d9141c8a457b88b71c6843445facd552d7fb6",
+      "bytes": 5264
     },
     {
       "path": "TEAM_ROLES.md",
@@ -57,6 +57,11 @@
       "path": "config/ctf_specialists.example.json",
       "sha256": "ebef32f64cee91771506613d60335889660011b3be810566445309d5ad02cbcd",
       "bytes": 254
+    },
+    {
+      "path": "config/ctf_wp.example.json",
+      "sha256": "8106495cd05535f7ec01cbd154281768ac83866f2cb3612960e4aee68fd4fd5a",
+      "bytes": 82
     },
     {
       "path": "config/ctfd.example.json",
@@ -132,6 +137,11 @@
       "path": "docs/upgrade-20261016.md",
       "sha256": "99d2535a1847422a2bca131365fd1309d7ddabd8c70534209709cdc7ff09dfc1",
       "bytes": 3212
+    },
+    {
+      "path": "docs/wp-guide.md",
+      "sha256": "c9edecdbf9a1e21c1c27e6d49e6875b9ce72d571897b6857e6ed311c331ab76f",
+      "bytes": 4190
     },
     {
       "path": "install-autostart.ps1",
@@ -520,13 +530,18 @@
     },
     {
       "path": "release-validation.json",
-      "sha256": "11f4c93a0399130fa8fb37c0968be912c8bd0faa4c84d872cb6eba81564e5632",
-      "bytes": 1914
+      "sha256": "d51fdf11cb4b07e33c52c0360f0af4f272cf37bbedc04b51d7321c461e93fc06",
+      "bytes": 3100
+    },
+    {
+      "path": "requirements-wp.txt",
+      "sha256": "f4570f7e1cd9243bda2b8f252d118265ff88814f6a5ecad737d7c72c64f2a91e",
+      "bytes": 131
     },
     {
       "path": "requirements.txt",
-      "sha256": "5699c9abe93a2dd643d648b95acf1bee3ed33c0f88b346b143e6a60d57dc10c3",
-      "bytes": 52
+      "sha256": "7813cdf44554e74a8ad6ffe3f921ff279a31802c43f7781ab0ff944d703d600b",
+      "bytes": 90
     },
     {
       "path": "setup.ps1",
@@ -535,8 +550,8 @@
     },
     {
       "path": "skills/ctf-system/SKILL.md",
-      "sha256": "0607daba33ab4e6d7478a55e8a6a21a28cd1bd9806d029f26ecde44cb2ee09fc",
-      "bytes": 7020
+      "sha256": "2ec05f5c718627430d143dbc8ff30234b18d44f2dc966066662c44c860d1e36b",
+      "bytes": 6912
     },
     {
       "path": "skills/ctf-system/agents/openai.yaml",
@@ -562,6 +577,11 @@
       "path": "skills/ctf-system/references/roles/g-crypto.md",
       "sha256": "710ea3625fdc7fdecdf1c4458ceb2ca09668e711bf34bf79525f99254ab48fe0",
       "bytes": 2585
+    },
+    {
+      "path": "skills/ctf-system/references/wp-guide.md",
+      "sha256": "ac0119946debf0f38d61c6fe30e4f6f4a3b578d9851768b524ea249feda64899",
+      "bytes": 4633
     },
     {
       "path": "skills/ctf-system/scripts/system.py",
@@ -654,6 +674,21 @@
       "bytes": 6000
     },
     {
+      "path": "tests/test_ctf_wp_formats.py",
+      "sha256": "783acd500bbf84e6a8aea962c951741293f856af0321a0c09d53e51fa11d95b4",
+      "bytes": 10382
+    },
+    {
+      "path": "tests/test_ctf_wp_report.py",
+      "sha256": "5101319e8879fb9cd9957107f57c3d4cf00bfa983587d23f806f35d9b93d7ada",
+      "bytes": 10192
+    },
+    {
+      "path": "tests/test_ctf_wp_review.py",
+      "sha256": "35c2a63d1cd51bb5fcaf4ee2ea92280a531e633847f19b3642725c0231508ddf",
+      "bytes": 8745
+    },
+    {
       "path": "tests/test_install_skill.py",
       "sha256": "1b0b94a0dd56250e298234b924ac3e61485634b719ab5dc3f0b4831358f05fff",
       "bytes": 7178
@@ -665,8 +700,8 @@
     },
     {
       "path": "tests/test_role_skill_install.py",
-      "sha256": "442dec86fa9e9dc0c655ea16d4a0581c13ddb2b86ba2fc46696f80297a1002a0",
-      "bytes": 8053
+      "sha256": "caa8855728ff11e18d3297c4e2b18757293aeaa452f7b962c06524df0d34fa8e",
+      "bytes": 8986
     },
     {
       "path": "tests/test_team_roles.py",
@@ -685,8 +720,8 @@
     },
     {
       "path": "tools/connect_ai.py",
-      "sha256": "040f4a23fcae9cc4feb8d31244c36c837769fb13b56a5972b89e0e789c9e3193",
-      "bytes": 6282
+      "sha256": "bc0baafab9ce33829b98028afa34b768289b9516e6f5e59d69537b975498d3ce",
+      "bytes": 6312
     },
     {
       "path": "tools/cracktools_bridge/Cargo.lock",
@@ -965,8 +1000,8 @@
     },
     {
       "path": "tools/ctf_product.py",
-      "sha256": "c0e042017ca96fb95a05c784178e8e3d6996802dea1605520b4eb8195f7c83d3",
-      "bytes": 26078
+      "sha256": "c1b6be6b595283f751d2742d3f16048c936c778b0b93ce1c8161f36c138bde3e",
+      "bytes": 28250
     },
     {
       "path": "tools/ctf_rea.py",
@@ -1015,8 +1050,8 @@
     },
     {
       "path": "tools/ctf_version.py",
-      "sha256": "3a6ad1b424fd61a5c5b36b27e4714a22c9ba47616c390562ca301cb6a73f7c4c",
-      "bytes": 1513
+      "sha256": "60edebc8a110cf790c4eb60e786c1797fb51b0a0a39a41c97ecbfa7eb682ce1c",
+      "bytes": 1589
     },
     {
       "path": "tools/ctf_worker_call.py",
@@ -1035,8 +1070,8 @@
     },
     {
       "path": "tools/ctf_wp.py",
-      "sha256": "fe59194f0242efd9c2a67cac1d233e2d4b9c7be57bb4caeafb9c9fd478f2fde7",
-      "bytes": 18635
+      "sha256": "09598faac70b782c68f0cf503365f49a90614796d0d90f61cd66c587bf6e6063",
+      "bytes": 30481
     },
     {
       "path": "tools/ctf_wp_assets.py",
@@ -1045,8 +1080,23 @@
     },
     {
       "path": "tools/ctf_wp_export.py",
-      "sha256": "f18897407f8bbe476aa9b2e0b8827a2fc7e56f64fe893d0a13b431cace5399a2",
-      "bytes": 11516
+      "sha256": "29660dd49469df1ba9eaacaed0231384dae5d04616bd93a6c0b4dc4ee7f69ec3",
+      "bytes": 14068
+    },
+    {
+      "path": "tools/ctf_wp_formats.py",
+      "sha256": "0165be9128482e7a54f61d0f81c4b81e2c5837188291ed411bf12d304fdb3648",
+      "bytes": 22495
+    },
+    {
+      "path": "tools/ctf_wp_report.py",
+      "sha256": "dbd84b4ded752c3a70d3a49b8fa531c64af7f392440ee0ffebd8c51662f94f9f",
+      "bytes": 19338
+    },
+    {
+      "path": "tools/ctf_wp_review.py",
+      "sha256": "16cd2ca4dc69544bbb24f5892095c432c9e2b6792cd63aa5979517cc1851920b",
+      "bytes": 5230
     },
     {
       "path": "tools/ctf_wp_windows.py",
@@ -1135,8 +1185,8 @@
     },
     {
       "path": "tools/team_upgrade.py",
-      "sha256": "58fefb58d923282f8780e670574d9d0cad9fdc67c938d6b2e3d185da301d6a29",
-      "bytes": 9031
+      "sha256": "0faca293c0f045c4cb2240c2f01a0b5acbb14b7f157839f7bfd9a9a3c3d5112e",
+      "bytes": 9053
     },
     {
       "path": "tools/upgrade_install.py",
@@ -1150,8 +1200,8 @@
     },
     {
       "path": "upgrade-to-20261016.ps1",
-      "sha256": "a70eeef73c0fab475e5e77ff0d15a529d6d264a2b22fccb8cf346c5a3a0a4c08",
-      "bytes": 1078
+      "sha256": "6dc728dc062a8753fcea4433a259467e4cf3b54d38272c85277cc2323e90f775",
+      "bytes": 1499
     }
   ],
   "text_line_endings": "LF",

@@ -1,5 +1,16 @@
 # CTF系统团队入口
 
+## 2026-10-16 WP 二期升级
+
+- 当前核心工具 103 个。新增 `wp_intake` 追加受校验的题面与原附件、`wp_section` 追加有来源的五类正文、`wp_review` 检查稿件缺项。使用实际工具 schema，不要求用户手工初始化或交接路径。
+- 接题自动保存题面、来源、原附件 SHA256 及副本；旧 Product 任务导出时可从已有任务档案补入，不回填虚构的历史操作。
+- 原脚本与 JSON 请求在执行前快照，执行后漂移入缺项；截图失败写入时间线；不为补证据重跑工具。
+- 正文 `writeup.md` 展示章节引用的主线与有界原文预览；完整失败和调用在 `technical.md` 及私有证据。`report.json` 为 Markdown/HTML/Word/PDF 的同源模型，格式错误分别报告。
+- 统一完成入口默认导出四种格式；Word/PDF 需要可选依赖，升级脚本会安装。`include_images=false` 排除插图与视觉回放（包括日志渲染，原题附件仍保留）；`include_log_renders=false` 可在包含实际截图时排除冗余日志图。
+- `wp_review` 只检查结构/证据引用，不能保证语义正确；题解文字不认证答案。默认文本仍遮盖常见凭据与 flag，私有包不是自动提交成稿。已验证/未验证/未完成须分开，提交和公开前审阅正文、原件及图片像素。
+- 详细协议见 `docs/wp-guide.md` 与统一 Skill 的 `references/wp-guide.md`。自建样例验收不计比赛解题率。
+
+
 用户授权的 CTF 解题和学习使用本仓库统一入口。用户说“用 CTF系统 做这道题”时，优先 ctf-system MCP/Skill；新题 ctf_start，继续 ctf_progress，实时参数 ctf_tools，执行 ctf_call/ctf_analyze，观察 ctf_note，收尾 ctf_finish。不让用户反复解释路径或工具。
 
 ## 接管与角色

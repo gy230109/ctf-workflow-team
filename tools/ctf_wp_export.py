@@ -1,4 +1,4 @@
-"""Team CTF workflow component. See README.md for configuration and verified scope."""
+"""Evidence-backed Chinese WP and optional private, portable evidence bundle."""
 import json
 from pathlib import Path
 import shutil
@@ -13,6 +13,8 @@ def build(a):
     import ctf_wp as wp
     folder = wp.case_dir(a['case'])
     if not wp.exists(a['case']): raise ValueError('先 wp_init')
+    from ctf_wp_report import ensure_task_context
+    ensure_task_context(a['case'])
     include_images = a.get('include_images') is True
     private = a.get('private_bundle') is True
     with wp.locked(folder):
@@ -52,15 +54,20 @@ def build(a):
                 lines.extend(['来源：'+wp.scrub(str(provenance))+'；类型：'+kind+'。',
                     '![步骤 %d 的图像证据](images/%s)'%(event['seq'],target.name),''])
             elif kind in REPLAY_KINDS and private and (include_images or kind!='browser_trace'):
-                target=report/'recordings'/source.name;target.parent.mkdir(exist_ok=True)
+                target=report/'recordings'/('%04d-'%event['seq']+source.name);target.parent.mkdir(exist_ok=True)
                 shutil.copyfile(source,target);generated.append(wp.file_record(report,target,kind));replays+=1
-                lines.extend(['过程回放：[%s](recordings/%s)；类型：%s。'%(source.name,source.name,kind),''])
+                lines.extend(['过程回放：[%s](recordings/%s)；类型：%s。'%(source.name,target.name,kind),''])
             elif kind=='script_snapshot' and private:
-                target=report/'scripts'/source.name;target.parent.mkdir(exist_ok=True)
+                target=report/'scripts'/('%04d-'%event['seq']+source.name);target.parent.mkdir(exist_ok=True)
                 shutil.copyfile(source,target);generated.append(wp.file_record(report,target,kind))
-                lines.extend(['实际工具输入脚本快照：[%s](scripts/%s)。'%(wp.scrub(item.get('original_name',source.name)),target.name),''])
+                label='执行前输入脚本快照' if item.get('source_role')=='pre_execution_input' else '脚本证据快照（采集阶段未确认）'
+                lines.extend([label+'：[%s](scripts/%s)。'%(wp.scrub(item.get('original_name',source.name)),target.name),''])
+            elif kind=='request_snapshot' and private:
+                target=report/'requests'/('%04d-'%event['seq']+source.name);target.parent.mkdir(exist_ok=True)
+                shutil.copyfile(source,target);generated.append(wp.file_record(report,target,kind))
+                lines.extend(['执行前请求文件快照：[%s](requests/%s)。'%(wp.scrub(item.get('original_name',source.name)),target.name),''])
             elif kind=='data_export' and private:
-                target=report/'data'/source.name;target.parent.mkdir(exist_ok=True)
+                target=report/'data'/('%04d-'%event['seq']+source.name);target.parent.mkdir(exist_ok=True)
                 shutil.copyfile(source,target);generated.append(wp.file_record(report,target,kind))
                 lines.extend(['实际工具导出数据：[%s](data/%s)。'%(wp.scrub(item.get('original_name',source.name)),target.name),''])
 
@@ -81,7 +88,7 @@ def build(a):
                     '原始证据 SHA256：`'+event['files'][0]['sha256']+'`。',''])
                 for note in notes.get(seq,[]):lines.extend(['**观察结论（Agent 引用本步骤）：** '+wp.scrub(note),''])
                 pic=report/'images'/('%04d-log.png'%seq)
-                if wp.render_log(command+'\n'+output,pic):
+                if include_images and a.get('include_log_renders',True) is True and wp.render_log(command+'\n'+output,pic):
                     lines.extend(['![步骤 %d 的日志渲染图（非屏幕截图）](images/%s)'%(seq,pic.name),''])
                     generated.append(wp.file_record(report,pic,'log_render'))
                 for item in event['files'][1:]: copy_asset(event,item)
@@ -92,6 +99,10 @@ def build(a):
                 lines.extend(['### 步骤 %d：%s'%(seq,wp.scrub(data['caption'])),''])
                 copy_asset(event,event['files'][0])
                 for note in notes.get(seq,[]):lines.extend(['**观察结论（Agent 引用本步骤）：** '+wp.scrub(note),''])
+            elif event['kind']=='capture_failed':
+                gap={'step':seq,'kind':'capture_failed',**data}
+                errors.append(gap)
+                lines.extend(['截图采集失败：'+wp.scrub(json.dumps(gap,ensure_ascii=False))+'。原动作未重跑。',''])
             elif event['kind']=='note' and data['status']=='observed' and data['source_step'] not in notes:
                 lines.extend(['观察注释：'+wp.scrub(data['text']),''])
         lines.extend(['## 结果验证',''])
@@ -123,15 +134,36 @@ def build(a):
                     if not include_images and item['kind'] in IMAGE_KINDS|{'browser_trace'}:continue
                     target=evidence/item['path'];target.parent.mkdir(parents=True,exist_ok=True)
                     shutil.copyfile(folder/item['path'],target);generated.append(wp.file_record(report,target,'private_evidence'));copied.add(item['path'])
-        path=report/'writeup.md';path.write_text('\n'.join(lines),encoding='utf-8');generated.append(wp.file_record(report,path,'markdown'))
+        technical=report/'technical.md';technical.write_text('\n'.join(lines),encoding='utf-8')
+        from ctf_wp_report import model_for, write_markdown, write_html, extra_formats
+        model=model_for(a,folder,report,rows,metadata,verification,errors,pending)
+        wp.write_json(report/'report.json',model)
+        path=report/'writeup.md';write_markdown(model,path)
+        write_html(model,report/'writeup.html')
+        formats=extra_formats(a,report)
+        # Re-index actual outputs once, after every format has returned. Private
+        # evidence remains private; no exporter may silently invent success.
+        kinds={item['path']:item['kind'] for item in generated}
+        for item in report.rglob('*'):
+            if item.is_file():
+                rel=item.relative_to(report).as_posix()
+                kinds.setdefault(rel,{'writeup.md':'markdown','technical.md':'technical_appendix',
+                    'report.json':'report_model','writeup.html':'html','writeup.docx':'docx','writeup.pdf':'pdf'}.get(rel,'redacted_evidence'))
+        generated=[wp.file_record(report,report/rel,kind) for rel,kind in sorted(kinds.items())]
         manifest={'case':a['case'],'timeline_head':rows[-1]['sha256'],'files':generated,'private_bundle':private,
             'text_redaction':'best_effort','images_reviewed':False,'capture_errors':errors,
             'pending_operations':[e['data']['operation_id'] for e in pending],
             'recording_complete':not errors and not pending,'platform_verification':verification,
-            'images_included':captures,'recordings_included':replays,'scripts_included':sum(f['kind']=='script_snapshot' for f in generated)}
+            'images_included':captures,'recordings_included':replays,'scripts_included':sum(f['kind']=='script_snapshot' for f in generated),
+            'report_schema_version':2,'quality':model['quality'],
+            'submission_ready':model['quality'].get('submission_ready',False) and formats.get('ok',False),
+            'format_export':formats}
         wp.write_json(report/'manifest.json',manifest)
         archive=shutil.make_archive(str(report), 'zip',root_dir=report) if a.get('bundle',True) is True else None
     return {'case':a['case'],'path':str(path),'bundle_path':archive,'records':len(rows),'integrity_verified':True,
         'images_included':captures,'recordings_included':replays,'recording_complete':manifest['recording_complete'],
         'capture_errors':errors,'pending_operations':manifest['pending_operations'],'solved_verified':False,
+        'html_path':str(report/'writeup.html'),'model_path':str(report/'report.json'),'technical_path':str(technical),
+        'formats':formats.get('formats',{}),'formats_complete':formats.get('ok',False),
+        'quality':model['quality'],'submission_ready':manifest['submission_ready'],
         'platform_answer_verified':bool(verification),'review_required_before_sharing':'原始证据、正文语义与图片像素须另行检查'}

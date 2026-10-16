@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "release": "2026.10.16-role-guides",
+  "release": "2026.10.16-wp2",
   "verified": {
     "python_compile": true,
     "targeted_tests": 55,
@@ -38,17 +38,43 @@
     "all_four_guides_installed_with_unified_entry": true,
     "idempotent_role_skill_install": true,
     "legacy_three_file_skill_upgrade_checked": true,
-    "actual_role_guide_cli_migration_preserves_identity_and_client_ownership": true
+    "actual_role_guide_cli_migration_preserves_identity_and_client_ownership": true,
+    "wp_upgrade": {
+      "append_only_problem_and_handout_intake": true,
+      "pre_execution_input_snapshots_and_drift_detection": true,
+      "capture_failure_events": true,
+      "source_linked_narrative_sections_and_read_only_review": true,
+      "readable_mainline_and_full_technical_evidence": true,
+      "shared_model_markdown_html_docx_pdf": true,
+      "actual_mcp_call_and_kali_screen_capture": true,
+      "actual_four_format_export": true,
+      "docx_visual_review_pages": 5,
+      "pdf_visual_review_pages": 4,
+      "real_platform_answer_certified": false,
+      "portable_upgrade_preserves_private_state": true,
+      "format_renderer_checks": {
+        "passed": 9,
+        "skipped_windows_symlink_privilege": 1
+      },
+      "review_fixes": [
+        "structured redaction preserves JSON",
+        "versioned input-script reproduction links",
+        "capture-stage labels do not overstate provenance"
+      ]
+    }
   },
   "unverified": [
     "other teammates machines and client model inference",
     "all optional third-party dependencies",
     "full challenge-solving success rate",
     "whole-machine cold start",
-    "HTTP export budgets are sampled at 100 ms; they are not a filesystem hard quota"
+    "HTTP export budgets are sampled at 100 ms; they are not a filesystem hard quota",
+    "Custom contest Word templates are not implemented; fixed plain-v1 Letter template only.",
+    "Default textual flag/credential redaction and unreviewed pixels require final submission/privacy review."
   ],
   "unfinished": [
     "per-machine dependency and challenge readiness checks"
   ],
-  "scope": "self-built fixture, actual stdio role lookup, actual CLI migration preserving private state, real existing Kali bridge and WP export; no real challenge or model benchmark"
+  "scope": "self-built fixture, actual stdio role lookup, actual CLI migration preserving private state, real existing Kali bridge and WP export; no real challenge or model benchmark",
+  "previous_release": "2026.10.16-role-guides"
 }

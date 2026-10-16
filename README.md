@@ -6,6 +6,8 @@
 
 本次为 2026-10-16 增量升级。先读取 [升级说明](docs/upgrade-20261016.md)。旧版升级器不识别新知识目录；请使用本版提供的 upgrade-to-20261016.ps1 迁移，不用旧脚本强行导入新清单。
 
+执行 `./upgrade-to-20261016.ps1 -Target <已安装系统目录>`，默认在代码更新后、AI 接入前安装 Word/PDF 依赖；`-Plan` 只预览，不安装。离线可加 `-SkipWPDependencies` 保留 Markdown/HTML，跳过后不代表 Word/PDF 已就绪。首次 `setup.ps1` 也默认安装这些依赖。导出说明见 [WP 指南](docs/wp-guide.md)。
+
 ## 首次安装
 
 1. 获取本仓库，长期保存在自己的目录。已有用户先备份并按升级说明处理。

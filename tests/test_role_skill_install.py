@@ -17,6 +17,7 @@ ROLE_FILES = (
     "references/roles/a-web.md", "references/roles/b-pwn.md",
     "references/roles/d-reverse.md", "references/roles/g-crypto.md",
 )
+WP_FILES = ("references/wp-guide.md",)
 
 
 class RoleSkillInstallTests(unittest.TestCase):
@@ -33,7 +34,7 @@ class RoleSkillInstallTests(unittest.TestCase):
             target = self.repo / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text("# fixture; not executed\n", encoding="utf-8")
-        for name in LEGACY_FILES + ROLE_FILES:
+        for name in LEGACY_FILES + ROLE_FILES + WP_FILES:
             target = self.source / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text("fixture " + name + "\n", encoding="utf-8")
@@ -64,8 +65,8 @@ class RoleSkillInstallTests(unittest.TestCase):
     def installed(self, client, name):
         return self.home / client / "skills/ctf-system" / name
 
-    def test_all_three_clients_receive_entry_and_four_role_playbooks(self):
-        self.assertEqual(connect_ai.FILES, LEGACY_FILES + ROLE_FILES)
+    def test_all_three_clients_receive_entry_role_and_wp_playbooks(self):
+        self.assertEqual(connect_ai.FILES, LEGACY_FILES + ROLE_FILES + WP_FILES)
         result = self.install()
         self.assertTrue(result["ok"])
         self.assertEqual(result["clients_detected"], ["codex", "trae", "workbuddy"])
@@ -141,7 +142,7 @@ class RoleSkillInstallTests(unittest.TestCase):
         self.assertTrue(result["ok"])
         for client in (".codex", ".trae", ".workbuddy"):
             self.assertEqual(self.installed(client, "SKILL.md").read_text(encoding="utf-8"), "new role-aware entry\n")
-            for name in ROLE_FILES:
+            for name in ROLE_FILES + WP_FILES:
                 self.assertEqual(self.installed(client, name).read_bytes(), (self.source / name).read_bytes())
         backups = [r for r in result["changed_files"] if r["backup"]]
         self.assertEqual(len(backups), 3)
@@ -153,6 +154,22 @@ class RoleSkillInstallTests(unittest.TestCase):
             self.install()
         self.assertFalse((self.home / ".ctf-system").exists())
         self.assertFalse(self.installed(".codex", "SKILL.md").exists())
+
+    def test_role_only_install_gains_wp_guide_without_rewriting_unrelated_clients(self):
+        with patch.object(connect_ai, "FILES", LEGACY_FILES + ROLE_FILES):
+            self.install()
+        result = self.install()
+        self.assertEqual(len(result["changed_files"]), 3)
+        for client in (".codex", ".trae", ".workbuddy"):
+            target = self.installed(client, WP_FILES[0])
+            self.assertEqual(target.read_bytes(), (self.source / WP_FILES[0]).read_bytes())
+        self.assertEqual(self.unrelated_skill.read_text(encoding="utf-8"), "retain unrelated skill")
+
+    def test_missing_wp_guide_rejected_before_installation(self):
+        (self.source / WP_FILES[0]).unlink()
+        with self.assertRaisesRegex(ValueError, "Skill entry missing"):
+            self.install()
+        self.assertFalse((self.home / ".ctf-system").exists())
 
 
 if __name__ == "__main__":

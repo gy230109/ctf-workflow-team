@@ -1,0 +1,5 @@
+{
+  "export_python": "",
+  "formats": ["docx", "pdf"],
+  "template": "plain-v1"
+}
