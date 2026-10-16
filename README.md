@@ -21,6 +21,8 @@
 
 角色和队伍配置见 [TEAM_ROLES.md](TEAM_ROLES.md)。周六四人为 A Web、B Pwn、D Reverse、G Crypto；Misc/Forensics 为公共队列。月底七人配置单独登记。角色不限制共享工具，也不代替本机依赖验收。
 
+本次已补齐四人各自的角色执行说明，并随统一 Skill 一起安装。AI 自动读取本机角色对应的那一份；首次用自己的角色卡登记后，日常继续说“用 CTF系统 做这道题”。具体安装、恢复及验证边界见 [四人 AI 接管](docs/four-role-ai-handoff.md)。
+
 ## 有哪些内容
 
 - tools/：统一工具、Kali 桥接适配、REA 路由、连续网页/GDB、CTFd、CTFCrackTools 和 WP。

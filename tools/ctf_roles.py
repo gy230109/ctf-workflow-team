@@ -42,7 +42,8 @@ def lookup(root=ROOT,member=None,profile=None,name=None):
         path=(root/rel).resolve()
         if not path.is_relative_to(root) or not path.is_file():raise ValueError('Role reading missing or outside installation: '+rel)
         reading.append({'path':rel,'local_path':str(path),'reference_only':False})
-    return {'ok':True,'member':selected,'profile':profile,'active':True,**role,'reading':reading,
+    guide=next((item for item in reading if item['path'].startswith('skills/ctf-system/references/roles/')),None)
+    return {'ok':True,'member':selected,'profile':profile,'active':True,**role,'reading':reading,'role_guide':guide,
             'common_pool':event['common_pool'],'identity_source':'local' if saved else 'explicit member',
             'reference_cases':'knowledge/cases: learning/reference only; not default independent-solving inputs',
             'tool_readiness':'not inferred from role assignment','next':'Read the listed common and role material as context, discover current tools, then solve the supplied challenge and retain real evidence.'}

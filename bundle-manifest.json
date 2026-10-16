@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.16-pcap-health",
+  "version": "2026.10.16-role-guides",
   "registered_tools": 100,
   "mcp_entry_tools": 9,
   "local_source_tools": 106,
@@ -20,18 +20,18 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "1581fc5f10004a2da34cbccd24b6a1b8fb13f38e67ce8171a2a62cedd4006b2a",
-      "bytes": 4321
+      "sha256": "084ca492462b151cb2445900c89bcb0994d6d0b0e02e7c9f847b4a615365a26e",
+      "bytes": 4614
     },
     {
       "path": "README.md",
-      "sha256": "6ef834292063c4cd7483455693af6f6f20763b8c559ae3ea58cb7ca4a156c319",
-      "bytes": 4587
+      "sha256": "e8156ff7924729f1e7e24438ecb7fb21a73eb471aaf708f3e8d72a0f5fa6e580",
+      "bytes": 4902
     },
     {
       "path": "TEAM_ROLES.md",
-      "sha256": "1b6dd868834f5e20f310d6e18d07301248675422a705bc8495c60c3f44f03689",
-      "bytes": 4240
+      "sha256": "8423c4c77e4626ec280b5a58144a1ecc1d5086a1786c4626c84ee73f21e062e4",
+      "bytes": 4874
     },
     {
       "path": "bridge/kali.ps1",
@@ -87,6 +87,11 @@
       "path": "docs/components.md",
       "sha256": "958669626f6ab0808260fc3f1c2aca57ac4084679bcc0bdeb70fbd548af6f4bb",
       "bytes": 2907
+    },
+    {
+      "path": "docs/four-role-ai-handoff.md",
+      "sha256": "9661c34cac674e9817aa00e0d1a5fbed0ec203aa97543f33c0951a608f8e051b",
+      "bytes": 2611
     },
     {
       "path": "docs/optional-runtime.md",
@@ -515,8 +520,8 @@
     },
     {
       "path": "release-validation.json",
-      "sha256": "c9f1aa8e9c232690355e6ca95bf2d999c706246d0151f62e6b3c00e2eb6c5a17",
-      "bytes": 1493
+      "sha256": "11f4c93a0399130fa8fb37c0968be912c8bd0faa4c84d872cb6eba81564e5632",
+      "bytes": 1914
     },
     {
       "path": "requirements.txt",
@@ -530,13 +535,33 @@
     },
     {
       "path": "skills/ctf-system/SKILL.md",
-      "sha256": "920488e2ec49e652a7c35461a2a7b659691a30391e0aad96ce16e5a3981ac5cc",
-      "bytes": 6438
+      "sha256": "0607daba33ab4e6d7478a55e8a6a21a28cd1bd9806d029f26ecde44cb2ee09fc",
+      "bytes": 7020
     },
     {
       "path": "skills/ctf-system/agents/openai.yaml",
       "sha256": "63a056d5598ea6cd0bcabb844f8b352a88ccbc192374e76bb216dd87c01c2c7e",
       "bytes": 273
+    },
+    {
+      "path": "skills/ctf-system/references/roles/a-web.md",
+      "sha256": "66980efe3ae5121b41088b50dde0c23a3ea4a98a235423f537c0430ed6682c65",
+      "bytes": 2366
+    },
+    {
+      "path": "skills/ctf-system/references/roles/b-pwn.md",
+      "sha256": "34730012d1a1e8f621ebe32c5ac3e836bc19d414116be21884b433c8b0941a7d",
+      "bytes": 2463
+    },
+    {
+      "path": "skills/ctf-system/references/roles/d-reverse.md",
+      "sha256": "e311794f2da943e462761c3070a3bed944d670a261da15abe9157dd22b1e2568",
+      "bytes": 2494
+    },
+    {
+      "path": "skills/ctf-system/references/roles/g-crypto.md",
+      "sha256": "710ea3625fdc7fdecdf1c4458ceb2ca09668e711bf34bf79525f99254ab48fe0",
+      "bytes": 2585
     },
     {
       "path": "skills/ctf-system/scripts/system.py",
@@ -595,8 +620,8 @@
     },
     {
       "path": "team/roles.json",
-      "sha256": "5d6a61a5430633adefb902524db458958b75832e5ddfd002d237d693ef36db9b",
-      "bytes": 3567
+      "sha256": "20ee3b37aef31d6ed8d144c4b6b9cee6fac99541081f1f3c1f5c097e320f5d5f",
+      "bytes": 3810
     },
     {
       "path": "tests/test_ctf_pcap_adapter.py",
@@ -639,9 +664,14 @@
       "bytes": 6067
     },
     {
+      "path": "tests/test_role_skill_install.py",
+      "sha256": "442dec86fa9e9dc0c655ea16d4a0581c13ddb2b86ba2fc46696f80297a1002a0",
+      "bytes": 8053
+    },
+    {
       "path": "tests/test_team_roles.py",
-      "sha256": "810b572794d6d09998d76d03bbe901c94aaab741e75f38721a067126fb110dd3",
-      "bytes": 3326
+      "sha256": "007adbeafe264fccc12390cc8aa4fc7132479480efb96ba2d2eaaf17300ef28f",
+      "bytes": 4226
     },
     {
       "path": "tests/test_team_upgrade.py",
@@ -655,8 +685,8 @@
     },
     {
       "path": "tools/connect_ai.py",
-      "sha256": "d8e5fb3d007a723ae621e0287c874cfd78dc02be42a3f52d11bc24e174589b5b",
-      "bytes": 6137
+      "sha256": "040f4a23fcae9cc4feb8d31244c36c837769fb13b56a5972b89e0e789c9e3193",
+      "bytes": 6282
     },
     {
       "path": "tools/cracktools_bridge/Cargo.lock",
@@ -955,8 +985,8 @@
     },
     {
       "path": "tools/ctf_roles.py",
-      "sha256": "405968e776862345a901fa7330a7e7bc15cfcf789b0016af9e553f4a5afe57d0",
-      "bytes": 4546
+      "sha256": "1a8e05c5b6717918e03ff40a901f2b1cd73853d1cece86c710275b2274eae568",
+      "bytes": 4679
     },
     {
       "path": "tools/ctf_specialist_install.py",
@@ -985,8 +1015,8 @@
     },
     {
       "path": "tools/ctf_version.py",
-      "sha256": "b57d70aec2f9d8ea6fde49ecd40030f1026f315527452646e7ec10800b58356d",
-      "bytes": 1472
+      "sha256": "3a6ad1b424fd61a5c5b36b27e4714a22c9ba47616c390562ca301cb6a73f7c4c",
+      "bytes": 1513
     },
     {
       "path": "tools/ctf_worker_call.py",

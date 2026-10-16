@@ -41,6 +41,15 @@ NoobCTF 等参考检索用于按需学习方法；独立解题默认隔离历史
 
 ## 自动找到自己的资料
 
+四人各有一份角色执行说明，装在同一个 `ctf-system` Skill 内。AI 先恢复本机身份，再读取 `ctf_team_role` 返回的 `role_guide`；不用安装四套重复系统，也不用每次重新说明分工。角色说明、工具协议与共享经验分别维护，系统升级时全员更新同一入口。
+
+| 代号 | 本人角色说明 |
+|---|---|
+| A | [Web 与轻协调](skills/ctf-system/references/roles/a-web.md) |
+| B | [Pwn](skills/ctf-system/references/roles/b-pwn.md) |
+| D | [Reverse](skills/ctf-system/references/roles/d-reverse.md) |
+| G | [Crypto](skills/ctf-system/references/roles/g-crypto.md) |
+
 真实姓名不公开进入仓库。本机角色登记只写 `.local/team-member.json`，可使用队内提供的个人角色卡，或首次登记自己的代号。之后说“我是某某”时，AI 可通过本机记录恢复对应角色。
 
 ```text

@@ -9,6 +9,8 @@ description: “CTF系统”的统一入口和团队角色接管。用于用户�
 
 团队接管时先调用 `ctf_team_role`：已登记用户自动恢复代号、参赛配置、首接题型及真实首读路径。用户说“我是某某”时只从本机角色记录或队内个人角色卡匹配，不从公开资料猜姓名。角色未登记时，读取用户给的角色卡或首次确认一次代号，使用仓库 `tools/ctf_roles.py register` 保存到本机；以后不重复交接。公共成员与首读映射在仓库 `TEAM_ROLES.md` / `team/roles.json`，身份卡不公开。题型采用赛方标签，主责只决定优先队列，不限制其他人使用全部共享工具和方法。方法与 Obsidian 笔记按角色渐进阅读；`knowledge/cases/` 只用于明确的学习/参考，不作为独立解题或模型测试的默认输入。
 
+周六四人的 `role_guide` 返回各自执行说明，只读本人这一份，再按题目需要读方法资料：[A · Web](references/roles/a-web.md)、[B · Pwn](references/roles/b-pwn.md)、[D · Reverse](references/roles/d-reverse.md)、[G · Crypto](references/roles/g-crypto.md)。不同时加载四份，也不据某份说明擅自修改身份。它们共享本 Skill 的工具发现、建档、验证和 WP 协议；角色不是工具权限或个人能力排名。月底七人配置按实时返回的首读资料操作，不把周六专属配置套到不参赛成员。
+
 优先使用 `ctf-system` MCP：新题调用 `ctf_start`；继续或换 AI 调用 `ctf_progress`。`ctf_tools` 返回当前版本的工具与真实参数；只读分析与算术优先通过 `ctf_analyze`，其他操作用保留客户端确认要求的 `ctf_call`。系统自动按题留证。用 `ctf_note` 记录推理和未完成事项，`ctf_finish` 生成中文 WP 与共享进度。
 
 题目来自已接入的 CTFd 时，先用 `ctfd_list` / `ctfd_challenge` 确认题号，再调用 `ctf_start(ctfd_challenge_id=题号)` 自动接收原题和附件。若当前客户端缓存的 start 参数尚未更新，可先正常建题，再通过 `ctf_call` 调 `ctfd_download`，附件同样自动归档。提交使用同题 `ctfd_submit` 和明确授权的 `confirm=true`，以服务端 `correct` 回执为准；`already_solved` 不能证明这一次候选正确。未配置判题规则的题目只做分析与记录，不能自行宣称已判对。解题侧仅使用普通选手入口，不读取管理员凭据或参考答案。

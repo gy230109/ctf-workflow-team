@@ -14,6 +14,7 @@
             "crypto"
           ],
           "reading": [
+            "skills/ctf-system/references/roles/a-web.md",
             "knowledge/obsidian/强网杯Web方向备战计划.md",
             "knowledge/methods/02-工具箱.md"
           ]
@@ -24,6 +25,7 @@
             "reverse"
           ],
           "reading": [
+            "skills/ctf-system/references/roles/b-pwn.md",
             "knowledge/obsidian/强网杯PWN方向备战计划.md",
             "knowledge/methods/07-pwn.college工作流.md"
           ]
@@ -34,6 +36,7 @@
             "pwn"
           ],
           "reading": [
+            "skills/ctf-system/references/roles/d-reverse.md",
             "knowledge/methods/03-逆向SOP-检查清单.md",
             "knowledge/methods/08-REA逆向分析MCP.md",
             "knowledge/obsidian/强网杯RE方向备战计划.md"
@@ -45,6 +48,7 @@
             "web"
           ],
           "reading": [
+            "skills/ctf-system/references/roles/g-crypto.md",
             "knowledge/methods/06-密码SOP-连分数与素数幂RSA.md",
             "knowledge/obsidian/强网杯Crypto方向备战计划.md"
           ]

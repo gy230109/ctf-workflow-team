@@ -4,7 +4,9 @@ from pathlib import Path
 from datetime import datetime,timezone
 
 ROOT=Path(__file__).resolve().parents[1]
-FILES=('SKILL.md','agents/openai.yaml','scripts/system.py')
+FILES=('SKILL.md','agents/openai.yaml','scripts/system.py',
+    'references/roles/a-web.md','references/roles/b-pwn.md',
+    'references/roles/d-reverse.md','references/roles/g-crypto.md')
 
 def atomic(path,text):
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -29,7 +31,7 @@ def merge_toml(text,entry):
         raise ValueError('ctf-system already belongs to another service')
     # Replace only our own top-level table; retain all unrelated TOML and comments.
     pattern=r'(?ms)^\[mcp_servers\.ctf-system\][^\n]*\n.*?(?=^\[|\Z)'
-    approved=('ctf_system_status','ctf_tools','ctf_start','ctf_analyze','ctf_note','ctf_progress','ctf_finish')
+    approved=('ctf_system_status','ctf_tools','ctf_start','ctf_analyze','ctf_note','ctf_progress','ctf_finish','ctf_team_role')
     policy=', '.join(name+' = { approval_mode = "approve" }' for name in approved)
     block='[mcp_servers.ctf-system]\ncommand = '+json.dumps(entry['command'])+'\nargs = '+json.dumps(entry['args'])+'\nstartup_timeout_sec = 30\ntool_timeout_sec = 700\ndefault_tools_approval_mode = "prompt"\ntools = { '+policy+' }\n'
     updated=re.sub(pattern,lambda _:block,text) if re.search(pattern,text) else text.rstrip()+'\n\n'+block

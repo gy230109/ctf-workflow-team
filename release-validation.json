@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "release": "2026.10.16-pcap-health",
+  "release": "2026.10.16-role-guides",
   "verified": {
     "python_compile": true,
     "targeted_tests": 55,
@@ -27,7 +27,18 @@
       "pinned_commit": "0d9d8721f1c86f6529363fc63a6b915a1073ff77"
     },
     "ctf_system_skill_validated": true,
-    "public_private_path_scan": true
+    "public_private_path_scan": true,
+    "role_skill_targeted_checks": 16,
+    "four_roles_actual_stdio_paths": true,
+    "actual_isolated_skill_install_clients": [
+      "codex",
+      "trae",
+      "workbuddy"
+    ],
+    "all_four_guides_installed_with_unified_entry": true,
+    "idempotent_role_skill_install": true,
+    "legacy_three_file_skill_upgrade_checked": true,
+    "actual_role_guide_cli_migration_preserves_identity_and_client_ownership": true
   },
   "unverified": [
     "other teammates machines and client model inference",

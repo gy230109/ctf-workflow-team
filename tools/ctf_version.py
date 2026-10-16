@@ -11,6 +11,7 @@ FILES+=['ctf_reference_sources.py']
 FILES+=['ctf_cracktools.py']
 FILES+=['ctf_wp_export.py','ctf_wp_assets.py','ctf_wp_windows.py']
 FILES+=['ctf_pcap.py','ctf_pcap_worker.py','ctf_task_health.py']
+FILES+=['ctf_roles.py','ctf_product.py']
 
 def fingerprint():
     records={name:hashlib.sha256((BASE/'tools'/name).read_bytes()).hexdigest() for name in FILES if (BASE/'tools'/name).is_file()}
@@ -21,6 +22,6 @@ LOADED_AT=datetime.now(timezone.utc).isoformat()
 
 def info(count):
     current=fingerprint()
-    return {'release':'team-20261016-pcap-health','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
+    return {'release':'team-20261016-role-guides','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
         'reload_required':current!=LOADED_FINGERPRINT,'tool_count':count,'source_root':str(BASE),
         'python':sys.executable,'pid':os.getpid(),'loaded_at':LOADED_AT}

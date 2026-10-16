@@ -11,6 +11,18 @@ import ctf_roles
 from ctf_product import Product
 
 class Roles(unittest.TestCase):
+    def test_each_saturday_role_gets_only_its_own_guide(self):
+        expected={'A':('web','a-web.md'),'B':('pwn','b-pwn.md'),'D':('reverse','d-reverse.md'),'G':('crypto','g-crypto.md')}
+        for member,(primary,guide) in expected.items():
+            with self.subTest(member=member):
+                result=ctf_roles.lookup(ROOT,member=member,profile='saturday-four')
+                self.assertEqual(result['primary'],primary)
+                guides=[r for r in result['reading'] if '/references/roles/' in r['path']]
+                self.assertEqual(len(guides),1)
+                self.assertTrue(result['role_guide']['path'].endswith(guide))
+                self.assertTrue(Path(result['role_guide']['local_path']).is_file())
+    def test_full_seven_does_not_silently_load_saturday_guide(self):
+        self.assertIsNone(ctf_roles.lookup(ROOT,member='C',profile='full-seven')['role_guide'])
     def test_live_role_reads_existing_files(self):
         result=ctf_roles.lookup(ROOT,member='B')
         self.assertTrue(result['ok']);self.assertEqual(result['primary'],'pwn')
