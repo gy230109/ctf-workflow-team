@@ -1,0 +1,45 @@
+{
+  "ts": "2026-10-12 22:55:18",
+  "call_id": "1791816918493468600-0fb55ea0",
+  "args": {
+    "cmd": "cp \"$CTF_INPUT_DIR/trie\" .; chmod +x trie; printf 'flag{TRIE_OOB_LOCAL_VERIFY_0123456789abcdefghijklmnopqrstuvwxyz}' > flag; ./trie < \"$CTF_INPUT_DIR/exploit_B.txt\" | grep -a -e 'next hop is' -e 'does not exist'; echo DONE",
+    "case": "qwbtrie2",
+    "confirm": true,
+    "timeout": 60,
+    "wp_case": "qwb-vanguard-trie"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261012T145518Z-aa4bc05d",
+      "case_root": "/home/kali/ctf-workbench/cases/qwbtrie2",
+      "cwd": "/home/kali/ctf-workbench/cases/qwbtrie2/work",
+      "command": [
+        "bash",
+        "-c",
+        "cp \"$CTF_INPUT_DIR/trie\" .; chmod +x trie; printf 'flag{TRIE_OOB_LOCAL_VERIFY_0123456789abcdefghijklmnopqrstuvwxyz}' > flag; ./trie < \"$CTF_INPUT_DIR/exploit_B.txt\" | grep -a -e 'next hop is' -e 'does not exist'; echo DONE"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-12T14:55:19.285672+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.019,
+      "stdout_bytes": 5,
+      "stderr_bytes": 214,
+      "output_truncated": false,
+      "stdout": "DONE\n",
+      "stderr": "cp: 对 '/home/kali/ctf-workbench/cases/qwbtrie2/input/trie' 调用 stat 失败: 没有那个文件或目录\nchmod: 无法访问 'trie': 没有那个文件或目录\nbash: 行 1: ./trie: 没有那个文件或目录\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwbtrie2/results/20261012T145518Z-aa4bc05d.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.406,
+      "bridge_exit": 0,
+      "case": "qwbtrie2",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 1419.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816918493468600-0fb55ea0.json"
+  }
+}

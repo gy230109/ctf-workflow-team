@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/qwb_ezre_probe",
+  "files": [
+    {
+      "name": "ezreprobe.txt",
+      "bytes": 15,
+      "sha256": "d350c3e339b7cb00ae0a22974c6bd3066c33a31e4639611bab76918138442555"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.422
+}

@@ -1,0 +1,33 @@
+{
+  "case": "jev_system_demo_20261012",
+  "timeline_head": "f7220068368b7d6be1b167a374fefa302d817c50697f0273b819e40fd42924d5",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "ec7fb0d96f7c89496e6c02cc0bc06145b39336dbf902122c23c353e0204dc09c",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0003-log.png",
+      "sha256": "f1c8548240c4cb2a652a62cd44687c24fb12d81e385976b36a0fdb291afafda0",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0005-log.png",
+      "sha256": "2e08137f6365c4cc80c4904ced0c6601a2162b98c2914a271ef4cd1930a31415",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0006-log.png",
+      "sha256": "60b8eabc33e4114b14d543d735a44af669de9664bcb12bc1291b21116669b17d",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "215efa6df7777eef891e707a2cb053f4b110947b3cc50cfec2da9bfaa4cb41fb",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

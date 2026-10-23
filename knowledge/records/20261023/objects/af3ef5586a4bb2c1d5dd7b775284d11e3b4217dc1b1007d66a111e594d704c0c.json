@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810",
+  "files": [
+    {
+      "name": "recovery-input.bin",
+      "bytes": 128,
+      "sha256": "471fb943aa23c511f6f72f8d1652d9c880cfa392ad80503120547703e56a2be5"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.297
+}

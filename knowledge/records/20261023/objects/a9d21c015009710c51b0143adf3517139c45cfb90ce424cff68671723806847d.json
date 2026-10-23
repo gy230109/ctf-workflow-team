@@ -1,0 +1,82 @@
+{
+  "ts": "2026-10-15 00:08:16",
+  "call_id": "1791994096970180300-5c44861c",
+  "args": {
+    "action": "screenshot",
+    "confirm": true,
+    "wp_case": "ctf-76abf0819632bf8e",
+    "case": "ctf-76abf0819632bf8e"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "kind": "browser",
+        "running": true,
+        "url": "about:blank",
+        "title": "",
+        "origins": [],
+        "snapshot": {
+          "text": "",
+          "forms": []
+        },
+        "cookies_preserved": true,
+        "artifact": "work/browser-1075954e2184.png",
+        "sha256": "d9df87c4541553a18f814e328972f95cd4c4c0cd0b1d5c15d88520cd362e5ce3",
+        "bytes": 4713
+      },
+      "execution": {
+        "run_id": "20261014T160814Z-8120332a",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-1d0343b816cb0de4.py",
+          "../input/request-c6b128d9738b46f8808f2d18a6d068bf.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-14T16:08:15.419321+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.233,
+        "stdout_bytes": 303,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"kind\": \"browser\", \"running\": true, \"url\": \"about:blank\", \"title\": \"\", \"origins\": [], \"snapshot\": {\"text\": \"\", \"forms\": []}, \"cookies_preserved\": true, \"artifact\": \"work/browser-1075954e2184.png\", \"sha256\": \"d9df87c4541553a18f814e328972f95cd4c4c0cd0b1d5c15d88520cd362e5ce3\", \"bytes\": 4713}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e/results/20261014T160814Z-8120332a.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.531,
+        "bridge_exit": 0,
+        "case": "ctf-76abf0819632bf8e",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-76abf0819632bf8e",
+      "upload_verified": true,
+      "artifact_fetch": {
+        "path": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e/work/browser-1075954e2184.png",
+        "sha256": "d9df87c4541553a18f814e328972f95cd4c4c0cd0b1d5c15d88520cd362e5ce3",
+        "bytes": 4713,
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.406,
+        "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-76abf0819632bf8e\\downloads\\20261014T160816Z-b3c821c9\\browser-1075954e2184.png",
+        "verified": true,
+        "bridge_exit": 0
+      },
+      "artifact_path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-76abf0819632bf8e\\downloads\\20261014T160816Z-b3c821c9\\browser-1075954e2184.png",
+      "screenshot_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 22,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\images\\0022.png",
+        "kind": "imported_image"
+      }
+    },
+    "tool": "web_browser_session",
+    "dangerous": true,
+    "duration_ms": 5355.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994096970180300-5c44861c.json"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "ts": "2026-10-15 19:48:23",
+  "call_id": "1792064903221659500-c5b78f63",
+  "args": {
+    "query": "base",
+    "wp_case": "ctf-736b6154b62832f2"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "installed": true,
+      "tag": "v0.1.2",
+      "upstream_commit": "f372c57c05a2f7daa9049c8c737e3ed08404fb51",
+      "scope": "本机文本编解码、哈希、古典密码与多步转换；不是 flag 判定器",
+      "gui_path": "D:\\Apps\\CTFCrackTools-Local\\ctfcracktools-x-0.1.2-windows-x64.exe",
+      "probe_performed": false,
+      "file_integrity_verified": true,
+      "algorithms_count": 45,
+      "algorithms": [
+        {
+          "algorithm": "base32",
+          "modes": [
+            "decode",
+            "encode"
+          ],
+          "parameter_limit": null,
+          "requires_upstream_defaults": false
+        },
+        {
+          "algorithm": "base58",
+          "modes": [
+            "decode",
+            "encode"
+          ],
+          "parameter_limit": null,
+          "requires_upstream_defaults": false
+        },
+        {
+          "algorithm": "base64",
+          "modes": [
+            "decode",
+            "encode"
+          ],
+          "parameter_limit": null,
+          "requires_upstream_defaults": false
+        },
+        {
+          "algorithm": "base85",
+          "modes": [
+            "decode",
+            "encode"
+          ],
+          "parameter_limit": null,
+          "requires_upstream_defaults": false
+        }
+      ],
+      "limits": {
+        "input_bytes": 32768,
+        "steps": 16,
+        "output_per_step_bytes": 131072,
+        "total_step_output_bytes": 524288,
+        "timeout_seconds": 30
+      },
+      "usage": "cracktools_run(input, steps=[{algorithm,mode}])。固定默认参数操作需 use_upstream_defaults=true；自定义密钥用现有密码工具。"
+    },
+    "tool": "cracktools_status",
+    "dangerous": false,
+    "duration_ms": 16.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064903221659500-c5b78f63.json"
+  }
+}

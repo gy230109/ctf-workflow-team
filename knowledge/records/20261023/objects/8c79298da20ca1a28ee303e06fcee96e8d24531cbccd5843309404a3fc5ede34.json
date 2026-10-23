@@ -1,0 +1,15 @@
+{
+  "arguments": {
+    "category": "mobile",
+    "wp_case": "ctf-dcf8677aeacda424",
+    "case": "ctf-dcf8677aeacda424"
+  },
+  "response": {
+    "ok": false,
+    "tool": "ctf_profile",
+    "error": "ValueError('category must be web/pwn/reverse/crypto/misc/forensics')",
+    "error_code": "execution_failed",
+    "duration_ms": 4.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990687963006400-9dccfef4.json"
+  }
+}

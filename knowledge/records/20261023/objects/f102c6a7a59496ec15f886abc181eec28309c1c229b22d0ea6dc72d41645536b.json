@@ -1,0 +1,83 @@
+{
+  "configured_subnet": "192.168.26.0/24",
+  "vmware_reported_ip": "10.20.243.181",
+  "configured_bridge_status": "subnet_mismatch",
+  "diagnostic_pinned_ssh_ok": true,
+  "permanent_config_modified": false,
+  "guest": {
+    "hostname": {
+      "exit_code": 0,
+      "stdout": "kali",
+      "stderr": ""
+    },
+    "user": {
+      "exit_code": 0,
+      "stdout": "kali",
+      "stderr": ""
+    },
+    "os_release": "PRETTY_NAME=\"Kali GNU/Linux Rolling\"\nNAME=\"Kali GNU/Linux\"\nVERSION_ID=\"2026.1\"\nVERSION=\"2026.1\"\nVERSION_CODENAME=kali-rolling\nID=kali\nID_LIKE=debian\nHOME_URL=\"https://www.kali.org/\"\nSUPPORT_URL=\"https://forums.kali.org/\"\nBUG_REPORT_URL=\"https://bugs.kali.org/\"\nANSI_COLOR=\"1;31\"\n",
+    "kernel": {
+      "exit_code": 0,
+      "stdout": "Linux 6.18.12+kali-amd64 x86_64",
+      "stderr": ""
+    },
+    "addresses": {
+      "exit_code": 0,
+      "stdout": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"group\":\"default\",\"txqlen\":1000,\"addr_info\":[{\"family\":\"inet\",\"local\":\"127.0.0.1\",\"prefixlen\":8,\"scope\":\"host\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":2,\"ifname\":\"eth0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"fq_codel\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"addr_info\":[{\"family\":\"inet\",\"local\":\"10.20.243.181\",\"prefixlen\":16,\"broadcast\":\"10.20.255.255\",\"scope\":\"global\",\"dynamic\":true,\"noprefixroute\":true,\"label\":\"eth0\",\"valid_life_time\":3906,\"preferred_life_time\":3906}]}]",
+      "stderr": ""
+    },
+    "routes": {
+      "exit_code": 0,
+      "stdout": "[{\"dst\":\"default\",\"gateway\":\"10.20.0.1\",\"dev\":\"eth0\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.20.243.181\",\"metric\":100,\"flags\":[]},{\"dst\":\"10.20.0.0/16\",\"dev\":\"eth0\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"10.20.243.181\",\"metric\":100,\"flags\":[]}]",
+      "stderr": ""
+    },
+    "disk": {
+      "exit_code": 0,
+      "stdout": "文件系统            1B的块        已用      可用 已用% 挂载点\n/dev/sda1      19817906176 18197557248 587714560   97% /",
+      "stderr": ""
+    },
+    "memory": {
+      "exit_code": 0,
+      "stdout": "total        used        free      shared  buff/cache   available\n内存：    4072521728   826044416  2590433280     5853184   982425600  3246477312\n交换：    1154478080           0  1154478080",
+      "stderr": ""
+    },
+    "cpus": 2,
+    "tools": {
+      "python3": "/usr/bin/python3",
+      "gcc": "/usr/bin/gcc",
+      "gdb": null,
+      "checksec": null,
+      "strace": null,
+      "ltrace": null,
+      "ghidra": null,
+      "file": "/usr/bin/file",
+      "strings": "/usr/bin/strings",
+      "readelf": "/usr/bin/readelf",
+      "objdump": "/usr/bin/objdump",
+      "nmap": "/usr/bin/nmap",
+      "curl": "/usr/bin/curl",
+      "tshark": "/usr/bin/tshark",
+      "binwalk": "/usr/bin/binwalk",
+      "exiftool": "/usr/bin/exiftool",
+      "7z": "/usr/bin/7z",
+      "unzip": "/usr/bin/unzip",
+      "openssl": "/usr/bin/openssl",
+      "sagemath": null,
+      "sage": null,
+      "burpsuite": "/usr/bin/burpsuite",
+      "wireshark": "/usr/bin/wireshark",
+      "john": "/usr/sbin/john",
+      "hashcat": "/usr/bin/hashcat"
+    },
+    "python_modules": {
+      "pwn": false,
+      "Crypto": false,
+      "z3": false,
+      "sympy": true,
+      "gmpy2": false,
+      "dnfile": false
+    },
+    "guest_ip": "10.20.243.181",
+    "transport_seconds": 2.203
+  }
+}

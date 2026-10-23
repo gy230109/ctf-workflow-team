@@ -1,0 +1,11 @@
+{
+  "tool": "forensics_pcap",
+  "arguments": {
+    "action": "follow",
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-04fca725df3de1d8\\attachments\\offline-demo.pcap",
+    "wp_purpose": "部署自建样例验收：follow",
+    "wp_case": "ctf-04fca725df3de1d8",
+    "case": "ctf-04fca725df3de1d8"
+  },
+  "operation_id": "6332838a23dd4067b059498869d28fb7"
+}

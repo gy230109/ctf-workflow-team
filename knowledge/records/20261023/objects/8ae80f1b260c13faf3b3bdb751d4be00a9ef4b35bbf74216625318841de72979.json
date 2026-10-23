@@ -1,0 +1,10 @@
+{
+  "tool": "web_browser_session",
+  "arguments": {
+    "action": "close",
+    "confirm": true,
+    "wp_case": "ctf-a4595e3240dcc28b",
+    "case": "ctf-a4595e3240dcc28b"
+  },
+  "operation_id": "040263a8026c4b43804ab63cf8db5321"
+}

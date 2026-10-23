@@ -1,0 +1,1663 @@
+
+METHOD 1 Card..ctor RVA 2050
+0001 ldarg.0          
+0002 call             0a000008 Object..ctor
+0007 nop              
+0008 nop              
+0009 ldarg.0          
+000a ldarg.1          
+000b call             06000003 Card.set_Rank
+0010 nop              
+0011 ldarg.0          
+0012 ldarg.2          
+0013 call             06000005 Card.set_Suite
+0018 nop              
+0019 ldarg.0          
+001a ldc.i4.1         
+001b call             06000007 Card.set_IsFaceUp
+0020 nop              
+0021 ret              
+
+METHOD 2 Card.get_Rank RVA 2072
+0001 ldarg.0          
+0002 ldfld            04000001 Card.<Rank>k__BackingField
+0007 ret              
+
+METHOD 3 Card.set_Rank RVA 207a
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            04000001 Card.<Rank>k__BackingField
+0008 ret              
+
+METHOD 4 Card.get_Suite RVA 2083
+0001 ldarg.0          
+0002 ldfld            04000002 Card.<Suite>k__BackingField
+0007 ret              
+
+METHOD 5 Card.set_Suite RVA 208b
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            04000002 Card.<Suite>k__BackingField
+0008 ret              
+
+METHOD 6 Card.get_IsFaceUp RVA 2094
+0001 ldarg.0          
+0002 ldfld            04000003 Card.<IsFaceUp>k__BackingField
+0007 ret              
+
+METHOD 7 Card.set_IsFaceUp RVA 209c
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            04000003 Card.<IsFaceUp>k__BackingField
+0008 ret              
+
+METHOD 8 Card.Flip RVA 20a5
+0001 nop              
+0002 ldarg.0          
+0003 ldarg.0          
+0004 call             06000006 Card.get_IsFaceUp
+0009 ldc.i4.0         
+000a ceq              
+000c call             06000007 Card.set_IsFaceUp
+0011 nop              
+0012 ret              
+
+METHOD 9 Card.GetHashCode RVA 20b8
+000c nop              
+000d ldarg.0          
+000e call             06000002 Card.get_Rank
+0013 ldc.i4.3         
+0014 shl              
+0015 ldarg.0          
+0016 call             06000004 Card.get_Suite
+001b or               
+001c stloc.0          
+001d br.s             31
+001f ldloc.0          
+0020 ret              
+
+METHOD 10 Card.Equals RVA 20dc
+000c nop              
+000d ldarg.1          
+000e isinst           02000002 Card
+0013 stloc.0          
+0014 ldloc.0          
+0015 brfalse.s        53
+0017 ldloc.0          
+0018 callvirt         06000004 Card.get_Suite
+001d ldarg.0          
+001e call             06000004 Card.get_Suite
+0023 bne.un.s         53
+0025 ldloc.0          
+0026 callvirt         06000002 Card.get_Rank
+002b ldarg.0          
+002c call             06000002 Card.get_Rank
+0031 ceq              
+0033 br.s             54
+0035 ldc.i4.0         
+0036 stloc.1          
+0037 br.s             57
+0039 ldloc.1          
+003a ret              
+
+METHOD 11 Card.ToString RVA 2118
+000c nop              
+000d ldc.i4.s         63
+000f stloc.0          
+0010 ldarg.0          
+0011 call             06000004 Card.get_Suite
+0016 stloc.3          
+0017 ldloc.3          
+0018 stloc.2          
+0019 ldloc.2          
+001a ldc.i4.1         
+001b sub              
+001c switch           [51, 59, 67, 75]
+0031 br.s             83
+0033 ldc.i4           9827
+0038 stloc.0          
+0039 br.s             83
+003b ldc.i4           9830
+0040 stloc.0          
+0041 br.s             83
+0043 ldc.i4           9829
+0048 stloc.0          
+0049 br.s             83
+004b ldc.i4           9824
+0050 stloc.0          
+0051 br.s             83
+0053 ldarg.0          
+0054 call             06000002 Card.get_Rank
+0059 ldc.i4.1         
+005a ble.s            102
+005c ldarg.0          
+005d call             06000002 Card.get_Rank
+0062 ldc.i4.s         11
+0064 blt.s            137
+0066 ldtoken          02000006 Rank
+006b call             0a000009 Type.GetTypeFromHandle
+0070 ldarg.0          
+0071 call             06000002 Card.get_Rank
+0076 box              02000006 Rank
+007b call             0a00000a Enum.GetName
+0080 ldc.i4.0         
+0081 ldc.i4.1         
+0082 callvirt         0a00000b String.Substring
+0087 br.s             152
+0089 ldarg.0          
+008a call             06000002 Card.get_Rank
+008f stloc.s          local(0x0004)
+0091 ldloca.s         local(0x0004)
+0093 call             0a00000c Int32.ToString
+0098 stloc.1          
+0099 ldloc.1          
+009a ldstr            ' '
+009f ldloca.s         local(0x0000)
+00a1 call             0a00000d Char.ToString
+00a6 call             0a00000e String.Concat
+00ab stloc.s          local(0x0005)
+00ad br.s             175
+00af ldloc.s          local(0x0005)
+00b1 ret              
+
+METHOD 12 Dealer..ctor RVA 21ca
+0001 ldarg.0          
+0002 call             06000014 PlayerBase..ctor
+0007 nop              
+0008 nop              
+0009 ldarg.0          
+000a ldc.i4.1         
+000b newobj           0600002f Hand..ctor
+0010 call             06000016 PlayerBase.set_Hand
+0015 nop              
+0016 ret              
+
+METHOD 13 Player..ctor RVA 21e1
+0001 ldarg.0          
+0002 call             06000014 PlayerBase..ctor
+0007 nop              
+0008 nop              
+0009 ldarg.0          
+000a ldc.i4.0         
+000b newobj           0600002f Hand..ctor
+0010 call             06000016 PlayerBase.set_Hand
+0015 nop              
+0016 ret              
+
+METHOD 14 Player.add_BalanceChanged RVA 21f8
+000c ldarg.0          
+000d ldfld            04000006 Player.BalanceChanged
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a00000f Delegate.Combine
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           04000006 Player.BalanceChanged
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 15 Player.remove_BalanceChanged RVA 2230
+000c ldarg.0          
+000d ldfld            04000006 Player.BalanceChanged
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a000011 Delegate.Remove
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           04000006 Player.BalanceChanged
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 16 Player.get_Balance RVA 2268
+000c nop              
+000d ldarg.0          
+000e ldfld            04000004 Player.balance
+0013 stloc.0          
+0014 br.s             22
+0016 ldloc.0          
+0017 ret              
+
+METHOD 17 Player.set_Balance RVA 2280
+000c nop              
+000d ldarg.0          
+000e ldfld            04000004 Player.balance
+0013 ldarg.1          
+0014 call             0a000012 Decimal.op_Inequality
+0019 stloc.0          
+001a ldloc.0          
+001b brfalse.s        71
+001d nop              
+001e ldarg.0          
+001f ldarg.1          
+0020 stfld            04000004 Player.balance
+0025 ldarg.0          
+0026 ldfld            04000006 Player.BalanceChanged
+002b ldnull           
+002c cgt.un           
+002e stloc.1          
+002f ldloc.1          
+0030 brfalse.s        70
+0032 nop              
+0033 ldarg.0          
+0034 ldfld            04000006 Player.BalanceChanged
+0039 ldarg.0          
+003a ldsfld           0a000013 EventArgs.Empty
+003f callvirt         0a000014 EventHandler.Invoke
+0044 nop              
+0045 nop              
+0046 nop              
+0047 ret              
+
+METHOD 18 Player.get_Bet RVA 22c8
+000c nop              
+000d ldarg.0          
+000e ldfld            04000005 Player.bet
+0013 stloc.0          
+0014 br.s             22
+0016 ldloc.0          
+0017 ret              
+
+METHOD 19 Player.set_Bet RVA 22e0
+000c nop              
+000d ldarg.0          
+000e ldfld            04000005 Player.bet
+0013 ldarg.1          
+0014 call             0a000015 Decimal.op_Equality
+0019 stloc.0          
+001a ldloc.0          
+001b brfalse.s        35
+001d nop              
+001e br               291
+0023 ldarg.1          
+0024 ldarg.0          
+0025 ldfld            04000004 Player.balance
+002a ldarg.0          
+002b ldfld            04000005 Player.bet
+0030 call             0a000016 Decimal.op_Addition
+0035 call             0a000017 Decimal.op_GreaterThan
+003a brfalse.s        78
+003c ldarg.0          
+003d ldfld            04000004 Player.balance
+0042 ldsfld           0a000018 Decimal.Zero
+0047 call             0a000017 Decimal.op_GreaterThan
+004c br.s             79
+004e ldc.i4.0         
+004f stloc.1          
+0050 ldloc.1          
+0051 brfalse.s        125
+0053 nop              
+0054 ldarg.0          
+0055 ldarg.0          
+0056 ldfld            04000005 Player.bet
+005b ldarg.0          
+005c ldfld            04000004 Player.balance
+0061 call             0a000016 Decimal.op_Addition
+0066 stfld            04000005 Player.bet
+006b ldarg.0          
+006c ldsfld           0a000018 Decimal.Zero
+0071 call             06000011 Player.set_Balance
+0076 nop              
+0077 nop              
+0078 br               291
+007d ldarg.1          
+007e ldsfld           0a000018 Decimal.Zero
+0083 call             0a000019 Decimal.op_LessThan
+0088 brfalse.s        156
+008a ldarg.0          
+008b ldfld            04000005 Player.bet
+0090 ldsfld           0a000018 Decimal.Zero
+0095 call             0a000017 Decimal.op_GreaterThan
+009a br.s             157
+009c ldc.i4.0         
+009d stloc.2          
+009e ldloc.2          
+009f brfalse.s        203
+00a1 nop              
+00a2 ldarg.0          
+00a3 ldfld            04000005 Player.bet
+00a8 ldarg.0          
+00a9 ldfld            04000004 Player.balance
+00ae call             0a000016 Decimal.op_Addition
+00b3 stloc.3          
+00b4 ldarg.0          
+00b5 ldflda           04000005 Player.bet
+00ba initobj          0100000b Decimal
+00c0 ldarg.0          
+00c1 ldloc.3          
+00c2 call             06000011 Player.set_Balance
+00c7 nop              
+00c8 nop              
+00c9 br.s             291
+00cb ldarg.1          
+00cc ldsfld           0a000018 Decimal.Zero
+00d1 call             0a00001a Decimal.op_GreaterThanOrEqual
+00d6 brfalse.s        241
+00d8 ldarg.1          
+00d9 ldarg.0          
+00da ldfld            04000004 Player.balance
+00df ldarg.0          
+00e0 ldfld            04000005 Player.bet
+00e5 call             0a000016 Decimal.op_Addition
+00ea call             0a00001b Decimal.op_LessThanOrEqual
+00ef br.s             242
+00f1 ldc.i4.0         
+00f2 stloc.s          local(0x0004)
+00f4 ldloc.s          local(0x0004)
+00f6 brfalse.s        291
+00f8 nop              
+00f9 ldarg.0          
+00fa ldfld            04000004 Player.balance
+00ff ldarg.0          
+0100 ldfld            04000005 Player.bet
+0105 call             0a000016 Decimal.op_Addition
+010a stloc.s          local(0x0005)
+010c ldarg.0          
+010d ldarg.1          
+010e stfld            04000005 Player.bet
+0113 ldarg.0          
+0114 ldloc.s          local(0x0005)
+0116 ldarg.1          
+0117 call             0a00001c Decimal.op_Subtraction
+011c call             06000011 Player.set_Balance
+0121 nop              
+0122 nop              
+0123 ret              
+
+METHOD 20 PlayerBase..ctor RVA 2404
+0001 ldarg.0          
+0002 call             0a000008 Object..ctor
+0007 nop              
+0008 nop              
+0009 ret              
+
+METHOD 21 PlayerBase.get_Hand RVA 240e
+0001 ldarg.0          
+0002 ldfld            04000007 PlayerBase.<Hand>k__BackingField
+0007 ret              
+
+METHOD 22 PlayerBase.set_Hand RVA 2416
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            04000007 PlayerBase.<Hand>k__BackingField
+0008 ret              
+
+METHOD 23 Deck..ctor RVA 241f
+0001 ldarg.0          
+0002 ldc.i4.s         52
+0004 newobj           0a00001d TypeSpecRow..ctor
+0009 stfld            04000016 Deck.cards
+000e ldarg.0          
+000f call             0a000008 Object..ctor
+0014 nop              
+0015 nop              
+0016 ldarg.0          
+0017 call             06000019 Deck.Populate
+001c nop              
+001d ret              
+
+METHOD 24 Deck.get_Cards RVA 2440
+000c nop              
+000d ldarg.0          
+000e ldfld            04000016 Deck.cards
+0013 callvirt         0a00001e TypeSpecRow.AsReadOnly
+0018 stloc.0          
+0019 br.s             27
+001b ldloc.0          
+001c ret              
+
+METHOD 25 Deck.Populate RVA 2460
+000c nop              
+000d ldarg.0          
+000e ldfld            04000016 Deck.cards
+0013 callvirt         0a00001f TypeSpecRow.Clear
+0018 nop              
+0019 ldarg.0          
+001a ldfld            04000016 Deck.cards
+001f ldc.i4.1         
+0020 ldc.i4.4         
+0021 call             0a000020 Enumerable.Range
+0026 ldsfld           04000033 <>c.<>9__4_0
+002b dup              
+002c brtrue.s         69
+002e pop              
+002f ldsfld           04000032 <>c.<>9
+0034 ldftn            0600003f <>c.<Populate>b__4_0
+003a newobj           0a000021 TypeSpecRow..ctor
+003f dup              
+0040 stsfld           04000033 <>c.<>9__4_0
+0045 call             2b000002 Enumerable.SelectMany
+004a callvirt         0a000023 TypeSpecRow.AddRange
+004f nop              
+0050 ret              
+
+METHOD 26 Deck.Shuffle RVA 24b4
+000c nop              
+000d ldarg.0          
+000e ldfld            04000016 Deck.cards
+0013 callvirt         0a000024 TypeSpecRow.get_Count
+0018 stloc.0          
+0019 newobj           0a000025 RNGCryptoServiceProvider..ctor
+001e stloc.1          
+001f br.s             130
+0021 nop              
+0022 ldc.i4.8         
+0023 newarr           0100001f Byte
+0028 stloc.2          
+0029 ldloc.1          
+002a ldloc.2          
+002b callvirt         0a000026 RandomNumberGenerator.GetBytes
+0030 nop              
+0031 ldloc.2          
+0032 ldc.i4.0         
+0033 call             0a000027 BitConverter.ToUInt64
+0038 ldarg.0          
+0039 ldfld            04000016 Deck.cards
+003e callvirt         0a000024 TypeSpecRow.get_Count
+0043 conv.i8          
+0044 rem.un           
+0045 conv.i4          
+0046 stloc.3          
+0047 ldloc.0          
+0048 ldc.i4.1         
+0049 sub              
+004a stloc.0          
+004b ldarg.0          
+004c ldfld            04000016 Deck.cards
+0051 ldloc.3          
+0052 callvirt         0a000028 TypeSpecRow.get_Item
+0057 stloc.s          local(0x0004)
+0059 ldarg.0          
+005a ldfld            04000016 Deck.cards
+005f ldloc.3          
+0060 ldarg.0          
+0061 ldfld            04000016 Deck.cards
+0066 ldloc.0          
+0067 callvirt         0a000028 TypeSpecRow.get_Item
+006c callvirt         0a000029 TypeSpecRow.set_Item
+0071 nop              
+0072 ldarg.0          
+0073 ldfld            04000016 Deck.cards
+0078 ldloc.0          
+0079 ldloc.s          local(0x0004)
+007b callvirt         0a000029 TypeSpecRow.set_Item
+0080 nop              
+0081 nop              
+0082 ldloc.0          
+0083 ldc.i4.1         
+0084 cgt              
+0086 stloc.s          local(0x0005)
+0088 ldloc.s          local(0x0005)
+008a brtrue.s         33
+008c ret              
+
+METHOD 27 Deck.Deal RVA 2544
+000c nop              
+000d ldarg.0          
+000e ldfld            04000016 Deck.cards
+0013 callvirt         0a000024 TypeSpecRow.get_Count
+0018 ldc.i4.2         
+0019 clt              
+001b stloc.1          
+001c ldloc.1          
+001d brfalse.s        38
+001f nop              
+0020 newobj           0a00002a InvalidOperationException..ctor
+0025 throw            
+0026 ldarg.0          
+0027 ldfld            04000016 Deck.cards
+002c call             2b000003 Enumerable.First
+0031 stloc.0          
+0032 ldarg.1          
+0033 ldloc.0          
+0034 callvirt         06000039 Hand.AddCard
+0039 nop              
+003a ldarg.0          
+003b ldfld            04000016 Deck.cards
+0040 ldloc.0          
+0041 callvirt         0a00002c TypeSpecRow.Remove
+0046 pop              
+0047 ldarg.0          
+0048 ldfld            04000016 Deck.cards
+004d call             2b000003 Enumerable.First
+0052 stloc.0          
+0053 ldarg.1          
+0054 callvirt         06000032 Hand.get_IsDealer
+0059 stloc.2          
+005a ldloc.2          
+005b brfalse.s        102
+005d nop              
+005e ldloc.0          
+005f callvirt         06000008 Card.Flip
+0064 nop              
+0065 nop              
+0066 ldarg.1          
+0067 ldloc.0          
+0068 callvirt         06000039 Hand.AddCard
+006d nop              
+006e ldarg.0          
+006f ldfld            04000016 Deck.cards
+0074 ldloc.0          
+0075 callvirt         0a00002c TypeSpecRow.Remove
+007a pop              
+007b ret              
+
+METHOD 28 Deck.GiveAdditionalCard RVA 25c0
+000c nop              
+000d ldarg.0          
+000e ldfld            04000016 Deck.cards
+0013 callvirt         0a000024 TypeSpecRow.get_Count
+0018 ldc.i4.1         
+0019 clt              
+001b stloc.0          
+001c ldloc.0          
+001d brfalse.s        38
+001f nop              
+0020 newobj           0a00002a InvalidOperationException..ctor
+0025 throw            
+0026 ldarg.1          
+0027 ldarg.0          
+0028 ldfld            04000016 Deck.cards
+002d call             2b000003 Enumerable.First
+0032 callvirt         06000039 Hand.AddCard
+0037 nop              
+0038 ldarg.0          
+0039 ldfld            04000016 Deck.cards
+003e ldc.i4.0         
+003f callvirt         0a00002d TypeSpecRow.RemoveAt
+0044 nop              
+0045 ret              
+
+METHOD 29 Game..ctor RVA 2606
+0001 ldarg.0          
+0002 call             0a000008 Object..ctor
+0007 nop              
+0008 nop              
+0009 ldarg.0          
+000a newobj           0600000c Dealer..ctor
+000f call             06000025 Game.set_Dealer
+0014 nop              
+0015 ldarg.0          
+0016 newobj           0600000d Player..ctor
+001b call             06000023 Game.set_Player
+0020 nop              
+0021 ldarg.0          
+0022 ldc.i4.0         
+0023 call             06000029 Game.set_LastState
+0028 nop              
+0029 ldarg.0          
+002a ldc.i4.1         
+002b call             06000027 Game.set_AllowedActions
+0030 nop              
+0031 ret              
+
+METHOD 30 Game.add_LastStateChanged RVA 2638
+000c ldarg.0          
+000d ldfld            0400001b Game.LastStateChanged
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a00000f Delegate.Combine
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           0400001b Game.LastStateChanged
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 31 Game.remove_LastStateChanged RVA 2670
+000c ldarg.0          
+000d ldfld            0400001b Game.LastStateChanged
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a000011 Delegate.Remove
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           0400001b Game.LastStateChanged
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 32 Game.add_AllowedActionsChanged RVA 26a8
+000c ldarg.0          
+000d ldfld            0400001c Game.AllowedActionsChanged
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a00000f Delegate.Combine
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           0400001c Game.AllowedActionsChanged
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 33 Game.remove_AllowedActionsChanged RVA 26e0
+000c ldarg.0          
+000d ldfld            0400001c Game.AllowedActionsChanged
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a000011 Delegate.Remove
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           0400001c Game.AllowedActionsChanged
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 34 Game.get_Player RVA 2715
+0001 ldarg.0          
+0002 ldfld            0400001d Game.<Player>k__BackingField
+0007 ret              
+
+METHOD 35 Game.set_Player RVA 271d
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            0400001d Game.<Player>k__BackingField
+0008 ret              
+
+METHOD 36 Game.get_Dealer RVA 2726
+0001 ldarg.0          
+0002 ldfld            0400001e Game.<Dealer>k__BackingField
+0007 ret              
+
+METHOD 37 Game.set_Dealer RVA 272e
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            0400001e Game.<Dealer>k__BackingField
+0008 ret              
+
+METHOD 38 Game.get_AllowedActions RVA 2738
+000c nop              
+000d ldarg.0          
+000e ldfld            04000017 Game.allowedActions
+0013 stloc.0          
+0014 br.s             22
+0016 ldloc.0          
+0017 ret              
+
+METHOD 39 Game.set_AllowedActions RVA 2750
+000c nop              
+000d ldarg.0          
+000e ldfld            04000017 Game.allowedActions
+0013 ldarg.1          
+0014 ceq              
+0016 ldc.i4.0         
+0017 ceq              
+0019 stloc.0          
+001a ldloc.0          
+001b brfalse.s        71
+001d nop              
+001e ldarg.0          
+001f ldarg.1          
+0020 stfld            04000017 Game.allowedActions
+0025 ldarg.0          
+0026 ldfld            0400001c Game.AllowedActionsChanged
+002b ldnull           
+002c cgt.un           
+002e stloc.1          
+002f ldloc.1          
+0030 brfalse.s        70
+0032 nop              
+0033 ldarg.0          
+0034 ldfld            0400001c Game.AllowedActionsChanged
+0039 ldarg.0          
+003a ldsfld           0a000013 EventArgs.Empty
+003f callvirt         0a000014 EventHandler.Invoke
+0044 nop              
+0045 nop              
+0046 nop              
+0047 ret              
+
+METHOD 40 Game.get_LastState RVA 2798
+000c nop              
+000d ldarg.0          
+000e ldfld            04000018 Game.lastState
+0013 stloc.0          
+0014 br.s             22
+0016 ldloc.0          
+0017 ret              
+
+METHOD 41 Game.set_LastState RVA 27b0
+000c nop              
+000d ldarg.0          
+000e ldfld            04000018 Game.lastState
+0013 ldarg.1          
+0014 ceq              
+0016 ldc.i4.0         
+0017 ceq              
+0019 stloc.0          
+001a ldloc.0          
+001b brfalse.s        71
+001d nop              
+001e ldarg.0          
+001f ldarg.1          
+0020 stfld            04000018 Game.lastState
+0025 ldarg.0          
+0026 ldfld            0400001b Game.LastStateChanged
+002b ldnull           
+002c cgt.un           
+002e stloc.1          
+002f ldloc.1          
+0030 brfalse.s        70
+0032 nop              
+0033 ldarg.0          
+0034 ldfld            0400001b Game.LastStateChanged
+0039 ldarg.0          
+003a ldsfld           0a000013 EventArgs.Empty
+003f callvirt         0a000014 EventHandler.Invoke
+0044 nop              
+0045 nop              
+0046 nop              
+0047 ret              
+
+METHOD 42 Game.genCode RVA 27f8
+000c nop              
+000d ldc.i4.s         16
+000f newarr           0100001f Byte
+0014 dup              
+0015 ldtoken          04000031 <PrivateImplementationDetails>.E64C31518ED1CE49AB83B7BA8DFC265482AECF35D157F174A496CC097B75AE07
+001a call             0a00002e RuntimeHelpers.InitializeArray
+001f stloc.0          
+0020 newobj           0a00002f RijndaelManaged..ctor
+0025 dup              
+0026 ldloc.0          
+0027 callvirt         0a000030 SymmetricAlgorithm.set_Key
+002c nop              
+002d dup              
+002e ldc.i4.2         
+002f callvirt         0a000031 SymmetricAlgorithm.set_Mode
+0034 nop              
+0035 dup              
+0036 ldc.i4.2         
+0037 callvirt         0a000032 SymmetricAlgorithm.set_Padding
+003c nop              
+003d stloc.1          
+003e ldloc.1          
+003f callvirt         0a000033 SymmetricAlgorithm.CreateDecryptor
+0044 stloc.2          
+0045 ldarg.0          
+0046 ldloc.2          
+0047 ldarg.0          
+0048 ldfld            0400001a Game.userMessage
+004d ldc.i4.0         
+004e ldarg.0          
+004f ldfld            0400001a Game.userMessage
+0054 ldlen            
+0055 conv.i4          
+0056 callvirt         0a000034 ICryptoTransform.TransformFinalBlock
+005b stfld            0400001a Game.userMessage
+0060 ret              
+
+METHOD 43 Game.Play RVA 285c
+000c nop              
+000d ldarg.0          
+000e call             06000022 Game.get_Player
+0013 ldarg.1          
+0014 callvirt         06000011 Player.set_Balance
+0019 nop              
+001a ldarg.0          
+001b call             06000022 Game.get_Player
+0020 ldarg.2          
+0021 callvirt         06000013 Player.set_Bet
+0026 nop              
+0027 ldarg.0          
+0028 ldc.i4.2         
+0029 call             06000027 Game.set_AllowedActions
+002e nop              
+002f ldarg.0          
+0030 ldfld            0400001c Game.AllowedActionsChanged
+0035 ldnull           
+0036 cgt.un           
+0038 stloc.0          
+0039 ldloc.0          
+003a brfalse.s        80
+003c nop              
+003d ldarg.0          
+003e ldfld            0400001c Game.AllowedActionsChanged
+0043 ldarg.0          
+0044 ldsfld           0a000013 EventArgs.Empty
+0049 callvirt         0a000014 EventHandler.Invoke
+004e nop              
+004f nop              
+0050 ret              
+
+METHOD 44 Game.Deal RVA 28b0
+000c nop              
+000d ldarg.0          
+000e call             06000026 Game.get_AllowedActions
+0013 ldc.i4.2         
+0014 and              
+0015 ldc.i4.2         
+0016 ceq              
+0018 ldc.i4.0         
+0019 ceq              
+001b stloc.0          
+001c ldloc.0          
+001d brfalse.s        38
+001f nop              
+0020 newobj           0a00002a InvalidOperationException..ctor
+0025 throw            
+0026 ldarg.0          
+0027 ldc.i4.0         
+0028 call             06000029 Game.set_LastState
+002d nop              
+002e ldarg.0          
+002f ldfld            04000019 Game.deck
+0034 ldnull           
+0035 ceq              
+0037 stloc.1          
+0038 ldloc.1          
+0039 brfalse.s        74
+003b nop              
+003c ldarg.0          
+003d newobj           06000017 Deck..ctor
+0042 stfld            04000019 Game.deck
+0047 nop              
+0048 br.s             88
+004a nop              
+004b ldarg.0          
+004c ldfld            04000019 Game.deck
+0051 callvirt         06000019 Deck.Populate
+0056 nop              
+0057 nop              
+0058 ldarg.0          
+0059 ldfld            04000019 Game.deck
+005e callvirt         0600001a Deck.Shuffle
+0063 nop              
+0064 ldarg.0          
+0065 call             06000024 Game.get_Dealer
+006a callvirt         06000015 PlayerBase.get_Hand
+006f callvirt         0600003b Hand.Clear
+0074 nop              
+0075 ldarg.0          
+0076 call             06000022 Game.get_Player
+007b callvirt         06000015 PlayerBase.get_Hand
+0080 callvirt         0600003b Hand.Clear
+0085 nop              
+0086 ldarg.0          
+0087 ldfld            04000019 Game.deck
+008c ldarg.0          
+008d call             06000024 Game.get_Dealer
+0092 callvirt         06000015 PlayerBase.get_Hand
+0097 callvirt         0600001b Deck.Deal
+009c nop              
+009d ldarg.0          
+009e ldfld            04000019 Game.deck
+00a3 ldarg.0          
+00a4 call             06000022 Game.get_Player
+00a9 callvirt         06000015 PlayerBase.get_Hand
+00ae callvirt         0600001b Deck.Deal
+00b3 nop              
+00b4 ldarg.0          
+00b5 call             06000022 Game.get_Player
+00ba callvirt         06000015 PlayerBase.get_Hand
+00bf callvirt         06000035 Hand.get_SoftValue
+00c4 ldc.i4.s         21
+00c6 ceq              
+00c8 stloc.2          
+00c9 ldloc.2          
+00ca brfalse.s        327
+00cc nop              
+00cd ldarg.0          
+00ce call             06000024 Game.get_Dealer
+00d3 callvirt         06000015 PlayerBase.get_Hand
+00d8 callvirt         06000035 Hand.get_SoftValue
+00dd ldc.i4.s         21
+00df ceq              
+00e1 stloc.3          
+00e2 ldloc.3          
+00e3 brfalse.s        241
+00e5 nop              
+00e6 ldarg.0          
+00e7 ldc.i4.3         
+00e8 call             06000029 Game.set_LastState
+00ed nop              
+00ee nop              
+00ef br.s             296
+00f1 nop              
+00f2 ldarg.0          
+00f3 call             06000022 Game.get_Player
+00f8 dup              
+00f9 callvirt         06000010 Player.get_Balance
+00fe ldarg.0          
+00ff call             06000022 Game.get_Player
+0104 callvirt         06000012 Player.get_Bet
+0109 ldc.i4.2         
+010a newobj           0a000035 Decimal..ctor
+010f call             0a000036 Decimal.op_Division
+0114 call             0a000016 Decimal.op_Addition
+0119 callvirt         06000011 Player.set_Balance
+011e nop              
+011f ldarg.0          
+0120 ldc.i4.1         
+0121 call             06000029 Game.set_LastState
+0126 nop              
+0127 nop              
+0128 ldarg.0          
+0129 call             06000024 Game.get_Dealer
+012e callvirt         06000015 PlayerBase.get_Hand
+0133 callvirt         0600003a Hand.Show
+0138 nop              
+0139 ldarg.0          
+013a ldc.i4.2         
+013b call             06000027 Game.set_AllowedActions
+0140 nop              
+0141 nop              
+0142 br               496
+0147 ldarg.0          
+0148 call             06000024 Game.get_Dealer
+014d callvirt         06000015 PlayerBase.get_Hand
+0152 callvirt         06000036 Hand.get_TotalValue
+0157 ldc.i4.s         21
+0159 ceq              
+015b stloc.s          local(0x0004)
+015d ldloc.s          local(0x0004)
+015f brfalse          485
+0164 nop              
+0165 ldarg.0          
+0166 call             06000022 Game.get_Player
+016b dup              
+016c callvirt         06000010 Player.get_Balance
+0171 ldarg.0          
+0172 call             06000022 Game.get_Player
+0177 callvirt         06000012 Player.get_Bet
+017c ldc.i4.2         
+017d newobj           0a000035 Decimal..ctor
+0182 call             0a000036 Decimal.op_Division
+0187 call             0a00001c Decimal.op_Subtraction
+018c callvirt         06000011 Player.set_Balance
+0191 nop              
+0192 ldarg.0          
+0193 call             06000022 Game.get_Player
+0198 callvirt         06000010 Player.get_Balance
+019d ldsfld           0a000018 Decimal.Zero
+01a2 call             0a000019 Decimal.op_LessThan
+01a7 stloc.s          local(0x0005)
+01a9 ldloc.s          local(0x0005)
+01ab brfalse.s        449
+01ad nop              
+01ae ldstr            'GameOver!'
+01b3 call             0a000037 MessageBox.Show
+01b8 pop              
+01b9 ldc.i4.0         
+01ba call             0a000038 Environment.Exit
+01bf nop              
+01c0 nop              
+01c1 ldarg.0          
+01c2 call             06000024 Game.get_Dealer
+01c7 callvirt         06000015 PlayerBase.get_Hand
+01cc callvirt         0600003a Hand.Show
+01d1 nop              
+01d2 ldarg.0          
+01d3 ldc.i4.2         
+01d4 call             06000029 Game.set_LastState
+01d9 nop              
+01da ldarg.0          
+01db ldc.i4.2         
+01dc call             06000027 Game.set_AllowedActions
+01e1 nop              
+01e2 nop              
+01e3 br.s             496
+01e5 nop              
+01e6 ldarg.0          
+01e7 ldc.i4.s         12
+01e9 call             06000027 Game.set_AllowedActions
+01ee nop              
+01ef nop              
+01f0 ret              
+
+METHOD 45 Game.Hit RVA 2aa4
+000c nop              
+000d ldarg.0          
+000e call             06000026 Game.get_AllowedActions
+0013 ldc.i4.8         
+0014 and              
+0015 ldc.i4.8         
+0016 ceq              
+0018 ldc.i4.0         
+0019 ceq              
+001b stloc.0          
+001c ldloc.0          
+001d brfalse.s        38
+001f nop              
+0020 newobj           0a00002a InvalidOperationException..ctor
+0025 throw            
+0026 ldarg.0          
+0027 ldfld            04000019 Game.deck
+002c ldarg.0          
+002d call             06000022 Game.get_Player
+0032 callvirt         06000015 PlayerBase.get_Hand
+0037 callvirt         0600001c Deck.GiveAdditionalCard
+003c nop              
+003d ldarg.0          
+003e call             06000022 Game.get_Player
+0043 callvirt         06000015 PlayerBase.get_Hand
+0048 callvirt         06000036 Hand.get_TotalValue
+004d ldc.i4.s         21
+004f cgt              
+0051 stloc.1          
+0052 ldloc.1          
+0053 brfalse.s        199
+0055 nop              
+0056 ldarg.0          
+0057 call             06000022 Game.get_Player
+005c dup              
+005d callvirt         06000010 Player.get_Balance
+0062 ldarg.0          
+0063 call             06000022 Game.get_Player
+0068 callvirt         06000012 Player.get_Bet
+006d call             0a00001c Decimal.op_Subtraction
+0072 callvirt         06000011 Player.set_Balance
+0077 nop              
+0078 ldarg.0          
+0079 call             06000022 Game.get_Player
+007e callvirt         06000010 Player.get_Balance
+0083 ldsfld           0a000018 Decimal.Zero
+0088 call             0a000019 Decimal.op_LessThan
+008d stloc.2          
+008e ldloc.2          
+008f brfalse.s        165
+0091 nop              
+0092 ldstr            'GameOver!'
+0097 call             0a000037 MessageBox.Show
+009c pop              
+009d ldc.i4.0         
+009e call             0a000038 Environment.Exit
+00a3 nop              
+00a4 nop              
+00a5 ldarg.0          
+00a6 call             06000024 Game.get_Dealer
+00ab callvirt         06000015 PlayerBase.get_Hand
+00b0 callvirt         0600003a Hand.Show
+00b5 nop              
+00b6 ldarg.0          
+00b7 ldc.i4.2         
+00b8 call             06000029 Game.set_LastState
+00bd nop              
+00be ldarg.0          
+00bf ldc.i4.2         
+00c0 call             06000027 Game.set_AllowedActions
+00c5 nop              
+00c6 nop              
+00c7 ret              
+
+METHOD 46 Game.Stand RVA 2b6c
+000c nop              
+000d ldarg.0          
+000e call             06000026 Game.get_AllowedActions
+0013 ldc.i4.4         
+0014 and              
+0015 ldc.i4.4         
+0016 ceq              
+0018 ldc.i4.0         
+0019 ceq              
+001b stloc.0          
+001c ldloc.0          
+001d brfalse.s        38
+001f nop              
+0020 newobj           0a00002a InvalidOperationException..ctor
+0025 throw            
+0026 br.s             65
+0028 nop              
+0029 ldarg.0          
+002a ldfld            04000019 Game.deck
+002f ldarg.0          
+0030 call             06000024 Game.get_Dealer
+0035 callvirt         06000015 PlayerBase.get_Hand
+003a callvirt         0600001c Deck.GiveAdditionalCard
+003f nop              
+0040 nop              
+0041 ldarg.0          
+0042 call             06000024 Game.get_Dealer
+0047 callvirt         06000015 PlayerBase.get_Hand
+004c callvirt         06000035 Hand.get_SoftValue
+0051 ldc.i4.s         17
+0053 clt              
+0055 stloc.1          
+0056 ldloc.1          
+0057 brtrue.s         40
+0059 ldarg.0          
+005a call             06000024 Game.get_Dealer
+005f callvirt         06000015 PlayerBase.get_Hand
+0064 callvirt         06000036 Hand.get_TotalValue
+0069 ldc.i4.s         21
+006b bgt.s            145
+006d ldarg.0          
+006e call             06000022 Game.get_Player
+0073 callvirt         06000015 PlayerBase.get_Hand
+0078 callvirt         06000036 Hand.get_TotalValue
+007d ldarg.0          
+007e call             06000024 Game.get_Dealer
+0083 callvirt         06000015 PlayerBase.get_Hand
+0088 callvirt         06000036 Hand.get_TotalValue
+008d cgt              
+008f br.s             146
+0091 ldc.i4.1         
+0092 stloc.2          
+0093 ldloc.2          
+0094 brfalse.s        199
+0096 nop              
+0097 ldarg.0          
+0098 call             06000022 Game.get_Player
+009d dup              
+009e callvirt         06000010 Player.get_Balance
+00a3 ldarg.0          
+00a4 call             06000022 Game.get_Player
+00a9 callvirt         06000012 Player.get_Bet
+00ae call             0a000016 Decimal.op_Addition
+00b3 callvirt         06000011 Player.set_Balance
+00b8 nop              
+00b9 ldarg.0          
+00ba ldc.i4.1         
+00bb call             06000029 Game.set_LastState
+00c0 nop              
+00c1 nop              
+00c2 br               340
+00c7 ldarg.0          
+00c8 call             06000024 Game.get_Dealer
+00cd callvirt         06000015 PlayerBase.get_Hand
+00d2 callvirt         06000036 Hand.get_TotalValue
+00d7 ldarg.0          
+00d8 call             06000022 Game.get_Player
+00dd callvirt         06000015 PlayerBase.get_Hand
+00e2 callvirt         06000036 Hand.get_TotalValue
+00e7 ceq              
+00e9 stloc.3          
+00ea ldloc.3          
+00eb brfalse.s        249
+00ed nop              
+00ee ldarg.0          
+00ef ldc.i4.3         
+00f0 call             06000029 Game.set_LastState
+00f5 nop              
+00f6 nop              
+00f7 br.s             340
+00f9 nop              
+00fa ldarg.0          
+00fb call             06000022 Game.get_Player
+0100 dup              
+0101 callvirt         06000010 Player.get_Balance
+0106 ldarg.0          
+0107 call             06000022 Game.get_Player
+010c callvirt         06000012 Player.get_Bet
+0111 call             0a00001c Decimal.op_Subtraction
+0116 callvirt         06000011 Player.set_Balance
+011b nop              
+011c ldarg.0          
+011d call             06000022 Game.get_Player
+0122 callvirt         06000010 Player.get_Balance
+0127 ldsfld           0a000018 Decimal.Zero
+012c call             0a000019 Decimal.op_LessThan
+0131 stloc.s          local(0x0004)
+0133 ldloc.s          local(0x0004)
+0135 brfalse.s        331
+0137 nop              
+0138 ldstr            'GameOver!'
+013d call             0a000037 MessageBox.Show
+0142 pop              
+0143 ldc.i4.0         
+0144 call             0a000038 Environment.Exit
+0149 nop              
+014a nop              
+014b ldarg.0          
+014c ldc.i4.2         
+014d call             06000029 Game.set_LastState
+0152 nop              
+0153 nop              
+0154 ldarg.0          
+0155 call             06000024 Game.get_Dealer
+015a callvirt         06000015 PlayerBase.get_Hand
+015f callvirt         0600003a Hand.Show
+0164 nop              
+0165 ldarg.0          
+0166 ldc.i4.2         
+0167 call             06000027 Game.set_AllowedActions
+016c nop              
+016d ret              
+
+METHOD 47 Hand..ctor RVA 2cda
+0001 ldarg.0          
+0002 ldc.i4.5         
+0003 newobj           0a00001d TypeSpecRow..ctor
+0008 stfld            04000029 Hand.cards
+000d ldarg.0          
+000e call             0a000008 Object..ctor
+0013 nop              
+0014 nop              
+0015 ldarg.0          
+0016 ldarg.1          
+0017 call             06000033 Hand.set_IsDealer
+001c nop              
+001d ret              
+
+METHOD 48 Hand.add_Changed RVA 2cf8
+000c ldarg.0          
+000d ldfld            0400002a Hand.Changed
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a00000f Delegate.Combine
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           0400002a Hand.Changed
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 49 Hand.remove_Changed RVA 2d30
+000c ldarg.0          
+000d ldfld            0400002a Hand.Changed
+0012 stloc.0          
+0013 ldloc.0          
+0014 stloc.1          
+0015 ldloc.1          
+0016 ldarg.1          
+0017 call             0a000011 Delegate.Remove
+001c castclass        0100000a EventHandler
+0021 stloc.2          
+0022 ldarg.0          
+0023 ldflda           0400002a Hand.Changed
+0028 ldloc.2          
+0029 ldloc.1          
+002a call             2b000001 Interlocked.CompareExchange
+002f stloc.0          
+0030 ldloc.0          
+0031 ldloc.1          
+0032 bne.un.s         19
+0034 ret              
+
+METHOD 50 Hand.get_IsDealer RVA 2d65
+0001 ldarg.0          
+0002 ldfld            0400002b Hand.<IsDealer>k__BackingField
+0007 ret              
+
+METHOD 51 Hand.set_IsDealer RVA 2d6d
+0001 ldarg.0          
+0002 ldarg.1          
+0003 stfld            0400002b Hand.<IsDealer>k__BackingField
+0008 ret              
+
+METHOD 52 Hand.get_Cards RVA 2d78
+000c nop              
+000d ldarg.0          
+000e ldfld            04000029 Hand.cards
+0013 callvirt         0a00001e TypeSpecRow.AsReadOnly
+0018 stloc.0          
+0019 br.s             27
+001b ldloc.0          
+001c ret              
+
+METHOD 53 Hand.get_SoftValue RVA 2d98
+000c nop              
+000d ldarg.0          
+000e ldfld            04000029 Hand.cards
+0013 ldsfld           04000036 <>c.<>9__12_0
+0018 dup              
+0019 brtrue.s         50
+001b pop              
+001c ldsfld           04000035 <>c.<>9
+0021 ldftn            06000044 <>c.<get_SoftValue>b__12_0
+0027 newobj           0a000039 TypeSpecRow..ctor
+002c dup              
+002d stsfld           04000036 <>c.<>9__12_0
+0032 call             2b000004 Enumerable.Select
+0037 call             0a00003b Enumerable.Sum
+003c stloc.0          
+003d br.s             63
+003f ldloc.0          
+0040 ret              
+
+METHOD 54 Hand.get_TotalValue RVA 2ddc
+000c nop              
+000d ldarg.0          
+000e call             06000035 Hand.get_SoftValue
+0013 stloc.0          
+0014 ldarg.0          
+0015 ldfld            04000029 Hand.cards
+001a ldsfld           04000037 <>c.<>9__14_0
+001f dup              
+0020 brtrue.s         57
+0022 pop              
+0023 ldsfld           04000035 <>c.<>9
+0028 ldftn            06000045 <>c.<get_TotalValue>b__14_0
+002e newobj           0a00003c TypeSpecRow..ctor
+0033 dup              
+0034 stsfld           04000037 <>c.<>9__14_0
+0039 call             2b000005 Enumerable.Count
+003e stloc.1          
+003f br.s             72
+0041 nop              
+0042 ldloc.0          
+0043 ldc.i4.s         9
+0045 sub              
+0046 stloc.0          
+0047 nop              
+0048 ldloc.1          
+0049 dup              
+004a ldc.i4.1         
+004b sub              
+004c stloc.1          
+004d ldc.i4.0         
+004e ble.s            87
+0050 ldloc.0          
+0051 ldc.i4.s         21
+0053 cgt              
+0055 br.s             88
+0057 ldc.i4.0         
+0058 stloc.2          
+0059 ldloc.2          
+005a brtrue.s         65
+005c ldloc.0          
+005d stloc.3          
+005e br.s             96
+0060 ldloc.3          
+0061 ret              
+
+METHOD 55 Hand.get_FaceValue RVA 2e40
+000c nop              
+000d ldarg.0          
+000e ldfld            04000029 Hand.cards
+0013 ldsfld           04000038 <>c.<>9__16_0
+0018 dup              
+0019 brtrue.s         50
+001b pop              
+001c ldsfld           04000035 <>c.<>9
+0021 ldftn            06000046 <>c.<get_FaceValue>b__16_0
+0027 newobj           0a00003c TypeSpecRow..ctor
+002c dup              
+002d stsfld           04000038 <>c.<>9__16_0
+0032 call             2b000006 Enumerable.Where
+0037 ldsfld           04000039 <>c.<>9__16_1
+003c dup              
+003d brtrue.s         86
+003f pop              
+0040 ldsfld           04000035 <>c.<>9
+0045 ldftn            06000047 <>c.<get_FaceValue>b__16_1
+004b newobj           0a000039 TypeSpecRow..ctor
+0050 dup              
+0051 stsfld           04000039 <>c.<>9__16_1
+0056 call             2b000004 Enumerable.Select
+005b call             0a00003b Enumerable.Sum
+0060 stloc.0          
+0061 ldarg.0          
+0062 ldfld            04000029 Hand.cards
+0067 ldsfld           0400003a <>c.<>9__16_2
+006c dup              
+006d brtrue.s         134
+006f pop              
+0070 ldsfld           04000035 <>c.<>9
+0075 ldftn            06000048 <>c.<get_FaceValue>b__16_2
+007b newobj           0a00003c TypeSpecRow..ctor
+0080 dup              
+0081 stsfld           0400003a <>c.<>9__16_2
+0086 call             2b000005 Enumerable.Count
+008b stloc.1          
+008c br.s             149
+008e nop              
+008f ldloc.0          
+0090 ldc.i4.s         9
+0092 sub              
+0093 stloc.0          
+0094 nop              
+0095 ldloc.1          
+0096 dup              
+0097 ldc.i4.1         
+0098 sub              
+0099 stloc.1          
+009a ldc.i4.0         
+009b ble.s            164
+009d ldloc.0          
+009e ldc.i4.s         21
+00a0 cgt              
+00a2 br.s             165
+00a4 ldc.i4.0         
+00a5 stloc.2          
+00a6 ldloc.2          
+00a7 brtrue.s         142
+00a9 ldloc.0          
+00aa stloc.3          
+00ab br.s             173
+00ad ldloc.3          
+00ae ret              
+
+METHOD 56 Hand.get_IsBlackjack RVA 2eef
+0001 nop              
+0002 newobj           0a00003f NotImplementedException..ctor
+0007 throw            
+
+METHOD 57 Hand.AddCard RVA 2ef8
+000c nop              
+000d ldarg.0          
+000e ldfld            04000029 Hand.cards
+0013 ldarg.1          
+0014 callvirt         0a000040 TypeSpecRow.Add
+0019 nop              
+001a ldarg.0          
+001b ldfld            0400002a Hand.Changed
+0020 ldnull           
+0021 cgt.un           
+0023 stloc.0          
+0024 ldloc.0          
+0025 brfalse.s        59
+0027 nop              
+0028 ldarg.0          
+0029 ldfld            0400002a Hand.Changed
+002e ldarg.0          
+002f ldsfld           0a000013 EventArgs.Empty
+0034 callvirt         0a000014 EventHandler.Invoke
+0039 nop              
+003a nop              
+003b ret              
+
+METHOD 58 Hand.Show RVA 2f34
+0001 nop              
+0002 ldarg.0          
+0003 ldfld            04000029 Hand.cards
+0008 ldarg.0          
+0009 ldftn            0600003c Hand.<Show>b__20_0
+000f newobj           0a000041 TypeSpecRow..ctor
+0014 callvirt         0a000042 TypeSpecRow.ForEach
+0019 nop              
+001a ret              
+
+METHOD 59 Hand.Clear RVA 2f4f
+0001 nop              
+0002 ldarg.0          
+0003 ldfld            04000029 Hand.cards
+0008 callvirt         0a00001f TypeSpecRow.Clear
+000d nop              
+000e ret              
+
+METHOD 60 Hand.<Show>b__20_0 RVA 2f60
+000c nop              
+000d ldarg.1          
+000e callvirt         06000006 Card.get_IsFaceUp
+0013 ldc.i4.0         
+0014 ceq              
+0016 stloc.0          
+0017 ldloc.0          
+0018 brfalse.s        68
+001a nop              
+001b ldarg.1          
+001c callvirt         06000008 Card.Flip
+0021 nop              
+0022 ldarg.0          
+0023 ldfld            0400002a Hand.Changed
+0028 ldnull           
+0029 cgt.un           
+002b stloc.1          
+002c ldloc.1          
+002d brfalse.s        67
+002f nop              
+0030 ldarg.0          
+0031 ldfld            0400002a Hand.Changed
+0036 ldarg.0          
+0037 ldsfld           0a000013 EventArgs.Empty
+003c callvirt         0a000014 EventHandler.Invoke
+0041 nop              
+0042 nop              
+0043 nop              
+0044 ret              
+
+METHOD 61 <>c..cctor RVA 2fa5
+0001 newobj           0600003e <>c..ctor
+0006 stsfld           04000032 <>c.<>9
+000b ret              
+
+METHOD 62 <>c..ctor RVA 2fb1
+0001 ldarg.0          
+0002 call             0a000008 Object..ctor
+0007 nop              
+0008 ret              
+
+METHOD 63 <>c.<Populate>b__4_0 RVA 2fbc
+000c newobj           06000040 <>c__DisplayClass4_0..ctor
+0011 stloc.0          
+0012 ldloc.0          
+0013 ldarg.1          
+0014 stfld            04000034 <>c__DisplayClass4_0.s
+0019 ldc.i4.1         
+001a ldc.i4.s         13
+001c call             0a000020 Enumerable.Range
+0021 ldloc.0          
+0022 ldftn            06000041 <>c__DisplayClass4_0.<Populate>b__1
+0028 newobj           0a000043 TypeSpecRow..ctor
+002d call             2b000007 Enumerable.Select
+0032 ret              
+
+METHOD 64 <>c__DisplayClass4_0..ctor RVA 2fb1
+0001 ldarg.0          
+0002 call             0a000008 Object..ctor
+0007 nop              
+0008 ret              
+
+METHOD 65 <>c__DisplayClass4_0.<Populate>b__1 RVA 2fef
+0001 ldarg.1          
+0002 conv.u1          
+0003 ldarg.0          
+0004 ldfld            04000034 <>c__DisplayClass4_0.s
+0009 conv.u1          
+000a newobj           06000001 Card..ctor
+000f ret              
+
+METHOD 66 <>c..cctor RVA 2fff
+0001 newobj           06000043 <>c..ctor
+0006 stsfld           04000035 <>c.<>9
+000b ret              
+
+METHOD 67 <>c..ctor RVA 2fb1
+0001 ldarg.0          
+0002 call             0a000008 Object..ctor
+0007 nop              
+0008 ret              
+
+METHOD 68 <>c.<get_SoftValue>b__12_0 RVA 300b
+0001 ldarg.1          
+0002 callvirt         06000002 Card.get_Rank
+0007 ldc.i4.1         
+0008 ble.s            20
+000a ldarg.1          
+000b callvirt         06000002 Card.get_Rank
+0010 ldc.i4.s         11
+0012 blt.s            24
+0014 ldc.i4.s         10
+0016 br.s             30
+0018 ldarg.1          
+0019 callvirt         06000002 Card.get_Rank
+001e ret              
+
+METHOD 69 <>c.<get_TotalValue>b__14_0 RVA 302a
+0001 ldarg.1          
+0002 callvirt         06000002 Card.get_Rank
+0007 ldc.i4.1         
+0008 ceq              
+000a ret              
+
+METHOD 70 <>c.<get_FaceValue>b__16_0 RVA 3035
+0001 ldarg.1          
+0002 callvirt         06000006 Card.get_IsFaceUp
+0007 ret              
+
+METHOD 71 <>c.<get_FaceValue>b__16_1 RVA 300b
+0001 ldarg.1          
+0002 callvirt         06000002 Card.get_Rank
+0007 ldc.i4.1         
+0008 ble.s            20
+000a ldarg.1          
+000b callvirt         06000002 Card.get_Rank
+0010 ldc.i4.s         11
+0012 blt.s            24
+0014 ldc.i4.s         10
+0016 br.s             30
+0018 ldarg.1          
+0019 callvirt         06000002 Card.get_Rank
+001e ret              
+
+METHOD 72 <>c.<get_FaceValue>b__16_2 RVA 302a
+0001 ldarg.1          
+0002 callvirt         06000002 Card.get_Rank
+0007 ldc.i4.1         
+0008 ceq              
+000a ret              

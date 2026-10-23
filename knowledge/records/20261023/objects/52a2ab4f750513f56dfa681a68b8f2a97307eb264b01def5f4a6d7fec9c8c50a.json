@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport re, urllib.request\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\nwith op.open(BASE + \"index.php\", timeout=20) as r:\n    body = r.read().decode(\"gb18030\", \"replace\")\nprint(\"len =\", len(body))\nprint(\"=== 前 1800 字符 ===\")\nprint(body[:1800])\nprint(\"=== 后 1200 字符 ===\")\nprint(body[-1200:])\nprint(\"=== 是否含 flag/cookie/admin 关键字 ===\")\nfor kw in [\"flag\", \"cookie\", \"admin\", \"document\", \"script\"]:\n    print(\"  %-10s %s\" % (kw, kw.lower() in body.lower()))\n",
+    "timeout": 120,
+    "wp_purpose": "读取 index.php 完整内容寻找线索",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "a1429a48b80e45349c8a7cee3b9fe189"
+}

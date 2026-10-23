@@ -1,0 +1,264 @@
+{
+  "task_id": "ctf-04fca725df3de1d8",
+  "title": "部署验收：流量工具与 WP 完整链路",
+  "description": "只读自建 PCAP 验收：取入附件→统一工具→Kali离线分析→摘要回传→WP，不调用解题模型、不提交答案。",
+  "category": "forensics",
+  "created_at": "2026-10-16T04:32:49.557515+00:00",
+  "updated_at": "2026-10-16T04:34:11.860088+00:00",
+  "state": "analysis_complete",
+  "artifacts": [
+    {
+      "name": "offline-demo.pcap",
+      "relative_path": "attachments/offline-demo.pcap",
+      "sha256": "6f3f02be4f944a14e2bb796d84bf6c74ae3299fc9faef8d9f6ebc44030e17bed",
+      "bytes": 619
+    },
+    {
+      "name": "usb-demo.pcap",
+      "relative_path": "attachments/usb-demo.pcap",
+      "sha256": "48caa5a8cc3cecd1d0622f39fdc8fa127e55577c7ee1c4b70b5055f4c421348d",
+      "bytes": 112
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-16T04:33:04.041656+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125184006551000-4fe9a3f7.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0003-call.json",
+        "assets": 1,
+        "operation_id": "c4c0dc081fc546e69f960136a8a57d19",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:33:10.636773+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125190609241500-eb38f60c.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0005-call.json",
+        "assets": 1,
+        "operation_id": "c03ef55315c240fdb5e18b95c6f20138",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:33:16.118796+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125196087174000-37956b8e.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 7,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0007-call.json",
+        "assets": 1,
+        "operation_id": "6332838a23dd4067b059498869d28fb7",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:33:21.443722+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125201410135500-f0d85da0.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 9,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0009-call.json",
+        "assets": 1,
+        "operation_id": "780a9315b415419ab7c5e6372699d9cd",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:33:27.070634+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125207038891400-2a626d6f.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 11,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0011-call.json",
+        "assets": 1,
+        "operation_id": "54d6231f9a0a4546ba39e591e44faf9a",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:33:32.058488+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125212005141500-f1da62d3.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 13,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0013-call.json",
+        "assets": 1,
+        "operation_id": "35f7cbbd0ce5414cb5041e0711c2fefa",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:05.356295+00:00",
+      "tool": "math_gcd",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125245318272100-b370c7ea.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 15,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0015-call.json",
+        "assets": 0,
+        "operation_id": "9f6ecae2895345cc88480db804647c61",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:06.187558+00:00",
+      "tool": "math_gcd",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125246115877900-886e37ca.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 17,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0017-call.json",
+        "assets": 0,
+        "operation_id": "91dd536753434d5e99b05eb63b9057c4",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:06.998347+00:00",
+      "tool": "math_gcd",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125246942465100-fac418dd.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 19,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0019-call.json",
+        "assets": 0,
+        "operation_id": "2c5ad0df96bb4253b4bb20b0c152a613",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:07.729439+00:00",
+      "tool": "ctf_task_health",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125247687047500-c4b4784f.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 21,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0021-call.json",
+        "assets": 0,
+        "operation_id": "6bc42c3278ae4b4ba0cf41ad18c5345f",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:08.445805+00:00",
+      "tool": "kb_search",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125248402509700-caddb387.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 23,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0023-call.json",
+        "assets": 0,
+        "operation_id": "6f939b5d81e745fab843f319b90d3393",
+        "capture_errors": []
+      },
+      "error_code": "execution_failed",
+      "error": "ValueError('noobctf 含题解/solver，独立解题和测评输入默认隔离；仅查阅参考案例时显式设置 allow_reference=true')"
+    },
+    {
+      "at": "2026-10-16T04:34:09.139727+00:00",
+      "tool": "kb_search",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125249095339500-733252c2.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 25,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0025-call.json",
+        "assets": 0,
+        "operation_id": "3e8e10c616404c3db0216911f2805a73",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:10.041742+00:00",
+      "tool": "kb_read",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125249987349900-ab435923.json",
+      "wp_record": {
+        "case": "ctf-04fca725df3de1d8",
+        "step": 27,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\raw\\0027-call.json",
+        "assets": 0,
+        "operation_id": "b6ee547ab09b4fa5af6e66982674e766",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-16T04:34:10.511405+00:00",
+      "kind": "note",
+      "text": "自建样例六项 PCAP 操作实际通过；HTTP 导出内容待归档摘要核对。重复调用提示与参考资料隔离测试通过。本任务仅验收系统，不代表比赛题已解。",
+      "status": "hypothesis",
+      "source_step": null
+    }
+  ],
+  "answer_verified": false,
+  "summary": "自建 PCAP：6包、1个TCP流及1个UDP流、HTTP对象导出、DNS查询和USB原始字段提取；所有数据导出由固定桥回传到D盘并自动附入WP。重复提醒与NoobCTF显式参考开关通过。不调用模型、不提交flag、不计比赛解题。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-04fca725df3de1d8",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\reports\\20261016T043410Z-0ed4a458\\writeup.md",
+      "bundle_path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\reports\\20261016T043410Z-0ed4a458.zip",
+      "records": 28,
+      "integrity_verified": true,
+      "images_included": 0,
+      "recordings_included": 0,
+      "recording_complete": true,
+      "capture_errors": [],
+      "pending_operations": [],
+      "solved_verified": false,
+      "platform_answer_verified": false,
+      "review_required_before_sharing": "原始证据、正文语义与图片像素须另行检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 963.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125251834104400-1ad5ec10.json"
+  }
+}

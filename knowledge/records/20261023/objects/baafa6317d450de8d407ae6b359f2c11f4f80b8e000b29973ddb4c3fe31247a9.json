@@ -1,0 +1,35 @@
+{
+  "ts": "2026-10-12 02:06:39",
+  "call_id": "1791741999334405900-90c4e6f4",
+  "args": {
+    "arch": "x32",
+    "tool": "SetBreakpoint",
+    "params": {
+      "target": "0xe01000"
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "SetBreakpoint",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Breakpoint set."
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x770E57F9 (ntdll) | jmp ntdll.770E5802"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 97.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741999334405900-90c4e6f4.json"
+  }
+}

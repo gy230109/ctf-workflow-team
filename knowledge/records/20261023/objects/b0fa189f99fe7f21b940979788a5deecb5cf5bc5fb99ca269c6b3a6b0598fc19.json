@@ -1,0 +1,57 @@
+{
+  "arguments": {
+    "wp_case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "package": "rea-agents@6.4.0",
+      "ghidra_install_dir": "D:/Apps/ghidra_12.1.4_PUBLIC",
+      "java_home": "C:/Program Files/Eclipse Adoptium/jdk-21.0.11.10-hotspot",
+      "engines": [
+        {
+          "id": "ghidra",
+          "status": "available",
+          "code": null,
+          "reason": null
+        },
+        {
+          "id": "hopper",
+          "status": "unavailable",
+          "code": "unsupported_host",
+          "reason": "Hopper integration is not supported on win32."
+        },
+        {
+          "id": "ida",
+          "status": "unavailable",
+          "code": "not_configured",
+          "reason": "Set REA_IDA_MCP_CONFIG to an upstream IDA MCP JSON registration; see docs/ida-provider.md."
+        }
+      ],
+      "binding": null,
+      "verified_scope": "引擎配置与绑定状态；不代表题目已解出"
+    },
+    "tool": "rea_status",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "4ba5437775d744719594b9f7fad14fd6",
+      "step": 40
+    },
+    "duration_ms": 31025.3,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-b37c81c14eb6b825",
+      "calls": 1,
+      "failed_calls": 0,
+      "active_tool_seconds": 31.025,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792501379634871100-13fb7a4c.json"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-12 01:56:54",
+  "call_id": "1791741414176665100-036c681b",
+  "args": {
+    "arch": "x32"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "executable": "D:\\Apps\\x64dbg-MCP\\release\\x32\\x32dbg.exe",
+      "installed": true,
+      "endpoint": "http://127.0.0.1:9095/",
+      "reachable": false,
+      "verified_scope": "调试服务和当前状态；不代表题目已解出",
+      "service_detail": "x64dbg 连接失败或超时；执行状态可能已变化，先查状态，不要自动重试动作"
+    },
+    "tool": "win_debug_status",
+    "dangerous": false,
+    "duration_ms": 2093.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741414176665100-036c681b.json"
+  }
+}

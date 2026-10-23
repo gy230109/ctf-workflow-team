@@ -1,0 +1,69 @@
+{
+  "task_id": "ctf-736b6154b62832f2",
+  "title": "CTFCrackTools 接入检查",
+  "description": "仅用自建文本验证固定版本 CTFCrackTools 的 Rust 转换链、错误停止与证据记录，不解题、不测评模型。",
+  "category": "unknown",
+  "created_at": "2026-10-15T11:48:20.033768+00:00",
+  "updated_at": "2026-10-15T11:48:28.403028+00:00",
+  "state": "analysis_complete",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-15T11:48:23.267802+00:00",
+      "tool": "cracktools_status",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064903221659500-c5b78f63.json",
+      "wp_record": {
+        "case": "ctf-736b6154b62832f2",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-736b6154b62832f2\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:48:25.092930+00:00",
+      "tool": "cracktools_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064905036883800-123cbfd7.json",
+      "wp_record": {
+        "case": "ctf-736b6154b62832f2",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-736b6154b62832f2\\raw\\0003-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:48:26.963657+00:00",
+      "tool": "cracktools_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064906911504500-a9f0e962.json",
+      "wp_record": {
+        "case": "ctf-736b6154b62832f2",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-736b6154b62832f2\\raw\\0004-call.json"
+      },
+      "error_code": "workflow_failed",
+      "error": "Base64 decode error: Invalid symbol 37, offset 12."
+    }
+  ],
+  "answer_verified": false,
+  "summary": "CTFCrackTools 实际 MCP 调用成功：安装摘要与算法目录可查，Hex 解码后 Base64 编码得到已知结果；无效 Base64 在第一步停止，未执行后续哈希。完成证据及 WP 导出；未解题或评测模型。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-736b6154b62832f2",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-736b6154b62832f2\\reports\\20261015T114828Z-afabf5fe\\writeup.md",
+      "records": 4,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 367.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064908364062700-a03d04d7.json"
+  }
+}

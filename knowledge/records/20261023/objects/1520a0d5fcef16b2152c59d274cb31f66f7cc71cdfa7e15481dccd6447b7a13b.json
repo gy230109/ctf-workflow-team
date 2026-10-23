@@ -1,0 +1,23 @@
+{
+  "run_id": "20261009T155513Z-8938da62",
+  "case_root": "/home/kali/ctf-workbench/cases/envcheck",
+  "cwd": "/home/kali/ctf-workbench/cases/envcheck/work",
+  "command": [
+    "python3",
+    "/home/kali/ctf-workbench/cases/envcheck/results/20261009T155513Z-8938da62.py"
+  ],
+  "timeout_seconds": 240,
+  "started_at_utc": "2026-10-09T15:55:14.123978+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 40.82,
+  "stdout_bytes": 3527,
+  "stderr_bytes": 75,
+  "output_truncated": false,
+  "stdout": "{\n  \"df\": \"文件系统        大小  已用  可用 已用% 挂载点\\n/dev/sda1        19G   17G  595M   97% /\\n/dev/sda1        19G   17G  595M   97% /\\ntmpfs           1.9G   16K  1.9G    1% /tmp\\n/dev/sda1        19G   17G  595M   97% /\",\n  \"inode\": \"文件系统        Inodes  已用I  可用I 已用I% 挂载点\\n/dev/sda1      1240320 550004 690316    45% /\",\n  \"top_root\": [\n    \"17G\\t/\",\n    \"15G\\t/usr\",\n    \"1.2G\\t/home\",\n    \"1.1G\\t/var\",\n    \"227M\\t/boot\",\n    \"185M\\t/opt\",\n    \"16M\\t/etc\",\n    \"16K\\t/lost+found\",\n    \"8.0K\\t/srv\",\n    \"8.0K\\t/media\",\n    \"4.0K\\t/root\",\n    \"4.0K\\t/mnt\",\n    \"4.0K\\t/.cache\"\n  ],\n  \"top_var\": [\n    \"1.1G\\t/var\",\n    \"924M\\t/var/lib\",\n    \"105M\\t/var/cache\",\n    \"64M\\t/var/log\",\n    \"5.3M\\t/var/backups\",\n    \"28K\\t/var/tmp\",\n    \"24K\\t/var/www\",\n    \"12K\\t/var/spool\",\n    \"4.0K\\t/var/opt\",\n    \"4.0K\\t/var/mail\",\n    \"4.0K\\t/var/local\"\n  ],\n  \"top_home\": [\n    \"1.2G\\t/home/kali\",\n    \"821M\\t/home/kali/hexstrike-ai\",\n    \"214M\\t/home/kali/.mozilla\",\n    \"85M\\t/home/kali/.local\",\n    \"21M\\t/home/kali/t3cap\",\n    \"12M\\t/home/kali/.msf4\",\n    \"9.9M\\t/home/kali/图片\",\n    \"3.7M\\t/home/kali/.cache\",\n    \"2.6M\\t/home/kali/how2heap\",\n    \"1.1M\\t/home/kali/ccmcgc_attack\",\n    \"976K\\t/home/kali/ctf-workbench\",\n    \"856K\\t/home/kali/桌面\",\n    \"560K\\t/home/kali/.config\",\n    \"364K\\t/home/kali/cyber-range\",\n    \"76K\\t/home/kali/.pki\"\n  ],\n  \"top_usr\": [\n    \"15G\\t/usr\",\n    \"7.8G\\t/usr/lib\",\n    \"5.1G\\t/usr/share\",\n    \"815M\\t/usr/bin\",\n    \"164M\\t/usr/sbin\",\n    \"142M\\t/usr/libexec\",\n    \"141M\\t/usr/x86_64-w64-mingw32\",\n    \"128M\\t/usr/i686-w64-mingw32\",\n    \"110M\\t/usr/include\",\n    \"15M\\t/usr/lib32\"\n  ],\n  \"reclaimable\": {\n    \"apt_archives\": \"16K\\t/var/cache/apt/archives\",\n    \"apt_deb_count\": \"0\",\n    \"apt_lists\": \"168M\\t/var/lib/apt/lists\",\n    \"journal\": \"Archived and active journals take up 45.6M in the file system.\",\n    \"var_log\": \"64M\\t/var/log\",\n    \"tmp\": \"16K\\t/tmp\",\n    \"pip_cache\": \"3.7M\\t/home/kali/.cache\",\n    \"trash\": \"80K\\t/home/kali/.local/share/Trash\",\n    \"docker\": \"\"\n  },\n  \"big_files\": [\n    \"305M\\t/usr/share/burpsuite/burpsuite.jar\",\n    \"280M\\t/usr/lib/chromium/chromium\",\n    \"199M\\t/boot/initrd.img-6.18.12+kali-amd64\",\n    \"159M\\t/usr/lib/firefox-esr/libxul.so\",\n    \"134M\\t/usr/lib/jvm/java-21-openjdk-amd64/lib/modules\",\n    \"133M\\t/usr/lib/x86_64-linux-gnu/libLLVM.so.21.1\",\n    \"132M\\t/usr/lib/x86_64-linux-gnu/libQt5WebEngineCore.so.5.15.19\",\n    \"129M\\t/usr/bin/nuclei\",\n    \"129M\\t/usr/lib/x86_64-linux-gnu/libwireshark.so.19.0.4\",\n    \"124M\\t/usr/lib/oracle/19.6/client64/lib/libociei.so\",\n    \"118M\\t/usr/lib/x86_64-linux-gnu/libLLVM-18.so.1\"\n  ],\n  \"kernels\": [\n    \"linux-image-6.18.12+kali-amd64\",\n    \"linux-image-amd64\"\n  ],\n  \"autoremove_sim\": \"正在读取软件包列表...\\n正在分析软件包的依赖关系树...\\n正在读取状态信息...\\n正在解析依赖...\\n升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 1785 个软件包未被升级。\",\n  \"sudo_nopass\": \"YES\",\n  \"mono_state\": {\n    \"monodis\": \"\",\n    \"mono\": \"\",\n    \"dpkg_mono\": \"fonts-dejavu 2.37-8\\nfonts-dejavu-mono 2.37-8\\nfonts-noto-mono 20201225-2\",\n    \"apt_policy_mono_utils\": \"mono-utils:\\n  已安装：(无)\\n  候选： (无)\\n  版本列表：\",\n    \"apt_policy_mono_devel\": \"mono-devel:\\n  已安装：(无)\\n  候选： 6.14.1+ds2-3\\n  版本列表：\\n     6.14.1+ds2-3 500\",\n    \"apt_size_mono_utils\": \"\"\n  },\n  \"platform\": \"Linux 6.18.12+kali-amd64 x86_64\",\n  \"python\": \"3.13.12\"\n}\n",
+  "stderr": "\nreport -> /home/kali/ctf-workbench/cases/envcheck/work/kali_envcheck.json\n",
+  "guest_log": "/home/kali/ctf-workbench/cases/envcheck/results/20261009T155513Z-8938da62.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 41.422,
+  "source_sha256": "b77d71b95b0208db7f8fb8ca88122c06987139429344b013f9254611dbfd3f12"
+}

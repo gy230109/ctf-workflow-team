@@ -1,0 +1,185 @@
+{
+  "ts": "2026-10-11 23:58:25",
+  "call_id": "1791734305462550900-f30e87c2",
+  "args": {
+    "deep": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "checked_at": "2026-10-11 23:58:21",
+      "items": [
+        {
+          "name": "Muteki",
+          "kind": "比赛套",
+          "ok": true,
+          "engines": [
+            "c2api-claude-step5p-local"
+          ],
+          "dispatch_mode": "fixed",
+          "planner": "step-5-preview",
+          "verified_scope": "配置 API 可访问；未执行模型推理或解题"
+        },
+        {
+          "name": "Kali",
+          "kind": "Linux 执行环境",
+          "ok": true,
+          "bridge_status": {
+            "user": "kali",
+            "hostname": "kali",
+            "python": "3.13.12",
+            "python_executable": "/home/kali/ctf-workbench/.venv/bin/python3",
+            "memory_bytes": {
+              "MemTotal": 4072513536,
+              "MemAvailable": 3182608384
+            },
+            "disk_bytes": {
+              "total": 84362952704,
+              "used": 28574420992,
+              "free": 52136075264
+            },
+            "tools": {
+              "python3": "/usr/bin/python3",
+              "gcc": "/usr/bin/gcc",
+              "objdump": "/usr/bin/objdump",
+              "readelf": "/usr/bin/readelf",
+              "file": "/usr/bin/file",
+              "strings": "/usr/bin/strings",
+              "burpsuite": "/usr/bin/burpsuite",
+              "wireshark": "/usr/bin/wireshark",
+              "tshark": "/usr/bin/tshark",
+              "binwalk": "/usr/bin/binwalk",
+              "exiftool": "/usr/bin/exiftool",
+              "7z": "/usr/bin/7z",
+              "unzip": "/usr/bin/unzip",
+              "gdb": "/usr/bin/gdb",
+              "checksec": "/usr/bin/checksec",
+              "strace": "/usr/bin/strace",
+              "ltrace": "/usr/bin/ltrace",
+              "ghidra": "/usr/bin/ghidra"
+            },
+            "python_modules": {
+              "sympy": true,
+              "pwn": true,
+              "Crypto": true,
+              "Cryptodome": true,
+              "z3": true,
+              "gmpy2": true,
+              "dnfile": true
+            },
+            "guest_ip": "192.168.26.129",
+            "transport_seconds": 0.5,
+            "bridge_exit": 0
+          },
+          "verified_scope": "SSH 桥及客机状态；不代表完成解题"
+        },
+        {
+          "name": "gbdis.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "final_verify.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "ctf_mcp_server.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "战例库",
+          "ok": true,
+          "count": 12,
+          "cases": [
+            "EasyRsa",
+            "Factor-20261010",
+            "HTV2020-adobesecretreader",
+            "HTV2020-x96",
+            "Muteki席位切换-三席",
+            "Muteki首跑-EasyRsa",
+            "QWB-crackme-task_qwxf",
+            "QWB2021-threebody",
+            "QWB2022-GameMaster-Blackjack",
+            "pwn.college",
+            "比赛-GameBoy",
+            "自出-xxd-png"
+          ]
+        }
+      ],
+      "registered_tools": 36,
+      "all_items_available": true,
+      "solving_workflow_verified": false,
+      "kali_dependencies": {
+        "run_id": "20261011T155824Z-a9e2d8b3",
+        "case_root": "/home/kali/ctf-workbench/cases/ctfos_doctor",
+        "cwd": "/home/kali/ctf-workbench/cases/ctfos_doctor/work",
+        "command": [
+          "python3",
+          "-c",
+          "import importlib.util,json,shutil\ncommands=['file','strings','binwalk','r2','objdump','gdb','nmap','hashcat','sqlmap','checksec','tshark','sage','jadx','ghidra']\nmodules=['pwn','Crypto','z3','gmpy2','sympy','dnfile']\nprint(json.dumps({'commands':{n:shutil.which(n) for n in commands},'python_modules':{n:importlib.util.find_spec(n) is not None for n in modules}}))"
+        ],
+        "timeout_seconds": 30,
+        "started_at_utc": "2026-10-11T15:58:25.887857+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.061,
+        "stdout_bytes": 542,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"commands\": {\"file\": \"/usr/bin/file\", \"strings\": \"/usr/bin/strings\", \"binwalk\": \"/usr/bin/binwalk\", \"r2\": \"/usr/bin/r2\", \"objdump\": \"/usr/bin/objdump\", \"gdb\": \"/usr/bin/gdb\", \"nmap\": \"/usr/bin/nmap\", \"hashcat\": \"/usr/bin/hashcat\", \"sqlmap\": \"/usr/bin/sqlmap\", \"checksec\": \"/home/kali/ctf-workbench/.venv/bin/checksec\", \"tshark\": \"/usr/bin/tshark\", \"sage\": \"/usr/local/bin/sage\", \"jadx\": \"/usr/bin/jadx\", \"ghidra\": \"/usr/bin/ghidra\"}, \"python_modules\": {\"pwn\": true, \"Crypto\": true, \"z3\": true, \"gmpy2\": true, \"sympy\": true, \"dnfile\": true}}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctfos_doctor/results/20261011T155824Z-a9e2d8b3.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.469,
+        "bridge_exit": 0,
+        "case": "ctfos_doctor",
+        "on": "kali",
+        "transport": "verified_bridge",
+        "dependencies": {
+          "commands": {
+            "file": "/usr/bin/file",
+            "strings": "/usr/bin/strings",
+            "binwalk": "/usr/bin/binwalk",
+            "r2": "/usr/bin/r2",
+            "objdump": "/usr/bin/objdump",
+            "gdb": "/usr/bin/gdb",
+            "nmap": "/usr/bin/nmap",
+            "hashcat": "/usr/bin/hashcat",
+            "sqlmap": "/usr/bin/sqlmap",
+            "checksec": "/home/kali/ctf-workbench/.venv/bin/checksec",
+            "tshark": "/usr/bin/tshark",
+            "sage": "/usr/local/bin/sage",
+            "jadx": "/usr/bin/jadx",
+            "ghidra": "/usr/bin/ghidra"
+          },
+          "python_modules": {
+            "pwn": true,
+            "Crypto": true,
+            "z3": true,
+            "gmpy2": true,
+            "sympy": true,
+            "dnfile": true
+          }
+        }
+      },
+      "local_commands": {
+        "local_sqlmap": "[USER_HOME]\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\sqlmap.EXE",
+        "local_ffuf": "[USER_HOME]\\tools\\ffuf.EXE",
+        "local_objdump": "[USER_HOME]\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\objdump.EXE",
+        "local_gdb": "[USER_HOME]\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\gdb.EXE"
+      },
+      "missing_optional_kali_commands": [],
+      "core_dependencies_ready": true,
+      "doctor_passed": true
+    },
+    "tool": "status",
+    "dangerous": false,
+    "duration_ms": 3538.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734305462550900-f30e87c2.json"
+  }
+}

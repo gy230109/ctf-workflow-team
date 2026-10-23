@@ -1,0 +1,60 @@
+{
+  "ts": "2026-10-15 00:29:07",
+  "call_id": "1791995347308183100-1607d830",
+  "args": {
+    "confirm": true,
+    "url": "data:text/html,<title>acc</title><h1>CTF-ACCEPT-20261015</h1>",
+    "timeout": 120,
+    "action": "navigate",
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "ok": false,
+      "data": {
+        "ok": false,
+        "error": "Use an explicit HTTP(S) challenge URL without embedded credentials",
+        "error_code": "session_operation_failed"
+      },
+      "execution": {
+        "run_id": "20261014T162906Z-bb32aa9e",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-1d0343b816cb0de4.py",
+          "../input/request-f4577aa4604843639ee759208d82b94b.json"
+        ],
+        "timeout_seconds": 120,
+        "started_at_utc": "2026-10-14T16:29:07.655680+00:00",
+        "returncode": 1,
+        "timed_out": false,
+        "duration_seconds": 0.1,
+        "stdout_bytes": 135,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": false, \"error\": \"Use an explicit HTTP(S) challenge URL without embedded credentials\", \"error_code\": \"session_operation_failed\"}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162906Z-bb32aa9e.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.422,
+        "bridge_exit": 1,
+        "case": "ctf-b37c81c14eb6b825",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-b37c81c14eb6b825",
+      "upload_verified": true,
+      "error": "Use an explicit HTTP(S) challenge URL without embedded credentials",
+      "error_code": "session_operation_failed"
+    },
+    "tool": "web_browser_session",
+    "dangerous": true,
+    "error_code": "session_operation_failed",
+    "error": "Use an explicit HTTP(S) challenge URL without embedded credentials",
+    "duration_ms": 2982.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995347308183100-1607d830.json"
+  }
+}

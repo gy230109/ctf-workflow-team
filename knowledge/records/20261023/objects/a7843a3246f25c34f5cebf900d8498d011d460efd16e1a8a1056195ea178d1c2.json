@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "hostname": "kali",
+  "python": "/home/kali/ctf-workbench/.venv/bin/python3",
+  "input_bytes": 128,
+  "input_sha256": "471fb943aa23c511f6f72f8d1652d9c880cfa392ad80503120547703e56a2be5",
+  "native_tools": {
+    "compile": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "file": {
+      "returncode": 0,
+      "stdout": "/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/work/sanity: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=d07fd154da8837a04106422c495569050e368203, for GNU/Linux 3.2.0, with debug_info, not stripped\n",
+      "stderr": ""
+    },
+    "gdb": {
+      "returncode": 0,
+      "stdout": "Breakpoint 1 at 0x113d: file /home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/work/sanity.c, line 2.\n[Thread debugging using libthread_db enabled]\nUsing host libthread_db library \"/usr/lib/x86_64-linux-gnu/libthread_db.so.1\".\n\nBreakpoint 1, main () at /home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/work/sanity.c:2\n2\tint main(void) { puts(\"KALI_NATIVE_OK\"); return 0; }\nKALI_NATIVE_OK\n[Inferior 1 (process 1400) exited normally]\n",
+      "stderr": ""
+    },
+    "checksec": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "[*] '/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/work/sanity'\n    Arch:       amd64-64-little\n    RELRO:      Partial RELRO\n    Stack:      No canary found\n    NX:         NX enabled\n    PIE:        PIE enabled\n    Stripped:   No\n    Debuginfo:  Yes\n"
+    },
+    "strace": {
+      "returncode": 0,
+      "stdout": "KALI_NATIVE_OK\n",
+      "stderr": ""
+    },
+    "ltrace": {
+      "returncode": 0,
+      "stdout": "KALI_NATIVE_OK\n",
+      "stderr": ""
+    }
+  },
+  "python_computation_checks": {
+    "aes_roundtrip": true,
+    "z3_solve": true,
+    "gmpy2_inverse": true,
+    "sympy_factor": true,
+    "pwntools_elf": true,
+    "dnfile_import": true
+  }
+}

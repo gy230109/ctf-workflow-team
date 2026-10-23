@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 01:33:31",
+  "call_id": "1791740011645625200-2fa43a29",
+  "args": {
+    "code": "print('系统验收'); raise SystemExit(7)"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "exit": 7,
+      "stdout": "系统验收\n",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 45.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740011645625200-2fa43a29.json"
+  }
+}

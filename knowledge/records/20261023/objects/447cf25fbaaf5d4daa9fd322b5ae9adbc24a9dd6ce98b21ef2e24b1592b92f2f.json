@@ -1,0 +1,27 @@
+{
+  "ts": "2026-10-16 14:08:48",
+  "call_id": "1792130928567568100-15ac49ee",
+  "args": {
+    "section": "overview",
+    "text": "本次使用自建输入，验证 CTF系统从接收题面和附件、记录实际工具动作及屏幕，到同源导出 WP 的完整链路。没有使用比赛题或参考答案。",
+    "source_steps": [
+      4,
+      5
+    ],
+    "case": "ctf-23e45f890c213167"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-23e45f890c213167",
+      "step": 8,
+      "section": "overview",
+      "latest_revision": true,
+      "independent_verification": false
+    },
+    "tool": "wp_section",
+    "dangerous": false,
+    "duration_ms": 20.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130928567568100-15ac49ee.json"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-18 11:30:18",
+  "call_id": "1792294218821458800-d09f857f",
+  "args": {
+    "case": "ctf-e9c09fae2e96eca4",
+    "description": "仅用于接入验收：计算整数 48 和 60 的最大公约数。没有比赛题目、账号、网络目标、附件或 flag。",
+    "source": {},
+    "attachments": []
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-e9c09fae2e96eca4",
+      "step": 2,
+      "attachments": 0,
+      "bytes": 0,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-e9c09fae2e96eca4\\intake\\4c5ff487973b46dcb46e559b39392ec3\\context.json"
+    },
+    "tool": "wp_intake",
+    "dangerous": false,
+    "duration_ms": 19.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792294218821458800-d09f857f.json"
+  }
+}

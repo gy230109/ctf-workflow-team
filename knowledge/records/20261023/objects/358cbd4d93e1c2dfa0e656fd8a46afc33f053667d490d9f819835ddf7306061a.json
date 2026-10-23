@@ -1,0 +1,25 @@
+{
+  "ts": "2026-10-12 00:39:41",
+  "call_id": "1791736781327121200-c1fdd0b3",
+  "args": {
+    "cmd": "/challenge/main",
+    "stdin": "19805 44102 90161 72493",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "目标: reversing-hell/babyrev/level04\r\nrc=0\r\n--- stdout ---\r\nI am happy to see you here! Here is a real challenge for you.\r\nGive me a valid key, and I will send you a flag!\r\nWrong key!\r\n",
+      "stderr": "",
+      "stdout_bytes": 187,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_run",
+    "dangerous": true,
+    "duration_ms": 6957.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736781327121200-c1fdd0b3.json"
+  }
+}

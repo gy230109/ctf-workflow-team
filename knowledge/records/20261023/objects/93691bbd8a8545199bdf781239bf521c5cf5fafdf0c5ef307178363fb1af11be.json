@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-16 12:32:50",
+  "call_id": "1792125170230828800-2a5daec4",
+  "args": {
+    "case": "ctf-04fca725df3de1d8",
+    "title": "部署验收：流量工具与 WP 完整链路",
+    "category": "forensics"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-04fca725df3de1d8",
+      "created": true,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8",
+      "usage": "后续 CTF-OS 调用加 wp_case=<题号> 自动留证；wp_note 补思路；wp_build 生成中文 WP"
+    },
+    "tool": "wp_init",
+    "dangerous": false,
+    "duration_ms": 243.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125170230828800-2a5daec4.json"
+  }
+}

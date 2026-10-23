@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-13 13:50:22",
+  "call_id": "1791870622784903300-9fd71333",
+  "args": {
+    "case": "specialists_verify_20261013",
+    "status": "observed",
+    "source_step": 68,
+    "text": "Kali Chromium 的实际回环网页截图已通过 SHA256 回收并记入 WP；图片已查看，内容仅为自建系统验收页面。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 72,
+      "case": "specialists_verify_20261013",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 92.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791870622784903300-9fd71333.json"
+  }
+}

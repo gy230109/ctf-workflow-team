@@ -1,0 +1,47 @@
+{
+  "arguments": {
+    "candidate": "0 0"
+  },
+  "response": {
+    "ok": true,
+    "accepted": false,
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import os,pathlib,subprocess,sys; p=pathlib.Path(sys.argv[1]); os.chmod(p,0o700); r=subprocess.run([str(p.resolve())],input=(sys.argv[2]+\"\\n\").encode(),capture_output=True,timeout=8); sys.stdout.buffer.write(r.stdout);sys.stderr.buffer.write(r.stderr);sys.exit(r.returncode)\n                                                                                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 554, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1039, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        pass_fds, cwd, env,\n                        ^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n                        gid, gids, uid, umask,\n                        ^^^^^^^^^^^^^^^^^^^^^^\n                        start_new_session, process_group)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1876, in _execute_child\n    self._posix_spawn(args, executable, env, restore_signals, close_fds,\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                      p2cread, p2cwrite,\n                      ^^^^^^^^^^^^^^^^^^\n                      c2pread, c2pwrite,\n                      ^^^^^^^^^^^^^^^^^^\n                      errread, errwrite)\n                      ^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1820, in _posix_spawn\n    self.pid = os.posix_spawn(executable, args, env, **kwargs)\n               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: [Errno 8] Exec format error: '/home/kali/ctf-workbench/cases/bank_worker_20261014/input/000_number-mashing'\n",
+    "artifact_sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a",
+    "verification": "original_program_in_kali",
+    "execution": {
+      "run_id": "20261013T163032Z-26bdc1bd",
+      "case_root": "/home/kali/ctf-workbench/cases/bank_worker_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/bank_worker_20261014/work",
+      "command": [
+        "python3",
+        "-c",
+        "import os,pathlib,subprocess,sys; p=pathlib.Path(sys.argv[1]); os.chmod(p,0o700); r=subprocess.run([str(p.resolve())],input=(sys.argv[2]+\"\\n\").encode(),capture_output=True,timeout=8); sys.stdout.buffer.write(r.stdout);sys.stderr.buffer.write(r.stderr);sys.exit(r.returncode)",
+        "../input/000_number-mashing",
+        "0 0"
+      ],
+      "timeout_seconds": 15,
+      "started_at_utc": "2026-10-13T16:30:32.792856+00:00",
+      "returncode": 1,
+      "timed_out": false,
+      "duration_seconds": 0.442,
+      "stdout_bytes": 0,
+      "stderr_bytes": 1981,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import os,pathlib,subprocess,sys; p=pathlib.Path(sys.argv[1]); os.chmod(p,0o700); r=subprocess.run([str(p.resolve())],input=(sys.argv[2]+\"\\n\").encode(),capture_output=True,timeout=8); sys.stdout.buffer.write(r.stdout);sys.stderr.buffer.write(r.stderr);sys.exit(r.returncode)\n                                                                                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 554, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1039, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        pass_fds, cwd, env,\n                        ^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n                        gid, gids, uid, umask,\n                        ^^^^^^^^^^^^^^^^^^^^^^\n                        start_new_session, process_group)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1876, in _execute_child\n    self._posix_spawn(args, executable, env, restore_signals, close_fds,\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                      p2cread, p2cwrite,\n                      ^^^^^^^^^^^^^^^^^^\n                      c2pread, c2pwrite,\n                      ^^^^^^^^^^^^^^^^^^\n                      errread, errwrite)\n                      ^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1820, in _posix_spawn\n    self.pid = os.posix_spawn(executable, args, env, **kwargs)\n               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: [Errno 8] Exec format error: '/home/kali/ctf-workbench/cases/bank_worker_20261014/input/000_number-mashing'\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/bank_worker_20261014/results/20261013T163032Z-26bdc1bd.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.765,
+      "bridge_exit": 1,
+      "case": "bank_worker_20261014",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a",
+      "upload_verified": true
+    },
+    "tool": "verify_candidate",
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\worker-verify-a7df2f5a5492f464.json"
+  }
+}

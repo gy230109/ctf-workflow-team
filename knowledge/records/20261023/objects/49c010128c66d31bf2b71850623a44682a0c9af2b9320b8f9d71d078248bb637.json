@@ -1,0 +1,27 @@
+{
+  "ts": "2026-10-13 21:25:13",
+  "call_id": "1791897913567856400-45e51a04",
+  "args": {
+    "cmd": "sage",
+    "argv": [
+      "babyrsa_lattice.sage"
+    ],
+    "local_file": "D:\\Temp\\babyrsa_lattice.sage",
+    "confirm": true,
+    "timeout": 900,
+    "case": "qwb2023_babyrsa"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "Kali timeout 必须在 1–600 秒之间",
+      "error_code": "invalid_arguments"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "invalid_arguments",
+    "error": "Kali timeout 必须在 1–600 秒之间",
+    "duration_ms": 1.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791897913567856400-45e51a04.json"
+  }
+}

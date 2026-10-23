@@ -1,0 +1,173 @@
+{
+  "worker_backend": "container",
+  "worker_network": "bridge",
+  "seats": [
+    {
+      "id": "seat_claude_67cf03",
+      "label": "claude-sub-container",
+      "engine": "claude",
+      "credential_id": "account:claude-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 2,
+        "max_review_running": 0
+      },
+      "priority": 10,
+      "enabled": false
+    },
+    {
+      "id": "seat_codex_bf1f7c",
+      "label": "codex-sub-container",
+      "engine": "codex",
+      "credential_id": "account:codex-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 20,
+      "enabled": false
+    },
+    {
+      "id": "seat_cursor_d4ac52",
+      "label": "cursor-api-container",
+      "engine": "cursor",
+      "credential_id": "account:cursor-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 2,
+        "max_review_running": 0
+      },
+      "priority": 30,
+      "enabled": false
+    },
+    {
+      "id": "seat_pi_b710d8",
+      "label": "pi-workbuddy-glm",
+      "engine": "pi",
+      "credential_id": "account:workbuddy-glm",
+      "model": "global:glm-5.3",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 40,
+      "enabled": false
+    },
+    {
+      "id": "seat_omp_8231c0",
+      "label": "omp-sub-container",
+      "engine": "omp",
+      "credential_id": "account:omp-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 50,
+      "enabled": false
+    },
+    {
+      "id": "c2api-claude-glm53-local",
+      "label": "claude-glm53-local",
+      "engine": "claude",
+      "credential_id": "account:c2api-claude",
+      "model": "glm-5.3",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "id": "c2api-claude-dsv41flash-local",
+      "label": "claude-dsv41flash-local",
+      "engine": "claude",
+      "credential_id": "account:c2api-ds-claude",
+      "model": "deepseek-v4.1-flash",
+      "reasoning_effort": "default",
+      "roles": [
+        "review"
+      ],
+      "race": false,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 1
+      },
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "id": "c2api-claude-step5p-local",
+      "label": "claude-step5p-local",
+      "engine": "claude",
+      "credential_id": "account:c2api-step",
+      "model": "step-5-preview",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 80,
+      "enabled": false
+    }
+  ]
+}

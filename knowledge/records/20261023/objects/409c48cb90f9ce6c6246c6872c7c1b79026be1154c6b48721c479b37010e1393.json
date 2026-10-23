@@ -1,0 +1,15 @@
+{
+  "ts": "2026-10-13 13:16:57",
+  "call_id": "1791868617767285200-dca383e7",
+  "args": {
+    "cmd": "id"
+  },
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "web_browser_capture",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791868617767285200-dca383e7.json"
+  }
+}

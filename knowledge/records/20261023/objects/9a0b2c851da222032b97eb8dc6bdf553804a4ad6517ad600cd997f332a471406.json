@@ -1,0 +1,32 @@
+{
+  "ts": "2026-10-12 01:45:06",
+  "call_id": "1791740706217461800-c7b78361",
+  "args": {
+    "tool": "GetAllRegisters",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "GetAllRegisters",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "rax: 0x0\nrbx: 0x8FE89FF8E0\nrcx: 0x7FF9E831FC94\nrdx: 0x0\nrsi: 0x8FE87A3000\nrdi: 0x1\nrbp: 0x0\nrsp: 0x8FE89FF3A0\nr8: 0x8FE89FF398\nr9: 0x0\nr10: 0x0\nr11: 0x246\nr12: 0x0\nr13: 0x205A1750000\nr14: 0x7FF9E83597A0\nr15: 0x7FF9E8338B08\nrip: 0x7FF9E82E14AA\nrflags: 0x246\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x7FF9E82E14AA (ntdll) | jmp ntdll.7FF9E82E14AC"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 77.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740706217461800-c7b78361.json"
+  }
+}

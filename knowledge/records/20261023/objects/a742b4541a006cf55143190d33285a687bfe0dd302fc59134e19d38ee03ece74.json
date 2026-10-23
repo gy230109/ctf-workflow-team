@@ -1,0 +1,120 @@
+{
+  "ts": "2026-10-15 21:19:30",
+  "call_id": "1792070370065086400-1d6eaf67",
+  "args": {
+    "action": "click",
+    "selector": "#double",
+    "confirm": true,
+    "wp_purpose": "点击 Double，核对网页是否显示 42",
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "kind": "browser",
+        "running": true,
+        "url": "http://127.0.0.1:41213/",
+        "title": "CTF WP Evidence Fixture",
+        "origins": [
+          "http://127.0.0.1:41213"
+        ],
+        "snapshot": {
+          "text": "CTF WP Evidence Fixture\n\nSelf-built local recording check\n\nDouble\n42",
+          "forms": [
+            {
+              "tag": "INPUT",
+              "id": "value",
+              "name": "",
+              "type": "text",
+              "text": "",
+              "href": null
+            },
+            {
+              "tag": "BUTTON",
+              "id": "double",
+              "name": "",
+              "type": "submit",
+              "text": "Double",
+              "href": null
+            }
+          ]
+        },
+        "cookies_preserved": true,
+        "recording_enabled": true,
+        "evidence_artifacts": [
+          {
+            "artifact": "work/browser-step-163a6e94bee8d9e1.png",
+            "sha256": "43025786df798bb47c6e4280ec25fb0157229b82b9231cdbe88b3019f46dc3e7",
+            "bytes": 21966,
+            "kind": "browser_screenshot",
+            "source": "Actual Kali Chromium page after click; URL http://127.0.0.1:41213/"
+          },
+          {
+            "artifact": "work/browser-trace-b8f3f832af3766f5.zip",
+            "sha256": "7206a8d3618d6cfd57a1c798846c4dbcb6ffc46dcfbabd12cf761b8e61fba51c",
+            "bytes": 35377,
+            "kind": "browser_trace",
+            "source": "Playwright trace chunk for this tool action, including failure"
+          }
+        ],
+        "capture_errors": []
+      },
+      "execution": {
+        "run_id": "20261015T131925Z-d7158e55",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-9cd1d7c5c25e81c7.py",
+          "../input/request-99c36cb6434345608bd39f4cd9e3fb61.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-15T13:19:27.939709+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.527,
+        "stdout_bytes": 1064,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"kind\": \"browser\", \"running\": true, \"url\": \"http://127.0.0.1:41213/\", \"title\": \"CTF WP Evidence Fixture\", \"origins\": [\"http://127.0.0.1:41213\"], \"snapshot\": {\"text\": \"CTF WP Evidence Fixture\\n\\nSelf-built local recording check\\n\\nDouble\\n42\", \"forms\": [{\"tag\": \"INPUT\", \"id\": \"value\", \"name\": \"\", \"type\": \"text\", \"text\": \"\", \"href\": null}, {\"tag\": \"BUTTON\", \"id\": \"double\", \"name\": \"\", \"type\": \"submit\", \"text\": \"Double\", \"href\": null}]}, \"cookies_preserved\": true, \"recording_enabled\": true, \"evidence_artifacts\": [{\"artifact\": \"work/browser-step-163a6e94bee8d9e1.png\", \"sha256\": \"43025786df798bb47c6e4280ec25fb0157229b82b9231cdbe88b3019f46dc3e7\", \"bytes\": 21966, \"kind\": \"browser_screenshot\", \"source\": \"Actual Kali Chromium page after click; URL http://127.0.0.1:41213/\"}, {\"artifact\": \"work/browser-trace-b8f3f832af3766f5.zip\", \"sha256\": \"7206a8d3618d6cfd57a1c798846c4dbcb6ffc46dcfbabd12cf761b8e61fba51c\", \"bytes\": 35377, \"kind\": \"browser_trace\", \"source\": \"Playwright trace chunk for this tool action, including failure\"}], \"capture_errors\": []}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030/results/20261015T131925Z-d7158e55.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.796,
+        "bridge_exit": 0,
+        "case": "ctf-9f14d2187a3d8030",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-9f14d2187a3d8030",
+      "upload_verified": true,
+      "evidence_artifacts": [
+        {
+          "path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-9f14d2187a3d8030\\downloads\\20261015T131928Z-2d1562df\\browser-step-163a6e94bee8d9e1.png",
+          "sha256": "43025786df798bb47c6e4280ec25fb0157229b82b9231cdbe88b3019f46dc3e7",
+          "kind": "browser_screenshot",
+          "source": "Actual Kali Chromium page after click; URL http://127.0.0.1:41213/"
+        },
+        {
+          "path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-9f14d2187a3d8030\\downloads\\20261015T131929Z-80c8b5c0\\browser-trace-b8f3f832af3766f5.zip",
+          "sha256": "7206a8d3618d6cfd57a1c798846c4dbcb6ffc46dcfbabd12cf761b8e61fba51c",
+          "kind": "browser_trace",
+          "source": "Playwright trace chunk for this tool action, including failure"
+        }
+      ],
+      "capture_errors": []
+    },
+    "tool": "web_browser_session",
+    "dangerous": true,
+    "wp_operation": {
+      "operation_id": "fbdbc89e36e14d718b0dc98d5187bd19",
+      "step": 4
+    },
+    "duration_ms": 6982.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070370065086400-1d6eaf67.json"
+  }
+}

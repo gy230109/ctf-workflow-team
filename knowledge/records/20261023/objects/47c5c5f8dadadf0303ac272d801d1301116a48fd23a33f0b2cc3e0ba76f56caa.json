@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-12 15:04:38",
+  "call_id": "1791788678848945700-9c87542b",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "caption": "Kali实际桌面截图"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "wp_system_demo_20261012",
+      "step": 7,
+      "path": "[CTF_ROOT]\\wp\\cases\\wp_system_demo_20261012\\images\\0007.png",
+      "kind": "vm_screenshot"
+    },
+    "tool": "wp_capture",
+    "dangerous": false,
+    "duration_ms": 4795.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788678848945700-9c87542b.json"
+  }
+}

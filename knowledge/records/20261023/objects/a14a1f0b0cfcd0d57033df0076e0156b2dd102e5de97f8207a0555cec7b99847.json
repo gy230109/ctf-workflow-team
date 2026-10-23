@@ -1,0 +1,43 @@
+{
+  "user": "kali",
+  "hostname": "kali",
+  "python": "3.13.12",
+  "memory_bytes": {
+    "MemTotal": 4072517632,
+    "MemAvailable": 2565623808
+  },
+  "disk_bytes": {
+    "total": 19817906176,
+    "used": 18162327552,
+    "free": 622944256
+  },
+  "tools": {
+    "python3": "/usr/bin/python3",
+    "gcc": "/usr/bin/gcc",
+    "objdump": "/usr/bin/objdump",
+    "readelf": "/usr/bin/readelf",
+    "file": "/usr/bin/file",
+    "strings": "/usr/bin/strings",
+    "burpsuite": "/usr/bin/burpsuite",
+    "wireshark": "/usr/bin/wireshark",
+    "tshark": "/usr/bin/tshark",
+    "binwalk": "/usr/bin/binwalk",
+    "exiftool": "/usr/bin/exiftool",
+    "7z": "/usr/bin/7z",
+    "unzip": "/usr/bin/unzip",
+    "gdb": null,
+    "checksec": null,
+    "strace": null,
+    "ltrace": null,
+    "ghidra": null
+  },
+  "python_modules": {
+    "sympy": true,
+    "pwn": false,
+    "Crypto": false,
+    "z3": false,
+    "dnfile": false
+  },
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.343
+}

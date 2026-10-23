@@ -1,0 +1,237 @@
+{
+  "engines": [
+    "c2api-claude-glm53-local"
+  ],
+  "start_workers": 1,
+  "max_workers": 1,
+  "worker_backend": "container",
+  "worker_network": "bridge",
+  "worker_container_scope": "run",
+  "worker_privilege": "default",
+  "worker_memory": "2g",
+  "worker_cpus": "2",
+  "worker_pids_limit": 512,
+  "worker_output_limit": "64m",
+  "worker_disk_limit": "4g",
+  "worker_vpn_enabled": false,
+  "race_scout": true,
+  "race_timeout": 300,
+  "wall_clock_budget": 0,
+  "race_engines": [
+    "c2api-claude-glm53-local"
+  ],
+  "max_total_workers": 0,
+  "cost_budget_usd": 0.0,
+  "stage_policy": {
+    "prepare": {},
+    "race": {
+      "enabled": true,
+      "timeout": 300,
+      "engines": [
+        "c2api-claude-glm53-local"
+      ]
+    },
+    "coordinator": {
+      "dispatch_mode": "fixed",
+      "wall_clock_budget": 0,
+      "review": {
+        "enabled": true,
+        "engine": "seat_claude_15d274",
+        "reasoning_effort": "inherit",
+        "after_race": false,
+        "after_fruitless_workers": 3,
+        "after_duplicate_intents": 2,
+        "on_course_correct": false,
+        "on_candidate_spike": true,
+        "on_operator_hint": false,
+        "on_evidence_conflict": true,
+        "on_semantic_duplicate": false,
+        "every_completed_workers": 0,
+        "candidate_spike_threshold": 5,
+        "max_concurrent": 1,
+        "allow_review_fallback": false,
+        "cooldown_events": 8,
+        "timeout": 90,
+        "max_review_workers": 12
+      },
+      "verifier": {
+        "enabled": false,
+        "engine": "seat_claude_15d274",
+        "reasoning_effort": "inherit",
+        "max_concurrent": 0,
+        "allow_verifier_fallback": false,
+        "timeout": 240,
+        "max_verifier_workers": 24
+      }
+    },
+    "budgets": {
+      "max_total_workers": 0,
+      "cost_budget_usd": 0.0
+    }
+  },
+  "llm_profiles": {
+    "planner": {
+      "provider": "workbuddy",
+      "model": "global:glm-5.3",
+      "endpoint_id": "endpoint:workbuddy-glm",
+      "base_url": "",
+      "connection": "endpoint",
+      "temperature_mode": "omit",
+      "temperature": 1.0,
+      "credential_source": "model_endpoint"
+    },
+    "titler": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "endpoint_id": "",
+      "base_url": "",
+      "connection": "default",
+      "temperature_mode": "omit",
+      "temperature": 1.0,
+      "credential_source": "legacy_missing"
+    }
+  },
+  "worker_profiles": [
+    {
+      "id": "c2api-claude-glm53-local",
+      "name": "c2api-claude-glm53-local",
+      "label": "claude-glm53-local",
+      "engine": "claude",
+      "transport": "claude",
+      "credential_mode": "api_key",
+      "auth": "api_key",
+      "credential_account": "c2api-claude",
+      "credential_id": "account:c2api-claude",
+      "api_key_ref": "",
+      "base_url": "http://192.168.26.130:8090",
+      "wire_api": "",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review",
+        "verifier"
+      ],
+      "implicit_roles": [],
+      "race": true,
+      "max_running": 1,
+      "max_review_running": 0,
+      "max_verifier_running": 0,
+      "priority": 60,
+      "model": "glm-5.3",
+      "reasoning_effort": "default",
+      "runtime_instance_ref": "",
+      "credential_seat_ref": "",
+      "enabled": true
+    },
+    {
+      "id": "c2api-claude-dsv41flash-local",
+      "name": "c2api-claude-dsv41flash-local",
+      "label": "claude-dsv41flash-local",
+      "engine": "claude",
+      "transport": "claude",
+      "credential_mode": "api_key",
+      "auth": "api_key",
+      "credential_account": "c2api-ds-claude",
+      "credential_id": "account:c2api-ds-claude",
+      "api_key_ref": "",
+      "base_url": "http://192.168.26.130:8090",
+      "wire_api": "",
+      "roles": [
+        "review"
+      ],
+      "implicit_roles": [],
+      "race": false,
+      "max_running": 1,
+      "max_review_running": 1,
+      "max_verifier_running": 0,
+      "priority": 70,
+      "model": "deepseek-v4.1-flash",
+      "reasoning_effort": "default",
+      "runtime_instance_ref": "",
+      "credential_seat_ref": "",
+      "enabled": true
+    }
+  ],
+  "overrides": {},
+  "credentials": [
+    {
+      "id": "account:c2api-claude",
+      "label": "claude 自定义端点",
+      "engine": "claude",
+      "kind": "custom_endpoint",
+      "secret_ref": "c2api-claude",
+      "endpoint": {
+        "base_url": "http://192.168.26.130:8090",
+        "wire_api": ""
+      },
+      "target_engine": "claude"
+    },
+    {
+      "id": "account:c2api-ds-claude",
+      "label": "claude 自定义端点",
+      "engine": "claude",
+      "kind": "custom_endpoint",
+      "secret_ref": "c2api-ds-claude",
+      "endpoint": {
+        "base_url": "http://192.168.26.130:8090",
+        "wire_api": ""
+      },
+      "target_engine": "claude"
+    }
+  ],
+  "seats": [
+    {
+      "id": "seat_claude_15d274",
+      "label": "claude-glm53-local",
+      "engine": "claude",
+      "credential_id": "account:c2api-claude",
+      "model": "glm-5.3",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review",
+        "verifier"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "id": "seat_claude_f24e0f",
+      "label": "claude-dsv41flash-local",
+      "engine": "claude",
+      "credential_id": "account:c2api-ds-claude",
+      "model": "deepseek-v4.1-flash",
+      "reasoning_effort": "default",
+      "roles": [
+        "review"
+      ],
+      "race": false,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 1
+      },
+      "priority": 70,
+      "enabled": true
+    }
+  ],
+  "seat_alias": {
+    "claude-glm53-local": "seat_claude_15d274",
+    "claude-dsv41flash-local": "seat_claude_f24e0f"
+  },
+  "credential_alias": {
+    "c2api-claude": "account:c2api-claude",
+    "c2api-ds-claude": "account:c2api-ds-claude"
+  },
+  "network_requested": "bridge",
+  "effective_network": "bridge"
+}

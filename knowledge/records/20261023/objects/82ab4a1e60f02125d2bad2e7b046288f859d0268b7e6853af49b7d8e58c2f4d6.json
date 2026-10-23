@@ -1,0 +1,1598 @@
+{
+  "ts": "2026-10-12 01:45:13",
+  "call_id": "1791740713702314400-f4e11fbd",
+  "args": {
+    "arch": "x32"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 80,
+      "tools": [
+        {
+          "name": "GetDebugState",
+          "description": "Returns the current debugger state: whether a binary is loaded, whether it is running or paused, the PID, current instruction pointer, and current module. Always available. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "LoadBinary",
+          "description": "Loads an executable into the debugger for a new debugging session. Equivalent to File > Open in the GUI. If a session is already active it is terminated first. The debuggee pauses at the system breakpoint.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "Absolute file path of the executable to debug."
+              },
+              "arguments": {
+                "type": "string",
+                "description": "Optional command-line arguments.",
+                "default": ""
+              }
+            },
+            "required": [
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ExecuteDebuggerCommand",
+          "description": "Executes a native x64dbg command string (like 'erun', 'analr', 'graph'). This is for x64dbg-internal commands ONLY — do NOT pass MCP tool names here. MCP tools (WaitForEvent, GetDebugState, Disassemble, etc.) must be called directly as tools.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The x64dbg command to execute."
+              }
+            },
+            "required": [
+              "command"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListCommandsByCategory",
+          "description": "Lists the available MCP tools, optionally filtered to a single category.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string",
+                "description": "Optional category filter."
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SearchForStrings",
+          "description": "Searches process memory for a specific text string and returns the addresses where it occurs.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "searchText": {
+                "type": "string",
+                "description": "The literal text to search for."
+              },
+              "encoding": {
+                "type": "string",
+                "description": "Character encoding: UTF-8 or UTF-16.",
+                "default": "UTF-8"
+              }
+            },
+            "required": [
+              "searchText"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetEventLog",
+          "description": "Returns the last N debugger events (exceptions, breakpoints, DLL loads, thread events, etc.). Keeps the last 64 events in a ring buffer. Use this to see what happened in x64dbg.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Number of most recent events to return (default: all, max 64)."
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ClearEventLog",
+          "description": "Clears the event log ring buffer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "EvalExpression",
+          "description": "Evaluates an x64dbg expression (address, register, arithmetic, symbol) and returns the result in hex and decimal.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "expression": {
+                "type": "string",
+                "description": "x64dbg expression (e.g. cip, eax+4, kernel32:CreateFileA)."
+              }
+            },
+            "required": [
+              "expression"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AttachProcess",
+          "description": "Attaches the debugger to a running process by PID.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pid": {
+                "type": "integer",
+                "description": "Process ID to attach to."
+              }
+            },
+            "required": [
+              "pid"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "Echo",
+          "description": "Echoes the input back to the client.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "Message to echo."
+              }
+            },
+            "required": [
+              "message"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WaitForEvent",
+          "description": "Blocks until a debugger event fires (breakpoint hit, paused, resumed, exception, session start/stop) or timeout. Returns all events that occurred. Use this to monitor debugger state changes in real-time over HTTP — call it after 'run' or while waiting for the user to interact with the debugger.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum wait time in milliseconds (default 30000, max 120000).",
+                "default": 30000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetCurrentAddress",
+          "description": "Returns the current instruction pointer (EIP/RIP), the module it belongs to, and its label/comment. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ReadMemory",
+          "description": "Reads raw bytes from the target process memory and returns a hex dump with ASCII. Example: ReadMemory address=0x7FF600001000, size=128",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Hex address or expression to read from."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Number of bytes to read (max 4096).",
+                "default": 64
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WaitForPause",
+          "description": "Blocks until the debuggee stops running (hits a breakpoint, exception, or exits). Returns the reason for the pause and the current address. Use after 'run' to wait for the target to break.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum wait time in milliseconds.",
+                "default": 30000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "run",
+          "description": "Resumes execution and waits for the target to pause (breakpoint, exception, or exit). Blocks until a pause event occurs or timeout. Use timeoutMs to control how long to wait (default 120s). Always returns the reason for the pause and current state.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum time to wait for target to pause after resuming (default 300000ms = 5 minutes, max 600000ms = 10 minutes). The tool blocks until a breakpoint/exception fires or timeout.",
+                "default": 300000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StepInto",
+          "description": "Executes a single instruction, stepping INTO any call encountered (F7). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StepOver",
+          "description": "Executes a single instruction, stepping OVER any call/subroutine entirely (F8). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StepOut",
+          "description": "Runs until the current function returns to its caller (Ctrl+F9). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "PauseDebug",
+          "description": "Pauses (suspends) the running debuggee, equivalent to Debug > Pause (F12). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StopDebug",
+          "description": "Terminates the current debugging session and closes the debuggee process. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "RestartDebug",
+          "description": "Restarts the current debugging session from the beginning. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpoint",
+          "description": "Sets a software execution breakpoint (INT3) at an address or API symbol.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Hex address or API symbol to break on."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteBreakpoint",
+          "description": "Removes a breakpoint at an address or API symbol.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Hex address or API symbol of the breakpoint to remove."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetAllRegisters",
+          "description": "Returns the current values of all general-purpose registers. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetCallStack",
+          "description": "Returns the current thread's call stack. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WriteMemToAddress",
+          "description": "Patches memory by writing raw hex bytes to an address. WARNING: this modifies the live process. Example: WriteMemToAddress address=0x12345678, byteString=0F FF 90",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Hex address to write to."
+              },
+              "byteString": {
+                "type": "string",
+                "description": "Hex bytes to write, e.g. '0F FF 90'."
+              }
+            },
+            "required": [
+              "address",
+              "byteString"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "CommentOrLabelAtAddress",
+          "description": "Adds a comment or a label at a specific address in the disassembly.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Hex address."
+              },
+              "value": {
+                "type": "string",
+                "description": "The comment or label text."
+              },
+              "mode": {
+                "type": "string",
+                "description": "'Comment' or 'Label'.",
+                "default": "Comment"
+              }
+            },
+            "required": [
+              "address",
+              "value"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "Disassemble",
+          "description": "Disassembles instructions at an address. Returns instruction mnemonics with addresses. Default: 10 instructions from current IP.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address or expression (default: current IP).",
+                "default": "cip"
+              },
+              "count": {
+                "type": "integer",
+                "description": "Number of instructions (default 10, max 100).",
+                "default": 10
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListModules",
+          "description": "Lists all loaded modules (DLLs/EXE) with base addresses and sizes.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListBreakpoints",
+          "description": "Lists all active breakpoints (software, hardware, and memory).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetMemoryMap",
+          "description": "Returns the memory map showing all memory regions with base address, size, protection, and module info.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetRegister",
+          "description": "Sets the value of a CPU register.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "register": {
+                "type": "string",
+                "description": "Register name (e.g. eax, ecx, eip)."
+              },
+              "value": {
+                "type": "string",
+                "description": "Value to set (hex or decimal)."
+              }
+            },
+            "required": [
+              "register",
+              "value"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetThreads",
+          "description": "Lists all threads in the debugged process with IDs, instruction pointers, and names.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SwitchThread",
+          "description": "Switches the debugger's active thread context to a different thread.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "threadId": {
+                "type": "integer",
+                "description": "Thread ID to switch to."
+              }
+            },
+            "required": [
+              "threadId"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "Assemble",
+          "description": "Assembles an instruction at a specific address, replacing existing bytes.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address to assemble at."
+              },
+              "instruction": {
+                "type": "string",
+                "description": "Assembly instruction (e.g. nop, mov eax 1, jmp 0x401000)."
+              }
+            },
+            "required": [
+              "address",
+              "instruction"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetImports",
+          "description": "Shows the import table of a loaded module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetExports",
+          "description": "Shows the export table of a loaded module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetHardwareBreakpoint",
+          "description": "Sets a hardware breakpoint using debug registers (DR0-DR3). Supports read, write, and execute types.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the hardware breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read), w (write), x (execute, default).",
+                "default": "x"
+              },
+              "size": {
+                "type": "integer",
+                "description": "Size: 1, 2, 4, or 8 (default 1).",
+                "default": 1
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetMemoryBreakpoint",
+          "description": "Sets a memory breakpoint at an address. Triggers when memory is accessed (read/write/execute). Uses guard pages — slower than hardware breakpoints but no DR register limit.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the memory breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read/access), w (write), x (execute). Default: access (any)."
+              },
+              "singleshoot": {
+                "type": "boolean",
+                "description": "If true, breakpoint is removed after first hit (default false).",
+                "default": false
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetPatches",
+          "description": "Lists all memory patches applied to the debugged process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FindPattern",
+          "description": "Scans module memory for a byte pattern with ?? wildcards. Returns matching addresses. Example: FindPattern pattern='E8 ?? ?? ?? ?? 85 C0 74'",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Hex bytes with ?? wildcards, e.g. 'E8 ?? ?? ?? ?? 85 C0'."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to scan (default: main exe)."
+              },
+              "maxResults": {
+                "type": "integer",
+                "description": "Max results (default 10).",
+                "default": 10
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetStrings",
+          "description": "Scans a module's memory for ASCII strings and returns them with their addresses.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module to scan (default: main exe)."
+              },
+              "minLength": {
+                "type": "integer",
+                "description": "Min string length (default 4).",
+                "default": 4
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetReferences",
+          "description": "Finds code references (CALL/JMP) to a target address within a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address to find references to."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to search in (default: main exe)."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetFunctions",
+          "description": "Lists analyzed functions in a module with start addresses, sizes, and labels. Requires prior analysis (Ctrl+A in x64dbg).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "RunToAddress",
+          "description": "Sets a temporary breakpoint at the target address, resumes execution, and waits for the debuggee to hit it.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address to run to."
+              },
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Timeout ms (default 30000).",
+                "default": 30000
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "TraceInto",
+          "description": "Single-steps N instructions recording the address and disassembly of each. Max 100.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Instructions to trace (default 10, max 100).",
+                "default": 10
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetConditionalBreakpoint",
+          "description": "Sets a breakpoint with a condition expression and optional log text.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "condition": {
+                "type": "string",
+                "description": "Break condition expression, e.g. 'eax==0'."
+              },
+              "log": {
+                "type": "string",
+                "description": "Log format string (optional)."
+              }
+            },
+            "required": [
+              "address",
+              "condition"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FollowPointer",
+          "description": "Dereferences a pointer chain N levels deep, showing each level's address and value with module info.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Starting address or expression."
+              },
+              "depth": {
+                "type": "integer",
+                "description": "Dereference depth (default 1, max 16).",
+                "default": 1
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WatchExpressions",
+          "description": "Evaluates multiple x64dbg expressions at once and returns all results. Pass comma-separated expressions.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "expressions": {
+                "type": "string",
+                "description": "Comma-separated x64dbg expressions to evaluate."
+              }
+            },
+            "required": [
+              "expressions"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetSEHChain",
+          "description": "Walks the Structured Exception Handler chain (x32 only) and shows each handler's address and module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetPEB",
+          "description": "Reads key fields from the Process Environment Block: image base, being debugged, heaps, NtGlobalFlag, image path, command line.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetArguments",
+          "description": "Reads function arguments from the stack (x32: [ESP+4]...) or registers (x64: RCX,RDX,R8,R9...) at the current position.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Number of args to read (default 4, max 16).",
+                "default": 4
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DumpMemory",
+          "description": "Saves a memory region to a file on disk.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Start address."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Bytes to dump."
+              },
+              "filePath": {
+                "type": "string",
+                "description": "Output file path on disk."
+              }
+            },
+            "required": [
+              "address",
+              "size",
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AllocateMemory",
+          "description": "Allocates a block of memory in the target process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "size": {
+                "type": "integer",
+                "description": "Number of bytes to allocate."
+              },
+              "protection": {
+                "type": "string",
+                "description": "Memory protection: rwx, rw, rx, r (default rw).",
+                "default": "rw"
+              }
+            },
+            "required": [
+              "size"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FreeMemory",
+          "description": "Frees a previously allocated memory block in the target process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Base address of the allocated block to free."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "EnableBreakpoint",
+          "description": "Enables a breakpoint at a given address.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DisableBreakpoint",
+          "description": "Disables a breakpoint at a given address without deleting it.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ToggleBreakpoint",
+          "description": "Toggles a breakpoint between enabled and disabled.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteAllBreakpoints",
+          "description": "Removes all breakpoints (normal, hardware, and memory).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ResetHitCount",
+          "description": "Resets the hit counter of a breakpoint at the given address to zero.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DisassembleFunction",
+          "description": "Disassembles an entire function by finding its start/end boundaries from the analysis database.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SearchSymbols",
+          "description": "Searches for symbols (labels) matching a pattern in a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Symbol name pattern to search for (substring match)."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to search in (default: all modules)."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListSymbols",
+          "description": "Lists exported symbols of a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name to list symbols from."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SuspendThread",
+          "description": "Suspends a thread by its thread ID.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "threadId": {
+                "type": "integer",
+                "description": "Thread ID to operate on."
+              }
+            },
+            "required": [
+              "threadId"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ResumeThread",
+          "description": "Resumes a suspended thread by its thread ID.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "threadId": {
+                "type": "integer",
+                "description": "Thread ID to operate on."
+              }
+            },
+            "required": [
+              "threadId"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBookmark",
+          "description": "Sets a bookmark at the specified address.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteBookmark",
+          "description": "Deletes a bookmark at the specified address.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListBookmarks",
+          "description": "Lists all bookmarks with addresses and labels.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DumpModule",
+          "description": "Dumps an entire loaded module to a file on disk.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name to dump."
+              },
+              "filePath": {
+                "type": "string",
+                "description": "Output file path."
+              }
+            },
+            "required": [
+              "module",
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AnalyzeModule",
+          "description": "Shows PE structure analysis: sections, entry point, image size, characteristics.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DetectOEP",
+          "description": "Attempts to detect the Original Entry Point for packed executables by analyzing section characteristics.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetDumpableRegions",
+          "description": "Lists memory regions that can be dumped (committed, readable) for a module or the entire process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "RestorePatches",
+          "description": "Restores all patched bytes back to their original values.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetExceptionBreakpoint",
+          "description": "Controls how an exception code is handled: break into debugger or pass to application. Use this to ignore Delphi (0EEDFADE), C++ (E06D7363), or other framework exceptions during startup, or to break on specific exceptions like ILLEGAL_INSTRUCTION (C000001D).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "exceptionCode": {
+                "type": "string",
+                "description": "Exception code in hex (e.g. C000001D, 0EEDFADE, E06D7363)."
+              },
+              "chance": {
+                "type": "integer",
+                "description": "1 = first-chance, 2 = second-chance, 3 = both (default 1).",
+                "default": 1
+              },
+              "action": {
+                "type": "string",
+                "description": "break = break into debugger, ignore = pass to application (default break).",
+                "default": "break"
+              }
+            },
+            "required": [
+              "exceptionCode"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteExceptionBreakpoint",
+          "description": "Removes an exception breakpoint, restoring default handling for that exception code.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "exceptionCode": {
+                "type": "string",
+                "description": "Exception code in hex to delete."
+              }
+            },
+            "required": [
+              "exceptionCode"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AnalyzeCode",
+          "description": "Runs x64dbg code analysis on a module or address range. This populates the function list, enables GetFunctions/GetReferences/DisassembleFunction. Must be run before those tools return useful results.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address or module to analyze. If omitted, analyzes the current module."
+              },
+              "type": {
+                "type": "string",
+                "description": "Analysis type: 'function' (analr - analyze single function), 'module' (anal - analyze module), 'controlflow' (cfanal - control flow analysis). Default: module.",
+                "default": "module"
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "TraceOver",
+          "description": "Steps N instructions stepping OVER calls (like TraceInto but without diving into subroutines). Records address and disassembly of each step.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Instructions to trace (default 10, max 100).",
+                "default": 10
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpointCommand",
+          "description": "Sets an x64dbg command to execute when a breakpoint at the given address is hit. Use for logging breakpoints (e.g., 'log {x:eax}' to log register values on hit).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "command": {
+                "type": "string",
+                "description": "x64dbg command to run on hit (e.g. 'log {x:eax}', 'msg {utf8@[esp+4]}')."
+              }
+            },
+            "required": [
+              "address",
+              "command"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpointFastResume",
+          "description": "Makes a breakpoint auto-resume after hit without pausing. Combined with SetBreakpointCommand, creates logging breakpoints that record state at thousands of call sites without stopping.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "enable": {
+                "type": "boolean",
+                "description": "true to enable fast resume, false to disable.",
+                "default": true
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SaveDatabase",
+          "description": "Saves the x64dbg database (labels, comments, breakpoints, analysis) for the current module. Persists your work across sessions.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 89.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740713702314400-f4e11fbd.json"
+  }
+}

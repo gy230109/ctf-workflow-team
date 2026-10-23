@@ -1,0 +1,8 @@
+run_id: run-0001
+uploads: 200
+  附件落盘: ['/home/muteki/.local/share/muteki/data/sessions/run-0001/uploads/output.txt', '/home/muteki/.local/share/muteki/data/sessions/run-0001/uploads/task.py']
+start: 200
+  已派发
+
+RUN_ID=run-0001
+看板: http://192.168.26.130:3001

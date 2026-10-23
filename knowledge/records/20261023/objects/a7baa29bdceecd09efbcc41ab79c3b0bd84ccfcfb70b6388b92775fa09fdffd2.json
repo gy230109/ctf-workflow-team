@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T065023Z-58b77f44",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_e724072da5534f379ab853c5",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_e724072da5534f379ab853c5/work",
+  "command": [
+    "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+    "../input/specialist-worker-17b5e90dcaaff0d1.py",
+    "../input/request-8244e933213544db8cf472e7cbea1d8f.json"
+  ],
+  "timeout_seconds": 180,
+  "started_at_utc": "2026-10-13T06:50:24.743756+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 6.143,
+  "stdout_bytes": 189,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\"found\": true, \"candidate_hex\": \"58\", \"stdout\": \"REGRESSION-OK\\n\", \"candidate_verified\": false, \"note\": \"symbolic candidate only; replay in challenge VM before treating it as a solution\"}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_e724072da5534f379ab853c5/results/20261013T065023Z-58b77f44.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 6.609
+}

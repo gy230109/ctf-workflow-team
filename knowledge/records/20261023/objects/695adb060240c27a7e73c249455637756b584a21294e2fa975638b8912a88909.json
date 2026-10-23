@@ -1,0 +1,54 @@
+{
+  "arguments": {
+    "argv": [
+      "gcc",
+      "-g",
+      "../input/fixture_program.c",
+      "-o",
+      "fixture_program"
+    ],
+    "confirm": true,
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261015T132012Z-eb102f74",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030/work",
+      "command": [
+        "gcc",
+        "-g",
+        "../input/fixture_program.c",
+        "-o",
+        "fixture_program"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-15T13:20:14.509857+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.286,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030/results/20261015T132012Z-eb102f74.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.609,
+      "bridge_exit": 0,
+      "case": "ctf-9f14d2187a3d8030",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "wp_operation": {
+      "operation_id": "352fcc2d411b43bc805c0d918437b90e",
+      "step": 15
+    },
+    "duration_ms": 1751.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070413016146200-66e0ee84.json"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 01:24:54",
+  "call_id": "1791739494617620000-7e23f245",
+  "args": {
+    "path": "src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md",
+    "start_line": 1,
+    "lines": 12
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "source": "hacktricks",
+      "path": "src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md",
+      "title": "Jinja2 SSTI",
+      "heading": "Jinja2 SSTI",
+      "start_line": 1,
+      "end_line": 12,
+      "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\pentesting-web\\ssti-server-side-template-injection\\jinja2-ssti.md",
+      "file_sha256": "6619cd7b0744646ff0befcd018ba8d06d4f1b46f16e9cd8e30519b5e72591402",
+      "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+      "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md#L1-L12",
+      "total_lines": 412,
+      "text": "1: # Jinja2 SSTI\n2: \n3: {{#include ../../banners/hacktricks-training.md}}\n4: \n5: \n6: ## **Lab**\n7: \n8: ```python\n9: from flask import Flask, request, render_template_string\n10: \n11: app = Flask(__name__)\n12: ",
+      "more": true,
+      "output_truncated": false,
+      "trusted_instructions": false
+    },
+    "tool": "kb_read",
+    "dangerous": false,
+    "duration_ms": 21.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791739494617620000-7e23f245.json"
+  }
+}

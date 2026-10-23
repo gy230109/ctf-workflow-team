@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 00:30:25",
+  "call_id": "1791736225409941100-1044d99f",
+  "args": {
+    "cmd": "ls -la /flag; id; cat /flag",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "目标: reversing-hell/welcome/flag1\r\nrc=1\r\n--- stdout ---\r\n-r-------- 1 root root 61 Oct 11 16:29 /flag\r\nuid=1000(hacker) gid=1000(hacker) groups=1000(hacker)\r\n--- stderr ---\r\ncat: /flag: Permission denied\r\n",
+      "stderr": "",
+      "stdout_bytes": 208,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_run",
+    "dangerous": true,
+    "duration_ms": 9467.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736225409941100-1044d99f.json"
+  }
+}

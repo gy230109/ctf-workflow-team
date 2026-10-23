@@ -1,0 +1,85 @@
+{
+  "ts": "2026-10-16 14:08:12",
+  "call_id": "1792130892365526800-622a331e",
+  "args": {
+    "case": "ctf-23e45f890c213167"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-23e45f890c213167",
+      "records": 2,
+      "integrity_verified": true,
+      "calls": 0,
+      "captures": 0,
+      "pending_operations": [],
+      "recorded_assets": 0,
+      "capture_errors": [],
+      "review": {
+        "ok": true,
+        "status": "draft",
+        "quality": {
+          "document_complete": false,
+          "missing_sections": [
+            "overview",
+            "analysis",
+            "solution",
+            "validation",
+            "reproduction"
+          ],
+          "calls_without_purpose": [],
+          "calls_without_observation": [],
+          "review_scope": "结构与证据引用检查；未审判 Agent 文字的语义正确性"
+        },
+        "issues": [
+          {
+            "code": "missing_calls",
+            "severity": "needs_attention",
+            "message": "尚无实际工具调用记录。",
+            "steps": []
+          },
+          {
+            "code": "missing_sections",
+            "severity": "needs_attention",
+            "message": "缺少章节：overview, analysis, solution, validation, reproduction",
+            "steps": []
+          },
+          {
+            "code": "answer_not_verified",
+            "severity": "needs_attention",
+            "message": "尚无结构化的真实平台正确回执；章节文字不认证答案。",
+            "steps": []
+          }
+        ],
+        "submission_ready": false,
+        "integrity_verified": true,
+        "recording_complete": true,
+        "platform_answer_verified": false,
+        "verification_receipts": [],
+        "solved_verified": false,
+        "capture_errors": [],
+        "pending_operations": [],
+        "context": {
+          "description": "这是一份系统自建验收输入，不是比赛题。要求通过现有 CTF系统 MCP 记录真实工具调用、有来源的观察、真实截图和复现说明，随后从同一模型导出 Markdown、HTML、Word 和 PDF。没有 flag 或平台判题，不宣称解题成功。",
+          "source": "",
+          "artifacts": [
+            {
+              "bytes": 114,
+              "name": "fixture-handout.txt",
+              "path": "intake/388a7e0a62b743d782dd19b75cfcc17f/01.txt",
+              "sha256": "1df284368069245c3b81e2247dd0cca435130661a96b2fd243b61e4819174a32"
+            }
+          ]
+        },
+        "sections": {},
+        "review_required": "提交或公开前仍需审阅正文、原件及图片像素。"
+      },
+      "submission_ready": false,
+      "solved_verified": false
+    },
+    "tool": "wp_status",
+    "dangerous": false,
+    "duration_ms": 4.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130892365526800-622a331e.json"
+  }
+}

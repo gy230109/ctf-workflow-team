@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T064957Z-b5bc6767",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_92d87cd419214a75a99f32c7",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_92d87cd419214a75a99f32c7/work",
+  "command": [
+    "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+    "../input/specialist-worker-17b5e90dcaaff0d1.py",
+    "../input/request-19c61853588d4c738958b234cb064096.json"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-13T06:49:58.444483+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 2.521,
+  "stdout_bytes": 152,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\"offset\": 4, \"n\": 4, \"search_limit\": 4096, \"found_within_limit\": true, \"note\": \"finite search for supplied observation; no target crash was executed\"}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_92d87cd419214a75a99f32c7/results/20261013T064957Z-b5bc6767.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 2.891
+}

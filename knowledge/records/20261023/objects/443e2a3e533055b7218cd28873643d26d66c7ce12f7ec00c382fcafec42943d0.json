@@ -1,0 +1,23 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/reversing-hell_babyrev_level03",
+  "files": [
+    {
+      "name": "description.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "main_2",
+      "bytes": 14424,
+      "sha256": "4f462b41c510d3e4612beb4b6e6e3dfcf0eaae49f7da509067aac8d960a1e4fa"
+    },
+    {
+      "name": "objdump.json",
+      "bytes": 16342,
+      "sha256": "023a04747428308f245233cae1c5ec1a0e7cefa80d235ad15a52c326f25fd539"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.734
+}

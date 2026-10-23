@@ -1,0 +1,25 @@
+{
+  "ts": "2026-10-12 00:08:22",
+  "call_id": "1791734902052170500-872a79b4",
+  "args": {
+    "cmd": "/challenge/main",
+    "stdin": "1mkOpD4`gFa4MBNUnrp2",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "目标: reversing-hell/babyrev/level02\r\nrc=0\r\n--- stdout ---\r\nLet's try something slightly harder...\r\nGive me a valid key, and I will send you a flag!\r\nGood job! Go get your flag.\r\nYour flag: pwn.college{QCI_Ok0MtqdOUpnUKgPTpvwa74-.0VM4MTMywiM0EzNzIzW}\r\n\r\n. Congrats!\r\n",
+      "stderr": "",
+      "stdout_bytes": 269,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_run",
+    "dangerous": true,
+    "duration_ms": 8140.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734902052170500-872a79b4.json"
+  }
+}

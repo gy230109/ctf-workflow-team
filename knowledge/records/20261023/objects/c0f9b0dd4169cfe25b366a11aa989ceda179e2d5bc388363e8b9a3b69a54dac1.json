@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T155440Z-dc0b431a",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+  "command": [
+    "bash",
+    "-c",
+    "sudo find /var/lib/apt/lists -maxdepth 1 -type f -delete; sudo rm -rf /var/lib/apt/lists/partial; ( sudo apt-get -o Dir::Etc::sourcelist=/tmp/ks.list -o Dir::Etc::sourceparts=/dev/null -o Acquire::ForceIPv4=true update && sudo apt-get -o Dir::Etc::sourcelist=/tmp/ks.list -o Dir::Etc::sourceparts=/dev/null -o Acquire::ForceIPv4=true -o Acquire::Retries=5 install -y ghidra ) > /tmp/gh3.log 2>&1 & echo LAUNCHED; sleep 12; tail -5 /tmp/gh3.log; echo ---PROC---; pgrep -af apt-get | grep -v bash | head -2; true"
+  ],
+  "timeout_seconds": 90,
+  "started_at_utc": "2026-10-11T15:54:41.647390+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 12.177,
+  "stdout_bytes": 735,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "LAUNCHED\n获取:5 http://mirror.nyist.edu.cn/kali kali-rolling/contrib amd64 Contents (deb) [183 kB]\n获取:6 http://mirror.nyist.edu.cn/kali kali-rolling/non-free amd64 Packages [170 kB]\n获取:7 http://mirror.nyist.edu.cn/kali kali-rolling/non-free amd64 Contents (deb) [893 kB]\n获取:8 http://mirror.nyist.edu.cn/kali kali-rolling/non-free-firmware amd64 Packages [16.0 kB]\n获取:9 http://mirror.nyist.edu.cn/kali kali-rolling/non-free-firmware amd64 Contents (deb) [42.3 kB]\n---PROC---\n8610 sudo apt-get -o Dir::Etc::sourcelist=/tmp/ks.list -o Dir::Etc::sourceparts=/dev/null -o Acquire::ForceIPv4=true update\n8612 apt-get -o Dir::Etc::sourcelist=/tmp/ks.list -o Dir::Etc::sourceparts=/dev/null -o Acquire::ForceIPv4=true update\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T155440Z-dc0b431a.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 13.0
+}

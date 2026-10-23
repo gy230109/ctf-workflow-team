@@ -1,0 +1,28 @@
+{
+  "case": "wp_system_demo_20261012",
+  "timeline_head": "bc4155fc72f9efa885daee1542499e875e2424c79ff4c39a3758949ccc43e57c",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "9af7edccd4c58c1828bd2b663cf51b2bac101e7b44cca7645a8bf4bf8fa0d9d5",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0004-log.png",
+      "sha256": "3c140609c5f61e61dd2282bf7cd833f1f50d844b000bd82f494de385a0ecbcf5",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0007-capture.png",
+      "sha256": "4becbb2cb1980289c0363cbf393a861a885b06a4b4cda47e2b95200655aeaeed",
+      "kind": "vm_screenshot"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "84c1c27936f6fb643a9f610880ddd082890f75650a68b9fb55a19d39cb7d2e0a",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

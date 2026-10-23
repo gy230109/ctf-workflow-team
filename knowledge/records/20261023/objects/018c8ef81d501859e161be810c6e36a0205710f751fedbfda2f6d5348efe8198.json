@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport re, urllib.request, urllib.parse, time\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef post(content):\n    data = urllib.parse.urlencode({\"content\": content}).encode()\n    with op.open(BASE, data=data, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\ndef echo_of(mark, content):\n    body = post(content)\n    i = body.find(mark)\n    return body[i:i+300] if i >= 0 else None\n\nchars = \"<>/\\\"'()_=&;#:[]{}$%*+-.,!?@~^|\\\\`\"\nprint(\"扫描字符:\", chars)\nfor ch in chars:\n    mark = \"CH\" + \"%02x\" % ord(ch) + \"X\"\n    content = mark + ch + \"END\"\n    e = echo_of(mark, content)\n    if e is None:\n        print(\"  %-3r -> (回显丢失)\" % ch)\n        continue\n    seg = e[:len(mark)+8]\n    changed = (ch not in e[:len(mark)+ len(ch)+3])\n    print(\"  %-3r -> %-22r %s\" % (ch, seg, \"被转义\" if changed else \"原样\"))\n    time.sleep(0.05)\n",
+    "timeout": 180,
+    "wp_purpose": "逐字符扫描存储型XSS的过滤规则",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "73648d2d7d2948d88e2bfaa439f9a592"
+}

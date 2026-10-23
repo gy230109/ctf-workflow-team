@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 22:56:33",
+  "call_id": "1791816993771086400-e2b31eaa",
+  "args": {
+    "case": "qwb-vanguard-trie",
+    "include_images": false
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "qwb-vanguard-trie",
+      "path": "[CTF_ROOT]\\wp\\cases\\qwb-vanguard-trie\\reports\\20261012T145629Z-e776fece\\writeup.md",
+      "records": 38,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 4485.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816993771086400-e2b31eaa.json"
+  }
+}

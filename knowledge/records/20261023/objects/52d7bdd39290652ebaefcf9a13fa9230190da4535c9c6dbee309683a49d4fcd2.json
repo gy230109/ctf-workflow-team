@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-11 23:28:59",
+  "call_id": "1791732539966014900-864b8a1b",
+  "args": {
+    "cmd": "sudo apt-get update >/tmp/aptup.log 2>&1; tail -2 /tmp/aptup.log; sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends jadx >/tmp/jadx.log 2>&1; echo INSTALL_EXIT=$?; tail -6 /tmp/jadx.log; echo ---; which jadx; echo ===SAGE MIRROR===; curl -s --max-time 25 https://mirrors.mit.edu/sage/linux/64bit/ | grep -oE sage-[0-9.]+\\.tar\\.bz2 | sort -uV | tail -5",
+    "confirm": true,
+    "timeout": 900
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "Kali timeout 必须在 1–600 秒之间",
+      "error_code": "invalid_arguments"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "invalid_arguments",
+    "error": "Kali timeout 必须在 1–600 秒之间",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791732539966014900-864b8a1b.json"
+  }
+}

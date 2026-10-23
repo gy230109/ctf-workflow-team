@@ -1,0 +1,51 @@
+{
+  "ts": "2026-10-12 19:34:55",
+  "call_id": "1791804895273131200-4abb4795",
+  "args": {
+    "confirm": true,
+    "case": "qwb_ezre_probe",
+    "timeout": 40,
+    "local_file": "D:\\Temp\\qwb_x\\ezreprobe.txt",
+    "argv": [
+      "bash",
+      "-c",
+      "cat ../input/ezreprobe.txt; echo EXIT=$?"
+    ]
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261012T113454Z-52d3cd6b",
+      "case_root": "/home/kali/ctf-workbench/cases/qwb_ezre_probe",
+      "cwd": "/home/kali/ctf-workbench/cases/qwb_ezre_probe/work",
+      "command": [
+        "bash",
+        "-c",
+        "cat ../input/ezreprobe.txt; echo EXIT=$?"
+      ],
+      "timeout_seconds": 40,
+      "started_at_utc": "2026-10-12T11:34:55.839535+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.02,
+      "stdout_bytes": 22,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "local_file_ok\r\nEXIT=0\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwb_ezre_probe/results/20261012T113454Z-52d3cd6b.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.344,
+      "bridge_exit": 0,
+      "case": "qwb_ezre_probe",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "d350c3e339b7cb00ae0a22974c6bd3066c33a31e4639611bab76918138442555",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 3042.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791804895273131200-4abb4795.json"
+  }
+}

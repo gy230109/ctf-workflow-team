@@ -1,0 +1,4 @@
+{
+  "error": "Cannot obtain Kali IP; check the VM and NAT services: Error: The virtual machine is not powered on: D:\\huahuan\\kali\\kali.vmx",
+  "action": "status"
+}

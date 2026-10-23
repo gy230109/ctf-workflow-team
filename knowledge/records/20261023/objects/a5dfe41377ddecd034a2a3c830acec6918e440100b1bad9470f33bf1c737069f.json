@@ -1,0 +1,41 @@
+{
+  "ts": "2026-10-12 02:06:40",
+  "call_id": "1791742000623290500-2cd2072d",
+  "args": {
+    "arch": "x32",
+    "tool": "StepOver",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "StepOver",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Stepped over.\nAddress: 0xE01004 (probe32)\nInstruction: add eax,11\nNext: 0xE01007  mov dword ptr ds:[E02000],eax"
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debugger resumed. Target is now RUNNING."
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debugger paused. Target is now PAUSED. Call GetDebugState to inspect."
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0xE01004 (probe32) | add eax,11"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 186.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791742000623290500-2cd2072d.json"
+  }
+}

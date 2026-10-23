@@ -1,0 +1,13 @@
+{
+  "ts": "2026-10-15 19:47:46",
+  "call_id": "1792064866259143400-083f5075",
+  "args": {},
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "cracktools_open",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064866259143400-083f5075.json"
+  }
+}

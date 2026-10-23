@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/gamemaster/work/analysis.json",
+  "sha256": "a4c8ff7be87ea7d16b7ec016bbc670efafa5690fff42f08aa3bb16aa4cf4470c",
+  "bytes": 936,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.375,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\gamemaster\\downloads\\20261009T152337Z-4983d230\\analysis.json",
+  "verified": true
+}

@@ -1,0 +1,26 @@
+{
+  "ts": "2026-10-12 00:35:27",
+  "call_id": "1791736527904305400-6e4aea48",
+  "args": {
+    "cmd": "id; /opt/pwn.college/bash -p -c \"id; cat /flag\" 2>&1 | head -5",
+    "confirm": true
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "exit": 1,
+      "timed_out": false,
+      "stdout": "目标: reversing-hell/welcome/flag1\r\n",
+      "stderr": "Traceback (most recent call last):\r\n  File \"[CTF_ROOT]\\tools\\pwncollege\\pc_flow.py\", line 361, in <module>\r\n    sys.exit(main())\r\n             ~~~~^^\r\n  File \"[CTF_ROOT]\\tools\\pwncollege\\pc_flow.py\", line 357, in main\r\n    return a.func(a)\r\n           ~~~~~~^^^\r\n  File \"[CTF_ROOT]\\tools\\pwncollege\\pc_flow.py\", line 302, in cmd_run\r\n    rc, out, err = c.run_remote(a.command, timeout=a.timeout, stdin_data=a.stdin_data)\r\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"[CTF_ROOT]\\tools\\pwncollege\\pc_lib.py\", line 291, in run_remote\r\n    client, _ = self.sftp()\r\n                ~~~~~~~~~^^\r\n  File \"[CTF_ROOT]\\tools\\pwncollege\\pc_lib.py\", line 257, in sftp\r\n    return client, client.open_sftp()\r\n                   ~~~~~~~~~~~~~~~~^^\r\n  File \"[USER_HOME]\\.workbuddy\\binaries\\python\\envs\\default\\Lib\\site-packages\\paramiko\\client.py\", line 596, in open_sftp\r\n    return self._transport.open_sftp_client()\r\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\r\n  File \"[USER_HOME]\\.workbuddy\\binaries\\python\\envs\\default\\Lib\\site-packages\\paramiko\\transport.py\", line 1143, in open_sftp_client\r\n    return SFTPClient.from_transport(self)\r\n           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\r\n  File \"[USER_HOME]\\.workbuddy\\binaries\\python\\envs\\default\\Lib\\site-packages\\paramiko\\sftp_client.py\", line 170, in from_transport\r\n    return cls(chan)\r\n  File \"[USER_HOME]\\.workbuddy\\binaries\\python\\envs\\default\\Lib\\site-packages\\paramiko\\sftp_client.py\", line 130, in __init__\r\n    server_version = self._send_version()\r\n  File \"[USER_HOME]\\.workbuddy\\binaries\\python\\envs\\default\\Lib\\site-packages\\paramiko\\sftp.py\", line 145, in _send_version\r\n    t, data = self._read_packet()\r\n              ~~~~~~~~~~~~~~~~~^^\r\n  File \"[USER_HOME]\\.workbuddy\\binaries\\python\\envs\\default\\Lib\\site-packages\\paramiko\\sftp.py\", line 216, in _read_packet\r\n    raise SFTPError(\"Garbage packet received\")\r\nparamiko.sftp.SFTPError: Garbage packet received\r\n",
+      "stdout_bytes": 38,
+      "stderr_bytes": 2031,
+      "output_truncated": false
+    },
+    "tool": "pc_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 8978.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736527904305400-6e4aea48.json"
+  }
+}

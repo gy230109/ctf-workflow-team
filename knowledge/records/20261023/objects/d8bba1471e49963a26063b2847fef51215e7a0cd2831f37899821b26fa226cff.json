@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-12 22:56:22",
+  "call_id": "1791816982929496200-f1e85b54",
+  "args": {
+    "text": "关键约束：insert 每条链只在最后一次分叉后到达 depth 32，只有 depth-32 的节点才能成为 search 32 步的终点；而节点 id 按分配顺序递增、无法回退。单轮最多能造出约 12~13 个 depth-31 自由槽（总 id 预算有限），因此单轮只能覆盖 secret 的 44~52 字节。解法：用两轮不同骨架宽度（spine=57 与 spine=66）让目标 id 区间错开，A 轮覆盖 secret[0:16]、B 轮覆盖 secret[12:64]，合并即全 64 字节。",
+    "status": "observed",
+    "source_step": 5,
+    "wp_case": null,
+    "case": "qwb-vanguard-trie"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 35,
+      "case": "qwb-vanguard-trie",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 120.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816982929496200-f1e85b54.json"
+  }
+}

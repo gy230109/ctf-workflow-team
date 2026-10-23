@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/factor-20261010",
+  "files": [
+    {
+      "name": "Factor.zip",
+      "bytes": 7435,
+      "sha256": "2d2504be6632fd4e272aa2af4032469528d0395ec14e730610e36ac17a7879fb"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.25
+}

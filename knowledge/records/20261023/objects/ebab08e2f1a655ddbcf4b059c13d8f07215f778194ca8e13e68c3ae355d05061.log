@@ -1,0 +1,24 @@
+[17:11:28] #2 blackboard.delta race_started
+[17:11:28] #3 blackboard.delta worker_spawned
+[17:11:28] #4 blackboard.delta race_concurrent_handoff
+[17:11:28] #6 blackboard.delta phase_transition
+[17:11:28] #7 worker.lifecycle spawned
+[17:11:28] #8 blackboard.delta 题目信息:
+这是一道 CTF 比赛题（类别：杂项 + 逆向混合）。工作目录里有三个附件：
+
+- game.gb  —— 32768 字节的 Game Boy ROM
+- kun.mp3  —— 128
+[17:11:28] #13 blackboard.delta context_manifest
+[17:11:28] #15 blackboard.delta observation_added
+[17:11:28] #16 blackboard.delta 题目信息:
+这是一道 CTF 比赛题（类别：杂项 + 逆向混合）。工作目录里有三个附件：
+
+- game.gb  —— 32768 字节的 Game Boy ROM
+- kun.mp3  —— 128
+[17:11:28] #17 blackboard.delta intent_proposed
+[17:11:28] #18 blackboard.delta intent_claimed
+[17:11:28] #19 blackboard.delta reason_start
+[17:11:28] #21 tool.start Bash: ls -la; python3 -c "import pyboy; print(pyboy.__version__)" 2>&1 | head -2
+[17:11:28] #23 tool.start Bash: xxd game.gb | head -40
+[17:11:28] #27 tool.start Bash: pip install --break-system-packages pyboy 2>&1 | tail -2
+[17:11:28] #28 tool.start Bash: strings -n 5 game.gb | head -50

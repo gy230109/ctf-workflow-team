@@ -1,0 +1,50 @@
+{
+  "ts": "2026-10-13 13:04:35",
+  "call_id": "1791867875856501800-7c891a5e",
+  "args": {
+    "argv": [
+      "python3",
+      "-c",
+      "import requests,time,json,re; start=time.monotonic(); r=requests.get('https://pypi.tuna.tsinghua.edu.cn/simple/lief/',timeout=15); links=re.findall(r'href=\"([^\"]+)\"',r.text); url=next((x.split('#')[0] for x in links if 'lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl' in x),None); count=0; seconds=None; status=None; print(json.dumps({'index_status':r.status_code,'index_seconds':round(time.monotonic()-start,2),'matching_wheel':bool(url)})); start=time.monotonic(); f=requests.get(url,stream=True,t...(847 chars)"
+    ],
+    "confirm": true,
+    "case": "specialists_setup_20261013",
+    "timeout": 40
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261013T050433Z-d11c5eda",
+      "case_root": "/home/kali/ctf-workbench/cases/specialists_setup_20261013",
+      "cwd": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/work",
+      "command": [
+        "python3",
+        "-c",
+        "import requests,time,json,re; start=time.monotonic(); r=requests.get('https://pypi.tuna.tsinghua.edu.cn/simple/lief/',timeout=15); links=re.findall(r'href=\"([^\"]+)\"',r.text); url=next((x.split('#')[0] for x in links if 'lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl' in x),None); count=0; seconds=None; status=None; print(json.dumps({'index_status':r.status_code,'index_seconds':round(time.monotonic()-start,2),'matching_wheel':bool(url)})); start=time.monotonic(); f=requests.get(url,stream=True,timeout=15) if url else None; print(json.dumps({'wheel_status':f.status_code if f else None}));\nif f:\n for chunk in f.iter_content(65536):\n  count+=len(chunk)\n  if count>=262144:break\n f.close(); seconds=time.monotonic()-start\n print(json.dumps({'bytes':count,'seconds':round(seconds,3),'kbytes_per_second':round(count/1024/max(seconds,0.001),1)}))"
+      ],
+      "timeout_seconds": 40,
+      "started_at_utc": "2026-10-13T05:04:34.366541+00:00",
+      "returncode": 1,
+      "timed_out": false,
+      "duration_seconds": 1.864,
+      "stdout_bytes": 68,
+      "stderr_bytes": 2618,
+      "output_truncated": false,
+      "stdout": "{\"index_status\": 200, \"index_seconds\": 1.6, \"matching_wheel\": true}\n",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import requests,time,json,re; start=time.monotonic(); r=requests.get('https://pypi.tuna.tsinghua.edu.cn/simple/lief/',timeout=15); links=re.findall(r'href=\"([^\"]+)\"',r.text); url=next((x.split('#')[0] for x in links if 'lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl' in x),None); count=0; seconds=None; status=None; print(json.dumps({'index_status':r.status_code,'index_seconds':round(time.monotonic()-start,2),'matching_wheel':bool(url)})); start=time.monotonic(); f=requests.get(url,stream=True,timeout=15) if url else None; print(json.dumps({'wheel_status':f.status_code if f else None}));\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 73, in get\n    return request(\"get\", url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 59, in request\n    return session.request(method=method, url=url, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 575, in request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 484, in prepare_request\n    p.prepare(\n    ~~~~~~~~~^\n        method=request.method.upper(),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<10 lines>...\n        hooks=merge_hooks(request.hooks, self.hooks),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 367, in prepare\n    self.prepare_url(url, params)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 438, in prepare_url\n    raise MissingSchema(\n    ...<2 lines>...\n    )\nrequests.exceptions.MissingSchema: Invalid URL '../../packages/cd/d7/6e8135da80a63d8ee413f169eda8c331817bf6f1496fc5647722b105aa19/lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl': No scheme supplied. Perhaps you meant https://../../packages/cd/d7/6e8135da80a63d8ee413f169eda8c331817bf6f1496fc5647722b105aa19/lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl?\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/results/20261013T050433Z-d11c5eda.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 2.188,
+      "bridge_exit": 1,
+      "case": "specialists_setup_20261013",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 3260.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791867875856501800-7c891a5e.json"
+  }
+}

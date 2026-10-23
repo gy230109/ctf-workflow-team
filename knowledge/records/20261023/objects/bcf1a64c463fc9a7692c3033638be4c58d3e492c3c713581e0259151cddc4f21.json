@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-13 21:06:06",
+  "call_id": "1791896766523734600-e6bb2b21",
+  "args": {
+    "case": "qwb2023_not_only_rsa",
+    "status": "observed",
+    "source_step": 3,
+    "text": "用 math_modpow 复算 root^e mod n，返回值与 out.txt 的 c 逐位一致 → 该根即明文 m，其字节串含 flag{...} 前缀。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 7,
+      "case": "qwb2023_not_only_rsa",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 33.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791896766523734600-e6bb2b21.json"
+  }
+}

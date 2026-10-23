@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 02:06:39",
+  "call_id": "1791741999421517000-ebf13a5d",
+  "args": {
+    "arch": "x32",
+    "tool": "ListBreakpoints",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "ListBreakpoints",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[Normal] 0xE01000 probe32.exe! (enabled)\n[Normal] 0xE0100D probe32.exe!入口断点 (enabled)\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x770E57F9 (ntdll) | jmp ntdll.770E5802"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 80.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741999421517000-ebf13a5d.json"
+  }
+}

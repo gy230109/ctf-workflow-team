@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-12 22:56:22",
+  "call_id": "1791816982780451400-faebba24",
+  "args": {
+    "text": "内存布局（symtab 实测）：tot@0x4060（节点计数器，无上限）、trie@0x4080（int32[128]）、end@0x4280（int32[64]）、secret@0x4380（char[64]）。insert() 每走一步只要子节点为空就 tot++ 并写入，tot 不设边界；search() 固定走 32 步后返回 end[cur]。于是：cur∈[64,80) 时 end[cur] 正好落在 secret 上（0x4380+4*(cur-64)），view 把它按 %hhu.%hhu.%hhu.%hhu 打印出来。",
+    "status": "observed",
+    "source_step": 5,
+    "wp_case": null,
+    "case": "qwb-vanguard-trie"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 34,
+      "case": "qwb-vanguard-trie",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 147.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816982780451400-faebba24.json"
+  }
+}

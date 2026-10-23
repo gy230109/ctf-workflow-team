@@ -1,0 +1,47 @@
+{
+  "ts": "2026-10-14 00:30:48",
+  "call_id": "1791909048771350700-aaee87e1",
+  "args": {
+    "local_file": "[CTF_ROOT]\\workflows\\bank_worker_20261014\\task\\attachments\\000_number-mashing",
+    "case": "bank_worker_20261014",
+    "wp_case": "bank_worker_20261014",
+    "timeout": 60
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261013T163048Z-6febebda",
+      "case_root": "/home/kali/ctf-workbench/cases/bank_worker_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/bank_worker_20261014/work",
+      "command": [
+        "strings",
+        "-n",
+        "6",
+        "../input/000_number-mashing"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-13T16:30:48.780916+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.007,
+      "stdout_bytes": 1289,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "/lib/ld-linux-aarch64.so.1\n__cxa_finalize\n__libc_start_main\nsetvbuf\nstdout\n__isoc99_scanf\n__stack_chk_fail\nprintf\n__stack_chk_guard\nlibc.so.6\nld-linux-aarch64.so.1\nGLIBC_2.17\nGLIBC_2.34\n_ITM_deregisterTMCloneTable\n__gmon_start__\n_ITM_registerTMCloneTable\nGive me some numbers: \nflag.txt\nCorrect! %s\nGCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0\nScrt1.o\n__abi_tag\ncrti.o\ncall_weak_fn\ncrtn.o\ncrtstuff.c\nderegister_tm_clones\n__do_global_dtors_aux\ncompleted.0\n__do_global_dtors_aux_fini_array_entry\nframe_dummy\n__frame_dummy_init_array_entry\nmain.c\n__FRAME_END__\n_DYNAMIC\n__GNU_EH_FRAME_HDR\n_GLOBAL_OFFSET_TABLE_\nexit@GLIBC_2.17\n__libc_start_main@GLIBC_2.34\n_ITM_deregisterTMCloneTable\n__bss_start__\n__cxa_finalize@GLIBC_2.17\nsetvbuf@GLIBC_2.17\n_edata\n__bss_end__\nfopen@GLIBC_2.17\nstdout@GLIBC_2.17\n__data_start\nstdin@GLIBC_2.17\n__stack_chk_fail@GLIBC_2.17\n__gmon_start__\n__stack_chk_guard@GLIBC_2.17\n__dso_handle\nabort@GLIBC_2.17\n_IO_stdin_used\nputs@GLIBC_2.17\nfread@GLIBC_2.17\n__end__\n__bss_start\n__isoc99_scanf@GLIBC_2.17\n__TMC_END__\n_ITM_registerTMCloneTable\nprintf@GLIBC_2.17\n.symtab\n.strtab\n.shstrtab\n.interp\n.note.gnu.build-id\n.note.ABI-tag\n.gnu.hash\n.dynsym\n.dynstr\n.gnu.version\n.gnu.version_r\n.rela.dyn\n.rela.plt\n.rodata\n.eh_frame_hdr\n.eh_frame\n.init_array\n.fini_array\n.dynamic\n.comment\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/bank_worker_20261014/results/20261013T163048Z-6febebda.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.672,
+      "bridge_exit": 0,
+      "case": "bank_worker_20261014",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a",
+      "upload_verified": true
+    },
+    "tool": "kali_strings",
+    "dangerous": false,
+    "duration_ms": 3432.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791909048771350700-aaee87e1.json"
+  }
+}

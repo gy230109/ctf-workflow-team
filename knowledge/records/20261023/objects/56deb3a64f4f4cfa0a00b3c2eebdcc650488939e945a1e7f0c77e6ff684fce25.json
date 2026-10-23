@@ -1,0 +1,54 @@
+{
+  "arguments": {
+    "length": 128,
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "pattern": "aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaabbaabcaabdaabeaabfaabgaab",
+        "hex": "6161616162616161636161616461616165616161666161616761616168616161696161616a6161616b6161616c6161616d6161616e6161616f616161706161617161616172616161736161617461616175616161766161617761616178616161796161617a616162626161626361616264616162656161626661616267616162",
+        "n": 4
+      },
+      "execution": {
+        "run_id": "20261013T053219Z-3a2b9151",
+        "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+        "cwd": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/specialist-worker-616cad1724a4384f.py",
+          "../input/request-019d604ad72f4189ad6bff9d4eb49ff4.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-13T05:32:20.203234+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.207,
+        "stdout_bytes": 419,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"pattern\": \"aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaabbaabcaabdaabeaabfaabgaab\", \"hex\": \"6161616162616161636161616461616165616161666161616761616168616161696161616a6161616b6161616c6161616d6161616e6161616f616161706161617161616172616161736161617461616175616161766161617761616178616161796161617a616162626161626361616264616162656161626661616267616162\", \"n\": 4}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/results/20261013T053219Z-3a2b9151.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.469,
+        "bridge_exit": 0,
+        "case": "specialists_verify_20261013",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "specialists_verify_20261013",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "upload_verified": true,
+      "source_status": "local compatibility implementation while original cloud export is pending"
+    },
+    "tool": "pwn_cyclic",
+    "dangerous": false,
+    "duration_ms": 3046.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791869540032899200-745cc656.json"
+  }
+}

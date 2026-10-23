@@ -1,0 +1,22 @@
+{
+  "run_id": "20261012T100906Z-9d851044",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+  "command": [
+    "-c",
+    "import ctypes;libc=ctypes.CDLL('libc.so.6');libc.srand(85);print([libc.rand() for _ in range(8)])"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-12T10:09:07.501228+00:00",
+  "returncode": 127,
+  "timed_out": false,
+  "duration_seconds": 0.01,
+  "stdout_bytes": 0,
+  "stderr_bytes": 41,
+  "output_truncated": false,
+  "stdout": "",
+  "stderr": "[Errno 2] No such file or directory: '-c'",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261012T100906Z-9d851044.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.484
+}

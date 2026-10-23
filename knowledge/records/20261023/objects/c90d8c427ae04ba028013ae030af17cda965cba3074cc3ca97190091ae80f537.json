@@ -1,0 +1,35 @@
+{
+  "ts": "2026-10-12 02:06:40",
+  "call_id": "1791742000852392700-8e39bdc9",
+  "args": {
+    "arch": "x32",
+    "tool": "DeleteBreakpoint",
+    "params": {
+      "target": "0xe01000"
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "DeleteBreakpoint",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Breakpoint deleted."
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0xE01004 (probe32) | add eax,11"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 61.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791742000852392700-8e39bdc9.json"
+  }
+}

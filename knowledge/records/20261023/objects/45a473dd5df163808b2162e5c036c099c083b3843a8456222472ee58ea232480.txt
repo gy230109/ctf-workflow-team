@@ -1,0 +1,10 @@
+Corrected transcription from a matching first-hand writeup:
+FLAG{I LOVE PLAY ctf_QWB2022}
+
+If the platform requires the NSSCTF wrapper:
+NSSCTF{I LOVE PLAY ctf_QWB2022}
+
+There are three ordinary ASCII spaces, after I, LOVE, and PLAY.
+Source: https://www.cnblogs.com/lordtianqiyi/articles/16553403.html
+The author explicitly records the spaced string. Local analysis independently recovered the same picture and binary logic. No successful platform submission has been observed.
+The earlier no-space transcription is superseded.

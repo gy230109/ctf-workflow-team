@@ -1,0 +1,45 @@
+{
+  "ts": "2026-10-15 21:28:48",
+  "call_id": "1792070928300251100-ee8dba61",
+  "args": {
+    "case": "ctf-a4595e3240dcc28b",
+    "include_images": false,
+    "summary": "部署期间的首次自建留证检查：网页实际留证完成；asciinema 2.4 不支持 --return，终端录制因此失败。失败证据保留；兼容修复后在独立验收任务 ctf-9f14d2187a3d8030 完成全链路验证。本任务不是成功解题。",
+    "bundle": true,
+    "private_bundle": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-a4595e3240dcc28b",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\reports\\20261015T132847Z-ca016bb2\\writeup.md",
+      "bundle_path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\reports\\20261015T132847Z-ca016bb2.zip",
+      "records": 16,
+      "integrity_verified": true,
+      "images_included": 0,
+      "recordings_included": 0,
+      "recording_complete": false,
+      "capture_errors": [
+        {
+          "step": 12,
+          "error": "Recording missing or exceeds 16 MiB",
+          "kind": "terminal_recording"
+        },
+        {
+          "step": 14,
+          "action_replayed": false,
+          "error": "Existing session has not loaded recording support; close it when idle before a new start",
+          "kind": "browser_recording"
+        }
+      ],
+      "pending_operations": [],
+      "solved_verified": false,
+      "platform_answer_verified": false,
+      "review_required_before_sharing": "原始证据、正文语义与图片像素须另行检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 1190.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070928300251100-ee8dba61.json"
+  }
+}

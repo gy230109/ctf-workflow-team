@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T064938Z-0ae28146",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_907ea369538643459866385e",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_907ea369538643459866385e/work",
+  "command": [
+    "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+    "../input/specialist-worker-17b5e90dcaaff0d1.py",
+    "../input/request-d784b0d0859c467ebdc75cc3df960f8a.json"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-13T06:49:39.180726+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.977,
+  "stdout_bytes": 215,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\"title\": \"Spec Regression\", \"forms\": [{\"action\": \"/login\", \"method\": \"POST\", \"fields\": [{\"name\": \"user\", \"type\": \"text\"}, {\"name\": \"pass\", \"type\": \"password\"}]}], \"links\": [\"/next\"], \"script_sources\": [\"/app.js\"]}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_907ea369538643459866385e/results/20261013T064938Z-0ae28146.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 1.422
+}

@@ -1,0 +1,48 @@
+{
+  "arguments": {
+    "local_file": "[CTF_ROOT]\\tests\\prepare_specialist_fixtures.py",
+    "argv": [
+      "python3",
+      "../input/prepare_specialist_fixtures.py"
+    ],
+    "confirm": true,
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013",
+    "timeout": 30
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261013T050236Z-03c6cbdb",
+      "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+      "cwd": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work",
+      "command": [
+        "python3",
+        "../input/prepare_specialist_fixtures.py"
+      ],
+      "timeout_seconds": 30,
+      "started_at_utc": "2026-10-13T05:02:37.135376+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 1.536,
+      "stdout_bytes": 905,
+      "stderr_bytes": 268,
+      "output_truncated": false,
+      "stdout": "{\"fixture_scope\": \"self-built verification only; no challenge solved\", \"files\": [{\"name\": \"fixture.elf\", \"bytes\": 15880, \"sha256\": \"9b267efb254936b79c3f457e240738562ffdf232808aebe536376555462c3e9b\"}, {\"name\": \"fixture.jwt\", \"bytes\": 103, \"sha256\": \"6926a62b0e588cec7a4558ced99e14d6a30f9935b45fd5c09e7fae144e58eb50\"}, {\"name\": \"fixture.pcap\", \"bytes\": 171, \"sha256\": \"abaabafd53a5655fbb4abec29df5a321059f2e5d14fd7c4c91d0c283df95e7ac\"}, {\"name\": \"fixture.png\", \"bytes\": 181, \"sha256\": \"51f803783858ac029530abc1bb60ec3bf955ff0d6a6f03a8662c0ec4c210b293\"}, {\"name\": \"fixture.tar\", \"bytes\": 10240, \"sha256\": \"d8b4cc224f7541dda2706eb4f77514c178a01b3f5cfc6ca22cab4a2483965354\"}, {\"name\": \"fixture.txt\", \"bytes\": 42, \"sha256\": \"2f930e901e8b552d3019e8aa683db10452b26d45a1177132a5aebb9372a700c8\"}, {\"name\": \"fixture.zip\", \"bytes\": 263, \"sha256\": \"d09d244f4c0b29fc7256f441c6b164f03da7d4e92b5c46726d02b266f58c188b\"}]}\n",
+      "stderr": "WARNING: getmacbyip failed on [Errno 1] Operation not permitted\nWARNING: MAC address to reach destination not found. Using broadcast.\nWARNING: getmacbyip failed on [Errno 1] Operation not permitted\nWARNING: MAC address to reach destination not found. Using broadcast.\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/results/20261013T050236Z-03c6cbdb.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.844,
+      "bridge_exit": 0,
+      "case": "specialists_verify_20261013",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "5554e3d6165eba068185999fabd406607eb1ecdc64195d468cf4b76b74a7569b",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 5224.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791867758309099200-6d3c6ef9.json"
+  }
+}

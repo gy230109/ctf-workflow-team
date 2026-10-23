@@ -1,0 +1,15 @@
+{
+  "ts": "2026-10-12 15:54:32",
+  "call_id": "1791791672191639500-8ded9b56",
+  "args": {
+    "cmd": "id"
+  },
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "pc_run",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791791672191639500-8ded9b56.json"
+  }
+}

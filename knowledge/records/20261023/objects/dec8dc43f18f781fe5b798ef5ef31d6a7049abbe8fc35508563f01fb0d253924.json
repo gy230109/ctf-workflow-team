@@ -1,0 +1,16 @@
+{
+  "ts": "2026-10-12 01:42:53",
+  "call_id": "1791740573255682600-b9a6e87c",
+  "args": {
+    "tool": "StepOver",
+    "confirm": "true"
+  },
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "win_debug_call",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740573255682600-b9a6e87c.json"
+  }
+}

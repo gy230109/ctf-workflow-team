@@ -1,0 +1,12 @@
+{
+  "tool": "kali_terminal_record",
+  "arguments": {
+    "argv": [
+      "false"
+    ],
+    "confirm": true,
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "376f38b02e2b48d381c7d579fb0fb6ad"
+}

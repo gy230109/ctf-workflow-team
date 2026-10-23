@@ -1,0 +1,41 @@
+{
+  "ts": "2026-10-16 14:08:19",
+  "call_id": "1792130899556631400-d446884b",
+  "args": {
+    "values": [
+      48,
+      60
+    ],
+    "wp_purpose": "验证真实工具输出进入同题 WP，不测试比赛解题能力",
+    "wp_expectation": "返回整数 12",
+    "wp_case": "ctf-23e45f890c213167"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 12
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "9f3ea568d3c04acaa858e522daa67bee",
+      "step": 3
+    },
+    "duration_ms": 18.9,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-23e45f890c213167",
+      "calls": 1,
+      "failed_calls": 0,
+      "active_tool_seconds": 0.019,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130899556631400-d446884b.json"
+  }
+}

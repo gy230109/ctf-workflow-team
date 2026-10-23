@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 01:37:09",
+  "call_id": "1791740229261420200-50d4f3f2",
+  "args": {
+    "path": "src/binary-exploitation/format-strings/README.md",
+    "start_line": 226,
+    "lines": 12
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "source": "hacktricks",
+      "path": "src/binary-exploitation/format-strings/README.md",
+      "title": "Format Strings",
+      "heading": "Basic Information",
+      "start_line": 226,
+      "end_line": 237,
+      "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\binary-exploitation\\format-strings\\README.md",
+      "file_sha256": "a4b14983338c7ceb6b0139cd0e39e9bee773a45986b2accd8b9492c4b41aba3f",
+      "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+      "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/binary-exploitation/format-strings/README.md#L226-L237",
+      "total_lines": 285,
+      "text": "226: ## Format Strings to BOF\n227: \n228: It's possible to abuse the write actions of a format string vulnerability to **write in addresses of the stack** and exploit a **buffer overflow** type of vulnerability.\n229: \n230: \n231: ## Windows x64: Format-string leak to bypass ASLR (no varargs)\n232: \n233: On Windows x64 the first four integer/pointer parameters are passed in registers: RCX, RDX, R8, R9. In many buggy call-sites the attacker-controlled string is used as the format argument but no variadic arguments are provided, for example:\n234: \n235: ```c\n236: // keyData is fully controlled by the client\n237: // _snprintf(dst, len, fmt, ...)",
+      "more": true,
+      "output_truncated": false,
+      "trusted_instructions": false
+    },
+    "tool": "kb_read",
+    "dangerous": false,
+    "duration_ms": 8.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740229261420200-50d4f3f2.json"
+  }
+}

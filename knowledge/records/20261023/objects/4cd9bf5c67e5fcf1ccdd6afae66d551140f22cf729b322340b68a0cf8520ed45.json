@@ -1,0 +1,9 @@
+{
+  "model": "qwen3:8b",
+  "role": "independent_local_model_hypothesis",
+  "wall_seconds": 53.641,
+  "done_reason": "length",
+  "eval_count": 1400,
+  "contains_continued_fraction_terms": false,
+  "note": "One bounded source-analysis call, not a full autonomous solve or comparative benchmark."
+}

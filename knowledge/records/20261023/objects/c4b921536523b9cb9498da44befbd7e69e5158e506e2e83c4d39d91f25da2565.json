@@ -1,0 +1,15 @@
+{
+  "ts": "2026-10-16 12:25:43",
+  "call_id": "1792124743597293800-4dac68e0",
+  "args": {
+    "cmd": "id"
+  },
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "kali_debug_session",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792124743597293800-4dac68e0.json"
+  }
+}

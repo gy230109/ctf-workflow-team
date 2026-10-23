@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 15:01:53",
+  "call_id": "1791788513605765000-44f87cc5",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "status": "observed",
+    "source_step": 2,
+    "text": "本机统一工具实际算得 gcd(48,60)=12。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 3,
+      "case": "wp_system_demo_20261012",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 7.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788513605765000-44f87cc5.json"
+  }
+}

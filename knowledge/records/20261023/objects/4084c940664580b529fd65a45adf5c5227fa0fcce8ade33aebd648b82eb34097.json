@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-11 23:16:56",
+  "call_id": "1791731816472572600-dcf4c7a9",
+  "args": {},
+  "response": {
+    "ok": false,
+    "result": {
+      "exit_code": 2
+    },
+    "tool": "synthetic",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791731816472572600-dcf4c7a9.json"
+  }
+}

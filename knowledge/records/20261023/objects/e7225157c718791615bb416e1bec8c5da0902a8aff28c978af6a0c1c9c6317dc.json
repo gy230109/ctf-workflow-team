@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-15 19:33:56",
+  "call_id": "1792064036556220700-f44db527",
+  "args": {},
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "url": "http://127.0.0.1:8800",
+      "player": {
+        "id": 2,
+        "name": "ctf-agent",
+        "role": "user"
+      },
+      "reference_answers_exposed": false,
+      "practice_challenges": 66,
+      "verification_scope": "Player API authentication only; not a solved challenge"
+    },
+    "tool": "ctfd_status",
+    "dangerous": false,
+    "duration_ms": 7506.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064036556220700-f44db527.json"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "engines": [
+    "seat_pi_b710d8"
+  ],
+  "start_workers": 1,
+  "max_workers": 1,
+  "worker_backend": "container",
+  "worker_network": "bridge",
+  "worker_container_scope": "run",
+  "worker_privilege": "default",
+  "worker_memory": "2g",
+  "worker_cpus": "2",
+  "worker_pids_limit": 512,
+  "worker_output_limit": "64m",
+  "worker_disk_limit": "4g",
+  "worker_vpn_enabled": false,
+  "race_scout": true,
+  "race_timeout": 300,
+  "wall_clock_budget": 0,
+  "race_engines": [
+    "seat_pi_b710d8"
+  ],
+  "max_total_workers": 0,
+  "cost_budget_usd": 0.0,
+  "stage_policy": {
+    "prepare": {},
+    "race": {
+      "enabled": true,
+      "timeout": 300,
+      "engines": [
+        "seat_pi_b710d8"
+      ]
+    },
+    "coordinator": {
+      "dispatch_mode": "fixed",
+      "wall_clock_budget": 0,
+      "review": {
+        "enabled": true,
+        "engine": "seat_pi_b710d8",
+        "reasoning_effort": "inherit",
+        "after_race": false,
+        "after_fruitless_workers": 3,
+        "after_duplicate_intents": 2,
+        "on_course_correct": false,
+        "on_candidate_spike": true,
+        "on_operator_hint": false,
+        "on_evidence_conflict": true,
+        "on_semantic_duplicate": false,
+        "every_completed_workers": 0,
+        "candidate_spike_threshold": 5,
+        "max_concurrent": 1,
+        "allow_review_fallback": false,
+        "cooldown_events": 8,
+        "timeout": 90,
+        "max_review_workers": 12
+      },
+      "verifier": {
+        "enabled": false,
+        "engine": "seat_pi_b710d8",
+        "reasoning_effort": "inherit",
+        "max_concurrent": 0,
+        "allow_verifier_fallback": false,
+        "timeout": 240,
+        "max_verifier_workers": 24
+      }
+    },
+    "budgets": {
+      "max_total_workers": 0,
+      "cost_budget_usd": 0.0
+    }
+  },
+  "llm_profiles": {
+    "planner": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "endpoint_id": "",
+      "base_url": "",
+      "connection": "default",
+      "temperature_mode": "omit",
+      "credential_source": "legacy_missing"
+    },
+    "titler": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "endpoint_id": "",
+      "base_url": "",
+      "connection": "default",
+      "temperature_mode": "omit",
+      "credential_source": "legacy_missing"
+    }
+  },
+  "worker_profiles": [
+    {
+      "id": "seat_pi_b710d8",
+      "name": "seat_pi_b710d8",
+      "label": "pi-workbuddy-glm",
+      "engine": "pi",
+      "transport": "pi",
+      "credential_mode": "api_key",
+      "auth": "api_key",
+      "credential_account": "workbuddy-glm",
+      "credential_id": "account:workbuddy-glm",
+      "api_key_ref": "",
+      "base_url": "http://192.168.26.1:7863/v1",
+      "wire_api": "",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review",
+        "verifier"
+      ],
+      "implicit_roles": [
+        "verifier"
+      ],
+      "race": true,
+      "max_running": 1,
+      "max_review_running": 0,
+      "max_verifier_running": 0,
+      "priority": 40,
+      "model": "global:glm-5.3",
+      "reasoning_effort": "default",
+      "runtime_instance_ref": "",
+      "credential_seat_ref": "",
+      "enabled": true
+    }
+  ],
+  "overrides": {},
+  "credentials": [
+    {
+      "id": "account:claude-main",
+      "label": "claude-main",
+      "engine": "claude",
+      "kind": "engine_key",
+      "secret_ref": "claude-main"
+    },
+    {
+      "id": "account:codex-main",
+      "label": "codex-main",
+      "engine": "codex",
+      "kind": "engine_key",
+      "secret_ref": "codex-main"
+    },
+    {
+      "id": "account:cursor-main",
+      "label": "cursor-main",
+      "engine": "cursor",
+      "kind": "engine_key",
+      "secret_ref": "cursor-main"
+    },
+    {
+      "id": "account:workbuddy-glm",
+      "label": "workbuddy-glm",
+      "engine": "pi",
+      "kind": "custom_endpoint",
+      "secret_ref": "workbuddy-glm",
+      "target_engine": "pi"
+    },
+    {
+      "id": "account:omp-main",
+      "label": "omp-main",
+      "engine": "omp",
+      "kind": "engine_key",
+      "secret_ref": "omp-main"
+    }
+  ],
+  "seats": [
+    {
+      "id": "seat_claude_67cf03",
+      "label": "claude-sub-container",
+      "engine": "claude",
+      "credential_id": "account:claude-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 2,
+        "max_review_running": 0
+      },
+      "priority": 10,
+      "enabled": false
+    },
+    {
+      "id": "seat_codex_bf1f7c",
+      "label": "codex-sub-container",
+      "engine": "codex",
+      "credential_id": "account:codex-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 20,
+      "enabled": false
+    },
+    {
+      "id": "seat_cursor_d4ac52",
+      "label": "cursor-api-container",
+      "engine": "cursor",
+      "credential_id": "account:cursor-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 2,
+        "max_review_running": 0
+      },
+      "priority": 30,
+      "enabled": false
+    },
+    {
+      "id": "seat_pi_b710d8",
+      "label": "pi-workbuddy-glm",
+      "engine": "pi",
+      "credential_id": "account:workbuddy-glm",
+      "model": "global:glm-5.3",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "respond",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "id": "seat_omp_8231c0",
+      "label": "omp-sub-container",
+      "engine": "omp",
+      "credential_id": "account:omp-main",
+      "model": "",
+      "reasoning_effort": "default",
+      "roles": [
+        "race",
+        "bootstrap",
+        "explore",
+        "review"
+      ],
+      "race": true,
+      "capacity": {
+        "max_running": 1,
+        "max_review_running": 0
+      },
+      "priority": 50,
+      "enabled": false
+    }
+  ],
+  "seat_alias": {
+    "claude-sub-container": "seat_claude_67cf03",
+    "codex-sub-container": "seat_codex_bf1f7c",
+    "cursor-api-container": "seat_cursor_d4ac52",
+    "pi-workbuddy-glm": "seat_pi_b710d8",
+    "omp-sub-container": "seat_omp_8231c0"
+  },
+  "credential_alias": {
+    "claude-main": "account:claude-main",
+    "codex-main": "account:codex-main",
+    "cursor-main": "account:cursor-main",
+    "workbuddy-glm": "account:workbuddy-glm",
+    "omp-main": "account:omp-main"
+  },
+  "network_requested": "bridge",
+  "effective_network": "bridge"
+}

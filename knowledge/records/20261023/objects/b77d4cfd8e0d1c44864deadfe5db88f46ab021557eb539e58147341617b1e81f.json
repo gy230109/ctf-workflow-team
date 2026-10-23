@@ -1,0 +1,20 @@
+{
+  "arguments": {
+    "code": "import runpy,sys; sys.argv=['dis.py']; runpy.run_path(r'D:\\Temp\\qwb_x\\Vanguard-trie\\dis.py')",
+    "wp_case": "qwb-vanguard-trie",
+    "timeout": 60
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "duration_ms": 382.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791815424209968600-ac2cf67e.json"
+  }
+}

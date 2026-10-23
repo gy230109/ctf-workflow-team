@@ -1,0 +1,39 @@
+{
+  "ts": "2026-10-12 02:28:41",
+  "call_id": "1791743321021524800-2def5b0d",
+  "args": {},
+  "response": {
+    "ok": true,
+    "result": {
+      "package": "rea-agents@6.4.0",
+      "ghidra_install_dir": "D:/Apps/ghidra_12.1.4_PUBLIC",
+      "java_home": "C:/Program Files/Eclipse Adoptium/jdk-21.0.11.10-hotspot",
+      "engines": [
+        {
+          "id": "ghidra",
+          "status": "available",
+          "code": null,
+          "reason": null
+        },
+        {
+          "id": "hopper",
+          "status": "unavailable",
+          "code": "unsupported_host",
+          "reason": "Hopper integration is not supported on win32."
+        },
+        {
+          "id": "ida",
+          "status": "unavailable",
+          "code": "not_configured",
+          "reason": "Set REA_IDA_MCP_CONFIG to an upstream IDA MCP JSON registration; see docs/ida-provider.md."
+        }
+      ],
+      "binding": null,
+      "verified_scope": "引擎配置与绑定状态；不代表题目已解出"
+    },
+    "tool": "rea_status",
+    "dangerous": false,
+    "duration_ms": 6241.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791743321021524800-2def5b0d.json"
+  }
+}

@@ -1,0 +1,9 @@
+[实验] max_workers 是否只在带名单时被重算
+ 起始:
+  起始                                             {"engines": ["c2api-claude-glm53-local"], "start_workers": 1, "max_workers": 1, "max_total_workers": 0}
+ PUT {max_workers:3} -> 200
+  PUT {max_workers:3} 后                          {"engines": ["c2api-claude-glm53-local"], "start_workers": 1, "max_workers": 3, "max_total_workers": 0}
+ PUT {engines:[GLM]} -> 200
+  PUT {engines:[GLM]} 后（应回到 1）                   {"engines": ["c2api-claude-glm53-local"], "start_workers": 1, "max_workers": 1, "max_total_workers": 0}
+
+结论： max_workers 可被裸 PUT 顶掉 → 只在同 PUT 带名单时才派生

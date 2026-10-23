@@ -1,0 +1,22 @@
+{
+  "run_id": "20261011T151432Z-500beee7",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_63ed5242d2deef69c6907057",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_63ed5242d2deef69c6907057/work",
+  "command": [
+    "file",
+    "../input/系统 sample & semi;colon.txt"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-11T15:14:33.168073+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.013,
+  "stdout_bytes": 80,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "../input/系统 sample & semi;colon.txt: ASCII text, with CRLF line terminators\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_63ed5242d2deef69c6907057/results/20261011T151432Z-500beee7.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.375
+}

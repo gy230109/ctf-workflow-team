@@ -1,0 +1,19 @@
+{
+  "ts": "2026-10-12 02:30:49",
+  "call_id": "1791743449098326100-0009e193",
+  "args": {
+    "command": "function",
+    "args": [
+      "--help"
+    ],
+    "timeout": 240
+  },
+  "response": {
+    "ok": false,
+    "tool": "rea_run",
+    "error": "RuntimeError('REA 输出不是 JSON：rea function — Analyze one complete function with evidence\\n\\nUsage: rea function <path> [address] [options]\\n\\nArguments:\\n  path     App or program path\\n  address  Procedure name or address\\n\\nOptions:\\n  --procedure <string>     Procedure name or address; use --procedure=<value> for leading dashes\\n  --sn')",
+    "error_code": "execution_failed",
+    "duration_ms": 4790.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791743449098326100-0009e193.json"
+  }
+}

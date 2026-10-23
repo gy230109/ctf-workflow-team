@@ -1,0 +1,43 @@
+{
+  "arguments": {
+    "cmd": "F=../input/qemu_test_aarch64.elf; ls -la $F; echo === hexdump head ===; xxd -l 128 $F; echo === readelf -h ===; readelf -h $F 2>&1 | head -30; echo === readelf -l ===; readelf -l $F 2>&1 | head -30; echo === arch of qemu ===; file /usr/bin/qemu-aarch64",
+    "timeout": 120,
+    "confirm": true,
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T162107Z-82a640d0",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+      "command": [
+        "bash",
+        "-c",
+        "F=../input/qemu_test_aarch64.elf; ls -la $F; echo === hexdump head ===; xxd -l 128 $F; echo === readelf -h ===; readelf -h $F 2>&1 | head -30; echo === readelf -l ===; readelf -l $F 2>&1 | head -30; echo === arch of qemu ===; file /usr/bin/qemu-aarch64"
+      ],
+      "timeout_seconds": 120,
+      "started_at_utc": "2026-10-14T16:21:08.327109+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.239,
+      "stdout_bytes": 2227,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "-rw-rw-r-- 1 kali kali 161 10月15日 00:20 ../input/qemu_test_aarch64.elf\n=== hexdump head ===\n00000000: 7f45 4c46 0201 0100 0000 0000 0000 0000  .ELF............\n00000010: 0200 b700 0100 0000 7800 4000 0000 0000  ........x.@.....\n00000020: 4000 0000 0000 0000 0000 0000 0000 0000  @...............\n00000030: 0000 0000 4000 3800 0100 0000 0000 0000  ....@.8.........\n00000040: 0100 0000 0500 0000 0000 0000 0000 0000  ................\n00000050: 0000 4000 0000 0000 0000 4000 0000 0000  ..@.......@.....\n00000060: a100 0000 0000 0000 a100 0000 0000 0000  ................\n00000070: 0010 0000 0000 0000 2000 80d2 e100 0058  ........ ......X\n=== readelf -h ===\nELF 头：\n  Magic：  7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 \n  类别:                              ELF64\n  数据:                              2 补码，小端序 (little endian)\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI 版本:                          0\n  类型:                              EXEC (可执行文件)\n  系统架构:                          AArch64\n  版本:                              0x1\n  入口点地址：              0x400078\n  程序头起点：              64 (bytes into file)\n  Start of section headers:          0 (bytes into file)\n  标志：             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         1\n  Size of section headers:           0 (bytes)\n  Number of section headers:         0\n  Section header string table index: 0\n=== readelf -l ===\n\nElf 文件类型为 EXEC (可执行文件)\nEntry point 0x400078\nThere is 1 program header, starting at offset 64\n\n程序头：\n  Type           Offset             VirtAddr           PhysAddr\n                 FileSiz            MemSiz              Flags  Align\n  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000\n                 0x00000000000000a1 0x00000000000000a1  R E    0x1000\n=== arch of qemu ===\n/usr/bin/qemu-aarch64: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), static-pie linked, BuildID[sha1]=ba0079fe5aa20afe4f0cfc72c7bd1f1ff449b634, for GNU/Linux 3.2.0, stripped\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162107Z-82a640d0.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.984,
+      "bridge_exit": 0,
+      "case": "ctf-b37c81c14eb6b825",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 1819.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994868136681800-ca2a17d8.json"
+  }
+}

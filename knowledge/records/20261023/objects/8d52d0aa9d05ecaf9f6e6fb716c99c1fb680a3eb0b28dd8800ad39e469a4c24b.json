@@ -1,0 +1,26 @@
+{
+  "ts": "2026-10-18 11:30:25",
+  "call_id": "1792294225463067600-b38a178b",
+  "args": {
+    "section": "reproduction",
+    "text": "在 CTF系统新建自建样例后，调用 math_gcd(values=[48,60])，应得到 12。",
+    "source_steps": [
+      4
+    ],
+    "case": "ctf-e9c09fae2e96eca4"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-e9c09fae2e96eca4",
+      "step": 10,
+      "section": "reproduction",
+      "latest_revision": true,
+      "independent_verification": false
+    },
+    "tool": "wp_section",
+    "dangerous": false,
+    "duration_ms": 17.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792294225463067600-b38a178b.json"
+  }
+}

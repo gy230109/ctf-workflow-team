@@ -1,0 +1,4 @@
+{
+  "error": "SCP failed: C:/Windows/System32/OpenSSH/scp.exe: pipe: Unknown error\r\n",
+  "action": "put"
+}

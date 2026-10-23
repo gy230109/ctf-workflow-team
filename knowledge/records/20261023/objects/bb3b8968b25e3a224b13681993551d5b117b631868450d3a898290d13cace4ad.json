@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/qwb-vanguard-trie/results/wp-screen-0038-c2a42b5a.png",
+  "sha256": "78608331855301921415531dd2c8f8811d583c00142e19c370d82f1204de2f30",
+  "bytes": 617227,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.36,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\qwb-vanguard-trie\\downloads\\20261012T145628Z-306fbb58\\wp-screen-0038-c2a42b5a.png",
+  "verified": true
+}

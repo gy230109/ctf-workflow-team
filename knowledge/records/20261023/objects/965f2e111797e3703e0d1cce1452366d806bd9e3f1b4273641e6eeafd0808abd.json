@@ -1,0 +1,97 @@
+{
+  "task_id": "ctf-f54dbd1bf0e2a3a2",
+  "title": "系统专项入口自建验收",
+  "description": "Verify bounded arithmetic and archive inspection, not a real CTF challenge.",
+  "category": "crypto",
+  "created_at": "2026-10-14T15:29:33.200600+00:00",
+  "updated_at": "2026-10-14T15:29:54.273826+00:00",
+  "state": "analysis_complete",
+  "artifacts": [
+    {
+      "name": "capability-fixture.zip",
+      "relative_path": "attachments/capability-fixture.zip",
+      "sha256": "9fe2b8d117062638ae0a3e601acb0887ad0858908d80f8dca68144a37de2f0c9",
+      "bytes": 163
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-14T15:29:43.776400+00:00",
+      "tool": "crypto_z3",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991783740516400-01958e0b.json",
+      "wp_record": {
+        "case": "ctf-f54dbd1bf0e2a3a2",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-f54dbd1bf0e2a3a2\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:29:48.029738+00:00",
+      "tool": "crypto_lll",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991787990933100-5ca0831a.json",
+      "wp_record": {
+        "case": "ctf-f54dbd1bf0e2a3a2",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-f54dbd1bf0e2a3a2\\raw\\0003-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:29:52.481847+00:00",
+      "tool": "misc_archive_list",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991792406139300-19a7f6ca.json",
+      "wp_record": {
+        "case": "ctf-f54dbd1bf0e2a3a2",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-f54dbd1bf0e2a3a2\\raw\\0004-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:29:52.849530+00:00",
+      "kind": "note",
+      "text": "自建验收调用 crypto_z3 实际通过。",
+      "status": "observed",
+      "source_step": 2
+    },
+    {
+      "at": "2026-10-14T15:29:53.207504+00:00",
+      "kind": "note",
+      "text": "自建验收调用 crypto_lll 实际通过。",
+      "status": "observed",
+      "source_step": 3
+    },
+    {
+      "at": "2026-10-14T15:29:53.579677+00:00",
+      "kind": "note",
+      "text": "自建验收调用 misc_archive_list 实际通过。",
+      "status": "observed",
+      "source_step": 4
+    }
+  ],
+  "answer_verified": false,
+  "summary": "Actual Z3, lattice reduction and archive listing receipts passed; this is not a CTF solution.",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-f54dbd1bf0e2a3a2",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-f54dbd1bf0e2a3a2\\reports\\20261014T152953Z-99dbd5ee\\writeup.md",
+      "records": 7,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 345.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991794248373700-dfc88f6d.json"
+  }
+}

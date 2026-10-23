@@ -1,0 +1,60 @@
+{
+  "ts": "2026-10-13 13:02:33",
+  "call_id": "1791867753045610400-969ffa45",
+  "args": {
+    "local_file": "[CTF_ROOT]\\tests\\specialist_fixture.c",
+    "argv": [
+      "gcc",
+      "-O0",
+      "-fno-pie",
+      "-no-pie",
+      "../input/specialist_fixture.c",
+      "-o",
+      "fixture.elf"
+    ],
+    "confirm": true,
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013",
+    "timeout": 30
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261013T050232Z-4efbb1b7",
+      "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+      "cwd": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work",
+      "command": [
+        "gcc",
+        "-O0",
+        "-fno-pie",
+        "-no-pie",
+        "../input/specialist_fixture.c",
+        "-o",
+        "fixture.elf"
+      ],
+      "timeout_seconds": 30,
+      "started_at_utc": "2026-10-13T05:02:32.916182+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.493,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/results/20261013T050232Z-4efbb1b7.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.844,
+      "bridge_exit": 0,
+      "case": "specialists_verify_20261013",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "100892d736dfcece717b23155387b123a64fa7d160cafb37f77e6e535b83fabf",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 4293.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791867753045610400-969ffa45.json"
+  }
+}

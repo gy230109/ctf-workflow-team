@@ -1,0 +1,29 @@
+[docProps/app.xml]
+Normal.dotm 1 1 9 56 Microsoft Macintosh Word 0 1 1 false false 64 false false 15.0000
+
+[docProps/core.xml]
+Microsoft Office 用户 Microsoft Office 用户 1 2018-10-15T03:07:00Z 2018-10-15T03:08:00Z
+
+[word/document.xml]
+
+
+哪有什么WriteUP，别想了，老老实实做题吧！
+FLAG{fl4g_is_n0t_here_hhhhhhh!!!!!}
+
+
+[word/fontTable.xml]
+
+
+[word/settings.xml]
+
+
+[word/styles.xml]
+
+
+[word/theme/theme1.xml]
+
+
+[word/webSettings.xml]
+
+
+[[Content_Types].xml]

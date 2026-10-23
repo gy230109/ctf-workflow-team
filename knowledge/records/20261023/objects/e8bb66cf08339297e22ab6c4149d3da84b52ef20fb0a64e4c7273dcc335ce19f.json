@@ -1,0 +1,26 @@
+{
+  "起始": {
+    "engines": [
+      "c2api-claude-glm53-local"
+    ],
+    "start_workers": 1,
+    "max_workers": 1,
+    "max_total_workers": 0
+  },
+  "PUT {max_workers:3} 后": {
+    "engines": [
+      "c2api-claude-glm53-local"
+    ],
+    "start_workers": 1,
+    "max_workers": 3,
+    "max_total_workers": 0
+  },
+  "PUT {engines:[GLM]} 后（应回到 1）": {
+    "engines": [
+      "c2api-claude-glm53-local"
+    ],
+    "start_workers": 1,
+    "max_workers": 1,
+    "max_total_workers": 0
+  }
+}

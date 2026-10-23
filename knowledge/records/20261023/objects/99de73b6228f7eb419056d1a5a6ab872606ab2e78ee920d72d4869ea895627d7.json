@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-14 20:32:57",
+  "call_id": "1791981177952984200-14df122a",
+  "args": {
+    "cmd": "cp $CTF_INPUT_DIR/liblhm.so /tmp/liblhm.so; file /tmp/liblhm.so; echo ---SYMS---; readelf -sW /tmp/liblhm.so | head -35; echo ---STR---; strings -n 4 /tmp/liblhm.so | head -30",
+    "confirm": true,
+    "timeout": 120,
+    "local_file": "D:/Temp/apk2/lib/armeabi/liblhm.so"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "本机文件不存在: D:/Temp/apk2/lib/armeabi/liblhm.so"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "本机文件不存在: D:/Temp/apk2/lib/armeabi/liblhm.so",
+    "duration_ms": 0.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791981177952984200-14df122a.json"
+  }
+}

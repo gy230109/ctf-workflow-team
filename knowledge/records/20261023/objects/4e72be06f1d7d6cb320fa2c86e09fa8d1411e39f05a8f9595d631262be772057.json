@@ -1,0 +1,37 @@
+{
+  "arguments": {
+    "input": "%%%invalid%%%",
+    "steps": [
+      {
+        "algorithm": "base64",
+        "mode": "decode"
+      },
+      {
+        "algorithm": "sha256",
+        "mode": "encode"
+      }
+    ],
+    "wp_case": "ctf-736b6154b62832f2"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "Base64 decode error: Invalid symbol 37, offset 12.",
+      "failed_step": 0,
+      "ok": false,
+      "steps": [],
+      "error_code": "workflow_failed",
+      "exit_code": 1,
+      "upstream_commit": "f372c57c05a2f7daa9049c8c737e3ed08404fb51",
+      "engine": "CTFCrackTools upstream Rust workflow engine + local bounded JSON wrapper",
+      "parameter_warnings": [],
+      "answer_verified": false
+    },
+    "tool": "cracktools_run",
+    "dangerous": false,
+    "error_code": "workflow_failed",
+    "error": "Base64 decode error: Invalid symbol 37, offset 12.",
+    "duration_ms": 59.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064906911504500-a9f0e962.json"
+  }
+}

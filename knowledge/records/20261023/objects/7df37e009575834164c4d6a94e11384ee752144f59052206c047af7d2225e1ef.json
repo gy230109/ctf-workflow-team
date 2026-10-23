@@ -1,0 +1,50 @@
+{
+  "ts": "2026-10-13 13:23:03",
+  "call_id": "1791868983916681300-0ec09145",
+  "args": {
+    "category": "reverse",
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "category": "reverse",
+      "packages": [
+        "lief",
+        "capstone",
+        "angr"
+      ],
+      "modules": [
+        "lief",
+        "capstone",
+        "angr"
+      ],
+      "commands": [
+        "gdb"
+      ],
+      "tools": [
+        "reverse_binary_info",
+        "reverse_disassemble",
+        "reverse_symbolic"
+      ],
+      "route": [
+        "先看文件结构与地址",
+        "按证据选区段反汇编；REA/x64dbg 按平台补充",
+        "对明确目标进行有界符号执行",
+        "将候选交给真实题目程序验证，换算 ASLR 地址"
+      ],
+      "environment": "Kali specialist venv through existing bridge",
+      "next_step": "ctf_specialist_status 检查实际依赖；每题 wp_init，后续调用加同一 wp_case",
+      "route_is_not_a_solution": true,
+      "limits": {
+        "default_timeout_seconds": 60,
+        "default_memory_mb": 1536
+      }
+    },
+    "tool": "ctf_profile",
+    "dangerous": false,
+    "duration_ms": 22.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791868983916681300-0ec09145.json"
+  }
+}

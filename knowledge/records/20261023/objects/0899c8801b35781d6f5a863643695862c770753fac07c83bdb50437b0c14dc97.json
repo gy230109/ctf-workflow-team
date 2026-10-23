@@ -1,0 +1,42 @@
+{
+  "ts": "2026-10-12 00:06:19",
+  "call_id": "1791734779349075700-892b1e80",
+  "args": {
+    "local_file": "[CTF_ROOT]\\题目库\\pwn.college\\reversing-hell\\babyrev\\level02\\main"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261011T160618Z-f188857a",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_264cc5b11cd9b38468f86a8c",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_264cc5b11cd9b38468f86a8c/work",
+      "command": [
+        "file",
+        "../input/main"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-11T16:06:19.688630+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.08,
+      "stdout_bytes": 215,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "../input/main: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5d59d1a78097182258f28986b1c64a77d2eac53e, for GNU/Linux 3.2.0, stripped\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_264cc5b11cd9b38468f86a8c/results/20261011T160618Z-f188857a.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.625,
+      "bridge_exit": 0,
+      "case": "ctfos_264cc5b11cd9b38468f86a8c",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "264cc5b11cd9b38468f86a8c01678912548b8759ccc7c27aeeae0f9e856274be",
+      "upload_verified": true
+    },
+    "tool": "kali_file",
+    "dangerous": false,
+    "duration_ms": 4299.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734779349075700-892b1e80.json"
+  }
+}

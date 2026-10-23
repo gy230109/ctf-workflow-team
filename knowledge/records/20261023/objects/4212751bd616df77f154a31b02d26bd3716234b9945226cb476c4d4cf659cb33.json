@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-12 20:05:38",
+  "call_id": "1791806738123271400-76d964e7",
+  "args": {
+    "case": "qwb-vanguard-babyre",
+    "text": "observed：回调1(0x140011800) 对表 T@0x14001e000 做逐字节 rol(reason)；reason=DLL_PROCESS_ATTACH=1 → T=[0x31,0xb7,0xb6,0x31] 变为 [0x62,0x6f,0x6d,0x62]。",
+    "status": "observed"
+  },
+  "response": {
+    "ok": false,
+    "tool": "wp_note",
+    "error": "ValueError('观察必须引用实际调用或截图的 source_step')",
+    "error_code": "execution_failed",
+    "duration_ms": 5.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791806738123271400-76d964e7.json"
+  }
+}

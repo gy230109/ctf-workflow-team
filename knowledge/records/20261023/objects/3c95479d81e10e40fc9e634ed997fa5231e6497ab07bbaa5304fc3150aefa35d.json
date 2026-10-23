@@ -1,0 +1,14 @@
+{
+  "challenge_id": 67,
+  "name": "系统接入检查（不计练题）",
+  "origin": "http://127.0.0.1:8800",
+  "grading_configured": true,
+  "handouts": [
+    {
+      "name": "connector-handout.txt",
+      "path": "[CTF_ROOT]\\.local\\ctfd\\intake\\3682178e3fe3204eab936f64\\connector-handout.txt",
+      "sha256": "4776499eb95f6e3c24d470282575d9bc763f66c975d8857f816589c1db415152",
+      "bytes": 46
+    }
+  ]
+}

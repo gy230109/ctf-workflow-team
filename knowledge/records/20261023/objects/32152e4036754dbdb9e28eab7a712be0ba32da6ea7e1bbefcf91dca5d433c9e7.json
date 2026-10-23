@@ -1,0 +1,18 @@
+{
+  "ts": "2026-10-15 19:33:46",
+  "call_id": "1792064026774497800-fe3c20cd",
+  "args": {
+    "source": "crypto-cat",
+    "query": "format string",
+    "limit": 1,
+    "wp_case": "ctf-33f2fd155e777d12"
+  },
+  "response": {
+    "ok": false,
+    "tool": "kb_search",
+    "error": "ValueError('Crypto-Cat 含题解/solver，独立解题和测评输入默认隔离；仅查阅参考案例时显式设置 allow_reference=true')",
+    "error_code": "execution_failed",
+    "duration_ms": 30.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064026774497800-fe3c20cd.json"
+  }
+}

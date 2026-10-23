@@ -1,0 +1,23 @@
+{
+  "run_id": "20261009T154844Z-bb4d97ac",
+  "case_root": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster",
+  "cwd": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/work",
+  "command": [
+    "python3",
+    "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154844Z-bb4d97ac.py"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-09T15:48:45.780169+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.131,
+  "stdout_bytes": 1259,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "OK   00_locate_input    file=gamemessage  size=11344\nOK   01_input_sha256    sha256=d83ccf9915c56c7d153d59b88b13ac25ba305ab421b768810b9273fd7d2a6809\nOK   02_triage          total_blocks=709  mod16=0  unique_blocks=581  dup_first=[(0, 2), (3, 4), (4, 4), (5, 4), (12, 2)]  mode=ECB\nOK   03_xor_0x22        out=work/x22.bin  head=f44eb15bbb5532a1805c5e2adff5a20e\nOK   04_aes_ecb_zeros   tool=openssl  key_ascii=Brainstorming!!!  out_len=11344  head=0001000000ffffffff01000000000000  nrbf_header_ok=True  stderr=\nOK   05_embedded_pe     offset=5099  pe_sections=3  size=5632  sha256=ee76e6b456cba898\nOK   06_static_arrays   arr19_off=0xfbc  arr19=3c64245633fba76c74f5cfdf2867223e16fbe3  arr40_off=0xfd4  arr40_head=650550d5a31a3b261306adbdc6a68cb7  gap_bytes=5  gap_all_zero=True  note=offsets from Windows-side FieldRVA parse; content re-read here\nOK   07_check1_recompute a=156324965  b=868387187  c=3131229747  keystream_sha256=ebc0a6ee956aa459  equals_arr40=True\nOK   08_flag            key12=655451097389c23333c6a2ba  plaintext_hex=5930755f4072655f47336d654d337337657221  plaintext=Y0u_@re_G3meM3s7er!  flag=flag{Y0u_@re_G3meM3s7er!}\n\n==== all_ok=True  failed=[] ====\nreport -> /home/kali/ctf-workbench/cases/qwb2022_gamemaster/work/kali_verify_report.json\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154844Z-bb4d97ac.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.656,
+  "source_sha256": "c765cfa9b7e8f4df7739ec1d9c48bc601bafdbca68ace54780f4de7c1b7a821a"
+}

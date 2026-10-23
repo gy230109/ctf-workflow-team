@@ -1,0 +1,14 @@
+{
+  "tool": "kali_terminal_record",
+  "arguments": {
+    "argv": [
+      "printf",
+      "Recorded terminal marker: 42\n"
+    ],
+    "confirm": true,
+    "wp_purpose": "录制真实 PTY 终端输出",
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "44042b62329541dd95b0630986721122"
+}

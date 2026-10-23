@@ -1,0 +1,46 @@
+{
+  "user": "kali",
+  "hostname": "kali",
+  "python": "3.13.12",
+  "python_executable": "/home/kali/ctf-workbench/.venv/bin/python3",
+  "memory_bytes": {
+    "MemTotal": 4072513536,
+    "MemAvailable": 3103842304
+  },
+  "disk_bytes": {
+    "total": 84362952704,
+    "used": 27681464320,
+    "free": 53029031936
+  },
+  "tools": {
+    "python3": "/usr/bin/python3",
+    "gcc": "/usr/bin/gcc",
+    "objdump": "/usr/bin/objdump",
+    "readelf": "/usr/bin/readelf",
+    "file": "/usr/bin/file",
+    "strings": "/usr/bin/strings",
+    "burpsuite": "/usr/bin/burpsuite",
+    "wireshark": "/usr/bin/wireshark",
+    "tshark": "/usr/bin/tshark",
+    "binwalk": "/usr/bin/binwalk",
+    "exiftool": "/usr/bin/exiftool",
+    "7z": "/usr/bin/7z",
+    "unzip": "/usr/bin/unzip",
+    "gdb": "/usr/bin/gdb",
+    "checksec": "/usr/bin/checksec",
+    "strace": "/usr/bin/strace",
+    "ltrace": "/usr/bin/ltrace",
+    "ghidra": "/usr/bin/ghidra"
+  },
+  "python_modules": {
+    "sympy": true,
+    "pwn": true,
+    "Crypto": true,
+    "Cryptodome": true,
+    "z3": true,
+    "gmpy2": true,
+    "dnfile": true
+  },
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 1.859
+}

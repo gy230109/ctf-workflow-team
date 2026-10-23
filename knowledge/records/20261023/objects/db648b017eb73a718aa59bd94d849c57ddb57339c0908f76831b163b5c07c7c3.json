@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-18 11:30:20",
+  "call_id": "1792294220705975900-b6ad77c2",
+  "args": {
+    "case": "ctf-e9c09fae2e96eca4",
+    "text": "实际 math_gcd 返回 12，证明 Harness 的 MCP 适配器已将参数交给 CTF系统并取得输出；这只验收连接与算术留证，不等同于比赛答案被判对。",
+    "status": "observed",
+    "source_step": 4
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 5,
+      "case": "ctf-e9c09fae2e96eca4",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 15.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792294220705975900-b6ad77c2.json"
+  }
+}

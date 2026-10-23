@@ -1,0 +1,101 @@
+{
+  "ts": "2026-10-12 01:55:42",
+  "call_id": "1791741342680666100-0cb28cb8",
+  "args": {
+    "query": "Step"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 5,
+      "tools": [
+        {
+          "name": "StepInto",
+          "description": "Executes a single instruction, stepping INTO any call encountered (F7). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StepOver",
+          "description": "Executes a single instruction, stepping OVER any call/subroutine entirely (F8). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StepOut",
+          "description": "Runs until the current function returns to its caller (Ctrl+F9). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "TraceInto",
+          "description": "Single-steps N instructions recording the address and disassembly of each. Max 100.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Instructions to trace (default 10, max 100).",
+                "default": 10
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "TraceOver",
+          "description": "Steps N instructions stepping OVER calls (like TraceInto but without diving into subroutines). Records address and disassembly of each step.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Instructions to trace (default 10, max 100).",
+                "default": 10
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 85.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741342680666100-0cb28cb8.json"
+  }
+}

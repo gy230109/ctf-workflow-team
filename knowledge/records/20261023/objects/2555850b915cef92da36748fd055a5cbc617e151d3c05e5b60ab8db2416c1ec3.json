@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 00:05:07",
+  "call_id": "1791734707800704800-c65233e3",
+  "args": {
+    "dojo": "reversing-hell",
+    "limit": 50
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "\r\n== reversing-hell ==  未完成 100 题\r\n   welcome                flag1            Flag 1\r\n   welcome                flag2            Flag 2\r\n   welcome                flag3            Flag 3\r\n   your-first-program     rax              Your First Register\r\n   your-first-program     exit             Your First Syscall\r\n   your-first-program     exit-code        Exit Codes\r\n   your-first-program     building         Building Executables\r\n   your-first-program     movreg           Moving Between Registers\r\n   introspecting          strace           Tracing Syscalls\r\n   introspecting          gdb-launch       Starting GDB\r\n   introspecting          gdb-starti       Starting Programs in GDB\r\n   memory                 mem-load         Loading From Memory\r\n   memory                 mem-load-2       More Loading Practice\r\n   memory                 mem-dereference  Dereferencing Pointers\r\n   memory                 mem-dereference-self Dereferencing Yourself\r\n   memory                 mem-offsets      Dereferencing with Offsets\r\n   memory                 mem-stored-addr  Stored Addresses\r\n   memory                 mem-double-deref Double Dereference\r\n   memory                 mem-triple-deref Triple Dereference\r\n   hello-hackers          write            Writing Output\r\n   hello-hackers          write-exit       Chaining Syscalls\r\n   hello-hackers          hello-hackers    Writing Strings\r\n   hello-hackers          read             Reading Data\r\n   assembly-crash-course  level-1          set-register\r\n   assembly-crash-course  level-2-a        set-multiple-registers\r\n   assembly-crash-course  level-2          add-to-register\r\n   assembly-crash-course  level-3          linear-equation-registers\r\n   assembly-crash-course  level-4          integer-division\r\n   assembly-crash-course  level-5          modulo-operation\r\n   assembly-crash-course  level-6-a        set-upper-byte\r\n   assembly-crash-course  level-6          efficient-modulo\r\n   assembly-crash-course  level-7          byte-extraction\r\n   assembly-crash-course  level-8          bitwise-and\r\n   assembly-crash-course  level-9          check-even\r\n   assembly-crash-course  level-10-a       memory-read\r\n   assembly-crash-course  level-10-b       memory-write\r\n   assembly-crash-course  level-10         memory-increment\r\n   assembly-crash-course  level-11-a       byte-access\r\n   assembly-crash-course  level-11         memory-size-access\r\n   assembly-crash-course  level-12         little-endian-write\r\n   assembly-crash-course  level-13         memory-sum\r\n   assembly-crash-course  level-14         stack-subtraction\r\n   assembly-crash-course  level-15         swap-stack-values\r\n   assembly-crash-course  level-16         average-stack-values\r\n   assembly-crash-course  level-17-a       absolute-jump\r\n   assembly-crash-course  level-17-b       relative-jump\r\n   assembly-crash-course  level-17         jump-trampoline\r\n   assembly-crash-course  level-18         conditional-jump\r\n   assembly-crash-course  level-19         indirect-jump\r\n   assembly-crash-course  level-20         average-loop\r\n   ... 还有 50 题\r\n\r\n合计未完成: 100\r\n",
+      "stderr": "",
+      "stdout_bytes": 3129,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_find",
+    "dangerous": false,
+    "duration_ms": 3741.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734707800704800-c65233e3.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work/browser-aaf2473b0540478cb58196009e53c16d.png",
+  "sha256": "c104925022c9a4a017b179e929da871a2644203f0c4c280df26435b5f784cd6d",
+  "bytes": 29003,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.328,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\specialists_verify_20261013\\downloads\\20261013T054147Z-03ee3026\\browser-aaf2473b0540478cb58196009e53c16d.png",
+  "verified": true
+}

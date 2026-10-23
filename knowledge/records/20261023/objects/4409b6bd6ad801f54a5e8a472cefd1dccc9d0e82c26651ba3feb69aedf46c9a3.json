@@ -1,0 +1,13 @@
+{
+  "case": "rea_worker_20261014_d1f002",
+  "timeline_head": "ac3b58be8e0f4ee581dd3701e89b75a72ee493ad1fb1952a605899d5fdb7cb02",
+  "files": [
+    {
+      "path": "writeup.md",
+      "sha256": "8fcadcc565ced815c85a2d11839cd8279110c67b84679419e8e44aefb97ddc66",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

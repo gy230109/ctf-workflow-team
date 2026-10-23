@@ -1,0 +1,18 @@
+[
+  {
+    "frame": 600,
+    "note": "title"
+  },
+  {
+    "frame": 750,
+    "note": "after start"
+  },
+  {
+    "frame": 1650,
+    "note": "idle"
+  },
+  {
+    "frame": 3450,
+    "note": "autoplay"
+  }
+]

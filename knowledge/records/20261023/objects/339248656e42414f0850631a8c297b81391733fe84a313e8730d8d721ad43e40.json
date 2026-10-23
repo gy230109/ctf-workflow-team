@@ -1,0 +1,188 @@
+{
+  "account:c2api-claude": {
+    "status": 200,
+    "elapsed": 11.5,
+    "body": {
+      "ok": true,
+      "detail": "worker 容器内模型可用，实际模型与配置一致",
+      "engine": "claude",
+      "model": "glm-5.3",
+      "backend": "container",
+      "command": "docker run … claude -p --output-format json --max-turns 1 --dangerously-skip-permissions --no-session-persistence --mcp-config '{\"mcpServers\":{}}' --strict-mcp-config --tools '' --bare --model glm-5.3 -- 'Reply with exactly: OK'",
+      "stdout": "{\"duration_api_ms\":2714,\"stop_reason\":\"end_turn\",\"session_id\":\"5eb8b844-038f-4f39-9dc4-c280d4710a78\",\"total_cost_usd\":0.00081,\"usage\":{\"input_tokens\":147,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":3,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"glm-5.3\":{\"inputTokens\":147,\"outputTokens\":3,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.00081,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"glm-5.3\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"OK\",\"ttft_ms\":2770,\"type\":\"result\",\"duration_ms\":2837,\"uuid\":\"dc9609b1-ac6b-4b6e-8c35-e012468cbde2\",\"ttft_stream_ms\":2762,\"time_to_request_ms\":128,\"queued_turn_count\":0}\n",
+      "stderr": "[claude-code:unrecognized_model] {\"model\":\"glm-5.3\",\"query_source\":\"sdk\"}\n",
+      "exit_code": 0,
+      "elapsed_ms": 11405,
+      "logs": [
+        {
+          "stream": "system",
+          "message": "启动 claude Worker 模型测试",
+          "elapsed_ms": 0
+        },
+        {
+          "stream": "command",
+          "message": "docker run … claude -p --output-format json --max-turns 1 --dangerously-skip-permissions --no-session-persistence --mcp-config '{\"mcpServers\":{}}' --strict-mcp-config --tools '' --bare --model glm-5.3 -- 'Reply with exactly: OK'",
+          "elapsed_ms": 0
+        },
+        {
+          "stream": "stdout",
+          "message": "{\"duration_api_ms\":2714,\"stop_reason\":\"end_turn\",\"session_id\":\"5eb8b844-038f-4f39-9dc4-c280d4710a78\",\"total_cost_usd\":0.00081,\"usage\":{\"input_tokens\":147,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":3,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"glm-5.3\":{\"inputTokens\":147,\"outputTokens\":3,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.00081,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"glm-5.3\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"OK\",\"ttft_ms\":2770,\"type\":\"result\",\"duration_ms\":2837,\"uuid\":\"dc9609b1-ac6b-4b6e-8c35-e012468cbde2\",\"ttft_stream_ms\":2762,\"time_to_request_ms\":128,\"queued_turn_count\":0}\n",
+          "elapsed_ms": 11405
+        },
+        {
+          "stream": "stderr",
+          "message": "[claude-code:unrecognized_model] {\"model\":\"glm-5.3\",\"query_source\":\"sdk\"}\n",
+          "elapsed_ms": 11405
+        },
+        {
+          "stream": "success",
+          "message": "配置模型：glm-5.3；实际模型：glm-5.3",
+          "elapsed_ms": 11405
+        },
+        {
+          "stream": "success",
+          "message": "执行完成，退出码 0，耗时 11405 ms",
+          "elapsed_ms": 11405
+        }
+      ],
+      "actual_models": [
+        "glm-5.3"
+      ],
+      "credential_id": "account:c2api-claude",
+      "last_test": {
+        "ok": true,
+        "detail": "worker 容器内模型可用，实际模型与配置一致",
+        "layer": "",
+        "backend": "container",
+        "runtime_instance": "cli.claude:default",
+        "configuration_revision": "7ffefedb7a274a8951b951d7fbdd40b1",
+        "tested_at": 1791705857.0691745,
+        "model": "glm-5.3"
+      }
+    }
+  },
+  "account:c2api-ds-claude": {
+    "status": 200,
+    "elapsed": 11.3,
+    "body": {
+      "ok": true,
+      "detail": "worker 容器内模型可用，实际模型与配置一致",
+      "engine": "claude",
+      "model": "deepseek-v4.1-flash",
+      "backend": "container",
+      "command": "docker run … claude -p --output-format json --max-turns 1 --dangerously-skip-permissions --no-session-persistence --mcp-config '{\"mcpServers\":{}}' --strict-mcp-config --tools '' --bare --model deepseek-v4.1-flash -- 'Reply with exactly: OK'",
+      "stdout": "{\"duration_api_ms\":3410,\"stop_reason\":\"end_turn\",\"session_id\":\"71197730-8e95-4456-ba52-64ffd885a442\",\"total_cost_usd\":0.000895,\"usage\":{\"input_tokens\":169,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":2,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"deepseek-v4.1-flash\":{\"inputTokens\":169,\"outputTokens\":2,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000895,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"deepseek-v4.1-flash\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"OK\",\"ttft_ms\":3470,\"type\":\"result\",\"duration_ms\":3541,\"uuid\":\"266d9c29-d0e0-41b6-bd7e-9ed648552ef1\",\"ttft_stream_ms\":3374,\"time_to_request_ms\":138,\"queued_turn_count\":0}\n",
+      "stderr": "[claude-code:unrecognized_model] {\"model\":\"deepseek-v4.1-flash\",\"query_source\":\"sdk\"}\n",
+      "exit_code": 0,
+      "elapsed_ms": 11257,
+      "logs": [
+        {
+          "stream": "system",
+          "message": "启动 claude Worker 模型测试",
+          "elapsed_ms": 0
+        },
+        {
+          "stream": "command",
+          "message": "docker run … claude -p --output-format json --max-turns 1 --dangerously-skip-permissions --no-session-persistence --mcp-config '{\"mcpServers\":{}}' --strict-mcp-config --tools '' --bare --model deepseek-v4.1-flash -- 'Reply with exactly: OK'",
+          "elapsed_ms": 0
+        },
+        {
+          "stream": "stdout",
+          "message": "{\"duration_api_ms\":3410,\"stop_reason\":\"end_turn\",\"session_id\":\"71197730-8e95-4456-ba52-64ffd885a442\",\"total_cost_usd\":0.000895,\"usage\":{\"input_tokens\":169,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":2,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"deepseek-v4.1-flash\":{\"inputTokens\":169,\"outputTokens\":2,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000895,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"deepseek-v4.1-flash\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"OK\",\"ttft_ms\":3470,\"type\":\"result\",\"duration_ms\":3541,\"uuid\":\"266d9c29-d0e0-41b6-bd7e-9ed648552ef1\",\"ttft_stream_ms\":3374,\"time_to_request_ms\":138,\"queued_turn_count\":0}\n",
+          "elapsed_ms": 11257
+        },
+        {
+          "stream": "stderr",
+          "message": "[claude-code:unrecognized_model] {\"model\":\"deepseek-v4.1-flash\",\"query_source\":\"sdk\"}\n",
+          "elapsed_ms": 11257
+        },
+        {
+          "stream": "success",
+          "message": "配置模型：deepseek-v4.1-flash；实际模型：deepseek-v4.1-flash",
+          "elapsed_ms": 11257
+        },
+        {
+          "stream": "success",
+          "message": "执行完成，退出码 0，耗时 11257 ms",
+          "elapsed_ms": 11257
+        }
+      ],
+      "actual_models": [
+        "deepseek-v4.1-flash"
+      ],
+      "credential_id": "account:c2api-ds-claude",
+      "last_test": {
+        "ok": true,
+        "detail": "worker 容器内模型可用，实际模型与配置一致",
+        "layer": "",
+        "backend": "container",
+        "runtime_instance": "cli.claude:default",
+        "configuration_revision": "184019409bd33e303876f7adb2498291",
+        "tested_at": 1791705868.432486,
+        "model": "deepseek-v4.1-flash"
+      }
+    }
+  },
+  "account:c2api-step": {
+    "status": 200,
+    "elapsed": 9.9,
+    "body": {
+      "ok": true,
+      "detail": "worker 容器内模型可用，实际模型与配置一致",
+      "engine": "claude",
+      "model": "step-5-preview",
+      "backend": "container",
+      "command": "docker run … claude -p --output-format json --max-turns 1 --dangerously-skip-permissions --no-session-persistence --mcp-config '{\"mcpServers\":{}}' --strict-mcp-config --tools '' --bare --model step-5-preview -- 'Reply with exactly: OK'",
+      "stdout": "{\"duration_api_ms\":2218,\"stop_reason\":\"end_turn\",\"session_id\":\"d731707e-e882-4b45-b840-44db7ff53af8\",\"total_cost_usd\":0.00146,\"usage\":{\"input_tokens\":157,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":27,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"step-5-preview\":{\"inputTokens\":157,\"outputTokens\":27,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.00146,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"step-5-preview\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"OK\",\"ttft_ms\":2259,\"type\":\"result\",\"duration_ms\":2324,\"uuid\":\"38777724-b93f-420b-82b8-1c4a5e56a2fa\",\"ttft_stream_ms\":1956,\"time_to_request_ms\":117,\"queued_turn_count\":0}\n",
+      "stderr": "[claude-code:unrecognized_model] {\"model\":\"step-5-preview\",\"query_source\":\"sdk\"}\n",
+      "exit_code": 0,
+      "elapsed_ms": 9832,
+      "logs": [
+        {
+          "stream": "system",
+          "message": "启动 claude Worker 模型测试",
+          "elapsed_ms": 0
+        },
+        {
+          "stream": "command",
+          "message": "docker run … claude -p --output-format json --max-turns 1 --dangerously-skip-permissions --no-session-persistence --mcp-config '{\"mcpServers\":{}}' --strict-mcp-config --tools '' --bare --model step-5-preview -- 'Reply with exactly: OK'",
+          "elapsed_ms": 0
+        },
+        {
+          "stream": "stdout",
+          "message": "{\"duration_api_ms\":2218,\"stop_reason\":\"end_turn\",\"session_id\":\"d731707e-e882-4b45-b840-44db7ff53af8\",\"total_cost_usd\":0.00146,\"usage\":{\"input_tokens\":157,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":27,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{\"step-5-preview\":{\"inputTokens\":157,\"outputTokens\":27,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.00146,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"canonicalModel\":\"step-5-preview\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"OK\",\"ttft_ms\":2259,\"type\":\"result\",\"duration_ms\":2324,\"uuid\":\"38777724-b93f-420b-82b8-1c4a5e56a2fa\",\"ttft_stream_ms\":1956,\"time_to_request_ms\":117,\"queued_turn_count\":0}\n",
+          "elapsed_ms": 9832
+        },
+        {
+          "stream": "stderr",
+          "message": "[claude-code:unrecognized_model] {\"model\":\"step-5-preview\",\"query_source\":\"sdk\"}\n",
+          "elapsed_ms": 9832
+        },
+        {
+          "stream": "success",
+          "message": "配置模型：step-5-preview；实际模型：step-5-preview",
+          "elapsed_ms": 9832
+        },
+        {
+          "stream": "success",
+          "message": "执行完成，退出码 0，耗时 9832 ms",
+          "elapsed_ms": 9832
+        }
+      ],
+      "actual_models": [
+        "step-5-preview"
+      ],
+      "credential_id": "account:c2api-step",
+      "last_test": {
+        "ok": true,
+        "detail": "worker 容器内模型可用，实际模型与配置一致",
+        "layer": "",
+        "backend": "container",
+        "runtime_instance": "cli.claude:default",
+        "configuration_revision": "bc8cdc409250abfd56720aa4f90f1c45",
+        "tested_at": 1791705878.3436155,
+        "model": "step-5-preview"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "tool": "web_browser_session",
+  "arguments": {
+    "action": "click",
+    "selector": "#does-not-exist",
+    "confirm": true,
+    "wp_purpose": "验证失败动作仍保存图像与回放",
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "ec9ddb2604494f25950be27dbea8326e"
+}

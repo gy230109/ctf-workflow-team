@@ -1,0 +1,23 @@
+{
+  "mode": "static_only",
+  "files": [
+    {
+      "name": "Blackjack.dll",
+      "bytes": 14336,
+      "sha256": "f074c0e99506c833c9dea3be18cc74c826b5cd62b91a4bedd8e469c293062da0",
+      "file_type": "/home/kali/ctf-workbench/cases/gamemaster/input/Blackjack.dll: PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections"
+    },
+    {
+      "name": "BlackjackConsole.exe",
+      "bytes": 388096,
+      "sha256": "a087e40d098422cdbc00a507234398c7d2aedd8d3068b4cfedf5dfbcd1ffbf92",
+      "file_type": "/home/kali/ctf-workbench/cases/gamemaster/input/BlackjackConsole.exe: PE32 executable for MS Windows 6.00 (console), Intel i386 Mono/.Net assembly, 3 sections"
+    },
+    {
+      "name": "gamemessage",
+      "bytes": 11344,
+      "sha256": "d83ccf9915c56c7d153d59b88b13ac25ba305ab421b768810b9273fd7d2a6809",
+      "file_type": "/home/kali/ctf-workbench/cases/gamemaster/input/gamemessage: data"
+    }
+  ]
+}

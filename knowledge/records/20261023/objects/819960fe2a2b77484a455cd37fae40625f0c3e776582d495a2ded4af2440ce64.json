@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport re, urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(path=\"\", data=None):\n    url = BASE + path\n    if data is not None:\n        data = urllib.parse.urlencode(data).encode()\n    try:\n        with op.open(url, data=data, timeout=20) as r:\n            return r.status, r.read().decode(\"utf-8\", \"replace\"), dict(r.headers)\n    except urllib.error.HTTPError as e:\n        return e.code, e.read().decode(\"utf-8\", \"replace\"), dict(e.headers)\n    except Exception as e:\n        return \"ERR\", \"%s: %s\" % (type(e).__name__, e), {}\n\nprint(\"[1] 首页\")\nst, body, hd = get()\nprint(\"    status=%s len=%d\" % (st, len(body)))\nprint(\"    set-cookie:\"[REDACTED_CREDENTIAL]\"Set-Cookie\"))\nprint(\"    server:\", hd.get(\"Server\"), \"| powered:\", hd.get(\"X-Powered-By\"))\n\nprint(\"[2] 提交标记留言 probe_abc123\")\nst2, body2, hd2 = get(\"\", {\"content\": \"probe_abc123\"})\nprint(\"    status=%s len=%d set-cookie=%s\" % (st2, len(body2), hd2.get(\"Set-Cookie\")))\nidx = body2.find(\"probe_abc123\")\nprint(\"    回显位置:\", idx)\nif idx >= 0:\n    print(\"    上下文:\", repr(body2[max(0, idx-120):idx+160]))\n\nprint(\"[3] 探测管理/机器人端点\")\nfor p in [\"admin.php\", \"bot.php\", \"report.php\", \"flag.php\", \"cookie.php\",\n          \"1.php\", \"check.php\", \"visit.php\", \"x.php\", \"robots.txt\"]:\n    st3, b3, _ = get(p)\n    print(\"    %-12s -> %s len=%s %s\" % (p, st3, len(b3) if isinstance(b3, str) else \"-\",\n                                          (b3[:60].replace(\"\\n\", \" \") if isinstance(b3, str) else \"\")))\n",
+    "timeout": 120,
+    "wp_purpose": "侦察:确认回显点、cookie、管理端入口",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "a5ca2314cef64a0b85e872de33e979cd"
+}

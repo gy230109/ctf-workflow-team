@@ -1,0 +1,13 @@
+{
+  "task_id": "ctf-76e9ecf0b1881c65",
+  "title": "DeepSeek Harness MCP 自建联通样例",
+  "description": "仅用于接入验收：计算整数 48 和 60 的最大公约数。没有比赛题目、账号、网络目标、附件或 flag。",
+  "category": "crypto",
+  "created_at": "2026-10-18T03:29:47.860555+00:00",
+  "updated_at": "2026-10-18T03:29:47.860569+00:00",
+  "state": "in_progress",
+  "artifacts": [],
+  "events": [],
+  "answer_verified": false,
+  "wp_context_signature": "214bdfd97beee40db503d38f6d1c03c0738be2c3e5a5c835f10c0ef174e3a174"
+}

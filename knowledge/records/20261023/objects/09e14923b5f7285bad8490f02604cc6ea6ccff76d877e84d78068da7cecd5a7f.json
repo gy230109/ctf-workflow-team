@@ -1,0 +1,43 @@
+{
+  "ts": "2026-10-11 23:45:27",
+  "call_id": "1791733527117849900-6124b1d3",
+  "args": {
+    "cmd": "sleep 150; pgrep -x micromamba >/dev/null && echo RUNNING || echo DONE; ps -p $(pgrep -x micromamba | head -1) -o etime= -o pcpu= -o stat= 2>/dev/null; echo ---LOG---; tail -4 /tmp/sage_install.log; echo ---PREFIX---; sudo du -sh /opt/sage 2>/dev/null || echo prefix_none; true",
+    "confirm": true,
+    "timeout": 200
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261011T154255Z-2fec2bbf",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+      "command": [
+        "bash",
+        "-c",
+        "sleep 150; pgrep -x micromamba >/dev/null && echo RUNNING || echo DONE; ps -p $(pgrep -x micromamba | head -1) -o etime= -o pcpu= -o stat= 2>/dev/null; echo ---LOG---; tail -4 /tmp/sage_install.log; echo ---PREFIX---; sudo du -sh /opt/sage 2>/dev/null || echo prefix_none; true"
+      ],
+      "timeout_seconds": 200,
+      "started_at_utc": "2026-10-11T15:42:56.830225+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 150.891,
+      "stdout_bytes": 144,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "DONE\n---LOG---\nOr to execute a single command in this environment, use:\n\n    micromamba run -p /opt/sage mycommand\n\n---PREFIX---\n5.3G\t/opt/sage\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T154255Z-2fec2bbf.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 151.266,
+      "bridge_exit": 0,
+      "case": "ctfos_commands",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 152209.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791733527117849900-6124b1d3.json"
+  }
+}

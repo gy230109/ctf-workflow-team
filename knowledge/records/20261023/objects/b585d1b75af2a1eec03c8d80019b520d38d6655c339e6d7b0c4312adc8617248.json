@@ -1,0 +1,32 @@
+{
+  "ts": "2026-10-12 01:42:53",
+  "call_id": "1791740573267608000-a441edc7",
+  "args": {
+    "tool": "StepOver",
+    "confirm": true
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "StepOver",
+      "mcp_result": {
+        "isError": true,
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: invalid address"
+          }
+        ]
+      },
+      "error": "Error: invalid address",
+      "error_code": "debugger_failed"
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "error_code": "debugger_failed",
+    "error": "Error: invalid address",
+    "duration_ms": 0.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740573267608000-a441edc7.json"
+  }
+}

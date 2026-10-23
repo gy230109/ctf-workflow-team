@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-16 14:08:47",
+  "call_id": "1792130927358022200-c805c22a",
+  "args": {
+    "case": "ctf-23e45f890c213167",
+    "text": "实际 math_gcd 返回 result=12。这只验证工具调用和留证链路，不构成比赛题判对。",
+    "status": "observed",
+    "source_step": 4
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 6,
+      "case": "ctf-23e45f890c213167",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 9.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130927358022200-c805c22a.json"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-12 14:54:50",
+  "call_id": "1791788090476526300-9664d79a",
+  "args": {
+    "values": [
+      12,
+      18
+    ],
+    "password": "[REDACTED_CREDENTIAL]"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 6
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788090476526300-9664d79a.json"
+  }
+}

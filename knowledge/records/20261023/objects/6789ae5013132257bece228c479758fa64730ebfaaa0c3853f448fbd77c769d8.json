@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-15 21:25:34",
+  "call_id": "1792070734150542500-355c1973",
+  "args": {
+    "mode": "windows_window",
+    "process_id": 8140,
+    "caption": "自建 Windows 目标窗口实际截图",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-9f14d2187a3d8030",
+      "step": 25,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\images\\0025.png",
+      "kind": "windows_screenshot"
+    },
+    "tool": "wp_capture",
+    "dangerous": false,
+    "duration_ms": 471.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070734150542500-355c1973.json"
+  }
+}

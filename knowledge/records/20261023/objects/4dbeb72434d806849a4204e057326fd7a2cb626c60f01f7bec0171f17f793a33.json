@@ -1,0 +1,289 @@
+{
+  "ts": "2026-10-15 19:33:56",
+  "call_id": "1792064036553903500-6904860a",
+  "args": {},
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "challenges": [
+        {
+          "id": 1,
+          "name": "How to pronounce GIF",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 2,
+          "name": "Do the loop!",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 3,
+          "name": "Retro!",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 4,
+          "name": "doxme",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 5,
+          "name": "actually-proxed",
+          "category": "web",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 6,
+          "name": "safe calculator",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 7,
+          "name": "downunderflow",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 8,
+          "name": "the great escape",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 9,
+          "name": "one byte",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 10,
+          "name": "masked squares flag checker",
+          "category": "reverse",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 11,
+          "name": "confusing",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 12,
+          "name": "apbq rsa i",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 13,
+          "name": "complementary",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 14,
+          "name": "randomly chosen",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 15,
+          "name": "grades_grades_grades",
+          "category": "web",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 16,
+          "name": "baby crm",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 17,
+          "name": "flag art",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 18,
+          "name": "encrypted mail",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 19,
+          "name": "hhhhh",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 20,
+          "name": "Wacky Recipe",
+          "category": "misc",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 21,
+          "name": "vector overflow",
+          "category": "pwn",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 22,
+          "name": "average assembly assignment",
+          "category": "reverse",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 23,
+          "name": "three line crypto",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 24,
+          "name": "jmp flag",
+          "category": "reverse",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 25,
+          "name": "adorable encrypted animal",
+          "category": "reverse",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 26,
+          "name": "number mashing",
+          "category": "reverse",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 27,
+          "name": "sniffy",
+          "category": "web",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 28,
+          "name": "Bad Policies",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 29,
+          "name": "shufflebox",
+          "category": "crypto",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 30,
+          "name": "i am confusion",
+          "category": "web",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        }
+      ],
+      "matched": 66,
+      "returned": 30
+    },
+    "tool": "ctfd_list",
+    "dangerous": false,
+    "duration_ms": 7509.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064036553903500-6904860a.json"
+  }
+}

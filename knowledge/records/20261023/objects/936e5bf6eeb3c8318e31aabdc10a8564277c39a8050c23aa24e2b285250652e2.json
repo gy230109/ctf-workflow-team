@@ -1,0 +1,316 @@
+{
+  "task_id": "ctf-76abf0819632bf8e",
+  "title": "新增工具部署接入检查",
+  "description": "只检查已安装工具、模块导入和连续会话；不派题、不测试模型。",
+  "category": "unknown",
+  "created_at": "2026-10-14T15:54:51.950218+00:00",
+  "updated_at": "2026-10-14T16:08:23.295792+00:00",
+  "state": "analysis_complete",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-14T15:54:59.133171+00:00",
+      "tool": "ctf_runtime_status",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993299091417000-1110ad50.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:55:03.047316+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993303007879400-c9157f14.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0003-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:55:18.464393+00:00",
+      "tool": "crypto_library",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993318413522800-07ed05ae.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0004-call.json"
+      },
+      "error_code": "operation_failed",
+      "error": "Operation failed"
+    },
+    {
+      "at": "2026-10-14T15:56:00.142669+00:00",
+      "tool": "ctf_runtime_status",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993360096341800-0d8d509d.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0005-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:04.253638+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993364210180700-cafcffb4.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 6,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0006-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:10.388732+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993370344158300-e29def1d.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 7,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0007-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:15.341396+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993375293402300-77406900.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 8,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0008-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:20.820579+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993380765663400-ea825ce8.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 9,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0009-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:24.998537+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993384945602200-3f33a1f9.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 10,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0010-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:29.047769+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993388994866500-b47e94be.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 11,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0011-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:33.121393+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993393036099200-cf92ea93.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 12,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0012-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:43.027832+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993402959894000-2f6a1be6.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 13,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0013-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:56:47.307409+00:00",
+      "tool": "web_browser_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993407239224800-5409c7cd.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 14,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0014-call.json"
+      },
+      "error_code": "runtime_operation_failed",
+      "error": "No live session; call start for this case"
+    },
+    {
+      "at": "2026-10-14T15:56:51.607341+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993411549886900-ffde553a.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 15,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0015-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:59:30.173734+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993570111075700-733d616a.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 16,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0016-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:59:34.418184+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993574353670400-1c2e8f9f.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 17,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0017-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:59:40.361970+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993580296124500-c9512ff4.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 18,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0018-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:59:44.905964+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993584836396900-00ebd09f.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 19,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0019-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:02:27.418299+00:00",
+      "tool": "ctf_runtime_status",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993747356326000-0210258d.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 20,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0020-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:08:10.975745+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994090909221500-e9ab81ca.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 21,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0021-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:08:17.050738+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994096970180300-5c44861c.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 23,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0023-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:08:21.072237+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994101006364400-70a35299.json",
+      "wp_record": {
+        "case": "ctf-76abf0819632bf8e",
+        "step": 24,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\raw\\0024-call.json"
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false,
+  "summary": "新增工具已部署并检查依赖及跨调用会话；没有派题或测试模型。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-76abf0819632bf8e",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-76abf0819632bf8e\\reports\\20261014T160821Z-0530f950\\writeup.md",
+      "records": 24,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 1894.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994103270298600-ff377238.json"
+  }
+}

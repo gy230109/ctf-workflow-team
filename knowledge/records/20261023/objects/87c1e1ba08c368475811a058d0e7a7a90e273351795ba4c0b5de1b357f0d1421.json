@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-15 21:19:31",
+  "call_id": "1792070371014662400-bf0779a4",
+  "args": {
+    "case": "ctf-9f14d2187a3d8030",
+    "text": "自建页面按钮点击后显示 42；该结论引用实际浏览器返回。",
+    "status": "observed",
+    "source_step": 5
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 6,
+      "case": "ctf-9f14d2187a3d8030",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 51.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070371014662400-bf0779a4.json"
+  }
+}

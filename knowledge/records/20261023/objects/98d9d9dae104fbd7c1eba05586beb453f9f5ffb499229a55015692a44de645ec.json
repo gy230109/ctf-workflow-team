@@ -1,0 +1,36 @@
+{
+  "ts": "2026-10-12 22:54:53",
+  "call_id": "1791816893945417400-d36e6391",
+  "args": {
+    "local_file": "D:\\Temp\\qwb_x\\Vanguard-trie\\exploit_A.txt",
+    "cmd": "true",
+    "case": "qwbtrie",
+    "confirm": true,
+    "timeout": 60,
+    "wp_case": "qwb-vanguard-trie"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "Kali 上传未通过摘要校验",
+      "error_code": "upload_failed",
+      "detail": {
+        "exit": 1,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "Evidence: [WORKSPACE]\\ctf-workbench\\cases\\_connection\\logs\\20261012T145453Z-5c3a1436-error.json\r\n{\"error\": \"SSH/Python failed (1): Traceback (most recent call last):\\n  File \\\"<stdin>\\\", line 17, in <module>\\nRuntimeError: Refusing to overwrite different original: exploit_A.txt\\n\", \"action\": \"put\"}\r\n",
+        "stdout_bytes": 0,
+        "stderr_bytes": 330,
+        "output_truncated": false,
+        "error": "Kali 桥未返回有效 JSON",
+        "error_code": "bridge_failed"
+      }
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "upload_failed",
+    "error": "Kali 上传未通过摘要校验",
+    "duration_ms": 1850.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816893945417400-d36e6391.json"
+  }
+}

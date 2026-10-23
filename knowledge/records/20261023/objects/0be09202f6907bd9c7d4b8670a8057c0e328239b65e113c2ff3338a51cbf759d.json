@@ -1,0 +1,68 @@
+{
+  "case": "ctf-dcf8677aeacda424",
+  "timeline_head": "01e789fb9206899a8c3548b2cf7d3f6dbe3dbd926f95336baaf9fc1e867baf96",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "6c329bff06c94616ddacafe33a7766f784982488d72317e3ea21fc69dc29a546",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0003-log.png",
+      "sha256": "dab1358cd2d0e57b8a91f954980e30224f951f5e1efcb7fdea027235b13244cf",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0004-log.png",
+      "sha256": "1e3367db491fe52bffdcb0a20ffeaa0bd305f571d14d77d607f0e2a5f7d135a0",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0005-log.png",
+      "sha256": "f4afb1264a194b2a65aec283b01d8fbe973ffaf6ee2d8890922b9043af896822",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0006-log.png",
+      "sha256": "6e8ae90389c0ceec3e816f2158f84b5fa612ee6349f11b0a0bec3d89f9f1f6f6",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0007-log.png",
+      "sha256": "050d007cadfbab4198c73abe334e515580121a2107b9e67a1afe0366f8278a84",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0008-log.png",
+      "sha256": "f9148045d01e1fd834037b275a6f8c196c10af7372f8ef46a47a643c8d98938a",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0009-log.png",
+      "sha256": "de767769a653a944e5c14953f7cd7074cc4d56ee687efededb213b516c0b7399",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0010-log.png",
+      "sha256": "02f5e15d23c147c0ee2e48b8c584303c68f7ea3e0bff5fcb96422a5d719aad3b",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0011-log.png",
+      "sha256": "d8f0fdc9275400c04688231a8dd1c9d5cb026627ead3c3f20dc350a7bc299967",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0012-log.png",
+      "sha256": "7f7730ddb9ed25d3bc3a1eb4394845ff5d974af241408779ba06fd311b6c030a",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "2018f6a4d461b4a1640f66901a8d9674374072d48a14b91cdf4a095bb057748d",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

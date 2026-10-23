@@ -1,0 +1,178 @@
+{
+  "case": "ctf-e9c09fae2e96eca4",
+  "timeline_head": "679b6e7d9dfcb9b67b536f42d634057c2775d14f3cfc541fcab8d2bee6e9216a",
+  "files": [
+    {
+      "path": "evidence/checkpoint.json",
+      "sha256": "1afddc288fc4135bae70fc57b46c75ed835167829468058b793b040d3f1e495a",
+      "kind": "timeline"
+    },
+    {
+      "path": "evidence/intake/4c5ff487973b46dcb46e559b39392ec3/context.json",
+      "sha256": "9e96dd3fc02232b7b5fb5ea676a8b942fd576cd49c82208b4427534d48d70b0a",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0004-call.json",
+      "sha256": "a4aee76c41f01c2b81e05c84625283bf6d98e1f16c5ad8ef6768d4b66f36fe15",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/dffc913a9a9e4340aa0c8bbc584e650a-begin.json",
+      "sha256": "ffa597e042e10d9ab405dd3929abc5495c99fabb47cb4b45689187d95e324e0b",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/session.json",
+      "sha256": "b4461affa49760b715264c2fc67c33f68ab48905667e3510ca7e35365887198b",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/timeline.jsonl",
+      "sha256": "3c7db03c8e903adbc2aa00490bdc7e5f08f71178fdf22127b4579f749b7cad9a",
+      "kind": "timeline"
+    },
+    {
+      "path": "report.json",
+      "sha256": "2531623a262194bd60f06bafd16ec8ba18725f7ed18b4d01ca362434b1e08d7a",
+      "kind": "report_model"
+    },
+    {
+      "path": "technical.md",
+      "sha256": "b172bb9f67af33ba861686b6e6a84c8d3caf691f4fc7b965b876df0a0dfd8b4a",
+      "kind": "technical_appendix"
+    },
+    {
+      "path": "writeup.docx",
+      "sha256": "a15389b2d01795fb9fd0d2b3c50b501a93cccd610cabdd7917d1b4d060124fc9",
+      "kind": "docx"
+    },
+    {
+      "path": "writeup.html",
+      "sha256": "4f862cfb1b63a43a5c4ad57b595cba5516d3e669a7cab73bc6d4956f954cee9d",
+      "kind": "html"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "59fb601d5464dba2419fbfab70a1758f0a1d9b22f6444d1cac54c3e21f943c0d",
+      "kind": "markdown"
+    },
+    {
+      "path": "writeup.pdf",
+      "sha256": "32c21c3d4968cb9bb31ec02331e9d86e6ccd7c039cf4f2516132ec4f5e011cf5",
+      "kind": "pdf"
+    }
+  ],
+  "private_bundle": true,
+  "text_redaction": "best_effort",
+  "images_reviewed": false,
+  "capture_errors": [],
+  "pending_operations": [],
+  "recording_complete": true,
+  "platform_verification": [],
+  "images_included": 0,
+  "recordings_included": 0,
+  "scripts_included": 0,
+  "report_schema_version": 2,
+  "quality": {
+    "ok": true,
+    "status": "draft",
+    "quality": {
+      "document_complete": true,
+      "missing_sections": [],
+      "calls_without_purpose": [],
+      "calls_without_observation": [],
+      "review_scope": "结构与证据引用检查；未审判 Agent 文字的语义正确性"
+    },
+    "issues": [
+      {
+        "code": "answer_not_verified",
+        "severity": "needs_attention",
+        "message": "尚无结构化的真实平台正确回执；章节文字不认证答案。",
+        "steps": []
+      }
+    ],
+    "submission_ready": false,
+    "integrity_verified": true,
+    "recording_complete": true,
+    "platform_answer_verified": false,
+    "verification_receipts": [],
+    "solved_verified": false,
+    "capture_errors": [],
+    "pending_operations": [],
+    "context": {
+      "description": "仅用于接入验收：计算整数 48 和 60 的最大公约数。没有比赛题目、账号、网络目标、附件或 flag。",
+      "source": "",
+      "artifacts": []
+    },
+    "sections": {
+      "overview": {
+        "claim_type": "agent_annotation",
+        "section": "overview",
+        "source_steps": [
+          4
+        ],
+        "text": "这是自建接入验收样例，输入为 48 和 60，无附件。",
+        "step": 6
+      },
+      "analysis": {
+        "claim_type": "agent_annotation",
+        "section": "analysis",
+        "source_steps": [
+          4
+        ],
+        "text": "使用最大公约数工具检验参数传递和实际工具输出。",
+        "step": 7
+      },
+      "solution": {
+        "claim_type": "agent_annotation",
+        "section": "solution",
+        "source_steps": [
+          4
+        ],
+        "text": "通过 ctf_analyze 调用 math_gcd，传入 values=[48,60]；实际返回 12。",
+        "step": 8
+      },
+      "validation": {
+        "claim_type": "agent_annotation",
+        "section": "validation",
+        "source_steps": [
+          4
+        ],
+        "text": "工具输出已记录，来源见步骤。48 和 60 均可被 12 整除。本样例没有比赛判题回执，不标记为已解题。",
+        "step": 9
+      },
+      "reproduction": {
+        "claim_type": "agent_annotation",
+        "section": "reproduction",
+        "source_steps": [
+          4
+        ],
+        "text": "在 CTF系统新建自建样例后，调用 math_gcd(values=[48,60])，应得到 12。",
+        "step": 10
+      }
+    },
+    "review_required": "提交或公开前仍需审阅正文、原件及图片像素。"
+  },
+  "submission_ready": false,
+  "format_export": {
+    "ok": true,
+    "generator_version": "ctf-wp-formats/2.0.0",
+    "template_version": "ctf-wp-letter/1.0.0",
+    "formats": {
+      "docx": {
+        "ok": true,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-e9c09fae2e96eca4\\reports\\20261018T033026Z-31fd2c2d\\writeup.docx",
+        "bytes": 39786
+      },
+      "pdf": {
+        "ok": true,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-e9c09fae2e96eca4\\reports\\20261018T033026Z-31fd2c2d\\writeup.pdf",
+        "bytes": 8166
+      }
+    },
+    "warnings": [
+      "Document code is display-wrapped; use the original evidence script for replay."
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "first_ratio_legendre": true,
+  "second_residue_identity": true,
+  "second_legendre": true,
+  "second_reduced_denominator": true,
+  "third_residue_identity": true,
+  "third_legendre": true,
+  "third_reduced_denominator": true
+}

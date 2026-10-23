@@ -1,0 +1,73 @@
+{
+  "ts": "2026-10-12 15:55:33",
+  "call_id": "1791791733472360100-e6f349b3",
+  "args": {
+    "state": {
+      "scope": "System integration fixture, no challenge or answer",
+      "observations": [
+        {
+          "tool": "kali_run",
+          "stdout": "/bin/true: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=97b6cb54883633ece766a29e7c3ecd37adfe567b, for GNU/Linux 3.2.0, stripped\n",
+          "returncode": 0
+        }
+      ],
+      "current_claim": "The supplied /bin/true fixture has ELF binary metadata; no challenge has been solved."
+    },
+    "candidate_tools": [
+      "kali_file",
+      "kali_objdump",
+      "kb_search"
+    ],
+    "wp_case": "jev_system_demo_20261012",
+    "timeout": 10
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "ok": false,
+      "error_code": "region_unavailable",
+      "error": "Jev backend failed ([typesafe] HTTP 451: {\"title\":\"Typesafe is not available in your region.\",\"status\":451}); answer this yourself.",
+      "backend_responded": false,
+      "model_success": false,
+      "fallback": "main_agent",
+      "requires_main_agent": true,
+      "verdicts": [
+        {
+          "id": "category",
+          "type": "choice",
+          "answer": null,
+          "confidence": 0,
+          "escalate": true,
+          "reason": "unreachable",
+          "hint": "Jev backend failed ([typesafe] HTTP 451: {\"title\":\"Typesafe is not available in your region.\",\"status\":451}); answer this yourself."
+        },
+        {
+          "id": "next_tool",
+          "type": "choice",
+          "answer": null,
+          "confidence": 0,
+          "escalate": true,
+          "reason": "unreachable",
+          "hint": "Jev backend failed ([typesafe] HTTP 451: {\"title\":\"Typesafe is not available in your region.\",\"status\":451}); answer this yourself."
+        },
+        {
+          "id": "evidence_sufficient",
+          "type": "noul",
+          "answer": null,
+          "confidence": 0,
+          "escalate": true,
+          "reason": "unreachable",
+          "hint": "Jev backend failed ([typesafe] HTTP 451: {\"title\":\"Typesafe is not available in your region.\",\"status\":451}); answer this yourself."
+        }
+      ],
+      "advisory_only": true,
+      "local_only_integration": true
+    },
+    "tool": "jev_ctf_triage",
+    "dangerous": false,
+    "error_code": "region_unavailable",
+    "error": "Jev backend failed ([typesafe] HTTP 451: {\"title\":\"Typesafe is not available in your region.\",\"status\":451}); answer this yourself.",
+    "duration_ms": 1741.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791791733472360100-e6f349b3.json"
+  }
+}

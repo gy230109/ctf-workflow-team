@@ -1,0 +1,13 @@
+{
+  "case": "qwb-vanguard-babyre",
+  "timeline_head": "83d25756126c9d9b2573446a3b91b1793460a85184176e30b1e7156c941b96d0",
+  "files": [
+    {
+      "path": "writeup.md",
+      "sha256": "a95b591c041a554a2fa8b37b19fd919a15f46ba2caf9dc4871e897baa51fec19",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

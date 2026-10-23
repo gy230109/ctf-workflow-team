@@ -1,0 +1,34 @@
+{
+  "ts": "2026-10-12 01:56:11",
+  "call_id": "1791741371636292500-b6995ffa",
+  "args": {
+    "arch": "x64"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "executable": "D:\\Apps\\x64dbg-MCP\\release\\x64\\x64dbg.exe",
+      "installed": true,
+      "endpoint": "http://127.0.0.1:9094/",
+      "reachable": true,
+      "verified_scope": "调试服务和当前状态；不代表题目已解出",
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "debug_state": {
+        "content": [
+          {
+            "type": "text",
+            "text": "isDebugging: false\nstatus: NO_TARGET\nhint: Use LoadBinary to open an executable first."
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_status",
+    "dangerous": false,
+    "duration_ms": 98.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741371636292500-b6995ffa.json"
+  }
+}

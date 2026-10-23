@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/qwb_ezre_v1",
+  "files": [
+    {
+      "name": "ezre",
+      "bytes": 23064,
+      "sha256": "67f28afd77ea28fb3f2585b9cc6dce8a2a2dcacb9d21b4693f7bfbfd62c6c972"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.313
+}

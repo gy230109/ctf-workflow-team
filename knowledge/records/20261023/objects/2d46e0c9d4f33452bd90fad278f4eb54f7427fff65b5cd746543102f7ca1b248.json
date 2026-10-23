@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-12 01:56:52",
+  "call_id": "1791741412224018100-708b8875",
+  "args": {
+    "tool": "ReadMemory",
+    "params_file": "D:/tmp/dbg_params.json",
+    "confirm": true
+  },
+  "response": {
+    "ok": false,
+    "tool": "win_debug_call",
+    "error": "RuntimeError('x64dbg JSON-RPC 错误: {\"error\":\"Tool requires an active debug session.\"}')",
+    "error_code": "execution_failed",
+    "duration_ms": 90.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741412224018100-708b8875.json"
+  }
+}

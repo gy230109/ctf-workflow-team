@@ -1,0 +1,49 @@
+{
+  "ts": "2026-10-13 21:26:13",
+  "call_id": "1791897973685061800-1b646382",
+  "args": {
+    "cmd": "bash",
+    "argv": [
+      "-lc",
+      "which sage; ls -l ../input/ 2>&1 | head; python3 -c 'import sage' 2>&1 | head -2"
+    ],
+    "confirm": true,
+    "timeout": 60,
+    "case": "qwb2023_babyrsa"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261013T132613Z-a1a24434",
+      "case_root": "/home/kali/ctf-workbench/cases/qwb2023_babyrsa",
+      "cwd": "/home/kali/ctf-workbench/cases/qwb2023_babyrsa/work",
+      "command": [
+        "-lc",
+        "which sage; ls -l ../input/ 2>&1 | head; python3 -c 'import sage' 2>&1 | head -2"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-13T13:26:13.703971+00:00",
+      "returncode": 127,
+      "timed_out": false,
+      "duration_seconds": 0.009,
+      "stdout_bytes": 0,
+      "stderr_bytes": 42,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "[Errno 2] No such file or directory: '-lc'",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwb2023_babyrsa/results/20261013T132613Z-a1a24434.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.36,
+      "bridge_exit": 1,
+      "case": "qwb2023_babyrsa",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 1248.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791897973685061800-1b646382.json"
+  }
+}

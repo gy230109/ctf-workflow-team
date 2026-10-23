@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/symbol_image_20261013",
+  "files": [
+    {
+      "name": "cipher.txt",
+      "bytes": 129,
+      "sha256": "4ecb3d2eff5f5a2b66c3a8364650b681ae5c43271b37f0325d66d4dd11abc17d"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.328
+}

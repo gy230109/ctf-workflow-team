@@ -1,0 +1,43 @@
+{
+  "ts": "2026-10-11 23:38:46",
+  "call_id": "1791733126616363700-7e881587",
+  "args": {
+    "cmd": "echo ---SPEED_TEST_15s---; curl -s --max-time 15 -o /tmp/spd.bin https://conda.anaconda.org/conda-forge/linux-64/repodata.json.zst; ls -la /tmp/spd.bin; echo ---MM_IO---; for p in $(pgrep -x micromamba); do echo PID=$p; sudo cat /proc/$p/io 2>/dev/null | head -4; done; echo ---CONN---; sudo ss -tnp 2>/dev/null | grep micromamba | head -5; true",
+    "confirm": true,
+    "timeout": 60
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261011T153842Z-f5543ec0",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+      "command": [
+        "bash",
+        "-c",
+        "echo ---SPEED_TEST_15s---; curl -s --max-time 15 -o /tmp/spd.bin https://conda.anaconda.org/conda-forge/linux-64/repodata.json.zst; ls -la /tmp/spd.bin; echo ---MM_IO---; for p in $(pgrep -x micromamba); do echo PID=$p; sudo cat /proc/$p/io 2>/dev/null | head -4; done; echo ---CONN---; sudo ss -tnp 2>/dev/null | grep micromamba | head -5; true"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-11T15:38:43.287831+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 4.011,
+      "stdout_bytes": 433,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "---SPEED_TEST_15s---\n-rw-rw-r-- 1 kali kali 58790187 10月11日 23:38 /tmp/spd.bin\n---MM_IO---\nPID=6037\nrchar: 17729448\nwchar: 13435751\nsyscr: 8637\nsyscw: 2090\n---CONN---\nESTAB 0      0      192.168.26.129:40238 104.19.144.37:443   users:((\"micromamba\",pid=6037,fd=4))                                 \nESTAB 0      0      192.168.26.129:40244 104.19.144.37:443   users:((\"micromamba\",pid=6037,fd=5))                                 \n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T153842Z-f5543ec0.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 4.329,
+      "bridge_exit": 0,
+      "case": "ctfos_commands",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 5188.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791733126616363700-7e881587.json"
+  }
+}

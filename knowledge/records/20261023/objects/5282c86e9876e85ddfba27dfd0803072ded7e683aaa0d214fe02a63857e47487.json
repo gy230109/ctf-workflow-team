@@ -1,0 +1,13 @@
+{
+  "ts": "2026-10-15 19:09:16",
+  "call_id": "1792062556492253200-a171284d",
+  "args": {},
+  "response": {
+    "ok": false,
+    "tool": "ctfd_status",
+    "error": "ValueError('Unexpected CTFd redirect; no credentials forwarded')",
+    "error_code": "execution_failed",
+    "duration_ms": 121.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062556492253200-a171284d.json"
+  }
+}

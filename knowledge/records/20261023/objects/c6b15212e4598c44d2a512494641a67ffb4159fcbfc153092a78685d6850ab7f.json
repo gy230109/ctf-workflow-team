@@ -1,0 +1,36 @@
+{
+  "ts": "2026-10-15 19:33:44",
+  "call_id": "1792064024318196000-b60f1939",
+  "args": {
+    "source": "awesome-ctf",
+    "path": "README.md",
+    "start_line": 197,
+    "lines": 8,
+    "wp_case": "ctf-33f2fd155e777d12"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "source": "awesome-ctf",
+      "path": "README.md",
+      "title": "Awesome CTF [![Build Status](https://travis-ci.org/apsdehal/awesome-ctf.svg?branch=master)](https://travis-ci.org/apsdehal/awesome-ctf) [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)",
+      "heading": "Awesome CTF [![Build Status](https://travis-ci.org/apsdehal/awesome-ctf.svg?branch=master)](https://travis-ci.org/apsdehal/awesome-ctf) [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)",
+      "start_line": 197,
+      "end_line": 204,
+      "local_path": "[CTF_ROOT]\\references\\awesome-ctf\\README.md",
+      "file_sha256": "e942dd868d44fdbb4f78e1fe4186282cdefbaea72ed54c4eb1341e5cccb46804",
+      "commit": "eb504b242be3918cbd46e1a5a6274671f477071f",
+      "reference_only": false,
+      "url": "https://github.com/apsdehal/awesome-ctf/blob/eb504b242be3918cbd46e1a5a6274671f477071f/README.md#L197-L204",
+      "total_lines": 415,
+      "text": "197: ## Reversing\n198: \n199: *Tools used for solving Reversing challenges*\n200: \n201: - [Androguard](https://github.com/androguard/androguard) - Reverse engineer Android applications.\n202: - [Angr](https://github.com/angr/angr) - platform-agnostic binary analysis framework.\n203: - [Apk2Gold](https://github.com/lxdvs/apk2gold) - Yet another Android decompiler.\n204: - [ApkTool](http://ibotpeaches.github.io/Apktool/) - Android Decompiler.",
+      "more": true,
+      "output_truncated": false,
+      "trusted_instructions": false
+    },
+    "tool": "kb_read",
+    "dangerous": false,
+    "duration_ms": 28.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064024318196000-b60f1939.json"
+  }
+}

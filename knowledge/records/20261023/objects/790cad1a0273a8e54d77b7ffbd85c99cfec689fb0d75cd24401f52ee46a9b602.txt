@@ -1,0 +1,13 @@
+已保存快照: [CTF_ROOT]/战例库/Muteki席位切换-三席/after/settings-workers.after.json
+  worker_backend       = 'container'
+  worker_network       = 'bridge'
+  engines              = ['c2api-claude-glm53-local']
+  race_engines         = ['c2api-claude-glm53-local']
+  start_workers        = 1
+  max_workers          = 1
+  max_total_workers    = 0
+  dispatch_mode        = 'fixed'
+  review_engine        = 'c2api-claude-dsv41flash-local'
+  启用席位:
+    id=c2api-claude-glm53-local engine=claude model=glm-5.3 roles=['race', 'bootstrap', 'explore', 'respond'] max_running=1 cred=account:c2api-claude
+    id=c2api-claude-dsv41flash-local engine=claude model=deepseek-v4.1-flash roles=['review'] max_running=1 cred=account:c2api-ds-claude

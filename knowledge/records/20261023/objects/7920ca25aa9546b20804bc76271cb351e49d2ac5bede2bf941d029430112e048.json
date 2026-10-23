@@ -1,0 +1,77 @@
+{
+  "ts": "2026-10-12 02:28:59",
+  "call_id": "1791743339448868000-1f847811",
+  "args": {},
+  "response": {
+    "ok": true,
+    "result": {
+      "total": 18,
+      "available": [
+        "decode_interface_builder",
+        "extract_artifact",
+        "inspect_artifact",
+        "inspect_keyed_archive",
+        "inspect_managed_artifact",
+        "inspect_managed_members",
+        "inspect_managed_native_boundaries",
+        "trace_dylib_resolution"
+      ],
+      "unavailable": [
+        {
+          "operation": "capture_native_ui_scenario",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "demangle_swift",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "inspect_asset_catalog",
+          "code": "unsupported_host",
+          "reason": "Apple asset catalogs require macOS assetutil."
+        },
+        {
+          "operation": "inspect_macho",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "inspect_native_dispatch_metadata",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "inspect_plist",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "inspect_signature",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "list_architectures",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "observe_native_calls",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        },
+        {
+          "operation": "observe_native_ui",
+          "code": "unsupported_host",
+          "reason": "Native macOS utilities require macOS."
+        }
+      ]
+    },
+    "tool": "rea_ops",
+    "dangerous": false,
+    "duration_ms": 5991.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791743339448868000-1f847811.json"
+  }
+}

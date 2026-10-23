@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011",
+  "files": [
+    {
+      "name": "input.txt",
+      "bytes": 71,
+      "sha256": "35ce12ffc41c3b5e402c343176057b15da91078cc24daf387d65bf713ff3ce92"
+    }
+  ],
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 0.344
+}

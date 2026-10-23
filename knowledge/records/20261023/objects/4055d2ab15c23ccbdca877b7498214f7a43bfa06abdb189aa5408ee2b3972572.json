@@ -1,0 +1,80 @@
+{
+  "ts": "2026-10-13 13:41:48",
+  "call_id": "1791870108089140400-299fd215",
+  "args": {
+    "confirm": true,
+    "url": "http://127.0.0.1:38501/",
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "artifact": "work/browser-aaf2473b0540478cb58196009e53c16d.png",
+        "sha256": "c104925022c9a4a017b179e929da871a2644203f0c4c280df26435b5f784cd6d",
+        "title": "CTF Tool Verification",
+        "url": "http://127.0.0.1:38501/",
+        "status_code": 200,
+        "image_kind": "real Chromium screenshot in Kali",
+        "peak_rss_bytes": 1039855616,
+        "chromium_sandbox": true,
+        "blocked_external_requests": []
+      },
+      "execution": {
+        "run_id": "20261013T054132Z-bc3fa171",
+        "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+        "cwd": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/specialist-worker-c34a4c98d5a32998.py",
+          "../input/request-cc434db9f52d4714bd031933c0cfc9a1.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-13T05:41:33.744660+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 13.159,
+        "stdout_bytes": 371,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"artifact\": \"work/browser-aaf2473b0540478cb58196009e53c16d.png\", \"sha256\": \"c104925022c9a4a017b179e929da871a2644203f0c4c280df26435b5f784cd6d\", \"title\": \"CTF Tool Verification\", \"url\": \"http://127.0.0.1:38501/\", \"status_code\": 200, \"image_kind\": \"real Chromium screenshot in Kali\", \"peak_rss_bytes\": 1039855616, \"chromium_sandbox\": true, \"blocked_external_requests\": []}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/results/20261013T054132Z-bc3fa171.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 13.579,
+        "bridge_exit": 0,
+        "case": "specialists_verify_20261013",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "specialists_verify_20261013",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "upload_verified": true,
+      "source_status": "local compatibility implementation while original cloud export is pending",
+      "artifact_fetch": {
+        "path": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work/browser-aaf2473b0540478cb58196009e53c16d.png",
+        "sha256": "c104925022c9a4a017b179e929da871a2644203f0c4c280df26435b5f784cd6d",
+        "bytes": 29003,
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.328,
+        "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\specialists_verify_20261013\\downloads\\20261013T054147Z-03ee3026\\browser-aaf2473b0540478cb58196009e53c16d.png",
+        "verified": true,
+        "bridge_exit": 0
+      },
+      "artifact_path": "[WORKSPACE]\\ctf-workbench\\cases\\specialists_verify_20261013\\downloads\\20261013T054147Z-03ee3026\\browser-aaf2473b0540478cb58196009e53c16d.png",
+      "screenshot_record": {
+        "case": "specialists_verify_20261013",
+        "step": 68,
+        "path": "[CTF_ROOT]\\wp\\cases\\specialists_verify_20261013\\images\\0068.png",
+        "kind": "imported_image"
+      }
+    },
+    "tool": "web_browser_capture",
+    "dangerous": true,
+    "duration_ms": 17954.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791870108089140400-299fd215.json"
+  }
+}

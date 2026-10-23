@@ -1,0 +1,12 @@
+{
+  "tool": "kb_read",
+  "arguments": {
+    "source": "noobctf",
+    "path": "README.md",
+    "start_line": 1,
+    "lines": 4,
+    "allow_reference": true,
+    "wp_case": "ctf-04fca725df3de1d8"
+  },
+  "operation_id": "b6ee547ab09b4fa5af6e66982674e766"
+}

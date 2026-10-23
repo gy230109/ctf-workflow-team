@@ -1,0 +1,69 @@
+2110: xor      ebp, ebp
+2112: mov      r9, rdx
+2115: pop      rsi
+2116: mov      rdx, rsp
+2119: and      rsp, 0xfffffffffffffff0
+211d: push     rax
+211e: push     rsp
+211f: lea      r8, [rip + 0xb0a]
+2126: lea      rcx, [rip + 0xaa3]
+212d: lea      rdi, [rip + 0x80a]
+2134: call     qword ptr [rip + 0x2ea6]
+213a: hlt      
+213b: nop      dword ptr [rax + rax]
+2140: lea      rdi, [rip + 0x3451]
+2147: lea      rax, [rip + 0x344a]
+214e: cmp      rax, rdi
+2151: je       0x2168
+2153: mov      rax, qword ptr [rip + 0x2e7e]
+215a: test     rax, rax
+215d: je       0x2168
+215f: jmp      rax
+2161: nop      dword ptr [rax]
+2168: ret      
+2169: nop      dword ptr [rax]
+2170: lea      rdi, [rip + 0x3421]
+2177: lea      rsi, [rip + 0x341a]
+217e: sub      rsi, rdi
+2181: mov      rax, rsi
+2184: shr      rsi, 0x3f
+2188: sar      rax, 3
+218c: add      rsi, rax
+218f: sar      rsi, 1
+2192: je       0x21a8
+2194: mov      rax, qword ptr [rip + 0x2e55]
+219b: test     rax, rax
+219e: je       0x21a8
+21a0: jmp      rax
+21a2: nop      word ptr [rax + rax]
+21a8: ret      
+21a9: nop      dword ptr [rax]
+21b0: endbr64  
+21b4: cmp      byte ptr [rip + 0x33e5], 0
+21bb: jne      0x21e8
+21bd: push     rbp
+21be: cmp      qword ptr [rip + 0x2e32], 0
+21c6: mov      rbp, rsp
+21c9: je       0x21d7
+21cb: mov      rdi, qword ptr [rip + 0x2eb6]
+21d2: call     0x2100
+21d7: call     0x2140
+21dc: mov      byte ptr [rip + 0x33bd], 1
+21e3: pop      rbp
+21e4: ret      
+21e5: nop      dword ptr [rax]
+21e8: ret      
+21e9: nop      dword ptr [rax]
+21f0: endbr64  
+21f4: jmp      0x2170
+21f9: push     rbp
+21fa: mov      rbp, rsp
+21fd: mov      qword ptr [rbp - 0x38], rdi
+2201: mov      qword ptr [rbp - 0x40], rsi
+2205: mov      qword ptr [rbp - 0x48], rdx
+2209: int3     
+220a: mov      edi, 0xcafeb055
+220f: add      byte ptr [rax], al
+2211: add      byte ptr [rax], al
+2213: int      0x33
+2216: leave    

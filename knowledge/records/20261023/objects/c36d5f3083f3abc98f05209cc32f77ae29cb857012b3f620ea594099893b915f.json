@@ -1,0 +1,43 @@
+{
+  "ts": "2026-10-11 23:30:42",
+  "call_id": "1791732642366312400-61dc756a",
+  "args": {
+    "cmd": "sudo apt-get update >/tmp/aptup.log 2>&1; tail -2 /tmp/aptup.log; sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends jadx >/tmp/jadx.log 2>&1; echo INSTALL_EXIT=$?; tail -6 /tmp/jadx.log; echo ---; which jadx; echo ===SAGE MIRROR===; curl -s --max-time 25 https://mirrors.mit.edu/sage/linux/64bit/ | grep -oE sage-[0-9.]+\\.tar\\.bz2 | sort -uV | tail -5",
+    "confirm": true,
+    "timeout": 600
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261011T152906Z-7c3e4b04",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+      "command": [
+        "bash",
+        "-c",
+        "sudo apt-get update >/tmp/aptup.log 2>&1; tail -2 /tmp/aptup.log; sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends jadx >/tmp/jadx.log 2>&1; echo INSTALL_EXIT=$?; tail -6 /tmp/jadx.log; echo ---; which jadx; echo ===SAGE MIRROR===; curl -s --max-time 25 https://mirrors.mit.edu/sage/linux/64bit/ | grep -oE sage-[0-9.]+\\.tar\\.bz2 | sort -uV | tail -5"
+      ],
+      "timeout_seconds": 600,
+      "started_at_utc": "2026-10-11T15:29:07.990203+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 95.024,
+      "stdout_bytes": 1083,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "已下载 20.5 kB，耗时 4秒 (5,253 B/s)\n正在读取软件包列表...\nINSTALL_EXIT=0\n正在选中未选择的软件包 jadx。\r\n(正在读取数据库 ... \r(正在读取数据库 ... 5%\r(正在读取数据库 ... 10%\r(正在读取数据库 ... 15%\r(正在读取数据库 ... 20%\r(正在读取数据库 ... 25%\r(正在读取数据库 ... 30%\r(正在读取数据库 ... 35%\r(正在读取数据库 ... 40%\r(正在读取数据库 ... 45%\r(正在读取数据库 ... 50%\r(正在读取数据库 ... 55%\r(正在读取数据库 ... 60%\r(正在读取数据库 ... 65%\r(正在读取数据库 ... 70%\r(正在读取数据库 ... 75%\r(正在读取数据库 ... 80%\r(正在读取数据库 ... 85%\r(正在读取数据库 ... 90%\r(正在读取数据库 ... 95%\r(正在读取数据库 ... 100%\r(正在读取数据库 ... 系统当前共安装有 444232 个文件和目录。)\r\n准备解压 .../jadx_1.5.6-0kali1_all.deb  ...\r\n正在解压 jadx (1.5.6-0kali1) ...\r\n正在设置 jadx (1.5.6-0kali1) ...\r\n正在处理用于 kali-menu (2026.1.5) 的触发器 ...\r\n---\n/usr/bin/jadx\n===SAGE MIRROR===\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T152906Z-7c3e4b04.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 96.0,
+      "bridge_exit": 0,
+      "case": "ctfos_commands",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 96859.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791732642366312400-61dc756a.json"
+  }
+}

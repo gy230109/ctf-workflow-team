@@ -1,0 +1,48 @@
+{
+  "task_id": "ctf-bdd93eaa303223fd",
+  "title": "部署验收：离线流量工具（自建样例）",
+  "description": "系统部署验收，仅使用本地生成的 HTTP/DNS/USB PCAP；不发送网络数据、不属于比赛题。验证结构化工具与自动 WP。",
+  "category": "forensics",
+  "created_at": "2026-10-16T04:30:41.372433+00:00",
+  "updated_at": "2026-10-16T04:31:12.325448+00:00",
+  "state": "in_progress",
+  "artifacts": [
+    {
+      "name": "offline-demo.pcap",
+      "relative_path": "attachments/offline-demo.pcap",
+      "sha256": "6f3f02be4f944a14e2bb796d84bf6c74ae3299fc9faef8d9f6ebc44030e17bed",
+      "bytes": 619
+    },
+    {
+      "name": "usb-demo.pcap",
+      "relative_path": "attachments/usb-demo.pcap",
+      "sha256": "48caa5a8cc3cecd1d0622f39fdc8fa127e55577c7ee1c4b70b5055f4c421348d",
+      "bytes": 112
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-16T04:31:12.325400+00:00",
+      "tool": "forensics_pcap",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125072260952300-48592667.json",
+      "wp_record": {
+        "case": "ctf-bdd93eaa303223fd",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-bdd93eaa303223fd\\raw\\0003-call.json",
+        "assets": 0,
+        "operation_id": "ca65c1bca9ca46d09942fa31af4c25ff",
+        "capture_errors": [
+          {
+            "kind": "data",
+            "error": "Unknown evidence kind",
+            "action_replayed": false
+          }
+        ]
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false
+}

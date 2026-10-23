@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 01:35:23",
+  "call_id": "1791740123273243600-3b1d5f3f",
+  "args": {
+    "path": "src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md",
+    "start_line": 49,
+    "lines": 20
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "source": "hacktricks",
+      "path": "src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md",
+      "title": "Jinja2 SSTI",
+      "heading": "**Lab**",
+      "start_line": 49,
+      "end_line": 68,
+      "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\pentesting-web\\ssti-server-side-template-injection\\jinja2-ssti.md",
+      "file_sha256": "6619cd7b0744646ff0befcd018ba8d06d4f1b46f16e9cd8e30519b5e72591402",
+      "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+      "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md#L49-L68",
+      "total_lines": 412,
+      "text": "49: ### **Dump all config variables**\n50: \n51: ```python\n52: {{ config }} #In these object you can find all the configured env variables\n53: \n54: \n55: {% raw %}\n56: {% for key, value in config.items() %}\n57:     <dt>{{ key|e }}</dt>\n58:     <dd>{{ value|e }}</dd>\n59: {% endfor %}\n60: {% endraw %}\n61: \n62: \n63: \n64: \n65: \n66: \n67: ```\n68: ",
+      "more": true,
+      "output_truncated": false,
+      "trusted_instructions": false
+    },
+    "tool": "kb_read",
+    "dangerous": false,
+    "duration_ms": 27.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740123273243600-3b1d5f3f.json"
+  }
+}

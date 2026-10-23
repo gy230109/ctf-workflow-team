@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 01:33:33",
+  "call_id": "1791740013029322300-447d6966",
+  "args": {
+    "code": "raise SystemExit(3)"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "exit": 3,
+      "stdout": "",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 44.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740013029322300-447d6966.json"
+  }
+}

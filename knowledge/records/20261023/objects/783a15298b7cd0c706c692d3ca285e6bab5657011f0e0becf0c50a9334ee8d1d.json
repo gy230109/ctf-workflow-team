@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport time, urllib.request, urllib.parse\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\ndef probe(mark, content):\n    get({\"content\": mark + content})\n    time.sleep(0.25)\n    body = get()\n    i = body.find(mark)\n    if i < 0:\n        print(\"  %-10s (未找到)\" % mark); return\n    j = body.find(\"</pre>\", i)\n    seg = body[i:j] if j > 0 else body[i:i+200]\n    print(\"  %-6s IN=%r\" % (mark, content))\n    print(\"         OUT=%r\" % seg[len(mark):])\n\nprobe(\"T1\", \"[img]A[/img]\")\nprobe(\"T2\", \"[img]B\")\nprobe(\"T3\", \"[img]C[img]D[/img]\")\nprobe(\"T4\", \"[img]E[/img][img]F[/img]\")\nprobe(\"T5\", \"[/img]G\")\nprobe(\"T6\", \"[img]Hhttp://i.j[/img]\")\n",
+    "timeout": 120,
+    "wp_purpose": "受控实验确认[img]替换的具体语义",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "79058a0046e047a9a38161324eaba011"
+}

@@ -1,0 +1,36 @@
+{
+  "ts": "2026-10-12 02:06:40",
+  "call_id": "1791742000787167700-90ed3c6b",
+  "args": {
+    "arch": "x32",
+    "tool": "ReadMemory",
+    "params": {
+      "address": "eip",
+      "size": 16
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "ReadMemory",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[ReadMemory] 16 bytes at 0xE01004:\n  00E01004: 83 C0 11 A3 00 20 E0 00 C3 6A 08 E8 EC FF FF FF ..... ...j......\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0xE01004 (probe32) | add eax,11"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 72.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791742000787167700-90ed3c6b.json"
+  }
+}

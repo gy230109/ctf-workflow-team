@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_setup_20261013",
+  "files": [
+    {
+      "name": "ctf_specialist_install_fast.py",
+      "bytes": 2584,
+      "sha256": "91f40c7b0e4e0fa277eb5199633836a4f732c872e3e94c4bcf6d66fbf8245832"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.281
+}

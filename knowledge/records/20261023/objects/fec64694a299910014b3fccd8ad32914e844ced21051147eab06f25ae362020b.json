@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 15:01:55",
+  "call_id": "1791788515615175600-cdaafc12",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "status": "observed",
+    "source_step": 4,
+    "text": "经固定 SSH 身份的 Kali 桥实际执行自建求和/摘要程序，stdout 可解析、退出码为零。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 5,
+      "case": "wp_system_demo_20261012",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 10.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788515615175600-cdaafc12.json"
+  }
+}

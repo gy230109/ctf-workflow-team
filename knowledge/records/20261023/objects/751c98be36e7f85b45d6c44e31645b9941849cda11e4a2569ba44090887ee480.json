@@ -1,0 +1,45 @@
+{
+  "arguments": {
+    "source": "crypto-cat",
+    "query": "format string",
+    "allow_reference": true,
+    "limit": 1,
+    "wp_case": "ctf-33f2fd155e777d12"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "format string",
+      "source": "crypto-cat",
+      "normalized_terms": [
+        "format",
+        "string"
+      ],
+      "match_mode": "all_terms",
+      "count": 1,
+      "matches": [
+        {
+          "source": "crypto-cat",
+          "path": "pwn/binary_exploitation_101/07-format_string_vulns/flag.txt",
+          "title": "pwn/binary_exploitation_101/07-format_string_vulns/flag.txt",
+          "heading": "",
+          "start_line": 1,
+          "end_line": 1,
+          "local_path": "[CTF_ROOT]\\references\\crypto-cat-ctf\\pwn\\binary_exploitation_101\\07-format_string_vulns\\flag.txt",
+          "file_sha256": "33021cebfcee3f420148e1db1873dde01452a94abafd03a387c66c3791d5511b",
+          "commit": "5fcc2f5404842fee83b43fa2dae783722e75167f",
+          "reference_only": true,
+          "url": "https://github.com/Crypto-Cat/CTF/blob/5fcc2f5404842fee83b43fa2dae783722e75167f/pwn/binary_exploitation_101/07-format_string_vulns/flag.txt#L1-L1",
+          "excerpt": "flag{foRm4t_stRinGs_aRe_DanGer0us}",
+          "rank": -7.63114
+        }
+      ],
+      "trusted_instructions": false,
+      "usage": "kb_read 需携带同一 source/path；Crypto-Cat 还需 allow_reference=true。检索命中不代表工具已安装、脚本已运行或答案已验证。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 34.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064029067861300-7555f325.json"
+  }
+}

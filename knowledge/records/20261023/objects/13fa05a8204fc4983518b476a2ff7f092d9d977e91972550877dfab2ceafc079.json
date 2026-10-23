@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/work/recovery-report.json",
+  "sha256": "506a84524e79fa59a434836742e24c7c9664c6e8515e4e4ee0333c403fd81427",
+  "bytes": 2008,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.312,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\kali_recovery_20261011_175810\\downloads\\20261011T095821Z-0d33f764\\recovery-report.json",
+  "verified": true
+}

@@ -1,0 +1,72 @@
+{
+  "arguments": {
+    "confirm": true,
+    "passphrase": "qwbpass",
+    "timeout": 120,
+    "target": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/input/stego.jpg",
+    "action": "extract",
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "returncode": 0,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "wrote extracted data to \"/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work/stego-20c599060e91.bin\".\n",
+        "output_truncated": false,
+        "artifact": "work/stego-20c599060e91.bin",
+        "sha256": "19da323352c1e2bb0ce4aea09e78ccfb435f1d01e0ada8f6475e6c62cb5aef62",
+        "bytes": 19
+      },
+      "execution": {
+        "run_id": "20261014T162724Z-fe3b958b",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-1d0343b816cb0de4.py",
+          "../input/request-bc5c5097d74940158a0d533819190ef1.json"
+        ],
+        "timeout_seconds": 120,
+        "started_at_utc": "2026-10-14T16:27:24.839359+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.119,
+        "stdout_bytes": 349,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"returncode\": 0, \"timed_out\": false, \"stdout\": \"\", \"stderr\": \"wrote extracted data to \\\"/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work/stego-20c599060e91.bin\\\".\\n\", \"output_truncated\": false, \"artifact\": \"work/stego-20c599060e91.bin\", \"sha256\": \"19da323352c1e2bb0ce4aea09e78ccfb435f1d01e0ada8f6475e6c62cb5aef62\", \"bytes\": 19}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162724Z-fe3b958b.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.39,
+        "bridge_exit": 0,
+        "case": "ctf-b37c81c14eb6b825",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-b37c81c14eb6b825",
+      "upload_verified": true,
+      "artifact_fetch": {
+        "path": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work/stego-20c599060e91.bin",
+        "sha256": "19da323352c1e2bb0ce4aea09e78ccfb435f1d01e0ada8f6475e6c62cb5aef62",
+        "bytes": 19,
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.297,
+        "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-b37c81c14eb6b825\\downloads\\20261014T162725Z-727352de\\stego-20c599060e91.bin",
+        "verified": true,
+        "bridge_exit": 0
+      },
+      "artifact_path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-b37c81c14eb6b825\\downloads\\20261014T162725Z-727352de\\stego-20c599060e91.bin"
+    },
+    "tool": "misc_stego",
+    "dangerous": true,
+    "duration_ms": 4863.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995245934089900-49c5f395.json"
+  }
+}

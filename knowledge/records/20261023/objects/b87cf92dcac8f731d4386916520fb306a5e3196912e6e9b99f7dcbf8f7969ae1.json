@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T152842Z-ca1b16fe",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+  "command": [
+    "bash",
+    "-c",
+    "sudo -n true; echo SUDO_RC=$?; whoami; id; df -h /; free -m; grep PRETTY /etc/os-release; apt-cache policy jadx sagemath ghidra"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-11T15:28:43.849805+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 1.115,
+  "stdout_bytes": 993,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "SUDO_RC=0\nkali\nuid=1000(kali) gid=1000(kali) 组=1000(kali),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),101(netdev),102(scanner),112(bluetooth),117(lpadmin),119(wireshark),123(kaboxer)\n文件系统        大小  已用  可用 已用% 挂载点\n/dev/sda1        79G   20G   56G   26% /\n               total        used        free      shared  buff/cache   available\n内存：          3883         769        2530           5         855        3114\n交换：          2047           0        2047\nPRETTY_NAME=\"Kali GNU/Linux Rolling\"\njadx:\n  已安装：(无)\n  候选： 1.5.6-0kali1\n  版本列表：\n     1.5.6-0kali1 500\n        500 http://http.kali.org/kali kali-rolling/main amd64 Packages\nsagemath:\n  已安装：(无)\n  候选： (无)\n  版本列表：\nghidra:\n  已安装：(无)\n  候选： 12.1.4+ds-0kali1\n  版本列表：\n     12.1.4+ds-0kali1 500\n        500 http://http.kali.org/kali kali-rolling/main amd64 Packages\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T152842Z-ca1b16fe.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 2.047
+}

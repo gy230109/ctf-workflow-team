@@ -23,6 +23,6 @@ LOADED_AT=datetime.now(timezone.utc).isoformat()
 
 def info(count):
     current=fingerprint()
-    return {'release':'team-20261016-wp2','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
+    return {'release':'team-20261023-records1','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
         'reload_required':current!=LOADED_FINGERPRINT,'tool_count':count,'source_root':str(BASE),
         'python':sys.executable,'pid':os.getpid(),'loaded_at':LOADED_AT}

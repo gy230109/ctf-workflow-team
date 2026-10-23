@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-12 01:57:37",
+  "call_id": "1791741457011947500-74046d48",
+  "args": {
+    "tool": "LoadBinary",
+    "params_file": "D:/tmp/dbg_load.json",
+    "confirm": true
+  },
+  "response": {
+    "ok": false,
+    "tool": "win_debug_call",
+    "error": "ValueError('插件 v1.5 未实现 LoadBinary.arguments，请勿依赖此参数')",
+    "error_code": "execution_failed",
+    "duration_ms": 3.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741457011947500-74046d48.json"
+  }
+}

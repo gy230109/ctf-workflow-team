@@ -1,0 +1,66 @@
+{
+  "ts": "2026-10-14 23:45:45",
+  "call_id": "1791992745449892000-1e95a257",
+  "args": {
+    "argv": [
+      "sudo",
+      "-n",
+      "apt-get",
+      "-s",
+      "--no-install-recommends",
+      "install",
+      "qemu-user",
+      "gdb-multiarch",
+      "libc6-arm64-cross",
+      "libc6-dev-arm64-cross",
+      "steghide",
+      "stegseek"
+    ],
+    "case": "deploy_tools_20261014",
+    "confirm": true,
+    "timeout": 600
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T154542Z-3f92d244",
+      "case_root": "/home/kali/ctf-workbench/cases/deploy_tools_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/deploy_tools_20261014/work",
+      "command": [
+        "sudo",
+        "-n",
+        "apt-get",
+        "-s",
+        "--no-install-recommends",
+        "install",
+        "qemu-user",
+        "gdb-multiarch",
+        "libc6-arm64-cross",
+        "libc6-dev-arm64-cross",
+        "steghide",
+        "stegseek"
+      ],
+      "timeout_seconds": 600,
+      "started_at_utc": "2026-10-14T15:45:43.951140+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 1.925,
+      "stdout_bytes": 4064,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "正在读取软件包列表...\n正在分析软件包的依赖关系树...\n正在读取状态信息...\n正在解析依赖...\n下列软件包是自动安装的并且现在不需要了：\n  libbabeltrace1\n使用'sudo apt autoremove'来卸载它(它们)。\n将会同时安装下列软件：\n  gdb libexpat1 libexpat1-dev libmcrypt4 libmhash2 libpython3.14\n  libpython3.14-minimal libpython3.14-stdlib linux-base-7.1.5+kali-amd64\n  linux-base-amd64 linux-binary-7.1.5+kali-amd64 linux-image-7.1.5+kali-amd64\n  linux-image-amd64 linux-libc-dev linux-libc-dev-arm64-cross\n  linux-modules-7.1.5+kali-amd64 python3.14-tk\n建议安装：\n  libmcrypt-dev mcrypt debian-kernel-handbook linux-doc-7.1\n推荐安装：\n  qemu-user-binfmt\n下列【新】软件包将被安装：\n  gdb-multiarch libc6-arm64-cross libc6-dev-arm64-cross libmcrypt4 libmhash2\n  libpython3.14 libpython3.14-minimal libpython3.14-stdlib\n  linux-base-7.1.5+kali-amd64 linux-binary-7.1.5+kali-amd64\n  linux-image-7.1.5+kali-amd64 linux-libc-dev-arm64-cross\n  linux-modules-7.1.5+kali-amd64 qemu-user steghide stegseek\n下列软件包将被升级：\n  gdb libexpat1 libexpat1-dev linux-base-amd64 linux-image-amd64\n  linux-libc-dev python3.14-tk\n升级了 7 个软件包，新安装了 16 个软件包，要卸载 0 个软件包，有 2045 个软件包未被升级。\nInst libexpat1-dev [2.7.4-1] (2.8.4-1 kali-rolling [amd64]) []\nInst libexpat1 [2.7.4-1] (2.8.4-1 kali-rolling [amd64])\nInst linux-base-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nInst linux-binary-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nInst linux-modules-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nInst linux-image-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nInst libpython3.14-minimal (3.14.7-4 kali-rolling [amd64])\nInst libpython3.14-stdlib (3.14.7-4 kali-rolling [amd64])\nInst libpython3.14 (3.14.7-4 kali-rolling [amd64])\nInst gdb [17.1-3] (17.2-1+b1 kali-rolling [amd64])\nInst gdb-multiarch (17.2-1+b1 kali-rolling [amd64])\nInst libc6-arm64-cross (2.43-3cross8 kali-rolling [all])\nInst linux-libc-dev [6.18.12-1kali1] (7.1.5-1kali1 kali-rolling [all])\nInst linux-libc-dev-arm64-cross (7.1.5-1kali1 kali-rolling [all])\nInst libc6-dev-arm64-cross (2.43-3cross8 kali-rolling [all])\nInst libmcrypt4 (2.5.8-8+b2 kali-rolling [amd64])\nInst libmhash2 (0.9.9.9-11+b1 kali-rolling [amd64])\nInst linux-image-amd64 [6.18.12-1kali1] (7.1.5-1kali1 kali-rolling [amd64]) []\nInst linux-base-amd64 [6.18.12-1kali1] (7.1.5-1kali1 kali-rolling [amd64])\nInst python3.14-tk [3.14.3-1] (3.14.7-4 kali-rolling [amd64])\nInst qemu-user (1:11.1.0+ds-2 kali-rolling [amd64])\nInst steghide (0.5.1+git20240220-2 kali-rolling [amd64])\nInst stegseek (0.6+git20210910.ff677b9-2 kali-rolling [amd64])\nConf libexpat1-dev (2.8.4-1 kali-rolling [amd64])\nConf libexpat1 (2.8.4-1 kali-rolling [amd64])\nConf linux-base-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nConf linux-binary-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nConf linux-modules-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nConf linux-image-7.1.5+kali-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nConf libpython3.14-minimal (3.14.7-4 kali-rolling [amd64])\nConf libpython3.14-stdlib (3.14.7-4 kali-rolling [amd64])\nConf libpython3.14 (3.14.7-4 kali-rolling [amd64])\nConf gdb (17.2-1+b1 kali-rolling [amd64])\nConf gdb-multiarch (17.2-1+b1 kali-rolling [amd64])\nConf libc6-arm64-cross (2.43-3cross8 kali-rolling [all])\nConf linux-libc-dev (7.1.5-1kali1 kali-rolling [all])\nConf linux-libc-dev-arm64-cross (7.1.5-1kali1 kali-rolling [all])\nConf libc6-dev-arm64-cross (2.43-3cross8 kali-rolling [all])\nConf libmcrypt4 (2.5.8-8+b2 kali-rolling [amd64])\nConf libmhash2 (0.9.9.9-11+b1 kali-rolling [amd64])\nConf linux-image-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nConf linux-base-amd64 (7.1.5-1kali1 kali-rolling [amd64])\nConf python3.14-tk (3.14.7-4 kali-rolling [amd64])\nConf qemu-user (1:11.1.0+ds-2 kali-rolling [amd64])\nConf steghide (0.5.1+git20240220-2 kali-rolling [amd64])\nConf stegseek (0.6+git20210910.ff677b9-2 kali-rolling [amd64])\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/deploy_tools_20261014/results/20261014T154542Z-3f92d244.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 3.266,
+      "bridge_exit": 0,
+      "case": "deploy_tools_20261014",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 4298.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791992745449892000-1e95a257.json"
+  }
+}

@@ -1,0 +1,4676 @@
+{
+  "arguments": {
+    "command": "function",
+    "args": [
+      "[CTF_ROOT]\\workflows\\rea_worker_20261014_42138a\\task\\attachments\\challenge.exe",
+      "0x140001760"
+    ],
+    "timeout": 180,
+    "wp_case": "rea_worker_20261014_42138a"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "command": "function",
+      "argv": [
+        "function",
+        "[CTF_ROOT]\\workflows\\rea_worker_20261014_42138a\\task\\attachments\\challenge.exe",
+        "0x140001760",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "stderr": "npm warn Unknown user config \"electron_mirror\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.",
+      "result": {
+        "evidence_id": "ev_acfb1a06fadbac8902e8534e8692dc75bdf51f91ca2121506817069806e42c0b",
+        "subject": {
+          "name": "[CTF_ROOT]\\workflows\\rea_worker_20261014_42138a\\task\\attachments\\challenge.exe",
+          "digest": {
+            "sha256": "0f7b8b0d0ac07f0a7e8be9680b532826c9c89a0f8284cc47aeeae33e76816be4"
+          },
+          "format": "pe",
+          "architecture": "x86_64",
+          "local_path": "[CTF_ROOT]\\workflows\\rea_worker_20261014_42138a\\task\\attachments\\challenge.exe"
+        },
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "analysis_profile": {
+          "provider": {
+            "id": "ghidra",
+            "name": "Ghidra",
+            "version": "12.1.4"
+          },
+          "parameters": {
+            "target_kind": "executable",
+            "target_format": "pe",
+            "executable_role": "application",
+            "managed": false,
+            "native_aot_metadata": {
+              "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+              "source_bytes": 134217728,
+              "work_units": 67108864,
+              "working_memory_bytes": 67108864,
+              "report_bytes": 4194304
+            },
+            "architecture": "x86_64",
+            "available_architectures": [
+              "x86_64"
+            ],
+            "import_mode": "ephemeral-source-immutable",
+            "annotation_policy": "atomic-function-entry-metadata-v1",
+            "load_image_observations": "source-mappings-entry-context-v2",
+            "function_body_evidence": "complete-inclusive-ranges-v1",
+            "function_references": "complete-body-and-entry-reference-manager-v2",
+            "string_inventory_evidence": "defined-data-coverage-v1",
+            "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+            "instruction_flow_evidence": "decoded-return-pcode-v1",
+            "function_boundary_observations": "ghidra-terminal-call-limitations-v1",
+            "no_return_repair": "disabled-windows-p0",
+            "process_launch": "official-headless-script-v1",
+            "jump_table_evidence": "typed-case-default-blocks-v1",
+            "decompiler_jump_loads": true,
+            "loader": "auto-from-header",
+            "language_id": "auto-from-header",
+            "compiler_spec_id": "auto-default",
+            "analyzer_preset": "ghidra-default"
+          },
+          "digest": "249564812a8d83b9b3f461098fc485ccde60c516d4497547a124081c91d654bf"
+        },
+        "predicate_type": "rea.analysis",
+        "operation": "analyze_function",
+        "parameters": {
+          "procedure": "0x140001760"
+        },
+        "raw_result": {
+          "value": {
+            "procedure": {
+              "address": "0x140001760",
+              "name": "check_password",
+              "classification": {
+                "external": false,
+                "thunk": false,
+                "thunk_target": null,
+                "provenance": "ghidra-function-manager"
+              },
+              "body": {
+                "available": true,
+                "provenance": "ghidra-function-body-address-set",
+                "ranges": [
+                  {
+                    "start": "0x140001760",
+                    "end": "0x1400017d2"
+                  }
+                ],
+                "total_bytes": 115,
+                "span_bytes": 115,
+                "non_contiguous": false,
+                "contains_entry": true
+              },
+              "signature": "undefined8 __fastcall check_password(char * param_1)",
+              "locals": [
+                {
+                  "description": "undefined4 local_c @ Stack[-0xc]:4",
+                  "provenance": "ghidra-function-database"
+                },
+                {
+                  "description": "undefined8 local_res8 @ Stack[0x8]:8",
+                  "provenance": "ghidra-function-database"
+                }
+              ]
+            },
+            "pseudocode": "\r\nundefined8 check_password(char *param_1)\r\n\r\n{\r\n  size_t sVar1;\r\n  undefined8 uVar2;\r\n  int local_c;\r\n  \r\n  sVar1 = strlen(param_1);\r\n  if (sVar1 == 0x10) {\r\n    for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {\r\n      if ((byte)(param_1[local_c] ^ 0x37U) != (&expected)[local_c]) {\r\n        return 0;\r\n      }\r\n    }\r\n    uVar2 = 1;\r\n  }\r\n  else {\r\n    uVar2 = 0;\r\n  }\r\n  return uVar2;\r\n}\r\n\r\n",
+            "assembly": [
+              "0x140001760: PUSH RBP",
+              "0x140001761: MOV RBP, RSP",
+              "0x140001764: SUB RSP, 0x30",
+              "0x140001768: MOV qword ptr [RBP + 0x10], RCX",
+              "0x14000176c: MOV RAX, qword ptr [RBP + 0x10]",
+              "0x140001770: MOV RCX, RAX",
+              "0x140001773: CALL 0x140003358",
+              "0x140001778: CMP RAX, 0x10",
+              "0x14000177c: JZ 0x140001785",
+              "0x14000177e: MOV EAX, 0x0",
+              "0x140001783: JMP 0x1400017cd",
+              "0x140001785: MOV dword ptr [RBP + -0x4], 0x0",
+              "0x14000178c: JMP 0x1400017c2",
+              "0x14000178e: MOV EAX, dword ptr [RBP + -0x4]",
+              "0x140001791: MOVSXD RDX, EAX",
+              "0x140001794: MOV RAX, qword ptr [RBP + 0x10]",
+              "0x140001798: ADD RAX, RDX",
+              "0x14000179b: MOVZX EAX, byte ptr [RAX]",
+              "0x14000179e: XOR EAX, 0x37",
+              "0x1400017a1: MOV ECX, EAX",
+              "0x1400017a3: MOV EAX, dword ptr [RBP + -0x4]",
+              "0x1400017a6: CDQE",
+              "0x1400017a8: LEA RDX, [0x140004020]",
+              "0x1400017af: MOVZX EAX, byte ptr [RAX + RDX*0x1]",
+              "0x1400017b3: CMP CL, AL",
+              "0x1400017b5: JZ 0x1400017be",
+              "0x1400017b7: MOV EAX, 0x0",
+              "0x1400017bc: JMP 0x1400017cd",
+              "0x1400017be: ADD dword ptr [RBP + -0x4], 0x1",
+              "0x1400017c2: CMP dword ptr [RBP + -0x4], 0xf",
+              "0x1400017c6: JLE 0x14000178e",
+              "0x1400017c8: MOV EAX, 0x1",
+              "0x1400017cd: ADD RSP, 0x30",
+              "0x1400017d1: POP RBP",
+              "0x1400017d2: RET"
+            ],
+            "comments": [],
+            "callers": [
+              {
+                "address": "0x1400017d3",
+                "name": "main",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x1400017d3",
+                      "end": "0x1400018ab"
+                    }
+                  ],
+                  "total_bytes": 217,
+                  "span_bytes": 217,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              }
+            ],
+            "callees": [
+              {
+                "address": "0x140003358",
+                "name": "strlen",
+                "classification": {
+                  "external": false,
+                  "thunk": true,
+                  "thunk_target": "EXTERNAL:0x30",
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140003358",
+                      "end": "0x14000335d"
+                    }
+                  ],
+                  "total_bytes": 6,
+                  "span_bytes": 6,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              }
+            ],
+            "incoming_references": [
+              {
+                "source_address": "0x14000183b",
+                "target_address": "0x140001760",
+                "source_procedure": {
+                  "address": "0x1400017d3",
+                  "name": "main",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x1400017d3",
+                        "end": "0x1400018ab"
+                      }
+                    ],
+                    "total_bytes": 217,
+                    "span_bytes": 217,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "UNCONDITIONAL_CALL",
+                  "flow": true,
+                  "call": true,
+                  "jump": false,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x140007090",
+                "target_address": "0x140001760",
+                "source_procedure": null,
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "DATA",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              }
+            ],
+            "outgoing_references": [
+              {
+                "source_address": "0x140001768",
+                "target_address": "stack:0x8",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "WRITE",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": false,
+                  "write": true,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x14000176c",
+                "target_address": "stack:0x8",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "READ",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": true,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 1,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x140001773",
+                "target_address": "0x140003358",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140003358",
+                  "name": "strlen",
+                  "classification": {
+                    "external": false,
+                    "thunk": true,
+                    "thunk_target": "EXTERNAL:0x30",
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140003358",
+                        "end": "0x14000335d"
+                      }
+                    ],
+                    "total_bytes": 6,
+                    "span_bytes": 6,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "UNCONDITIONAL_CALL",
+                  "flow": true,
+                  "call": true,
+                  "jump": false,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x14000177c",
+                "target_address": "0x140001785",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "CONDITIONAL_JUMP",
+                  "flow": true,
+                  "call": false,
+                  "jump": true,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": true,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x140001783",
+                "target_address": "0x1400017cd",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "UNCONDITIONAL_JUMP",
+                  "flow": true,
+                  "call": false,
+                  "jump": true,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x140001785",
+                "target_address": "stack:0xfffffffffffffff4",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "WRITE",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": false,
+                  "write": true,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x14000178c",
+                "target_address": "0x1400017c2",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "UNCONDITIONAL_JUMP",
+                  "flow": true,
+                  "call": false,
+                  "jump": true,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x14000178e",
+                "target_address": "stack:0xfffffffffffffff4",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "READ",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": true,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 1,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x140001794",
+                "target_address": "stack:0x8",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "READ",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": true,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 1,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017a3",
+                "target_address": "stack:0xfffffffffffffff4",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "READ",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": true,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 1,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017a8",
+                "target_address": "0x140004020",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "DATA",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 1,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017af",
+                "target_address": "0x140004020",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "DATA",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 1,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017b5",
+                "target_address": "0x1400017be",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "CONDITIONAL_JUMP",
+                  "flow": true,
+                  "call": false,
+                  "jump": true,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": true,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017bc",
+                "target_address": "0x1400017cd",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "UNCONDITIONAL_JUMP",
+                  "flow": true,
+                  "call": false,
+                  "jump": true,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017be",
+                "target_address": "stack:0xfffffffffffffff4",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "READ_WRITE",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": true,
+                  "write": true,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017c2",
+                "target_address": "stack:0xfffffffffffffff4",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": null,
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "READ",
+                  "flow": false,
+                  "call": false,
+                  "jump": false,
+                  "data": true,
+                  "read": true,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": false,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              },
+              {
+                "source_address": "0x1400017c6",
+                "target_address": "0x14000178e",
+                "source_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "target_procedure": {
+                  "address": "0x140001760",
+                  "name": "check_password",
+                  "classification": {
+                    "external": false,
+                    "thunk": false,
+                    "thunk_target": null,
+                    "provenance": "ghidra-function-manager"
+                  },
+                  "body": {
+                    "available": true,
+                    "provenance": "ghidra-function-body-address-set",
+                    "ranges": [
+                      {
+                        "start": "0x140001760",
+                        "end": "0x1400017d2"
+                      }
+                    ],
+                    "total_bytes": 115,
+                    "span_bytes": 115,
+                    "non_contiguous": false,
+                    "contains_entry": true
+                  }
+                },
+                "kind": {
+                  "available": true,
+                  "provenance": "ghidra-reference-manager",
+                  "type": "CONDITIONAL_JUMP",
+                  "flow": true,
+                  "call": false,
+                  "jump": true,
+                  "data": false,
+                  "read": false,
+                  "write": false,
+                  "indirect": false,
+                  "computed": false,
+                  "conditional": true,
+                  "terminal": false,
+                  "primary": true,
+                  "operand_index": 0,
+                  "external": false
+                }
+              }
+            ],
+            "referenced_strings": [],
+            "referenced_names": [
+              {
+                "address": "0x140001785",
+                "value": "LAB_140001785",
+                "source_address": "0x14000177c"
+              },
+              {
+                "address": "0x14000178e",
+                "value": "LAB_14000178e",
+                "source_address": "0x1400017c6"
+              },
+              {
+                "address": "0x1400017be",
+                "value": "LAB_1400017be",
+                "source_address": "0x1400017b5"
+              },
+              {
+                "address": "0x1400017c2",
+                "value": "LAB_1400017c2",
+                "source_address": "0x14000178c"
+              },
+              {
+                "address": "0x1400017cd",
+                "value": "LAB_1400017cd",
+                "source_address": "0x140001783"
+              },
+              {
+                "address": "0x1400017cd",
+                "value": "LAB_1400017cd",
+                "source_address": "0x1400017bc"
+              },
+              {
+                "address": "0x140003358",
+                "value": "strlen",
+                "source_address": "0x140001773"
+              },
+              {
+                "address": "0x140004020",
+                "value": "expected",
+                "source_address": "0x1400017a8"
+              },
+              {
+                "address": "0x140004020",
+                "value": "expected",
+                "source_address": "0x1400017af"
+              }
+            ],
+            "basic_blocks": [
+              {
+                "start": "0x140001760",
+                "end": "0x14000177e",
+                "successors": [
+                  "0x14000177e",
+                  "0x140001785"
+                ]
+              },
+              {
+                "start": "0x14000177e",
+                "end": "0x140001785",
+                "successors": [
+                  "0x1400017cd"
+                ]
+              },
+              {
+                "start": "0x140001785",
+                "end": "0x14000178e",
+                "successors": [
+                  "0x1400017c2"
+                ]
+              },
+              {
+                "start": "0x14000178e",
+                "end": "0x1400017b7",
+                "successors": [
+                  "0x1400017b7",
+                  "0x1400017be"
+                ]
+              },
+              {
+                "start": "0x1400017b7",
+                "end": "0x1400017be",
+                "successors": [
+                  "0x1400017cd"
+                ]
+              },
+              {
+                "start": "0x1400017be",
+                "end": "0x1400017c2",
+                "successors": [
+                  "0x1400017c2"
+                ]
+              },
+              {
+                "start": "0x1400017c2",
+                "end": "0x1400017c8",
+                "successors": [
+                  "0x14000178e",
+                  "0x1400017c8"
+                ]
+              },
+              {
+                "start": "0x1400017c8",
+                "end": "0x1400017cd",
+                "successors": [
+                  "0x1400017cd"
+                ]
+              },
+              {
+                "start": "0x1400017cd",
+                "end": "0x1400017d3",
+                "successors": []
+              }
+            ],
+            "native_api": {
+              "available": true,
+              "provenance": "ghidra-high-function",
+              "signature_source": "analysis",
+              "calling_convention": "__fastcall",
+              "return_type": {
+                "role": "return",
+                "ordinal": null,
+                "name": null,
+                "data_type": "undefined8",
+                "size_bytes": 8,
+                "storage": "RAX:8",
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "kind": "signature-source",
+                    "source": "ghidra-function-manager",
+                    "detail": "Function signature source is analysis."
+                  },
+                  {
+                    "kind": "decompiler-type",
+                    "source": "ghidra-high-function",
+                    "detail": "HighFunction recovered data type undefined8."
+                  }
+                ],
+                "decompiler_artifacts": [
+                  "recovered-signature",
+                  "register-or-stack-storage"
+                ]
+              },
+              "parameters": [
+                {
+                  "role": "parameter",
+                  "ordinal": 0,
+                  "name": "param_1",
+                  "data_type": "char *",
+                  "size_bytes": 8,
+                  "storage": "RCX:8",
+                  "confidence": "high",
+                  "evidence": [
+                    {
+                      "kind": "signature-source",
+                      "source": "ghidra-function-manager",
+                      "detail": "Function signature source is analysis."
+                    },
+                    {
+                      "kind": "decompiler-type",
+                      "source": "ghidra-high-function",
+                      "detail": "HighFunction recovered data type char *."
+                    },
+                    {
+                      "kind": "type-lock",
+                      "source": "ghidra-high-symbol",
+                      "detail": "The decompiler marks this parameter type as locked."
+                    }
+                  ],
+                  "decompiler_artifacts": [
+                    "recovered-signature",
+                    "register-or-stack-storage",
+                    "compiler-generated-variable"
+                  ]
+                }
+              ],
+              "jump_tables": [],
+              "pseudocode": {
+                "classification": "decompiler-generated-non-source",
+                "compilable": false
+              },
+              "decompiler_artifacts": [
+                "recovered-signature",
+                "register-and-stack-variables",
+                "compiler-generated-control-flow",
+                "pointer-arithmetic",
+                "pseudocode"
+              ],
+              "limitations": [
+                "Types and calling conventions are Ghidra decompiler observations, not source declarations.",
+                "Register variables, compiler-generated blocks, and pointer arithmetic remain decompiler artifacts.",
+                "Pseudocode is neither original source nor guaranteed to compile."
+              ]
+            },
+            "native_value_flow": {
+              "available": true,
+              "provenance": "ghidra-high-pcode",
+              "operations": [
+                {
+                  "id": "0x140001773#22",
+                  "address": "0x140001773",
+                  "sequence": 22,
+                  "opcode": "CALL",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "address",
+                      "size_bytes": 8,
+                      "location": "0x140003358",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x8",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x140001778#28",
+                  "address": "0x140001778",
+                  "sequence": 28,
+                  "opcode": "INT_EQUAL",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "10"
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 1,
+                    "location": "register:0x206",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x14000177c#33",
+                  "address": "0x14000177c",
+                  "sequence": 33,
+                  "opcode": "CBRANCH",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "address",
+                      "size_bytes": 1,
+                      "location": "0x140001785",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 1,
+                      "location": "register:0x206",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                },
+                {
+                  "id": "0x14000177e#34",
+                  "address": "0x14000177e",
+                  "sequence": 34,
+                  "opcode": "COPY",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "0"
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x140001783#35",
+                  "address": "0x140001783",
+                  "sequence": 35,
+                  "opcode": "BRANCH",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "address",
+                      "size_bytes": 1,
+                      "location": "0x1400017cd",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                },
+                {
+                  "id": "0x140001785#54",
+                  "address": "0x140001785",
+                  "sequence": 54,
+                  "opcode": "COPY",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 4,
+                      "location": null,
+                      "constant_hex": "0"
+                    }
+                  ],
+                  "output": {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x14000178c#55",
+                  "address": "0x14000178c",
+                  "sequence": 55,
+                  "opcode": "BRANCH",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "address",
+                      "size_bytes": 1,
+                      "location": "0x1400017c2",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                },
+                {
+                  "id": "0x140001791#76",
+                  "address": "0x140001791",
+                  "sequence": 76,
+                  "opcode": "INT_SEXT",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "other",
+                      "size_bytes": 4,
+                      "location": "stack:0xfffffffffffffff4",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x10",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x140001798#82",
+                  "address": "0x140001798",
+                  "sequence": 82,
+                  "opcode": "PTRADD",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x8",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x10",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "1"
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x14000179b#89",
+                  "address": "0x14000179b",
+                  "sequence": 89,
+                  "opcode": "LOAD",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 4,
+                      "location": null,
+                      "constant_hex": "1b1"
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x23a00",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x14000179e#257",
+                  "address": "0x14000179e",
+                  "sequence": 257,
+                  "opcode": "INT_XOR",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "unique",
+                      "size_bytes": 1,
+                      "location": "unique:0x23a00",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 1,
+                      "location": null,
+                      "constant_hex": "37"
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 1,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017a6#108",
+                  "address": "0x1400017a6",
+                  "sequence": 108,
+                  "opcode": "INT_SEXT",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "other",
+                      "size_bytes": 4,
+                      "location": "stack:0xfffffffffffffff4",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017af#111",
+                  "address": "0x1400017af",
+                  "sequence": 111,
+                  "opcode": "PTRADD",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "unique",
+                      "size_bytes": 8,
+                      "location": "unique:0x1000002f",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "1"
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 8,
+                    "location": "unique:0x9400",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017af#112",
+                  "address": "0x1400017af",
+                  "sequence": 112,
+                  "opcode": "LOAD",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 4,
+                      "location": null,
+                      "constant_hex": "1b1"
+                    },
+                    {
+                      "kind": "unique",
+                      "size_bytes": 8,
+                      "location": "unique:0x9400",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x23a00",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017af#285",
+                  "address": "0x1400017af",
+                  "sequence": 285,
+                  "opcode": "PTRSUB",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "0"
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "140004020"
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 8,
+                    "location": "unique:0x1000002f",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017b3#120",
+                  "address": "0x1400017b3",
+                  "sequence": 120,
+                  "opcode": "INT_NOTEQUAL",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "unique",
+                      "size_bytes": 1,
+                      "location": "unique:0x10000037",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "unique",
+                      "size_bytes": 1,
+                      "location": "unique:0x23a00",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 1,
+                    "location": "register:0x206",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017b3#286",
+                  "address": "0x1400017b3",
+                  "sequence": 286,
+                  "opcode": "CAST",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "register",
+                      "size_bytes": 1,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x10000037",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017b5#125",
+                  "address": "0x1400017b5",
+                  "sequence": 125,
+                  "opcode": "CBRANCH",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "address",
+                      "size_bytes": 1,
+                      "location": "0x1400017be",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 1,
+                      "location": "register:0x206",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                },
+                {
+                  "id": "0x1400017be#134",
+                  "address": "0x1400017be",
+                  "sequence": 134,
+                  "opcode": "INT_ADD",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "other",
+                      "size_bytes": 4,
+                      "location": "stack:0xfffffffffffffff4",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 4,
+                      "location": null,
+                      "constant_hex": "1"
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 4,
+                    "location": "unique:0xd300",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017c2#279",
+                  "address": "0x1400017c2",
+                  "sequence": 279,
+                  "opcode": "MULTIEQUAL",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "other",
+                      "size_bytes": 4,
+                      "location": "stack:0xfffffffffffffff4",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "unique",
+                      "size_bytes": 4,
+                      "location": "unique:0xd300",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017c6#69",
+                  "address": "0x1400017c6",
+                  "sequence": 69,
+                  "opcode": "INT_SLESS",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "other",
+                      "size_bytes": 4,
+                      "location": "stack:0xfffffffffffffff4",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "constant",
+                      "size_bytes": 4,
+                      "location": null,
+                      "constant_hex": "10"
+                    }
+                  ],
+                  "output": {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x25f00",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017c6#70",
+                  "address": "0x1400017c6",
+                  "sequence": 70,
+                  "opcode": "CBRANCH",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "address",
+                      "size_bytes": 1,
+                      "location": "0x14000178e",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "unique",
+                      "size_bytes": 1,
+                      "location": "unique:0x25f00",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                },
+                {
+                  "id": "0x1400017c8#71",
+                  "address": "0x1400017c8",
+                  "sequence": 71,
+                  "opcode": "COPY",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "1"
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017cd#218",
+                  "address": "0x1400017cd",
+                  "sequence": 218,
+                  "opcode": "MULTIEQUAL",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017cd#283",
+                  "address": "0x1400017cd",
+                  "sequence": 283,
+                  "opcode": "COPY",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "0"
+                    }
+                  ],
+                  "output": {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                },
+                {
+                  "id": "0x1400017d2#51",
+                  "address": "0x1400017d2",
+                  "sequence": 51,
+                  "opcode": "RETURN",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "0"
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                },
+                {
+                  "id": "0x1400017d2#284",
+                  "address": "0x1400017d2",
+                  "sequence": 284,
+                  "opcode": "RETURN",
+                  "is_dead": true,
+                  "block_membership": "member",
+                  "inputs": [
+                    {
+                      "kind": "constant",
+                      "size_bytes": 8,
+                      "location": null,
+                      "constant_hex": "0"
+                    },
+                    {
+                      "kind": "register",
+                      "size_bytes": 8,
+                      "location": "register:0x0",
+                      "constant_hex": null
+                    }
+                  ],
+                  "output": null
+                }
+              ],
+              "def_use": [
+                {
+                  "definition": "0x140001773#22",
+                  "use": "0x140001778#28",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x140001778#28",
+                  "use": "0x14000177c#33",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017c2#279",
+                  "use": "0x140001791#76",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x140001791#76",
+                  "use": "0x140001798#82",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x140001798#82",
+                  "use": "0x14000179b#89",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x14000179b#89",
+                  "use": "0x14000179e#257",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017c2#279",
+                  "use": "0x1400017a6#108",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017af#285",
+                  "use": "0x1400017af#111",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017a6#108",
+                  "use": "0x1400017af#111",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017af#111",
+                  "use": "0x1400017af#112",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017b3#286",
+                  "use": "0x1400017b3#120",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017af#112",
+                  "use": "0x1400017b3#120",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x14000179e#257",
+                  "use": "0x1400017b3#286",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017b3#120",
+                  "use": "0x1400017b5#125",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017c2#279",
+                  "use": "0x1400017be#134",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x140001785#54",
+                  "use": "0x1400017c2#279",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017be#134",
+                  "use": "0x1400017c2#279",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017c2#279",
+                  "use": "0x1400017c6#69",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017c6#69",
+                  "use": "0x1400017c6#70",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x14000177e#34",
+                  "use": "0x1400017cd#218",
+                  "input_index": 0
+                },
+                {
+                  "definition": "0x1400017c8#71",
+                  "use": "0x1400017cd#218",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017cd#218",
+                  "use": "0x1400017d2#51",
+                  "input_index": 1
+                },
+                {
+                  "definition": "0x1400017cd#283",
+                  "use": "0x1400017d2#284",
+                  "input_index": 1
+                }
+              ],
+              "parameters": [
+                {
+                  "ordinal": 0,
+                  "name": "param_1",
+                  "data_type": "/char *"
+                }
+              ],
+              "parameter_uses": [
+                {
+                  "ordinal": 0,
+                  "use": "0x140001773#22",
+                  "input_index": 1
+                },
+                {
+                  "ordinal": 0,
+                  "use": "0x140001798#82",
+                  "input_index": 0
+                }
+              ],
+              "effects": [
+                {
+                  "operation": "0x140001773#22",
+                  "kind": "direct_call",
+                  "operand_input": 0,
+                  "value_input": null
+                },
+                {
+                  "operation": "0x14000177c#33",
+                  "kind": "conditional_branch",
+                  "operand_input": null,
+                  "value_input": 1
+                },
+                {
+                  "operation": "0x14000179b#89",
+                  "kind": "memory_read",
+                  "operand_input": 1,
+                  "value_input": null
+                },
+                {
+                  "operation": "0x1400017af#112",
+                  "kind": "memory_read",
+                  "operand_input": 1,
+                  "value_input": null
+                },
+                {
+                  "operation": "0x1400017b5#125",
+                  "kind": "conditional_branch",
+                  "operand_input": null,
+                  "value_input": 1
+                },
+                {
+                  "operation": "0x1400017c6#70",
+                  "kind": "conditional_branch",
+                  "operand_input": null,
+                  "value_input": 1
+                }
+              ],
+              "truncated": false,
+              "omitted_operations_lower_bound": 0,
+              "known_omitted_inputs": 0,
+              "known_omitted_edges": 0,
+              "limitations": [
+                "High p-code is decompiler-derived, not original source or runtime behavior. is_dead preserves the Java AST flag; decoded block members can retain that flag, so block_membership separately reports actual syntax-tree membership.",
+                "Def-use links do not cross function boundaries and may omit memory aliasing, call side effects, or unresolved indirect flow.",
+                "Memory read/write effects include stack and temporary memory operations; they do not identify persistent state or business meaning.",
+                "Operation, input, and def-use limits can truncate large functions; inspect truncation, omitted lower bounds, and known omitted counts before drawing conclusions.",
+                "Known omitted-edge counts cover links omitted from retained operations; omitted operations may contain additional uncounted links."
+              ]
+            },
+            "limitations": [
+              "Unresolved computed or indirect flows without target addresses are not represented as reference edges.",
+              "Thunk and external classifications are Ghidra FunctionManager observations; they do not resolve targetless calls.",
+              "Pseudocode and assembly are Ghidra-specific representations, not original source or Hopper-equivalent text.",
+              "Synthetic Ghidra entry-point references without actionable memory sources are omitted."
+            ]
+          },
+          "limitations": []
+        },
+        "normalized_result": {
+          "procedure": {
+            "address": "0x140001760",
+            "name": "check_password",
+            "classification": {
+              "external": false,
+              "thunk": false,
+              "thunk_target": null,
+              "provenance": "ghidra-function-manager"
+            },
+            "body": {
+              "available": true,
+              "provenance": "ghidra-function-body-address-set",
+              "ranges": [
+                {
+                  "start": "0x140001760",
+                  "end": "0x1400017d2"
+                }
+              ],
+              "total_bytes": 115,
+              "span_bytes": 115,
+              "non_contiguous": false,
+              "contains_entry": true
+            },
+            "signature": "undefined8 __fastcall check_password(char * param_1)",
+            "locals": [
+              {
+                "description": "undefined4 local_c @ Stack[-0xc]:4",
+                "provenance": "ghidra-function-database"
+              },
+              {
+                "description": "undefined8 local_res8 @ Stack[0x8]:8",
+                "provenance": "ghidra-function-database"
+              }
+            ]
+          },
+          "pseudocode": "\r\nundefined8 check_password(char *param_1)\r\n\r\n{\r\n  size_t sVar1;\r\n  undefined8 uVar2;\r\n  int local_c;\r\n  \r\n  sVar1 = strlen(param_1);\r\n  if (sVar1 == 0x10) {\r\n    for (local_c = 0; local_c < 0x10; local_c = local_c + 1) {\r\n      if ((byte)(param_1[local_c] ^ 0x37U) != (&expected)[local_c]) {\r\n        return 0;\r\n      }\r\n    }\r\n    uVar2 = 1;\r\n  }\r\n  else {\r\n    uVar2 = 0;\r\n  }\r\n  return uVar2;\r\n}\r\n\r\n",
+          "assembly": [
+            "0x140001760: PUSH RBP",
+            "0x140001761: MOV RBP, RSP",
+            "0x140001764: SUB RSP, 0x30",
+            "0x140001768: MOV qword ptr [RBP + 0x10], RCX",
+            "0x14000176c: MOV RAX, qword ptr [RBP + 0x10]",
+            "0x140001770: MOV RCX, RAX",
+            "0x140001773: CALL 0x140003358",
+            "0x140001778: CMP RAX, 0x10",
+            "0x14000177c: JZ 0x140001785",
+            "0x14000177e: MOV EAX, 0x0",
+            "0x140001783: JMP 0x1400017cd",
+            "0x140001785: MOV dword ptr [RBP + -0x4], 0x0",
+            "0x14000178c: JMP 0x1400017c2",
+            "0x14000178e: MOV EAX, dword ptr [RBP + -0x4]",
+            "0x140001791: MOVSXD RDX, EAX",
+            "0x140001794: MOV RAX, qword ptr [RBP + 0x10]",
+            "0x140001798: ADD RAX, RDX",
+            "0x14000179b: MOVZX EAX, byte ptr [RAX]",
+            "0x14000179e: XOR EAX, 0x37",
+            "0x1400017a1: MOV ECX, EAX",
+            "0x1400017a3: MOV EAX, dword ptr [RBP + -0x4]",
+            "0x1400017a6: CDQE",
+            "0x1400017a8: LEA RDX, [0x140004020]",
+            "0x1400017af: MOVZX EAX, byte ptr [RAX + RDX*0x1]",
+            "0x1400017b3: CMP CL, AL",
+            "0x1400017b5: JZ 0x1400017be",
+            "0x1400017b7: MOV EAX, 0x0",
+            "0x1400017bc: JMP 0x1400017cd",
+            "0x1400017be: ADD dword ptr [RBP + -0x4], 0x1",
+            "0x1400017c2: CMP dword ptr [RBP + -0x4], 0xf",
+            "0x1400017c6: JLE 0x14000178e",
+            "0x1400017c8: MOV EAX, 0x1",
+            "0x1400017cd: ADD RSP, 0x30",
+            "0x1400017d1: POP RBP",
+            "0x1400017d2: RET"
+          ],
+          "comments": [],
+          "callers": [
+            {
+              "address": "0x1400017d3",
+              "name": "main",
+              "classification": {
+                "external": false,
+                "thunk": false,
+                "thunk_target": null,
+                "provenance": "ghidra-function-manager"
+              },
+              "body": {
+                "available": true,
+                "provenance": "ghidra-function-body-address-set",
+                "ranges": [
+                  {
+                    "start": "0x1400017d3",
+                    "end": "0x1400018ab"
+                  }
+                ],
+                "total_bytes": 217,
+                "span_bytes": 217,
+                "non_contiguous": false,
+                "contains_entry": true
+              }
+            }
+          ],
+          "callees": [
+            {
+              "address": "0x140003358",
+              "name": "strlen",
+              "classification": {
+                "external": false,
+                "thunk": true,
+                "thunk_target": "EXTERNAL:0x30",
+                "provenance": "ghidra-function-manager"
+              },
+              "body": {
+                "available": true,
+                "provenance": "ghidra-function-body-address-set",
+                "ranges": [
+                  {
+                    "start": "0x140003358",
+                    "end": "0x14000335d"
+                  }
+                ],
+                "total_bytes": 6,
+                "span_bytes": 6,
+                "non_contiguous": false,
+                "contains_entry": true
+              }
+            }
+          ],
+          "incoming_references": [
+            {
+              "source_address": "0x14000183b",
+              "target_address": "0x140001760",
+              "source_procedure": {
+                "address": "0x1400017d3",
+                "name": "main",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x1400017d3",
+                      "end": "0x1400018ab"
+                    }
+                  ],
+                  "total_bytes": 217,
+                  "span_bytes": 217,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "UNCONDITIONAL_CALL",
+                "flow": true,
+                "call": true,
+                "jump": false,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x140007090",
+              "target_address": "0x140001760",
+              "source_procedure": null,
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "DATA",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            }
+          ],
+          "outgoing_references": [
+            {
+              "source_address": "0x140001768",
+              "target_address": "stack:0x8",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "WRITE",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": false,
+                "write": true,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x14000176c",
+              "target_address": "stack:0x8",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "READ",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": true,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 1,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x140001773",
+              "target_address": "0x140003358",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140003358",
+                "name": "strlen",
+                "classification": {
+                  "external": false,
+                  "thunk": true,
+                  "thunk_target": "EXTERNAL:0x30",
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140003358",
+                      "end": "0x14000335d"
+                    }
+                  ],
+                  "total_bytes": 6,
+                  "span_bytes": 6,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "UNCONDITIONAL_CALL",
+                "flow": true,
+                "call": true,
+                "jump": false,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x14000177c",
+              "target_address": "0x140001785",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "CONDITIONAL_JUMP",
+                "flow": true,
+                "call": false,
+                "jump": true,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": true,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x140001783",
+              "target_address": "0x1400017cd",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "UNCONDITIONAL_JUMP",
+                "flow": true,
+                "call": false,
+                "jump": true,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x140001785",
+              "target_address": "stack:0xfffffffffffffff4",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "WRITE",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": false,
+                "write": true,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x14000178c",
+              "target_address": "0x1400017c2",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "UNCONDITIONAL_JUMP",
+                "flow": true,
+                "call": false,
+                "jump": true,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x14000178e",
+              "target_address": "stack:0xfffffffffffffff4",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "READ",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": true,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 1,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x140001794",
+              "target_address": "stack:0x8",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "READ",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": true,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 1,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017a3",
+              "target_address": "stack:0xfffffffffffffff4",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "READ",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": true,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 1,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017a8",
+              "target_address": "0x140004020",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "DATA",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 1,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017af",
+              "target_address": "0x140004020",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "DATA",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 1,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017b5",
+              "target_address": "0x1400017be",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "CONDITIONAL_JUMP",
+                "flow": true,
+                "call": false,
+                "jump": true,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": true,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017bc",
+              "target_address": "0x1400017cd",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "UNCONDITIONAL_JUMP",
+                "flow": true,
+                "call": false,
+                "jump": true,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017be",
+              "target_address": "stack:0xfffffffffffffff4",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "READ_WRITE",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": true,
+                "write": true,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017c2",
+              "target_address": "stack:0xfffffffffffffff4",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": null,
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "READ",
+                "flow": false,
+                "call": false,
+                "jump": false,
+                "data": true,
+                "read": true,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": false,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            },
+            {
+              "source_address": "0x1400017c6",
+              "target_address": "0x14000178e",
+              "source_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "target_procedure": {
+                "address": "0x140001760",
+                "name": "check_password",
+                "classification": {
+                  "external": false,
+                  "thunk": false,
+                  "thunk_target": null,
+                  "provenance": "ghidra-function-manager"
+                },
+                "body": {
+                  "available": true,
+                  "provenance": "ghidra-function-body-address-set",
+                  "ranges": [
+                    {
+                      "start": "0x140001760",
+                      "end": "0x1400017d2"
+                    }
+                  ],
+                  "total_bytes": 115,
+                  "span_bytes": 115,
+                  "non_contiguous": false,
+                  "contains_entry": true
+                }
+              },
+              "kind": {
+                "available": true,
+                "provenance": "ghidra-reference-manager",
+                "type": "CONDITIONAL_JUMP",
+                "flow": true,
+                "call": false,
+                "jump": true,
+                "data": false,
+                "read": false,
+                "write": false,
+                "indirect": false,
+                "computed": false,
+                "conditional": true,
+                "terminal": false,
+                "primary": true,
+                "operand_index": 0,
+                "external": false
+              }
+            }
+          ],
+          "referenced_strings": [],
+          "referenced_names": [
+            {
+              "address": "0x140001785",
+              "value": "LAB_140001785",
+              "source_address": "0x14000177c"
+            },
+            {
+              "address": "0x14000178e",
+              "value": "LAB_14000178e",
+              "source_address": "0x1400017c6"
+            },
+            {
+              "address": "0x1400017be",
+              "value": "LAB_1400017be",
+              "source_address": "0x1400017b5"
+            },
+            {
+              "address": "0x1400017c2",
+              "value": "LAB_1400017c2",
+              "source_address": "0x14000178c"
+            },
+            {
+              "address": "0x1400017cd",
+              "value": "LAB_1400017cd",
+              "source_address": "0x140001783"
+            },
+            {
+              "address": "0x1400017cd",
+              "value": "LAB_1400017cd",
+              "source_address": "0x1400017bc"
+            },
+            {
+              "address": "0x140003358",
+              "value": "strlen",
+              "source_address": "0x140001773"
+            },
+            {
+              "address": "0x140004020",
+              "value": "expected",
+              "source_address": "0x1400017a8"
+            },
+            {
+              "address": "0x140004020",
+              "value": "expected",
+              "source_address": "0x1400017af"
+            }
+          ],
+          "basic_blocks": [
+            {
+              "start": "0x140001760",
+              "end": "0x14000177e",
+              "successors": [
+                "0x14000177e",
+                "0x140001785"
+              ]
+            },
+            {
+              "start": "0x14000177e",
+              "end": "0x140001785",
+              "successors": [
+                "0x1400017cd"
+              ]
+            },
+            {
+              "start": "0x140001785",
+              "end": "0x14000178e",
+              "successors": [
+                "0x1400017c2"
+              ]
+            },
+            {
+              "start": "0x14000178e",
+              "end": "0x1400017b7",
+              "successors": [
+                "0x1400017b7",
+                "0x1400017be"
+              ]
+            },
+            {
+              "start": "0x1400017b7",
+              "end": "0x1400017be",
+              "successors": [
+                "0x1400017cd"
+              ]
+            },
+            {
+              "start": "0x1400017be",
+              "end": "0x1400017c2",
+              "successors": [
+                "0x1400017c2"
+              ]
+            },
+            {
+              "start": "0x1400017c2",
+              "end": "0x1400017c8",
+              "successors": [
+                "0x14000178e",
+                "0x1400017c8"
+              ]
+            },
+            {
+              "start": "0x1400017c8",
+              "end": "0x1400017cd",
+              "successors": [
+                "0x1400017cd"
+              ]
+            },
+            {
+              "start": "0x1400017cd",
+              "end": "0x1400017d3",
+              "successors": []
+            }
+          ],
+          "native_api": {
+            "available": true,
+            "provenance": "ghidra-high-function",
+            "signature_source": "analysis",
+            "calling_convention": "__fastcall",
+            "return_type": {
+              "ordinal": null,
+              "name": null,
+              "data_type": "undefined8",
+              "size_bytes": 8,
+              "storage": "RAX:8",
+              "confidence": "medium",
+              "evidence": [
+                {
+                  "kind": "signature-source",
+                  "source": "ghidra-function-manager",
+                  "detail": "Function signature source is analysis."
+                },
+                {
+                  "kind": "decompiler-type",
+                  "source": "ghidra-high-function",
+                  "detail": "HighFunction recovered data type undefined8."
+                }
+              ],
+              "decompiler_artifacts": [
+                "recovered-signature",
+                "register-or-stack-storage"
+              ],
+              "role": "return"
+            },
+            "parameters": [
+              {
+                "ordinal": 0,
+                "name": "param_1",
+                "data_type": "char *",
+                "size_bytes": 8,
+                "storage": "RCX:8",
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "kind": "signature-source",
+                    "source": "ghidra-function-manager",
+                    "detail": "Function signature source is analysis."
+                  },
+                  {
+                    "kind": "decompiler-type",
+                    "source": "ghidra-high-function",
+                    "detail": "HighFunction recovered data type char *."
+                  },
+                  {
+                    "kind": "type-lock",
+                    "source": "ghidra-high-symbol",
+                    "detail": "The decompiler marks this parameter type as locked."
+                  }
+                ],
+                "decompiler_artifacts": [
+                  "recovered-signature",
+                  "register-or-stack-storage",
+                  "compiler-generated-variable"
+                ],
+                "role": "parameter"
+              }
+            ],
+            "jump_tables": [],
+            "pseudocode": {
+              "classification": "decompiler-generated-non-source",
+              "compilable": false
+            },
+            "decompiler_artifacts": [
+              "recovered-signature",
+              "register-and-stack-variables",
+              "compiler-generated-control-flow",
+              "pointer-arithmetic",
+              "pseudocode"
+            ],
+            "limitations": [
+              "Types and calling conventions are Ghidra decompiler observations, not source declarations.",
+              "Register variables, compiler-generated blocks, and pointer arithmetic remain decompiler artifacts.",
+              "Pseudocode is neither original source nor guaranteed to compile."
+            ]
+          },
+          "native_value_flow": {
+            "available": true,
+            "provenance": "ghidra-high-pcode",
+            "operations": [
+              {
+                "id": "0x140001773#22",
+                "address": "0x140001773",
+                "sequence": 22,
+                "opcode": "CALL",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "address",
+                    "size_bytes": 8,
+                    "location": "0x140003358",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x8",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x140001778#28",
+                "address": "0x140001778",
+                "sequence": 28,
+                "opcode": "INT_EQUAL",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "10"
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 1,
+                  "location": "register:0x206",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x14000177c#33",
+                "address": "0x14000177c",
+                "sequence": 33,
+                "opcode": "CBRANCH",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "address",
+                    "size_bytes": 1,
+                    "location": "0x140001785",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 1,
+                    "location": "register:0x206",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              },
+              {
+                "id": "0x14000177e#34",
+                "address": "0x14000177e",
+                "sequence": 34,
+                "opcode": "COPY",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "0"
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x140001783#35",
+                "address": "0x140001783",
+                "sequence": 35,
+                "opcode": "BRANCH",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "address",
+                    "size_bytes": 1,
+                    "location": "0x1400017cd",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              },
+              {
+                "id": "0x140001785#54",
+                "address": "0x140001785",
+                "sequence": 54,
+                "opcode": "COPY",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 4,
+                    "location": null,
+                    "constant_hex": "0"
+                  }
+                ],
+                "output": {
+                  "kind": "other",
+                  "size_bytes": 4,
+                  "location": "stack:0xfffffffffffffff4",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x14000178c#55",
+                "address": "0x14000178c",
+                "sequence": 55,
+                "opcode": "BRANCH",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "address",
+                    "size_bytes": 1,
+                    "location": "0x1400017c2",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              },
+              {
+                "id": "0x140001791#76",
+                "address": "0x140001791",
+                "sequence": 76,
+                "opcode": "INT_SEXT",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x10",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x140001798#82",
+                "address": "0x140001798",
+                "sequence": 82,
+                "opcode": "PTRADD",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x8",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x10",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "1"
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x14000179b#89",
+                "address": "0x14000179b",
+                "sequence": 89,
+                "opcode": "LOAD",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 4,
+                    "location": null,
+                    "constant_hex": "1b1"
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 1,
+                  "location": "unique:0x23a00",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x14000179e#257",
+                "address": "0x14000179e",
+                "sequence": 257,
+                "opcode": "INT_XOR",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x23a00",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 1,
+                    "location": null,
+                    "constant_hex": "37"
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 1,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017a6#108",
+                "address": "0x1400017a6",
+                "sequence": 108,
+                "opcode": "INT_SEXT",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017af#111",
+                "address": "0x1400017af",
+                "sequence": 111,
+                "opcode": "PTRADD",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "unique",
+                    "size_bytes": 8,
+                    "location": "unique:0x1000002f",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "1"
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 8,
+                  "location": "unique:0x9400",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017af#112",
+                "address": "0x1400017af",
+                "sequence": 112,
+                "opcode": "LOAD",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 4,
+                    "location": null,
+                    "constant_hex": "1b1"
+                  },
+                  {
+                    "kind": "unique",
+                    "size_bytes": 8,
+                    "location": "unique:0x9400",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 1,
+                  "location": "unique:0x23a00",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017af#285",
+                "address": "0x1400017af",
+                "sequence": 285,
+                "opcode": "PTRSUB",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "0"
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "140004020"
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 8,
+                  "location": "unique:0x1000002f",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017b3#120",
+                "address": "0x1400017b3",
+                "sequence": 120,
+                "opcode": "INT_NOTEQUAL",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x10000037",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x23a00",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 1,
+                  "location": "register:0x206",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017b3#286",
+                "address": "0x1400017b3",
+                "sequence": 286,
+                "opcode": "CAST",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "register",
+                    "size_bytes": 1,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 1,
+                  "location": "unique:0x10000037",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017b5#125",
+                "address": "0x1400017b5",
+                "sequence": 125,
+                "opcode": "CBRANCH",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "address",
+                    "size_bytes": 1,
+                    "location": "0x1400017be",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 1,
+                    "location": "register:0x206",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              },
+              {
+                "id": "0x1400017be#134",
+                "address": "0x1400017be",
+                "sequence": 134,
+                "opcode": "INT_ADD",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 4,
+                    "location": null,
+                    "constant_hex": "1"
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 4,
+                  "location": "unique:0xd300",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017c2#279",
+                "address": "0x1400017c2",
+                "sequence": 279,
+                "opcode": "MULTIEQUAL",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "unique",
+                    "size_bytes": 4,
+                    "location": "unique:0xd300",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "other",
+                  "size_bytes": 4,
+                  "location": "stack:0xfffffffffffffff4",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017c6#69",
+                "address": "0x1400017c6",
+                "sequence": 69,
+                "opcode": "INT_SLESS",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "other",
+                    "size_bytes": 4,
+                    "location": "stack:0xfffffffffffffff4",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "constant",
+                    "size_bytes": 4,
+                    "location": null,
+                    "constant_hex": "10"
+                  }
+                ],
+                "output": {
+                  "kind": "unique",
+                  "size_bytes": 1,
+                  "location": "unique:0x25f00",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017c6#70",
+                "address": "0x1400017c6",
+                "sequence": 70,
+                "opcode": "CBRANCH",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "address",
+                    "size_bytes": 1,
+                    "location": "0x14000178e",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "unique",
+                    "size_bytes": 1,
+                    "location": "unique:0x25f00",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              },
+              {
+                "id": "0x1400017c8#71",
+                "address": "0x1400017c8",
+                "sequence": 71,
+                "opcode": "COPY",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "1"
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017cd#218",
+                "address": "0x1400017cd",
+                "sequence": 218,
+                "opcode": "MULTIEQUAL",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017cd#283",
+                "address": "0x1400017cd",
+                "sequence": 283,
+                "opcode": "COPY",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "0"
+                  }
+                ],
+                "output": {
+                  "kind": "register",
+                  "size_bytes": 8,
+                  "location": "register:0x0",
+                  "constant_hex": null
+                }
+              },
+              {
+                "id": "0x1400017d2#51",
+                "address": "0x1400017d2",
+                "sequence": 51,
+                "opcode": "RETURN",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "0"
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              },
+              {
+                "id": "0x1400017d2#284",
+                "address": "0x1400017d2",
+                "sequence": 284,
+                "opcode": "RETURN",
+                "is_dead": true,
+                "block_membership": "member",
+                "inputs": [
+                  {
+                    "kind": "constant",
+                    "size_bytes": 8,
+                    "location": null,
+                    "constant_hex": "0"
+                  },
+                  {
+                    "kind": "register",
+                    "size_bytes": 8,
+                    "location": "register:0x0",
+                    "constant_hex": null
+                  }
+                ],
+                "output": null
+              }
+            ],
+            "def_use": [
+              {
+                "definition": "0x140001773#22",
+                "use": "0x140001778#28",
+                "input_index": 0
+              },
+              {
+                "definition": "0x140001778#28",
+                "use": "0x14000177c#33",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017c2#279",
+                "use": "0x140001791#76",
+                "input_index": 0
+              },
+              {
+                "definition": "0x140001791#76",
+                "use": "0x140001798#82",
+                "input_index": 1
+              },
+              {
+                "definition": "0x140001798#82",
+                "use": "0x14000179b#89",
+                "input_index": 1
+              },
+              {
+                "definition": "0x14000179b#89",
+                "use": "0x14000179e#257",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017c2#279",
+                "use": "0x1400017a6#108",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017af#285",
+                "use": "0x1400017af#111",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017a6#108",
+                "use": "0x1400017af#111",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017af#111",
+                "use": "0x1400017af#112",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017b3#286",
+                "use": "0x1400017b3#120",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017af#112",
+                "use": "0x1400017b3#120",
+                "input_index": 1
+              },
+              {
+                "definition": "0x14000179e#257",
+                "use": "0x1400017b3#286",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017b3#120",
+                "use": "0x1400017b5#125",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017c2#279",
+                "use": "0x1400017be#134",
+                "input_index": 0
+              },
+              {
+                "definition": "0x140001785#54",
+                "use": "0x1400017c2#279",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017be#134",
+                "use": "0x1400017c2#279",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017c2#279",
+                "use": "0x1400017c6#69",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017c6#69",
+                "use": "0x1400017c6#70",
+                "input_index": 1
+              },
+              {
+                "definition": "0x14000177e#34",
+                "use": "0x1400017cd#218",
+                "input_index": 0
+              },
+              {
+                "definition": "0x1400017c8#71",
+                "use": "0x1400017cd#218",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017cd#218",
+                "use": "0x1400017d2#51",
+                "input_index": 1
+              },
+              {
+                "definition": "0x1400017cd#283",
+                "use": "0x1400017d2#284",
+                "input_index": 1
+              }
+            ],
+            "effects": [
+              {
+                "operation": "0x140001773#22",
+                "kind": "direct_call",
+                "operand_input": 0,
+                "value_input": null
+              },
+              {
+                "operation": "0x14000177c#33",
+                "kind": "conditional_branch",
+                "operand_input": null,
+                "value_input": 1
+              },
+              {
+                "operation": "0x14000179b#89",
+                "kind": "memory_read",
+                "operand_input": 1,
+                "value_input": null
+              },
+              {
+                "operation": "0x1400017af#112",
+                "kind": "memory_read",
+                "operand_input": 1,
+                "value_input": null
+              },
+              {
+                "operation": "0x1400017b5#125",
+                "kind": "conditional_branch",
+                "operand_input": null,
+                "value_input": 1
+              },
+              {
+                "operation": "0x1400017c6#70",
+                "kind": "conditional_branch",
+                "operand_input": null,
+                "value_input": 1
+              }
+            ],
+            "parameters": [
+              {
+                "ordinal": 0,
+                "name": "param_1",
+                "data_type": "/char *"
+              }
+            ],
+            "parameter_uses": [
+              {
+                "ordinal": 0,
+                "use": "0x140001773#22",
+                "input_index": 1
+              },
+              {
+                "ordinal": 0,
+                "use": "0x140001798#82",
+                "input_index": 0
+              }
+            ],
+            "truncated": false,
+            "omitted_operations_lower_bound": 0,
+            "known_omitted_inputs": 0,
+            "known_omitted_edges": 0,
+            "limitations": [
+              "High p-code is decompiler-derived, not original source or runtime behavior. is_dead preserves the Java AST flag; decoded block members can retain that flag, so block_membership separately reports actual syntax-tree membership.",
+              "Def-use links do not cross function boundaries and may omit memory aliasing, call side effects, or unresolved indirect flow.",
+              "Memory read/write effects include stack and temporary memory operations; they do not identify persistent state or business meaning.",
+              "Operation, input, and def-use limits can truncate large functions; inspect truncation, omitted lower bounds, and known omitted counts before drawing conclusions.",
+              "Known omitted-edge counts cover links omitted from retained operations; omitted operations may contain additional uncounted links."
+            ]
+          },
+          "limitations": [
+            "Unresolved computed or indirect flows without target addresses are not represented as reference edges.",
+            "Thunk and external classifications are Ghidra FunctionManager observations; they do not resolve targetless calls.",
+            "Pseudocode and assembly are Ghidra-specific representations, not original source or Hopper-equivalent text.",
+            "Synthetic Ghidra entry-point references without actionable memory sources are omitted."
+          ]
+        },
+        "confidence": "observed",
+        "authority": "shipped-artifact",
+        "environment": null,
+        "limitations": [
+          "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+          "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+          "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+          "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+          "References cover the complete Ghidra function-body AddressSet and exact entry. Dossier incoming edges omit sources owned by that function; procedure_references also retains those internal edges.",
+          "The dossier combines Ghidra FunctionManager, Listing, ReferenceManager, BasicBlockModel, and decompiler observations; provider-specific pseudocode and assembly are not cross-provider text invariants.",
+          "Resolved reference metadata identifies computed, indirect, external, call, jump, and data edges; unresolved targetless flows remain unknown, and function classifications distinguish thunks and externals.",
+          "Synthetic Ghidra entry-point references without actionable memory sources are omitted.",
+          "The Java bridge serializes one function request per Program and lets each decompilation run until it completes or the caller cancels.",
+          "Windows Ghidra P0 accepts approved native x86 and x86-64 PE applications and DLLs; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+          "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+          "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically."
+        ],
+        "locations": [],
+        "evidence_links": []
+      }
+    },
+    "tool": "rea_run",
+    "dangerous": false,
+    "duration_ms": 38611.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791908854677573500-a62a68a7.json"
+  }
+}

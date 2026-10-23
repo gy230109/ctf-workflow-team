@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-14 10:24:24",
+  "call_id": "1791944664678385000-6067c658",
+  "args": {
+    "values": [
+      48,
+      60
+    ],
+    "wp_case": "fixture"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 12
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "duration_ms": 16.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791944664678385000-6067c658.json"
+  }
+}

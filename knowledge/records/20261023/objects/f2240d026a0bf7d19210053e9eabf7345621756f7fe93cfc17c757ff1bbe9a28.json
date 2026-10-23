@@ -1,0 +1,60 @@
+{
+  "packages": [
+    "gdb",
+    "checksec",
+    "strace",
+    "ltrace",
+    "python3-pwntools",
+    "python3-z3",
+    "python3-gmpy2",
+    "python3-venv"
+  ],
+  "python_modules": {
+    "pwn": false,
+    "Crypto": false,
+    "Cryptodome": true,
+    "z3": false,
+    "gmpy2": false,
+    "dnfile": false
+  },
+  "apt_update": {
+    "argv": [
+      "sudo",
+      "-n",
+      "apt-get",
+      "update",
+      "-o",
+      "Acquire::Retries=1",
+      "-o",
+      "Acquire::http::Timeout=30",
+      "-o",
+      "Acquire::https::Timeout=30"
+    ],
+    "returncode": 0,
+    "stdout": "忽略:1 http://http.kali.org/kali kali-rolling InRelease\n忽略:2 http://download.zerotier.com/debian/trixie trixie InRelease\n错误:1 http://http.kali.org/kali kali-rolling InRelease\n  暂时不能解析域名“http.kali.org”\n错误:2 http://download.zerotier.com/debian/trixie trixie InRelease\n  暂时不能解析域名“download.zerotier.com”\n正在读取软件包列表...\n",
+    "stderr": "W: 无法下载 http://http.kali.org/kali/dists/kali-rolling/InRelease  暂时不能解析域名“http.kali.org”\nW: 无法下载 http://download.zerotier.com/debian/trixie/dists/trixie/InRelease  暂时不能解析域名“download.zerotier.com”\nW: 部分索引文件下载失败。如果忽略它们，那将转而使用旧的索引文件。\n"
+  },
+  "install_plan": {
+    "argv": [
+      "sudo",
+      "-n",
+      "apt-get",
+      "-s",
+      "install",
+      "--no-install-recommends",
+      "gdb",
+      "checksec",
+      "strace",
+      "ltrace",
+      "python3-pwntools",
+      "python3-z3",
+      "python3-gmpy2",
+      "python3-venv"
+    ],
+    "returncode": 0,
+    "stdout": "正在读取软件包列表...\n正在分析软件包的依赖关系树...\n正在读取状态信息...\n正在解析依赖...\n将会同时安装下列软件：\n  libdebuginfod-common libdebuginfod1t64 libdw1t64 libelf1t64 libexpat1\n  libexpat1-dev libipt2 libjs-sphinxdoc libpython3-dev libpython3-stdlib\n  libpython3.14 libpython3.14-minimal libpython3.14-stdlib\n  libsource-highlight-common libsource-highlight4t64 libunicorn2t64 libz3-4\n  libz3-dev python-gmpy2-common python3 python3-colored-traceback python3-dev\n  python3-intervaltree python3-minimal python3-plumbum python3-pyelftools\n  python3-ropgadget python3-rpyc python3-tk python3-unicorn python3.14-tk\n建议安装：\n  gdb-doc gdbserver libc-dbg python-gmpy2-doc gdb-multiarch qemu-user-static\n  python3-rpyc-doc\n推荐安装：\n  gdbserver\n下列【新】软件包将被安装：\n  checksec gdb libdebuginfod-common libdebuginfod1t64 libipt2 libpython3.14\n  libpython3.14-minimal libpython3.14-stdlib libsource-highlight-common\n  libsource-highlight4t64 libunicorn2t64 ltrace python-gmpy2-common\n  python3-colored-traceback python3-gmpy2 python3-intervaltree python3-plumbum\n  python3-pwntools python3-pyelftools python3-ropgadget python3-rpyc\n  python3-unicorn python3-z3 strace\n下列软件包将被升级：\n  libdw1t64 libelf1t64 libexpat1 libexpat1-dev libjs-sphinxdoc libpython3-dev\n  libpython3-stdlib libz3-4 libz3-dev python3 python3-dev python3-minimal\n  python3-tk python3-venv python3.14-tk\n升级了 15 个软件包，新安装了 24 个软件包，要卸载 0 个软件包，有 1770 个软件包未被升级。\nInst libdebuginfod-common (0.195-1 kali-rolling [all])\nInst libexpat1-dev [2.7.4-1] (2.8.2-1 kali-rolling [amd64]) []\nInst libexpat1 [2.7.4-1] (2.8.2-1 kali-rolling [amd64])\nInst python3-venv [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64]) []\nInst libpython3-dev [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64]) [python3-dev:amd64 ]\nInst python3-dev [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64]) []\nInst python3-minimal [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64]) [python3:amd64 on python3-minimal:amd64] [python3:amd64 ]\nConf python3-minimal (3.13.9-3+b1 kali-rolling [amd64]) [python3:amd64 ]\nInst python3 [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64]) []\nInst libjs-sphinxdoc [8.2.3-12] (9.1.0-4 kali-rolling [all]) []\nInst libpython3-stdlib [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64])\nInst checksec (2.6.0-2 kali-rolling [all])\nInst libdw1t64 [0.194-1] (0.195-1 kali-rolling [amd64]) []\nInst libelf1t64 [0.194-1] (0.195-1 kali-rolling [amd64])\nInst libdebuginfod1t64 (0.195-1 kali-rolling [amd64])\nInst libipt2 (2.2-1 kali-rolling [amd64])\nInst libpython3.14-minimal (3.14.6-1 kali-rolling [amd64])\nInst libpython3.14-stdlib (3.14.6-1 kali-rolling [amd64])\nInst libpython3.14 (3.14.6-1 kali-rolling [amd64])\nInst libsource-highlight-common (3.1.9-4.3 kali-rolling [all])\nInst libsource-highlight4t64 (3.1.9-4.3+b2 kali-rolling [amd64])\nInst gdb (17.2-1+b1 kali-rolling [amd64])\nInst libunicorn2t64 (2.1.4-3+b1 kali-rolling [amd64])\nInst libz3-4 [4.13.3-1+b1] (4.13.3-1.1 kali-rolling [amd64]) [libz3-dev:amd64 ]\nInst libz3-dev [4.13.3-1+b1] (4.13.3-1.1 kali-rolling [amd64])\nInst ltrace (0.7.91~git20230705.8eabf68-4+b1 kali-rolling [amd64])\nInst python-gmpy2-common (2.2.1-5 kali-rolling [all])\nInst python3-colored-traceback (0.4.2-1 kali-rolling [all])\nInst python3-gmpy2 (2.2.1-5 kali-rolling [amd64])\nInst python3-intervaltree (3.0.2-1.1 kali-rolling [all])\nInst python3-plumbum (1.10.0-1 kali-rolling [all])\nInst python3-pyelftools (0.33-1 kali-rolling [all])\nInst python3-ropgadget (7.7+dfsg-1 kali-rolling [all])\nInst python3-rpyc (6.0.2-1 kali-rolling [all])\nInst python3-unicorn (2.1.4-3 kali-rolling [all])\nInst python3-pwntools (4.15.0-1 kali-rolling [all])\nInst python3.14-tk [3.14.3-1] (3.14.6-1 kali-rolling [amd64])\nInst python3-tk [3.13.9-3] (3.13.9-3+b1 kali-rolling [amd64])\nInst python3-z3 (4.13.3-1.1 kali-rolling [amd64])\nInst strace (7.0+ds-1 kali-rolling [amd64])\nConf libdebuginfod-common (0.195-1 kali-rolling [all])\nConf libexpat1-dev (2.8.2-1 kali-rolling [amd64])\nConf libexpat1 (2.8.2-1 kali-rolling [amd64])\nConf python3-venv (3.13.9-3+b1 kali-rolling [amd64])\nConf libpython3-dev (3.13.9-3+b1 kali-rolling [amd64])\nConf python3-dev (3.13.9-3+b1 kali-rolling [amd64])\nConf python3 (3.13.9-3+b1 kali-rolling [amd64])\nConf libjs-sphinxdoc (9.1.0-4 kali-rolling [all])\nConf libpython3-stdlib (3.13.9-3+b1 kali-rolling [amd64])\nConf checksec (2.6.0-2 kali-rolling [all])\nConf libdw1t64 (0.195-1 kali-rolling [amd64])\nConf libelf1t64 (0.195-1 kali-rolling [amd64])\nConf libdebuginfod1t64 (0.195-1 kali-rolling [amd64])\nConf libipt2 (2.2-1 kali-rolling [amd64])\nConf libpython3.14-minimal (3.14.6-1 kali-rolling [amd64])\nConf libpython3.14-stdlib (3.14.6-1 kali-rolling [amd64])\nConf libpython3.14 (3.14.6-1 kali-rolling [amd64])\nConf libsource-highlight-common (3.1.9-4.3 kali-rolling [all])\nConf libsource-highlight4t64 (3.1.9-4.3+b2 kali-rolling [amd64])\nConf gdb (17.2-1+b1 kali-rolling [amd64])\nConf libunicorn2t64 (2.1.4-3+b1 kali-rolling [amd64])\nConf libz3-4 (4.13.3-1.1 kali-rolling [amd64])\nConf libz3-dev (4.13.3-1.1 kali-rolling [amd64])\nConf ltrace (0.7.91~git20230705.8eabf68-4+b1 kali-rolling [amd64])\nConf python-gmpy2-common (2.2.1-5 kali-rolling [all])\nConf python3-colored-traceback (0.4.2-1 kali-rolling [all])\nConf python3-gmpy2 (2.2.1-5 kali-rolling [amd64])\nConf python3-intervaltree (3.0.2-1.1 kali-rolling [all])\nConf python3-plumbum (1.10.0-1 kali-rolling [all])\nConf python3-pyelftools (0.33-1 kali-rolling [all])\nConf python3-ropgadget (7.7+dfsg-1 kali-rolling [all])\nConf python3-rpyc (6.0.2-1 kali-rolling [all])\nConf python3-unicorn (2.1.4-3 kali-rolling [all])\nConf python3-pwntools (4.15.0-1 kali-rolling [all])\nConf python3.14-tk (3.14.6-1 kali-rolling [amd64])\nConf python3-tk (3.13.9-3+b1 kali-rolling [amd64])\nConf python3-z3 (4.13.3-1.1 kali-rolling [amd64])\nConf strace (7.0+ds-1 kali-rolling [amd64])\n",
+    "stderr": ""
+  },
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 87.343
+}

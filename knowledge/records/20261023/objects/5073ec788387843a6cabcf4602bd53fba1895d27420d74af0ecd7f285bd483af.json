@@ -1,0 +1,25 @@
+{
+  "ts": "2026-10-12 16:10:21",
+  "call_id": "1791792621979826800-ec07270a",
+  "args": {
+    "which": "题目库"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "items": [
+        "CTF-Archives",
+        "EasyRsa",
+        "ctf-challenges-2026-10-11",
+        "htv-2026-10-11",
+        "pwn.college",
+        "vvvmmm",
+        "xxd"
+      ]
+    },
+    "tool": "case_list",
+    "dangerous": false,
+    "duration_ms": 0.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791792621979826800-ec07270a.json"
+  }
+}

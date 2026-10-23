@@ -1,0 +1,15 @@
+{
+  "ts": "2026-10-12 01:29:44",
+  "call_id": "1791739784155807800-f40eb9cb",
+  "args": {
+    "path": "../private.txt"
+  },
+  "response": {
+    "ok": false,
+    "tool": "kb_read",
+    "error": "ValueError('只允许读取 HackTricks src 内的 Markdown 原文')",
+    "error_code": "execution_failed",
+    "duration_ms": 0.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791739784155807800-f40eb9cb.json"
+  }
+}

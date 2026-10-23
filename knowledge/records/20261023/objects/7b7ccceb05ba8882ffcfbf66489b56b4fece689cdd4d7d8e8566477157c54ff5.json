@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "challenge_id": 67,
+    "submission_flag": "incorrect-connector-check",
+    "confirm": true,
+    "wp_case": "ctf-be53732c839da95a",
+    "case": "ctf-be53732c839da95a"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "challenge_id": 67,
+      "judge_status": "incorrect",
+      "candidate_verified": false,
+      "platform_previously_solved": false,
+      "judge": "CTFd player submission API",
+      "submission_sha256": "3f4aecd3fd13471d5de2eb2f3b7f31582c4cc644d28b865720ebe9ab805b7a41"
+    },
+    "tool": "ctfd_submit",
+    "dangerous": true,
+    "duration_ms": 237.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062659103503900-9ee651b7.json"
+  }
+}

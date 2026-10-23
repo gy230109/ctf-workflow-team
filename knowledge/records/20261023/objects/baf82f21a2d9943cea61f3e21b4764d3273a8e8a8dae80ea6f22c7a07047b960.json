@@ -1,0 +1,43 @@
+{
+  "ts": "2026-10-14 20:10:40",
+  "call_id": "1791979840100983700-42eac9e6",
+  "args": {
+    "cmd": "echo \"########## MainActivity.java ##########\"; cat /tmp/jo/sources/com/geekerchina/hi/MainActivity.java; echo; echo \"########## androidTest.java ##########\"; cat /tmp/jo/sources/com/geekerchina/hi/androidTest.java",
+    "confirm": true,
+    "timeout": 120
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T121038Z-673e904a",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+      "command": [
+        "bash",
+        "-c",
+        "echo \"########## MainActivity.java ##########\"; cat /tmp/jo/sources/com/geekerchina/hi/MainActivity.java; echo; echo \"########## androidTest.java ##########\"; cat /tmp/jo/sources/com/geekerchina/hi/androidTest.java"
+      ],
+      "timeout_seconds": 120,
+      "started_at_utc": "2026-10-14T12:10:40.191912+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.046,
+      "stdout_bytes": 5177,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "########## MainActivity.java ##########\npackage com.geekerchina.hi;\n\nimport android.os.Bundle;\nimport android.support.v7.app.AppCompatActivity;\nimport android.view.Menu;\nimport android.view.MenuItem;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.EditText;\n\n/* JADX INFO: loaded from: classes.dex */\npublic class MainActivity extends AppCompatActivity {\n    @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n        Button Btn1 = (Button) findViewById(R.id.button);\n        final EditText Et1 = (EditText) findViewById(R.id.editText);\n        Btn1.setOnClickListener(new View.OnClickListener() { // from class: com.geekerchina.hi.MainActivity.1\n            @Override // android.view.View.OnClickListener\n            public void onClick(View v) {\n                int i = Integer.parseInt(Et1.getText().toString());\n                if (i > 10000000 && i < 99999999) {\n                    int t = 1;\n                    int t1 = 10000000;\n                    int flag = 1;\n                    if (Math.abs(((i / 1000) % 100) - 36) == 3 && (i % 1000) % 584 == 0) {\n                        for (int j = 0; j < 4; j++) {\n                            if ((i / t) % 10 != (i / t1) % 10) {\n                                flag = 0;\n                                break;\n                            } else {\n                                t *= 10;\n                                t1 /= 10;\n                            }\n                        }\n                        if (flag == 1) {\n                            char c1 = (char) (i / 1000000);\n                            char c2 = (char) ((i / 10000) % 100);\n                            char c3 = (char) ((i / 100) % 100);\n                            Et1.setText(\"NJCTF{\" + c1 + c2 + c3 + \"f4n}\");\n                        }\n                    }\n                }\n            }\n        });\n    }\n\n    @Override // android.app.Activity\n    public boolean onCreateOptionsMenu(Menu menu) {\n        getMenuInflater().inflate(R.menu.menu_main, menu);\n        return true;\n    }\n\n    @Override // android.app.Activity\n    public boolean onOptionsItemSelected(MenuItem item) {\n        int id = item.getItemId();\n        if (id == R.id.action_settings) {\n            return true;\n        }\n        return super.onOptionsItemSelected(item);\n    }\n}\n\n########## androidTest.java ##########\npackage com.geekerchina.hi;\n\nimport android.os.Bundle;\nimport android.support.v7.app.AppCompatActivity;\nimport android.view.Menu;\nimport android.view.MenuItem;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.EditText;\n\n/* JADX INFO: loaded from: classes.dex */\npublic class androidTest extends AppCompatActivity {\n    @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.build);\n        Button Btn1 = (Button) findViewById(R.id.button);\n        final EditText Et1 = (EditText) findViewById(R.id.editText);\n        Btn1.setOnClickListener(new View.OnClickListener() { // from class: com.geekerchina.hi.androidTest.1\n            @Override // android.view.View.OnClickListener\n            public void onClick(View v) {\n                int i = Integer.parseInt(Et1.getText().toString());\n                if (i > 10000000 && i < 99999999) {\n                    int t = 1;\n                    int t1 = 10000000;\n                    int flag = 1;\n                    if (Math.abs(((i / 1000) % 100) - 36) == 3 && (i % 1000) % 584 == 0) {\n                        for (int j = 0; j < 3; j++) {\n                            if ((i / t) % 10 != (i / t1) % 10) {\n                                flag = 0;\n                                break;\n                            } else {\n                                t *= 10;\n                                t1 /= 10;\n                            }\n                        }\n                        if (flag == 1) {\n                            char c1 = (char) (i / 1000000);\n                            char c2 = (char) ((i / 10000) % 100);\n                            char c3 = (char) (((i / 100) % 100) + 10);\n                            Et1.setText(\"NJCTF{have\" + c1 + c2 + c3 + \"f4n}\");\n                        }\n                    }\n                }\n            }\n        });\n    }\n\n    @Override // android.app.Activity\n    public boolean onCreateOptionsMenu(Menu menu) {\n        getMenuInflater().inflate(R.menu.menu_main, menu);\n        return true;\n    }\n\n    @Override // android.app.Activity\n    public boolean onOptionsItemSelected(MenuItem item) {\n        int id = item.getItemId();\n        if (id == R.id.action_settings) {\n            return true;\n        }\n        return super.onOptionsItemSelected(item);\n    }\n}\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261014T121038Z-673e904a.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.625,
+      "bridge_exit": 0,
+      "case": "ctfos_commands",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 2921.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791979840100983700-42eac9e6.json"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-18 11:30:18",
+  "call_id": "1792294218375085900-62ffa09f",
+  "args": {
+    "case": "ctf-e9c09fae2e96eca4",
+    "title": "DeepSeek Harness MCP 自建联通样例",
+    "category": "crypto"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-e9c09fae2e96eca4",
+      "created": true,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-e9c09fae2e96eca4",
+      "usage": "后续 CTF-OS 调用加 wp_case=<题号> 自动留证；wp_note 补思路；wp_build 生成中文 WP"
+    },
+    "tool": "wp_init",
+    "dangerous": false,
+    "duration_ms": 12.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792294218375085900-62ffa09f.json"
+  }
+}

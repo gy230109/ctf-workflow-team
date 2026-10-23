@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-12 00:01:39",
+  "call_id": "1791734499454052500-6d557dd4",
+  "args": {},
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "配置: qq1034854017\r\n{\r\n  \"success\": true,\r\n  \"dojo\": \"reversing-hell\",\r\n  \"module\": \"babyrev\",\r\n  \"challenge\": \"level01\",\r\n  \"practice\": false,\r\n  \"home\": true\r\n}\r\n",
+      "stderr": "",
+      "stdout_bytes": 166,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_status",
+    "dangerous": false,
+    "duration_ms": 3345.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734499454052500-6d557dd4.json"
+  }
+}

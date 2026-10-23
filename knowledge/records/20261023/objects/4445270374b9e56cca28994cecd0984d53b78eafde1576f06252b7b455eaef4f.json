@@ -1,0 +1,38 @@
+{
+  "case": "rea_worker_20261014_42138a",
+  "timeline_head": "f95150fc1382dad1ca8eef74410566f1a3ac5ee166b2b2d398fe3214bf782a36",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "cc9fd5c3f3812f9c1301781df3caf8f994b2a5053ff9574fe662f40b93b4fdb2",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0003-log.png",
+      "sha256": "46b05147b6eb0fb6156409c30adb5f347681d7722346d1a07f1535948f4e4aec",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0004-log.png",
+      "sha256": "2036d32f4ded9ffc6c8713e5653bfb6ef06e44abb739aff109afb6102fe47bd2",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0005-log.png",
+      "sha256": "289a064b9d364fabb83a895cff635a979d9acd4a93650577b06ba42bdd71991c",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0006-log.png",
+      "sha256": "752c9e52649290fa34fe314ec78c6048d6efaf0829dc0a6ae7df4f1465a52a5d",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "323561bc58a3693774a60249d38e0d33df491d1f6fe11f72d36aa871ad9b3cf8",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

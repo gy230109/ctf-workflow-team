@@ -1,0 +1,19 @@
+{
+  "ts": "2026-10-11 23:28:01",
+  "call_id": "1791732481609016600-f20eb78d",
+  "args": {
+    "confirm": true
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "缺少 argv 或 cmd"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "缺少 argv 或 cmd",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791732481609016600-f20eb78d.json"
+  }
+}

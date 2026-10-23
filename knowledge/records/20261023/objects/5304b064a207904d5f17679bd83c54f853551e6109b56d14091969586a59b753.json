@@ -1,0 +1,18 @@
+{
+  "ts": "2026-10-13 21:06:06",
+  "call_id": "1791896766444893900-00616451",
+  "args": {
+    "case": "qwb2023_not_only_rsa",
+    "status": "observed",
+    "source_step": 1,
+    "text": "附件 out.txt 给出 n(1279-bit)/e=641747/c；task.py 显示 m=bytes_to_long(flag+随机填充到158字节)，c=m^e mod n。"
+  },
+  "response": {
+    "ok": false,
+    "tool": "wp_note",
+    "error": "ValueError('观察必须引用实际调用或截图的 source_step')",
+    "error_code": "execution_failed",
+    "duration_ms": 19.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791896766444893900-00616451.json"
+  }
+}

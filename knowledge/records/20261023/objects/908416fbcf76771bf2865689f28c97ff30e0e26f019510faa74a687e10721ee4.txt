@@ -1,0 +1,19 @@
+
+===================================================================
+Follow: tcp,ascii
+Filter: tcp.stream eq 0
+Node 0: 192.0.2.1:40000
+Node 1: 192.0.2.2:80
+54
+GET /artifact.txt HTTP/1.1
+Host: evidence.example
+
+
+	99
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 15
+Connection: close
+
+ctf-system-demo
+===================================================================

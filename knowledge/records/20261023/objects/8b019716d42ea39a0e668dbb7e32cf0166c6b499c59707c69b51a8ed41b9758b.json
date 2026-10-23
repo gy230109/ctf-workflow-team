@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T155427Z-cf0be3d4",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+  "command": [
+    "bash",
+    "-c",
+    "echo ---PROC---; pgrep -af apt-get | grep -v bash | head -2; echo ---LOG---; tail -4 /tmp/gh2.log; echo ---DISK---; df -h / | tail -1; true"
+  ],
+  "timeout_seconds": 30,
+  "started_at_utc": "2026-10-11T15:54:28.686494+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.041,
+  "stdout_bytes": 604,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "---PROC---\n---LOG---\n错误:1 http://mirrors.neusoft.edu.cn/kali kali-rolling/main amd64 ghidra-data all 10.5-0kali1\n  无法发起与 mirrors.neusoft.edu.cn:80 (2001:da8:a807::25) 的连接。 - connect (101: 网络不可达)\nE: 无法下载 http://mirrors.neusoft.edu.cn/kali/pool/main/g/ghidra-data/ghidra-data_10.5-0kali1_all.deb  无法发起与 mirrors.neusoft.edu.cn:80 (2001:da8:a807::25) 的连接。 - connect (101: 网络不可达)\nE: 有几个软件包无法下载，要不运行 apt update 或者加上 --fix-missing 的选项再试试？\n---DISK---\n/dev/sda1        79G   26G   50G   34% /\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T155427Z-cf0be3d4.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.375
+}

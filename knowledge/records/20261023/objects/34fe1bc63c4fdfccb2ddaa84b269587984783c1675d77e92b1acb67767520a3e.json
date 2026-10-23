@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/qwbtrie",
+  "files": [
+    {
+      "name": "exploit_B.txt",
+      "bytes": 734,
+      "sha256": "acefa0f50b9e4b0258748d90747f1ecee5a78d5847288fa818559e4b5cde7d20"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.344
+}

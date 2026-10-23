@@ -1,0 +1,11 @@
+{
+  "tool": "forensics_pcap",
+  "arguments": {
+    "action": "dns",
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-04fca725df3de1d8\\attachments\\offline-demo.pcap",
+    "wp_purpose": "部署自建样例验收：dns",
+    "wp_case": "ctf-04fca725df3de1d8",
+    "case": "ctf-04fca725df3de1d8"
+  },
+  "operation_id": "54d6231f9a0a4546ba39e591e44faf9a"
+}

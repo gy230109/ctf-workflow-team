@@ -1,0 +1,153 @@
+{
+  "case": "ctf-a4595e3240dcc28b",
+  "timeline_head": "06975885cf172359639fdf411c6df1981e8a4557411718d7e2fc4bc929b806b2",
+  "files": [
+    {
+      "path": "images/0003-log.png",
+      "sha256": "8bda4900944a337f5bd3ff4b5d6d0d1b1506ecf96f3d2c587b635b283f62f100",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0005-log.png",
+      "sha256": "80dd48c8f51975b82ad1022896987f656eb17c4cd4b5ad79a7767c2972e81153",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0008-log.png",
+      "sha256": "c7d497ec7daaaf0685163c7b595cb7b8aa08599eb82492338d411e219944c64a",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0010-log.png",
+      "sha256": "63f79f899d95406941659a8ff62e4de066e686d5d09b58cae99da12f54d4e690",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0012-log.png",
+      "sha256": "c29ddab8a947588808a6b110b2b4260614c8845bbc76f83fd055efc8f0ee30c3",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0014-log.png",
+      "sha256": "3ad89cb5f902842a9dbf13000df4fe059014b96d779c7013b9e9d53a78a5be58",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0016-log.png",
+      "sha256": "db75778079f6468d8c51cc801a2949dc916830fd781c59d395280b9b18b68b90",
+      "kind": "log_render"
+    },
+    {
+      "path": "evidence/timeline.jsonl",
+      "sha256": "4266ec83fb31c5b49d4ebc15a38f1363cbf4d230f7703ce39c45ba0225c2e0a3",
+      "kind": "timeline"
+    },
+    {
+      "path": "evidence/checkpoint.json",
+      "sha256": "4c96f2fc1f81078e1cbd8a2da48bb5e72d80185f031028de7f2aa2626d11397e",
+      "kind": "timeline"
+    },
+    {
+      "path": "evidence/session.json",
+      "sha256": "8a189bb2a42e78de558941bf021e8d192fb117693bcf253532cb73b33ad75867",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/aa5d8659e9ea47358bf380197d77a382-begin.json",
+      "sha256": "874a5b34ff43ea76635f16ada8137bbad952c3e14d7754b1a279ebd9c920533d",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0003-call.json",
+      "sha256": "8766fbcb9f86d739f1f5b124a86e20266d08d397a65b45a2cfea29135c893385",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/ad410686557443438d5ebb5c118c16da-begin.json",
+      "sha256": "8ab4b8bc621fce4aab6a414bbd08416550944e344afcd8453c3315ad1a881cb9",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0005-call.json",
+      "sha256": "9b4bb977a766474e08b269a8681e23fd7c22ff92c803e23ed2f8b3b836c53f89",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/fd33509036d64ed6aef919cb3d4d3ffb-begin.json",
+      "sha256": "d22c350d7bb624eff4c5bb8e481212ea086c322c687f8a9d814e9db7090ad217",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0008-call.json",
+      "sha256": "ab4313dcc641ae7b5c2c0150129a2349697dea81f3a0bace2f9a18a942101b0e",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/040263a8026c4b43804ab63cf8db5321-begin.json",
+      "sha256": "3955dd31ebbb965e510d50ef67b524c47e368682007f5f735fc373dfaf241e91",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0010-call.json",
+      "sha256": "e25250919a8bbc9fddb9a122ed176af17eaa7d7a223bdc67d290b4fe7270f017",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/a6aa2e720ae34b7cb2c173969bc84e67-begin.json",
+      "sha256": "5391ba10761adb20cdf1ca5c1a067d8ec832d43e6a8ceeccdb9290fd1153ba96",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0012-call.json",
+      "sha256": "106c1066f8db0c4cd127fc7c676682007b7866156c90c61312d44c8827a84346",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/a4ff6fc592224924a39d3b8075cd4f27-begin.json",
+      "sha256": "b48be11f8736bd15e8ff3110665a99d6fc1404ff50e6f8d36ace1666d1194e28",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0014-call.json",
+      "sha256": "42b3e82759f33428de7436fc0b7589dd2146188e96e056cd9dbc6358b61944eb",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/144f753d66644a719df11c66f146b975-begin.json",
+      "sha256": "fc024db988c9b5889ef29c90fd734f1c9a78c6c1cb23f06b939c72fdc6d66b39",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0016-call.json",
+      "sha256": "e9db278c3cee02e3d2807cd68cbd1b3a5870ca18f31624608d672100a599d878",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "14c41730dd3e066e5b9ed46c13d70bc940b3a06e6d030e2285c1d7d161db1e73",
+      "kind": "markdown"
+    }
+  ],
+  "private_bundle": true,
+  "text_redaction": "best_effort",
+  "images_reviewed": false,
+  "capture_errors": [
+    {
+      "step": 12,
+      "error": "Recording missing or exceeds 16 MiB",
+      "kind": "terminal_recording"
+    },
+    {
+      "step": 14,
+      "action_replayed": false,
+      "error": "Existing session has not loaded recording support; close it when idle before a new start",
+      "kind": "browser_recording"
+    }
+  ],
+  "pending_operations": [],
+  "recording_complete": false,
+  "platform_verification": [],
+  "images_included": 0,
+  "recordings_included": 0,
+  "scripts_included": 0
+}

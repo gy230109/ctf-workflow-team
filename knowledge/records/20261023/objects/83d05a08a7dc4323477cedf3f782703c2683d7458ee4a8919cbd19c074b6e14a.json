@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/symbol_image_20261013",
+  "files": [
+    {
+      "name": "grams.txt",
+      "bytes": 1023486,
+      "sha256": "e2640f1c426c636ef5de57ef6b394464245c8e1eff8f283a5e6c1880a4c21384"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.39
+}

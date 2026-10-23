@@ -1,0 +1,13 @@
+{
+  "tool": "math_gcd",
+  "arguments": {
+    "values": [
+      48,
+      60
+    ],
+    "wp_purpose": "验证 Harness 能通过真实 MCP 调用 CTF 算术工具并自动留证。",
+    "wp_expectation": "返回最大公约数 12。",
+    "wp_case": "ctf-e9c09fae2e96eca4"
+  },
+  "operation_id": "dffc913a9a9e4340aa0c8bbc584e650a"
+}

@@ -1,0 +1,25 @@
+{
+  "ts": "2026-10-12 00:29:32",
+  "call_id": "1791736172722074800-2710f169",
+  "args": {
+    "dojo": "reversing-hell",
+    "module": "welcome",
+    "challenge": "flag1"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "[1/5] 启动挑战 reversing-hell / welcome / flag1\r\n   已提交启动请求，等待容器就绪 ...\r\n   容器就绪: dojo=reversing-hell module=welcome challenge=flag1 practice=False\r\n[2/5] 下载 /challenge -> [CTF_ROOT]\\题目库\\pwn.college\\reversing-hell\\welcome\\flag1\r\n   flag1                                     1016624 B\r\n   flag1.c                                      1200 B\r\n[3/5] 抓题面 + 生成 manifest\r\n   description.md 0 B\r\n[4/5] 交接给 Kali（case=reversing-hell_welcome_flag1）\r\n   put rc=0  verified=True  files=3\r\n[5/5] 完成。\r\n   写脚本 ->  Kali 执行： \r\n     powershell -NoProfile -File \"[WORKSPACE]\\ctf-workbench\\kali.ps1\" python reversing-hell_welcome_flag1 <你的脚本.py>\r\n   取回产物：\r\n     powershell -NoProfile -File \"[WORKSPACE]\\ctf-workbench\\kali.ps1\" fetch reversing-hell_welcome_flag1 work/<产物>\r\n   提交 flag：\r\n     python pc_flow.py submit --dojo reversing-hell --module welcome --challenge flag1 --flag \"pwn.college{...}\"\r\n",
+      "stderr": "",
+      "stdout_bytes": 1061,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_pull",
+    "dangerous": false,
+    "duration_ms": 23522.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736172722074800-2710f169.json"
+  }
+}

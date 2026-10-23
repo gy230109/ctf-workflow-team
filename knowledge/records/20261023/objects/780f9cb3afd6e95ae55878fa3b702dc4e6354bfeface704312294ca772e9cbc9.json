@@ -1,0 +1,49 @@
+{
+  "ts": "2026-10-12 18:23:34",
+  "call_id": "1791800614735985400-f669bd75",
+  "args": {
+    "confirm": true,
+    "case": "qwb_ezre_v1",
+    "wp_case": "qwb-vanguard-ezre",
+    "timeout": 40,
+    "argv": [
+      "bash",
+      "-c",
+      "chmod +x ../input/ezre && printf 'flag{3ea590ccwxehg715264fzxnzepqz}\\n' | ../input/ezre; echo EXIT=$?"
+    ]
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261012T102334Z-2fc0470a",
+      "case_root": "/home/kali/ctf-workbench/cases/qwb_ezre_v1",
+      "cwd": "/home/kali/ctf-workbench/cases/qwb_ezre_v1/work",
+      "command": [
+        "bash",
+        "-c",
+        "chmod +x ../input/ezre && printf 'flag{3ea590ccwxehg715264fzxnzepqz}\\n' | ../input/ezre; echo EXIT=$?"
+      ],
+      "timeout_seconds": 40,
+      "started_at_utc": "2026-10-12T10:23:35.199742+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.044,
+      "stdout_bytes": 38,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "Welcome to the CTF world:right!EXIT=0\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwb_ezre_v1/results/20261012T102334Z-2fc0470a.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.484,
+      "bridge_exit": 0,
+      "case": "qwb_ezre_v1",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 1358.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791800614735985400-f669bd75.json"
+  }
+}

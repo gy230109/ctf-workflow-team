@@ -1,0 +1,161 @@
+{
+  "ts": "2026-10-15 13:53:02",
+  "call_id": "1792043582175064300-90c1d9e2",
+  "args": {
+    "deep": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "checked_at": "2026-10-15 13:52:27",
+      "items": [
+        {
+          "name": "Muteki",
+          "kind": "比赛套",
+          "ok": false,
+          "detail": "ReadTimeout(ReadTimeoutError(\"HTTPConnectionPool(host='192.168.26.130', port=3001): Read timed out. (read timeout=20)\"))"
+        },
+        {
+          "name": "Kali",
+          "kind": "Linux 执行环境",
+          "ok": false,
+          "bridge_status": {
+            "exit": 1,
+            "timed_out": false,
+            "stdout": "",
+            "stderr": "Evidence: [WORKSPACE]\\ctf-workbench\\cases\\_connection\\logs\\20261015T055255Z-e52abc05-error.json\r\n{\"error\": \"SSH/Python failed (255): Connection timed out during banner exchange\\r\\nConnection to 192.168.26.129 port 22 timed out\\r\\n\", \"action\": \"status\"}\r\n",
+            "stdout_bytes": 0,
+            "stderr_bytes": 283,
+            "output_truncated": false,
+            "error": "Kali 桥未返回有效 JSON",
+            "error_code": "bridge_failed"
+          },
+          "verified_scope": "SSH 桥及客机状态；不代表完成解题"
+        },
+        {
+          "name": "gbdis.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "final_verify.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "ctf_mcp_server.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "战例库",
+          "ok": true,
+          "count": 28,
+          "cases": [
+            "AliCTF-Reverse-easyandroid",
+            "BUUCTF-Reverse-reverse3",
+            "Bugku-Crypto-抄错的字符",
+            "CTF-Reverse-NoString-XOR9",
+            "CTF-Reverse-bayeeeee",
+            "CTF-Reverse-工程4-CE点击一万次",
+            "CTF-Reverse-开关灯-ConsoleApplication4",
+            "CTF-Reverse-特殊的Base64",
+            "CTF-Reverse-马保国杀毒卫士",
+            "DUTCTF-Reverse-re1",
+            "EasyRsa",
+            "Factor-20261010",
+            "HTV2020-adobesecretreader",
+            "HTV2020-x96",
+            "HelloSmali2-Reverse-Digest",
+            "Muteki席位切换-三席",
+            "Muteki首跑-EasyRsa",
+            "NJCTF-Reverse-SafeBox",
+            "QWB-crackme-task_qwxf",
+            "QWB2021-threebody",
+            "QWB2022-GameMaster-Blackjack",
+            "QWB2023-Crypto-babyrsa",
+            "QWB2023-Crypto-not_only_rsa",
+            "QWB2023-Reverse-ezre",
+            "QWB2025-Crypto-check-little",
+            "pwn.college",
+            "比赛-GameBoy",
+            "自出-xxd-png"
+          ]
+        },
+        {
+          "name": "HackTricks",
+          "kind": "本地技术参考",
+          "ok": true,
+          "knowledge_status": {
+            "source": "hacktricks",
+            "repo_url": "https://github.com/HackTricks-wiki/hacktricks",
+            "repo_path": "[CTF_ROOT]\\references\\hacktricks",
+            "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+            "branch": "master",
+            "built_at": "2026-10-11T17:29:30.457559+00:00",
+            "markdown_files": 1093,
+            "sections": 15287,
+            "language": "en",
+            "expected_markdown_files": 1093,
+            "excluded_files": [],
+            "retrieval": "local_keyword_fts5",
+            "trusted_instructions": false,
+            "ready": true,
+            "index_path": "[CTF_ROOT]\\references\\indexes\\hacktricks.sqlite3",
+            "index_bytes": 33914880
+          },
+          "verified_scope": "本地索引可读；资料不是解题成功证据"
+        },
+        {
+          "name": "x64dbg",
+          "kind": "Windows 动态调试（按需启动）",
+          "ok": true,
+          "service_reachable": false,
+          "debugger_status": {
+            "arch": "x64",
+            "executable": "D:\\Apps\\x64dbg-MCP\\release\\x64\\x64dbg.exe",
+            "installed": true,
+            "endpoint": "http://127.0.0.1:9094/",
+            "reachable": false,
+            "verified_scope": "调试服务和当前状态；不代表题目已解出",
+            "service_detail": "x64dbg 连接失败或超时；执行状态可能已变化，先查状态，不要自动重试动作"
+          },
+          "verified_scope": "安装与本机 MCP 状态；不代表完成题目分析"
+        }
+      ],
+      "registered_tools": 94,
+      "all_items_available": false,
+      "solving_workflow_verified": false,
+      "kali_dependencies": {
+        "exit": 1,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "Evidence: [WORKSPACE]\\ctf-workbench\\cases\\_connection\\logs\\20261015T055302Z-060bb34e-error.json\r\n{\"error\": \"SSH/Python failed (255): Connection timed out during banner exchange\\r\\nConnection to 192.168.26.129 port 22 timed out\\r\\n\", \"action\": \"run\"}\r\n",
+        "stdout_bytes": 0,
+        "stderr_bytes": 280,
+        "output_truncated": false,
+        "error": "Kali 桥未返回有效 JSON",
+        "error_code": "bridge_failed",
+        "case": "ctfos_doctor",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "local_commands": {
+        "local_sqlmap": "[USER_HOME]\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\sqlmap.EXE",
+        "local_ffuf": "[USER_HOME]\\tools\\ffuf.EXE",
+        "local_objdump": "[USER_HOME]\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\objdump.EXE",
+        "local_gdb": "[USER_HOME]\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\gdb.EXE"
+      },
+      "missing_optional_kali_commands": [],
+      "core_dependencies_ready": false,
+      "doctor_passed": false
+    },
+    "tool": "status",
+    "dangerous": false,
+    "duration_ms": 34566.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792043582175064300-90c1d9e2.json"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ts": "2026-10-11 23:52:50",
+  "call_id": "1791733970712704800-639e68d2",
+  "args": {
+    "x": 1
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "error": "需要 target（Kali 上已有路径）或 local_file（本机文件，会自动上传）"
+    },
+    "tool": "kali_objdump",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "需要 target（Kali 上已有路径）或 local_file（本机文件，会自动上传）",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791733970712704800-639e68d2.json"
+  }
+}

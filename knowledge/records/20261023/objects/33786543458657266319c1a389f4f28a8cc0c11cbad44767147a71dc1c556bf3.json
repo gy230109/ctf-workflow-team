@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T051658Z-ffdff309",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_setup_20261013",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/work",
+  "command": [
+    "python3",
+    "-c",
+    "import pathlib,os; p=pathlib.Path(os.environ['CTF_WORK_DIR']); r=p/'specialists-install.json'; print(r.read_text() if r.exists() else '{}'); print('\\n'.join((p/'specialists-install-fast.log').read_text(errors='replace').splitlines()[-10:]))"
+  ],
+  "timeout_seconds": 15,
+  "started_at_utc": "2026-10-13T05:17:00.135254+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.073,
+  "stdout_bytes": 3679,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\n  \"started_at\": \"2026-10-13T05:07:12.842427+00:00\",\n  \"status\": \"installed\",\n  \"venv\": \"/home/kali/ctf-workbench/.venv-specialists\",\n  \"packages\": [\n    \"lief\",\n    \"angr\",\n    \"fpylll\",\n    \"cysignals\",\n    \"volatility3\",\n    \"pwntools\",\n    \"pycryptodome\",\n    \"pillow\",\n    \"scapy\",\n    \"playwright\",\n    \"beautifulsoup4\",\n    \"requests\",\n    \"sympy\",\n    \"z3-solver\"\n  ],\n  \"core_environment_changed\": false,\n  \"returncode\": 0,\n  \"pip_check\": \"No broken requirements found.\",\n  \"pip_check_exit\": 0,\n  \"finished_at\": \"2026-10-13T05:13:34.504373+00:00\"\n}\n  Stored in directory: /home/kali/.cache/pip/wheels/d5/46/17/4d5c29332a0a93469e07de534e45e73a50098127b6f4c6fc9b\n  Building wheel for mulpyplexer (pyproject.toml): started\n  Building wheel for mulpyplexer (pyproject.toml): finished with status 'done'\n  Created wheel for mulpyplexer: filename=mulpyplexer-0.9-py3-none-any.whl size=3846 sha256=1d02669a80335e9d3ff481b9dafaa35a7ec1b3afeb372a909a0b025e3611d542\n  Stored in directory: /home/kali/.cache/pip/wheels/3c/63/7a/377e97a546000d20c835d96d71a897814c37b8695ee278ae21\nSuccessfully built arpy mulpyplexer\nInstalling collected packages: z3-solver, sortedcontainers, pyserial, mulpyplexer, mpmath, lmdb, fpylll, arpy, zstandard, urllib3, unix-ar, unicorn, typing-extensions, tibs, sympy, soupsieve, smmap, six, scapy, pyxdia, pyxbe, pysocks, pypcode, pygments, pyelftools, pydemumble, pycryptodome, pycparser, psutil, protobuf, plumbum, platformdirs, pillow, pefile, packaging, networkx, msgspec, minidump, mdurl, MarkupSafe, lief, invoke, intervaltree, idna, greenlet, future, cysignals, cxxheaderparser, charset_normalizer, certifi, capstone, cachetools, bcrypt, archinfo, angr-data, volatility3, uefi-firmware, rpyc, ropgadget, requests, python-dateutil, pyee, markdown-it-py, mako, gitdb, colored_traceback, cffi, cart, bitstring, beautifulsoup4, rich, pyvex, pynacl, playwright, GitPython, cryptography, paramiko, cle, pwntools, angr\n\nSuccessfully installed GitPython-3.2.0 MarkupSafe-3.0.4 angr-10.0.3 angr-data-0.2.0 archinfo-10.0.3 arpy-1.1.1 bcrypt-5.0.0 beautifulsoup4-4.15.0 bitstring-5.0.0 cachetools-7.2.1 capstone-5.0.9 cart-1.2.3 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.5.2 cle-10.0.3 colored_traceback-0.4.2 cryptography-50.0.2 cxxheaderparser-2.2.0 cysignals-1.13.1 fpylll-0.6.4 future-1.0.0 gitdb-4.0.12 greenlet-3.5.6 idna-3.20 intervaltree-3.2.1 invoke-3.0.3 lief-1.0.0 lmdb-2.1.1 mako-1.4.3 markdown-it-py-4.2.0 mdurl-0.1.2 minidump-0.0.24 mpmath-1.3.0 msgspec-0.22.0 mulpyplexer-0.9 networkx-3.7 packaging-26.3 paramiko-5.0.0 pefile-2024.8.26 pillow-12.3.0 platformdirs-4.13.0 playwright-1.63.0 plumbum-2.0.2 protobuf-7.36.2 psutil-7.2.2 pwntools-4.15.0 pycparser-3.11 pycryptodome-3.24.1 pydemumble-0.1.3 pyee-13.0.1 pyelftools-0.33 pygments-2.21.0 pynacl-1.6.2 pypcode-4.0.1 pyserial-3.5 pysocks-1.7.1 python-dateutil-2.9.0.post0 pyvex-10.0.3 pyxbe-1.0.4 pyxdia-0.1.1 requests-2.34.2 rich-15.0.0 ropgadget-7.7 rpyc-6.0.2 scapy-2.8.0 six-1.17.0 smmap-5.0.3 sortedcontainers-2.4.0 soupsieve-3.0.3 sympy-1.14.0 tibs-2.0.2 typing-extensions-4.16.0 uefi-firmware-1.16 unicorn-2.1.2 unix-ar-0.2.1 urllib3-2.8.0 volatility3-2.28.2 z3-solver-5.1.0.0 zstandard-0.25.0\n{\"started_at\": \"2026-10-13T05:07:12.842427+00:00\", \"status\": \"installed\", \"venv\": \"/home/kali/ctf-workbench/.venv-specialists\", \"packages\": [\"lief\", \"angr\", \"fpylll\", \"cysignals\", \"volatility3\", \"pwntools\", \"pycryptodome\", \"pillow\", \"scapy\", \"playwright\", \"beautifulsoup4\", \"requests\", \"sympy\", \"z3-solver\"], \"core_environment_changed\": false, \"returncode\": 0, \"pip_check\": \"No broken requirements found.\", \"pip_check_exit\": 0, \"finished_at\": \"2026-10-13T05:13:34.504373+00:00\"}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/results/20261013T051658Z-ffdff309.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.875
+}

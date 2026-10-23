@@ -1,0 +1,47 @@
+{
+  "ts": "2026-10-13 13:23:04",
+  "call_id": "1791868984049095400-a93c4c7c",
+  "args": {
+    "category": "forensics",
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "category": "forensics",
+      "packages": [
+        "scapy",
+        "volatility3"
+      ],
+      "modules": [
+        "scapy",
+        "volatility3"
+      ],
+      "commands": [
+        "tshark"
+      ],
+      "tools": [
+        "forensics_pcap_summary",
+        "forensics_volatility"
+      ],
+      "route": [
+        "保留原始证据与摘要",
+        "离线汇总流量并定位会话",
+        "内存取证先检查插件与符号需求",
+        "从真实工具输出复核结论并留 WP"
+      ],
+      "environment": "Kali specialist venv through existing bridge",
+      "next_step": "ctf_specialist_status 检查实际依赖；每题 wp_init，后续调用加同一 wp_case",
+      "route_is_not_a_solution": true,
+      "limits": {
+        "default_timeout_seconds": 60,
+        "default_memory_mb": 1536
+      }
+    },
+    "tool": "ctf_profile",
+    "dangerous": false,
+    "duration_ms": 25.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791868984049095400-a93c4c7c.json"
+  }
+}

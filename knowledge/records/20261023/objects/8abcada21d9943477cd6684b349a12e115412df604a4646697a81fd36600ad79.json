@@ -1,0 +1,29 @@
+{
+  "lightdm_log": {
+    "returncode": 0,
+    "stdout": "[+0.01s] DEBUG: Seat seat0 has property CanMultiSession=no\n[+0.01s] DEBUG: Seat seat0: Starting\n[+0.01s] DEBUG: Seat seat0: Creating greeter session\n[+0.02s] DEBUG: Seat seat0: Creating display server of type x\n[+0.08s] DEBUG: Seat seat0: Plymouth is running on VT 1, but this is less than the configured minimum of 7 so not replacing it\n[+0.08s] DEBUG: Quitting Plymouth\n[+0.14s] DEBUG: Using VT 7\n[+0.14s] DEBUG: Seat seat0: Starting local X display on VT 7\n[+0.14s] DEBUG: XServer 0: Logging to /var/log/lightdm/x-0.log\n[+0.14s] DEBUG: XServer 0: Writing X server authority to /var/run/lightdm/root/:0\n[+0.14s] DEBUG: XServer 0: Launching X Server\n[+0.14s] DEBUG: Launching process 1074: /usr/bin/X :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch\n[+0.14s] DEBUG: XServer 0: Waiting for ready signal from X server :0\n[+0.17s] DEBUG: Acquired bus name org.freedesktop.DisplayManager\n[+0.17s] DEBUG: Registering seat with bus path /org/freedesktop/DisplayManager/Seat0\n[+0.18s] DEBUG: Loading users from org.freedesktop.Accounts\n[+0.18s] DEBUG: User /org/freedesktop/Accounts/User1000 added\n[+2.29s] DEBUG: Got signal 10 from process 1074\n[+2.29s] DEBUG: XServer 0: Got signal from X server :0\n[+2.29s] DEBUG: XServer 0: Connecting to XServer :0\n[+2.39s] DEBUG: Seat seat0: Display server ready, starting session authentication\n[+2.39s] DEBUG: Session pid=1189: Started with service 'lightdm-greeter', username 'lightdm'\n[+2.44s] DEBUG: Session pid=1189: Authentication complete with return value 0: Success\n[+2.44s] DEBUG: Seat seat0: Session authenticated, running command\n[+2.44s] DEBUG: Session pid=1189: Running command /usr/sbin/lightdm-gtk-greeter\n[+2.44s] DEBUG: Creating shared data directory /var/lib/lightdm/data/lightdm\n[+2.44s] DEBUG: Session pid=1189: Logging to /var/log/lightdm/seat0-greeter.log\n[+3.23s] DEBUG: Activating VT 7\n[+3.23s] DEBUG: Activating login1 session c1\n[+3.24s] DEBUG: Seat seat0 changes active session to c1\n[+3.24s] DEBUG: Session c1 is already active\n[+3.24s] DEBUG: Seat seat0 changes active session to c1\n[+3.24s] DEBUG: Session c1 is already active\n[+4.08s] DEBUG: Greeter connected version=1.32.0 api=1 resettable=false\n[+4.96s] DEBUG: Greeter start authentication\n[+4.96s] DEBUG: Session pid=1348: Started with service 'lightdm', username '(null)'\n[+4.97s] DEBUG: Session pid=1348: Got 1 message(s) from PAM\n[+4.97s] DEBUG: Prompt greeter with 1 message(s)\n[+15805.31s] DEBUG: Got signal 15 from process 1\n[+15805.44s] DEBUG: Caught Terminated signal, shutting down\n[+15805.44s] DEBUG: Stopping display manager\n[+15805.44s] DEBUG: Seat seat0: Stopping\n[+15805.44s] DEBUG: Seat seat0: Stopping display server\n[+15805.44s] DEBUG: Sending signal 15 to process 1074\n[+15805.46s] DEBUG: Seat seat0: Stopping session\n[+15805.46s] DEBUG: Terminating login1 session c1\n[+15805.78s] DEBUG: Session pid=1189: Sending SIGTERM\n[+15805.78s] DEBUG: Seat seat0: Stopping session\n[+15805.78s] DEBUG: Session pid=1348: Sending SIGTERM\n[+15805.78s] DEBUG: Session pid=1348: Terminated with signal 15\n[+15805.78s] DEBUG: Session: Failed during authentication\n[+15805.78s] DEBUG: Seat seat0: Session stopped\n[+15806.08s] DEBUG: Greeter closed communication channel\n[+15806.08s] DEBUG: Session pid=1189: Exited with return value 0\n[+15806.08s] DEBUG: Seat seat0: Session stopped\n[+15807.02s] DEBUG: Seat seat0 changes active session to \n[+15807.38s] DEBUG: Process 1074 exited with return value 0\n[+15807.38s] DEBUG: XServer 0: X server stopped\n[+15807.38s] DEBUG: Releasing VT 7\n[+15807.38s] DEBUG: XServer 0: Removing X server authority /var/run/lightdm/root/:0\n[+15807.38s] DEBUG: Seat seat0: Display server stopped\n[+15807.38s] DEBUG: Seat seat0: Stopped\n[+15807.38s] DEBUG: Display manager stopped\n[+15807.38s] DEBUG: Stopping daemon\n[+15807.39s] DEBUG: Exiting with return value 0\n",
+    "stderr": ""
+  },
+  "xorg_log": {
+    "returncode": 0,
+    "stdout": "\nX.Org X Server 1.21.1.21\nX Protocol Version 11, Revision 0\nCurrent Operating System: Linux kali 6.18.12+kali-amd64 #1 SMP PREEMPT_DYNAMIC Kali 6.18.12-1kali1 (2026-02-25) x86_64\nKernel command line: BOOT_IMAGE=/boot/vmlinuz-6.18.12+kali-amd64 root=/dev/sda1 ro quiet splash\nxorg-server 2:21.1.21-1 (https://www.debian.org/support) \nCurrent version of pixman: 0.46.4\n\tBefore reporting problems, check http://wiki.x.org\n\tto make sure that you have the latest version.\nMarkers: (--) probed, (**) from config file, (==) default setting,\n\t(++) from command line, (!!) notice, (II) informational,\n\t(WW) warning, (EE) error, (NI) not implemented, (??) unknown.\n(==) Log file: \"/var/log/Xorg.0.log\", Time: Sun Oct 11 12:20:28 2026\n(==) Using system config directory \"/usr/share/X11/xorg.conf.d\"\nVMware: No 3D enabled (0, Success).\nVMware: No 3D enabled (0, Success).\nVMware: No 3D enabled (0, Success).\nVMware: No 3D enabled (0, Success).\n(II) Server terminated successfully (0). Closing log file.\n",
+    "stderr": ""
+  },
+  "log_permissions": {
+    "returncode": 0,
+    "stdout": "lightdm:lightdm 750 /var/lib/lightdm\nroot:root 711 /var/log/lightdm\nroot:root 711 /var/cache/lightdm\nroot:root 1777 /tmp\n",
+    "stderr": ""
+  },
+  "inodes": {
+    "returncode": 0,
+    "stdout": "文件系统        Inodes  已用I  可用I 已用I% 挂载点\n/dev/sda1      1240320 550103 690217    45% /\n",
+    "stderr": ""
+  },
+  "lightdm_configuration": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "   [Seat:*]\nA  greeter-session=lightdm-greeter\nA  greeter-hide-users=true\nB  session-wrapper=/etc/lightdm/Xsession\n\nSources:\nA  /usr/share/lightdm/lightdm.conf.d/01_debian.conf\nB  /etc/lightdm/lightdm.conf.d/01_kali.conf\nC  /etc/lightdm/lightdm.conf\n"
+  },
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 0.438
+}

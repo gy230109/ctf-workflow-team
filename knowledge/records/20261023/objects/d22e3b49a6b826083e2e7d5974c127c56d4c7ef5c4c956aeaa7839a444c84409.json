@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-13 13:50:22",
+  "call_id": "1791870622691144600-503fe9d9",
+  "args": {
+    "case": "specialists_verify_20261013",
+    "status": "observed",
+    "source_step": 54,
+    "text": "自建 ELF 的符号执行候选经过真实程序回放，退出码 0 并返回验收标记。此结果仅验证系统工具链，不是比赛题解。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 71,
+      "case": "specialists_verify_20261013",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 96.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791870622691144600-503fe9d9.json"
+  }
+}

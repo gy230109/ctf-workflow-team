@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/qwbtrie2",
+  "files": [
+    {
+      "name": "trie",
+      "bytes": 16896,
+      "sha256": "1e9934d5a41a68b9e234ec63547603072670e9b58d1b1b739725b75268b4a174"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.328
+}

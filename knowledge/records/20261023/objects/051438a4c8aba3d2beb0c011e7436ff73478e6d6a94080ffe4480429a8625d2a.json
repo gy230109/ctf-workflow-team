@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef dec(b):\n    return b.decode(\"gb18030\", \"replace\")\n\ndef get(path=\"\", data=None):\n    url = BASE + path\n    if data is not None:\n        data = urllib.parse.urlencode(data).encode()\n    try:\n        with op.open(url, data=data, timeout=20) as r:\n            return r.status, dec(r.read()), dict(r.headers)\n    except urllib.error.HTTPError as e:\n        return e.code, dec(e.read()), dict(e.headers)\n\nprint(\"[A] admin.php 内容\")\nst, b, hd = get(\"admin.php\")\nprint(\"   status=%s ct=%s len=%d\" % (st, hd.get(\"Content-Type\"), len(b)))\nprint(\"---8<---\")\nprint(b)\nprint(\"---8<---\")\n\nprint(\"[B] POST 留言 ZZTOPICZZ 后完整响应\")\nst, b, hd = get(\"\", {\"content\": \"ZZTOPICZZ\"})\nprint(\"   status=%s len=%d ct=%s\" % (st, len(b), hd.get(\"Content-Type\")))\nprint(\"   含标记:\", \"ZZTOPICZZ\" in b)\ni = b.find(\"ZZTOPICZZ\")\nif i >= 0:\n    print(\"   上下文:\", repr(b[max(0, i-200):i+260]))\nelse:\n    print(\"   全文中找不到，末尾 600 字符:\")\n    print(b[-600:])\n\nprint(\"[C] 留言是否落库(再取一次首页)\")\nst, b2, _ = get()\nprint(\"   再次访问含标记:\", \"ZZTOPICZZ\" in b2, \" len=\", len(b2))\n",
+    "timeout": 120,
+    "wp_purpose": "读取 admin.php 机器人入口，确认留言回显与落库行为",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "23f51250c0b94e838c7a7ac385cdaa43"
+}

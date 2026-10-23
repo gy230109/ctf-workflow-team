@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-18 18:28:21",
+  "call_id": "1792319301905096700-891066d5",
+  "args": {
+    "case": "ctf-9607bfe70388aa64",
+    "description": "目标: http://160.202.254.160:15880/   (PHP/7.2.34，gb2312 输出)\n题目名: Bugku知识宇宙 - 存储型xss\n\n已确认结构:\n- index.php / 根路径: 菊花聊天室。form method=post action=\"?\"，单个 textarea name=content。\n- 留言存储后以 &lt;pre&gt;{留言}&lt;p&gt;IP为{客户端IP前3段}.*的童鞋 &gt;&gt;&gt; Fucked at:{时间}&lt;/p&gt;&lt;/pre&gt; 形式输出，POST 响应不含新留言，需重新 GET。\n- admin.php 存在但只是一个登录框(username/password)，任何输入都返回固定 289 字节，无 Set-Cookie，时间盲注无效，疑为幌子。\n- flag.php / robots.txt / uploads/ 等常见路径均 404。\n\n过滤规则(逐字符实测):\n  转义: &lt; &gt; / \" ' ( ) _ ; ?   -> &amp;lt; &amp;gt; ...(1245 chars)",
+    "source": {},
+    "attachments": []
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-9607bfe70388aa64",
+      "step": 2,
+      "attachments": 0,
+      "bytes": 0,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-9607bfe70388aa64\\intake\\fc0fd53ddf264d7d9261f5ee7c2e1674\\context.json"
+    },
+    "tool": "wp_intake",
+    "dangerous": false,
+    "duration_ms": 23.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792319301905096700-891066d5.json"
+  }
+}

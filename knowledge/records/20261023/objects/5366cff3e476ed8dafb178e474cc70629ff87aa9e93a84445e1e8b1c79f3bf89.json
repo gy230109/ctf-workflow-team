@@ -1,0 +1,156 @@
+{
+  "records": {
+    "disk_size": {
+      "argv": [
+        "blockdev",
+        "--getsize64",
+        "/dev/sda"
+      ],
+      "returncode": 0,
+      "stdout": "85899345920\n",
+      "stderr": ""
+    },
+    "original_table": {
+      "argv": [
+        "sfdisk",
+        "-d",
+        "/dev/sda"
+      ],
+      "returncode": 0,
+      "stdout": "label: dos\nlabel-id: 0x953fee21\ndevice: /dev/sda\nunit: sectors\nsector-size: 512\n\n/dev/sda1 : start=        2048, size=    39682048, type=83, bootable\n/dev/sda2 : start=    39686142, size=     2254850, type=f\n/dev/sda5 : start=    39686144, size=     2254848, type=82\n",
+      "stderr": ""
+    },
+    "original_table_json": {
+      "argv": [
+        "sfdisk",
+        "--json",
+        "/dev/sda"
+      ],
+      "returncode": 0,
+      "stdout": "{\n   \"partitiontable\": {\n      \"label\": \"dos\",\n      \"id\": \"0x953fee21\",\n      \"device\": \"/dev/sda\",\n      \"unit\": \"sectors\",\n      \"sectorsize\": 512,\n      \"partitions\": [\n         {\n            \"node\": \"/dev/sda1\",\n            \"start\": 2048,\n            \"size\": 39682048,\n            \"type\": \"83\",\n            \"bootable\": true\n         },{\n            \"node\": \"/dev/sda2\",\n            \"start\": 39686142,\n            \"size\": 2254850,\n            \"type\": \"f\"\n         },{\n            \"node\": \"/dev/sda5\",\n            \"start\": 39686144,\n            \"size\": 2254848,\n            \"type\": \"82\"\n         }\n      ]\n   }\n}\n",
+      "stderr": ""
+    },
+    "root_uuid": {
+      "argv": [
+        "blkid",
+        "-s",
+        "UUID",
+        "-o",
+        "value",
+        "/dev/sda1"
+      ],
+      "returncode": 0,
+      "stdout": "6c71c483-9f62-4e01-9f86-c5c2fa3e4050\n",
+      "stderr": ""
+    },
+    "dry_run": {
+      "argv": [
+        "sfdisk",
+        "--no-reread",
+        "--no-tell-kernel",
+        "--wipe",
+        "never",
+        "--wipe-partitions",
+        "never",
+        "--no-act",
+        "/dev/sda"
+      ],
+      "returncode": 0,
+      "stdout": "Disk /dev/sda: 80 GiB, 85899345920 bytes, 167772160 sectors\nDisk model: VMware Virtual S\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 512 bytes\nI/O size (minimum/optimal): 512 bytes / 512 bytes\nDisklabel type: dos\nDisk identifier: 0x953fee21\n\nOld situation:\n\nDevice     Boot    Start      End  Sectors  Size Id Type\n/dev/sda1  *        2048 39684095 39682048 18.9G 83 Linux\n/dev/sda2       39686142 41940991  2254850  1.1G  f W95 Ext'd (LBA)\n/dev/sda5       39686144 41940991  2254848  1.1G 82 Linux swap / Solaris\n\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Created a new DOS (MBR) disklabel with disk identifier 0x953fee21.\n/dev/sda1: Created a new partition 1 of type 'Linux' and of size 80 GiB.\n/dev/sda2: Done.\n\nNew situation:\nDisklabel type: dos\nDisk identifier: 0x953fee21\n\nDevice     Boot Start       End   Sectors Size Id Type\n/dev/sda1  *     2048 167772159 167770112  80G 83 Linux\nThe partition table is unchanged (--no-act).\n",
+      "stderr": "Partition #1 contains a ext4 signature.\n"
+    },
+    "swap_state": {
+      "source": "/proc/swaps",
+      "rows": [
+        [
+          "/dev/sda5",
+          "partition",
+          "1127420",
+          "0",
+          "-2"
+        ]
+      ]
+    },
+    "swapoff": {
+      "argv": [
+        "swapoff",
+        "/dev/sda5"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "initramfs": {
+      "argv": [
+        "update-initramfs",
+        "-u",
+        "-k",
+        "6.18.12+kali-amd64"
+      ],
+      "returncode": 0,
+      "stdout": "update-initramfs: Generating /boot/initrd.img-6.18.12+kali-amd64\n",
+      "stderr": ""
+    },
+    "daemon_reload": {
+      "argv": [
+        "systemctl",
+        "daemon-reload"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "write_table": {
+      "argv": [
+        "sfdisk",
+        "--no-reread",
+        "--no-tell-kernel",
+        "--wipe",
+        "never",
+        "--wipe-partitions",
+        "never",
+        "/dev/sda"
+      ],
+      "returncode": 0,
+      "stdout": "Disk /dev/sda: 80 GiB, 85899345920 bytes, 167772160 sectors\nDisk model: VMware Virtual S\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 512 bytes\nI/O size (minimum/optimal): 512 bytes / 512 bytes\nDisklabel type: dos\nDisk identifier: 0x953fee21\n\nOld situation:\n\nDevice     Boot    Start      End  Sectors  Size Id Type\n/dev/sda1  *        2048 39684095 39682048 18.9G 83 Linux\n/dev/sda2       39686142 41940991  2254850  1.1G  f W95 Ext'd (LBA)\n/dev/sda5       39686144 41940991  2254848  1.1G 82 Linux swap / Solaris\n\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Script header accepted.\n>>> Created a new DOS (MBR) disklabel with disk identifier 0x953fee21.\n/dev/sda1: Created a new partition 1 of type 'Linux' and of size 80 GiB.\n/dev/sda2: Done.\n\nNew situation:\nDisklabel type: dos\nDisk identifier: 0x953fee21\n\nDevice     Boot Start       End   Sectors Size Id Type\n/dev/sda1  *     2048 167772159 167770112  80G 83 Linux\n\nThe partition table has been altered.\n",
+      "stderr": "Partition #1 contains a ext4 signature.\n"
+    },
+    "table_after": {
+      "argv": [
+        "sfdisk",
+        "--json",
+        "/dev/sda"
+      ],
+      "returncode": 0,
+      "stdout": "{\n   \"partitiontable\": {\n      \"label\": \"dos\",\n      \"id\": \"0x953fee21\",\n      \"device\": \"/dev/sda\",\n      \"unit\": \"sectors\",\n      \"sectorsize\": 512,\n      \"partitions\": [\n         {\n            \"node\": \"/dev/sda1\",\n            \"start\": 2048,\n            \"size\": 167770112,\n            \"type\": \"83\",\n            \"bootable\": true\n         }\n      ]\n   }\n}\n",
+      "stderr": ""
+    },
+    "root_uuid_after": {
+      "argv": [
+        "blkid",
+        "-s",
+        "UUID",
+        "-o",
+        "value",
+        "/dev/sda1"
+      ],
+      "returncode": 0,
+      "stdout": "6c71c483-9f62-4e01-9f86-c5c2fa3e4050\n",
+      "stderr": ""
+    },
+    "sync": {
+      "argv": [
+        "sync"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "backup_directory": "/root/kali-repair-20261011",
+  "root_start_preserved": true,
+  "root_uuid_preserved": true,
+  "reboot_required": true,
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 50.485
+}

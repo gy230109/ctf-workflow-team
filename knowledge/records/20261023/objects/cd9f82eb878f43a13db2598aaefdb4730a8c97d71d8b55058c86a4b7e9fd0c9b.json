@@ -1,0 +1,50 @@
+{
+  "ts": "2026-10-11 23:19:15",
+  "call_id": "1791731955833250800-645f323f",
+  "args": {
+    "confirm": true,
+    "case": "ctfos_regression",
+    "timeout": 1,
+    "argv": [
+      "python3",
+      "-c",
+      "import time; time.sleep(3)"
+    ]
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261011T151914Z-b97900a5",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_regression",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_regression/work",
+      "command": [
+        "python3",
+        "-c",
+        "import time; time.sleep(3)"
+      ],
+      "timeout_seconds": 1,
+      "started_at_utc": "2026-10-11T15:19:15.489648+00:00",
+      "returncode": -9,
+      "timed_out": true,
+      "duration_seconds": 1.004,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_regression/results/20261011T151914Z-b97900a5.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.328,
+      "bridge_exit": 124,
+      "case": "ctfos_regression",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "timeout",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 2156.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791731955833250800-645f323f.json"
+  }
+}

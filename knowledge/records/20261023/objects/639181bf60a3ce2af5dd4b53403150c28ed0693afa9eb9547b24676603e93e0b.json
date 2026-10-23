@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T153909Z-ef2b4591",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+  "command": [
+    "bash",
+    "-c",
+    "sleep 90; pgrep -x micromamba >/dev/null && echo RUNNING || echo DONE; ps -p $(pgrep -x micromamba | head -1) -o pid= -o etime= -o time= -o pcpu= -o stat= 2>/dev/null; echo ---LOG---; tail -2 /tmp/sage_install.log; echo ---CACHE---; sudo du -sh /opt/micromamba-root 2>/dev/null; echo ---PKGS---; sudo du -sh /opt/micromamba-root/pkgs 2>/dev/null; true"
+  ],
+  "timeout_seconds": 150,
+  "started_at_utc": "2026-10-11T15:39:10.195137+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 90.327,
+  "stdout_bytes": 157,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "RUNNING\n   6037       06:52 00:00:33  8.1 Sl\n---LOG---\n\nTransaction starting\n---CACHE---\n1.7G\t/opt/micromamba-root\n---PKGS---\n1.7G\t/opt/micromamba-root/pkgs\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T153909Z-ef2b4591.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 90.703
+}

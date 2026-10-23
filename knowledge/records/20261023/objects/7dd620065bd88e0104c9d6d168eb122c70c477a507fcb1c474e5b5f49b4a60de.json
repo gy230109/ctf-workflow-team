@@ -1,0 +1,520 @@
+{
+  "task_id": "ctf-b37c81c14eb6b825",
+  "title": "新工具真验收-20261015",
+  "description": "对 2026-10-15 新增工具做真实端到端验收（非比赛题、不计成功率）：1) qemu_run 跑自建/现成的 ARM64 ELF 并核对输出；2) misc_stego 做已知口令的 steghide 往返（嵌入后提取、比对摘要）；3) web_browser_session 空白页真截图并核验 PNG；4) crypto_library list/read 固定版本方法。目的：把『装机≠可用』补成实测。",
+  "category": "misc",
+  "created_at": "2026-10-14T16:17:32.876120+00:00",
+  "updated_at": "2026-10-20T13:03:58.377817+00:00",
+  "state": "in_progress",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-14T16:18:18.089948+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994698050930500-2b3455df.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:20:29.586541+00:00",
+      "tool": "qemu_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994829548143300-9f58db70.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0003-call.json"
+      },
+      "error_code": "operation_failed",
+      "error": "Operation failed"
+    },
+    {
+      "at": "2026-10-14T16:20:41.082759+00:00",
+      "tool": "qemu_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994841041215700-642336c2.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0004-call.json"
+      },
+      "error_code": "operation_failed",
+      "error": "Operation failed"
+    },
+    {
+      "at": "2026-10-14T16:21:08.181809+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994868136681800-ca2a17d8.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0005-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:21:58.349299+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994918304945700-3c8660a0.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 6,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0006-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:23:01.394213+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994981349616700-a1bca048.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 7,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0007-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:24:13.334450+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995053283448200-02c89a1b.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 8,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0008-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:24:56.406097+00:00",
+      "tool": "qemu_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995096351240100-396745af.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 9,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0009-call.json"
+      },
+      "error_code": "runtime_operation_failed",
+      "error": "Input must be a regular file inside this case"
+    },
+    {
+      "at": "2026-10-14T16:25:23.065623+00:00",
+      "tool": "qemu_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995123020842200-561f6e5c.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 10,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0010-call.json"
+      },
+      "error_code": "runtime_operation_failed",
+      "error": "Input must be a regular file inside this case"
+    },
+    {
+      "at": "2026-10-14T16:25:53.009815+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995152960601900-9412a88a.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 11,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0011-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:26:04.777452+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995164722681700-8f68cb2c.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 12,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0012-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:26:20.115945+00:00",
+      "tool": "qemu_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995180063201800-8ad4cbea.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 13,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0013-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:26:47.141926+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995207083209600-4e9aa74b.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 14,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0014-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:27:25.991423+00:00",
+      "tool": "misc_stego",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995245934089900-49c5f395.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 15,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0015-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:28:32.848126+00:00",
+      "tool": "web_browser_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995312785862900-da64b208.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 16,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0016-call.json"
+      },
+      "error_code": "runtime_operation_failed",
+      "error": "No live session; call start for this case"
+    },
+    {
+      "at": "2026-10-14T16:28:54.251578+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995334193760500-ed2d22b1.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 17,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0017-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:29:07.376913+00:00",
+      "tool": "web_browser_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995347308183100-1607d830.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 18,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0018-call.json"
+      },
+      "error_code": "session_operation_failed",
+      "error": "Use an explicit HTTP(S) challenge URL without embedded credentials"
+    },
+    {
+      "at": "2026-10-14T16:29:24.313620+00:00",
+      "tool": "kali_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995364246852300-5f8df649.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 19,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0019-call.json"
+      },
+      "error_code": "execution_failed",
+      "error": "工具执行失败；读取 result 中退出码与 stderr"
+    },
+    {
+      "at": "2026-10-14T16:29:43.062246+00:00",
+      "tool": "kali_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995382996228400-1c58df67.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 20,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0020-call.json"
+      },
+      "error_code": "execution_failed",
+      "error": "工具执行失败；读取 result 中退出码与 stderr"
+    },
+    {
+      "at": "2026-10-14T16:30:07.649809+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995407581324100-0ed376cc.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 21,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0021-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:30:21.024439+00:00",
+      "tool": "web_browser_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995420957853600-b6e87a2f.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 22,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0022-call.json"
+      },
+      "error_code": "session_operation_failed",
+      "error": "URL origin not in this session; close/start with explicit allow_origins"
+    },
+    {
+      "at": "2026-10-14T16:30:34.715048+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995434648584200-d8b58a22.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 23,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0023-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:30:47.476973+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995447403745100-4f78910b.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 24,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0024-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:30:59.799811+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995459726724400-1009111c.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 25,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0025-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:31:14.221771+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995474136088900-d70b1e20.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 27,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0027-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:31:37.808188+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995497736128100-b7ff1544.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 28,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0028-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:32:08.170633+00:00",
+      "tool": "crypto_library",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995528095546600-c8776d88.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 29,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0029-call.json"
+      },
+      "error_code": "runtime_operation_failed",
+      "error": "Use a module returned by list, e.g. attacks.rsa.wiener_attack"
+    },
+    {
+      "at": "2026-10-14T16:32:21.120284+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995541043618000-3323ea92.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 30,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0030-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:32:32.422665+00:00",
+      "tool": "crypto_library",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995552341952600-88876f64.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 31,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0031-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:32:56.816473+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995576729671800-53d95d98.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 32,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0032-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:33:15.739613+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995595658441900-70b148dc.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 33,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0033-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:33:29.541501+00:00",
+      "tool": "kali_debug_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995609455833600-4c0efef0.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 34,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0034-call.json"
+      },
+      "error_code": "session_operation_failed",
+      "error": "Supported debugger inspection/breakpoint/step commands only; file/source/shell/python/attach are excluded"
+    },
+    {
+      "at": "2026-10-14T16:33:45.429172+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995625335068900-55b3e153.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 35,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0035-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:33:58.574325+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995638479159900-6c7d563b.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 36,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0036-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:34:12.363379+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995652272888500-fb6d30dc.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 37,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0037-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:34:30.630180+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995670522488400-fc310d65.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 38,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0038-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T16:35:01.856384+00:00",
+      "kind": "note",
+      "text": "新工具真验收结果（2026-10-15，本机直跑，非比赛题）：1) qemu_run = 通过。用真实 ARM64 ELF（Kali cross 的 ld-linux-aarch64.so.1，200688B，sha256 b6b6d171…）在其 input 内执行，rc=0，stdout 打印 \"ld.so (Debian GLIBC 2.43-3) … version 2.43\"，命令为 qemu-aarch64 -L /usr/aarch64-linux-gnu <file> --version，argv 正确透传。附注：自建极简静态 aarch64 ELF（161B，write+exit 两 syscall，readelf 显示 ELF64/AArch64/EXEC/单个 R+E LOAD 合法）被 qemu 以 \"Exec format error\" 拒收，6 种变体（RX/RWX/ET_DYN/加 GNU_STACK/align 64k/align 0）全部同样报错；同一台机上 qemu-aarch64 跑真实 ELF 正常、qemu-x86_64 /bin/true rc=0，故属自建样本的构造问题，原因未定位，待查。2) misc_stego = 通过。steghide 已知口令 qwbpass 往返：预埋 SECRET-OK-20261015\\n（19B），action=extract 提取 19B、sha256 19da3233…，并回传本机；本机读回内容与预埋值逐字节一致。3) web_browser_session = 通过。start（8.1s，cookies_preserved）→ navigate 需显式 HTTP(S) 且 origin 必须在 allow_origins 内（data: URL 与未授权 origin 均被拒，返回明确原因）→ navigate http://127.0.0.1:8123/acc.html 得到 title=acc、snapshot 文本含 CTF-ACCEPT-20261015/marker=OK-8123、并识别 INPUT 表单 → screenshot 产出真实 PNG 1280x800、12337B、sha256 8448d296…，本机回收校验一致 → close。4) crypto_library = 通过。list 命中 4 个 wiener 方法（commit d42a3df…），read 需用点号模块名（传文件路径被拒），read attacks.rsa.wiener_attack 返回真实源码 + sha256 fb306222…。5) kali_debug_session = 通过。start 目标为 input 内 aarch64 ELF，pid=13065；命令集受限（\"show version\" 被拒，仅 inspect/断点/单步；file/source/shell/python/attach 排除），改用 info files 得到 MI 记录：file type elf64-littleaarch64、Entry point 0x1c140、各段范围；后续 status 仍为同一 pid 13065（跨调用持久）→ close。6) ctf_runtime_status 此前已 CLI 实跑：QEMU 11.1.0、Pwndbg（GDB 17.2，199 命令）、zsteg 0.2.14、crypto-attacks 76 文件、仅 aarch64 sysroot、无残留会话。清理：浏览器与调试会话均已 close，临时 httpd 8123 已停（URLError 验证）并删除 work/acc。未验证：多架构断点/单步、真实靶场与复杂隐写、crypto-attacks 全 76 方法适用性。",
+      "status": "observed",
+      "source_step": 38
+    },
+    {
+      "at": "2026-10-20T13:02:59.768662+00:00",
+      "tool": "rea_status",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792501379634871100-13fb7a4c.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 41,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0041-call.json",
+        "assets": 0,
+        "operation_id": "4ba5437775d744719594b9f7fad14fd6",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-20T13:03:58.377787+00:00",
+      "tool": "rea_ops",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792501438278462700-4afa492e.json",
+      "wp_record": {
+        "case": "ctf-b37c81c14eb6b825",
+        "step": 43,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-b37c81c14eb6b825\\raw\\0043-call.json",
+        "assets": 0,
+        "operation_id": "977aa475aa864927bdf3a0ee53018351",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false
+}

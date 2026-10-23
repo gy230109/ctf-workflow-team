@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 01:54:42",
+  "call_id": "1791741282407666900-63be2512",
+  "args": {
+    "arch": "x64",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "already_running": true,
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "endpoint": "http://127.0.0.1:9094/"
+    },
+    "tool": "win_debug_start",
+    "dangerous": true,
+    "duration_ms": 63.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741282407666900-63be2512.json"
+  }
+}

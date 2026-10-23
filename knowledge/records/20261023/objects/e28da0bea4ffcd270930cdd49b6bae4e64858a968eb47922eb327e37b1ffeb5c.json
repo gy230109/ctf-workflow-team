@@ -1,0 +1,17 @@
+{
+  "arguments": {
+    "a": 84,
+    "b": 126,
+    "wp_case": "ctf-5fab17e3a76442dc"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 42
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "duration_ms": 3.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791989793303570000-2c46cdd5.json"
+  }
+}

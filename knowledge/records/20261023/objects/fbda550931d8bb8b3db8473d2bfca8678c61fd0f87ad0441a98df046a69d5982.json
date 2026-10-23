@@ -1,0 +1,56 @@
+{
+  "ts": "2026-10-13 00:30:29",
+  "call_id": "1791822629880118300-7c7c7bc8",
+  "args": {
+    "local_file": "[CTF_ROOT]\\wp\\cases\\symbol_image_20261013\\analysis\\substitution.cpp",
+    "argv": [
+      "g++",
+      "-O3",
+      "../input/substitution.cpp",
+      "-o",
+      "substitution"
+    ],
+    "confirm": true,
+    "case": "symbol_image_20261013",
+    "wp_case": "symbol_image_20261013",
+    "timeout": 30
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261012T163026Z-32321722",
+      "case_root": "/home/kali/ctf-workbench/cases/symbol_image_20261013",
+      "cwd": "/home/kali/ctf-workbench/cases/symbol_image_20261013/work",
+      "command": [
+        "g++",
+        "-O3",
+        "../input/substitution.cpp",
+        "-o",
+        "substitution"
+      ],
+      "timeout_seconds": 30,
+      "started_at_utc": "2026-10-12T16:30:28.190399+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 2.645,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/symbol_image_20261013/results/20261012T163026Z-32321722.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 3.047,
+      "bridge_exit": 0,
+      "case": "symbol_image_20261013",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "2b9958622d6dfc613adf2979de232dc52717676096106046687ed206cd450e62",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 6383.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791822629880118300-7c7c7bc8.json"
+  }
+}

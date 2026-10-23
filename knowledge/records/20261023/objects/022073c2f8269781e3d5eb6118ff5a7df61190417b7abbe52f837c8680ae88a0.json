@@ -1,0 +1,78 @@
+{
+  "ts": "2026-10-18 11:29:49",
+  "call_id": "1792294189040030800-bf2dbd1b",
+  "args": {
+    "case": "ctf-76e9ecf0b1881c65"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-76e9ecf0b1881c65",
+      "records": 2,
+      "integrity_verified": true,
+      "calls": 0,
+      "captures": 0,
+      "pending_operations": [],
+      "recorded_assets": 0,
+      "capture_errors": [],
+      "review": {
+        "ok": true,
+        "status": "draft",
+        "quality": {
+          "document_complete": false,
+          "missing_sections": [
+            "overview",
+            "analysis",
+            "solution",
+            "validation",
+            "reproduction"
+          ],
+          "calls_without_purpose": [],
+          "calls_without_observation": [],
+          "review_scope": "结构与证据引用检查；未审判 Agent 文字的语义正确性"
+        },
+        "issues": [
+          {
+            "code": "missing_calls",
+            "severity": "needs_attention",
+            "message": "尚无实际工具调用记录。",
+            "steps": []
+          },
+          {
+            "code": "missing_sections",
+            "severity": "needs_attention",
+            "message": "缺少章节：overview, analysis, solution, validation, reproduction",
+            "steps": []
+          },
+          {
+            "code": "answer_not_verified",
+            "severity": "needs_attention",
+            "message": "尚无结构化的真实平台正确回执；章节文字不认证答案。",
+            "steps": []
+          }
+        ],
+        "submission_ready": false,
+        "integrity_verified": true,
+        "recording_complete": true,
+        "platform_answer_verified": false,
+        "verification_receipts": [],
+        "solved_verified": false,
+        "capture_errors": [],
+        "pending_operations": [],
+        "context": {
+          "description": "仅用于接入验收：计算整数 48 和 60 的最大公约数。没有比赛题目、账号、网络目标、附件或 flag。",
+          "source": "",
+          "artifacts": []
+        },
+        "sections": {},
+        "review_required": "提交或公开前仍需审阅正文、原件及图片像素。"
+      },
+      "submission_ready": false,
+      "solved_verified": false
+    },
+    "tool": "wp_status",
+    "dangerous": false,
+    "duration_ms": 12.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792294189040030800-bf2dbd1b.json"
+  }
+}

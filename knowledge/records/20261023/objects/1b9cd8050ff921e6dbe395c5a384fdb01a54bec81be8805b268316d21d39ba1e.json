@@ -1,0 +1,4 @@
+{
+  "error": "Cannot obtain Kali IP; check the VM and NAT services: Error: The VMware Tools are not running in the virtual machine: D:/huahuan/kali/kali.vmx",
+  "action": "status"
+}

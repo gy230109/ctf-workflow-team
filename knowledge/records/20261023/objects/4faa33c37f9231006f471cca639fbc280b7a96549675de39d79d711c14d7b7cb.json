@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 02:06:40",
+  "call_id": "1791742000351473000-8b0c8f3e",
+  "args": {
+    "arch": "x32",
+    "tool": "GetAllRegisters",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "GetAllRegisters",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "eax: 0x9FF8EC\nebx: 0x600000\necx: 0xE0100D\nedx: 0xE0100D\nesi: 0xE0100D\nedi: 0xE0100D\nebp: 0x9FF8A4\nesp: 0x9FF890\neip: 0xE01000\neflags: 0x344\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0xE01000 (probe32) | mov eax,dword ptr ss:[esp+4]"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 72.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791742000351473000-8b0c8f3e.json"
+  }
+}

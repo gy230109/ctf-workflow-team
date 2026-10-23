@@ -1,0 +1,13 @@
+{
+  "case": "bank_fixture_20261014_ac2148",
+  "timeline_head": "880062a03e7e14c1307352091d942b4899bb77fed3969feeea5952dc2843f202",
+  "files": [
+    {
+      "path": "writeup.md",
+      "sha256": "e42ce1a387a9261e16f3d5d1a8b503ed02a1f90af967f27a37bc05f57344d229",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

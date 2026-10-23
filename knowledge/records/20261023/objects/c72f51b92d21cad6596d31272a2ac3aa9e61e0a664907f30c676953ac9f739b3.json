@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 00:32:21",
+  "call_id": "1791736341695000300-a9243a82",
+  "args": {
+    "cmd": "ls -la /challenge/",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "目标: reversing-hell/welcome/flag1\r\nrc=0\r\n--- stdout ---\r\ntotal 1008\r\ndrwxr-xr-x 1 root root    4096 Oct 11 16:29 .\r\ndrwxr-xr-x 1 root root    4096 Oct 11 16:32 ..\r\n-rwsr-xr-x 1 root root 1016624 Aug 26  2025 flag1\r\n-rwsr-xr-x 1 root root    1200 Aug 26  2025 flag1.c\r\n",
+      "stderr": "",
+      "stdout_bytes": 271,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_run",
+    "dangerous": true,
+    "duration_ms": 9614.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736341695000300-a9243a82.json"
+  }
+}

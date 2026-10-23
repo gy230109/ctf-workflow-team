@@ -1,0 +1,38 @@
+{
+  "stamp": "20261011T164330",
+  "artifact_dir": "[CTF_ROOT]\\战例库\\比赛-GameBoy\\planner-fix\\20261011T164330",
+  "planner_before": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "endpoint_id": "",
+    "base_url": "",
+    "connection": "default",
+    "temperature_mode": "omit",
+    "credential_source": "legacy_missing"
+  },
+  "planner_after": {
+    "provider": "workbuddy",
+    "model": "global:glm-5.3",
+    "endpoint_id": "endpoint:workbuddy-glm",
+    "base_url": "",
+    "connection": "endpoint",
+    "temperature_mode": "omit",
+    "temperature": 1.0,
+    "credential_source": "model_endpoint"
+  },
+  "fingerprint_before": "7e18aaa3a8e63e3b",
+  "fingerprint_after": "1232b17833ef132e",
+  "checks": {
+    "planner.endpoint_id 已绑账户": false,
+    "planner.model == global:glm-5.3": true,
+    "planner.provider == workbuddy": true,
+    "titler 未被改动": false,
+    "配置指纹未变（派发设置零改动）": false,
+    "max_workers 仍为 1": true,
+    "engines 未变": true,
+    "席位集合未变": false,
+    "dispatch_mode 仍 fixed": true,
+    "席位绑定健康（无 blocked）": true
+  },
+  "all_pass": false
+}

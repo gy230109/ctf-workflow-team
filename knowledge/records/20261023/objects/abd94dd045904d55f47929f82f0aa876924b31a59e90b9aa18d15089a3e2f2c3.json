@@ -1,0 +1,27 @@
+{
+  "ts": "2026-10-15 21:17:15",
+  "call_id": "1792070235522094800-358fe345",
+  "args": {
+    "wp_case": "automatic",
+    "values": [
+      12,
+      18
+    ],
+    "wp_purpose": "验证公因子",
+    "wp_expectation": "输出整数"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 6
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "77b5e57ab5434c6b96b82bb338b87f6c",
+      "step": 2
+    },
+    "duration_ms": 33.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070235522094800-358fe345.json"
+  }
+}

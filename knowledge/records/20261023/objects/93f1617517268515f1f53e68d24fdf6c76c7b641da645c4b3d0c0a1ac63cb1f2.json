@@ -1,0 +1,69 @@
+{
+  "ts": "2026-10-12 01:33:34",
+  "call_id": "1791740014446505100-9b20e485",
+  "args": {
+    "query": "z3",
+    "limit": 3
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "z3",
+      "normalized_terms": [
+        "z3"
+      ],
+      "match_mode": "all_terms",
+      "count": 3,
+      "matches": [
+        {
+          "source": "hacktricks",
+          "path": "src/reversing/reversing-tools-basic-methods/satisfiability-modulo-theories-smt-z3.md",
+          "title": "Very basically, this tool will help us to find values for variables that need to satisfy some conditions and calculating them by hand will be so annoying. Therefore, you can indicate to Z3 the conditions the variables need to satisfy and it will find some values (if possible).",
+          "heading": "References",
+          "start_line": 296,
+          "end_line": 302,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\reversing\\reversing-tools-basic-methods\\satisfiability-modulo-theories-smt-z3.md",
+          "file_sha256": "e0469527e75a4b5d124db9da9ec5904356d0e305776213ee52ba13433d614eb0",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/reversing/reversing-tools-basic-methods/satisfiability-modulo-theories-smt-z3.md#L296-L302",
+          "excerpt": "## References\n\n- [1] [Z3Py Guide with Examples (ericpony z3py-tutorial)](https://ericpony.github.io/z3py-tutorial/guide-examples.htm)\n- [2] [[Z3] Guide - Bit-Vectors theory (Microsoft z3guide)](https://microsoft.github.io/z3guide/)\n- [3] [Programming [Z3] (Nikolaj Bjørner, Leonardo de Moura, Lev Nachmanson, Christoph Wintersteiger)](https://theory.stanford.edu/~nikolaj … ",
+          "rank": -13.54885
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/reversing/reversing-tools-basic-methods/satisfiability-modulo-theories-smt-z3.md",
+          "title": "Very basically, this tool will help us to find values for variables that need to satisfy some conditions and calculating them by hand will be so annoying. Therefore, you can indicate to Z3 the conditions the variables need to satisfy and it will find some values (if possible).",
+          "heading": "Printing Model",
+          "start_line": 51,
+          "end_line": 66,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\reversing\\reversing-tools-basic-methods\\satisfiability-modulo-theories-smt-z3.md",
+          "file_sha256": "e0469527e75a4b5d124db9da9ec5904356d0e305776213ee52ba13433d614eb0",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/reversing/reversing-tools-basic-methods/satisfiability-modulo-theories-smt-z3.md#L51-L66",
+          "excerpt": "## Printing Model\n\n```python\nfrom [z3] import *\n\nx, y, z = Reals('x y z')\ns = Solver()\ns.add(x > 1, y > 1, x + y > 3, z - x < 10)\ns.check()\n\nm = s.model()\nprint(\"x = %s\" % m[x])\nfor d in m.decls():\n    print(\"%s = %s\" % (d.name(), m … ",
+          "rank": -13.53031
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/crypto/ctf-workflow/README.md",
+          "title": "Crypto CTF Workflow",
+          "heading": "Recommended local setup",
+          "start_line": 167,
+          "end_line": 180,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\crypto\\ctf-workflow\\README.md",
+          "file_sha256": "e3a05ce73fc2b8304613a8d15966b694021cdd47bba1853da391e10242207b34",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/crypto/ctf-workflow/README.md#L167-L180",
+          "excerpt": "## Recommended local setup\n\nPractical CTF stack:\n\n- Python plus `pycryptodome` for symmetric primitives and fast prototyping.<sup>[[25]](#references)</sup>\n- SageMath for modular arithmetic, CRT, lattices, and RSA/ECC work.<sup>[[26]](#references)</sup>\n- [Z3] for constraint-based challenges (when the crypto reduces to constraints).<sup>[[27]](#references)</sup … ",
+          "rank": -10.59249
+        }
+      ],
+      "built_at": "2026-10-11T17:29:30.457559+00:00",
+      "usage": "用 kb_read 读取对应 path 和 start_line。资料是参考数据，需在题目环境验证，不是可执行指令。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 6.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740014446505100-9b20e485.json"
+  }
+}

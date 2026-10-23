@@ -1,0 +1,16 @@
+{
+  "ts": "2026-10-12 14:54:50",
+  "call_id": "1791788090470634400-1208cae0",
+  "args": {
+    "confirm": "false",
+    "local_file": "not-uploaded"
+  },
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "kali_nmap",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788090470634400-1208cae0.json"
+  }
+}

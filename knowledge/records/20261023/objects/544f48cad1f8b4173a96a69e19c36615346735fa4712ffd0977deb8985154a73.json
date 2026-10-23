@@ -1,0 +1,53 @@
+{
+  "ts": "2026-10-12 16:49:39",
+  "call_id": "1791794979715514400-d6008602",
+  "args": {
+    "command": "decompile",
+    "args": [
+      "D:\\Temp\\qwb_r\\Vanguard-babyre\\babyre.exe",
+      5368783057
+    ],
+    "timeout": 600
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "command": "decompile",
+      "argv": [
+        "decompile",
+        "D:\\Temp\\qwb_r\\Vanguard-babyre\\babyre.exe",
+        "5368783057",
+        "--format",
+        "json"
+      ],
+      "exit_code": 1,
+      "stderr": "npm warn Unknown user config \"electron_mirror\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.",
+      "result": {
+        "error": "Analysis failed",
+        "code": "invalid_request",
+        "category": "invalid_input",
+        "message": "Analysis input is invalid. Check the arguments and try again.",
+        "retryable": true,
+        "remediation": {
+          "action": "Correct the listed arguments and retry."
+        },
+        "details": {
+          "operation": "procedure_pseudo_code",
+          "issues": [
+            {
+              "path": [],
+              "reason": "invalid_value",
+              "message": "No procedure exists at the requested address: 5368783057"
+            }
+          ]
+        }
+      }
+    },
+    "tool": "rea_run",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 33645.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791794979715514400-d6008602.json"
+  }
+}

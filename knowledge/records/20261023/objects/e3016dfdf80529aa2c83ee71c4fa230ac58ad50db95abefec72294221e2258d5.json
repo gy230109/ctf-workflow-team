@@ -1,0 +1,265 @@
+{
+  "version": 3,
+  "runs": {
+    "run-0001": {
+      "run_id": "run-0001",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": false,
+      "flag": null,
+      "flags": [],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 2,
+      "ts": 1791688063.9664772,
+      "execution_generation": 1,
+      "stream_seq": 2,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-0006": {
+      "run_id": "run-0006",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791692260.764684,
+      "execution_generation": 1,
+      "stream_seq": 577,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-0586": {
+      "run_id": "run-0586",
+      "name": "GameBoy-音频-比赛题",
+      "category": "misc",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": false,
+      "flag": null,
+      "flags": [],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 3,
+      "ts": 1791707912.7776341,
+      "execution_generation": 1,
+      "stream_seq": 115,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-0704": {
+      "run_id": "run-0704",
+      "name": "GameBoy-FlappyPig-v2",
+      "category": "misc",
+      "mode": "ctf",
+      "started": true,
+      "finished": false,
+      "solved": false,
+      "flag": null,
+      "flags": [],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 3,
+      "ts": 1791708599.9195106,
+      "execution_generation": 1,
+      "stream_seq": 84,
+      "terminal_generations": [],
+      "pending_followups": {}
+    },
+    "run-0705": {
+      "run_id": "run-0705",
+      "name": "GameBoy-FlappyPig-v3",
+      "category": "misc",
+      "mode": "ctf",
+      "started": true,
+      "finished": false,
+      "solved": false,
+      "flag": null,
+      "flags": [],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 4,
+      "ts": 1791711074.6238909,
+      "execution_generation": 1,
+      "stream_seq": 348,
+      "terminal_generations": [],
+      "pending_followups": {}
+    },
+    "run-0889": {
+      "run_id": "run-0889",
+      "name": "GameBoy-FlappyPig-v4",
+      "category": "misc",
+      "mode": "ctf",
+      "started": true,
+      "finished": false,
+      "solved": false,
+      "flag": null,
+      "flags": [],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 3,
+      "ts": 1791710775.4595478,
+      "execution_generation": 1,
+      "stream_seq": 83,
+      "terminal_generations": [],
+      "pending_followups": {}
+    },
+    "run-1817": {
+      "run_id": "run-1817",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791716567.7779152,
+      "execution_generation": 1,
+      "stream_seq": 58,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-1878": {
+      "run_id": "run-1878",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791716996.1037195,
+      "execution_generation": 1,
+      "stream_seq": 56,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-1937": {
+      "run_id": "run-1937",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791717057.5018456,
+      "execution_generation": 1,
+      "stream_seq": 51,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-1991": {
+      "run_id": "run-1991",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791717178.3951874,
+      "execution_generation": 1,
+      "stream_seq": 63,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-2057": {
+      "run_id": "run-2057",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791717243.5190532,
+      "execution_generation": 1,
+      "stream_seq": 61,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-2121": {
+      "run_id": "run-2121",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791717293.2365155,
+      "execution_generation": 1,
+      "stream_seq": 52,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    }
+  }
+}

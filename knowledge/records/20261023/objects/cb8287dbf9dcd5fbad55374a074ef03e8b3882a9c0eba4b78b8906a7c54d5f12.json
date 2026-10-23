@@ -1,0 +1,29 @@
+{
+  "ts": "2026-10-12 02:06:38",
+  "call_id": "1791741998972467900-f10b9fdc",
+  "args": {
+    "arch": "x32",
+    "tool": "GetDebugState",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "GetDebugState",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "isDebugging: true\nisRunning: false\npid: 48972\nstatus: LOCKED\ncurrentAddress: 0x770E57F9\ncurrentModule: ntdll\nstackPointer: 0x9FF374"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 67.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741998972467900-f10b9fdc.json"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "arguments": {
+    "target": "/home/kali/ctf-workbench/cases/ctf-dcf8677aeacda424/input/07bfacf2-82df-4eab-8b41-a34aa7486c5a.apk",
+    "opts": "-d /tmp/jadx-out2",
+    "timeout": 300,
+    "wp_case": "ctf-dcf8677aeacda424",
+    "case": "ctf-dcf8677aeacda424"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T151306Z-b64a5f7e",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-dcf8677aeacda424",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-dcf8677aeacda424/work",
+      "command": [
+        "jadx",
+        "-d",
+        "/tmp/jadx-out",
+        "-d",
+        "/tmp/jadx-out2",
+        "/home/kali/ctf-workbench/cases/ctf-dcf8677aeacda424/input/07bfacf2-82df-4eab-8b41-a34aa7486c5a.apk"
+      ],
+      "timeout_seconds": 300,
+      "started_at_utc": "2026-10-14T15:13:07.716406+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.662,
+      "stdout_bytes": 0,
+      "stderr_bytes": 56,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "Arguments parse error: Can only specify option -d once.\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-dcf8677aeacda424/results/20261014T151306Z-b64a5f7e.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.625,
+      "bridge_exit": 0,
+      "case": "ctf-dcf8677aeacda424",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_jadx",
+    "dangerous": false,
+    "duration_ms": 2583.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990788027010400-9581a9ad.json"
+  }
+}

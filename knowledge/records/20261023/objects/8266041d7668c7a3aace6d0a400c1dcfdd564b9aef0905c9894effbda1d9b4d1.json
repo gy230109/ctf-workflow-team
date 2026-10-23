@@ -1,0 +1,38 @@
+{
+  "case": "bank_worker_20261014",
+  "timeline_head": "5e2a484b7101d44924f192a6910624e4b4d1a948f1be65f64da89ebee4f3d9c7",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "9001519e27f44a7807bb1981350128ef01d9aa4b2bf7e3081073084f702a6506",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0003-log.png",
+      "sha256": "dc396b499a6e0f1994611a141e3f384b8c903649e975ad928752833c2bde56d2",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0004-log.png",
+      "sha256": "b4aeaa154908cc136d00945e51e46ef73c35d50bdd203bf6217729284c9eb4fe",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0005-log.png",
+      "sha256": "71a95292d294ba4892ab45396f420e76889e381836e787f26078d341f03817bf",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0006-log.png",
+      "sha256": "edc9f511e2bf8e9c61804c82a9e6765fd30dd7ff6d145f146634b2e07b65e687",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "ba51b762d70f928bf01fbf1733b8591fb68e0766addc929e6fedfdeaedc9e3d1",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

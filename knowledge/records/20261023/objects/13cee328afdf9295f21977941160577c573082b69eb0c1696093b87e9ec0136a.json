@@ -1,0 +1,28 @@
+{
+  "ts": "2026-10-12 01:45:09",
+  "call_id": "1791740709207432400-d38d17eb",
+  "args": {
+    "tool": "GetDebugState",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "GetDebugState",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "isDebugging: false\nstatus: NO_TARGET\nhint: Use LoadBinary to open an executable first."
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 96.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740709207432400-d38d17eb.json"
+  }
+}

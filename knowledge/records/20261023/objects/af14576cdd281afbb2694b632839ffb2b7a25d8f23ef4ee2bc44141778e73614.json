@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-12 15:55:30",
+  "call_id": "1791791730400394300-eb7cf41b",
+  "args": {
+    "case": "jev_system_demo_20261012",
+    "title": "Jev 本机接入与故障回退验收",
+    "category": "system-test"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "jev_system_demo_20261012",
+      "created": false,
+      "path": "[CTF_ROOT]\\wp\\cases\\jev_system_demo_20261012"
+    },
+    "tool": "wp_init",
+    "dangerous": false,
+    "duration_ms": 6.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791791730400394300-eb7cf41b.json"
+  }
+}

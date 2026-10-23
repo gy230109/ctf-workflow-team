@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0",
+  "files": [
+    {
+      "name": "md5_crack.py",
+      "bytes": 7308,
+      "sha256": "d88fcad8d07943012566b11d2fc484584eadb25a391c911a34a2c72cd8ba0880"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.516
+}

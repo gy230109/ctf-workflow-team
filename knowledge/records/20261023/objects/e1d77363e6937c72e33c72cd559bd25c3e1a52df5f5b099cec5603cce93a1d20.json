@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/work/md5_result.json",
+  "sha256": "b1dc503819ad9e1a5f00298ab1732c1a7236ce89cf70733b628566eef42272f6",
+  "bytes": 1087,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.781,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\reversing-hell_welcome_flag0\\downloads\\20261009T180046Z-07c6995c\\md5_result.json",
+  "verified": true
+}

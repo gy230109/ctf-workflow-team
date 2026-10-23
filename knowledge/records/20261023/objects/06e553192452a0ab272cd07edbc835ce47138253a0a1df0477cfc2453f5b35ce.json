@@ -1,0 +1,101 @@
+{
+  "df": "文件系统        大小  已用  可用 已用% 挂载点\n/dev/sda1        19G   17G  595M   97% /\n/dev/sda1        19G   17G  595M   97% /\ntmpfs           1.9G   16K  1.9G    1% /tmp\n/dev/sda1        19G   17G  595M   97% /",
+  "inode": "文件系统        Inodes  已用I  可用I 已用I% 挂载点\n/dev/sda1      1240320 550004 690316    45% /",
+  "top_root": [
+    "17G\t/",
+    "15G\t/usr",
+    "1.2G\t/home",
+    "1.1G\t/var",
+    "227M\t/boot",
+    "185M\t/opt",
+    "16M\t/etc",
+    "16K\t/lost+found",
+    "8.0K\t/srv",
+    "8.0K\t/media",
+    "4.0K\t/root",
+    "4.0K\t/mnt",
+    "4.0K\t/.cache"
+  ],
+  "top_var": [
+    "1.1G\t/var",
+    "924M\t/var/lib",
+    "105M\t/var/cache",
+    "64M\t/var/log",
+    "5.3M\t/var/backups",
+    "28K\t/var/tmp",
+    "24K\t/var/www",
+    "12K\t/var/spool",
+    "4.0K\t/var/opt",
+    "4.0K\t/var/mail",
+    "4.0K\t/var/local"
+  ],
+  "top_home": [
+    "1.2G\t/home/kali",
+    "821M\t/home/kali/hexstrike-ai",
+    "214M\t/home/kali/.mozilla",
+    "85M\t/home/kali/.local",
+    "21M\t/home/kali/t3cap",
+    "12M\t/home/kali/.msf4",
+    "9.9M\t/home/kali/图片",
+    "3.7M\t/home/kali/.cache",
+    "2.6M\t/home/kali/how2heap",
+    "1.1M\t/home/kali/ccmcgc_attack",
+    "976K\t/home/kali/ctf-workbench",
+    "856K\t/home/kali/桌面",
+    "560K\t/home/kali/.config",
+    "364K\t/home/kali/cyber-range",
+    "76K\t/home/kali/.pki"
+  ],
+  "top_usr": [
+    "15G\t/usr",
+    "7.8G\t/usr/lib",
+    "5.1G\t/usr/share",
+    "815M\t/usr/bin",
+    "164M\t/usr/sbin",
+    "142M\t/usr/libexec",
+    "141M\t/usr/x86_64-w64-mingw32",
+    "128M\t/usr/i686-w64-mingw32",
+    "110M\t/usr/include",
+    "15M\t/usr/lib32"
+  ],
+  "reclaimable": {
+    "apt_archives": "16K\t/var/cache/apt/archives",
+    "apt_deb_count": "0",
+    "apt_lists": "168M\t/var/lib/apt/lists",
+    "journal": "Archived and active journals take up 45.6M in the file system.",
+    "var_log": "64M\t/var/log",
+    "tmp": "16K\t/tmp",
+    "pip_cache": "3.7M\t/home/kali/.cache",
+    "trash": "80K\t/home/kali/.local/share/Trash",
+    "docker": ""
+  },
+  "big_files": [
+    "305M\t/usr/share/burpsuite/burpsuite.jar",
+    "280M\t/usr/lib/chromium/chromium",
+    "199M\t/boot/initrd.img-6.18.12+kali-amd64",
+    "159M\t/usr/lib/firefox-esr/libxul.so",
+    "134M\t/usr/lib/jvm/java-21-openjdk-amd64/lib/modules",
+    "133M\t/usr/lib/x86_64-linux-gnu/libLLVM.so.21.1",
+    "132M\t/usr/lib/x86_64-linux-gnu/libQt5WebEngineCore.so.5.15.19",
+    "129M\t/usr/bin/nuclei",
+    "129M\t/usr/lib/x86_64-linux-gnu/libwireshark.so.19.0.4",
+    "124M\t/usr/lib/oracle/19.6/client64/lib/libociei.so",
+    "118M\t/usr/lib/x86_64-linux-gnu/libLLVM-18.so.1"
+  ],
+  "kernels": [
+    "linux-image-6.18.12+kali-amd64",
+    "linux-image-amd64"
+  ],
+  "autoremove_sim": "正在读取软件包列表...\n正在分析软件包的依赖关系树...\n正在读取状态信息...\n正在解析依赖...\n升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 1785 个软件包未被升级。",
+  "sudo_nopass": "YES",
+  "mono_state": {
+    "monodis": "",
+    "mono": "",
+    "dpkg_mono": "fonts-dejavu 2.37-8\nfonts-dejavu-mono 2.37-8\nfonts-noto-mono 20201225-2",
+    "apt_policy_mono_utils": "mono-utils:\n  已安装：(无)\n  候选： (无)\n  版本列表：",
+    "apt_policy_mono_devel": "mono-devel:\n  已安装：(无)\n  候选： 6.14.1+ds2-3\n  版本列表：\n     6.14.1+ds2-3 500",
+    "apt_size_mono_utils": ""
+  },
+  "platform": "Linux 6.18.12+kali-amd64 x86_64",
+  "python": "3.13.12"
+}

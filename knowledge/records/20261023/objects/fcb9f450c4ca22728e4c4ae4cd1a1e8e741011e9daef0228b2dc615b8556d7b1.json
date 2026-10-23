@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-17 23:32:22",
+  "call_id": "1792251142174168400-a1e3c785",
+  "args": {
+    "case": "ctf-fca56ff3a53c802b",
+    "description": "目标: http://160.202.254.160:10986/   (PHP/5.5.9-1ubuntu4.6)\n\n首页 highlight_file(__FILE__) 直接泄漏 PHP 源码:\n$zero=$_REQUEST['zero']; $first=$_REQUEST['first']; $second=$zero.$first;\nif(preg_match_all(\"/Yeedo|wants|a|girl|friend|or|a|flag/i\",$second)){\n  if(preg_match(\"/\\.\\.|flag/\",$second)) die(\"Noooood hacker!\");\n  else { $third=$first;\n    if(preg_match(\"/\\\\|\\056\\160\\150\\x70/i\",$third)){\n      $end=substr($third,5);\n      highlight_file(base64_decode($zero).$end); }}}\nelse highlight_file(__FILE__);\n\n...(1025 chars)",
+    "source": {},
+    "attachments": []
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-fca56ff3a53c802b",
+      "step": 2,
+      "attachments": 0,
+      "bytes": 0,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\intake\\4b595a67c64445fba9cfa747db6682ee\\context.json"
+    },
+    "tool": "wp_intake",
+    "dangerous": false,
+    "duration_ms": 53.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251142174168400-a1e3c785.json"
+  }
+}

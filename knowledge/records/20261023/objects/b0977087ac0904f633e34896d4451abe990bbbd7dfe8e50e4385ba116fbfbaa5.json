@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "values": [
+      48,
+      60
+    ],
+    "wp_case": "wp_system_demo_20261012"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 12
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "duration_ms": 2.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788513588739500-35da343b.json"
+  }
+}

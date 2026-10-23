@@ -1,0 +1,23 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag-1",
+  "files": [
+    {
+      "name": "description.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "flag-1",
+      "bytes": 17056,
+      "sha256": "38e83940cc977a537e616e28915024fb62116d231251a40575e430352d20f03d"
+    },
+    {
+      "name": "flag-1.c",
+      "bytes": 802,
+      "sha256": "4354343d739afb334e6a5dd54aec33a0f019b8f2444d447d53318d4b9f8956df"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.609
+}

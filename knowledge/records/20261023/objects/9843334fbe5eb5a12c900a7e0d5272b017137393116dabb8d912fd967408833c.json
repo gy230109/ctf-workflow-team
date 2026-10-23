@@ -1,0 +1,13 @@
+{
+  "ts": "2026-10-15 00:02:18",
+  "call_id": "1791993738890104400-6a82207e",
+  "args": {},
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "qemu_run",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993738890104400-6a82207e.json"
+  }
+}

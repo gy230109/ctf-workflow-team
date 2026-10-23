@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/symbol_image_20261013",
+  "files": [
+    {
+      "name": "codex-clipboard-12afad01-a523-495f-af04-1f10db1f2e11.webp",
+      "bytes": 69564,
+      "sha256": "449e0d075e5dc621a10e3c5b21945149330d9591c5f34ab8c88a988cb260483e"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.328
+}

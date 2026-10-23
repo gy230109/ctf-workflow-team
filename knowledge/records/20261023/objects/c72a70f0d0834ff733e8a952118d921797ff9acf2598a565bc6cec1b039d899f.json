@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 22:56:29",
+  "call_id": "1791816989253937000-63840f11",
+  "args": {
+    "mode": "kali_vm",
+    "caption": "Kali 真机执行 trie 越界读验证",
+    "case": "qwb-vanguard-trie"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "qwb-vanguard-trie",
+      "step": 38,
+      "path": "[CTF_ROOT]\\wp\\cases\\qwb-vanguard-trie\\images\\0038.png",
+      "kind": "vm_screenshot"
+    },
+    "tool": "wp_capture",
+    "dangerous": false,
+    "duration_ms": 5960.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816989253937000-63840f11.json"
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "ts": "2026-10-12 02:04:24",
+  "call_id": "1791741864714358300-932e6cc5",
+  "args": {
+    "query": "Memory"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 14,
+      "tools": [
+        {
+          "name": "SearchForStrings",
+          "description": "Searches process memory for a specific text string and returns the addresses where it occurs.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "searchText": {
+                "type": "string",
+                "description": "The literal text to search for."
+              },
+              "encoding": {
+                "type": "string",
+                "description": "Character encoding: UTF-8 or UTF-16.",
+                "default": "UTF-8"
+              }
+            },
+            "required": [
+              "searchText"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ReadMemory",
+          "description": "Reads raw bytes from the target process memory and returns a hex dump with ASCII. Example: ReadMemory address=0x7FF600001000, size=128",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Hex address or expression to read from."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Number of bytes to read (max 4096).",
+                "default": 64
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WriteMemToAddress",
+          "description": "Patches memory by writing raw hex bytes to an address. WARNING: this modifies the live process. Example: WriteMemToAddress address=0x12345678, byteString=0F FF 90",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Hex address to write to."
+              },
+              "byteString": {
+                "type": "string",
+                "description": "Hex bytes to write, e.g. '0F FF 90'."
+              }
+            },
+            "required": [
+              "address",
+              "byteString"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListBreakpoints",
+          "description": "Lists all active breakpoints (software, hardware, and memory).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetMemoryMap",
+          "description": "Returns the memory map showing all memory regions with base address, size, protection, and module info.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetMemoryBreakpoint",
+          "description": "Sets a memory breakpoint at an address. Triggers when memory is accessed (read/write/execute). Uses guard pages — slower than hardware breakpoints but no DR register limit.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the memory breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read/access), w (write), x (execute). Default: access (any)."
+              },
+              "singleshoot": {
+                "type": "boolean",
+                "description": "If true, breakpoint is removed after first hit (default false).",
+                "default": false
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetPatches",
+          "description": "Lists all memory patches applied to the debugged process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FindPattern",
+          "description": "Scans module memory for a byte pattern with ?? wildcards. Returns matching addresses. Example: FindPattern pattern='E8 ?? ?? ?? ?? 85 C0 74'",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Hex bytes with ?? wildcards, e.g. 'E8 ?? ?? ?? ?? 85 C0'."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to scan (default: main exe)."
+              },
+              "maxResults": {
+                "type": "integer",
+                "description": "Max results (default 10).",
+                "default": 10
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetStrings",
+          "description": "Scans a module's memory for ASCII strings and returns them with their addresses.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module to scan (default: main exe)."
+              },
+              "minLength": {
+                "type": "integer",
+                "description": "Min string length (default 4).",
+                "default": 4
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DumpMemory",
+          "description": "Saves a memory region to a file on disk.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Start address."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Bytes to dump."
+              },
+              "filePath": {
+                "type": "string",
+                "description": "Output file path on disk."
+              }
+            },
+            "required": [
+              "address",
+              "size",
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AllocateMemory",
+          "description": "Allocates a block of memory in the target process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "size": {
+                "type": "integer",
+                "description": "Number of bytes to allocate."
+              },
+              "protection": {
+                "type": "string",
+                "description": "Memory protection: rwx, rw, rx, r (default rw).",
+                "default": "rw"
+              }
+            },
+            "required": [
+              "size"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FreeMemory",
+          "description": "Frees a previously allocated memory block in the target process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Base address of the allocated block to free."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteAllBreakpoints",
+          "description": "Removes all breakpoints (normal, hardware, and memory).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetDumpableRegions",
+          "description": "Lists memory regions that can be dumped (committed, readable) for a module or the entire process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 90.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741864714358300-932e6cc5.json"
+  }
+}

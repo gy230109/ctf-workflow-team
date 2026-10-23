@@ -1,0 +1,496 @@
+{
+  "ts": "2026-10-12 01:55:40",
+  "call_id": "1791741340732511400-398dda6b",
+  "args": {
+    "query": "Breakpoint"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 22,
+      "tools": [
+        {
+          "name": "LoadBinary",
+          "description": "Loads an executable into the debugger for a new debugging session. Equivalent to File > Open in the GUI. If a session is already active it is terminated first. The debuggee pauses at the system breakpoint.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "Absolute file path of the executable to debug."
+              },
+              "arguments": {
+                "type": "string",
+                "description": "Optional command-line arguments.",
+                "default": ""
+              }
+            },
+            "required": [
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetEventLog",
+          "description": "Returns the last N debugger events (exceptions, breakpoints, DLL loads, thread events, etc.). Keeps the last 64 events in a ring buffer. Use this to see what happened in x64dbg.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Number of most recent events to return (default: all, max 64)."
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WaitForEvent",
+          "description": "Blocks until a debugger event fires (breakpoint hit, paused, resumed, exception, session start/stop) or timeout. Returns all events that occurred. Use this to monitor debugger state changes in real-time over HTTP — call it after 'run' or while waiting for the user to interact with the debugger.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum wait time in milliseconds (default 30000, max 120000).",
+                "default": 30000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WaitForPause",
+          "description": "Blocks until the debuggee stops running (hits a breakpoint, exception, or exits). Returns the reason for the pause and the current address. Use after 'run' to wait for the target to break.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum wait time in milliseconds.",
+                "default": 30000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "run",
+          "description": "Resumes execution and waits for the target to pause (breakpoint, exception, or exit). Blocks until a pause event occurs or timeout. Use timeoutMs to control how long to wait (default 120s). Always returns the reason for the pause and current state.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum time to wait for target to pause after resuming (default 300000ms = 5 minutes, max 600000ms = 10 minutes). The tool blocks until a breakpoint/exception fires or timeout.",
+                "default": 300000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpoint",
+          "description": "Sets a software execution breakpoint (INT3) at an address or API symbol.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Hex address or API symbol to break on."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteBreakpoint",
+          "description": "Removes a breakpoint at an address or API symbol.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Hex address or API symbol of the breakpoint to remove."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListBreakpoints",
+          "description": "Lists all active breakpoints (software, hardware, and memory).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetHardwareBreakpoint",
+          "description": "Sets a hardware breakpoint using debug registers (DR0-DR3). Supports read, write, and execute types.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the hardware breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read), w (write), x (execute, default).",
+                "default": "x"
+              },
+              "size": {
+                "type": "integer",
+                "description": "Size: 1, 2, 4, or 8 (default 1).",
+                "default": 1
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetMemoryBreakpoint",
+          "description": "Sets a memory breakpoint at an address. Triggers when memory is accessed (read/write/execute). Uses guard pages — slower than hardware breakpoints but no DR register limit.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the memory breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read/access), w (write), x (execute). Default: access (any)."
+              },
+              "singleshoot": {
+                "type": "boolean",
+                "description": "If true, breakpoint is removed after first hit (default false).",
+                "default": false
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "RunToAddress",
+          "description": "Sets a temporary breakpoint at the target address, resumes execution, and waits for the debuggee to hit it.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address to run to."
+              },
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Timeout ms (default 30000).",
+                "default": 30000
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetConditionalBreakpoint",
+          "description": "Sets a breakpoint with a condition expression and optional log text.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "condition": {
+                "type": "string",
+                "description": "Break condition expression, e.g. 'eax==0'."
+              },
+              "log": {
+                "type": "string",
+                "description": "Log format string (optional)."
+              }
+            },
+            "required": [
+              "address",
+              "condition"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "EnableBreakpoint",
+          "description": "Enables a breakpoint at a given address.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DisableBreakpoint",
+          "description": "Disables a breakpoint at a given address without deleting it.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ToggleBreakpoint",
+          "description": "Toggles a breakpoint between enabled and disabled.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteAllBreakpoints",
+          "description": "Removes all breakpoints (normal, hardware, and memory).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ResetHitCount",
+          "description": "Resets the hit counter of a breakpoint at the given address to zero.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetExceptionBreakpoint",
+          "description": "Controls how an exception code is handled: break into debugger or pass to application. Use this to ignore Delphi (0EEDFADE), C++ (E06D7363), or other framework exceptions during startup, or to break on specific exceptions like ILLEGAL_INSTRUCTION (C000001D).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "exceptionCode": {
+                "type": "string",
+                "description": "Exception code in hex (e.g. C000001D, 0EEDFADE, E06D7363)."
+              },
+              "chance": {
+                "type": "integer",
+                "description": "1 = first-chance, 2 = second-chance, 3 = both (default 1).",
+                "default": 1
+              },
+              "action": {
+                "type": "string",
+                "description": "break = break into debugger, ignore = pass to application (default break).",
+                "default": "break"
+              }
+            },
+            "required": [
+              "exceptionCode"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteExceptionBreakpoint",
+          "description": "Removes an exception breakpoint, restoring default handling for that exception code.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "exceptionCode": {
+                "type": "string",
+                "description": "Exception code in hex to delete."
+              }
+            },
+            "required": [
+              "exceptionCode"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpointCommand",
+          "description": "Sets an x64dbg command to execute when a breakpoint at the given address is hit. Use for logging breakpoints (e.g., 'log {x:eax}' to log register values on hit).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "command": {
+                "type": "string",
+                "description": "x64dbg command to run on hit (e.g. 'log {x:eax}', 'msg {utf8@[esp+4]}')."
+              }
+            },
+            "required": [
+              "address",
+              "command"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpointFastResume",
+          "description": "Makes a breakpoint auto-resume after hit without pausing. Combined with SetBreakpointCommand, creates logging breakpoints that record state at thousands of call sites without stopping.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "enable": {
+                "type": "boolean",
+                "description": "true to enable fast resume, false to disable.",
+                "default": true
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SaveDatabase",
+          "description": "Saves the x64dbg database (labels, comments, breakpoints, analysis) for the current module. Persists your work across sessions.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 122.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741340732511400-398dda6b.json"
+  }
+}

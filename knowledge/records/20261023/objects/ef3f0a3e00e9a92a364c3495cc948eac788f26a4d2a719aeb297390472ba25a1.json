@@ -1,0 +1,42 @@
+{
+  "ts": "2026-10-12 01:45:05",
+  "call_id": "1791740705979819600-56177084",
+  "args": {
+    "tool": "WaitForPause",
+    "params": {
+      "timeoutMs": 2000
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "WaitForPause",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "PAUSED after 125ms.\nAddress: 0x7FF9E82E14AA (ntdll)\nInstruction: jmp ntdll.7FF9E82E14AC\nNext: 0x7FF9E82E14AC  add rsp,38"
+          },
+          {
+            "type": "text",
+            "text": "[event:info] System breakpoint hit. Target is now PAUSED at entry point."
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debugger paused. Target is now PAUSED. Call GetDebugState to inspect."
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x7FF9E82E14AA (ntdll) | jmp ntdll.7FF9E82E14AC"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 176.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740705979819600-56177084.json"
+  }
+}

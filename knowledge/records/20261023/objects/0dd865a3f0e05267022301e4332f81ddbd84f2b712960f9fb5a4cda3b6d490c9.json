@@ -1,0 +1,46 @@
+{
+  "ts": "2026-10-14 20:33:24",
+  "call_id": "1791981204895976200-9c662fe5",
+  "args": {
+    "cmd": "cp $CTF_INPUT_DIR/liblhm.so /tmp/liblhm.so; file /tmp/liblhm.so; echo ---SYM---; readelf -sW /tmp/liblhm.so | head -30; echo ---STR---; strings -n 4 /tmp/liblhm.so | head -25",
+    "confirm": true,
+    "timeout": 120,
+    "local_file": "D:/Temp/apk2/liblhm.so"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T123324Z-9fd6fed9",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_9f45666766e7d4bf43023360",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_9f45666766e7d4bf43023360/work",
+      "command": [
+        "bash",
+        "-c",
+        "cp $CTF_INPUT_DIR/liblhm.so /tmp/liblhm.so; file /tmp/liblhm.so; echo ---SYM---; readelf -sW /tmp/liblhm.so | head -30; echo ---STR---; strings -n 4 /tmp/liblhm.so | head -25"
+      ],
+      "timeout_seconds": 120,
+      "started_at_utc": "2026-10-14T12:33:24.876454+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.176,
+      "stdout_bytes": 2432,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "/tmp/liblhm.so: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /system/bin/linker, stripped\n---SYM---\n\nSymbol table '.dynsym' contains 88 entries:\n   Num:    Value  Size Type    Bind   Vis      Ndx Name\n     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND \n     1: 00000000     0 FUNC    GLOBAL DEFAULT  UND __cxa_finalize\n     2: 00000000     0 FUNC    GLOBAL DEFAULT  UND __cxa_atexit\n     3: 000013f5    18 FUNC    GLOBAL DEFAULT    8 __aeabi_idivmod\n     4: 0000110d    90 FUNC    GLOBAL DEFAULT    8 isPrime\n     5: 00002405    10 FUNC    GLOBAL DEFAULT    8 __aeabi_unwind_cpp_pr0\n     6: 000016e4    40 FUNC    GLOBAL DEFAULT    8 __aeabi_i2d\n     7: 00001a2c   516 FUNC    GLOBAL DEFAULT    8 __aeabi_ddiv\n     8: 00001c30    92 FUNC    GLOBAL DEFAULT    8 __aeabi_d2iz\n     9: 00001414   684 FUNC    GLOBAL DEFAULT    8 __aeabi_dadd\n    10: 00001c8c    84 FUNC    GLOBAL DEFAULT    8 __aeabi_d2uiz\n    11: 000017c0   620 FUNC    GLOBAL DEFAULT    8 __aeabi_dmul\n    12: 00001359     0 FUNC    GLOBAL DEFAULT    8 __aeabi_idiv\n    13: 00001169   492 FUNC    GLOBAL DEFAULT    8 Java_net_bluelotus_tomorrow_easyandroid_MainActivity_stringFromJNI2\n    14: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail\n    15: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard\n    16: 00001359   156 FUNC    GLOBAL DEFAULT    8 __divsi3\n    17: 00001ce0    16 FUNC    WEAK   DEFAULT    8 __aeabi_idiv0\n    18: 00001408     0 FUNC    GLOBAL DEFAULT    8 __aeabi_drsub\n    19: 00001410   688 FUNC    GLOBAL DEFAULT    8 __subdf3\n    20: 00001410   688 FUNC    GLOBAL DEFAULT    8 __aeabi_dsub\n    21: 00001414   684 FUNC    GLOBAL DEFAULT    8 __adddf3\n    22: 000016c0    36 FUNC    GLOBAL DEFAULT    8 __floatunsidf\n    23: 000016c0    36 FUNC    GLOBAL DEFAULT    8 __aeabi_ui2d\n    24: 000016e4    40 FUNC    GLOBAL DEFAULT    8 __floatsidf\n    25: 0000170c    64 FUNC    GLOBAL DEFAULT    8 __extendsfdf2\n    26: 0000170c    64 FUNC    GLOBAL DEFAULT    8 __aeabi_f2d\n---STR---\n/system/bin/linker\n__cxa_finalize\n__cxa_atexit\n__aeabi_idivmod\nisPrime\n__aeabi_unwind_cpp_pr0\n__aeabi_i2d\n__aeabi_ddiv\n__aeabi_d2iz\n__aeabi_dadd\n__aeabi_d2uiz\n__aeabi_dmul\n__aeabi_idiv\nJava_net_bluelotus_tomorrow_easyandroid_MainActivity_stringFromJNI2\n__stack_chk_fail\n__stack_chk_guard\n__divsi3\n__aeabi_idiv0\n__aeabi_drsub\n__subdf3\n__aeabi_dsub\n__adddf3\n__floatunsidf\n__aeabi_ui2d\n__floatsidf\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_9f45666766e7d4bf43023360/results/20261014T123324Z-9fd6fed9.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.781,
+      "bridge_exit": 0,
+      "case": "ctfos_9f45666766e7d4bf43023360",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "9f45666766e7d4bf43023360b0fd0aeb01f225a4ea22250a3eb4eefe486acac3",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 5584.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791981204895976200-9c662fe5.json"
+  }
+}

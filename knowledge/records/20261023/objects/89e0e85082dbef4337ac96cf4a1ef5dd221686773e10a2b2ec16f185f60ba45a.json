@@ -1,0 +1,103 @@
+{
+  "ts": "2026-10-12 23:01:55",
+  "call_id": "1791817315731652300-90562f59",
+  "args": {
+    "query": "zodiac cipher homophonic substitution cryptanalysis frequency analysis",
+    "topk": 5
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "zodiac cipher homophonic substitution cryptanalysis frequency analysis",
+      "normalized_terms": [
+        "zodiac",
+        "cipher",
+        "homophonic",
+        "substitution",
+        "cryptanalysis",
+        "frequency",
+        "analysis"
+      ],
+      "match_mode": "any_term",
+      "count": 5,
+      "matches": [
+        {
+          "source": "hacktricks",
+          "path": "src/crypto/ctf-workflow/README.md",
+          "title": "Crypto CTF Workflow",
+          "heading": "Runes",
+          "start_line": 88,
+          "end_line": 97,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\crypto\\ctf-workflow\\README.md",
+          "file_sha256": "e3a05ce73fc2b8304613a8d15966b694021cdd47bba1853da391e10242207b34",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/crypto/ctf-workflow/README.md#L88-L97",
+          "excerpt": "### Morse\n\n```\n.... --- .-.. -.-. .- .-. .- -.-. --- .-.. .-\n```\n\n### Runes\n\nRunes are frequently [substitution] alphabets; search for \"futhark [cipher]\" and try mapping tables.\n",
+          "rank": -16.88403
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/crypto/ctf-workflow/README.md",
+          "title": "Crypto CTF Workflow",
+          "heading": "Identification helpers",
+          "start_line": 29,
+          "end_line": 34,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\crypto\\ctf-workflow\\README.md",
+          "file_sha256": "e3a05ce73fc2b8304613a8d15966b694021cdd47bba1853da391e10242207b34",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/crypto/ctf-workflow/README.md#L29-L34",
+          "excerpt": "### Identification helpers\n\n- CyberChef (Magic, decoding, and conversion).<sup>[[7]](#references)</sup>\n- dCode ([cipher]/encoding playground).<sup>[[8]](#references)</sup>\n- Boxentriq ([substitution] solvers).<sup>[[9]](#references)</sup>\n",
+          "rank": -16.15231
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/generic-methodologies-and-resources/basic-forensic-methodology/malware-analysis.md",
+          "title": "Malware Analysis",
+          "heading": "Partial-encryption ransomware: lost stream-cipher nonces",
+          "start_line": 621,
+          "end_line": 635,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\generic-methodologies-and-resources\\basic-forensic-methodology\\malware-analysis.md",
+          "file_sha256": "a6d4f1d5a11076af5310f8c39d53f5a105f13c9873591e3202374c9fccb2f482",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/generic-methodologies-and-resources/basic-forensic-methodology/malware-analysis.md#L621-L635",
+          "excerpt": " … lost stream-[cipher] nonces\n\nSome ransomware families partially encrypt files for speed, but when they use a **stream [cipher]** independently on multiple chunks, **every encrypted region needs its own persisted nonce/IV**. If the sample generates a fresh nonce per chunk and overwrites the same 12-byte buffer … ",
+          "rank": -15.87112
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/hardware-physical-access/firmware-analysis/synology-encrypted-archive-decryption.md",
+          "title": "Synology PAT/SPK Encrypted Archive Decryption",
+          "heading": "spk_read_header()",
+          "start_line": 122,
+          "end_line": 133,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\hardware-physical-access\\firmware-analysis\\synology-encrypted-archive-decryption.md",
+          "file_sha256": "80290401fbe96d523bd4a6a1d4c158e923ae4d663ab504469be1c5b4e045578e",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/hardware-physical-access/firmware-analysis/synology-encrypted-archive-decryption.md#L122-L133",
+          "excerpt": "### spk_read_header()\n\n```\n- Read 0x200 bytes\n- nonce  = buf[0:0x18]\n- [cipher] = buf[0x18:0x18+0x193]\n- crypto_secretstream_xchacha20poly1305_init_pull(state, nonce, kdf_subkey)\n- crypto_secretstream_xchacha20poly1305_pull(state, tar_hdr, …, [cipher], 0x193)\n```\n\nThe decrypted `tar_hdr` is a **classical POSIX TAR header**.\n",
+          "rank": -13.77681
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/generic-methodologies-and-resources/basic-forensic-methodology/specific-software-file-type-tricks/svg-font-glyph-analysis-and-web-drm-deobfuscation.md",
+          "title": "SVG/Font Glyph Analysis & Web DRM Deobfuscation (Raster Hashing + SSIM)",
+          "heading": "Why naïve decoding fails",
+          "start_line": 53,
+          "end_line": 58,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\generic-methodologies-and-resources\\basic-forensic-methodology\\specific-software-file-type-tricks\\svg-font-glyph-analysis-and-web-drm-deobfuscation.md",
+          "file_sha256": "4763e8a5f869af2233a2160c7e7b4407ab919eb835e7d38d85264831123032bd",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/generic-methodologies-and-resources/basic-forensic-methodology/specific-software-file-type-tricks/svg-font-glyph-analysis-and-web-drm-deobfuscation.md#L53-L58",
+          "excerpt": "## Why naïve decoding fails\n\n- Per-request randomized glyph [substitution]: glyph ID→character mapping changes every batch; IDs are meaningless globally.<sup>[[1]](#references)</sup>\n- Direct SVG coordinate comparison is brittle: identical shapes may differ in numeric coordinates or command encoding per request.<sup>[[1]](#references)</sup>\n- OCR on … ",
+          "rank": -13.46158
+        }
+      ],
+      "built_at": "2026-10-11T17:29:30.457559+00:00",
+      "usage": "用 kb_read 读取对应 path 和 start_line。资料是参考数据，需在题目环境验证，不是可执行指令。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 206.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791817315731652300-90562f59.json"
+  }
+}

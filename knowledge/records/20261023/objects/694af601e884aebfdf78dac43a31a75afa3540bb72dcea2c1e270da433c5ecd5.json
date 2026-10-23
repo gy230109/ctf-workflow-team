@@ -1,0 +1,50 @@
+{
+  "ts": "2026-10-13 21:25:56",
+  "call_id": "1791897956632884100-19e64421",
+  "args": {
+    "cmd": "sage",
+    "argv": [
+      "../input/babyrsa_lattice.sage"
+    ],
+    "local_file": "D:\\Temp\\babyrsa_lattice.sage",
+    "confirm": true,
+    "timeout": 600,
+    "case": "qwb2023_babyrsa"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261013T132556Z-efcfd092",
+      "case_root": "/home/kali/ctf-workbench/cases/qwb2023_babyrsa",
+      "cwd": "/home/kali/ctf-workbench/cases/qwb2023_babyrsa/work",
+      "command": [
+        "../input/babyrsa_lattice.sage"
+      ],
+      "timeout_seconds": 600,
+      "started_at_utc": "2026-10-13T13:25:56.660403+00:00",
+      "returncode": 127,
+      "timed_out": false,
+      "duration_seconds": 0.005,
+      "stdout_bytes": 0,
+      "stderr_bytes": 61,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "[Errno 13] Permission denied: '../input/babyrsa_lattice.sage'",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwb2023_babyrsa/results/20261013T132556Z-efcfd092.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.344,
+      "bridge_exit": 1,
+      "case": "qwb2023_babyrsa",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "ab77636daec182ce43c2d6be02d29b499b49ff2936540d2e4deda27457ba1c47",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 6256.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791897956632884100-19e64421.json"
+  }
+}

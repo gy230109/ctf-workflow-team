@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-14 00:28:24",
+  "call_id": "1791908904122497400-4275c801",
+  "args": {
+    "case": "rea_worker_20261014_42138a"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "rea_worker_20261014_42138a",
+      "path": "[CTF_ROOT]\\wp\\cases\\rea_worker_20261014_42138a\\reports\\20261013T162823Z-70d0536f\\writeup.md",
+      "records": 6,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 738.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791908904122497400-4275c801.json"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "ts": "2026-10-15 21:14:16",
+  "call_id": "1792070056329119900-a4df6260",
+  "args": {
+    "values": [
+      48,
+      60
+    ],
+    "case": "fixture"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 12
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "2feea041f764418fadf9f9c23af6dc40",
+      "step": 2
+    },
+    "duration_ms": 36.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070056329119900-a4df6260.json"
+  }
+}

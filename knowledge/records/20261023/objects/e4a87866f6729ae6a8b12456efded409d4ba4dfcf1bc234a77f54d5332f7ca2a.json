@@ -1,0 +1,54 @@
+{
+  "ts": "2026-10-14 00:30:37",
+  "call_id": "1791909037938324500-1a2c0726",
+  "args": {
+    "local_file": "[CTF_ROOT]\\workflows\\bank_worker_20261014\\task\\attachments\\000_number-mashing",
+    "case": "bank_worker_20261014",
+    "wp_case": "bank_worker_20261014",
+    "timeout": 60,
+    "opts": "-d -M intel"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261013T163037Z-ee5938e0",
+      "case_root": "/home/kali/ctf-workbench/cases/bank_worker_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/bank_worker_20261014/work",
+      "command": [
+        "objdump",
+        "-d",
+        "-M",
+        "intel",
+        "-d",
+        "-M",
+        "intel",
+        "../input/000_number-mashing"
+      ],
+      "timeout_seconds": 60,
+      "started_at_utc": "2026-10-13T16:30:37.700887+00:00",
+      "returncode": 1,
+      "timed_out": false,
+      "duration_seconds": 0.257,
+      "stdout_bytes": 63,
+      "stderr_bytes": 54,
+      "output_truncated": false,
+      "stdout": "\n../input/000_number-mashing：     文件格式 elf64-little\n\n",
+      "stderr": "objdump: can't disassemble for architecture UNKNOWN!\n\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/bank_worker_20261014/results/20261013T163037Z-ee5938e0.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.719,
+      "bridge_exit": 1,
+      "case": "bank_worker_20261014",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a",
+      "upload_verified": true
+    },
+    "tool": "kali_objdump",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 3429.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791909037938324500-1a2c0726.json"
+  }
+}

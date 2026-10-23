@@ -1,0 +1,30 @@
+{
+  "ts": "2026-10-12 14:54:51",
+  "call_id": "1791788091536569900-5f3df5a9",
+  "args": {
+    "wrong": 1
+  },
+  "response": {
+    "ok": false,
+    "tool": "math_gcd",
+    "error_code": "invalid_arguments",
+    "error": "缺少参数 'a'",
+    "该工具的参数": [
+      "values",
+      "a",
+      "b",
+      "wp_case"
+    ],
+    "示例": {
+      "tool": "math_gcd",
+      "args": {
+        "values": "...",
+        "a": "...",
+        "b": "...",
+        "wp_case": "..."
+      }
+    },
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788091536569900-5f3df5a9.json"
+  }
+}

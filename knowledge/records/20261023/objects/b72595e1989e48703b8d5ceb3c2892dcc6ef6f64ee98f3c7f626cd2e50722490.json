@@ -1,0 +1,19 @@
+{
+  "ts": "2026-10-14 23:11:57",
+  "call_id": "1791990717272232600-ac6a6e0b",
+  "args": {
+    "category": "reverse",
+    "subtype": "apk",
+    "local_file": "c:\\Users\\Lenovo\\Documents\\trae_projects\\GHJ\\qwb_task_20261014\\extracted\\07bfacf2-82df-4eab-8b41-a34aa7486c5a.apk",
+    "wp_case": "ctf-dcf8677aeacda424",
+    "case": "ctf-dcf8677aeacda424"
+  },
+  "response": {
+    "ok": false,
+    "tool": "ctf_profile",
+    "error": "ValueError('subtype must be pe-native,pe-managed,elf,android,source,unknown')",
+    "error_code": "execution_failed",
+    "duration_ms": 18.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990717272232600-ac6a6e0b.json"
+  }
+}

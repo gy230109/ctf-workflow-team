@@ -1,0 +1,11 @@
+{
+  "tool": "kali_debug_session",
+  "arguments": {
+    "action": "start",
+    "target": "fixture_program",
+    "confirm": true,
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "3d5d3f24851d49ec99d8ce2956c6bbbb"
+}

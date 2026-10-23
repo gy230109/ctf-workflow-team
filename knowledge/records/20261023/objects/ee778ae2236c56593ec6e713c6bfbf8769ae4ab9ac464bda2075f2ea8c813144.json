@@ -1,0 +1,45 @@
+{
+  "arguments": {
+    "confirm": true,
+    "cmd": "mkdir -p ../work/acc\ncat > ../work/acc/acc.html <<'HTML'\n<html><head><title>acc</title></head>\n<body><h1>CTF-ACCEPT-20261015</h1>\n<div id=\"m\">marker=OK-8123</div>\n<form><input name=\"q\" value=\"hello\"></form>\n</body></html>\nHTML\npkill -f \"http.server 8123\" 2>/dev/null\nnohup python3 -m http.server 8123 --directory ../work/acc >/tmp/httpd8123.log 2>&1 &\nsleep 1\necho \"--- curl check ---\"\ncurl -s http://127.0.0.1:8123/acc.html | head -6\necho \"--- listening ---\"\nss -ltnp 2>/dev/null | grep 8123 || netstat -ltnp 2>/dev/null | grep 8123",
+    "timeout": 120,
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261014T162923Z-4e65e0af",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+      "command": [
+        "bash",
+        "-c",
+        "mkdir -p ../work/acc\ncat > ../work/acc/acc.html <<'HTML'\n<html><head><title>acc</title></head>\n<body><h1>CTF-ACCEPT-20261015</h1>\n<div id=\"m\">marker=OK-8123</div>\n<form><input name=\"q\" value=\"hello\"></form>\n</body></html>\nHTML\npkill -f \"http.server 8123\" 2>/dev/null\nnohup python3 -m http.server 8123 --directory ../work/acc >/tmp/httpd8123.log 2>&1 &\nsleep 1\necho \"--- curl check ---\"\ncurl -s http://127.0.0.1:8123/acc.html | head -6\necho \"--- listening ---\"\nss -ltnp 2>/dev/null | grep 8123 || netstat -ltnp 2>/dev/null | grep 8123"
+      ],
+      "timeout_seconds": 120,
+      "started_at_utc": "2026-10-14T16:29:24.484083+00:00",
+      "returncode": -15,
+      "timed_out": false,
+      "duration_seconds": 0.193,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162923Z-4e65e0af.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.5,
+      "bridge_exit": 1,
+      "case": "ctf-b37c81c14eb6b825",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 1378.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995364246852300-5f8df649.json"
+  }
+}

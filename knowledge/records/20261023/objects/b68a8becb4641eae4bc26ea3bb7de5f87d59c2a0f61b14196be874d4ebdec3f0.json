@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/factor-20261010/work/flag.txt",
+  "sha256": "91040b29a90687954b113cbe5adaba4cb5247cd41f20d22b0e3190392ccfb9da",
+  "bytes": 42,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.359,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\factor-20261010\\downloads\\20261009T160621Z-6b2ff68d\\flag.txt",
+  "verified": true
+}

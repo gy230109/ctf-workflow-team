@@ -1,0 +1,39 @@
+{
+  "arguments": {
+    "code": "\nimport urllib.request, urllib.parse, urllib.error\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef dec(b):\n    return b.decode(\"gb18030\", \"replace\")\n\ndef get(path=\"\", data=None):\n    url = BASE + path\n    if data is not None:\n        data = urllib.parse.urlencode(data).encode()\n    try:\n        with op.open(url, data=data, timeout=20) as r:\n            return r.status, dec(r.read()), dict(r.headers)\n    except urllib.error.HTTPError as e:\n        return e.code, dec(e.read()), dict(e.headers)\n\nprint(\"[A] admin.php 内容\")\nst, b, hd = get(\"admin.php\")\nprint(\"   status=%s ct=%s len=%d\" % (st, hd.get(\"Content-Type\"), len(b)))\nprint(\"---8<---\")\nprint(b)\nprint(\"---8<---\")\n\nprint(\"[B] POST 留言 ZZTOPICZZ 后完整响应\")\nst, b, hd = get(\"\", {\"content\": \"ZZTOPICZZ\"})\nprint(\"   status=%s len=%d ct=%s\" % (st, len(b), hd.get(\"Content-Type\")))\nprint(\"   含标记:\", \"ZZTOPICZZ\" in b)\ni = b.find(\"ZZTOPICZZ\")\nif i >= 0:\n    print(\"   上下文:\", repr(b[max(0, i-200):i+260]))\nelse:\n    print(\"   全文中找不到，末尾 600 字符:\")\n    print(b[-600:])\n\nprint(\"[C] 留言是否落库(再取一次首页)\")\nst, b2, _ = get()\nprint(\"   再次访问含标记:\", \"ZZTOPICZZ\" in b2, \" len=\", len(b2))\n",
+    "timeout": 120,
+    "wp_purpose": "读取 admin.php 机器人入口，确认留言回显与落库行为",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "stdout": "[A] admin.php 内容\n   status=200 ct=text/html; charset=UTF-8 len=289\n---8<---\n\n\n<html>\n\n<head>\n\n    <meta charset=\"utf-8\">\n\n</head>\n\n<body>\n\n    <form action=\"\" method=\"POST\">\n\n        <input type=\"text\" name=\"username\" />\n\n        <input type=\"password\" name=\"password\" />\n\n        <input type=\"submit\" name=\"submit\" value=\"login\" />\n\n    </form>\n\n</body>\n\n</html>\n\n\n---8<---\n[B] POST 留言 ZZTOPICZZ 后完整响应\n   status=200 len=1493 ct=text/html; charset=UTF-8\n   含标记: False\n   全文中找不到，末尾 600 字符:\narget=\"_blank\">Hacker Bugku</a>&copy;2022-2023</p>\n\n<input type=\"submit\" title=\"Ctrl+Enter鎻愪氦\" value=\"闆佽繃鐣欏０ 璺繃鐣欒█\" tilte=\"鎻愪氦\" style=\"width:120px;height:64px;\">\n\n</form>\n\n</center>\n\n\n\n<pre>Bugku<p>IP涓�172.26.0.*鐨勭闉� >>> Fucked at:2022-07-12 14:30:13 PM</p></pre>\n\n<pre>test<p>IP涓�172.26.0.*鐨勭闉� >>> Fucked at:2022-07-12 14:30:16 PM</p></pre>\n\n<pre>xss?<p>IP涓�172.26.0.*鐨勭闉� >>> Fucked at:2022-07-12 14:30:57 PM</p></pre>\n\n<pre>鍡ㄥ棬鍡�<p>IP涓�172.28.0.*鐨勭闉� >>> Fucked at:2022-07-12 14:40:08 PM</p></pre><pre>probe&#95;abc123<p>IP涓�221.176.187.*鐨勭闉� >>> Fucked at:2026-10-17 23:38:04 PM</p></pre>\n\n[C] 留言是否落库(再取一次首页)\n   再次访问含标记: True  len= 1531\n",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "23f51250c0b94e838c7a7ac385cdaa43",
+      "step": 13
+    },
+    "duration_ms": 637.2,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-fca56ff3a53c802b",
+      "calls": 6,
+      "failed_calls": 3,
+      "active_tool_seconds": 27.869,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251496581796800-086f6531.json"
+  }
+}

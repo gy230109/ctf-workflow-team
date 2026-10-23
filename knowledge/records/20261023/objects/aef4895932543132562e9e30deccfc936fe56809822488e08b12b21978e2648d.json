@@ -1,0 +1,11 @@
+{
+  "tool": "forensics_pcap",
+  "arguments": {
+    "action": "summary",
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-bdd93eaa303223fd\\attachments\\offline-demo.pcap",
+    "wp_purpose": "核对自建 PCAP 包数与协议汇总",
+    "wp_case": "ctf-bdd93eaa303223fd",
+    "case": "ctf-bdd93eaa303223fd"
+  },
+  "operation_id": "ca65c1bca9ca46d09942fa31af4c25ff"
+}

@@ -585,5 +585,15 @@
       "reference_only": false,
       "sha256": "dcf14a5dbfbeff3827d84413da533302a1c9771be5436d8417150d66bd0c4186"
     }
+  ],
+  "record_snapshots": [
+    {
+      "date": "2026-10-23",
+      "readme": "knowledge/records/20261023/README.md",
+      "manifest": "knowledge/records/20261023/manifest.json",
+      "files": 3534,
+      "objects": 3089,
+      "encrypted": false
+    }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+  "files": [
+    {
+      "name": "specialist_fixture.c",
+      "bytes": 292,
+      "sha256": "100892d736dfcece717b23155387b123a64fa7d160cafb37f77e6e535b83fabf"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.343
+}

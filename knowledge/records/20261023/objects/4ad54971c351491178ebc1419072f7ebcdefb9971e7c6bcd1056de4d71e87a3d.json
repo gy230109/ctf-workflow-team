@@ -1,0 +1,35 @@
+{
+  "ts": "2026-10-12 01:45:06",
+  "call_id": "1791740706406493900-71bc45d7",
+  "args": {
+    "tool": "Disassemble",
+    "params": {
+      "address": "0x7FF735941760",
+      "count": 6
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "Disassemble",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "0x7FF735941760: 55 | push rbp\n0x7FF735941761: 48 89 E5 | mov rbp,rsp\n0x7FF735941764: 48 83 EC 10 | sub rsp,10\n0x7FF735941768: 89 4D 10 | mov dword ptr ss:[rbp+10],ecx\n0x7FF73594176B: 8B 45 10 | mov eax,dword ptr ss:[rbp+10]\n0x7FF73594176E: 83 C0 11 | add eax,11\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x7FF9E82E14AA (ntdll) | jmp ntdll.7FF9E82E14AC"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 92.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740706406493900-71bc45d7.json"
+  }
+}

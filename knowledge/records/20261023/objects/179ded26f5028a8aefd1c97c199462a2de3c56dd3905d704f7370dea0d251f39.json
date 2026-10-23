@@ -1,0 +1,9 @@
+{
+  "tool": "kb_search",
+  "arguments": {
+    "source": "noobctf",
+    "query": "NoobCTF",
+    "wp_case": "ctf-04fca725df3de1d8"
+  },
+  "operation_id": "6f939b5d81e745fab843f319b90d3393"
+}

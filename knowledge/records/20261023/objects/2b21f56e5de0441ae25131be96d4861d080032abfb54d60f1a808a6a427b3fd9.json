@@ -1,0 +1,28 @@
+{
+  "case": "ctf-f54dbd1bf0e2a3a2",
+  "timeline_head": "870360d2b8238d9622353c9d8e1e2aa67034fc4f52def12fa3be6efc20a2c52c",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "ae3b7aab7018eea615b15c780dfceaa2799bacacd716c7b65fbc208ba7055555",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0003-log.png",
+      "sha256": "b35b5510eb94fd957da5731d18cb1f91abd22ee419a94f5a8678b0a2ff1af922",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0004-log.png",
+      "sha256": "b4450ab3f2ff34d4572be7ef375ba0e596292cacc9bececd25711b6b0568c62d",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "323389774a1edc2e336fbade4fc55c1828a0133bfc5030114227f4d02d4becfc",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

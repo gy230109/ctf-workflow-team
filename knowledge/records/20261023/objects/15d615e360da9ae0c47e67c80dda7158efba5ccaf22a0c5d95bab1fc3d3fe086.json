@@ -1,0 +1,12 @@
+{
+  "tool": "web_browser_session",
+  "arguments": {
+    "action": "start",
+    "url": "http://127.0.0.1:41213",
+    "confirm": true,
+    "wp_purpose": "打开自建网页并自动采集初始画面与回放",
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "5dfc5a3b5acb4941abe6a8fc3a713670"
+}

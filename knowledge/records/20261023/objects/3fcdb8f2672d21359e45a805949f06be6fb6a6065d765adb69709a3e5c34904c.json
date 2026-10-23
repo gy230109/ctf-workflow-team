@@ -1,0 +1,11 @@
+{
+  "tool": "forensics_pcap",
+  "arguments": {
+    "action": "usb",
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-04fca725df3de1d8\\attachments\\usb-demo.pcap",
+    "wp_purpose": "部署自建样例验收：usb",
+    "wp_case": "ctf-04fca725df3de1d8",
+    "case": "ctf-04fca725df3de1d8"
+  },
+  "operation_id": "35f7cbbd0ce5414cb5041e0711c2fefa"
+}

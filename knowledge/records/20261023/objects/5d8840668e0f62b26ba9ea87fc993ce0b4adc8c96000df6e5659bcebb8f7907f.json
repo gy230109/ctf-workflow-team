@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport urllib.request, urllib.parse\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef post(content, headers):\n    data = urllib.parse.urlencode({\"content\": content}).encode()\n    req = urllib.request.Request(BASE, data=data, headers=headers)\n    with op.open(req, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nhdrs = [\n    (\"X-Forwarded-For\", \"XFFMARKER1\"),\n    (\"X-Real-IP\", \"REALIPMARK2\"),\n    (\"Client-IP\", \"CLIENTIPMARK3\"),\n    (\"X-Client-IP\", \"XCLIENTMARK4\"),\n]\nfor name, val in hdrs:\n    try:\n        body = post(\"HDRTEST-\" + val, {name: val})\n    except Exception as e:\n        print(\"%-18s ERR %s\" % (name, e)); continue\n    idx = body.find(val)\n    print(\"%-18s 回显=%s\" % (name, idx >= 0))\n    if idx >= 0:\n        print(\"   上下文:\", repr(body[max(0, idx-70):idx+90]))\n",
+    "timeout": 120,
+    "wp_purpose": "测试 X-Forwarded-For 等头是否被回显且未转义",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "dce1fec06d0e4679bff9821f04e4265e"
+}

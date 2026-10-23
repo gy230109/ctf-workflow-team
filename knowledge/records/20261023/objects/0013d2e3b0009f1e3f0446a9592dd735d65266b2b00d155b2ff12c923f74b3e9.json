@@ -1,0 +1,63 @@
+{
+  "arguments": {
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-f54dbd1bf0e2a3a2\\attachments\\capability-fixture.zip",
+    "wp_case": "ctf-f54dbd1bf0e2a3a2",
+    "case": "ctf-f54dbd1bf0e2a3a2"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "format": "zip",
+        "members": [
+          {
+            "name": "sample.txt",
+            "size": 45,
+            "compressed": 45
+          }
+        ],
+        "total_members": 1,
+        "truncated": false,
+        "unsafe_member_paths": [],
+        "extracted": false
+      },
+      "execution": {
+        "run_id": "20261014T152951Z-ac378e72",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-f54dbd1bf0e2a3a2",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-f54dbd1bf0e2a3a2/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/specialist-worker-17b5e90dcaaff0d1.py",
+          "../input/request-3e3fceb602f14b0baa2d0a4054df2535.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-14T15:29:52.671703+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.134,
+        "stdout_bytes": 172,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"format\": \"zip\", \"members\": [{\"name\": \"sample.txt\", \"size\": 45, \"compressed\": 45}], \"total_members\": 1, \"truncated\": false, \"unsafe_member_paths\": [], \"extracted\": false}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-f54dbd1bf0e2a3a2/results/20261014T152951Z-ac378e72.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.453,
+        "bridge_exit": 0,
+        "case": "ctf-f54dbd1bf0e2a3a2",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-f54dbd1bf0e2a3a2",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "upload_verified": true,
+      "source_status": "local compatibility implementation; original host and worker SHA256-verified in reference archive; full 19-file export incomplete"
+    },
+    "tool": "misc_archive_list",
+    "dangerous": false,
+    "duration_ms": 3734.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991792406139300-19a7f6ca.json"
+  }
+}

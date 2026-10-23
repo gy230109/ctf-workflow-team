@@ -1,0 +1,49 @@
+{
+  "version": 3,
+  "runs": {
+    "run-0001": {
+      "run_id": "run-0001",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": false,
+      "flag": null,
+      "flags": [],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 2,
+      "ts": 1791688063.9664772,
+      "execution_generation": 1,
+      "stream_seq": 2,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    },
+    "run-0006": {
+      "run_id": "run-0006",
+      "name": "EasyRsa",
+      "category": "crypto",
+      "mode": "ctf",
+      "started": true,
+      "finished": true,
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "flags": [
+        "GWHT{gixkJl7SJTcpLOL9zqwo}"
+      ],
+      "expected_flags": 1,
+      "multi_flag": false,
+      "events": 6,
+      "ts": 1791692260.764684,
+      "execution_generation": 1,
+      "stream_seq": 577,
+      "terminal_generations": [
+        1
+      ],
+      "pending_followups": {}
+    }
+  }
+}

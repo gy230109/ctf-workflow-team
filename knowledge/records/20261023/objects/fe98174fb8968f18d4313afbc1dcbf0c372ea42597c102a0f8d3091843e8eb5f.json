@@ -1,0 +1,16 @@
+{
+  "arguments": {
+    "candidate": "3981d0e1b491bc55"
+  },
+  "response": {
+    "ok": true,
+    "accepted": true,
+    "returncode": 0,
+    "stdout": "flag{workflow_9fe6cb8999a2b0bab7991ef9}\r\n",
+    "stderr": "",
+    "verification": "actual_challenge_process_and_independent_output_hash",
+    "artifact_sha256": "0f7b8b0d0ac07f0a7e8be9680b532826c9c89a0f8284cc47aeeae33e76816be4",
+    "tool": "verify_candidate",
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\worker-verify-b4e9ffbe79348726.json"
+  }
+}

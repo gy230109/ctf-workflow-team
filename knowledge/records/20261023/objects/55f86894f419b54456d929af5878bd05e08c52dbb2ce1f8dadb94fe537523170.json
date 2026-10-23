@@ -1,0 +1,16 @@
+{
+  "tool": "kali_run",
+  "arguments": {
+    "argv": [
+      "gcc",
+      "-g",
+      "../input/fixture_program.c",
+      "-o",
+      "fixture_program"
+    ],
+    "confirm": true,
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "352fcc2d411b43bc805c0d918437b90e"
+}

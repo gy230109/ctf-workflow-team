@@ -1,0 +1,49 @@
+{
+  "ts": "2026-10-12 01:55:37",
+  "call_id": "1791741337140537000-24a3deb9",
+  "args": {
+    "query": "LoadBinary"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 1,
+      "tools": [
+        {
+          "name": "LoadBinary",
+          "description": "Loads an executable into the debugger for a new debugging session. Equivalent to File > Open in the GUI. If a session is already active it is terminated first. The debuggee pauses at the system breakpoint.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "description": "Absolute file path of the executable to debug."
+              },
+              "arguments": {
+                "type": "string",
+                "description": "Optional command-line arguments.",
+                "default": ""
+              }
+            },
+            "required": [
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 90.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741337140537000-24a3deb9.json"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "target": "7de38f3c3d3baa7ca58a366f09577586",
+  "started": "2026-10-10 01:57:57",
+  "host": "kali",
+  "env": {
+    "tools": {
+      "hashcat": "/usr/bin/hashcat",
+      "john": "/usr/sbin/john",
+      "7z": "/usr/bin/7z",
+      "gcc": "/usr/bin/gcc"
+    },
+    "wordlists": {
+      "/usr/share/wordlists/rockyou.txt": false,
+      "/usr/share/wordlists/rockyou.txt.gz": true,
+      "/usr/share/dict/words": true,
+      "/usr/share/wordlists/fasttrack.txt": true
+    },
+    "cpus": 2
+  },
+  "stages": [
+    {
+      "tools": {
+        "hashcat": "/usr/bin/hashcat",
+        "john": "/usr/sbin/john",
+        "7z": "/usr/bin/7z",
+        "gcc": "/usr/bin/gcc"
+      },
+      "wordlists": {
+        "/usr/share/wordlists/rockyou.txt": false,
+        "/usr/share/wordlists/rockyou.txt.gz": true,
+        "/usr/share/dict/words": true,
+        "/usr/share/wordlists/fasttrack.txt": true
+      },
+      "cpus": 2,
+      "stage": "recon"
+    },
+    {
+      "rc": 0,
+      "seconds": 58.1,
+      "cracked": "secrets",
+      "stage": "wordlist/rockyou.txt.gz"
+    }
+  ],
+  "found": "secrets"
+}

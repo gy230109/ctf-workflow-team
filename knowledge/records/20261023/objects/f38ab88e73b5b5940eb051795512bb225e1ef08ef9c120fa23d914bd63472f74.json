@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 15:26:16",
+  "call_id": "1791789976220457900-ec81e631",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "include_images": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "wp_system_demo_20261012",
+      "path": "[CTF_ROOT]\\wp\\cases\\wp_system_demo_20261012\\reports\\20261012T072616Z-8a8eb40b\\writeup.md",
+      "records": 8,
+      "integrity_verified": true,
+      "images_included": 1,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 154.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791789976220457900-ec81e631.json"
+  }
+}

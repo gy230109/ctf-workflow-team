@@ -1,0 +1,12 @@
+{
+  "description": "这是一份系统自建验收输入，不是比赛题。要求通过现有 CTF系统 MCP 记录真实工具调用、有来源的观察、真实截图和复现说明，随后从同一模型导出 Markdown、HTML、Word 和 PDF。没有 flag 或平台判题，不宣称解题成功。",
+  "source": "",
+  "artifacts": [
+    {
+      "name": "fixture-handout.txt",
+      "bytes": 114,
+      "sha256": "1df284368069245c3b81e2247dd0cca435130661a96b2fd243b61e4819174a32",
+      "path": "intake/388a7e0a62b743d782dd19b75cfcc17f/01.txt"
+    }
+  ]
+}

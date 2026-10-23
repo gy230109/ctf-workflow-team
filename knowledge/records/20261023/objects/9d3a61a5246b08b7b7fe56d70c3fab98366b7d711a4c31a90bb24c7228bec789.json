@@ -1,0 +1,62 @@
+{
+  "ts": "2026-10-14 23:45:17",
+  "call_id": "1791992717057574900-4163b56b",
+  "args": {
+    "argv": [
+      "sudo",
+      "-n",
+      "apt-get",
+      "-s",
+      "install",
+      "qemu-user",
+      "gdb-multiarch",
+      "gcc-aarch64-linux-gnu",
+      "steghide",
+      "stegseek"
+    ],
+    "case": "deploy_tools_20261014",
+    "confirm": true,
+    "timeout": 600
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T154512Z-823836f4",
+      "case_root": "/home/kali/ctf-workbench/cases/deploy_tools_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/deploy_tools_20261014/work",
+      "command": [
+        "sudo",
+        "-n",
+        "apt-get",
+        "-s",
+        "install",
+        "qemu-user",
+        "gdb-multiarch",
+        "gcc-aarch64-linux-gnu",
+        "steghide",
+        "stegseek"
+      ],
+      "timeout_seconds": 600,
+      "started_at_utc": "2026-10-14T15:45:13.940885+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 3.54,
+      "stdout_bytes": 9003,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "正在读取软件包列表...\n正在分析软件包的依赖关系树...\n正在读取状态信息...\n正在解析依赖...\n下列软件包是自动安装的并且现在不需要了：\n  libbabeltrace1\n使用'sudo apt autoremove'来卸载它(它们)。\n将会同时安装下列软件：\n  binutils binutils-aarch64-linux-gnu binutils-common\n  binutils-x86-64-linux-gnu cpp-16-aarch64-linux-gnu cpp-aarch64-linux-gnu\n  gcc-16-aarch64-linux-gnu gcc-16-aarch64-linux-gnu-base gcc-16-base\n  gcc-16-cross-base gdb lib32gcc-s1 lib32stdc++6 libasan8 libasan8-arm64-cross\n  libatomic1 libatomic1-arm64-cross libbinutils libc6-arm64-cross libcc1-0\n  libctf-nobfd0 libctf0 libexpat1 libexpat1-dev libgcc-16-dev-arm64-cross\n  libgcc-s1-arm64-cross libgomp1 libgomp1-arm64-cross libgprofng0 libhwasan0\n  libhwasan0-arm64-cross libitm1 libitm1-arm64-cross liblsan0\n  liblsan0-arm64-cross libmcrypt4 libmhash2 libobjc4 libpython3.14\n  libpython3.14-minimal libpython3.14-stdlib libquadmath0 libsframe3\n  libstdc++6 libstdc++6-arm64-cross libtsan2 libtsan2-arm64-cross libubsan1\n  libubsan1-arm64-cross native-architecture python3.14-tk qemu-user-binfmt\n建议安装：\n  binutils-doc gcc-16-locales cpp-16-doc cpp-doc gcc-16-doc autoconf automake\n  libtool bison gdb-aarch64-linux-gnu gcc-doc libmcrypt-dev mcrypt\n推荐安装：\n  libc6-dev-arm64-cross libc6-dev-arm64-cross | libc-dev-arm64-cross\n下列【新】软件包将被安装：\n  binutils-aarch64-linux-gnu cpp-16-aarch64-linux-gnu cpp-aarch64-linux-gnu\n  gcc-16-aarch64-linux-gnu gcc-16-aarch64-linux-gnu-base gcc-16-base\n  gcc-16-cross-base gcc-aarch64-linux-gnu gdb-multiarch libasan8-arm64-cross\n  libatomic1-arm64-cross libc6-arm64-cross libgcc-16-dev-arm64-cross\n  libgcc-s1-arm64-cross libgomp1-arm64-cross libhwasan0-arm64-cross\n  libitm1-arm64-cross liblsan0-arm64-cross libmcrypt4 libmhash2 libpython3.14\n  libpython3.14-minimal libpython3.14-stdlib libstdc++6-arm64-cross\n  libtsan2-arm64-cross libubsan1-arm64-cross native-architecture qemu-user\n  qemu-user-binfmt steghide stegseek\n下列软件包将被升级：\n  binutils binutils-common binutils-x86-64-linux-gnu gdb lib32gcc-s1\n  lib32stdc++6 libasan8 libatomic1 libbinutils libcc1-0 libctf-nobfd0 libctf0\n  libexpat1 libexpat1-dev libgomp1 libgprofng0 libhwasan0 libitm1 liblsan0\n  libobjc4 libquadmath0 libsframe3 libstdc++6 libtsan2 libubsan1 python3.14-tk\n升级了 26 个软件包，新安装了 31 个软件包，要卸载 0 个软件包，有 2026 个软件包未被升级。\nInst libexpat1-dev [2.7.4-1] (2.8.4-1 kali-rolling [amd64]) []\nInst libexpat1 [2.7.4-1] (2.8.4-1 kali-rolling [amd64])\nInst gcc-16-base (16.2.0-3 kali-rolling [amd64])\nConf gcc-16-base (16.2.0-3 kali-rolling [amd64])\nInst libstdc++6 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nConf libstdc++6 (16.2.0-3 kali-rolling [amd64])\nInst libgprofng0 [2.46-2] (2.47-6 kali-rolling [amd64]) []\nInst libctf0 [2.46-2] (2.47-6 kali-rolling [amd64]) []\nInst libctf-nobfd0 [2.46-2] (2.47-6 kali-rolling [amd64]) []\nInst binutils-x86-64-linux-gnu [2.46-2] (2.47-6 kali-rolling [amd64]) [binutils:amd64 ]\nInst binutils [2.46-2] (2.47-6 kali-rolling [amd64]) []\nInst libbinutils [2.46-2] (2.47-6 kali-rolling [amd64]) []\nInst binutils-common [2.46-2] (2.47-6 kali-rolling [amd64])\nInst libsframe3 [2.46-2] (2.47-6 kali-rolling [amd64])\nInst binutils-aarch64-linux-gnu (2.47-6 kali-rolling [amd64])\nInst gcc-16-aarch64-linux-gnu-base (16.2.0-3cross1 kali-rolling [amd64])\nInst cpp-16-aarch64-linux-gnu (16.2.0-3cross1 kali-rolling [amd64])\nInst cpp-aarch64-linux-gnu (4:16.1.0-3 kali-rolling [amd64])\nInst libcc1-0 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst gcc-16-cross-base (16.2.0-3cross1 kali-rolling [all])\nInst libc6-arm64-cross (2.43-3cross8 kali-rolling [all])\nInst libgcc-s1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libgomp1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libitm1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libatomic1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libasan8-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst liblsan0-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libtsan2-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libstdc++6-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libubsan1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libhwasan0-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst libgcc-16-dev-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nInst gcc-16-aarch64-linux-gnu (16.2.0-3cross1 kali-rolling [amd64])\nInst gcc-aarch64-linux-gnu (4:16.1.0-3 kali-rolling [amd64])\nInst libpython3.14-minimal (3.14.7-4 kali-rolling [amd64])\nInst libpython3.14-stdlib (3.14.7-4 kali-rolling [amd64])\nInst libpython3.14 (3.14.7-4 kali-rolling [amd64])\nInst gdb [17.1-3] (17.2-1+b1 kali-rolling [amd64])\nInst gdb-multiarch (17.2-1+b1 kali-rolling [amd64])\nInst lib32gcc-s1 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst lib32stdc++6 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libasan8 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libatomic1 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libgomp1 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libhwasan0 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libitm1 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst liblsan0 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libmcrypt4 (2.5.8-8+b2 kali-rolling [amd64])\nInst libmhash2 (0.9.9.9-11+b1 kali-rolling [amd64])\nInst libobjc4 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libquadmath0 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libtsan2 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst libubsan1 [15.2.0-14] (16.2.0-3 kali-rolling [amd64])\nInst native-architecture (0.2.6 kali-rolling [all])\nInst python3.14-tk [3.14.3-1] (3.14.7-4 kali-rolling [amd64])\nInst qemu-user (1:11.1.0+ds-2 kali-rolling [amd64])\nInst qemu-user-binfmt (1:11.1.0+ds-2 kali-rolling [amd64])\nInst steghide (0.5.1+git20240220-2 kali-rolling [amd64])\nInst stegseek (0.6+git20210910.ff677b9-2 kali-rolling [amd64])\nConf libexpat1-dev (2.8.4-1 kali-rolling [amd64])\nConf libexpat1 (2.8.4-1 kali-rolling [amd64])\nConf libgprofng0 (2.47-6 kali-rolling [amd64])\nConf libctf0 (2.47-6 kali-rolling [amd64])\nConf libctf-nobfd0 (2.47-6 kali-rolling [amd64])\nConf binutils-x86-64-linux-gnu (2.47-6 kali-rolling [amd64])\nConf binutils (2.47-6 kali-rolling [amd64])\nConf libbinutils (2.47-6 kali-rolling [amd64])\nConf binutils-common (2.47-6 kali-rolling [amd64])\nConf libsframe3 (2.47-6 kali-rolling [amd64])\nConf binutils-aarch64-linux-gnu (2.47-6 kali-rolling [amd64])\nConf gcc-16-aarch64-linux-gnu-base (16.2.0-3cross1 kali-rolling [amd64])\nConf cpp-16-aarch64-linux-gnu (16.2.0-3cross1 kali-rolling [amd64])\nConf cpp-aarch64-linux-gnu (4:16.1.0-3 kali-rolling [amd64])\nConf libcc1-0 (16.2.0-3 kali-rolling [amd64])\nConf gcc-16-cross-base (16.2.0-3cross1 kali-rolling [all])\nConf libc6-arm64-cross (2.43-3cross8 kali-rolling [all])\nConf libgcc-s1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libgomp1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libitm1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libatomic1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libasan8-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf liblsan0-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libtsan2-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libstdc++6-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libubsan1-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libhwasan0-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf libgcc-16-dev-arm64-cross (16.2.0-3cross1 kali-rolling [all])\nConf gcc-16-aarch64-linux-gnu (16.2.0-3cross1 kali-rolling [amd64])\nConf gcc-aarch64-linux-gnu (4:16.1.0-3 kali-rolling [amd64])\nConf libpython3.14-minimal (3.14.7-4 kali-rolling [amd64])\nConf libpython3.14-stdlib (3.14.7-4 kali-rolling [amd64])\nConf libpython3.14 (3.14.7-4 kali-rolling [amd64])\nConf gdb (17.2-1+b1 kali-rolling [amd64])\nConf gdb-multiarch (17.2-1+b1 kali-rolling [amd64])\nConf lib32gcc-s1 (16.2.0-3 kali-rolling [amd64])\nConf lib32stdc++6 (16.2.0-3 kali-rolling [amd64])\nConf libasan8 (16.2.0-3 kali-rolling [amd64])\nConf libatomic1 (16.2.0-3 kali-rolling [amd64])\nConf libgomp1 (16.2.0-3 kali-rolling [amd64])\nConf libhwasan0 (16.2.0-3 kali-rolling [amd64])\nConf libitm1 (16.2.0-3 kali-rolling [amd64])\nConf liblsan0 (16.2.0-3 kali-rolling [amd64])\nConf libmcrypt4 (2.5.8-8+b2 kali-rolling [amd64])\nConf libmhash2 (0.9.9.9-11+b1 kali-rolling [amd64])\nConf libobjc4 (16.2.0-3 kali-rolling [amd64])\nConf libquadmath0 (16.2.0-3 kali-rolling [amd64])\nConf libtsan2 (16.2.0-3 kali-rolling [amd64])\nConf libubsan1 (16.2.0-3 kali-rolling [amd64])\nConf native-architecture (0.2.6 kali-rolling [all])\nConf python3.14-tk (3.14.7-4 kali-rolling [amd64])\nConf qemu-user (1:11.1.0+ds-2 kali-rolling [amd64])\nConf qemu-user-binfmt (1:11.1.0+ds-2 kali-rolling [amd64])\nConf steghide (0.5.1+git20240220-2 kali-rolling [amd64])\nConf stegseek (0.6+git20210910.ff677b9-2 kali-rolling [amd64])\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/deploy_tools_20261014/results/20261014T154512Z-823836f4.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 4.718,
+      "bridge_exit": 0,
+      "case": "deploy_tools_20261014",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 6064.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791992717057574900-4163b56b.json"
+  }
+}

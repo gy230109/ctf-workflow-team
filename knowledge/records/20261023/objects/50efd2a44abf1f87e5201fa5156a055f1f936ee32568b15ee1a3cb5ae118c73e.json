@@ -1,0 +1,205 @@
+{
+  "case": "ctf-23e45f890c213167",
+  "timeline_head": "ed76e1f09316cedbc3ca83df6ac31033b0b1c1c9272a266f47c388f03fafe2d4",
+  "files": [
+    {
+      "path": "evidence/checkpoint.json",
+      "sha256": "b40a34b1725415b34c37fab7a93bf11a6bc492f30d0d68889abe32cc09b2855c",
+      "kind": "timeline"
+    },
+    {
+      "path": "evidence/images/0005.png",
+      "sha256": "265ed23dd5bd3b0e39e885941136cabb5204c20fe5fdea5dbefb4eee3bdd6018",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/intake/388a7e0a62b743d782dd19b75cfcc17f/01.txt",
+      "sha256": "1df284368069245c3b81e2247dd0cca435130661a96b2fd243b61e4819174a32",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/intake/388a7e0a62b743d782dd19b75cfcc17f/context.json",
+      "sha256": "dcf7851af4e450bb658f44bbe82cbe875ba133badfc507c2e46404edac71d35e",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/0004-call.json",
+      "sha256": "0070ae2124fa9f5b3831c048db082c74f8b0cfa8aa873f8576a812ad02f3056e",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/raw/9f3ea568d3c04acaa858e522daa67bee-begin.json",
+      "sha256": "7ea4407b868ff28e02d6e26d6d8dcd9699d4d12f0697580f1068e6556747583a",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/session.json",
+      "sha256": "a7b5cb8e8307180cb9051d101415adf1da5063948d65c4865a2d1e8f35447c5f",
+      "kind": "private_evidence"
+    },
+    {
+      "path": "evidence/timeline.jsonl",
+      "sha256": "9fb96208dc11d08927d025b18b5af35d7d4138a745898effb73bb388ad8dea91",
+      "kind": "timeline"
+    },
+    {
+      "path": "images/0005-0005.png",
+      "sha256": "265ed23dd5bd3b0e39e885941136cabb5204c20fe5fdea5dbefb4eee3bdd6018",
+      "kind": "vm_screenshot"
+    },
+    {
+      "path": "report.json",
+      "sha256": "e80bfde776bc38bd6185a6b0ecd6c3a9f605aeef7a275bd3dfc2868c5e90d84b",
+      "kind": "report_model"
+    },
+    {
+      "path": "technical.md",
+      "sha256": "b81086bec279319c3cab6b7387293d0fc28c77ddcf92d217497bf0969ec6d302",
+      "kind": "technical_appendix"
+    },
+    {
+      "path": "writeup.docx",
+      "sha256": "4950d9360c2cd8eeab6189293f0a9744e4ac38f199e435b0fde2a93d5dc805b1",
+      "kind": "docx"
+    },
+    {
+      "path": "writeup.html",
+      "sha256": "b7cb3e7d2f6d4a7e330d37bd34ce89036e0b432943cbccba43790c36bd45882e",
+      "kind": "html"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "a96b5a0d81b07aecafb54f2af7156cc91d0759553d20111475ce179398590930",
+      "kind": "markdown"
+    },
+    {
+      "path": "writeup.pdf",
+      "sha256": "6e4b8b5104e0a8acd34948a014d10223ec25e7adc8a77c4f62360371ea1877a5",
+      "kind": "pdf"
+    }
+  ],
+  "private_bundle": true,
+  "text_redaction": "best_effort",
+  "images_reviewed": false,
+  "capture_errors": [],
+  "pending_operations": [],
+  "recording_complete": true,
+  "platform_verification": [],
+  "images_included": 1,
+  "recordings_included": 0,
+  "scripts_included": 0,
+  "report_schema_version": 2,
+  "quality": {
+    "ok": true,
+    "status": "draft",
+    "quality": {
+      "document_complete": true,
+      "missing_sections": [],
+      "calls_without_purpose": [],
+      "calls_without_observation": [],
+      "review_scope": "结构与证据引用检查；未审判 Agent 文字的语义正确性"
+    },
+    "issues": [
+      {
+        "code": "answer_not_verified",
+        "severity": "needs_attention",
+        "message": "尚无结构化的真实平台正确回执；章节文字不认证答案。",
+        "steps": []
+      }
+    ],
+    "submission_ready": false,
+    "integrity_verified": true,
+    "recording_complete": true,
+    "platform_answer_verified": false,
+    "verification_receipts": [],
+    "solved_verified": false,
+    "capture_errors": [],
+    "pending_operations": [],
+    "context": {
+      "description": "这是一份系统自建验收输入，不是比赛题。要求通过现有 CTF系统 MCP 记录真实工具调用、有来源的观察、真实截图和复现说明，随后从同一模型导出 Markdown、HTML、Word 和 PDF。没有 flag 或平台判题，不宣称解题成功。",
+      "source": "",
+      "artifacts": [
+        {
+          "bytes": 114,
+          "name": "fixture-handout.txt",
+          "path": "intake/388a7e0a62b743d782dd19b75cfcc17f/01.txt",
+          "sha256": "1df284368069245c3b81e2247dd0cca435130661a96b2fd243b61e4819174a32"
+        }
+      ]
+    },
+    "sections": {
+      "overview": {
+        "claim_type": "agent_annotation",
+        "section": "overview",
+        "source_steps": [
+          4,
+          5
+        ],
+        "text": "本次使用自建输入，验证 CTF系统从接收题面和附件、记录实际工具动作及屏幕，到同源导出 WP 的完整链路。没有使用比赛题或参考答案。",
+        "step": 8
+      },
+      "analysis": {
+        "claim_type": "agent_annotation",
+        "section": "analysis",
+        "source_steps": [
+          4,
+          5
+        ],
+        "text": "先做成本很低的整数运算，观察实际返回值；再单独采集 Kali 虚拟机实际画面。数值结果与屏幕记录承担不同验证目的，不能把截图当作答案证明。",
+        "step": 9
+      },
+      "solution": {
+        "claim_type": "agent_annotation",
+        "section": "solution",
+        "source_steps": [
+          4,
+          5
+        ],
+        "text": "通过 CTF系统调用 math_gcd，参数 values=[48,60]。记录器保存了行动目的、预期、实际输出、耗时和原始回执；随后通过 wp_capture 采集真实屏幕，并用引用对应步骤的观察说明补全正文。",
+        "step": 10
+      },
+      "validation": {
+        "claim_type": "agent_annotation",
+        "section": "validation",
+        "source_steps": [
+          4,
+          5
+        ],
+        "text": "证据步骤中的实际整数结果为 12，与该自建算例的预期相符。截图接口也返回真实采集文件。本次没有向任何比赛平台提交答案，因此没有平台判对回执，不宣称解题成功。",
+        "step": 11
+      },
+      "reproduction": {
+        "claim_type": "agent_annotation",
+        "section": "reproduction",
+        "source_steps": [
+          4,
+          5
+        ],
+        "text": "使用随包的 fixture-handout.txt 核对 SHA256，通过 CTF系统新建独立任务后调用 math_gcd values=[48,60]；如需复查屏幕，按明确目标重新采集并形成新步骤。历史原始输出、截图和章节引用保留在本包，导出动作不会重演已执行步骤。",
+        "step": 12
+      }
+    },
+    "review_required": "提交或公开前仍需审阅正文、原件及图片像素。"
+  },
+  "submission_ready": false,
+  "format_export": {
+    "ok": true,
+    "generator_version": "ctf-wp-formats/2.0.0",
+    "template_version": "ctf-wp-letter/1.0.0",
+    "formats": {
+      "docx": {
+        "ok": true,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-23e45f890c213167\\reports\\20261016T061201Z-591157b8\\writeup.docx",
+        "bytes": 658734
+      },
+      "pdf": {
+        "ok": true,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-23e45f890c213167\\reports\\20261016T061201Z-591157b8\\writeup.pdf",
+        "bytes": 1004883
+      }
+    },
+    "warnings": [
+      "Document code is display-wrapped; use the original evidence script for replay."
+    ]
+  }
+}

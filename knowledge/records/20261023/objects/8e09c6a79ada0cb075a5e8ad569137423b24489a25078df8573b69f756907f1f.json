@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-15 00:35:01",
+  "call_id": "1791995701836047300-ad3ca4b2",
+  "args": {
+    "case": "ctf-b37c81c14eb6b825",
+    "text": "新工具真验收结果（2026-10-15，本机直跑，非比赛题）：1) qemu_run = 通过。用真实 ARM64 ELF（Kali cross 的 ld-linux-aarch64.so.1，200688B，sha256 b6b6d171…）在其 input 内执行，rc=0，stdout 打印 \"ld.so (Debian GLIBC 2.43-3) … version 2.43\"，命令为 qemu-aarch64 -L /usr/aarch64-linux-gnu <file> --version，argv 正确透传。附注：自建极简静态 aarch64 ELF（161B，write+exit 两 syscall，readelf 显示 ELF64/AArch64/EXEC/单个 R+E LOAD 合法）被 qemu 以 \"Exec format error\" 拒收，6 种变体（RX/RWX/ET_DYN/加 GNU_STACK/align 64k/align 0）全部同样报错；同一台机上 qemu-aarch64 跑真实 ELF 正常、qemu-x86_64 /bin/true r...(1628 chars)",
+    "status": "observed",
+    "source_step": 38
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 39,
+      "case": "ctf-b37c81c14eb6b825",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 69.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995701836047300-ad3ca4b2.json"
+  }
+}

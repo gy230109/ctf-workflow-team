@@ -1,0 +1,1828 @@
+{
+  "ts": "2026-10-12 02:10:54",
+  "call_id": "1791742254636992400-5951b0bb",
+  "args": {
+    "command": "inspect-managed-members",
+    "args": "[CTF_ROOT]\\战例库\\QWB2022-GameMaster-Blackjack\\artifacts\\embedded.dll",
+    "timeout": 180
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "command": "inspect-managed-members",
+      "argv": [
+        "inspect-managed-members",
+        "[CTF_ROOT]\\战例库\\QWB2022-GameMaster-Blackjack\\artifacts\\embedded.dll",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "stderr": "npm warn Unknown user config \"electron_mirror\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.",
+      "result": {
+        "evidence_id": "ev_928b1553dbc3f26067941215950152b2796191028ce8f8391e4e3ec89ccfe4e6",
+        "subject": {
+          "name": "[CTF_ROOT]\\战例库\\QWB2022-GameMaster-Blackjack\\artifacts\\embedded.dll",
+          "digest": {
+            "sha256": "ee76e6b456cba89877ad3b2908fd0871d9932e51ad958dd2fe9a0202e7a69834"
+          },
+          "format": "pe",
+          "architecture": "x86",
+          "local_path": "[CTF_ROOT]\\战例库\\QWB2022-GameMaster-Blackjack\\artifacts\\embedded.dll"
+        },
+        "provider": {
+          "id": "rea-dotnet-static",
+          "name": "REA managed static analysis provider",
+          "version": "1"
+        },
+        "analysis_profile": null,
+        "predicate_type": "rea.analysis",
+        "operation": "inspect_managed_members",
+        "parameters": {},
+        "raw_result": null,
+        "normalized_result": {
+          "artifact": {
+            "path": "[CTF_ROOT]\\战例库\\QWB2022-GameMaster-Blackjack\\artifacts\\embedded.dll",
+            "sha256": "ee76e6b456cba89877ad3b2908fd0871d9932e51ad958dd2fe9a0202e7a69834",
+            "byte_length": 5632,
+            "format": "pe"
+          },
+          "module": {
+            "name": "ExploitClass.dll",
+            "generation": 0,
+            "mvid": "52fd90d5-2afd-446a-853b-24cbbac298df",
+            "enc_id": null,
+            "enc_base_id": null,
+            "token": "0x00000001",
+            "row_offset": 1424
+          },
+          "metadata": {
+            "status": "complete",
+            "version": "v4.0.30319",
+            "table_row_counts": {
+              "Module": 1,
+              "TypeRef": 31,
+              "TypeDef": 5,
+              "Field": 2,
+              "MethodDef": 3,
+              "Param": 6,
+              "MemberRef": 23,
+              "CustomAttribute": 14,
+              "ClassLayout": 2,
+              "StandAloneSig": 2,
+              "FieldRVA": 2,
+              "Assembly": 1,
+              "AssemblyRef": 3,
+              "NestedClass": 2,
+              "MethodSpec": 1
+            }
+          },
+          "identity_scope": {
+            "token_identity": "build-local",
+            "requires_artifact_sha256": "ee76e6b456cba89877ad3b2908fd0871d9932e51ad958dd2fe9a0202e7a69834",
+            "requires_mvid": "52fd90d5-2afd-446a-853b-24cbbac298df"
+          },
+          "types": [
+            {
+              "token": "0x02000001",
+              "row_offset": 1620,
+              "namespace": "",
+              "name": "<Module>",
+              "full_name": "<Module>",
+              "flags": 0,
+              "extends_token": null,
+              "field_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              },
+              "method_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              }
+            },
+            {
+              "token": "0x02000002",
+              "row_offset": 1634,
+              "namespace": "T1Class",
+              "name": "T1",
+              "full_name": "T1Class.T1",
+              "flags": 1048577,
+              "extends_token": "0x0100000f",
+              "field_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              },
+              "method_list": {
+                "first_row": 1,
+                "last_row": 3,
+                "count": 3
+              }
+            },
+            {
+              "token": "0x02000003",
+              "row_offset": 1648,
+              "namespace": "",
+              "name": "<PrivateImplementationDetails>",
+              "full_name": "<PrivateImplementationDetails>",
+              "flags": 256,
+              "extends_token": "0x0100000f",
+              "field_list": {
+                "first_row": 1,
+                "last_row": 2,
+                "count": 2
+              },
+              "method_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              }
+            },
+            {
+              "token": "0x02000004",
+              "row_offset": 1662,
+              "namespace": "",
+              "name": "__StaticArrayInitTypeSize=19",
+              "full_name": "__StaticArrayInitTypeSize=19",
+              "flags": 275,
+              "extends_token": "0x01000012",
+              "field_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              },
+              "method_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              }
+            },
+            {
+              "token": "0x02000005",
+              "row_offset": 1676,
+              "namespace": "",
+              "name": "__StaticArrayInitTypeSize=40",
+              "full_name": "__StaticArrayInitTypeSize=40",
+              "flags": 275,
+              "extends_token": "0x01000012",
+              "field_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              },
+              "method_list": {
+                "first_row": null,
+                "last_row": null,
+                "count": 0
+              }
+            }
+          ],
+          "fields": [
+            {
+              "token": "0x04000001",
+              "row_offset": 1690,
+              "declaring_type_token": "0x02000003",
+              "declaring_type": "<PrivateImplementationDetails>",
+              "name": "7235916CD1DA57AAD16D310385715A3E238A71195DECCF80D4BDF3B1BE72D574",
+              "flags": 307,
+              "signature": {
+                "raw_length": 3,
+                "raw_sha256": "3f4e6553ae471758cc5497d6fd3012c550f0573b5cf192ea9c928323715bbd20",
+                "kind": "field",
+                "parse_status": "decoded",
+                "calling_convention": "field",
+                "generic_parameter_count": null,
+                "parameter_count": null,
+                "return_type": null,
+                "parameter_types": [],
+                "field_type": "valuetype:16",
+                "issue": null
+              }
+            },
+            {
+              "token": "0x04000002",
+              "row_offset": 1696,
+              "declaring_type_token": "0x02000003",
+              "declaring_type": "<PrivateImplementationDetails>",
+              "name": "EBC0A6EE956AA4599BCDA6FA0CD9A13F4866812B3A4201D62935BA6CBEEE7C46",
+              "flags": 307,
+              "signature": {
+                "raw_length": 3,
+                "raw_sha256": "eb9bc6ed474e85a8200127762346ad8c0a6db4e76b4c20956341da66d44825fc",
+                "kind": "field",
+                "parse_status": "decoded",
+                "calling_convention": "field",
+                "generic_parameter_count": null,
+                "parameter_count": null,
+                "return_type": null,
+                "parameter_types": [],
+                "field_type": "valuetype:20",
+                "issue": null
+              }
+            }
+          ],
+          "methods": [
+            {
+              "token": "0x06000001",
+              "row_offset": 1702,
+              "declaring_type_token": "0x02000002",
+              "declaring_type": "T1Class.T1",
+              "name": "Check1",
+              "rva": 8272,
+              "impl_flags": 0,
+              "flags": 145,
+              "signature": {
+                "raw_length": 8,
+                "raw_sha256": "cbb72fd9960fee395c83d1501b4f2c5681a89d5fc24985005dc6dec60a17cf5d",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 4,
+                "return_type": "void",
+                "parameter_types": [
+                  "u8",
+                  "u8",
+                  "u8",
+                  "u1[]"
+                ],
+                "field_type": null,
+                "issue": null
+              },
+              "body": {
+                "status": "present",
+                "header_format": "fat",
+                "rva": 8272,
+                "file_offset": 592,
+                "max_stack": 7,
+                "init_locals": true,
+                "local_var_sig_token": "0x11000001",
+                "il_size": 179,
+                "il_sha256": "96f020ddf70d8e6616678abad94839a0541d05db62420f9beb233681692db40d",
+                "normalized_il_sha256": "93dc1a2471520c1b84a2b9167c95d64c6c23d9d34a6cbb5405f9f510ed18edf6",
+                "instruction_count": 145,
+                "decoded_instruction_count": 145,
+                "truncated_instructions": 0,
+                "opcode_counts": {
+                  "nop": 5,
+                  "ldc.i4.m1": 1,
+                  "stloc.0": 2,
+                  "ldc.i4.0": 2,
+                  "stloc.1": 2,
+                  "br": 1,
+                  "ldarg.0": 6,
+                  "ldc.i4.s": 16,
+                  "shr.un": 16,
+                  "xor": 11,
+                  "ldc.i4.1": 14,
+                  "conv.i8": 9,
+                  "and": 9,
+                  "shl": 4,
+                  "or": 4,
+                  "starg.s": 3,
+                  "ldarg.1": 4,
+                  "ldarg.2": 9,
+                  "ldloc.1": 3,
+                  "ldc.i4.8": 1,
+                  "rem": 1,
+                  "ceq": 1,
+                  "stloc.2": 1,
+                  "ldloc.2": 1,
+                  "brfalse.s": 1,
+                  "ldloc.0": 3,
+                  "add": 2,
+                  "ldarg.3": 2,
+                  "ldelem.u1": 1,
+                  "conv.u4": 1,
+                  "conv.u8": 1,
+                  "conv.u1": 1,
+                  "stelem.i1": 1,
+                  "ldc.i4": 1,
+                  "clt": 1,
+                  "stloc.3": 1,
+                  "ldloc.3": 1,
+                  "brtrue": 1,
+                  "ret": 1
+                },
+                "anchors": [
+                  {
+                    "il_offset": 5,
+                    "opcode": "br",
+                    "operand_kind": "branch",
+                    "operand": "163"
+                  },
+                  {
+                    "il_offset": 12,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "29"
+                  },
+                  {
+                    "il_offset": 16,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "28"
+                  },
+                  {
+                    "il_offset": 21,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "25"
+                  },
+                  {
+                    "il_offset": 26,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "23"
+                  },
+                  {
+                    "il_offset": 37,
+                    "opcode": "starg.s",
+                    "operand_kind": "variable",
+                    "operand": "0"
+                  },
+                  {
+                    "il_offset": 40,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "30"
+                  },
+                  {
+                    "il_offset": 44,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "27"
+                  },
+                  {
+                    "il_offset": 55,
+                    "opcode": "starg.s",
+                    "operand_kind": "variable",
+                    "operand": "1"
+                  },
+                  {
+                    "il_offset": 58,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "31"
+                  },
+                  {
+                    "il_offset": 62,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "30"
+                  },
+                  {
+                    "il_offset": 67,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "29"
+                  },
+                  {
+                    "il_offset": 72,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "28"
+                  },
+                  {
+                    "il_offset": 77,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "26"
+                  },
+                  {
+                    "il_offset": 82,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "24"
+                  },
+                  {
+                    "il_offset": 93,
+                    "opcode": "starg.s",
+                    "operand_kind": "variable",
+                    "operand": "2"
+                  },
+                  {
+                    "il_offset": 103,
+                    "opcode": "brfalse.s",
+                    "operand_kind": "branch",
+                    "operand": "111"
+                  },
+                  {
+                    "il_offset": 120,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "32"
+                  },
+                  {
+                    "il_offset": 127,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "30"
+                  },
+                  {
+                    "il_offset": 135,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "32"
+                  },
+                  {
+                    "il_offset": 145,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "31"
+                  },
+                  {
+                    "il_offset": 164,
+                    "opcode": "ldc.i4",
+                    "operand_kind": "constant",
+                    "operand": "320"
+                  },
+                  {
+                    "il_offset": 173,
+                    "opcode": "brtrue",
+                    "operand_kind": "branch",
+                    "operand": "10"
+                  }
+                ],
+                "exception_regions": [],
+                "issue": null
+              }
+            },
+            {
+              "token": "0x06000002",
+              "row_offset": 1716,
+              "declaring_type_token": "0x02000002",
+              "declaring_type": "T1Class.T1",
+              "name": "ParseKey",
+              "rva": 8464,
+              "impl_flags": 0,
+              "flags": 145,
+              "signature": {
+                "raw_length": 7,
+                "raw_sha256": "5c09528b1935a766260b3acd1ca87264d87b87409922745697155ceb357d8a43",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 2,
+                "return_type": "void",
+                "parameter_types": [
+                  "u8[]",
+                  "u1[]"
+                ],
+                "field_type": null,
+                "issue": null
+              },
+              "body": {
+                "status": "present",
+                "header_format": "fat",
+                "rva": 8464,
+                "file_offset": 784,
+                "max_stack": 5,
+                "init_locals": true,
+                "local_var_sig_token": "0x11000001",
+                "il_size": 63,
+                "il_sha256": "fc522298a2abb91b641f91d3380cdf80c7a9c604c47a072e550e8c15d547ad4a",
+                "normalized_il_sha256": "1d69932bc25925c06ccf2bc13f73ab7aec3607f5ff43b52de0731548f8ea8200",
+                "instruction_count": 52,
+                "decoded_instruction_count": 52,
+                "truncated_instructions": 0,
+                "opcode_counts": {
+                  "nop": 5,
+                  "ldc.i4.0": 2,
+                  "stloc.0": 2,
+                  "br.s": 2,
+                  "stloc.1": 2,
+                  "ldarg.1": 1,
+                  "ldloc.0": 4,
+                  "ldc.i4.4": 2,
+                  "mul": 2,
+                  "ldloc.1": 4,
+                  "add": 3,
+                  "ldarg.0": 1,
+                  "ldelem.i8": 1,
+                  "ldc.i4.8": 1,
+                  "ldc.i4.s": 1,
+                  "and": 2,
+                  "shr.un": 1,
+                  "ldc.i4": 1,
+                  "conv.i8": 1,
+                  "conv.u1": 1,
+                  "stelem.i1": 1,
+                  "ldc.i4.1": 2,
+                  "clt": 2,
+                  "stloc.2": 1,
+                  "ldloc.2": 1,
+                  "brtrue.s": 2,
+                  "ldc.i4.3": 1,
+                  "stloc.3": 1,
+                  "ldloc.3": 1,
+                  "ret": 1
+                },
+                "anchors": [
+                  {
+                    "il_offset": 3,
+                    "opcode": "br.s",
+                    "operand_kind": "branch",
+                    "operand": "54"
+                  },
+                  {
+                    "il_offset": 8,
+                    "opcode": "br.s",
+                    "operand_kind": "branch",
+                    "operand": "41"
+                  },
+                  {
+                    "il_offset": 23,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "63"
+                  },
+                  {
+                    "il_offset": 27,
+                    "opcode": "ldc.i4",
+                    "operand_kind": "constant",
+                    "operand": "255"
+                  },
+                  {
+                    "il_offset": 47,
+                    "opcode": "brtrue.s",
+                    "operand_kind": "branch",
+                    "operand": "10"
+                  },
+                  {
+                    "il_offset": 60,
+                    "opcode": "brtrue.s",
+                    "operand_kind": "branch",
+                    "operand": "5"
+                  }
+                ],
+                "exception_regions": [],
+                "issue": null
+              }
+            },
+            {
+              "token": "0x06000003",
+              "row_offset": 1730,
+              "declaring_type_token": "0x02000002",
+              "declaring_type": "T1Class.T1",
+              "name": ".ctor",
+              "rva": 8540,
+              "impl_flags": 0,
+              "flags": 6278,
+              "signature": {
+                "raw_length": 3,
+                "raw_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 0,
+                "return_type": "void",
+                "parameter_types": [],
+                "field_type": null,
+                "issue": null
+              },
+              "body": {
+                "status": "present",
+                "header_format": "fat",
+                "rva": 8540,
+                "file_offset": 860,
+                "max_stack": 6,
+                "init_locals": true,
+                "local_var_sig_token": "0x11000002",
+                "il_size": 332,
+                "il_sha256": "a6d67c73e8e2f5650170d009035852dd3fcbbd1519c3b9d22c9543c7834e7226",
+                "normalized_il_sha256": "3825ccac5f1d518bf4dead7ef119cbc73d6b2557bca1eefd7e94f6ea5e2bbe36",
+                "instruction_count": 152,
+                "decoded_instruction_count": 152,
+                "truncated_instructions": 0,
+                "opcode_counts": {
+                  "ldarg.0": 1,
+                  "call": 15,
+                  "nop": 13,
+                  "ldnull": 4,
+                  "stloc.0": 2,
+                  "stloc.1": 2,
+                  "stloc.2": 2,
+                  "ldstr": 6,
+                  "ldloc.0": 2,
+                  "brfalse.s": 4,
+                  "ldloc.1": 2,
+                  "ldloc.2": 2,
+                  "ceq": 1,
+                  "br.s": 2,
+                  "ldc.i4.1": 4,
+                  "stloc.s": 13,
+                  "ldloc.s": 27,
+                  "leave": 1,
+                  "stloc.3": 1,
+                  "ldc.i4.3": 1,
+                  "newarr": 6,
+                  "ldc.i4.s": 5,
+                  "dup": 2,
+                  "ldtoken": 2,
+                  "ldc.i4.0": 4,
+                  "ldloc.3": 1,
+                  "stelem.i8": 3,
+                  "ldc.i4.2": 2,
+                  "ldelem.i8": 3,
+                  "ldelem.u1": 2,
+                  "ldlen": 2,
+                  "conv.i4": 2,
+                  "rem": 1,
+                  "xor": 1,
+                  "conv.u1": 1,
+                  "stelem.i1": 1,
+                  "add": 1,
+                  "clt": 1,
+                  "brtrue.s": 1,
+                  "callvirt": 1,
+                  "pop": 2,
+                  "leave.s": 2,
+                  "ret": 1
+                },
+                "anchors": [
+                  {
+                    "il_offset": 1,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a00000f"
+                  },
+                  {
+                    "il_offset": 15,
+                    "opcode": "ldstr",
+                    "operand_kind": "string",
+                    "operand": "0x70000001"
+                  },
+                  {
+                    "il_offset": 20,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000010"
+                  },
+                  {
+                    "il_offset": 26,
+                    "opcode": "ldstr",
+                    "operand_kind": "string",
+                    "operand": "0x7000001b"
+                  },
+                  {
+                    "il_offset": 31,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000010"
+                  },
+                  {
+                    "il_offset": 37,
+                    "opcode": "ldstr",
+                    "operand_kind": "string",
+                    "operand": "0x70000035"
+                  },
+                  {
+                    "il_offset": 42,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000010"
+                  },
+                  {
+                    "il_offset": 49,
+                    "opcode": "brfalse.s",
+                    "operand_kind": "branch",
+                    "operand": "60"
+                  },
+                  {
+                    "il_offset": 52,
+                    "opcode": "brfalse.s",
+                    "operand_kind": "branch",
+                    "operand": "60"
+                  },
+                  {
+                    "il_offset": 58,
+                    "opcode": "br.s",
+                    "operand_kind": "branch",
+                    "operand": "61"
+                  },
+                  {
+                    "il_offset": 61,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "12"
+                  },
+                  {
+                    "il_offset": 63,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "12"
+                  },
+                  {
+                    "il_offset": 65,
+                    "opcode": "brfalse.s",
+                    "operand_kind": "branch",
+                    "operand": "73"
+                  },
+                  {
+                    "il_offset": 68,
+                    "opcode": "leave",
+                    "operand_kind": "branch",
+                    "operand": "331"
+                  },
+                  {
+                    "il_offset": 74,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000011"
+                  },
+                  {
+                    "il_offset": 81,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000011"
+                  },
+                  {
+                    "il_offset": 86,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "4"
+                  },
+                  {
+                    "il_offset": 89,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000011"
+                  },
+                  {
+                    "il_offset": 94,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "5"
+                  },
+                  {
+                    "il_offset": 97,
+                    "opcode": "newarr",
+                    "operand_kind": "type",
+                    "operand": "0x01000014"
+                  },
+                  {
+                    "il_offset": 102,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 104,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "40"
+                  },
+                  {
+                    "il_offset": 106,
+                    "opcode": "newarr",
+                    "operand_kind": "type",
+                    "operand": "0x01000015"
+                  },
+                  {
+                    "il_offset": 111,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "7"
+                  },
+                  {
+                    "il_offset": 113,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "40"
+                  },
+                  {
+                    "il_offset": 115,
+                    "opcode": "newarr",
+                    "operand_kind": "type",
+                    "operand": "0x01000015"
+                  },
+                  {
+                    "il_offset": 120,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "8"
+                  },
+                  {
+                    "il_offset": 122,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "12"
+                  },
+                  {
+                    "il_offset": 124,
+                    "opcode": "newarr",
+                    "operand_kind": "type",
+                    "operand": "0x01000015"
+                  },
+                  {
+                    "il_offset": 129,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "9"
+                  },
+                  {
+                    "il_offset": 131,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "40"
+                  },
+                  {
+                    "il_offset": 133,
+                    "opcode": "newarr",
+                    "operand_kind": "type",
+                    "operand": "0x01000015"
+                  },
+                  {
+                    "il_offset": 139,
+                    "opcode": "ldtoken",
+                    "operand_kind": "field",
+                    "operand": "0x04000002"
+                  },
+                  {
+                    "il_offset": 144,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000012"
+                  },
+                  {
+                    "il_offset": 149,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "10"
+                  },
+                  {
+                    "il_offset": 151,
+                    "opcode": "ldc.i4.s",
+                    "operand_kind": "constant",
+                    "operand": "19"
+                  },
+                  {
+                    "il_offset": 153,
+                    "opcode": "newarr",
+                    "operand_kind": "type",
+                    "operand": "0x01000015"
+                  },
+                  {
+                    "il_offset": 159,
+                    "opcode": "ldtoken",
+                    "operand_kind": "field",
+                    "operand": "0x04000001"
+                  },
+                  {
+                    "il_offset": 164,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000012"
+                  },
+                  {
+                    "il_offset": 169,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "11"
+                  },
+                  {
+                    "il_offset": 171,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 176,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 179,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "4"
+                  },
+                  {
+                    "il_offset": 182,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 185,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "5"
+                  },
+                  {
+                    "il_offset": 188,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 192,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 196,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 200,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "7"
+                  },
+                  {
+                    "il_offset": 202,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x06000001"
+                  },
+                  {
+                    "il_offset": 208,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "10"
+                  },
+                  {
+                    "il_offset": 210,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "7"
+                  },
+                  {
+                    "il_offset": 212,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x2b000001"
+                  },
+                  {
+                    "il_offset": 217,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "13"
+                  },
+                  {
+                    "il_offset": 219,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "13"
+                  },
+                  {
+                    "il_offset": 221,
+                    "opcode": "brfalse.s",
+                    "operand_kind": "branch",
+                    "operand": "323"
+                  },
+                  {
+                    "il_offset": 224,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "6"
+                  },
+                  {
+                    "il_offset": 226,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "9"
+                  },
+                  {
+                    "il_offset": 228,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x06000002"
+                  },
+                  {
+                    "il_offset": 235,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 237,
+                    "opcode": "br.s",
+                    "operand_kind": "branch",
+                    "operand": "269"
+                  },
+                  {
+                    "il_offset": 240,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "11"
+                  },
+                  {
+                    "il_offset": 242,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 244,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "11"
+                  },
+                  {
+                    "il_offset": 246,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 249,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "9"
+                  },
+                  {
+                    "il_offset": 251,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 253,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "9"
+                  },
+                  {
+                    "il_offset": 263,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 267,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 269,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "14"
+                  },
+                  {
+                    "il_offset": 271,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "11"
+                  },
+                  {
+                    "il_offset": 277,
+                    "opcode": "stloc.s",
+                    "operand_kind": "variable",
+                    "operand": "15"
+                  },
+                  {
+                    "il_offset": 279,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "15"
+                  },
+                  {
+                    "il_offset": 281,
+                    "opcode": "brtrue.s",
+                    "operand_kind": "branch",
+                    "operand": "239"
+                  },
+                  {
+                    "il_offset": 283,
+                    "opcode": "ldstr",
+                    "operand_kind": "string",
+                    "operand": "0x7000004f"
+                  },
+                  {
+                    "il_offset": 288,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000014"
+                  },
+                  {
+                    "il_offset": 293,
+                    "opcode": "ldloc.s",
+                    "operand_kind": "variable",
+                    "operand": "11"
+                  },
+                  {
+                    "il_offset": 295,
+                    "opcode": "callvirt",
+                    "operand_kind": "method",
+                    "operand": "0x0a000015"
+                  },
+                  {
+                    "il_offset": 300,
+                    "opcode": "ldstr",
+                    "operand_kind": "string",
+                    "operand": "0x7000005b"
+                  },
+                  {
+                    "il_offset": 305,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000016"
+                  },
+                  {
+                    "il_offset": 310,
+                    "opcode": "ldstr",
+                    "operand_kind": "string",
+                    "operand": "0x7000005f"
+                  },
+                  {
+                    "il_offset": 316,
+                    "opcode": "call",
+                    "operand_kind": "method",
+                    "operand": "0x0a000017"
+                  },
+                  {
+                    "il_offset": 324,
+                    "opcode": "leave.s",
+                    "operand_kind": "branch",
+                    "operand": "331"
+                  },
+                  {
+                    "il_offset": 329,
+                    "opcode": "leave.s",
+                    "operand_kind": "branch",
+                    "operand": "331"
+                  }
+                ],
+                "exception_regions": [
+                  {
+                    "flags": 0,
+                    "try_offset": 8,
+                    "try_length": 318,
+                    "handler_offset": 326,
+                    "handler_length": 5,
+                    "class_token": "0x01000010",
+                    "filter_offset": null
+                  }
+                ],
+                "issue": null
+              }
+            }
+          ],
+          "member_refs": [
+            {
+              "token": "0x0a000001",
+              "row_offset": 1780,
+              "parent_token": "0x01000001",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c889396c66b535112cb33472b6ecf61ad5f09860a1ea642fb8c31a4ed004296a",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "i4"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000002",
+              "row_offset": 1786,
+              "parent_token": "0x01000002",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 3,
+                "raw_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 0,
+                "return_type": "void",
+                "parameter_types": [],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000003",
+              "row_offset": 1792,
+              "parent_token": "0x01000003",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 5,
+                "raw_sha256": "1d2049d945c66d5b9530552d2369938d1dd811d391633d9b8a2c9fad0e908844",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "valuetype:17"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000004",
+              "row_offset": 1798,
+              "parent_token": "0x01000005",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000005",
+              "row_offset": 1804,
+              "parent_token": "0x01000006",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000006",
+              "row_offset": 1810,
+              "parent_token": "0x01000007",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000007",
+              "row_offset": 1816,
+              "parent_token": "0x01000008",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000008",
+              "row_offset": 1822,
+              "parent_token": "0x01000009",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000009",
+              "row_offset": 1828,
+              "parent_token": "0x0100000a",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a00000a",
+              "row_offset": 1834,
+              "parent_token": "0x0100000b",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a00000b",
+              "row_offset": 1840,
+              "parent_token": "0x0100000c",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "7366e2ddae008ee5e5ba63f1c2504e9a452ccd8cc0f40fdd3d8d03430bae9e33",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "bool"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a00000c",
+              "row_offset": 1846,
+              "parent_token": "0x0100000d",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a00000d",
+              "row_offset": 1852,
+              "parent_token": "0x0100000e",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "c65dc7d303e94729245de0fa4db4b80ac687af6d0bb38c5c884bc9c11f01e005",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "void",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a00000e",
+              "row_offset": 1858,
+              "parent_token": "0x01000011",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 3,
+                "raw_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 0,
+                "return_type": "void",
+                "parameter_types": [],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a00000f",
+              "row_offset": 1864,
+              "parent_token": "0x0100000f",
+              "name": ".ctor",
+              "signature": {
+                "raw_length": 3,
+                "raw_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 0,
+                "return_type": "void",
+                "parameter_types": [],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000010",
+              "row_offset": 1870,
+              "parent_token": "0x01000013",
+              "name": "GetEnvironmentVariable",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "f4fc6e914c3f39dea20cedc5015dcee8a18aa00ee5a983e7ff0527dc64dc3028",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "string",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000011",
+              "row_offset": 1876,
+              "parent_token": "0x01000014",
+              "name": "Parse",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "5ce39b75657219383d1e7b0032de11f6730b315974f4f60b8f6a86754f8027e9",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "u8",
+                "parameter_types": [
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000012",
+              "row_offset": 1882,
+              "parent_token": "0x01000016",
+              "name": "InitializeArray",
+              "signature": {
+                "raw_length": 7,
+                "raw_sha256": "80122b9c095be1055de8ff9b80fd86c91d86fc854886be5f2853a421f3a7afdd",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 2,
+                "return_type": "void",
+                "parameter_types": [
+                  "class:93",
+                  "valuetype:97"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000013",
+              "row_offset": 1888,
+              "parent_token": "0x01000019",
+              "name": "SequenceEqual",
+              "signature": {
+                "raw_length": 16,
+                "raw_sha256": "ef74514289c2759fe99901b2c7b7d1f13dc3bf2343fad43e7b7b1a97e30ba147",
+                "kind": "unknown",
+                "parse_status": "unsupported",
+                "calling_convention": null,
+                "generic_parameter_count": null,
+                "parameter_count": null,
+                "return_type": null,
+                "parameter_types": [],
+                "field_type": null,
+                "issue": "unsupported element type 0x15"
+              }
+            },
+            {
+              "token": "0x0a000014",
+              "row_offset": 1894,
+              "parent_token": "0x0100001b",
+              "name": "get_Default",
+              "signature": {
+                "raw_length": 4,
+                "raw_sha256": "2f62851a2471583bb34218614d7a7469c3edb5af4a4f78720a94ca17e8c62e79",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 0,
+                "return_type": "class:109",
+                "parameter_types": [],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000015",
+              "row_offset": 1900,
+              "parent_token": "0x0100001b",
+              "name": "GetString",
+              "signature": {
+                "raw_length": 5,
+                "raw_sha256": "06106361fdc57dae0e9d51b837fac0c909b9da47311b021556f1cffc49c02243",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default has-this",
+                "generic_parameter_count": null,
+                "parameter_count": 1,
+                "return_type": "string",
+                "parameter_types": [
+                  "u1[]"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000016",
+              "row_offset": 1906,
+              "parent_token": "0x0100001c",
+              "name": "Concat",
+              "signature": {
+                "raw_length": 6,
+                "raw_sha256": "26ebf730db2d380836060f258bb661f3208f63db16cc430cca3cc94e1c545b18",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 3,
+                "return_type": "string",
+                "parameter_types": [
+                  "string",
+                  "string",
+                  "string"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            },
+            {
+              "token": "0x0a000017",
+              "row_offset": 1912,
+              "parent_token": "0x0100001d",
+              "name": "Show",
+              "signature": {
+                "raw_length": 8,
+                "raw_sha256": "7b629a34f4360c92b4297fdc2be9c9c3e3c73c05422f7ff7ae90a1d9d90bc583",
+                "kind": "method",
+                "parse_status": "decoded",
+                "calling_convention": "default",
+                "generic_parameter_count": null,
+                "parameter_count": 3,
+                "return_type": "valuetype:121",
+                "parameter_types": [
+                  "string",
+                  "string",
+                  "valuetype:125"
+                ],
+                "field_type": null,
+                "issue": null
+              }
+            }
+          ],
+          "call_edges": [
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a00000f",
+              "target_kind": "member-ref",
+              "target_name": ".ctor"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000010",
+              "target_kind": "member-ref",
+              "target_name": "GetEnvironmentVariable"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000010",
+              "target_kind": "member-ref",
+              "target_name": "GetEnvironmentVariable"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000010",
+              "target_kind": "member-ref",
+              "target_name": "GetEnvironmentVariable"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000011",
+              "target_kind": "member-ref",
+              "target_name": "Parse"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000011",
+              "target_kind": "member-ref",
+              "target_name": "Parse"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000011",
+              "target_kind": "member-ref",
+              "target_name": "Parse"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000012",
+              "target_kind": "member-ref",
+              "target_name": "InitializeArray"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000012",
+              "target_kind": "member-ref",
+              "target_name": "InitializeArray"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x06000001",
+              "target_kind": "method-def",
+              "target_name": "Check1"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x2b000001",
+              "target_kind": "method-spec",
+              "target_name": null
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x06000002",
+              "target_kind": "method-def",
+              "target_name": "ParseKey"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000014",
+              "target_kind": "member-ref",
+              "target_name": "get_Default"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "callvirt",
+              "target_token": "0x0a000015",
+              "target_kind": "member-ref",
+              "target_name": "GetString"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000016",
+              "target_kind": "member-ref",
+              "target_name": "Concat"
+            },
+            {
+              "caller_token": "0x06000003",
+              "caller": "T1Class.T1..ctor",
+              "opcode": "call",
+              "target_token": "0x0a000017",
+              "target_kind": "member-ref",
+              "target_name": "Show"
+            }
+          ],
+          "field_accesses": [],
+          "coverage": {
+            "state": "partial",
+            "issues": []
+          },
+          "limitations": [
+            "Metadata tokens are build-local coordinates and are only meaningful with the reported artifact SHA-256 and MVID.",
+            "CIL instruction anchors are decoded from file-backed method bodies only; no target assembly is loaded or executed.",
+            "Signatures are decoded for common ECMA-335 primitive, class, valuetype, pointer, byref, array, and generic variable forms; unsupported forms retain raw signature hashes."
+          ]
+        },
+        "confidence": "observed",
+        "authority": "shipped-artifact",
+        "environment": null,
+        "limitations": [
+          "Metadata tokens are build-local coordinates and are only meaningful with the reported artifact SHA-256 and MVID.",
+          "CIL instruction anchors are decoded from file-backed method bodies only; no target assembly is loaded or executed.",
+          "Signatures are decoded for common ECMA-335 primitive, class, valuetype, pointer, byref, array, and generic variable forms; unsupported forms retain raw signature hashes."
+        ],
+        "locations": [
+          {
+            "kind": "file-offset",
+            "offset": 1424
+          },
+          {
+            "kind": "file-offset",
+            "offset": 592
+          },
+          {
+            "kind": "file-offset",
+            "offset": 784
+          },
+          {
+            "kind": "file-offset",
+            "offset": 860
+          }
+        ],
+        "evidence_links": []
+      }
+    },
+    "tool": "rea_run",
+    "dangerous": false,
+    "duration_ms": 3960.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791742254636992400-5951b0bb.json"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "lines": [
+    "OK   FieldRVA 行数  self=2  dnfile=2",
+    "OK   FieldRVA 逐行 (rva, field#, 文件偏移) 一致  rows=2",
+    "OK   Field 名表一致  count=2  不一致=无",
+    "OK   TypeDef 名表一致  count=5/5  不一致=无",
+    "OK   FieldRVA 指向的字节内容一致  不一致行=无",
+    "OK   arr19 / arr40 都能在 FieldRVA 区内定位到",
+    "OK   arr19@0xfbc  arr40@0xfd4",
+    "OK   field# 索引范围合法  越界=无",
+    "OK   FieldRVA 行数  self=1  dnfile=1",
+    "OK   FieldRVA 逐行 (rva, field#, 文件偏移) 一致  rows=1",
+    "OK   Field 名表一致  count=58  不一致=无",
+    "OK   TypeDef 名表一致  count=17/17  不一致=无",
+    "OK   FieldRVA 指向的字节内容一致  不一致行=无",
+    "WARN arr19/arr40 未在 FieldRVA 区命中（若比对的是外层 Blackjack.dll 属正常）",
+    "OK   field# 索引范围合法  越界=无"
+  ]
+}

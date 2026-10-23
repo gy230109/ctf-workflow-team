@@ -1,0 +1,12 @@
+{
+  "tool": "web_browser_session",
+  "arguments": {
+    "action": "click",
+    "selector": "#double",
+    "confirm": true,
+    "wp_purpose": "点击 Double，核对网页是否显示 42",
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "fbdbc89e36e14d718b0dc98d5187bd19"
+}

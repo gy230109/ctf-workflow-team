@@ -1,0 +1,23 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_6b089a20dbf14a0c80be200d",
+  "files": [
+    {
+      "name": "tiny.pcap",
+      "bytes": 100,
+      "sha256": "b3a8c4511d2c7d27759a1b5901d338726bfacdc418cd3435506977ac50a1f443"
+    },
+    {
+      "name": "specialist-worker-17b5e90dcaaff0d1.py",
+      "bytes": 29504,
+      "sha256": "17b5e90dcaaff0d1cb06245bc31488f604e9564053d2fdfa3a48d10d09c2e665"
+    },
+    {
+      "name": "request-7879a45769c54604b2b7f1d7cd5398ae.json",
+      "bytes": 96,
+      "sha256": "00255f9027576c23d4e18b246981738fadcaba7b0456fd2b2a83ec98b782f282"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.359
+}

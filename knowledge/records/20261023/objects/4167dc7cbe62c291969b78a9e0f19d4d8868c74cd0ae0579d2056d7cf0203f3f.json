@@ -1,0 +1,52 @@
+{
+  "ts": "2026-10-14 23:51:39",
+  "call_id": "1791993099043783900-4ab9c637",
+  "args": {
+    "argv": [
+      "gem",
+      "install",
+      "--user-install",
+      "--no-document",
+      "zsteg"
+    ],
+    "case": "deploy_tools_20261014",
+    "confirm": true,
+    "timeout": 600
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T155132Z-1e92663c",
+      "case_root": "/home/kali/ctf-workbench/cases/deploy_tools_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/deploy_tools_20261014/work",
+      "command": [
+        "gem",
+        "install",
+        "--user-install",
+        "--no-document",
+        "zsteg"
+      ],
+      "timeout_seconds": 600,
+      "started_at_utc": "2026-10-14T15:51:34.175548+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 5.283,
+      "stdout_bytes": 162,
+      "stderr_bytes": 271,
+      "output_truncated": false,
+      "stdout": "Successfully installed rainbow-3.1.1\nSuccessfully installed iostruct-0.7.0\nSuccessfully installed zpng-0.4.6\nSuccessfully installed zsteg-0.2.14\n4 gems installed\n",
+      "stderr": "WARNING:  You don't have /home/kali/.local/share/gem/ruby/3.3.0/bin in your PATH,\n\t  gem executables (zpng) will not run.\nWARNING:  You don't have /home/kali/.local/share/gem/ruby/3.3.0/bin in your PATH,\n\t  gem executables (zsteg, zsteg-mask, zsteg-reflow) will not run.\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/deploy_tools_20261014/results/20261014T155132Z-1e92663c.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 6.953,
+      "bridge_exit": 0,
+      "case": "deploy_tools_20261014",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 8016.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993099043783900-4ab9c637.json"
+  }
+}

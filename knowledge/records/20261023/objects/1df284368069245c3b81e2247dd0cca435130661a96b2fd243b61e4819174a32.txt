@@ -1,0 +1,1 @@
+WP upgrade fixture only. Check gcd(48,60), record actual output, and export evidence. Not a competition challenge.

@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-14 23:29:52",
+  "call_id": "1791991792821006600-ad752988",
+  "args": {
+    "case": "ctf-f54dbd1bf0e2a3a2",
+    "text": "自建验收调用 crypto_z3 实际通过。",
+    "status": "observed",
+    "source_step": 2
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 5,
+      "case": "ctf-f54dbd1bf0e2a3a2",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 34.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991792821006600-ad752988.json"
+  }
+}

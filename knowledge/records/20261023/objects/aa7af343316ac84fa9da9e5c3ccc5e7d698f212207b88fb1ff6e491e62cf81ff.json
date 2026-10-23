@@ -1,0 +1,20 @@
+{
+  "ts": "2026-10-14 10:24:24",
+  "call_id": "1791944664570412900-dc3f0b5e",
+  "args": {
+    "wp_case": "fixture"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "ok": false,
+      "error": "dependency unavailable"
+    },
+    "tool": "ctf_specialist_status",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "dependency unavailable",
+    "duration_ms": 21.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791944664570412900-dc3f0b5e.json"
+  }
+}

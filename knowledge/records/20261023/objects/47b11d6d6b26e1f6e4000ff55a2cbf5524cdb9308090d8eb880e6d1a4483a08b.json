@@ -1,0 +1,48 @@
+{
+  "arguments": {
+    "input": "68656c6c6f",
+    "steps": [
+      {
+        "algorithm": "hex",
+        "mode": "decode"
+      },
+      {
+        "algorithm": "base64",
+        "mode": "encode"
+      }
+    ],
+    "wp_case": "ctf-736b6154b62832f2"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "output": "aGVsbG8=",
+      "steps": [
+        {
+          "algorithm": "hex",
+          "input_bytes": 10,
+          "mode": "decode",
+          "output": "hello",
+          "output_bytes": 5
+        },
+        {
+          "algorithm": "base64",
+          "input_bytes": 5,
+          "mode": "encode",
+          "output": "aGVsbG8=",
+          "output_bytes": 8
+        }
+      ],
+      "exit_code": 0,
+      "upstream_commit": "f372c57c05a2f7daa9049c8c737e3ed08404fb51",
+      "engine": "CTFCrackTools upstream Rust workflow engine + local bounded JSON wrapper",
+      "parameter_warnings": [],
+      "answer_verified": false
+    },
+    "tool": "cracktools_run",
+    "dangerous": false,
+    "duration_ms": 70.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064905036883800-123cbfd7.json"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "arguments": {
+    "argv": [
+      "printf",
+      "Recorded terminal marker: 42\n"
+    ],
+    "confirm": true,
+    "wp_purpose": "录制真实 PTY 终端输出",
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "argv": [
+          "printf",
+          "Recorded terminal marker: 42\n"
+        ],
+        "returncode": 0,
+        "recorder_returncode": 0,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "",
+        "output_truncated": false,
+        "duration_seconds": 0.268,
+        "capture_errors": [],
+        "evidence_artifacts": [
+          {
+            "artifact": "work/terminal-42f3156a9bdc6654.cast",
+            "sha256": "fdfb951f489107ab3583bf55b39dfae8d55a7dc104feda324db5dd308bd0e639",
+            "bytes": 176,
+            "kind": "terminal_recording",
+            "source": "Actual asciinema PTY output recording for this command; no public upload"
+          }
+        ],
+        "transport": "asciinema PTY; stdin is closed",
+        "terminal_output": "Recorded terminal marker: 42\r\n",
+        "terminal_output_truncated": false
+      },
+      "execution": {
+        "run_id": "20261015T132000Z-6bedd0cf",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-cb83257a490ca9fe.py",
+          "../input/request-4b0edcd5e30641e3960e7bdc556c988b.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-15T13:20:02.651534+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.328,
+        "stdout_bytes": 657,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"argv\": [\"printf\", \"Recorded terminal marker: 42\\n\"], \"returncode\": 0, \"recorder_returncode\": 0, \"timed_out\": false, \"stdout\": \"\", \"stderr\": \"\", \"output_truncated\": false, \"duration_seconds\": 0.268, \"capture_errors\": [], \"evidence_artifacts\": [{\"artifact\": \"work/terminal-42f3156a9bdc6654.cast\", \"sha256\": \"fdfb951f489107ab3583bf55b39dfae8d55a7dc104feda324db5dd308bd0e639\", \"bytes\": 176, \"kind\": \"terminal_recording\", \"source\": \"Actual asciinema PTY output recording for this command; no public upload\"}], \"transport\": \"asciinema PTY; stdin is closed\", \"terminal_output\": \"Recorded terminal marker: 42\\r\\n\", \"terminal_output_truncated\": false}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-9f14d2187a3d8030/results/20261015T132000Z-6bedd0cf.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.609,
+        "bridge_exit": 0,
+        "case": "ctf-9f14d2187a3d8030",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-9f14d2187a3d8030",
+      "upload_verified": true,
+      "evidence_artifacts": [
+        {
+          "path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-9f14d2187a3d8030\\downloads\\20261015T132002Z-18c65eda\\terminal-42f3156a9bdc6654.cast",
+          "sha256": "fdfb951f489107ab3583bf55b39dfae8d55a7dc104feda324db5dd308bd0e639",
+          "kind": "terminal_recording",
+          "source": "Actual asciinema PTY output recording for this command; no public upload"
+        }
+      ],
+      "capture_errors": []
+    },
+    "tool": "kali_terminal_record",
+    "dangerous": true,
+    "wp_operation": {
+      "operation_id": "44042b62329541dd95b0630986721122",
+      "step": 11
+    },
+    "duration_ms": 5449.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070402697319300-24760950.json"
+  }
+}

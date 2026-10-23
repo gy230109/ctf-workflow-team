@@ -1,0 +1,51 @@
+{
+  "ts": "2026-10-11 23:39:01",
+  "call_id": "1791733141651367800-3aa7ccd3",
+  "args": {
+    "cmd": [
+      "sleep 90; pgrep -x micromamba >/dev/null && echo RUNNING || echo DONE; ps -p $(pgrep -x micromamba | head -1) -o pid",
+      "etime",
+      "time",
+      "pcpu",
+      "stat 2>/dev/null; echo ---LOG---; tail -2 /tmp/sage_install.log; echo ---CACHE---; sudo du -sh /opt/micromamba-root 2>/dev/null; echo ---PKGS---; sudo du -sh /opt/micromamba-root/pkgs 2>/dev/null; true"
+    ],
+    "confirm": true,
+    "timeout": 150
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "run_id": "20261011T153901Z-0c1a0039",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+      "command": [
+        "bash",
+        "-c",
+        "['sleep 90; pgrep -x micromamba >/dev/null && echo RUNNING || echo DONE; ps -p $(pgrep -x micromamba | head -1) -o pid', 'etime', 'time', 'pcpu', 'stat 2>/dev/null; echo ---LOG---; tail -2 /tmp/sage_install.log; echo ---CACHE---; sudo du -sh /opt/micromamba-root 2>/dev/null; echo ---PKGS---; sudo du -sh /opt/micromamba-root/pkgs 2>/dev/null; true']"
+      ],
+      "timeout_seconds": 150,
+      "started_at_utc": "2026-10-11T15:39:02.317852+00:00",
+      "returncode": 127,
+      "timed_out": false,
+      "duration_seconds": 0.018,
+      "stdout_bytes": 0,
+      "stderr_bytes": 161,
+      "output_truncated": false,
+      "stdout": "",
+      "stderr": "bash: 行 1: [sleep 90; pgrep -x micromamba >/dev/null && echo RUNNING || echo DONE; ps -p $(pgrep -x micromamba | head -1) -o pid,: 没有那个文件或目录\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T153901Z-0c1a0039.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.391,
+      "bridge_exit": 1,
+      "case": "ctfos_commands",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 1290.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791733141651367800-3aa7ccd3.json"
+  }
+}

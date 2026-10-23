@@ -1,0 +1,118 @@
+{
+  "ts": "2026-10-11 23:13:25",
+  "call_id": "1791731605752649700-a2564837",
+  "args": {
+    "x": 1
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "checked_at": "2026-10-11 23:13:22",
+      "items": [
+        {
+          "name": "Muteki",
+          "kind": "比赛套",
+          "ok": false,
+          "detail": "ModuleNotFoundError(\"No module named 'requests'\")"
+        },
+        {
+          "name": "Kali",
+          "kind": "Linux 执行环境",
+          "ok": true,
+          "bridge_status": {
+            "user": "kali",
+            "hostname": "kali",
+            "python": "3.13.12",
+            "python_executable": "/home/kali/ctf-workbench/.venv/bin/python3",
+            "memory_bytes": {
+              "MemTotal": 4072513536,
+              "MemAvailable": 3277680640
+            },
+            "disk_bytes": {
+              "total": 84362952704,
+              "used": 20667895808,
+              "free": 60042600448
+            },
+            "tools": {
+              "python3": "/usr/bin/python3",
+              "gcc": "/usr/bin/gcc",
+              "objdump": "/usr/bin/objdump",
+              "readelf": "/usr/bin/readelf",
+              "file": "/usr/bin/file",
+              "strings": "/usr/bin/strings",
+              "burpsuite": "/usr/bin/burpsuite",
+              "wireshark": "/usr/bin/wireshark",
+              "tshark": "/usr/bin/tshark",
+              "binwalk": "/usr/bin/binwalk",
+              "exiftool": "/usr/bin/exiftool",
+              "7z": "/usr/bin/7z",
+              "unzip": "/usr/bin/unzip",
+              "gdb": "/usr/bin/gdb",
+              "checksec": "/usr/bin/checksec",
+              "strace": "/usr/bin/strace",
+              "ltrace": "/usr/bin/ltrace",
+              "ghidra": null
+            },
+            "python_modules": {
+              "sympy": true,
+              "pwn": true,
+              "Crypto": true,
+              "Cryptodome": true,
+              "z3": true,
+              "gmpy2": true,
+              "dnfile": true
+            },
+            "guest_ip": "192.168.26.129",
+            "transport_seconds": 1.047,
+            "bridge_exit": 0
+          },
+          "verified_scope": "SSH 桥及客机状态；不代表完成解题"
+        },
+        {
+          "name": "gbdis.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "final_verify.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "ctf_mcp_server.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "战例库",
+          "ok": true,
+          "count": 12,
+          "cases": [
+            "EasyRsa",
+            "Factor-20261010",
+            "HTV2020-adobesecretreader",
+            "HTV2020-x96",
+            "Muteki席位切换-三席",
+            "Muteki首跑-EasyRsa",
+            "QWB-crackme-task_qwxf",
+            "QWB2021-threebody",
+            "QWB2022-GameMaster-Blackjack",
+            "pwn.college",
+            "比赛-GameBoy",
+            "自出-xxd-png"
+          ]
+        }
+      ],
+      "registered_tools": 36,
+      "all_items_available": false,
+      "solving_workflow_verified": false
+    },
+    "tool": "status",
+    "dangerous": false,
+    "duration_ms": 3572.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791731605752649700-a2564837.json"
+  }
+}

@@ -1,5 +1,11 @@
 # CTF系统团队入口
 
+## 2026-10-23 最新团队规则与完整记录
+
+所有队员均使用全题型系统，不按 A/B/D/G 限定主攻方向、资料或工具。不以未登记角色阻塞安装或解题；旧角色表和说明保留作历史参考。按当前题目读取对应方法，不要求一次加载所有题型资料。
+
+队友接收资料时读取 docs/team-records.md，运行 tools/team_records.py verify 和 restore，获取完整共享记录。快照在 knowledge/records/20261023/，按用户要求不加密；其中已审阅处理的 WP、调用日志、附件和图片可随本次发布。新增私人任务和凭据仍不自动提交。历史成功、失败、自建验收和未完成状态分别保留。
+
 ## 2026-10-16 WP 二期升级
 
 - 当前核心工具 103 个。新增 `wp_intake` 追加受校验的题面与原附件、`wp_section` 追加有来源的五类正文、`wp_review` 检查稿件缺项。使用实际工具 schema，不要求用户手工初始化或交接路径。
@@ -13,13 +19,13 @@
 
 用户授权的 CTF 解题和学习使用本仓库统一入口。用户说“用 CTF系统 做这道题”时，优先 ctf-system MCP/Skill；新题 ctf_start，继续 ctf_progress，实时参数 ctf_tools，执行 ctf_call/ctf_analyze，观察 ctf_note，收尾 ctf_finish。不让用户反复解释路径或工具。
 
-## 接管与角色
+## 接管与资料
 
-首次接管先读 README.md、TEAM_ROLES.md 和 knowledge/README.md。用户表明身份时用 ctf_team_role 读取本机记录，按返回路径读自己的题型资料。姓名与代号对应只放本机角色卡/登记，不公开；没有对应时首次确认一次代号，不能猜人。安装已知路径由本机登记自动发现。
+首次接管先读 README.md、knowledge/README.md 和 docs/team-records.md。当前所有成员均可处理全部题型，按题目选择工具与首读资料；没有角色登记时不阻塞安装和使用，不猜姓名。
 
-四人模式先读取 `ctf_team_role` 返回的 `role_guide`，只加载本人的角色执行说明，再按需要读取其余方法。统一入口 Skill 内已包含四份说明；不能为了省事同时加载四份、默认给陌生机器登记 A，或根据公开角色代号猜姓名。
+已有 ctf_team_role 返回的代号和首接资料保留作历史元数据，不代表当前固定分工。四份角色执行说明可以按题型参考，不需要同时加载或为了获得工具权限修改身份。
 
-官方题型决定初始队列。周六四人配置为 A Web、B Pwn、D Reverse、G Crypto；Misc/Forensics 为公共队列。月底七人配置独立维护。所有成员共享全部方法与工具，角色不代表已安装或个人能力排名。每人一个活跃主任务，必要时整题交接。
+每人一个活跃主任务，按实际题目、空闲情况和工具条件认领，必要时整题交接。Misc/Forensics 与其他题型同样对所有成员开放。
 
 ## 实际执行
 
@@ -39,11 +45,11 @@ PCAP 按证据使用 `forensics_pcap` 的 summary / streams / follow / http_obje
 
 流量工具的实际 TSV、TCP 文本与 HTTP 对象 ZIP 以 data_export 附入私有 WP。导出对象保持未执行状态，主数据回传或摘要校验失败时按失败处理，不能宣称已完整取得证据。
 
-训练也保留原始证据，正式 WP 可按需要整理。ctf_finish 默认导出本机私有 WP/ZIP。公开分享前另审文字、原始文件与像素。私有任务、账号、原始日志、WP 包和本机配置不提交仓库。
+训练也保留原始证据，正式 WP 可按需要整理。ctf_finish 默认导出本机私有 WP/ZIP。公开分享前另审文字、原始文件与像素。新增私有任务、账号和本机配置不自动提交仓库；2026-10-23 用户授权共享的历史记录，以已审阅的公开快照为准。
 
 ## 共享经验
 
-按角色读取 knowledge/methods 与 knowledge/obsidian；所有成员可跨类按需阅读。knowledge/cases 是参考复现材料，只在明确学习/复盘时读取，不给独立解题或模型测试提供已有答案、密钥、种子或 solver。knowledge/history 的旧部署文字不能当作当前配置。
+按当前题目读取 knowledge/methods 与 knowledge/obsidian；所有成员均可读取全部类别。knowledge/cases 是参考复现材料，只在明确学习/复盘时读取，不给独立解题或模型测试提供已有答案、密钥、种子或 solver。knowledge/history 的旧部署文字不能当作当前配置。
 
 NoobCTF 是可选参考源；需要学习历史案例时可运行 `python tools/install_noobctf.py` 安装固定版本文本，再用 `kb_search/kb_read source=noobctf allow_reference=true`。资料不齐时不要让用户猜路径，不将整库内容自动喂给独立解题。安装器不执行第三方脚本，不覆盖异源、异版本或已有修改的仓库。
 

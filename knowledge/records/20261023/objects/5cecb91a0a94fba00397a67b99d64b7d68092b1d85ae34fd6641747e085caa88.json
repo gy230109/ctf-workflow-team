@@ -1,0 +1,18 @@
+{
+  "ts": "2026-10-12 01:29:41",
+  "call_id": "1791739781011587500-0ac93a98",
+  "args": {
+    "a": 48,
+    "b": 60
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "result": 12
+    },
+    "tool": "math_gcd",
+    "dangerous": false,
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791739781011587500-0ac93a98.json"
+  }
+}

@@ -1,0 +1,12 @@
+已保存快照: [CTF_ROOT]/战例库/Muteki席位切换-三席/before/settings-workers.before.json
+  worker_backend       = 'container'
+  worker_network       = 'bridge'
+  engines              = ['seat_pi_b710d8']
+  race_engines         = ['seat_pi_b710d8']
+  start_workers        = 1
+  max_workers          = 1
+  max_total_workers    = 0
+  dispatch_mode        = 'fixed'
+  review_engine        = 'seat_pi_b710d8'
+  启用席位:
+    id=seat_pi_b710d8 engine=pi model=global:glm-5.3 roles=['race', 'bootstrap', 'explore', 'respond', 'review'] max_running=1 cred=account:workbuddy-glm

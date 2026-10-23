@@ -1,0 +1,130 @@
+{
+  "arguments": {
+    "action": "usb",
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-04fca725df3de1d8\\attachments\\usb-demo.pcap",
+    "wp_purpose": "部署自建样例验收：usb",
+    "wp_case": "ctf-04fca725df3de1d8",
+    "case": "ctf-04fca725df3de1d8"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "action": "usb",
+        "max_packets": 20000,
+        "input_sha256": "48caa5a8cc3cecd1d0622f39fdc8fa127e55577c7ee1c4b70b5055f4c421348d",
+        "scope": "USB 原始 capdata 与包号；不是自动恢复的键盘文本。字段支持取决于实际 TShark。",
+        "rows": [
+          {
+            "frame.number": "1",
+            "usb.device_address": "2",
+            "usb.endpoint_address": "0x81",
+            "usb.capdata": "0000040000000000"
+          }
+        ],
+        "total_rows": 1,
+        "rows_limited": false,
+        "output_truncated": false,
+        "command": [
+          "tshark",
+          "-n",
+          "-r",
+          "/home/kali/ctf-workbench/cases/ctf-04fca725df3de1d8/input/usb-demo.pcap",
+          "-c",
+          "20000",
+          "-Y",
+          "usb.capdata",
+          "-T",
+          "fields",
+          "-E",
+          "header=y",
+          "-E",
+          "quote=d",
+          "-E",
+          "separator=/t",
+          "-e",
+          "frame.number",
+          "-e",
+          "usb.device_address",
+          "-e",
+          "usb.endpoint_address",
+          "-e",
+          "usb.capdata"
+        ],
+        "stderr": "",
+        "evidence_artifacts": [
+          {
+            "artifact": "work/pcap-usb-deb9b3c20ab5.tsv",
+            "sha256": "526ecf8dccd07d02f9e9e515b3e9ad569cfc644ec9f0429319926172102027cd",
+            "kind": "data_export",
+            "source": "Actual offline TShark output; original PCAP preserved"
+          }
+        ],
+        "artifact": "work/pcap-usb-deb9b3c20ab5.tsv",
+        "sha256": "526ecf8dccd07d02f9e9e515b3e9ad569cfc644ec9f0429319926172102027cd"
+      },
+      "execution": {
+        "run_id": "20261016T043330Z-c4a1a3bf",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-04fca725df3de1d8",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-04fca725df3de1d8/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-5bd1e2e23a667bb6.py",
+          "../input/request-4d61a216e9594c5a9ea0d97b7b4ef8e9.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-16T04:33:31.265990+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.22,
+        "stdout_bytes": 1145,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"action\": \"usb\", \"max_packets\": 20000, \"input_sha256\": \"48caa5a8cc3cecd1d0622f39fdc8fa127e55577c7ee1c4b70b5055f4c421348d\", \"scope\": \"USB 原始 capdata 与包号；不是自动恢复的键盘文本。字段支持取决于实际 TShark。\", \"rows\": [{\"frame.number\": \"1\", \"usb.device_address\": \"2\", \"usb.endpoint_address\": \"0x81\", \"usb.capdata\": \"0000040000000000\"}], \"total_rows\": 1, \"rows_limited\": false, \"output_truncated\": false, \"command\": [\"tshark\", \"-n\", \"-r\", \"/home/kali/ctf-workbench/cases/ctf-04fca725df3de1d8/input/usb-demo.pcap\", \"-c\", \"20000\", \"-Y\", \"usb.capdata\", \"-T\", \"fields\", \"-E\", \"header=y\", \"-E\", \"quote=d\", \"-E\", \"separator=/t\", \"-e\", \"frame.number\", \"-e\", \"usb.device_address\", \"-e\", \"usb.endpoint_address\", \"-e\", \"usb.capdata\"], \"stderr\": \"\", \"evidence_artifacts\": [{\"artifact\": \"work/pcap-usb-deb9b3c20ab5.tsv\", \"sha256\": \"526ecf8dccd07d02f9e9e515b3e9ad569cfc644ec9f0429319926172102027cd\", \"kind\": \"data_export\", \"source\": \"Actual offline TShark output; original PCAP preserved\"}], \"artifact\": \"work/pcap-usb-deb9b3c20ab5.tsv\", \"sha256\": \"526ecf8dccd07d02f9e9e515b3e9ad569cfc644ec9f0429319926172102027cd\"}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-04fca725df3de1d8/results/20261016T043330Z-c4a1a3bf.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.515,
+        "bridge_exit": 0,
+        "case": "ctf-04fca725df3de1d8",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-04fca725df3de1d8",
+      "upload_verified": true,
+      "evidence_artifacts": [
+        {
+          "path": "[CTF_ROOT]\\.local\\bridge-runtime\\cases\\ctf-04fca725df3de1d8\\downloads\\20261016T043331Z-4026c315\\pcap-usb-deb9b3c20ab5.tsv",
+          "sha256": "526ecf8dccd07d02f9e9e515b3e9ad569cfc644ec9f0429319926172102027cd",
+          "kind": "data_export",
+          "source": "Actual offline TShark output; original PCAP preserved"
+        }
+      ],
+      "capture_errors": []
+    },
+    "tool": "forensics_pcap",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "35f7cbbd0ce5414cb5041e0711c2fefa",
+      "step": 12
+    },
+    "duration_ms": 4141.6,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-04fca725df3de1d8",
+      "calls": 6,
+      "failed_calls": 0,
+      "active_tool_seconds": 29.998,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125212005141500-f1da62d3.json"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "ts": "2026-10-14 23:25:50",
+  "call_id": "1791991550172418800-8c135f19",
+  "args": {
+    "argv": [
+      "python3",
+      "-c",
+      "import json,shutil,platform,pathlib; print(json.dumps({'machine':platform.machine(),'commands':{x:shutil.which(x) for x in ['gdb','pwndbg','qemu-aarch64','qemu-arm','qemu-mips','aarch64-linux-gnu-gcc','sage','frida','jadx','steghide','stegseek','zsteg','binwalk','docker']},'meminfo':{line.split(':')[0]:line.split(':',1)[1].strip() for line in pathlib.Path('/proc/meminfo').read_text().splitlines() if line.startswith(('MemTotal:','MemAvailable:'))},'gdb_config_exists':pathlib.Path.home().joinpath(...(523 chars)"
+    ],
+    "case": "capability_audit_20261014",
+    "confirm": true,
+    "timeout": 30
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T152548Z-1f5106d4",
+      "case_root": "/home/kali/ctf-workbench/cases/capability_audit_20261014",
+      "cwd": "/home/kali/ctf-workbench/cases/capability_audit_20261014/work",
+      "command": [
+        "python3",
+        "-c",
+        "import json,shutil,platform,pathlib; print(json.dumps({'machine':platform.machine(),'commands':{x:shutil.which(x) for x in ['gdb','pwndbg','qemu-aarch64','qemu-arm','qemu-mips','aarch64-linux-gnu-gcc','sage','frida','jadx','steghide','stegseek','zsteg','binwalk','docker']},'meminfo':{line.split(':')[0]:line.split(':',1)[1].strip() for line in pathlib.Path('/proc/meminfo').read_text().splitlines() if line.startswith(('MemTotal:','MemAvailable:'))},'gdb_config_exists':pathlib.Path.home().joinpath('.gdbinit').exists()}))"
+      ],
+      "timeout_seconds": 30,
+      "started_at_utc": "2026-10-14T15:25:50.413459+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.144,
+      "stdout_bytes": 431,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "{\"machine\": \"x86_64\", \"commands\": {\"gdb\": \"/usr/bin/gdb\", \"pwndbg\": null, \"qemu-aarch64\": null, \"qemu-arm\": null, \"qemu-mips\": null, \"aarch64-linux-gnu-gcc\": null, \"sage\": \"/usr/local/bin/sage\", \"frida\": null, \"jadx\": \"/usr/bin/jadx\", \"steghide\": null, \"stegseek\": null, \"zsteg\": null, \"binwalk\": \"/usr/bin/binwalk\", \"docker\": null}, \"meminfo\": {\"MemTotal\": \"3977056 kB\", \"MemAvailable\": \"3196064 kB\"}, \"gdb_config_exists\": false}\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/capability_audit_20261014/results/20261014T152548Z-1f5106d4.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.75,
+      "bridge_exit": 0,
+      "case": "capability_audit_20261014",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 2844.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991550172418800-8c135f19.json"
+  }
+}

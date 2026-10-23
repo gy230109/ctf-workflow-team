@@ -1,0 +1,36 @@
+{
+  "ts": "2026-10-12 01:44:49",
+  "call_id": "1791740689932083800-6f37f854",
+  "args": {
+    "tool": "StopDebug",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "StopDebug",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Debug session terminated."
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debug session stopped. No target."
+          },
+          {
+            "type": "text",
+            "text": "[state] NO_TARGET"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 570.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740689932083800-6f37f854.json"
+  }
+}

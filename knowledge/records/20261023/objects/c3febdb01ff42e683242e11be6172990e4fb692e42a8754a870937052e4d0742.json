@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 00:01:45",
+  "call_id": "1791734505049299900-c9ed97d7",
+  "args": {
+    "dojo": "reversing-hell",
+    "limit": 5
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "\r\n== reversing-hell ==  未完成 100 题\r\n   welcome                flag1            Flag 1\r\n   welcome                flag2            Flag 2\r\n   welcome                flag3            Flag 3\r\n   your-first-program     rax              Your First Register\r\n   your-first-program     exit             Your First Syscall\r\n   ... 还有 95 题\r\n\r\n合计未完成: 100\r\n",
+      "stderr": "",
+      "stdout_bytes": 369,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_find",
+    "dangerous": false,
+    "duration_ms": 3751.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734505049299900-c9ed97d7.json"
+  }
+}

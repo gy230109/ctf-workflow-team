@@ -1,0 +1,49 @@
+{
+  "ts": "2026-10-12 01:56:01",
+  "call_id": "1791741361197027400-b4f8fe96",
+  "args": {
+    "query": "ReadMemory"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 1,
+      "tools": [
+        {
+          "name": "ReadMemory",
+          "description": "Reads raw bytes from the target process memory and returns a hex dump with ASCII. Example: ReadMemory address=0x7FF600001000, size=128",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Hex address or expression to read from."
+              },
+              "size": {
+                "type": "integer",
+                "description": "Number of bytes to read (max 4096).",
+                "default": 64
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 94.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741361197027400-b4f8fe96.json"
+  }
+}

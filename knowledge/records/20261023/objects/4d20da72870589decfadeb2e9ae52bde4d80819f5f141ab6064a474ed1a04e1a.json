@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "seats 恢复为 8": true,
+    "启用席仍为 2": true,
+    "GLM 席在位": true,
+    "DS 复核席在位": true,
+    "Step 席保留(disabled)": true,
+    "旧 Pi 席保留(disabled)": true,
+    "planner.model = global:glm-5.3": true,
+    "planner.provider = workbuddy": true,
+    "planner.endpoint 绑 workbuddy-glm": true,
+    "engines = [GLM]": true,
+    "max_workers = 1": true,
+    "start_workers = 1": true,
+    "max_total_workers = 0": true,
+    "dispatch_mode = fixed": true,
+    "席位绑定健康": true
+  },
+  "all_pass": true
+}

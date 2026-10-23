@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 15:26:15",
+  "call_id": "1791789975404536100-d7635865",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "status": "observed",
+    "source_step": 7,
+    "text": "第6步记录的截图待办已完成：第7步通过既有SSH桥取得Kali实际登录界面截图。此前VMware匿名截图失败的审计仍保留；本次仅验证系统留证，不代表已登录桌面或解出题目。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 8,
+      "case": "wp_system_demo_20261012",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 14.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791789975404536100-d7635865.json"
+  }
+}

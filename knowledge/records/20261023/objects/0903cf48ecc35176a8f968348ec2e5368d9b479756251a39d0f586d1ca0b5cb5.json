@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-14 23:11:27",
+  "call_id": "1791990687963006400-9dccfef4",
+  "args": {
+    "category": "mobile",
+    "wp_case": "ctf-dcf8677aeacda424",
+    "case": "ctf-dcf8677aeacda424"
+  },
+  "response": {
+    "ok": false,
+    "tool": "ctf_profile",
+    "error": "ValueError('category must be web/pwn/reverse/crypto/misc/forensics')",
+    "error_code": "execution_failed",
+    "duration_ms": 4.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990687963006400-9dccfef4.json"
+  }
+}

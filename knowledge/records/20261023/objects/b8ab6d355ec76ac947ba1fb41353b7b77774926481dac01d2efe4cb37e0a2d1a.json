@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-12 20:05:38",
+  "call_id": "1791806738153308800-50482e86",
+  "args": {
+    "case": "qwb-vanguard-babyre",
+    "text": "observed：main(0x14001206e)：fgets(len33)→strlen 必须==32；copy(0x140011be0) 与 final_g(0x140011cb0) 均为字节恒等(LE dword 拆/并)；核心变换 round_f(0x140011df0) 对 4 个独立 8 字节块各跑 4x33 次 32 位混洗(C=0x88408067)。",
+    "status": "observed"
+  },
+  "response": {
+    "ok": false,
+    "tool": "wp_note",
+    "error": "ValueError('观察必须引用实际调用或截图的 source_step')",
+    "error_code": "execution_failed",
+    "duration_ms": 4.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791806738153308800-50482e86.json"
+  }
+}

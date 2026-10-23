@@ -1,0 +1,75 @@
+{
+  "ts": "2026-10-13 14:50:51",
+  "call_id": "1791874251136005300-5158c46a",
+  "args": {
+    "local_file": "D:\\Temp\\qwb_x\\spec_reg\\tiny.zip"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "format": "zip",
+        "members": [
+          {
+            "name": "readme.txt",
+            "size": 18,
+            "compressed": 18
+          },
+          {
+            "name": "data/inner.txt",
+            "size": 12,
+            "compressed": 12
+          },
+          {
+            "name": "../traversal.txt",
+            "size": 13,
+            "compressed": 13
+          }
+        ],
+        "total_members": 3,
+        "truncated": false,
+        "unsafe_member_paths": [
+          "../traversal.txt"
+        ],
+        "extracted": false
+      },
+      "execution": {
+        "run_id": "20261013T065050Z-54941ed9",
+        "case_root": "/home/kali/ctf-workbench/cases/specialists_ae2baf1e43ea4a59a7e4ea5c",
+        "cwd": "/home/kali/ctf-workbench/cases/specialists_ae2baf1e43ea4a59a7e4ea5c/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/specialist-worker-17b5e90dcaaff0d1.py",
+          "../input/request-90d74c8cf20a43d5a9ab212f8e6ff2ec.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-13T06:50:51.174411+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 0.341,
+        "stdout_bytes": 308,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"format\": \"zip\", \"members\": [{\"name\": \"readme.txt\", \"size\": 18, \"compressed\": 18}, {\"name\": \"data/inner.txt\", \"size\": 12, \"compressed\": 12}, {\"name\": \"../traversal.txt\", \"size\": 13, \"compressed\": 13}], \"total_members\": 3, \"truncated\": false, \"unsafe_member_paths\": [\"../traversal.txt\"], \"extracted\": false}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/specialists_ae2baf1e43ea4a59a7e4ea5c/results/20261013T065050Z-54941ed9.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 0.656,
+        "bridge_exit": 0,
+        "case": "specialists_ae2baf1e43ea4a59a7e4ea5c",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "specialists_ae2baf1e43ea4a59a7e4ea5c",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "upload_verified": true,
+      "source_status": "local compatibility implementation; original host and worker SHA256-verified in reference archive; full 19-file export incomplete"
+    },
+    "tool": "misc_archive_list",
+    "dangerous": false,
+    "duration_ms": 3944.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791874251136005300-5158c46a.json"
+  }
+}

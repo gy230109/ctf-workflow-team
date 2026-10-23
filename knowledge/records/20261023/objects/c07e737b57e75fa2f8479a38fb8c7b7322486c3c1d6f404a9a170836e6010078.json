@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T050608Z-4c740d40",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_setup_20261013",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/work",
+  "command": [
+    "python3",
+    "-c",
+    "import requests,time,json,re; from urllib.parse import urljoin;\nfor base in ['https://pypi.mirrors.ustc.edu.cn/simple/lief/','https://mirrors.aliyun.com/pypi/simple/lief/']:\n try:\n  r=requests.get(base,timeout=10); links=re.findall(r'href=[\\\"\\x27]([^\\\"\\x27]+)',r.text); match=next((x.split('#')[0] for x in links if 'lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl' in x),None); start=time.monotonic(); n=0; f=requests.get(urljoin(r.url,match),stream=True,timeout=10) if match else None\n  if f:\n   for part in f.iter_content(65536):\n    n+=len(part)\n    if n>=262144:break\n   f.close()\n  elapsed=time.monotonic()-start; print(json.dumps({'index':base,'index_status':r.status_code,'wheel_status':f.status_code if f is not None else None,'bytes':n,'seconds':round(elapsed,2),'kbytes_per_second':round(n/1024/max(elapsed,.001),1)}),flush=True)\n except Exception as exc:print(json.dumps({'index':base,'error_type':type(exc).__name__}),flush=True)"
+  ],
+  "timeout_seconds": 45,
+  "started_at_utc": "2026-10-13T05:06:08.723247+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 6.194,
+  "stdout_bytes": 317,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\"index\": \"https://pypi.mirrors.ustc.edu.cn/simple/lief/\", \"index_status\": 403, \"wheel_status\": null, \"bytes\": 0, \"seconds\": 0.0, \"kbytes_per_second\": 0.0}\n{\"index\": \"https://mirrors.aliyun.com/pypi/simple/lief/\", \"index_status\": 200, \"wheel_status\": 200, \"bytes\": 262144, \"seconds\": 1.1, \"kbytes_per_second\": 233.0}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/results/20261013T050608Z-4c740d40.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 6.484
+}

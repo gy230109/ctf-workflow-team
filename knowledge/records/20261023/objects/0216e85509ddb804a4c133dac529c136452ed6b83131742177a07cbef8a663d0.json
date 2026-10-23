@@ -1,0 +1,27 @@
+{
+  "ts": "2026-10-12 00:41:20",
+  "call_id": "1791736880422166700-48662318",
+  "args": {
+    "dojo": "reversing-hell",
+    "module": "babyrev",
+    "challenge": "level04",
+    "flag": "***REDACTED***",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "{\r\n  \"success\": true,\r\n  \"status\": \"solved\"\r\n}\r\n",
+      "stderr": "",
+      "stdout_bytes": 48,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_submit",
+    "dangerous": true,
+    "duration_ms": 5578.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736880422166700-48662318.json"
+  }
+}

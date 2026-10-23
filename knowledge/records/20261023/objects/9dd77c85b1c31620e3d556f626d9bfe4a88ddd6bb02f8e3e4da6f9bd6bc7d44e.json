@@ -1,0 +1,15 @@
+{
+  "ts": "2026-10-14 10:24:27",
+  "call_id": "1791944667305579900-f4f3f352",
+  "args": {
+    "cmd": "id"
+  },
+  "response": {
+    "ok": false,
+    "error": "危险动作：需要布尔值 confirm=true",
+    "error_code": "confirmation_required",
+    "tool": "muteki_dispatch",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791944667305579900-f4f3f352.json"
+  }
+}

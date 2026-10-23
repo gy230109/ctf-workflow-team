@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "Running timer as unit: run-p2760-i2761.timer\nWill run service as unit: run-p2760-i2761.service\n"
+}

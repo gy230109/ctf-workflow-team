@@ -1,0 +1,11 @@
+{
+  "tool": "web_http_inspect",
+  "arguments": {
+    "confirm": true,
+    "url": "http://160.202.254.160:10986/",
+    "case": "ctf-fca56ff3a53c802b",
+    "wp_case": "ctf-fca56ff3a53c802b",
+    "wp_purpose": "抓取首页源码泄漏证据"
+  },
+  "operation_id": "b35bd3caad174941a7235ee5e219fc21"
+}

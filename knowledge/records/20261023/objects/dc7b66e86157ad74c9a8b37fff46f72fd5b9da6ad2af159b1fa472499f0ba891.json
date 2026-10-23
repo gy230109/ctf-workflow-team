@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-16 14:08:47",
+  "call_id": "1792130927823284800-e442b1f6",
+  "args": {
+    "case": "ctf-23e45f890c213167",
+    "text": "vmrun 成功采集配置中 Kali 的实际屏幕。截图用于验证插图与来源保留，不推断当前屏幕内容代表解题进度。",
+    "status": "observed",
+    "source_step": 5
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 7,
+      "case": "ctf-23e45f890c213167",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 13.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130927823284800-e442b1f6.json"
+  }
+}

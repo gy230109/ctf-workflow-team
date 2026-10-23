@@ -1,0 +1,27 @@
+{
+  "run_id": "20261013T050232Z-4efbb1b7",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work",
+  "command": [
+    "gcc",
+    "-O0",
+    "-fno-pie",
+    "-no-pie",
+    "../input/specialist_fixture.c",
+    "-o",
+    "fixture.elf"
+  ],
+  "timeout_seconds": 30,
+  "started_at_utc": "2026-10-13T05:02:32.916182+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.493,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/results/20261013T050232Z-4efbb1b7.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.844
+}

@@ -1,0 +1,25 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "Found container virtualization none.\nParsing /etc/fstab...\nLoaded shared library 'libmount.so.1' via dlopen().\nFound entry what=/dev/disk/by-uuid/6c71c483-9f62-4e01-9f86-c5c2fa3e4050 where=/ type=ext4 makefs=no growfs=no pcrfs=no validatefs=no noauto=no nofail=no\nFound swap entry what=/dev/disk/by-uuid/4b1dd16f-66bf-44fa-ba8a-1675ba8ada75 makefs=no growfs=no pcrfs=no validatefs=no noauto=no nofail=no\nFound entry what=/dev/sr0 where=/media/cdrom0 type=udf,iso9660 makefs=no growfs=no pcrfs=no validatefs=no noauto=yes nofail=no\nFound entry what=.host:/ where=/mnt/hgfs type=fuse.vmhgfs-fuse makefs=no growfs=no pcrfs=no validatefs=no noauto=no nofail=no\n",
+  "created": [
+    "/run/kali-generator-inspection-20261011/late",
+    "/run/kali-generator-inspection-20261011/early",
+    "/run/kali-generator-inspection-20261011/normal",
+    "/run/kali-generator-inspection-20261011/normal/mnt-hgfs.mount",
+    "/run/kali-generator-inspection-20261011/normal/media-cdrom0.mount",
+    "/run/kali-generator-inspection-20261011/normal/swap.target.requires",
+    "/run/kali-generator-inspection-20261011/normal/dev-disk-by\\x2duuid-4b1dd16f\\x2d66bf\\x2d44fa\\x2dba8a\\x2d1675ba8ada75.swap",
+    "/run/kali-generator-inspection-20261011/normal/local-fs.target.requires",
+    "/run/kali-generator-inspection-20261011/normal/local-fs.target.wants",
+    "/run/kali-generator-inspection-20261011/normal/-.mount",
+    "/run/kali-generator-inspection-20261011/normal/swap.target.requires/dev-disk-by\\x2duuid-4b1dd16f\\x2d66bf\\x2d44fa\\x2dba8a\\x2d1675ba8ada75.swap",
+    "/run/kali-generator-inspection-20261011/normal/local-fs.target.requires/mnt-hgfs.mount",
+    "/run/kali-generator-inspection-20261011/normal/local-fs.target.requires/-.mount",
+    "/run/kali-generator-inspection-20261011/normal/local-fs.target.wants/systemd-remount-fs.service",
+    "/run/kali-generator-inspection-20261011/normal/local-fs.target.wants/systemd-fsck-root.service"
+  ],
+  "fstab": "# /etc/fstab: static file system information.\n#\n# Use 'blkid' to print the universally unique identifier for a\n# device; this may be used with UUID= as a more robust way to name devices\n# that works even if disks are added and removed. See fstab(5).\n#\n# systemd generates mount units based on this file, see systemd.mount(5).\n# Please run 'systemctl daemon-reload' after making changes here.\n#\n# <file system> <mount point>   <type>  <options>       <dump>  <pass>\n# / was on /dev/sda1 during installation\nUUID=6c71c483-9f62-4e01-9f86-c5c2fa3e4050 /               ext4    errors=remount-ro 0       1\n# swap was on /dev/sda5 during installation\nUUID=4b1dd16f-66bf-44fa-ba8a-1675ba8ada75 none            swap    sw              0       0\n/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0\n.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,uid=1000 0 0\n",
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 0.391
+}

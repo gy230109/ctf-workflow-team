@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T071228Z-0cab37b0",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_51e033a3f0464ca3891181f9",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_51e033a3f0464ca3891181f9/work",
+  "command": [
+    "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+    "../input/specialist-worker-17b5e90dcaaff0d1.py",
+    "../input/request-1feb264ccab346f4b305cfe2519e4452.json"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-13T07:12:29.573999+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 4.078,
+  "stdout_bytes": 380,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\"factors\": {\"2\": 1, \"86691953673185094123317176721257085815441106321509913353287560318524418030801017388068480040168175626308430261136822215963954550961903957470198710031793956540396921050132242111105639052891610105064076031165477438213703242350996557697653217032333568074180779425999009903159899722485351857297469411330465671649\": 1}, \"product_matches\": true, \"complete\": true}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_51e033a3f0464ca3891181f9/results/20261013T071228Z-0cab37b0.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 4.375
+}

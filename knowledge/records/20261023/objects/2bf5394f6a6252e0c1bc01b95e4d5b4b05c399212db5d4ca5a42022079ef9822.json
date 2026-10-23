@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/wp_system_demo_20261012/results/wp-screen-0007-e4fb9f51.png",
+  "sha256": "4becbb2cb1980289c0363cbf393a861a885b06a4b4cda47e2b95200655aeaeed",
+  "bytes": 617141,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.282,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\wp_system_demo_20261012\\downloads\\20261012T070438Z-38051dd1\\wp-screen-0007-e4fb9f51.png",
+  "verified": true
+}

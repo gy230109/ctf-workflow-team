@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-12 22:56:23",
+  "call_id": "1791816983103995700-b91ee8bf",
+  "args": {
+    "text": "Kali 真机验证（上传 trie + 两份输入脚本）：两轮 view 输出合并后与写入 ./flag 的 64 字节测试串逐字节一致（hit 16/64 + 52/64，并集 64/64，一致=True）。证明越界读利用链成立：先建骨架 → 菜单 3 触发 get_flag 读入 secret → 用越界 node id 把 secret 当 next hop 泄漏。",
+    "status": "observed",
+    "source_step": 32,
+    "wp_case": null,
+    "case": "qwb-vanguard-trie"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 36,
+      "case": "qwb-vanguard-trie",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 130.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791816983103995700-b91ee8bf.json"
+  }
+}

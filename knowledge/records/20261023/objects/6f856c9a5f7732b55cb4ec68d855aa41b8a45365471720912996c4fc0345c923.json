@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_3648d23d3193dfa3647d72da",
+  "files": [
+    {
+      "name": "系统 sample & semi;colon.txt",
+      "bytes": 27,
+      "sha256": "3648d23d3193dfa3647d72da20029ff54973a9f50ef45ee39724e02c6f32c551"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.266
+}

@@ -1,0 +1,111 @@
+{
+  "ts": "2026-10-12 02:04:26",
+  "call_id": "1791741866586540400-36561c38",
+  "args": {
+    "query": "Disassemble"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 4,
+      "tools": [
+        {
+          "name": "ExecuteDebuggerCommand",
+          "description": "Executes a native x64dbg command string (like 'erun', 'analr', 'graph'). This is for x64dbg-internal commands ONLY — do NOT pass MCP tool names here. MCP tools (WaitForEvent, GetDebugState, Disassemble, etc.) must be called directly as tools.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The x64dbg command to execute."
+              }
+            },
+            "required": [
+              "command"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "Disassemble",
+          "description": "Disassembles instructions at an address. Returns instruction mnemonics with addresses. Default: 10 instructions from current IP.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address or expression (default: current IP).",
+                "default": "cip"
+              },
+              "count": {
+                "type": "integer",
+                "description": "Number of instructions (default 10, max 100).",
+                "default": 10
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DisassembleFunction",
+          "description": "Disassembles an entire function by finding its start/end boundaries from the analysis database.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address or expression."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AnalyzeCode",
+          "description": "Runs x64dbg code analysis on a module or address range. This populates the function list, enables GetFunctions/GetReferences/DisassembleFunction. Must be run before those tools return useful results.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address or module to analyze. If omitted, analyzes the current module."
+              },
+              "type": {
+                "type": "string",
+                "description": "Analysis type: 'function' (analr - analyze single function), 'module' (anal - analyze module), 'controlflow' (cfanal - control flow analysis). Default: module.",
+                "default": "module"
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 89.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741866586540400-36561c38.json"
+  }
+}

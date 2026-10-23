@@ -1,0 +1,14 @@
+{
+  "challenge_id": 1,
+  "name": "How to pronounce GIF",
+  "origin": "http://127.0.0.1:8800",
+  "grading_configured": false,
+  "handouts": [
+    {
+      "name": "000_challenge.gif",
+      "path": "[CTF_ROOT]\\.local\\ctfd\\intake\\e571314f51ee34cc9c6654c7\\000_challenge.gif",
+      "sha256": "a60e268f7ce989d6700b0228d8903bec5468b85c399f6ddd3deed434408ff8b2",
+      "bytes": 106214
+    }
+  ]
+}

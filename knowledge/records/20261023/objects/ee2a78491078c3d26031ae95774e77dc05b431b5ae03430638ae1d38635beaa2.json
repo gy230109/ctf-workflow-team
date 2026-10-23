@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-16 14:08:29",
+  "call_id": "1792130909538770800-f9a98c49",
+  "args": {
+    "mode": "kali_vm",
+    "caption": "Kali 实际屏幕 用于验证图像留证和导出",
+    "case": "ctf-23e45f890c213167"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-23e45f890c213167",
+      "step": 5,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-23e45f890c213167\\images\\0005.png",
+      "kind": "vm_screenshot"
+    },
+    "tool": "wp_capture",
+    "dangerous": false,
+    "duration_ms": 9343.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130909538770800-f9a98c49.json"
+  }
+}

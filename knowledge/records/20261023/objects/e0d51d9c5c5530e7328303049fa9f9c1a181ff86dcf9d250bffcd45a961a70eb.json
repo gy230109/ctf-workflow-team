@@ -1,0 +1,13 @@
+{
+  "model": "qwen3:8b",
+  "think": false,
+  "stream": false,
+  "keep_alive": 0,
+  "options": {
+    "num_ctx": 4096,
+    "num_predict": 1400,
+    "temperature": 0.2
+  },
+  "prompt": "请独立分析下面这道 CTF 密码题，给出最可行的分步数学攻击路线和验算条件。本轮只分析，不执行代码、不猜 flag。附件另给出所有模数、指数、密文的整数。源码 return 中变量名有笔误，按生成公式和输出参数理解。简洁回答。\n#encoding:utf-8\nfrom Crypto.Util.number import *\nfrom gmpy2 import *\nfrom random import randint\nfrom flag import flag\n\ndef gen1():\n\tr = 2\n\twhile True:\n\t\tp2 = getPrime(1792)\n\t\tp1 = getPrime(1792)\n\n\t\tq1 = getPrime(512)\n\t\tq2 = getPrime(512)\n\n\t\tif (abs(p1-p2) < (p1//(2*r*q1*q2))):\n\t\t\tn1, n2 = (p1**r)*q1, (p2**r)*q2\n\t\t\tbreak\n\n\tphi1 = (p1**(r-1))*(p1-1)*(q1-1)\n\tphi2 = (p2**(r-1))*(p2-1)*(q2-1)\n\twhile True:\n\t\te1 = randint(5, (p1-1)*(q1-1))\n\t\te2 = randint(5, (p2-1)*(q2-1))\n\t\tif gcd(e1, e2) == 1 and gcd(phi1, e1) == 1 and gcd(phi2, e2) == 1:\n\t\t\tbreak\n\treturn n11, n12, e11, e12\n\n\ndef gen2():\n\tr = 7\n\twhile True:\n\t\tp = getPrime(512)\n\t\tq =\tgetPrime(512)\n\t\tN = (p**r)*q\n\t\tif len(bin(N)) == 4096:\n\t\t\tbreak\n\n\tidx = (r*(r-1)) / ((r+1)*(r+1))\n\tdelta = int(pow(mpz(N), idx))\n\tphi = (p**(r-1))*(p-1)*(q-1)\n\n\twhile True:\n\t\td1 = getPrime(int(2048*idx)//2)\n\t\td2 = getPrime(int(2048*idx)//2)\n\t\tif abs(d1-d2) < delta:\n\t\t\tm1 = invert(d1, phi)\n\t\t\tm2 = invert(d2, phi)\n\t\t\tbreak\n\n\te2 = 0x10001\n\treturn n2, e2, m1, m2\n\ndef gen3():\n\tr = 7\n\twhile True:\n\t\tp = getPrime(512)\n\t\tq =\tgetPrime(512)\n\t\tN = (p**r)*q\n\t\tphi = (p**(r-1))*(p-1)*(q-1)\n\n\t\tif len(bin(N))-2 == 4096:\n\t\t\tbreak\n\n\tidx = (r*(r-1)) / ((r+1)*(r+1))\n\tdelta = int(pow(mpz(N), idx))\n\n\twhile True:\n\t\tb = getRandomNBitInteger(int(2048*idx)//2)\n\t\ta = getRandomNBitInteger(int(2048*idx)//2)\n\t\tif a*b < delta:\n\t\t\te = invert(a, phi)*b\n\t\t\treturn n3, e3, b\n\n\nn11, n12, e11, e12 = gen1()\nprint(f\"n11={n11}\\nn12={n12}\\ne11={e11}\\ne12={e12}\\n\")\nn2, e2, m1, m2 = gen2()\nprint(f\"n2={n2}\\ne2={e2}\\n\")\nn3, e3, b = gen3()\nprint(f\"n3={n3}\\ne3={e3}\\n\")\n\nm3 = bytes_to_long(flag)\nc11 = powmod(m1, e11, n11)\nc12 = powmod(m2, e12, n12)\nc2 = powmod(b, e2, n2)\nc3 = powmod(m3, e3, n3)\nprint(f\"c11={c11}\\nc12={c12}\\nc2={c2}\\nc3={c3}\\n\")\n",
+  "record_note": "Request reconstructed from the historical local_model_probe.py, not a second model invocation."
+}

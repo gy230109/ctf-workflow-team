@@ -1,0 +1,23 @@
+{
+  "run_id": "20261012T102138Z-dc86bc25",
+  "case_root": "/home/kali/ctf-workbench/cases/qwb_ezre_v1",
+  "cwd": "/home/kali/ctf-workbench/cases/qwb_ezre_v1/work",
+  "command": [
+    "bash",
+    "-c",
+    "printf 'flag{3ea590ccwxehg715264fzxnzepqz}\\n' | ./ezre; echo EXIT=$?"
+  ],
+  "timeout_seconds": 40,
+  "started_at_utc": "2026-10-12T10:21:39.308757+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.042,
+  "stdout_bytes": 9,
+  "stderr_bytes": 49,
+  "output_truncated": false,
+  "stdout": "EXIT=127\n",
+  "stderr": "bash: 行 1: ./ezre: 没有那个文件或目录\n",
+  "guest_log": "/home/kali/ctf-workbench/cases/qwb_ezre_v1/results/20261012T102138Z-dc86bc25.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.422
+}

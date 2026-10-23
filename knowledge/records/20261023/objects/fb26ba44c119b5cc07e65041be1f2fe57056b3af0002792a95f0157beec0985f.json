@@ -1,0 +1,83 @@
+{
+  "task_id": "ctf-e8edeb7a86d0afe0",
+  "title": "How to pronounce GIF",
+  "description": "> 本题已导入题面与附件，尚未配置可信判题规则。题目环境按题面另行准备；不要将未判题的候选记为已解。\n\nOur machine that makes QR Codes started playing up then it just said \"PC LOAD LETTER\" and died. This is all we could recover...\n\nAuthor: xXl33t_h@x0rXx\n\n\n来源：https://github.com/DownUnderCTF/Challenges_2021_Public/tree/e29fbc5bed67550d6f85bc74c63a4712f764b34a/forensics/how-to-pronounce-gif",
+  "category": "forensics",
+  "created_at": "2026-10-15T11:35:24.894762+00:00",
+  "updated_at": "2026-10-15T13:48:13.546399+00:00",
+  "state": "in_progress",
+  "artifacts": [
+    {
+      "name": "000_challenge.gif",
+      "relative_path": "attachments/000_challenge.gif",
+      "sha256": "a60e268f7ce989d6700b0228d8903bec5468b85c399f6ddd3deed434408ff8b2",
+      "bytes": 106214
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-15T11:36:09.110339+00:00",
+      "tool": "kali_file",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064169030060700-61d6368a.json",
+      "wp_record": {
+        "case": "ctf-e8edeb7a86d0afe0",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-e8edeb7a86d0afe0\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:37:03.144180+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064223087652600-8cda0f0c.json",
+      "wp_record": {
+        "case": "ctf-e8edeb7a86d0afe0",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-e8edeb7a86d0afe0\\raw\\0003-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T12:02:02.422992+00:00",
+      "kind": "note",
+      "text": "CTFd 第一题「How to pronounce GIF」(DownUnderCTF 2021 forensics, id=1) 本地复现完成。手法来源：官方仓库 WRITEUP.md（https://github.com/DownUnderCTF/Challenges_2021_Public/blob/e29fbc5bed67550d6f85bc74c63a4712f764b34a/forensics/how-to-pronounce-gif/WRITEUP.md）。题面附件 000_challenge.gif（本机 sha256 a60e268f7ce989d6700b0228d8903bec5468b85c399f6ddd3deed434408ff8b2，106214B，GIF89a 300x22，120 帧，帧延迟全 5，无尾部附加数据；官方原件 sha256 26e6aab5…，内容同、字节不同=被重编码）。关键结构：120 帧 = 10 个 QR 码 × 12 条带交错播放，每帧只是同一窗口的一条 22px 横带。解法（本机 Python+PIL/cv2/pyzbar 实测复现，非照抄结论）：(1) 提取全部 120 帧（按序）；(2) 按帧号取模分组，i%10=k 归为第 k 组（每组 12 帧）；(3) 组内竖向拼接成 300x264 图；(4) 逐组解码。实测 8/10 组可解：set1=https://bit.ly/3Afouex、set2=f0ll0w 7h3 wh173 r4bb17、set3=https://bitly.com/98K8eH、set4=兔子 ASCII、set5=RFVDVEZ7YU1（base64 前半）、set6=https://bit.ly/2YOdoPM、set7=fMV9oYVhYMHJfbjB3P30=（base64 后半）、set8=震惊兔子 ASCII；set0/set9 需复位偏移(shift=-2 或整体旋转)未解出，但两段 base64 都已拿到。(5) 拼接 base64: RFVDVEZ7YU1 + fMV9oYVhYMHJfbjB3P30= = RFVDVEZ7YU1fMV9oYVhYMHJfbjB3P30=，(6) 本地 base64 解码 → b'DUCTF{aM_1_haXX0r_n0w?}'，sha256(flag)=48161c7efd46ba88e313d22c9a1e881d60220c7b92d976fe8a3753670878ae19，与官方 WRITEUP 公布的 flag 完全一致。未验证/未完成：本机 CTFd 该题 grading_configured=false（题面已净化、未配可信判题规则），按 AGENTS §14 未做 ctfd_submit、未自报已判对；「平台 correct 回执」待配置判题规则后另行确认。经验：窄条动图的\"滚动/抖动\"表象常是多个静态图交错播放，先用 帧号取模 分组再拼接，比盲试步长缝合更快命中。",
+      "status": "observed",
+      "source_step": 3
+    },
+    {
+      "at": "2026-10-15T13:48:13.546377+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792072093489881300-ad1d0538.json",
+      "wp_record": {
+        "case": "ctf-e8edeb7a86d0afe0",
+        "step": 6,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-e8edeb7a86d0afe0\\raw\\0006-call.json",
+        "assets": 0,
+        "operation_id": "3444d2359b294ab2bccc9790333baac0",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false,
+  "source": {
+    "challenge_id": 1,
+    "name": "How to pronounce GIF",
+    "origin": "http://127.0.0.1:8800",
+    "grading_configured": false,
+    "handouts": [
+      {
+        "name": "000_challenge.gif",
+        "path": "[CTF_ROOT]\\.local\\ctfd\\intake\\e571314f51ee34cc9c6654c7\\000_challenge.gif",
+        "sha256": "a60e268f7ce989d6700b0228d8903bec5468b85c399f6ddd3deed434408ff8b2",
+        "bytes": 106214
+      }
+    ]
+  }
+}

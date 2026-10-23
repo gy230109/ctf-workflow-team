@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011/work/bridgecheck.json",
+  "sha256": "8761efde95ad53e3ccb0489eb919234c84884b960a998a3fb9c3fd20e95c15df",
+  "bytes": 247,
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 0.297,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\kali_bridgecheck_20261011\\downloads\\20261011T082634Z-110dd173\\bridgecheck.json",
+  "verified": true
+}

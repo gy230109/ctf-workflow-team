@@ -1,0 +1,44 @@
+{
+  "ts": "2026-10-16 14:05:04",
+  "call_id": "1792130704180695400-624689d0",
+  "args": {
+    "wp_case": "automatic",
+    "values": [
+      1,
+      2
+    ]
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "evidence_artifacts": [
+        {
+          "path": "D:\\Temp\\tmpr4u5a2lu\\actual-fixture.png",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "kind": "browser_screenshot"
+        }
+      ]
+    },
+    "wp_operation": {
+      "operation_id": "593fb4770eab42e3b2ffb78ae3216499",
+      "step": 2
+    },
+    "tool": "math_gcd",
+    "duration_ms": 11.6,
+    "task_health": {
+      "ok": true,
+      "case": "automatic",
+      "calls": 1,
+      "failed_calls": 0,
+      "active_tool_seconds": 0.012,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130704180695400-624689d0.json"
+  }
+}

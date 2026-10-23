@@ -1,0 +1,355 @@
+
+METHOD 1 T1.Check1 RVA 2050
+000c nop              
+000d ldc.i4.m1        
+000e stloc.0          
+000f ldc.i4.0         
+0010 stloc.1          
+0011 br               175
+0016 nop              
+0017 ldarg.0          
+0018 ldc.i4.s         29
+001a shr.un           
+001b ldarg.0          
+001c ldc.i4.s         28
+001e shr.un           
+001f xor              
+0020 ldarg.0          
+0021 ldc.i4.s         25
+0023 shr.un           
+0024 xor              
+0025 ldarg.0          
+0026 ldc.i4.s         23
+0028 shr.un           
+0029 xor              
+002a ldc.i4.1         
+002b conv.i8          
+002c and              
+002d ldarg.0          
+002e ldc.i4.1         
+002f shl              
+0030 or               
+0031 starg.s          argument(0x0000)
+0033 ldarg.1          
+0034 ldc.i4.s         30
+0036 shr.un           
+0037 ldarg.1          
+0038 ldc.i4.s         27
+003a shr.un           
+003b xor              
+003c ldc.i4.1         
+003d conv.i8          
+003e and              
+003f ldarg.1          
+0040 ldc.i4.1         
+0041 shl              
+0042 or               
+0043 starg.s          argument(0x0001)
+0045 ldarg.2          
+0046 ldc.i4.s         31
+0048 shr.un           
+0049 ldarg.2          
+004a ldc.i4.s         30
+004c shr.un           
+004d xor              
+004e ldarg.2          
+004f ldc.i4.s         29
+0051 shr.un           
+0052 xor              
+0053 ldarg.2          
+0054 ldc.i4.s         28
+0056 shr.un           
+0057 xor              
+0058 ldarg.2          
+0059 ldc.i4.s         26
+005b shr.un           
+005c xor              
+005d ldarg.2          
+005e ldc.i4.s         24
+0060 shr.un           
+0061 xor              
+0062 ldc.i4.1         
+0063 conv.i8          
+0064 and              
+0065 ldarg.2          
+0066 ldc.i4.1         
+0067 shl              
+0068 or               
+0069 starg.s          argument(0x0002)
+006b ldloc.1          
+006c ldc.i4.8         
+006d rem              
+006e ldc.i4.0         
+006f ceq              
+0071 stloc.2          
+0072 ldloc.2          
+0073 brfalse.s        123
+0075 nop              
+0076 ldloc.0          
+0077 ldc.i4.1         
+0078 add              
+0079 stloc.0          
+007a nop              
+007b ldarg.3          
+007c ldloc.0          
+007d ldarg.3          
+007e ldloc.0          
+007f ldelem.u1        
+0080 ldc.i4.1         
+0081 shl              
+0082 conv.i8          
+0083 ldarg.2          
+0084 ldc.i4.s         32
+0086 shr.un           
+0087 ldc.i4.1         
+0088 conv.i8          
+0089 and              
+008a ldarg.0          
+008b ldc.i4.s         30
+008d shr.un           
+008e ldc.i4.1         
+008f conv.i8          
+0090 and              
+0091 and              
+0092 ldarg.2          
+0093 ldc.i4.s         32
+0095 shr.un           
+0096 ldc.i4.1         
+0097 conv.i8          
+0098 and              
+0099 ldc.i4.1         
+009a conv.i8          
+009b xor              
+009c ldarg.1          
+009d ldc.i4.s         31
+009f shr.un           
+00a0 ldc.i4.1         
+00a1 conv.i8          
+00a2 and              
+00a3 and              
+00a4 xor              
+00a5 conv.u4          
+00a6 conv.u8          
+00a7 or               
+00a8 conv.u1          
+00a9 stelem.i1        
+00aa nop              
+00ab ldloc.1          
+00ac ldc.i4.1         
+00ad add              
+00ae stloc.1          
+00af ldloc.1          
+00b0 ldc.i4           320
+00b5 clt              
+00b7 stloc.3          
+00b8 ldloc.3          
+00b9 brtrue           22
+00be ret              
+
+METHOD 2 T1.ParseKey RVA 2110
+000c nop              
+000d ldc.i4.0         
+000e stloc.0          
+000f br.s             66
+0011 nop              
+0012 ldc.i4.0         
+0013 stloc.1          
+0014 br.s             53
+0016 nop              
+0017 ldarg.1          
+0018 ldloc.0          
+0019 ldc.i4.4         
+001a mul              
+001b ldloc.1          
+001c add              
+001d ldarg.0          
+001e ldloc.0          
+001f ldelem.i8        
+0020 ldloc.1          
+0021 ldc.i4.8         
+0022 mul              
+0023 ldc.i4.s         63
+0025 and              
+0026 shr.un           
+0027 ldc.i4           255
+002c conv.i8          
+002d and              
+002e conv.u1          
+002f stelem.i1        
+0030 nop              
+0031 ldloc.1          
+0032 ldc.i4.1         
+0033 add              
+0034 stloc.1          
+0035 ldloc.1          
+0036 ldc.i4.4         
+0037 clt              
+0039 stloc.2          
+003a ldloc.2          
+003b brtrue.s         22
+003d nop              
+003e ldloc.0          
+003f ldc.i4.1         
+0040 add              
+0041 stloc.0          
+0042 ldloc.0          
+0043 ldc.i4.3         
+0044 clt              
+0046 stloc.3          
+0047 ldloc.3          
+0048 brtrue.s         17
+004a ret              
+
+METHOD 3 T1..ctor RVA 215c
+000c ldarg.0          
+000d call             0a00000f Object..ctor
+0012 nop              
+0013 nop              
+0014 nop              
+0015 ldnull           
+0016 stloc.0          
+0017 ldnull           
+0018 stloc.1          
+0019 ldnull           
+001a stloc.2          
+001b ldstr            'AchivePoint1'
+0020 call             0a000010 Environment.GetEnvironmentVariable
+0025 stloc.0          
+0026 ldstr            'AchivePoint2'
+002b call             0a000010 Environment.GetEnvironmentVariable
+0030 stloc.1          
+0031 ldstr            'AchivePoint3'
+0036 call             0a000010 Environment.GetEnvironmentVariable
+003b stloc.2          
+003c ldloc.0          
+003d brfalse.s        72
+003f ldloc.1          
+0040 brfalse.s        72
+0042 ldloc.2          
+0043 ldnull           
+0044 ceq              
+0046 br.s             73
+0048 ldc.i4.1         
+0049 stloc.s          local(0x000C)
+004b ldloc.s          local(0x000C)
+004d brfalse.s        85
+004f nop              
+0050 leave            343
+0055 ldloc.0          
+0056 call             0a000011 UInt64.Parse
+005b stloc.3          
+005c ldloc.1          
+005d call             0a000011 UInt64.Parse
+0062 stloc.s          local(0x0004)
+0064 ldloc.2          
+0065 call             0a000011 UInt64.Parse
+006a stloc.s          local(0x0005)
+006c ldc.i4.3         
+006d newarr           01000014 UInt64
+0072 stloc.s          local(0x0006)
+0074 ldc.i4.s         40
+0076 newarr           01000015 Byte
+007b stloc.s          local(0x0007)
+007d ldc.i4.s         40
+007f newarr           01000015 Byte
+0084 stloc.s          local(0x0008)
+0086 ldc.i4.s         12
+0088 newarr           01000015 Byte
+008d stloc.s          local(0x0009)
+008f ldc.i4.s         40
+0091 newarr           01000015 Byte
+0096 dup              
+0097 ldtoken          04000002 <PrivateImplementationDetails>.EBC0A6EE956AA4599BCDA6FA0CD9A13F4866812B3A4201D62935BA6CBEEE7C46
+009c call             0a000012 RuntimeHelpers.InitializeArray
+00a1 stloc.s          local(0x000A)
+00a3 ldc.i4.s         19
+00a5 newarr           01000015 Byte
+00aa dup              
+00ab ldtoken          04000001 <PrivateImplementationDetails>.7235916CD1DA57AAD16D310385715A3E238A71195DECCF80D4BDF3B1BE72D574
+00b0 call             0a000012 RuntimeHelpers.InitializeArray
+00b5 stloc.s          local(0x000B)
+00b7 ldloc.s          local(0x0006)
+00b9 ldc.i4.0         
+00ba ldloc.3          
+00bb stelem.i8        
+00bc ldloc.s          local(0x0006)
+00be ldc.i4.1         
+00bf ldloc.s          local(0x0004)
+00c1 stelem.i8        
+00c2 ldloc.s          local(0x0006)
+00c4 ldc.i4.2         
+00c5 ldloc.s          local(0x0005)
+00c7 stelem.i8        
+00c8 ldloc.s          local(0x0006)
+00ca ldc.i4.0         
+00cb ldelem.i8        
+00cc ldloc.s          local(0x0006)
+00ce ldc.i4.1         
+00cf ldelem.i8        
+00d0 ldloc.s          local(0x0006)
+00d2 ldc.i4.2         
+00d3 ldelem.i8        
+00d4 ldloc.s          local(0x0007)
+00d6 call             06000001 T1.Check1
+00db nop              
+00dc ldloc.s          local(0x000A)
+00de ldloc.s          local(0x0007)
+00e0 call             2b000001 Enumerable.SequenceEqual
+00e5 stloc.s          local(0x000D)
+00e7 ldloc.s          local(0x000D)
+00e9 brfalse.s        335
+00eb nop              
+00ec ldloc.s          local(0x0006)
+00ee ldloc.s          local(0x0009)
+00f0 call             06000002 T1.ParseKey
+00f5 nop              
+00f6 ldc.i4.0         
+00f7 stloc.s          local(0x000E)
+00f9 br.s             281
+00fb nop              
+00fc ldloc.s          local(0x000B)
+00fe ldloc.s          local(0x000E)
+0100 ldloc.s          local(0x000B)
+0102 ldloc.s          local(0x000E)
+0104 ldelem.u1        
+0105 ldloc.s          local(0x0009)
+0107 ldloc.s          local(0x000E)
+0109 ldloc.s          local(0x0009)
+010b ldlen            
+010c conv.i4          
+010d rem              
+010e ldelem.u1        
+010f xor              
+0110 conv.u1          
+0111 stelem.i1        
+0112 nop              
+0113 ldloc.s          local(0x000E)
+0115 ldc.i4.1         
+0116 add              
+0117 stloc.s          local(0x000E)
+0119 ldloc.s          local(0x000E)
+011b ldloc.s          local(0x000B)
+011d ldlen            
+011e conv.i4          
+011f clt              
+0121 stloc.s          local(0x000F)
+0123 ldloc.s          local(0x000F)
+0125 brtrue.s         251
+0127 ldstr            'flag{'
+012c call             0a000014 Encoding.get_Default
+0131 ldloc.s          local(0x000B)
+0133 callvirt         0a000015 Encoding.GetString
+0138 ldstr            '}'
+013d call             0a000016 String.Concat
+0142 ldstr            'Congratulations!'
+0147 ldc.i4.0         
+0148 call             0a000017 MessageBox.Show
+014d pop              
+014e nop              
+014f nop              
+0150 leave.s          343
+0152 pop              
+0153 nop              
+0154 nop              
+0155 leave.s          343
+0157 ret              

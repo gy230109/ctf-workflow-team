@@ -1,0 +1,228 @@
+{
+  "task_id": "ctf-9f14d2187a3d8030",
+  "title": "WP 自动留证部署验收（自建样例）",
+  "description": "Only local self-built GUI, web, terminal and debugger evidence checks; no CTF solution or model evaluation.",
+  "category": "unknown",
+  "created_at": "2026-10-15T13:18:49.345812+00:00",
+  "updated_at": "2026-10-15T13:26:06.029218+00:00",
+  "state": "analysis_complete",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-15T13:19:21.497191+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070361397476700-7e9a822e.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0003-call.json",
+        "assets": 2,
+        "operation_id": "5dfc5a3b5acb4941abe6a8fc3a713670",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:19:30.182369+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070370065086400-1d6eaf67.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0005-call.json",
+        "assets": 2,
+        "operation_id": "fbdbc89e36e14d718b0dc98d5187bd19",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:19:31.054483+00:00",
+      "kind": "note",
+      "text": "自建页面按钮点击后显示 42；该结论引用实际浏览器返回。",
+      "status": "observed",
+      "source_step": 5
+    },
+    {
+      "at": "2026-10-15T13:19:47.253659+00:00",
+      "tool": "web_browser_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070387140949200-ac97f51d.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 8,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0008-call.json",
+        "assets": 2,
+        "operation_id": "ec9ddb2604494f25950be27dbea8326e",
+        "capture_errors": []
+      },
+      "error_code": "browser_action_failed",
+      "error": "Locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waiting for locator(\"#does-not-exist\")\n"
+    },
+    {
+      "at": "2026-10-15T13:19:55.533387+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070395411577200-c82e645b.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 10,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0010-call.json",
+        "assets": 2,
+        "operation_id": "6fc818b648a94740973ff42b48d6671d",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:20:02.767070+00:00",
+      "tool": "kali_terminal_record",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070402697319300-24760950.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 12,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0012-call.json",
+        "assets": 1,
+        "operation_id": "44042b62329541dd95b0630986721122",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:20:09.700005+00:00",
+      "tool": "kali_terminal_record",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070409594736400-6f43b800.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 14,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0014-call.json",
+        "assets": 1,
+        "operation_id": "376f38b02e2b48d381c7d579fb0fb6ad",
+        "capture_errors": []
+      },
+      "error_code": "terminal_command_failed",
+      "error": "Recorded command failed or timed out"
+    },
+    {
+      "at": "2026-10-15T13:20:13.139841+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070413016146200-66e0ee84.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 16,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0016-call.json",
+        "assets": 0,
+        "operation_id": "352fcc2d411b43bc805c0d918437b90e",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:20:22.537514+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070422427384600-e463763e.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 18,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0018-call.json",
+        "assets": 1,
+        "operation_id": "3d5d3f24851d49ec99d8ce2956c6bbbb",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:20:29.461536+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070429318187200-6652ac63.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 20,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0020-call.json",
+        "assets": 1,
+        "operation_id": "dd91e2d4cdc243dfa8bef0a14bf4c96f",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:20:36.524743+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070436367005200-77f77ebb.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 22,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0022-call.json",
+        "assets": 1,
+        "operation_id": "e2bad5e1e159469c99cc54be20fa50dd",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:20:42.906343+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070442798407100-99855aa5.json",
+      "wp_record": {
+        "case": "ctf-9f14d2187a3d8030",
+        "step": 24,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\raw\\0024-call.json",
+        "assets": 1,
+        "operation_id": "150b99ed17ff4b50abd99ceec1f38e3c",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:25:34.201328+00:00",
+      "tool": "wp_capture",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070734150542500-355c1973.json",
+      "wp_record": null,
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false,
+  "summary": "自建网页点击后显示 42；真实 PTY 终端与 GDB MI 过程已录制；预设失败动作保留原始错误和证据；Windows 实际目标窗口已采集并人工核对。此为记录链验收，不计比赛题解成功。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-9f14d2187a3d8030",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\reports\\20261015T132603Z-9619b6aa\\writeup.md",
+      "bundle_path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\reports\\20261015T132603Z-9619b6aa.zip",
+      "records": 25,
+      "integrity_verified": true,
+      "images_included": 5,
+      "recordings_included": 10,
+      "recording_complete": true,
+      "capture_errors": [],
+      "pending_operations": [],
+      "solved_verified": false,
+      "platform_answer_verified": false,
+      "review_required_before_sharing": "原始证据、正文语义与图片像素须另行检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 2162.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070765982445500-1b018e69.json"
+  }
+}

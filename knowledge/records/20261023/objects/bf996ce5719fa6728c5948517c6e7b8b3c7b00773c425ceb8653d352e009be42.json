@@ -1,0 +1,58 @@
+{
+  "ts": "2026-10-14 23:56:10",
+  "call_id": "1791993370344158300-e29def1d",
+  "args": {
+    "action": "import",
+    "method": "attacks.rsa.wiener_attack",
+    "timeout": 90,
+    "wp_case": "ctf-76abf0819632bf8e",
+    "case": "ctf-76abf0819632bf8e"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "returncode": 0,
+        "timed_out": false,
+        "stdout": "{\"module\": \"attacks.rsa.wiener_attack\", \"file\": \"/home/kali/ctf-workbench/references/crypto-attacks-d42a3df/attacks/rsa/wiener_attack.py\", \"import_usable\": true}\n",
+        "stderr": "",
+        "output_truncated": false
+      },
+      "execution": {
+        "run_id": "20261014T155607Z-0fe064b8",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-c35302362166d81a.py",
+          "../input/request-7bc3b8227d5d41ea85661115fe355ee9.json"
+        ],
+        "timeout_seconds": 90,
+        "started_at_utc": "2026-10-14T15:56:08.746148+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 1.998,
+        "stdout_bytes": 278,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"returncode\": 0, \"timed_out\": false, \"stdout\": \"{\\\"module\\\": \\\"attacks.rsa.wiener_attack\\\", \\\"file\\\": \\\"/home/kali/ctf-workbench/references/crypto-attacks-d42a3df/attacks/rsa/wiener_attack.py\\\", \\\"import_usable\\\": true}\\n\", \"stderr\": \"\", \"output_truncated\": false}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-76abf0819632bf8e/results/20261014T155607Z-0fe064b8.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 2.36,
+        "bridge_exit": 0,
+        "case": "ctf-76abf0819632bf8e",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-76abf0819632bf8e",
+      "upload_verified": true
+    },
+    "tool": "crypto_library",
+    "dangerous": false,
+    "duration_ms": 5440.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791993370344158300-e29def1d.json"
+  }
+}

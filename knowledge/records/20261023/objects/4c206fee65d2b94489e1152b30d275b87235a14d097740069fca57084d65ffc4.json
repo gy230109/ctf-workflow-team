@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 02:06:39",
+  "call_id": "1791741999149128900-0d207bf4",
+  "args": {
+    "arch": "x32",
+    "tool": "ListModules",
+    "params": {},
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "ListModules",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "0xE00000 | 0x6000 | probe32.exe\n0x75220000 | 0xF3000 | kernel32.dll\n0x76D00000 | 0x2AE000 | kernelbase.dll\n0x76FD0000 | 0x1BD000 | ntdll.dll\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x770E57F9 (ntdll) | jmp ntdll.770E5802"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 73.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741999149128900-0d207bf4.json"
+  }
+}

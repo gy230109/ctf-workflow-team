@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636",
+  "files": [
+    {
+      "name": "probe4.py",
+      "bytes": 1081,
+      "sha256": "17ee773521ac3f605c5a04dd46f3a1e7273fb134df5627e1599dda4380c771ac"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.281
+}

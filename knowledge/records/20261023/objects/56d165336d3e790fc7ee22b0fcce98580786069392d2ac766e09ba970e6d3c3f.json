@@ -1,0 +1,185 @@
+{
+  "ts": "2026-10-12 01:55:38",
+  "call_id": "1791741338863276700-dd51475e",
+  "args": {
+    "query": "Register"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 7,
+      "tools": [
+        {
+          "name": "EvalExpression",
+          "description": "Evaluates an x64dbg expression (address, register, arithmetic, symbol) and returns the result in hex and decimal.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "expression": {
+                "type": "string",
+                "description": "x64dbg expression (e.g. cip, eax+4, kernel32:CreateFileA)."
+              }
+            },
+            "required": [
+              "expression"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetAllRegisters",
+          "description": "Returns the current values of all general-purpose registers. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetRegister",
+          "description": "Sets the value of a CPU register.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "register": {
+                "type": "string",
+                "description": "Register name (e.g. eax, ecx, eip)."
+              },
+              "value": {
+                "type": "string",
+                "description": "Value to set (hex or decimal)."
+              }
+            },
+            "required": [
+              "register",
+              "value"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetHardwareBreakpoint",
+          "description": "Sets a hardware breakpoint using debug registers (DR0-DR3). Supports read, write, and execute types.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the hardware breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read), w (write), x (execute, default).",
+                "default": "x"
+              },
+              "size": {
+                "type": "integer",
+                "description": "Size: 1, 2, 4, or 8 (default 1).",
+                "default": 1
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetMemoryBreakpoint",
+          "description": "Sets a memory breakpoint at an address. Triggers when memory is accessed (read/write/execute). Uses guard pages — slower than hardware breakpoints but no DR register limit.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address for the memory breakpoint."
+              },
+              "type": {
+                "type": "string",
+                "description": "Type: r (read/access), w (write), x (execute). Default: access (any)."
+              },
+              "singleshoot": {
+                "type": "boolean",
+                "description": "If true, breakpoint is removed after first hit (default false).",
+                "default": false
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetArguments",
+          "description": "Reads function arguments from the stack (x32: [ESP+4]...) or registers (x64: RCX,RDX,R8,R9...) at the current position.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Number of args to read (default 4, max 16).",
+                "default": 4
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpointCommand",
+          "description": "Sets an x64dbg command to execute when a breakpoint at the given address is hit. Use for logging breakpoints (e.g., 'log {x:eax}' to log register values on hit).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Breakpoint address."
+              },
+              "command": {
+                "type": "string",
+                "description": "x64dbg command to run on hit (e.g. 'log {x:eax}', 'msg {utf8@[esp+4]}')."
+              }
+            },
+            "required": [
+              "address",
+              "command"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 85.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741338863276700-dd51475e.json"
+  }
+}

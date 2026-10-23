@@ -1,0 +1,4 @@
+{
+  "error": "Kali IP 10.20.243.181 is outside configured NAT subnet",
+  "action": "status"
+}

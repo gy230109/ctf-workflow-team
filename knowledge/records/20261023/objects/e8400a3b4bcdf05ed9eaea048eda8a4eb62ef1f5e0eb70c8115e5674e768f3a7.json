@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-12 15:54:33",
+  "call_id": "1791791673962888900-dec81d7d",
+  "args": {
+    "case": "jev_system_demo_20261012",
+    "status": "observed",
+    "source_step": 3,
+    "text": "本机适配器完成真实调用；模型是否可用以此步骤实际结果为准。服务不可用时 requires_main_agent=true/fallback=main_agent，必须由主 Agent 接手，不能编造 Jev 判断。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 4,
+      "case": "jev_system_demo_20261012",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 8.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791791673962888900-dec81d7d.json"
+  }
+}

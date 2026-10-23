@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:/虚拟机/vmrun.exe",
+    "-T",
+    "ws",
+    "start",
+    "D:\\huahuan\\kali\\kali.vmx",
+    "nogui"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

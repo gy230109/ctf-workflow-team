@@ -1,0 +1,2710 @@
+
+METHOD 1 Program.Main RVA 2050
+000c nop              
+000d call             0a000006 ConfigurationManager.get_AppSettings
+0012 ldstr            'microsoft:WorkflowComponentModel:DisableActivitySurrogateSelectorTypeCheck'
+0017 ldstr            'true'
+001c callvirt         0a000007 NameValueCollection.Set
+0021 nop              
+0022 ldstr            'gamemessage'
+0027 call             0a000008 File.OpenRead
+002c stloc.0          
+002d ldloc.0          
+002e callvirt         0a000009 Stream.get_Length
+0033 conv.i4          
+0034 stloc.1          
+0035 ldloc.1          
+0036 newarr           0100001b Byte
+003b stsfld           04000001 Program.memory
+0040 ldloc.0          
+0041 ldc.i4.0         
+0042 conv.i8          
+0043 callvirt         0a00000a Stream.set_Position
+0048 nop              
+0049 ldloc.0          
+004a ldsfld           04000001 Program.memory
+004f ldc.i4.0         
+0050 ldloc.1          
+0051 callvirt         0a00000b Stream.Read
+0056 pop              
+0057 ldstr            '♠ Blackjack Game'
+005c ldc.i4.s         32
+005e ldc.i4.s         11
+0060 newobj           0a00000c String..ctor
+0065 ldstr            "...Based on Konstantin Tarkus' code"
+006a call             0a00000d String.Concat
+006f call             0a00000e Console.set_Title
+0074 nop              
+0075 ldc.i4.s         70
+0077 dup              
+0078 call             0a00000f Console.set_WindowWidth
+007d nop              
+007e call             0a000010 Console.set_BufferWidth
+0083 nop              
+0084 ldc.i4.s         26
+0086 dup              
+0087 call             0a000011 Console.set_WindowHeight
+008c nop              
+008d call             0a000012 Console.set_BufferHeight
+0092 nop              
+0093 ldc.i4.0         
+0094 call             0a000013 Console.set_CursorVisible
+0099 nop              
+009a newobj           0a000014 ArrayList..ctor
+009f stloc.2          
+00a0 newobj           0a000015 Game..ctor
+00a5 stloc.3          
+00a6 ldloc.3          
+00a7 callvirt         0a000016 Game.get_Player
+00ac ldnull           
+00ad ldftn            06000006 Program.OnBalanceChanged
+00b3 newobj           0a000017 EventHandler..ctor
+00b8 callvirt         0a000018 Player.add_BalanceChanged
+00bd nop              
+00be ldloc.3          
+00bf ldnull           
+00c0 ldftn            06000007 Program.OnLastStateChanged
+00c6 newobj           0a000017 EventHandler..ctor
+00cb callvirt         0a000019 Game.add_LastStateChanged
+00d0 nop              
+00d1 ldloc.3          
+00d2 ldnull           
+00d3 ldftn            06000008 Program.OnAllowedActionsChanged
+00d9 newobj           0a000017 EventHandler..ctor
+00de callvirt         0a00001a Game.add_AllowedActionsChanged
+00e3 nop              
+00e4 ldloc.3          
+00e5 callvirt         0a00001b Game.get_Dealer
+00ea callvirt         0a00001c PlayerBase.get_Hand
+00ef ldnull           
+00f0 ldftn            0600000a Program.OnHandChanged
+00f6 newobj           0a000017 EventHandler..ctor
+00fb callvirt         0a00001d Hand.add_Changed
+0100 nop              
+0101 ldloc.3          
+0102 callvirt         0a000016 Game.get_Player
+0107 callvirt         0a00001c PlayerBase.get_Hand
+010c ldnull           
+010d ldftn            0600000a Program.OnHandChanged
+0113 newobj           0a000017 EventHandler..ctor
+0118 callvirt         0a00001d Hand.add_Changed
+011d nop              
+011e ldloc.3          
+011f ldc.i4.s         20
+0121 newobj           0a00001e Decimal..ctor
+0126 ldc.i4.5         
+0127 newobj           0a00001e Decimal..ctor
+012c callvirt         0a00001f Game.Play
+0131 nop              
+0132 br               1561
+0137 nop              
+0138 ldc.i4.1         
+0139 call             0a000020 Console.ReadKey
+013e stloc.s          local(0x0004)
+0140 ldloca.s         local(0x0004)
+0142 call             0a000021 ConsoleKeyInfo.get_Key
+0147 stloc.s          local(0x0006)
+0149 ldloc.s          local(0x0006)
+014b stloc.s          local(0x0005)
+014d ldloc.s          local(0x0005)
+014f ldc.i4.s         107
+0151 bgt              680
+0156 ldloc.s          local(0x0005)
+0158 ldc.i4.s         13
+015a sub              
+015b switch           [1482, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 1409, 1560, 1560, 1560, 1560, 1521, 1560, 1560, 1560, 1560, 1560, 1422, 1560, 1452, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 708, 727, 746, 765, 784, 803, 822, 841, 860, 879, 1560, 1560, 1560, 1560, 1560, 1560, 1560, 915, 934, 953, 972, 991, 1010, 1029, 1048, 1067, 1086, 1105, 1124, 1143, 1162, 1181, 1200, 1219, 1238, 1257, 1276, 1295, 1314, 1333, 1352, 1371, 1390]
+0298 br.s             666
+029a ldloc.s          local(0x0005)
+029c ldc.i4.s         107
+029e beq              1422
+02a3 br               1560
+02a8 ldloc.s          local(0x0005)
+02aa ldc.i4.s         109
+02ac beq              1452
+02b1 br.s             691
+02b3 ldloc.s          local(0x0005)
+02b5 ldc.i4           186
+02ba beq              898
+02bf br               1560
+02c4 ldloc.2          
+02c5 ldc.i4.s         48
+02c7 box              01000021 Char
+02cc callvirt         0a000022 ArrayList.Add
+02d1 pop              
+02d2 br               1560
+02d7 ldloc.2          
+02d8 ldc.i4.s         49
+02da box              01000021 Char
+02df callvirt         0a000022 ArrayList.Add
+02e4 pop              
+02e5 br               1560
+02ea ldloc.2          
+02eb ldc.i4.s         50
+02ed box              01000021 Char
+02f2 callvirt         0a000022 ArrayList.Add
+02f7 pop              
+02f8 br               1560
+02fd ldloc.2          
+02fe ldc.i4.s         51
+0300 box              01000021 Char
+0305 callvirt         0a000022 ArrayList.Add
+030a pop              
+030b br               1560
+0310 ldloc.2          
+0311 ldc.i4.s         52
+0313 box              01000021 Char
+0318 callvirt         0a000022 ArrayList.Add
+031d pop              
+031e br               1560
+0323 ldloc.2          
+0324 ldc.i4.s         53
+0326 box              01000021 Char
+032b callvirt         0a000022 ArrayList.Add
+0330 pop              
+0331 br               1560
+0336 ldloc.2          
+0337 ldc.i4.s         54
+0339 box              01000021 Char
+033e callvirt         0a000022 ArrayList.Add
+0343 pop              
+0344 br               1560
+0349 ldloc.2          
+034a ldc.i4.s         55
+034c box              01000021 Char
+0351 callvirt         0a000022 ArrayList.Add
+0356 pop              
+0357 br               1560
+035c ldloc.2          
+035d ldc.i4.s         56
+035f box              01000021 Char
+0364 callvirt         0a000022 ArrayList.Add
+0369 pop              
+036a br               1560
+036f ldloc.2          
+0370 ldc.i4.s         57
+0372 box              01000021 Char
+0377 callvirt         0a000022 ArrayList.Add
+037c pop              
+037d br               1560
+0382 ldloc.2          
+0383 ldstr            ':'
+0388 callvirt         0a000022 ArrayList.Add
+038d pop              
+038e br               1560
+0393 ldloc.2          
+0394 ldc.i4.s         65
+0396 box              01000021 Char
+039b callvirt         0a000022 ArrayList.Add
+03a0 pop              
+03a1 br               1560
+03a6 ldloc.2          
+03a7 ldc.i4.s         66
+03a9 box              01000021 Char
+03ae callvirt         0a000022 ArrayList.Add
+03b3 pop              
+03b4 br               1560
+03b9 ldloc.2          
+03ba ldc.i4.s         67
+03bc box              01000021 Char
+03c1 callvirt         0a000022 ArrayList.Add
+03c6 pop              
+03c7 br               1560
+03cc ldloc.2          
+03cd ldc.i4.s         68
+03cf box              01000021 Char
+03d4 callvirt         0a000022 ArrayList.Add
+03d9 pop              
+03da br               1560
+03df ldloc.2          
+03e0 ldc.i4.s         69
+03e2 box              01000021 Char
+03e7 callvirt         0a000022 ArrayList.Add
+03ec pop              
+03ed br               1560
+03f2 ldloc.2          
+03f3 ldc.i4.s         70
+03f5 box              01000021 Char
+03fa callvirt         0a000022 ArrayList.Add
+03ff pop              
+0400 br               1560
+0405 ldloc.2          
+0406 ldc.i4.s         71
+0408 box              01000021 Char
+040d callvirt         0a000022 ArrayList.Add
+0412 pop              
+0413 br               1560
+0418 ldloc.2          
+0419 ldc.i4.s         72
+041b box              01000021 Char
+0420 callvirt         0a000022 ArrayList.Add
+0425 pop              
+0426 br               1560
+042b ldloc.2          
+042c ldc.i4.s         73
+042e box              01000021 Char
+0433 callvirt         0a000022 ArrayList.Add
+0438 pop              
+0439 br               1560
+043e ldloc.2          
+043f ldc.i4.s         74
+0441 box              01000021 Char
+0446 callvirt         0a000022 ArrayList.Add
+044b pop              
+044c br               1560
+0451 ldloc.2          
+0452 ldc.i4.s         75
+0454 box              01000021 Char
+0459 callvirt         0a000022 ArrayList.Add
+045e pop              
+045f br               1560
+0464 ldloc.2          
+0465 ldc.i4.s         76
+0467 box              01000021 Char
+046c callvirt         0a000022 ArrayList.Add
+0471 pop              
+0472 br               1560
+0477 ldloc.2          
+0478 ldc.i4.s         77
+047a box              01000021 Char
+047f callvirt         0a000022 ArrayList.Add
+0484 pop              
+0485 br               1560
+048a ldloc.2          
+048b ldc.i4.s         78
+048d box              01000021 Char
+0492 callvirt         0a000022 ArrayList.Add
+0497 pop              
+0498 br               1560
+049d ldloc.2          
+049e ldc.i4.s         79
+04a0 box              01000021 Char
+04a5 callvirt         0a000022 ArrayList.Add
+04aa pop              
+04ab br               1560
+04b0 ldloc.2          
+04b1 ldc.i4.s         80
+04b3 box              01000021 Char
+04b8 callvirt         0a000022 ArrayList.Add
+04bd pop              
+04be br               1560
+04c3 ldloc.2          
+04c4 ldc.i4.s         81
+04c6 box              01000021 Char
+04cb callvirt         0a000022 ArrayList.Add
+04d0 pop              
+04d1 br               1560
+04d6 ldloc.2          
+04d7 ldc.i4.s         82
+04d9 box              01000021 Char
+04de callvirt         0a000022 ArrayList.Add
+04e3 pop              
+04e4 br               1560
+04e9 ldloc.2          
+04ea ldc.i4.s         83
+04ec box              01000021 Char
+04f1 callvirt         0a000022 ArrayList.Add
+04f6 pop              
+04f7 br               1560
+04fc ldloc.2          
+04fd ldc.i4.s         84
+04ff box              01000021 Char
+0504 callvirt         0a000022 ArrayList.Add
+0509 pop              
+050a br               1560
+050f ldloc.2          
+0510 ldc.i4.s         85
+0512 box              01000021 Char
+0517 callvirt         0a000022 ArrayList.Add
+051c pop              
+051d br               1560
+0522 ldloc.2          
+0523 ldc.i4.s         86
+0525 box              01000021 Char
+052a callvirt         0a000022 ArrayList.Add
+052f pop              
+0530 br               1560
+0535 ldloc.2          
+0536 ldc.i4.s         87
+0538 box              01000021 Char
+053d callvirt         0a000022 ArrayList.Add
+0542 pop              
+0543 br               1560
+0548 ldloc.2          
+0549 ldc.i4.s         88
+054b box              01000021 Char
+0550 callvirt         0a000022 ArrayList.Add
+0555 pop              
+0556 br               1560
+055b ldloc.2          
+055c ldc.i4.s         89
+055e box              01000021 Char
+0563 callvirt         0a000022 ArrayList.Add
+0568 pop              
+0569 br               1560
+056e ldloc.2          
+056f ldc.i4.s         90
+0571 box              01000021 Char
+0576 callvirt         0a000022 ArrayList.Add
+057b pop              
+057c br               1560
+0581 ldloc.2          
+0582 ldloc.3          
+0583 call             06000005 Program.verifyCode
+0588 nop              
+0589 br               1560
+058e ldloc.3          
+058f callvirt         0a000016 Game.get_Player
+0594 dup              
+0595 callvirt         0a000023 Player.get_Bet
+059a ldsfld           0a000024 Decimal.One
+059f call             0a000025 Decimal.op_Addition
+05a4 callvirt         0a000026 Player.set_Bet
+05a9 nop              
+05aa br.s             1560
+05ac ldloc.3          
+05ad callvirt         0a000016 Game.get_Player
+05b2 dup              
+05b3 callvirt         0a000023 Player.get_Bet
+05b8 ldsfld           0a000024 Decimal.One
+05bd call             0a000027 Decimal.op_Subtraction
+05c2 callvirt         0a000026 Player.set_Bet
+05c7 nop              
+05c8 br.s             1560
+05ca ldloc.3          
+05cb callvirt         0a000028 Game.get_AllowedActions
+05d0 ldc.i4.2         
+05d1 and              
+05d2 ldc.i4.2         
+05d3 ceq              
+05d5 stloc.s          local(0x0007)
+05d7 ldloc.s          local(0x0007)
+05d9 brfalse.s        1510
+05db nop              
+05dc ldloc.3          
+05dd callvirt         0a000029 Game.Deal
+05e2 nop              
+05e3 nop              
+05e4 br.s             1519
+05e6 nop              
+05e7 ldloc.3          
+05e8 callvirt         0a00002a Game.Stand
+05ed nop              
+05ee nop              
+05ef br.s             1560
+05f1 ldloc.3          
+05f2 callvirt         0a000028 Game.get_AllowedActions
+05f7 ldc.i4.2         
+05f8 and              
+05f9 ldc.i4.2         
+05fa ceq              
+05fc stloc.s          local(0x0008)
+05fe ldloc.s          local(0x0008)
+0600 brfalse.s        1549
+0602 nop              
+0603 ldloc.3          
+0604 callvirt         0a000029 Game.Deal
+0609 nop              
+060a nop              
+060b br.s             1558
+060d nop              
+060e ldloc.3          
+060f callvirt         0a00002b Game.Hit
+0614 nop              
+0615 nop              
+0616 br.s             1560
+0618 nop              
+0619 ldc.i4.1         
+061a stloc.s          local(0x0009)
+061c br               311
+
+METHOD 2 Program.memcmp RVA 2674
+000c nop              
+000d ldc.i4.0         
+000e stloc.0          
+000f br.s             62
+0011 nop              
+0012 ldarg.0          
+0013 ldloc.0          
+0014 callvirt         0a00002c ArrayList.get_Item
+0019 callvirt         0a00002d Object.ToString
+001e ldc.i4.0         
+001f callvirt         0a00002e String.get_Chars
+0024 ldarg.1          
+0025 ldloc.0          
+0026 callvirt         0a00002e String.get_Chars
+002b ceq              
+002d ldc.i4.0         
+002e ceq              
+0030 stloc.1          
+0031 ldloc.1          
+0032 brfalse.s        57
+0034 nop              
+0035 ldc.i4.0         
+0036 stloc.2          
+0037 br.s             74
+0039 nop              
+003a ldloc.0          
+003b ldc.i4.1         
+003c add              
+003d stloc.0          
+003e ldloc.0          
+003f ldarg.2          
+0040 clt              
+0042 stloc.3          
+0043 ldloc.3          
+0044 brtrue.s         17
+0046 ldc.i4.1         
+0047 stloc.2          
+0048 br.s             74
+004a ldloc.2          
+004b ret              
+
+METHOD 3 Program.memcmp1 RVA 26c0
+000c nop              
+000d ldc.i4.0         
+000e stloc.0          
+000f br.s             65
+0011 nop              
+0012 ldarg.0          
+0013 ldloc.0          
+0014 ldc.i4.s         10
+0016 add              
+0017 callvirt         0a00002c ArrayList.get_Item
+001c callvirt         0a00002d Object.ToString
+0021 ldc.i4.0         
+0022 callvirt         0a00002e String.get_Chars
+0027 ldarg.1          
+0028 ldloc.0          
+0029 callvirt         0a00002e String.get_Chars
+002e ceq              
+0030 ldc.i4.0         
+0031 ceq              
+0033 stloc.1          
+0034 ldloc.1          
+0035 brfalse.s        60
+0037 nop              
+0038 ldc.i4.0         
+0039 stloc.2          
+003a br.s             77
+003c nop              
+003d ldloc.0          
+003e ldc.i4.1         
+003f add              
+0040 stloc.0          
+0041 ldloc.0          
+0042 ldarg.2          
+0043 clt              
+0045 stloc.3          
+0046 ldloc.3          
+0047 brtrue.s         17
+0049 ldc.i4.1         
+004a stloc.2          
+004b br.s             77
+004d ldloc.2          
+004e ret              
+
+METHOD 4 Program.goldFunc RVA 2710
+000c nop              
+000d ldarg.0          
+000e ldstr            'TZT9PR1S9'
+0013 ldc.i4.s         9
+0015 call             06000002 Program.memcmp
+001a stloc.0          
+001b ldloc.0          
+001c brfalse          1003
+0021 nop              
+0022 ldarg.0          
+0023 ldstr            'ERTR'
+0028 ldc.i4.4         
+0029 call             06000003 Program.memcmp1
+002e stloc.1          
+002f ldloc.1          
+0030 brfalse.s        99
+0032 nop              
+0033 nop              
+0034 ldarg.1          
+0035 callvirt         0a000016 Game.get_Player
+003a dup              
+003b callvirt         0a000023 Player.get_Bet
+0040 ldc.i4           200
+0045 newobj           0a00001e Decimal..ctor
+004a call             0a000025 Decimal.op_Addition
+004f callvirt         0a000026 Player.set_Bet
+0054 nop              
+0055 nop              
+0056 leave.s          93
+0058 pop              
+0059 nop              
+005a nop              
+005b leave.s          93
+005d nop              
+005e br               997
+0063 ldarg.0          
+0064 ldstr            'KY1D'
+0069 ldc.i4.4         
+006a call             06000003 Program.memcmp1
+006f stloc.2          
+0070 ldloc.2          
+0071 brfalse.s        164
+0073 nop              
+0074 nop              
+0075 ldarg.1          
+0076 callvirt         0a000016 Game.get_Player
+007b dup              
+007c callvirt         0a000023 Player.get_Bet
+0081 ldc.i4           139
+0086 newobj           0a00001e Decimal..ctor
+008b call             0a000025 Decimal.op_Addition
+0090 callvirt         0a000026 Player.set_Bet
+0095 nop              
+0096 nop              
+0097 leave.s          158
+0099 pop              
+009a nop              
+009b nop              
+009c leave.s          158
+009e nop              
+009f br               997
+00a4 ldarg.0          
+00a5 ldstr            'GZ8H'
+00aa ldc.i4.4         
+00ab call             06000003 Program.memcmp1
+00b0 stloc.3          
+00b1 ldloc.3          
+00b2 brfalse.s        229
+00b4 nop              
+00b5 nop              
+00b6 ldarg.1          
+00b7 callvirt         0a000016 Game.get_Player
+00bc dup              
+00bd callvirt         0a000023 Player.get_Bet
+00c2 ldc.i4           128
+00c7 newobj           0a00001e Decimal..ctor
+00cc call             0a000025 Decimal.op_Addition
+00d1 callvirt         0a000026 Player.set_Bet
+00d6 nop              
+00d7 nop              
+00d8 leave.s          223
+00da pop              
+00db nop              
+00dc nop              
+00dd leave.s          223
+00df nop              
+00e0 br               997
+00e5 ldarg.0          
+00e6 ldstr            'HTQU'
+00eb ldc.i4.4         
+00ec call             06000003 Program.memcmp1
+00f1 stloc.s          local(0x0004)
+00f3 ldloc.s          local(0x0004)
+00f5 brfalse.s        293
+00f7 nop              
+00f8 nop              
+00f9 ldarg.1          
+00fa callvirt         0a000016 Game.get_Player
+00ff dup              
+0100 callvirt         0a000023 Player.get_Bet
+0105 ldc.i4.s         92
+0107 newobj           0a00001e Decimal..ctor
+010c call             0a000025 Decimal.op_Addition
+0111 callvirt         0a000026 Player.set_Bet
+0116 nop              
+0117 nop              
+0118 leave.s          287
+011a pop              
+011b nop              
+011c nop              
+011d leave.s          287
+011f nop              
+0120 br               997
+0125 ldarg.0          
+0126 ldstr            '71M3'
+012b ldc.i4.4         
+012c call             06000003 Program.memcmp1
+0131 stloc.s          local(0x0005)
+0133 ldloc.s          local(0x0005)
+0135 brfalse.s        357
+0137 nop              
+0138 nop              
+0139 ldarg.1          
+013a callvirt         0a000016 Game.get_Player
+013f dup              
+0140 callvirt         0a000023 Player.get_Bet
+0145 ldc.i4.s         33
+0147 newobj           0a00001e Decimal..ctor
+014c call             0a000025 Decimal.op_Addition
+0151 callvirt         0a000026 Player.set_Bet
+0156 nop              
+0157 nop              
+0158 leave.s          351
+015a pop              
+015b nop              
+015c nop              
+015d leave.s          351
+015f nop              
+0160 br               997
+0165 ldarg.0          
+0166 ldstr            'SASV'
+016b ldc.i4.4         
+016c call             06000003 Program.memcmp1
+0171 stloc.s          local(0x0006)
+0173 ldloc.s          local(0x0006)
+0175 brfalse.s        421
+0177 nop              
+0178 nop              
+0179 ldarg.1          
+017a callvirt         0a000016 Game.get_Player
+017f dup              
+0180 callvirt         0a000023 Player.get_Bet
+0185 ldc.i4.s         115
+0187 newobj           0a00001e Decimal..ctor
+018c call             0a000025 Decimal.op_Addition
+0191 callvirt         0a000026 Player.set_Bet
+0196 nop              
+0197 nop              
+0198 leave.s          415
+019a pop              
+019b nop              
+019c nop              
+019d leave.s          415
+019f nop              
+01a0 br               997
+01a5 ldarg.0          
+01a6 ldstr            '6MKH'
+01ab ldc.i4.4         
+01ac call             06000003 Program.memcmp1
+01b1 stloc.s          local(0x0007)
+01b3 ldloc.s          local(0x0007)
+01b5 brfalse.s        485
+01b7 nop              
+01b8 nop              
+01b9 ldarg.1          
+01ba callvirt         0a000016 Game.get_Player
+01bf dup              
+01c0 callvirt         0a000023 Player.get_Bet
+01c5 ldc.i4.s         67
+01c7 newobj           0a00001e Decimal..ctor
+01cc call             0a000025 Decimal.op_Addition
+01d1 callvirt         0a000026 Player.set_Bet
+01d6 nop              
+01d7 nop              
+01d8 leave.s          479
+01da pop              
+01db nop              
+01dc nop              
+01dd leave.s          479
+01df nop              
+01e0 br               997
+01e5 ldarg.0          
+01e6 ldstr            'U4CH'
+01eb ldc.i4.4         
+01ec call             06000003 Program.memcmp1
+01f1 stloc.s          local(0x0008)
+01f3 ldloc.s          local(0x0008)
+01f5 brfalse.s        549
+01f7 nop              
+01f8 nop              
+01f9 ldarg.1          
+01fa callvirt         0a000016 Game.get_Player
+01ff dup              
+0200 callvirt         0a000023 Player.get_Bet
+0205 ldc.i4.s         12
+0207 newobj           0a00001e Decimal..ctor
+020c call             0a000025 Decimal.op_Addition
+0211 callvirt         0a000026 Player.set_Bet
+0216 nop              
+0217 nop              
+0218 leave.s          543
+021a pop              
+021b nop              
+021c nop              
+021d leave.s          543
+021f nop              
+0220 br               997
+0225 ldarg.0          
+0226 ldstr            '5BMT'
+022b ldc.i4.4         
+022c call             06000003 Program.memcmp1
+0231 stloc.s          local(0x0009)
+0233 ldloc.s          local(0x0009)
+0235 brfalse.s        616
+0237 nop              
+0238 nop              
+0239 ldarg.1          
+023a callvirt         0a000016 Game.get_Player
+023f dup              
+0240 callvirt         0a000023 Player.get_Bet
+0245 ldc.i4           167
+024a newobj           0a00001e Decimal..ctor
+024f call             0a000025 Decimal.op_Addition
+0254 callvirt         0a000026 Player.set_Bet
+0259 nop              
+025a nop              
+025b leave.s          610
+025d pop              
+025e nop              
+025f nop              
+0260 leave.s          610
+0262 nop              
+0263 br               997
+0268 ldarg.0          
+0269 ldstr            'QAQ3'
+026e ldc.i4.4         
+026f call             06000003 Program.memcmp1
+0274 stloc.s          local(0x000A)
+0276 ldloc.s          local(0x000A)
+0278 brfalse.s        683
+027a nop              
+027b nop              
+027c ldarg.1          
+027d callvirt         0a000016 Game.get_Player
+0282 dup              
+0283 callvirt         0a000023 Player.get_Bet
+0288 ldc.i4           150
+028d newobj           0a00001e Decimal..ctor
+0292 call             0a000025 Decimal.op_Addition
+0297 callvirt         0a000026 Player.set_Bet
+029c nop              
+029d nop              
+029e leave.s          677
+02a0 pop              
+02a1 nop              
+02a2 nop              
+02a3 leave.s          677
+02a5 nop              
+02a6 br               997
+02ab ldarg.0          
+02ac ldstr            'Z07B'
+02b1 ldc.i4.4         
+02b2 call             06000003 Program.memcmp1
+02b7 stloc.s          local(0x000B)
+02b9 ldloc.s          local(0x000B)
+02bb brfalse.s        750
+02bd nop              
+02be nop              
+02bf ldarg.1          
+02c0 callvirt         0a000016 Game.get_Player
+02c5 dup              
+02c6 callvirt         0a000023 Player.get_Bet
+02cb ldc.i4           146
+02d0 newobj           0a00001e Decimal..ctor
+02d5 call             0a000025 Decimal.op_Addition
+02da callvirt         0a000026 Player.set_Bet
+02df nop              
+02e0 nop              
+02e1 leave.s          744
+02e3 pop              
+02e4 nop              
+02e5 nop              
+02e6 leave.s          744
+02e8 nop              
+02e9 br               997
+02ee ldarg.0          
+02ef ldstr            'OA9N'
+02f4 ldc.i4.4         
+02f5 call             06000003 Program.memcmp1
+02fa stloc.s          local(0x000C)
+02fc ldloc.s          local(0x000C)
+02fe brfalse.s        814
+0300 nop              
+0301 nop              
+0302 ldarg.1          
+0303 callvirt         0a000016 Game.get_Player
+0308 dup              
+0309 callvirt         0a000023 Player.get_Bet
+030e ldc.i4.s         84
+0310 newobj           0a00001e Decimal..ctor
+0315 call             0a000025 Decimal.op_Addition
+031a callvirt         0a000026 Player.set_Bet
+031f nop              
+0320 nop              
+0321 leave.s          808
+0323 pop              
+0324 nop              
+0325 nop              
+0326 leave.s          808
+0328 nop              
+0329 br               997
+032e ldarg.0          
+032f ldstr            'II6K'
+0334 ldc.i4.4         
+0335 call             06000003 Program.memcmp1
+033a stloc.s          local(0x000D)
+033c ldloc.s          local(0x000D)
+033e brfalse.s        878
+0340 nop              
+0341 nop              
+0342 ldarg.1          
+0343 callvirt         0a000016 Game.get_Player
+0348 dup              
+0349 callvirt         0a000023 Player.get_Bet
+034e ldc.i4           193
+0353 newobj           0a00001e Decimal..ctor
+0358 call             0a000025 Decimal.op_Addition
+035d callvirt         0a000026 Player.set_Bet
+0362 nop              
+0363 nop              
+0364 leave.s          875
+0366 pop              
+0367 nop              
+0368 nop              
+0369 leave.s          875
+036b nop              
+036c br.s             997
+036e ldarg.0          
+036f ldstr            'IGKB'
+0374 ldc.i4.4         
+0375 call             06000003 Program.memcmp1
+037a stloc.s          local(0x000E)
+037c ldloc.s          local(0x000E)
+037e brfalse.s        939
+0380 nop              
+0381 nop              
+0382 ldarg.1          
+0383 callvirt         0a000016 Game.get_Player
+0388 dup              
+0389 callvirt         0a000023 Player.get_Bet
+038e ldc.i4.s         43
+0390 newobj           0a00001e Decimal..ctor
+0395 call             0a000025 Decimal.op_Addition
+039a callvirt         0a000026 Player.set_Bet
+039f nop              
+03a0 nop              
+03a1 leave.s          936
+03a3 pop              
+03a4 nop              
+03a5 nop              
+03a6 leave.s          936
+03a8 nop              
+03a9 br.s             997
+03ab ldarg.0          
+03ac ldstr            'ONG1'
+03b1 ldc.i4.4         
+03b2 call             06000003 Program.memcmp1
+03b7 stloc.s          local(0x000F)
+03b9 ldloc.s          local(0x000F)
+03bb brfalse.s        997
+03bd nop              
+03be nop              
+03bf ldarg.1          
+03c0 callvirt         0a000016 Game.get_Player
+03c5 dup              
+03c6 callvirt         0a000023 Player.get_Bet
+03cb ldc.i4.3         
+03cc newobj           0a00001e Decimal..ctor
+03d1 call             0a000025 Decimal.op_Addition
+03d6 callvirt         0a000026 Player.set_Bet
+03db nop              
+03dc nop              
+03dd leave.s          996
+03df pop              
+03e0 nop              
+03e1 nop              
+03e2 leave.s          996
+03e4 nop              
+03e5 nop              
+03e6 br               4217
+03eb ldarg.0          
+03ec ldstr            'AQLMP6579'
+03f1 ldc.i4.s         9
+03f3 call             06000002 Program.memcmp
+03f8 stloc.s          local(0x0010)
+03fa ldloc.s          local(0x0010)
+03fc brfalse          2073
+0401 nop              
+0402 ldarg.0          
+0403 ldstr            'A1ZA'
+0408 ldc.i4.4         
+0409 call             06000003 Program.memcmp1
+040e stloc.s          local(0x0011)
+0410 ldloc.s          local(0x0011)
+0412 brfalse.s        1090
+0414 nop              
+0415 nop              
+0416 ldarg.1          
+0417 callvirt         0a000016 Game.get_Player
+041c dup              
+041d callvirt         0a000023 Player.get_Bet
+0422 ldc.i4.s         23
+0424 newobj           0a00001e Decimal..ctor
+0429 call             0a000027 Decimal.op_Subtraction
+042e callvirt         0a000026 Player.set_Bet
+0433 nop              
+0434 nop              
+0435 leave.s          1084
+0437 pop              
+0438 nop              
+0439 nop              
+043a leave.s          1084
+043c nop              
+043d br               2067
+0442 ldarg.0          
+0443 ldstr            '18EX'
+0448 ldc.i4.4         
+0449 call             06000003 Program.memcmp1
+044e stloc.s          local(0x0012)
+0450 ldloc.s          local(0x0012)
+0452 brfalse.s        1154
+0454 nop              
+0455 nop              
+0456 ldarg.1          
+0457 callvirt         0a000016 Game.get_Player
+045c dup              
+045d callvirt         0a000023 Player.get_Bet
+0462 ldc.i4.s         20
+0464 newobj           0a00001e Decimal..ctor
+0469 call             0a000027 Decimal.op_Subtraction
+046e callvirt         0a000026 Player.set_Bet
+0473 nop              
+0474 nop              
+0475 leave.s          1148
+0477 pop              
+0478 nop              
+0479 nop              
+047a leave.s          1148
+047c nop              
+047d br               2067
+0482 ldarg.0          
+0483 ldstr            '5DMX'
+0488 ldc.i4.4         
+0489 call             06000003 Program.memcmp1
+048e stloc.s          local(0x0013)
+0490 ldloc.s          local(0x0013)
+0492 brfalse.s        1221
+0494 nop              
+0495 nop              
+0496 ldarg.1          
+0497 callvirt         0a000016 Game.get_Player
+049c dup              
+049d callvirt         0a000023 Player.get_Bet
+04a2 ldc.i4           160
+04a7 newobj           0a00001e Decimal..ctor
+04ac call             0a000027 Decimal.op_Subtraction
+04b1 callvirt         0a000026 Player.set_Bet
+04b6 nop              
+04b7 nop              
+04b8 leave.s          1215
+04ba pop              
+04bb nop              
+04bc nop              
+04bd leave.s          1215
+04bf nop              
+04c0 br               2067
+04c5 ldarg.0          
+04c6 ldstr            'KO54'
+04cb ldc.i4.4         
+04cc call             06000003 Program.memcmp1
+04d1 stloc.s          local(0x0014)
+04d3 ldloc.s          local(0x0014)
+04d5 brfalse.s        1285
+04d7 nop              
+04d8 nop              
+04d9 ldarg.1          
+04da callvirt         0a000016 Game.get_Player
+04df dup              
+04e0 callvirt         0a000023 Player.get_Bet
+04e5 ldc.i4.s         67
+04e7 newobj           0a00001e Decimal..ctor
+04ec call             0a000027 Decimal.op_Subtraction
+04f1 callvirt         0a000026 Player.set_Bet
+04f6 nop              
+04f7 nop              
+04f8 leave.s          1279
+04fa pop              
+04fb nop              
+04fc nop              
+04fd leave.s          1279
+04ff nop              
+0500 br               2067
+0505 ldarg.0          
+0506 ldstr            'OVIO'
+050b ldc.i4.4         
+050c call             06000003 Program.memcmp1
+0511 stloc.s          local(0x0015)
+0513 ldloc.s          local(0x0015)
+0515 brfalse.s        1349
+0517 nop              
+0518 nop              
+0519 ldarg.1          
+051a callvirt         0a000016 Game.get_Player
+051f dup              
+0520 callvirt         0a000023 Player.get_Bet
+0525 ldc.i4.s         114
+0527 newobj           0a00001e Decimal..ctor
+052c call             0a000027 Decimal.op_Subtraction
+0531 callvirt         0a000026 Player.set_Bet
+0536 nop              
+0537 nop              
+0538 leave.s          1343
+053a pop              
+053b nop              
+053c nop              
+053d leave.s          1343
+053f nop              
+0540 br               2067
+0545 ldarg.0          
+0546 ldstr            'MF3K'
+054b ldc.i4.4         
+054c call             06000003 Program.memcmp1
+0551 stloc.s          local(0x0016)
+0553 ldloc.s          local(0x0016)
+0555 brfalse.s        1493
+0557 nop              
+0558 nop              
+0559 ldarg.1          
+055a callvirt         0a000016 Game.get_Player
+055f dup              
+0560 callvirt         0a000023 Player.get_Bet
+0565 ldc.i4.s         22
+0567 newobj           0a00001e Decimal..ctor
+056c call             0a000027 Decimal.op_Subtraction
+0571 callvirt         0a000026 Player.set_Bet
+0576 nop              
+0577 ldc.i4.0         
+0578 stloc.s          local(0x0017)
+057a br.s             1431
+057c nop              
+057d ldsfld           04000001 Program.memory
+0582 ldloc.s          local(0x0017)
+0584 ldelema          0100001b Byte
+0589 dup              
+058a ldind.u1         
+058b ldc.i4.s         34
+058d xor              
+058e conv.u1          
+058f stind.i1         
+0590 nop              
+0591 ldloc.s          local(0x0017)
+0593 ldc.i4.1         
+0594 add              
+0595 stloc.s          local(0x0017)
+0597 ldloc.s          local(0x0017)
+0599 ldsfld           04000001 Program.memory
+059e ldlen            
+059f conv.i4          
+05a0 clt              
+05a2 stloc.s          local(0x0018)
+05a4 ldloc.s          local(0x0018)
+05a6 brtrue.s         1404
+05a8 ldstr            'AchivePoint1'
+05ad ldarg.1          
+05ae callvirt         0a000016 Game.get_Player
+05b3 callvirt         0a00002f Player.get_Balance
+05b8 stloc.s          local(0x0019)
+05ba ldloca.s         local(0x0019)
+05bc call             0a000030 Decimal.ToString
+05c1 call             0a000031 Environment.SetEnvironmentVariable
+05c6 nop              
+05c7 nop              
+05c8 leave.s          1487
+05ca pop              
+05cb nop              
+05cc nop              
+05cd leave.s          1487
+05cf nop              
+05d0 br               2067
+05d5 ldarg.0          
+05d6 ldstr            'LXS3'
+05db ldc.i4.4         
+05dc call             06000003 Program.memcmp1
+05e1 stloc.s          local(0x001A)
+05e3 ldloc.s          local(0x001A)
+05e5 brfalse.s        1557
+05e7 nop              
+05e8 nop              
+05e9 ldarg.1          
+05ea callvirt         0a000016 Game.get_Player
+05ef dup              
+05f0 callvirt         0a000023 Player.get_Bet
+05f5 ldc.i4.s         12
+05f7 newobj           0a00001e Decimal..ctor
+05fc call             0a000027 Decimal.op_Subtraction
+0601 callvirt         0a000026 Player.set_Bet
+0606 nop              
+0607 nop              
+0608 leave.s          1551
+060a pop              
+060b nop              
+060c nop              
+060d leave.s          1551
+060f nop              
+0610 br               2067
+0615 ldarg.0          
+0616 ldstr            'Q3T1'
+061b ldc.i4.4         
+061c call             06000003 Program.memcmp1
+0621 stloc.s          local(0x001B)
+0623 ldloc.s          local(0x001B)
+0625 brfalse.s        1621
+0627 nop              
+0628 nop              
+0629 ldarg.1          
+062a callvirt         0a000016 Game.get_Player
+062f dup              
+0630 callvirt         0a000023 Player.get_Bet
+0635 ldc.i4.s         44
+0637 newobj           0a00001e Decimal..ctor
+063c call             0a000027 Decimal.op_Subtraction
+0641 callvirt         0a000026 Player.set_Bet
+0646 nop              
+0647 nop              
+0648 leave.s          1615
+064a pop              
+064b nop              
+064c nop              
+064d leave.s          1615
+064f nop              
+0650 br               2067
+0655 ldarg.0          
+0656 ldstr            '2A1Y'
+065b ldc.i4.4         
+065c call             06000003 Program.memcmp1
+0661 stloc.s          local(0x001C)
+0663 ldloc.s          local(0x001C)
+0665 brfalse.s        1688
+0667 nop              
+0668 nop              
+0669 ldarg.1          
+066a callvirt         0a000016 Game.get_Player
+066f dup              
+0670 callvirt         0a000023 Player.get_Bet
+0675 ldc.i4           129
+067a newobj           0a00001e Decimal..ctor
+067f call             0a000027 Decimal.op_Subtraction
+0684 callvirt         0a000026 Player.set_Bet
+0689 nop              
+068a nop              
+068b leave.s          1682
+068d pop              
+068e nop              
+068f nop              
+0690 leave.s          1682
+0692 nop              
+0693 br               2067
+0698 ldarg.0          
+0699 ldstr            'T7UT'
+069e ldc.i4.4         
+069f call             06000003 Program.memcmp1
+06a4 stloc.s          local(0x001D)
+06a6 ldloc.s          local(0x001D)
+06a8 brfalse.s        1752
+06aa nop              
+06ab nop              
+06ac ldarg.1          
+06ad callvirt         0a000016 Game.get_Player
+06b2 dup              
+06b3 callvirt         0a000023 Player.get_Bet
+06b8 ldc.i4.s         87
+06ba newobj           0a00001e Decimal..ctor
+06bf call             0a000027 Decimal.op_Subtraction
+06c4 callvirt         0a000026 Player.set_Bet
+06c9 nop              
+06ca nop              
+06cb leave.s          1746
+06cd pop              
+06ce nop              
+06cf nop              
+06d0 leave.s          1746
+06d2 nop              
+06d3 br               2067
+06d8 ldarg.0          
+06d9 ldstr            'L8XX'
+06de ldc.i4.4         
+06df call             06000003 Program.memcmp1
+06e4 stloc.s          local(0x001E)
+06e6 ldloc.s          local(0x001E)
+06e8 brfalse.s        1819
+06ea nop              
+06eb nop              
+06ec ldarg.1          
+06ed callvirt         0a000016 Game.get_Player
+06f2 dup              
+06f3 callvirt         0a000023 Player.get_Bet
+06f8 ldc.i4           158
+06fd newobj           0a00001e Decimal..ctor
+0702 call             0a000027 Decimal.op_Subtraction
+0707 callvirt         0a000026 Player.set_Bet
+070c nop              
+070d nop              
+070e leave.s          1813
+0710 pop              
+0711 nop              
+0712 nop              
+0713 leave.s          1813
+0715 nop              
+0716 br               2067
+071b ldarg.0          
+071c ldstr            'FQDA'
+0721 ldc.i4.4         
+0722 call             06000003 Program.memcmp1
+0727 stloc.s          local(0x001F)
+0729 ldloc.s          local(0x001F)
+072b brfalse.s        1883
+072d nop              
+072e nop              
+072f ldarg.1          
+0730 callvirt         0a000016 Game.get_Player
+0735 dup              
+0736 callvirt         0a000023 Player.get_Bet
+073b ldc.i4.s         109
+073d newobj           0a00001e Decimal..ctor
+0742 call             0a000027 Decimal.op_Subtraction
+0747 callvirt         0a000026 Player.set_Bet
+074c nop              
+074d nop              
+074e leave.s          1877
+0750 pop              
+0751 nop              
+0752 nop              
+0753 leave.s          1877
+0755 nop              
+0756 br               2067
+075b ldarg.0          
+075c ldstr            'CJD4'
+0761 ldc.i4.4         
+0762 call             06000003 Program.memcmp1
+0767 stloc.s          local(0x0020)
+0769 ldloc.s          local(0x0020)
+076b brfalse.s        1947
+076d nop              
+076e nop              
+076f ldarg.1          
+0770 callvirt         0a000016 Game.get_Player
+0775 dup              
+0776 callvirt         0a000023 Player.get_Bet
+077b ldc.i4           150
+0780 newobj           0a00001e Decimal..ctor
+0785 call             0a000027 Decimal.op_Subtraction
+078a callvirt         0a000026 Player.set_Bet
+078f nop              
+0790 nop              
+0791 leave.s          1944
+0793 pop              
+0794 nop              
+0795 nop              
+0796 leave.s          1944
+0798 nop              
+0799 br.s             2067
+079b ldarg.0          
+079c ldstr            'QCP5'
+07a1 ldc.i4.4         
+07a2 call             06000003 Program.memcmp1
+07a7 stloc.s          local(0x0021)
+07a9 ldloc.s          local(0x0021)
+07ab brfalse.s        2008
+07ad nop              
+07ae nop              
+07af ldarg.1          
+07b0 callvirt         0a000016 Game.get_Player
+07b5 dup              
+07b6 callvirt         0a000023 Player.get_Bet
+07bb ldc.i4.s         41
+07bd newobj           0a00001e Decimal..ctor
+07c2 call             0a000027 Decimal.op_Subtraction
+07c7 callvirt         0a000026 Player.set_Bet
+07cc nop              
+07cd nop              
+07ce leave.s          2005
+07d0 pop              
+07d1 nop              
+07d2 nop              
+07d3 leave.s          2005
+07d5 nop              
+07d6 br.s             2067
+07d8 ldarg.0          
+07d9 ldstr            'GQ80'
+07de ldc.i4.4         
+07df call             06000003 Program.memcmp1
+07e4 stloc.s          local(0x0022)
+07e6 ldloc.s          local(0x0022)
+07e8 brfalse.s        2067
+07ea nop              
+07eb nop              
+07ec ldarg.1          
+07ed callvirt         0a000016 Game.get_Player
+07f2 dup              
+07f3 callvirt         0a000023 Player.get_Bet
+07f8 ldc.i4.s         115
+07fa newobj           0a00001e Decimal..ctor
+07ff call             0a000027 Decimal.op_Subtraction
+0804 callvirt         0a000026 Player.set_Bet
+0809 nop              
+080a nop              
+080b leave.s          2066
+080d pop              
+080e nop              
+080f nop              
+0810 leave.s          2066
+0812 nop              
+0813 nop              
+0814 br               4217
+0819 ldarg.0          
+081a ldstr            'Z5M0G6P16'
+081f ldc.i4.s         9
+0821 call             06000002 Program.memcmp
+0826 stloc.s          local(0x0023)
+0828 ldloc.s          local(0x0023)
+082a brfalse          3169
+082f nop              
+0830 ldarg.0          
+0831 ldstr            'XCGE'
+0836 ldc.i4.4         
+0837 call             06000003 Program.memcmp1
+083c stloc.s          local(0x0024)
+083e ldloc.s          local(0x0024)
+0840 brfalse.s        2160
+0842 nop              
+0843 nop              
+0844 ldarg.1          
+0845 callvirt         0a000016 Game.get_Player
+084a dup              
+084b callvirt         0a00002f Player.get_Balance
+0850 ldc.i4.s         45
+0852 newobj           0a00001e Decimal..ctor
+0857 call             0a000025 Decimal.op_Addition
+085c callvirt         0a000032 Player.set_Balance
+0861 nop              
+0862 nop              
+0863 leave.s          2154
+0865 pop              
+0866 nop              
+0867 nop              
+0868 leave.s          2154
+086a nop              
+086b br               3163
+0870 ldarg.0          
+0871 ldstr            'DUMX'
+0876 ldc.i4.4         
+0877 call             06000003 Program.memcmp1
+087c stloc.s          local(0x0025)
+087e ldloc.s          local(0x0025)
+0880 brfalse.s        2227
+0882 nop              
+0883 nop              
+0884 ldarg.1          
+0885 callvirt         0a000016 Game.get_Player
+088a dup              
+088b callvirt         0a00002f Player.get_Balance
+0890 ldc.i4           172
+0895 newobj           0a00001e Decimal..ctor
+089a call             0a000025 Decimal.op_Addition
+089f callvirt         0a000032 Player.set_Balance
+08a4 nop              
+08a5 nop              
+08a6 leave.s          2221
+08a8 pop              
+08a9 nop              
+08aa nop              
+08ab leave.s          2221
+08ad nop              
+08ae br               3163
+08b3 ldarg.0          
+08b4 ldstr            '1ONU'
+08b9 ldc.i4.4         
+08ba call             06000003 Program.memcmp1
+08bf stloc.s          local(0x0026)
+08c1 ldloc.s          local(0x0026)
+08c3 brfalse.s        2291
+08c5 nop              
+08c6 nop              
+08c7 ldarg.1          
+08c8 callvirt         0a000016 Game.get_Player
+08cd dup              
+08ce callvirt         0a00002f Player.get_Balance
+08d3 ldc.i4.s         28
+08d5 newobj           0a00001e Decimal..ctor
+08da call             0a000025 Decimal.op_Addition
+08df callvirt         0a000032 Player.set_Balance
+08e4 nop              
+08e5 nop              
+08e6 leave.s          2285
+08e8 pop              
+08e9 nop              
+08ea nop              
+08eb leave.s          2285
+08ed nop              
+08ee br               3163
+08f3 ldarg.0          
+08f4 ldstr            'TPQI'
+08f9 ldc.i4.4         
+08fa call             06000003 Program.memcmp1
+08ff stloc.s          local(0x0027)
+0901 ldloc.s          local(0x0027)
+0903 brfalse.s        2355
+0905 nop              
+0906 nop              
+0907 ldarg.1          
+0908 callvirt         0a000016 Game.get_Player
+090d dup              
+090e callvirt         0a00002f Player.get_Balance
+0913 ldc.i4.s         19
+0915 newobj           0a00001e Decimal..ctor
+091a call             0a000025 Decimal.op_Addition
+091f callvirt         0a000032 Player.set_Balance
+0924 nop              
+0925 nop              
+0926 leave.s          2349
+0928 pop              
+0929 nop              
+092a nop              
+092b leave.s          2349
+092d nop              
+092e br               3163
+0933 ldarg.0          
+0934 ldstr            'RGR8'
+0939 ldc.i4.4         
+093a call             06000003 Program.memcmp1
+093f stloc.s          local(0x0028)
+0941 ldloc.s          local(0x0028)
+0943 brfalse.s        2422
+0945 nop              
+0946 nop              
+0947 ldarg.1          
+0948 callvirt         0a000016 Game.get_Player
+094d dup              
+094e callvirt         0a00002f Player.get_Balance
+0953 ldc.i4           193
+0958 newobj           0a00001e Decimal..ctor
+095d call             0a000025 Decimal.op_Addition
+0962 callvirt         0a000032 Player.set_Balance
+0967 nop              
+0968 nop              
+0969 leave.s          2416
+096b pop              
+096c nop              
+096d nop              
+096e leave.s          2416
+0970 nop              
+0971 br               3163
+0976 ldarg.0          
+0977 ldstr            'U3N1'
+097c ldc.i4.4         
+097d call             06000003 Program.memcmp1
+0982 stloc.s          local(0x0029)
+0984 ldloc.s          local(0x0029)
+0986 brfalse.s        2463
+0988 nop              
+0989 nop              
+098a ldarg.1          
+098b callvirt         0a000033 Game.genCode
+0990 nop              
+0991 nop              
+0992 leave.s          2457
+0994 pop              
+0995 nop              
+0996 nop              
+0997 leave.s          2457
+0999 nop              
+099a br               3163
+099f ldarg.0          
+09a0 ldstr            'YSNF'
+09a5 ldc.i4.4         
+09a6 call             06000003 Program.memcmp1
+09ab stloc.s          local(0x002A)
+09ad ldloc.s          local(0x002A)
+09af brfalse.s        2527
+09b1 nop              
+09b2 nop              
+09b3 ldarg.1          
+09b4 callvirt         0a000016 Game.get_Player
+09b9 dup              
+09ba callvirt         0a00002f Player.get_Balance
+09bf ldc.i4.s         83
+09c1 newobj           0a00001e Decimal..ctor
+09c6 call             0a000025 Decimal.op_Addition
+09cb callvirt         0a000032 Player.set_Balance
+09d0 nop              
+09d1 nop              
+09d2 leave.s          2521
+09d4 pop              
+09d5 nop              
+09d6 nop              
+09d7 leave.s          2521
+09d9 nop              
+09da br               3163
+09df ldarg.0          
+09e0 ldstr            'EEPW'
+09e5 ldc.i4.4         
+09e6 call             06000003 Program.memcmp1
+09eb stloc.s          local(0x002B)
+09ed ldloc.s          local(0x002B)
+09ef brfalse          2717
+09f4 nop              
+09f5 nop              
+09f6 ldarg.1          
+09f7 callvirt         0a000016 Game.get_Player
+09fc dup              
+09fd callvirt         0a00002f Player.get_Balance
+0a02 ldc.i4           175
+0a07 newobj           0a00001e Decimal..ctor
+0a0c call             0a000025 Decimal.op_Addition
+0a11 callvirt         0a000032 Player.set_Balance
+0a16 nop              
+0a17 ldc.i4.s         16
+0a19 newarr           0100001b Byte
+0a1e dup              
+0a1f ldtoken          04000003 <PrivateImplementationDetails>.166CCA32A8C9F83DD2B5BD9773C70B6FA93CB346D34305979714FADFDF65DF70
+0a24 call             0a000034 RuntimeHelpers.InitializeArray
+0a29 stloc.s          local(0x002C)
+0a2b newobj           0a000035 RijndaelManaged..ctor
+0a30 stloc.s          local(0x002D)
+0a32 ldloc.s          local(0x002D)
+0a34 ldloc.s          local(0x002C)
+0a36 callvirt         0a000036 SymmetricAlgorithm.set_Key
+0a3b nop              
+0a3c ldloc.s          local(0x002D)
+0a3e ldc.i4.2         
+0a3f callvirt         0a000037 SymmetricAlgorithm.set_Mode
+0a44 nop              
+0a45 ldloc.s          local(0x002D)
+0a47 ldc.i4.3         
+0a48 callvirt         0a000038 SymmetricAlgorithm.set_Padding
+0a4d nop              
+0a4e ldloc.s          local(0x002D)
+0a50 callvirt         0a000039 SymmetricAlgorithm.CreateDecryptor
+0a55 stloc.s          local(0x002E)
+0a57 ldloc.s          local(0x002E)
+0a59 ldsfld           04000001 Program.memory
+0a5e ldc.i4.0         
+0a5f ldsfld           04000001 Program.memory
+0a64 ldlen            
+0a65 conv.i4          
+0a66 callvirt         0a00003a ICryptoTransform.TransformFinalBlock
+0a6b stsfld           04000002 Program.m
+0a70 ldstr            'AchivePoint2'
+0a75 ldarg.1          
+0a76 callvirt         0a000016 Game.get_Player
+0a7b callvirt         0a00002f Player.get_Balance
+0a80 stloc.s          local(0x0019)
+0a82 ldloca.s         local(0x0019)
+0a84 call             0a000030 Decimal.ToString
+0a89 call             0a000031 Environment.SetEnvironmentVariable
+0a8e nop              
+0a8f nop              
+0a90 leave.s          2711
+0a92 pop              
+0a93 nop              
+0a94 nop              
+0a95 leave.s          2711
+0a97 nop              
+0a98 br               3163
+0a9d ldarg.0          
+0a9e ldstr            '09YS'
+0aa3 ldc.i4.4         
+0aa4 call             06000003 Program.memcmp1
+0aa9 stloc.s          local(0x002F)
+0aab ldloc.s          local(0x002F)
+0aad brfalse.s        2781
+0aaf nop              
+0ab0 nop              
+0ab1 ldarg.1          
+0ab2 callvirt         0a000016 Game.get_Player
+0ab7 dup              
+0ab8 callvirt         0a00002f Player.get_Balance
+0abd ldc.i4.s         77
+0abf newobj           0a00001e Decimal..ctor
+0ac4 call             0a000025 Decimal.op_Addition
+0ac9 callvirt         0a000032 Player.set_Balance
+0ace nop              
+0acf nop              
+0ad0 leave.s          2775
+0ad2 pop              
+0ad3 nop              
+0ad4 nop              
+0ad5 leave.s          2775
+0ad7 nop              
+0ad8 br               3163
+0add ldarg.0          
+0ade ldstr            'K7OD'
+0ae3 ldc.i4.4         
+0ae4 call             06000003 Program.memcmp1
+0ae9 stloc.s          local(0x0030)
+0aeb ldloc.s          local(0x0030)
+0aed brfalse.s        2845
+0aef nop              
+0af0 nop              
+0af1 ldarg.1          
+0af2 callvirt         0a000016 Game.get_Player
+0af7 dup              
+0af8 callvirt         0a00002f Player.get_Balance
+0afd ldc.i4.s         45
+0aff newobj           0a00001e Decimal..ctor
+0b04 call             0a000025 Decimal.op_Addition
+0b09 callvirt         0a000032 Player.set_Balance
+0b0e nop              
+0b0f nop              
+0b10 leave.s          2839
+0b12 pop              
+0b13 nop              
+0b14 nop              
+0b15 leave.s          2839
+0b17 nop              
+0b18 br               3163
+0b1d ldarg.0          
+0b1e ldstr            'FJHB'
+0b23 ldc.i4.4         
+0b24 call             06000003 Program.memcmp1
+0b29 stloc.s          local(0x0031)
+0b2b ldloc.s          local(0x0031)
+0b2d brfalse.s        2912
+0b2f nop              
+0b30 nop              
+0b31 ldarg.1          
+0b32 callvirt         0a000016 Game.get_Player
+0b37 dup              
+0b38 callvirt         0a00002f Player.get_Balance
+0b3d ldc.i4           185
+0b42 newobj           0a00001e Decimal..ctor
+0b47 call             0a000025 Decimal.op_Addition
+0b4c callvirt         0a000032 Player.set_Balance
+0b51 nop              
+0b52 nop              
+0b53 leave.s          2906
+0b55 pop              
+0b56 nop              
+0b57 nop              
+0b58 leave.s          2906
+0b5a nop              
+0b5b br               3163
+0b60 ldarg.0          
+0b61 ldstr            'M1UV'
+0b66 ldc.i4.4         
+0b67 call             06000003 Program.memcmp1
+0b6c stloc.s          local(0x0032)
+0b6e ldloc.s          local(0x0032)
+0b70 brfalse.s        2976
+0b72 nop              
+0b73 nop              
+0b74 ldarg.1          
+0b75 callvirt         0a000016 Game.get_Player
+0b7a dup              
+0b7b callvirt         0a00002f Player.get_Balance
+0b80 ldc.i4.s         34
+0b82 newobj           0a00001e Decimal..ctor
+0b87 call             0a000025 Decimal.op_Addition
+0b8c callvirt         0a000032 Player.set_Balance
+0b91 nop              
+0b92 nop              
+0b93 leave.s          2970
+0b95 pop              
+0b96 nop              
+0b97 nop              
+0b98 leave.s          2970
+0b9a nop              
+0b9b br               3163
+0ba0 ldarg.0          
+0ba1 ldstr            'VHP9'
+0ba6 ldc.i4.4         
+0ba7 call             06000003 Program.memcmp1
+0bac stloc.s          local(0x0033)
+0bae ldloc.s          local(0x0033)
+0bb0 brfalse.s        3040
+0bb2 nop              
+0bb3 nop              
+0bb4 ldarg.1          
+0bb5 callvirt         0a000016 Game.get_Player
+0bba dup              
+0bbb callvirt         0a00002f Player.get_Balance
+0bc0 ldc.i4           158
+0bc5 newobj           0a00001e Decimal..ctor
+0bca call             0a000025 Decimal.op_Addition
+0bcf callvirt         0a000032 Player.set_Balance
+0bd4 nop              
+0bd5 nop              
+0bd6 leave.s          3037
+0bd8 pop              
+0bd9 nop              
+0bda nop              
+0bdb leave.s          3037
+0bdd nop              
+0bde br.s             3163
+0be0 ldarg.0          
+0be1 ldstr            'F777'
+0be6 ldc.i4.4         
+0be7 call             06000003 Program.memcmp1
+0bec stloc.s          local(0x0034)
+0bee ldloc.s          local(0x0034)
+0bf0 brfalse.s        3101
+0bf2 nop              
+0bf3 nop              
+0bf4 ldarg.1          
+0bf5 callvirt         0a000016 Game.get_Player
+0bfa dup              
+0bfb callvirt         0a00002f Player.get_Balance
+0c00 ldc.i4.s         112
+0c02 newobj           0a00001e Decimal..ctor
+0c07 call             0a000025 Decimal.op_Addition
+0c0c callvirt         0a000032 Player.set_Balance
+0c11 nop              
+0c12 nop              
+0c13 leave.s          3098
+0c15 pop              
+0c16 nop              
+0c17 nop              
+0c18 leave.s          3098
+0c1a nop              
+0c1b br.s             3163
+0c1d ldarg.0          
+0c1e ldstr            'CAFH'
+0c23 ldc.i4.4         
+0c24 call             06000003 Program.memcmp1
+0c29 stloc.s          local(0x0035)
+0c2b ldloc.s          local(0x0035)
+0c2d brfalse.s        3163
+0c2f nop              
+0c30 nop              
+0c31 ldarg.1          
+0c32 callvirt         0a000016 Game.get_Player
+0c37 dup              
+0c38 callvirt         0a00002f Player.get_Balance
+0c3d ldc.i4           151
+0c42 newobj           0a00001e Decimal..ctor
+0c47 call             0a000025 Decimal.op_Addition
+0c4c callvirt         0a000032 Player.set_Balance
+0c51 nop              
+0c52 nop              
+0c53 leave.s          3162
+0c55 pop              
+0c56 nop              
+0c57 nop              
+0c58 leave.s          3162
+0c5a nop              
+0c5b nop              
+0c5c br               4217
+0c61 ldarg.0          
+0c62 ldstr            'D253Y5J0Y'
+0c67 ldc.i4.s         9
+0c69 call             06000002 Program.memcmp
+0c6e stloc.s          local(0x0036)
+0c70 ldloc.s          local(0x0036)
+0c72 brfalse          4217
+0c77 nop              
+0c78 ldarg.0          
+0c79 ldstr            '6ZY5'
+0c7e ldc.i4.4         
+0c7f call             06000003 Program.memcmp1
+0c84 stloc.s          local(0x0037)
+0c86 ldloc.s          local(0x0037)
+0c88 brfalse.s        3256
+0c8a nop              
+0c8b nop              
+0c8c ldarg.1          
+0c8d callvirt         0a000016 Game.get_Player
+0c92 dup              
+0c93 callvirt         0a00002f Player.get_Balance
+0c98 ldc.i4.s         13
+0c9a newobj           0a00001e Decimal..ctor
+0c9f call             0a000027 Decimal.op_Subtraction
+0ca4 callvirt         0a000032 Player.set_Balance
+0ca9 nop              
+0caa nop              
+0cab leave.s          3250
+0cad pop              
+0cae nop              
+0caf nop              
+0cb0 leave.s          3250
+0cb2 nop              
+0cb3 br               4216
+0cb8 ldarg.0          
+0cb9 ldstr            '0ZVI'
+0cbe ldc.i4.4         
+0cbf call             06000003 Program.memcmp1
+0cc4 stloc.s          local(0x0038)
+0cc6 ldloc.s          local(0x0038)
+0cc8 brfalse.s        3320
+0cca nop              
+0ccb nop              
+0ccc ldarg.1          
+0ccd callvirt         0a000016 Game.get_Player
+0cd2 dup              
+0cd3 callvirt         0a00002f Player.get_Balance
+0cd8 ldc.i4.s         17
+0cda newobj           0a00001e Decimal..ctor
+0cdf call             0a000027 Decimal.op_Subtraction
+0ce4 callvirt         0a000032 Player.set_Balance
+0ce9 nop              
+0cea nop              
+0ceb leave.s          3314
+0ced pop              
+0cee nop              
+0cef nop              
+0cf0 leave.s          3314
+0cf2 nop              
+0cf3 br               4216
+0cf8 ldarg.0          
+0cf9 ldstr            'GZZU'
+0cfe ldc.i4.4         
+0cff call             06000003 Program.memcmp1
+0d04 stloc.s          local(0x0039)
+0d06 ldloc.s          local(0x0039)
+0d08 brfalse.s        3384
+0d0a nop              
+0d0b nop              
+0d0c ldarg.1          
+0d0d callvirt         0a000016 Game.get_Player
+0d12 dup              
+0d13 callvirt         0a00002f Player.get_Balance
+0d18 ldc.i4.s         94
+0d1a newobj           0a00001e Decimal..ctor
+0d1f call             0a000027 Decimal.op_Subtraction
+0d24 callvirt         0a000032 Player.set_Balance
+0d29 nop              
+0d2a nop              
+0d2b leave.s          3378
+0d2d pop              
+0d2e nop              
+0d2f nop              
+0d30 leave.s          3378
+0d32 nop              
+0d33 br               4216
+0d38 ldarg.0          
+0d39 ldstr            'ZTJS'
+0d3e ldc.i4.4         
+0d3f call             06000003 Program.memcmp1
+0d44 stloc.s          local(0x003A)
+0d46 ldloc.s          local(0x003A)
+0d48 brfalse.s        3448
+0d4a nop              
+0d4b nop              
+0d4c ldarg.1          
+0d4d callvirt         0a000016 Game.get_Player
+0d52 dup              
+0d53 callvirt         0a00002f Player.get_Balance
+0d58 ldc.i4.s         115
+0d5a newobj           0a00001e Decimal..ctor
+0d5f call             0a000027 Decimal.op_Subtraction
+0d64 callvirt         0a000032 Player.set_Balance
+0d69 nop              
+0d6a nop              
+0d6b leave.s          3442
+0d6d pop              
+0d6e nop              
+0d6f nop              
+0d70 leave.s          3442
+0d72 nop              
+0d73 br               4216
+0d78 ldarg.0          
+0d79 ldstr            'BAGY'
+0d7e ldc.i4.4         
+0d7f call             06000003 Program.memcmp1
+0d84 stloc.s          local(0x003B)
+0d86 ldloc.s          local(0x003B)
+0d88 brfalse.s        3512
+0d8a nop              
+0d8b nop              
+0d8c ldarg.1          
+0d8d callvirt         0a000016 Game.get_Player
+0d92 dup              
+0d93 callvirt         0a00002f Player.get_Balance
+0d98 ldc.i4.s         123
+0d9a newobj           0a00001e Decimal..ctor
+0d9f call             0a000027 Decimal.op_Subtraction
+0da4 callvirt         0a000032 Player.set_Balance
+0da9 nop              
+0daa nop              
+0dab leave.s          3506
+0dad pop              
+0dae nop              
+0daf nop              
+0db0 leave.s          3506
+0db2 nop              
+0db3 br               4216
+0db8 ldarg.0          
+0db9 ldstr            'XAWM'
+0dbe ldc.i4.4         
+0dbf call             06000003 Program.memcmp1
+0dc4 stloc.s          local(0x003C)
+0dc6 ldloc.s          local(0x003C)
+0dc8 brfalse.s        3579
+0dca nop              
+0dcb nop              
+0dcc ldarg.1          
+0dcd callvirt         0a000016 Game.get_Player
+0dd2 dup              
+0dd3 callvirt         0a00002f Player.get_Balance
+0dd8 ldc.i4           129
+0ddd newobj           0a00001e Decimal..ctor
+0de2 call             0a000027 Decimal.op_Subtraction
+0de7 callvirt         0a000032 Player.set_Balance
+0dec nop              
+0ded nop              
+0dee leave.s          3573
+0df0 pop              
+0df1 nop              
+0df2 nop              
+0df3 leave.s          3573
+0df5 nop              
+0df6 br               4216
+0dfb ldarg.0          
+0dfc ldstr            '0190'
+0e01 ldc.i4.4         
+0e02 call             06000003 Program.memcmp1
+0e07 stloc.s          local(0x003D)
+0e09 ldloc.s          local(0x003D)
+0e0b brfalse.s        3646
+0e0d nop              
+0e0e nop              
+0e0f ldarg.1          
+0e10 callvirt         0a000016 Game.get_Player
+0e15 dup              
+0e16 callvirt         0a00002f Player.get_Balance
+0e1b ldc.i4           163
+0e20 newobj           0a00001e Decimal..ctor
+0e25 call             0a000027 Decimal.op_Subtraction
+0e2a callvirt         0a000032 Player.set_Balance
+0e2f nop              
+0e30 nop              
+0e31 leave.s          3640
+0e33 pop              
+0e34 nop              
+0e35 nop              
+0e36 leave.s          3640
+0e38 nop              
+0e39 br               4216
+0e3e ldarg.0          
+0e3f ldstr            'J818'
+0e44 ldc.i4.4         
+0e45 call             06000003 Program.memcmp1
+0e4a stloc.s          local(0x003E)
+0e4c ldloc.s          local(0x003E)
+0e4e brfalse.s        3713
+0e50 nop              
+0e51 nop              
+0e52 ldarg.1          
+0e53 callvirt         0a000016 Game.get_Player
+0e58 dup              
+0e59 callvirt         0a00002f Player.get_Balance
+0e5e ldc.i4           138
+0e63 newobj           0a00001e Decimal..ctor
+0e68 call             0a000027 Decimal.op_Subtraction
+0e6d callvirt         0a000032 Player.set_Balance
+0e72 nop              
+0e73 nop              
+0e74 leave.s          3707
+0e76 pop              
+0e77 nop              
+0e78 nop              
+0e79 leave.s          3707
+0e7b nop              
+0e7c br               4216
+0e81 ldarg.0          
+0e82 ldstr            'CDCQ'
+0e87 ldc.i4.4         
+0e88 call             06000003 Program.memcmp1
+0e8d stloc.s          local(0x003F)
+0e8f ldloc.s          local(0x003F)
+0e91 brfalse.s        3777
+0e93 nop              
+0e94 nop              
+0e95 ldarg.1          
+0e96 callvirt         0a000016 Game.get_Player
+0e9b dup              
+0e9c callvirt         0a00002f Player.get_Balance
+0ea1 ldc.i4.s         36
+0ea3 newobj           0a00001e Decimal..ctor
+0ea8 call             0a000027 Decimal.op_Subtraction
+0ead callvirt         0a000032 Player.set_Balance
+0eb2 nop              
+0eb3 nop              
+0eb4 leave.s          3771
+0eb6 pop              
+0eb7 nop              
+0eb8 nop              
+0eb9 leave.s          3771
+0ebb nop              
+0ebc br               4216
+0ec1 ldarg.0          
+0ec2 ldstr            'FX9I'
+0ec7 ldc.i4.4         
+0ec8 call             06000003 Program.memcmp1
+0ecd stloc.s          local(0x0040)
+0ecf ldloc.s          local(0x0040)
+0ed1 brfalse.s        3841
+0ed3 nop              
+0ed4 nop              
+0ed5 ldarg.1          
+0ed6 callvirt         0a000016 Game.get_Player
+0edb dup              
+0edc callvirt         0a00002f Player.get_Balance
+0ee1 ldc.i4.s         113
+0ee3 newobj           0a00001e Decimal..ctor
+0ee8 call             0a000027 Decimal.op_Subtraction
+0eed callvirt         0a000032 Player.set_Balance
+0ef2 nop              
+0ef3 nop              
+0ef4 leave.s          3835
+0ef6 pop              
+0ef7 nop              
+0ef8 nop              
+0ef9 leave.s          3835
+0efb nop              
+0efc br               4216
+0f01 ldarg.0          
+0f02 ldstr            'X019'
+0f07 ldc.i4.4         
+0f08 call             06000003 Program.memcmp1
+0f0d stloc.s          local(0x0041)
+0f0f ldloc.s          local(0x0041)
+0f11 brfalse.s        3905
+0f13 nop              
+0f14 nop              
+0f15 ldarg.1          
+0f16 callvirt         0a000016 Game.get_Player
+0f1b dup              
+0f1c callvirt         0a00002f Player.get_Balance
+0f21 ldc.i4.s         119
+0f23 newobj           0a00001e Decimal..ctor
+0f28 call             0a000027 Decimal.op_Subtraction
+0f2d callvirt         0a000032 Player.set_Balance
+0f32 nop              
+0f33 nop              
+0f34 leave.s          3899
+0f36 pop              
+0f37 nop              
+0f38 nop              
+0f39 leave.s          3899
+0f3b nop              
+0f3c br               4216
+0f41 ldarg.0          
+0f42 ldstr            '6VD6'
+0f47 ldc.i4.4         
+0f48 call             06000003 Program.memcmp1
+0f4d stloc.s          local(0x0042)
+0f4f ldloc.s          local(0x0042)
+0f51 brfalse.s        4029
+0f53 nop              
+0f54 nop              
+0f55 ldarg.1          
+0f56 callvirt         0a000016 Game.get_Player
+0f5b dup              
+0f5c callvirt         0a00002f Player.get_Balance
+0f61 ldc.i4.s         27
+0f63 newobj           0a00001e Decimal..ctor
+0f68 call             0a000027 Decimal.op_Subtraction
+0f6d callvirt         0a000032 Player.set_Balance
+0f72 nop              
+0f73 ldstr            'AchivePoint3'
+0f78 ldarg.1          
+0f79 callvirt         0a000016 Game.get_Player
+0f7e callvirt         0a00002f Player.get_Balance
+0f83 stloc.s          local(0x0019)
+0f85 ldloca.s         local(0x0019)
+0f87 call             0a000030 Decimal.ToString
+0f8c call             0a000031 Environment.SetEnvironmentVariable
+0f91 nop              
+0f92 newobj           0a00003b BinaryFormatter..ctor
+0f97 stloc.s          local(0x0043)
+0f99 ldsfld           04000002 Program.m
+0f9e newobj           0a00003c MemoryStream..ctor
+0fa3 stloc.s          local(0x0044)
+0fa5 ldloc.s          local(0x0043)
+0fa7 ldloc.s          local(0x0044)
+0fa9 callvirt         0a00003d BinaryFormatter.Deserialize
+0fae pop              
+0faf nop              
+0fb0 leave.s          4023
+0fb2 pop              
+0fb3 nop              
+0fb4 nop              
+0fb5 leave.s          4023
+0fb7 nop              
+0fb8 br               4216
+0fbd ldarg.0          
+0fbe ldstr            'ALYN'
+0fc3 ldc.i4.4         
+0fc4 call             06000003 Program.memcmp1
+0fc9 stloc.s          local(0x0045)
+0fcb ldloc.s          local(0x0045)
+0fcd brfalse.s        4093
+0fcf nop              
+0fd0 nop              
+0fd1 ldarg.1          
+0fd2 callvirt         0a000016 Game.get_Player
+0fd7 dup              
+0fd8 callvirt         0a00002f Player.get_Balance
+0fdd ldc.i4           157
+0fe2 newobj           0a00001e Decimal..ctor
+0fe7 call             0a000027 Decimal.op_Subtraction
+0fec callvirt         0a000032 Player.set_Balance
+0ff1 nop              
+0ff2 nop              
+0ff3 leave.s          4090
+0ff5 pop              
+0ff6 nop              
+0ff7 nop              
+0ff8 leave.s          4090
+0ffa nop              
+0ffb br.s             4216
+0ffd ldarg.0          
+0ffe ldstr            'L9KJ'
+1003 ldc.i4.4         
+1004 call             06000003 Program.memcmp1
+1009 stloc.s          local(0x0046)
+100b ldloc.s          local(0x0046)
+100d brfalse.s        4154
+100f nop              
+1010 nop              
+1011 ldarg.1          
+1012 callvirt         0a000016 Game.get_Player
+1017 dup              
+1018 callvirt         0a00002f Player.get_Balance
+101d ldc.i4.s         28
+101f newobj           0a00001e Decimal..ctor
+1024 call             0a000027 Decimal.op_Subtraction
+1029 callvirt         0a000032 Player.set_Balance
+102e nop              
+102f nop              
+1030 leave.s          4151
+1032 pop              
+1033 nop              
+1034 nop              
+1035 leave.s          4151
+1037 nop              
+1038 br.s             4216
+103a ldarg.0          
+103b ldstr            '91WG'
+1040 ldc.i4.4         
+1041 call             06000003 Program.memcmp1
+1046 stloc.s          local(0x0047)
+1048 ldloc.s          local(0x0047)
+104a brfalse.s        4216
+104c nop              
+104d nop              
+104e ldarg.1          
+104f callvirt         0a000016 Game.get_Player
+1054 dup              
+1055 callvirt         0a00002f Player.get_Balance
+105a ldc.i4           163
+105f newobj           0a00001e Decimal..ctor
+1064 call             0a000027 Decimal.op_Subtraction
+1069 callvirt         0a000032 Player.set_Balance
+106e nop              
+106f nop              
+1070 leave.s          4215
+1072 pop              
+1073 nop              
+1074 nop              
+1075 leave.s          4215
+1077 nop              
+1078 nop              
+1079 ret              
+
+METHOD 5 Program.verifyCode RVA 3d30
+000c nop              
+000d ldstr            ''
+0012 stloc.0          
+0013 ldc.i4.0         
+0014 stloc.1          
+0015 br.s             62
+0017 nop              
+0018 ldloc.0          
+0019 ldarg.0          
+001a ldloc.1          
+001b callvirt         0a00002c ArrayList.get_Item
+0020 callvirt         0a00002d Object.ToString
+0025 ldc.i4.0         
+0026 callvirt         0a00002e String.get_Chars
+002b stloc.2          
+002c ldloca.s         local(0x0002)
+002e call             0a00003e Char.ToString
+0033 call             0a00003f String.Concat
+0038 stloc.0          
+0039 nop              
+003a ldloc.1          
+003b ldc.i4.1         
+003c add              
+003d stloc.1          
+003e ldloc.1          
+003f ldarg.0          
+0040 callvirt         0a000040 ArrayList.get_Count
+0045 clt              
+0047 stloc.3          
+0048 ldloc.3          
+0049 brtrue.s         23
+004b ldarg.0          
+004c ldarg.1          
+004d call             06000004 Program.goldFunc
+0052 nop              
+0053 ldarg.0          
+0054 callvirt         0a000041 ArrayList.Clear
+0059 nop              
+005a ret              
+
+METHOD 6 Program.OnBalanceChanged RVA 3d8c
+000c nop              
+000d ldarg.0          
+000e castclass        01000012 Player
+0013 stloc.0          
+0014 ldstr            'BET: ${0} | BALANCE: ${1}'
+0019 ldloc.0          
+001a callvirt         0a000023 Player.get_Bet
+001f box              0100000c Decimal
+0024 ldloc.0          
+0025 callvirt         0a00002f Player.get_Balance
+002a box              0100000c Decimal
+002f call             0a000042 String.Format
+0034 ldc.i4.s         45
+0036 callvirt         0a000043 String.PadRight
+003b stloc.1          
+003c ldc.i4.2         
+003d ldc.i4.s         24
+003f call             0a000044 Console.SetCursorPosition
+0044 nop              
+0045 ldloc.1          
+0046 call             0a000045 Console.Write
+004b nop              
+004c ret              
+
+METHOD 7 Program.OnLastStateChanged RVA 3ddc
+000c nop              
+000d ldarg.0          
+000e castclass        01000009 Game
+0013 stloc.0          
+0014 ldc.i4.2         
+0015 call             0a000046 Console.set_ForegroundColor
+001a nop              
+001b call             0a000047 Console.get_BufferWidth
+0020 ldc.i4.s         30
+0022 sub              
+0023 ldc.i4.1         
+0024 call             0a000044 Console.SetCursorPosition
+0029 nop              
+002a ldloc.0          
+002b callvirt         0a000048 Game.get_LastState
+0030 ldc.i4.2         
+0031 beq.s            58
+0033 ldstr            '           '
+0038 br.s             63
+003a ldstr            'DEALER WON!'
+003f ldc.i4.s         28
+0041 callvirt         0a000049 String.PadLeft
+0046 call             0a000045 Console.Write
+004b nop              
+004c call             0a000047 Console.get_BufferWidth
+0051 ldc.i4.s         30
+0053 sub              
+0054 ldc.i4.s         13
+0056 call             0a000044 Console.SetCursorPosition
+005b nop              
+005c ldloc.0          
+005d callvirt         0a000048 Game.get_LastState
+0062 ldc.i4.1         
+0063 beq.s            108
+0065 ldstr            '           '
+006a br.s             113
+006c ldstr            'PLAYER WON!'
+0071 ldc.i4.s         28
+0073 callvirt         0a000049 String.PadLeft
+0078 call             0a000045 Console.Write
+007d nop              
+007e call             0a00004a Console.ResetColor
+0083 nop              
+0084 ret              
+
+METHOD 8 Program.OnAllowedActionsChanged RVA 3e64
+000c nop              
+000d newobj           0a00004b StringBuilder..ctor
+0012 stloc.0          
+0013 ldarg.0          
+0014 castclass        01000009 Game
+0019 stloc.1          
+001a ldloc.1          
+001b callvirt         0a000028 Game.get_AllowedActions
+0020 ldc.i4.8         
+0021 and              
+0022 ldc.i4.8         
+0023 ceq              
+0025 stloc.2          
+0026 ldloc.2          
+0027 brfalse.s        55
+0029 nop              
+002a ldloc.0          
+002b ldstr            'HIT (Spacebar)'
+0030 callvirt         0a00004c StringBuilder.Append
+0035 pop              
+0036 nop              
+0037 ldloc.1          
+0038 callvirt         0a000028 Game.get_AllowedActions
+003d ldc.i4.4         
+003e and              
+003f ldc.i4.4         
+0040 ceq              
+0042 stloc.3          
+0043 ldloc.3          
+0044 brfalse.s        110
+0046 nop              
+0047 ldloc.0          
+0048 ldloc.0          
+0049 callvirt         0a00004d StringBuilder.get_Length
+004e ldc.i4.0         
+004f bgt.s            88
+0051 ldsfld           0a00004e String.Empty
+0056 br.s             93
+0058 ldstr            ', '
+005d ldstr            'STAND (Enter)'
+0062 call             0a00003f String.Concat
+0067 callvirt         0a00004c StringBuilder.Append
+006c pop              
+006d nop              
+006e ldloc.1          
+006f callvirt         0a000028 Game.get_AllowedActions
+0074 ldc.i4.2         
+0075 and              
+0076 ldc.i4.2         
+0077 ceq              
+0079 stloc.s          local(0x0004)
+007b ldloc.s          local(0x0004)
+007d brfalse.s        167
+007f nop              
+0080 ldloc.0          
+0081 ldloc.0          
+0082 callvirt         0a00004d StringBuilder.get_Length
+0087 ldc.i4.0         
+0088 bgt.s            145
+008a ldsfld           0a00004e String.Empty
+008f br.s             150
+0091 ldstr            ', '
+0096 ldstr            'DEAL (Enter)'
+009b call             0a00003f String.Concat
+00a0 callvirt         0a00004c StringBuilder.Append
+00a5 pop              
+00a6 nop              
+00a7 call             0a000047 Console.get_BufferWidth
+00ac ldc.i4.s         31
+00ae sub              
+00af ldc.i4.s         24
+00b1 call             0a000044 Console.SetCursorPosition
+00b6 nop              
+00b7 ldloc.0          
+00b8 callvirt         0a00002d Object.ToString
+00bd ldc.i4.s         29
+00bf callvirt         0a000049 String.PadLeft
+00c4 call             0a00004f Console.WriteLine
+00c9 nop              
+00ca ret              
+
+METHOD 9 Program.Change RVA 3f30
+000c nop              
+000d ldc.i4.0         
+000e stloc.1          
+000f br.s             37
+0011 nop              
+0012 ldarg.0          
+0013 ldloc.1          
+0014 ldelema          0100001b Byte
+0019 dup              
+001a ldind.u1         
+001b ldc.i4.s         34
+001d xor              
+001e conv.u1          
+001f stind.i1         
+0020 nop              
+0021 ldloc.1          
+0022 ldc.i4.1         
+0023 add              
+0024 stloc.1          
+0025 ldloc.1          
+0026 ldarg.1          
+0027 clt              
+0029 stloc.2          
+002a ldloc.2          
+002b brtrue.s         17
+002d ldarg.0          
+002e newobj           0a00003c MemoryStream..ctor
+0033 stloc.0          
+0034 ldloc.0          
+0035 stloc.3          
+0036 br.s             56
+0038 ldloc.3          
+0039 ret              
+
+METHOD 10 Program.OnHandChanged RVA 3f6c
+000c nop              
+000d ldarg.0          
+000e castclass        01000014 Hand
+0013 stloc.0          
+0014 ldloc.0          
+0015 callvirt         0a000050 Hand.get_IsDealer
+001a brtrue.s         32
+001c ldc.i4.s         13
+001e br.s             33
+0020 ldc.i4.1         
+0021 stloc.1          
+0022 ldloc.0          
+0023 callvirt         0a000050 Hand.get_IsDealer
+0028 brtrue.s         49
+002a ldstr            'PLAYER'
+002f br.s             54
+0031 ldstr            'DEALER'
+0036 stloc.2          
+0037 ldloc.0          
+0038 callvirt         0a000050 Hand.get_IsDealer
+003d brtrue.s         71
+003f ldloc.0          
+0040 callvirt         0a000051 Hand.get_TotalValue
+0045 br.s             77
+0047 ldloc.0          
+0048 callvirt         0a000052 Hand.get_FaceValue
+004d stloc.3          
+004e ldc.i4.2         
+004f ldloc.0          
+0050 callvirt         0a000050 Hand.get_IsDealer
+0055 brtrue.s         91
+0057 ldc.i4.s         13
+0059 br.s             92
+005b ldc.i4.1         
+005c call             0a000044 Console.SetCursorPosition
+0061 nop              
+0062 ldstr            "{0}'s HAND ({1}):"
+0067 ldloc.2          
+0068 ldloc.3          
+0069 box              0100002c Int32
+006e call             0a000042 String.Format
+0073 ldc.i4.s         25
+0075 callvirt         0a000043 String.PadRight
+007a call             0a000045 Console.Write
+007f nop              
+0080 ldc.i4.0         
+0081 stloc.s          local(0x0004)
+0083 br               693
+0088 nop              
+0089 ldloc.s          local(0x0004)
+008b ldloc.0          
+008c callvirt         0a000053 Hand.get_Cards
+0091 callvirt         0a000054 TypeSpecRow.get_Count
+0096 ldc.i4.1         
+0097 sub              
+0098 ceq              
+009a stloc.s          local(0x0005)
+009c ldc.i4.2         
+009d ldloc.s          local(0x0004)
+009f ldc.i4.5         
+00a0 mul              
+00a1 add              
+00a2 ldloc.1          
+00a3 ldc.i4.2         
+00a4 add              
+00a5 call             0a000044 Console.SetCursorPosition
+00aa nop              
+00ab ldstr            '┌────'
+00b0 ldloc.s          local(0x0005)
+00b2 brtrue.s         187
+00b4 ldsfld           0a00004e String.Empty
+00b9 br.s             192
+00bb ldstr            '─┐'
+00c0 call             0a000047 Console.get_BufferWidth
+00c5 ldc.i4.s         12
+00c7 sub              
+00c8 ldloc.s          local(0x0004)
+00ca ldc.i4.5         
+00cb mul              
+00cc sub              
+00cd callvirt         0a000043 String.PadRight
+00d2 call             0a00003f String.Concat
+00d7 call             0a000045 Console.Write
+00dc nop              
+00dd ldc.i4.2         
+00de ldloc.s          local(0x0004)
+00e0 ldc.i4.5         
+00e1 mul              
+00e2 add              
+00e3 ldloc.1          
+00e4 ldc.i4.3         
+00e5 add              
+00e6 call             0a000044 Console.SetCursorPosition
+00eb nop              
+00ec ldstr            '│'
+00f1 ldloc.0          
+00f2 callvirt         0a000053 Hand.get_Cards
+00f7 ldloc.s          local(0x0004)
+00f9 callvirt         0a000055 TypeSpecRow.get_Item
+00fe callvirt         0a000056 Card.get_IsFaceUp
+0103 brtrue.s         268
+0105 ldstr            'XXX'
+010a br.s             286
+010c ldloc.0          
+010d callvirt         0a000053 Hand.get_Cards
+0112 ldloc.s          local(0x0004)
+0114 callvirt         0a000055 TypeSpecRow.get_Item
+0119 callvirt         0a00002d Object.ToString
+011e ldc.i4.4         
+011f callvirt         0a000043 String.PadRight
+0124 ldloc.s          local(0x0005)
+0126 brtrue.s         303
+0128 ldsfld           0a00004e String.Empty
+012d br.s             308
+012f ldstr            ' │'
+0134 call             0a000047 Console.get_BufferWidth
+0139 ldc.i4.s         12
+013b sub              
+013c ldloc.s          local(0x0004)
+013e ldc.i4.5         
+013f mul              
+0140 sub              
+0141 callvirt         0a000043 String.PadRight
+0146 call             0a00000d String.Concat
+014b call             0a00004f Console.WriteLine
+0150 nop              
+0151 ldc.i4.2         
+0152 ldloc.s          local(0x0004)
+0154 ldc.i4.5         
+0155 mul              
+0156 add              
+0157 ldloc.1          
+0158 ldc.i4.4         
+0159 add              
+015a call             0a000044 Console.SetCursorPosition
+015f nop              
+0160 ldstr            '│'
+0165 ldc.i4.5         
+0166 call             0a000043 String.PadRight
+016b ldloc.s          local(0x0005)
+016d brtrue.s         374
+016f ldsfld           0a00004e String.Empty
+0174 br.s             379
+0176 ldstr            ' │'
+017b call             0a000047 Console.get_BufferWidth
+0180 ldc.i4.s         12
+0182 sub              
+0183 ldloc.s          local(0x0004)
+0185 ldc.i4.5         
+0186 mul              
+0187 sub              
+0188 callvirt         0a000043 String.PadRight
+018d call             0a00003f String.Concat
+0192 call             0a00004f Console.WriteLine
+0197 nop              
+0198 ldc.i4.2         
+0199 ldloc.s          local(0x0004)
+019b ldc.i4.5         
+019c mul              
+019d add              
+019e ldloc.1          
+019f ldc.i4.5         
+01a0 add              
+01a1 call             0a000044 Console.SetCursorPosition
+01a6 nop              
+01a7 ldstr            '│'
+01ac ldc.i4.5         
+01ad call             0a000043 String.PadRight
+01b2 ldloc.s          local(0x0005)
+01b4 brtrue.s         445
+01b6 ldsfld           0a00004e String.Empty
+01bb br.s             450
+01bd ldstr            ' │'
+01c2 call             0a000047 Console.get_BufferWidth
+01c7 ldc.i4.s         12
+01c9 sub              
+01ca ldloc.s          local(0x0004)
+01cc ldc.i4.5         
+01cd mul              
+01ce sub              
+01cf callvirt         0a000043 String.PadRight
+01d4 call             0a00003f String.Concat
+01d9 call             0a00004f Console.WriteLine
+01de nop              
+01df ldc.i4.2         
+01e0 ldloc.s          local(0x0004)
+01e2 ldc.i4.5         
+01e3 mul              
+01e4 add              
+01e5 ldloc.1          
+01e6 ldc.i4.6         
+01e7 add              
+01e8 call             0a000044 Console.SetCursorPosition
+01ed nop              
+01ee ldstr            '│'
+01f3 ldc.i4.5         
+01f4 call             0a000043 String.PadRight
+01f9 ldloc.s          local(0x0005)
+01fb brtrue.s         516
+01fd ldsfld           0a00004e String.Empty
+0202 br.s             521
+0204 ldstr            ' │'
+0209 call             0a000047 Console.get_BufferWidth
+020e ldc.i4.s         12
+0210 sub              
+0211 ldloc.s          local(0x0004)
+0213 ldc.i4.5         
+0214 mul              
+0215 sub              
+0216 callvirt         0a000043 String.PadRight
+021b call             0a00003f String.Concat
+0220 call             0a00004f Console.WriteLine
+0225 nop              
+0226 ldc.i4.2         
+0227 ldloc.s          local(0x0004)
+0229 ldc.i4.5         
+022a mul              
+022b add              
+022c ldloc.1          
+022d ldc.i4.7         
+022e add              
+022f call             0a000044 Console.SetCursorPosition
+0234 nop              
+0235 ldstr            '│'
+023a ldc.i4.5         
+023b call             0a000043 String.PadRight
+0240 ldloc.s          local(0x0005)
+0242 brtrue.s         587
+0244 ldsfld           0a00004e String.Empty
+0249 br.s             592
+024b ldstr            ' │'
+0250 call             0a000047 Console.get_BufferWidth
+0255 ldc.i4.s         12
+0257 sub              
+0258 ldloc.s          local(0x0004)
+025a ldc.i4.5         
+025b mul              
+025c sub              
+025d callvirt         0a000043 String.PadRight
+0262 call             0a00003f String.Concat
+0267 call             0a00004f Console.WriteLine
+026c nop              
+026d ldc.i4.2         
+026e ldloc.s          local(0x0004)
+0270 ldc.i4.5         
+0271 mul              
+0272 add              
+0273 ldloc.1          
+0274 ldc.i4.8         
+0275 add              
+0276 call             0a000044 Console.SetCursorPosition
+027b nop              
+027c ldstr            '└────'
+0281 ldloc.s          local(0x0005)
+0283 brtrue.s         652
+0285 ldsfld           0a00004e String.Empty
+028a br.s             657
+028c ldstr            '─┘'
+0291 call             0a000047 Console.get_BufferWidth
+0296 ldc.i4.s         12
+0298 sub              
+0299 ldloc.s          local(0x0004)
+029b ldc.i4.5         
+029c mul              
+029d sub              
+029e callvirt         0a000043 String.PadRight
+02a3 call             0a00003f String.Concat
+02a8 call             0a00004f Console.WriteLine
+02ad nop              
+02ae nop              
+02af ldloc.s          local(0x0004)
+02b1 ldc.i4.1         
+02b2 add              
+02b3 stloc.s          local(0x0004)
+02b5 ldloc.s          local(0x0004)
+02b7 ldloc.0          
+02b8 callvirt         0a000053 Hand.get_Cards
+02bd callvirt         0a000054 TypeSpecRow.get_Count
+02c2 clt              
+02c4 stloc.s          local(0x0006)
+02c6 ldloc.s          local(0x0006)
+02c8 brtrue           136
+02cd ret              
+
+METHOD 11 Program..ctor RVA 423a
+0001 ldarg.0          
+0002 call             0a000057 Object..ctor
+0007 nop              
+0008 ret              

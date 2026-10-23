@@ -1,0 +1,23 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster",
+  "files": [
+    {
+      "name": "Blackjack.dll",
+      "bytes": 14336,
+      "sha256": "f074c0e99506c833c9dea3be18cc74c826b5cd62b91a4bedd8e469c293062da0"
+    },
+    {
+      "name": "BlackjackConsole.exe",
+      "bytes": 388096,
+      "sha256": "a087e40d098422cdbc00a507234398c7d2aedd8d3068b4cfedf5dfbcd1ffbf92"
+    },
+    {
+      "name": "gamemessage",
+      "bytes": 11344,
+      "sha256": "d83ccf9915c56c7d153d59b88b13ac25ba305ab421b768810b9273fd7d2a6809"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.469
+}

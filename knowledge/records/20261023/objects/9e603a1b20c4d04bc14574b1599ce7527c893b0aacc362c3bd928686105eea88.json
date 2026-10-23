@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-12 00:34:55",
+  "call_id": "1791736495864886300-0edc9ed8",
+  "args": {
+    "cmd": "sudo -n cat /flag 2>&1 | head -3; echo \"---groups---\"; groups; echo \"---suid bins---\"; find / -perm -4000 -type f 2>/dev/null | head -8",
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "timed_out": false,
+      "stdout": "目标: reversing-hell/welcome/flag1\r\nrc=0\r\n--- stdout ---\r\nusage: sudo [-h] [-u USER] command ...\r\nsudo: error: unrecognized arguments: -n\r\n---groups---\r\nhacker\r\n---suid bins---\r\n/usr/bin/exec-suid\r\n/opt/pwn.college/python\r\n/opt/pwn.college/bash\r\n/opt/pwn.college/sh\r\n/opt/pwn.college/vm/vm\r\n/challenge/flag1\r\n/challenge/flag1.c\r\n/nix/store/85yvn4ymkj37bf8zvk3im781vg24ra81-sudo/bin/sudo\r\n",
+      "stderr": "",
+      "stdout_bytes": 390,
+      "stderr_bytes": 0,
+      "output_truncated": false
+    },
+    "tool": "pc_run",
+    "dangerous": true,
+    "duration_ms": 75832.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736495864886300-0edc9ed8.json"
+  }
+}

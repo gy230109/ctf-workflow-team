@@ -1,0 +1,46 @@
+{
+  "arguments": {
+    "category": "misc",
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "category": "misc",
+      "packages": [
+        "pillow"
+      ],
+      "modules": [
+        "PIL"
+      ],
+      "commands": [
+        "file",
+        "7z",
+        "exiftool"
+      ],
+      "tools": [
+        "misc_file_inspect",
+        "misc_archive_list",
+        "misc_image_inspect"
+      ],
+      "route": [
+        "核对原附件摘要、魔数与字符串",
+        "只列压缩包内容，不自动解压",
+        "检查图片元数据与格式尾部",
+        "按实际特征决定下一种隐写/编码方法"
+      ],
+      "environment": "Kali specialist venv through existing bridge",
+      "next_step": "ctf_specialist_status 检查实际依赖；每题 wp_init，后续调用加同一 wp_case",
+      "route_is_not_a_solution": true,
+      "limits": {
+        "default_timeout_seconds": 60,
+        "default_memory_mb": 1536
+      }
+    },
+    "tool": "ctf_profile",
+    "dangerous": false,
+    "duration_ms": 19.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791868983998026700-dc1ddb22.json"
+  }
+}

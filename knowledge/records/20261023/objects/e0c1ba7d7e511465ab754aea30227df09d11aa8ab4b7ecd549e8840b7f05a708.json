@@ -1,0 +1,193 @@
+{
+  "arguments": {
+    "category": "reverse",
+    "wp_case": "bank_worker_20261014",
+    "local_file": "[CTF_ROOT]\\workflows\\bank_worker_20261014\\task\\attachments\\000_number-mashing"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "category": "reverse",
+      "packages": [
+        "lief",
+        "capstone",
+        "angr<10",
+        "bitstring<5"
+      ],
+      "modules": [
+        "lief",
+        "capstone",
+        "angr"
+      ],
+      "commands": [
+        "gdb"
+      ],
+      "tools": [
+        "reverse_binary_info",
+        "rea_status",
+        "rea_ops",
+        "rea_run",
+        "reverse_disassemble",
+        "reverse_symbolic"
+      ],
+      "route": [
+        "依据附件魔数分型；提供 local_file 返回明确分支",
+        "原生 PE：rea_status/rea_ops 后用 rea_run inspect，再对目标函数调用 function；.NET 用 inspect-managed-members",
+        "ELF 走 Kali Ghidra/GDB；APK/DEX 走 jadx；源码先读源码",
+        "将候选交给真实题目程序验证，记录成功和拒绝；需要时换算 ASLR 地址"
+      ],
+      "environment": "Kali specialist venv through existing bridge; PE static analysis uses host REA",
+      "next_step": "ctf_specialist_status 检查实际依赖；每题 wp_init，后续调用加同一 wp_case",
+      "route_is_not_a_solution": true,
+      "limits": {
+        "default_timeout_seconds": 60,
+        "default_memory_mb": 1536
+      },
+      "reverse_routing": {
+        "routing_version": "reverse-20261014",
+        "identification": {
+          "subtype": "elf",
+          "artifact": "[CTF_ROOT]\\workflows\\bank_worker_20261014\\task\\attachments\\000_number-mashing",
+          "sha256": "f8b5c95e4b9d876abe0e6ca63467ceae84371740296f194cde106257bd62a92a",
+          "bytes": 13416
+        },
+        "selected": "elf",
+        "plan": {
+          "platform": "Linux ELF",
+          "static_tools": [
+            "reverse_binary_info",
+            "kali_objdump",
+            "reverse_disassemble"
+          ],
+          "dynamic_tools": [
+            "kali_run",
+            "reverse_symbolic"
+          ],
+          "notes": [
+            "Use Kali Ghidra/GDB as needed; do not route ELF to Windows REA provider."
+          ]
+        },
+        "branches": {
+          "pe-native": {
+            "platform": "Windows native x86/x64 PE",
+            "static_tools": [
+              "rea_status",
+              "rea_ops",
+              "rea_run"
+            ],
+            "first_call": {
+              "tool": "rea_run",
+              "args": {
+                "command": "inspect",
+                "args": [
+                  "{artifact}"
+                ],
+                "timeout": 300
+              }
+            },
+            "followup": {
+              "tool": "rea_run",
+              "args": {
+                "command": "function",
+                "args": [
+                  "{artifact}",
+                  "{file_va}"
+                ],
+                "timeout": 300
+              }
+            },
+            "dynamic_tools": [
+              "win_debug_status",
+              "win_debug_tools",
+              "win_debug_call"
+            ],
+            "notes": [
+              "REA Windows provider is experimental; inspect actual availability first.",
+              "RVA=file_VA-ImageBase; runtime_VA=actual_module_base+RVA."
+            ]
+          },
+          "pe-managed": {
+            "platform": ".NET PE",
+            "static_tools": [
+              "rea_ops",
+              "rea_run"
+            ],
+            "first_call": {
+              "tool": "rea_run",
+              "args": {
+                "command": "inspect-managed-members",
+                "args": [
+                  "{artifact}"
+                ],
+                "timeout": 180
+              }
+            },
+            "dynamic_tools": [],
+            "notes": [
+              "Start with managed members; native boundaries require separate evidence."
+            ]
+          },
+          "elf": {
+            "platform": "Linux ELF",
+            "static_tools": [
+              "reverse_binary_info",
+              "kali_objdump",
+              "reverse_disassemble"
+            ],
+            "dynamic_tools": [
+              "kali_run",
+              "reverse_symbolic"
+            ],
+            "notes": [
+              "Use Kali Ghidra/GDB as needed; do not route ELF to Windows REA provider."
+            ]
+          },
+          "android": {
+            "platform": "Android APK/DEX",
+            "static_tools": [
+              "kali_jadx",
+              "rea_ops",
+              "rea_run"
+            ],
+            "dynamic_tools": [],
+            "notes": [
+              "REA Android operations require actual capability checks; use Kali jadx first."
+            ]
+          },
+          "source": {
+            "platform": "source/script",
+            "static_tools": [
+              "misc_file_inspect"
+            ],
+            "dynamic_tools": [
+              "kali_run"
+            ],
+            "notes": [
+              "Read the supplied source and verify in the challenge environment."
+            ]
+          },
+          "unknown": {
+            "platform": "unclassified",
+            "static_tools": [
+              "misc_file_inspect",
+              "reverse_binary_info"
+            ],
+            "dynamic_tools": [],
+            "notes": [
+              "Identify the format first; do not execute unknown artifacts automatically."
+            ]
+          }
+        },
+        "verification": {
+          "required": true,
+          "method": "Run candidate through the real challenge program or authorized judge; record rejection too."
+        },
+        "automatic_execution": false
+      }
+    },
+    "tool": "ctf_profile",
+    "dangerous": false,
+    "duration_ms": 18.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791909022355342900-10c058a7.json"
+  }
+}

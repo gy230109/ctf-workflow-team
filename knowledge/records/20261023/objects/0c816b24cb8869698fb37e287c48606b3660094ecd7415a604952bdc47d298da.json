@@ -1,0 +1,154 @@
+{
+  "records": {
+    "partition_bytes": {
+      "argv": [
+        "blockdev",
+        "--getsize64",
+        "/dev/sda1"
+      ],
+      "returncode": 0,
+      "stdout": "85898297344\n",
+      "stderr": ""
+    },
+    "root_uuid": {
+      "argv": [
+        "blkid",
+        "-s",
+        "UUID",
+        "-o",
+        "value",
+        "/dev/sda1"
+      ],
+      "returncode": 0,
+      "stdout": "6c71c483-9f62-4e01-9f86-c5c2fa3e4050\n",
+      "stderr": ""
+    },
+    "mount": {
+      "argv": [
+        "findmnt",
+        "-n",
+        "-o",
+        "SOURCE,FSTYPE",
+        "/"
+      ],
+      "returncode": 0,
+      "stdout": "/dev/sda1 ext4\n",
+      "stderr": ""
+    },
+    "resize2fs": {
+      "argv": [
+        "resize2fs",
+        "/dev/sda1"
+      ],
+      "returncode": 0,
+      "stdout": "Filesystem at /dev/sda1 is mounted on /; on-line resizing required\nold_desc_blocks = 3, new_desc_blocks = 10\nThe filesystem on /dev/sda1 is now 20971264 (4k) blocks long.\n\n",
+      "stderr": "resize2fs 1.47.2 (1-Jan-2025)\n"
+    },
+    "disk_after_resize": {
+      "argv": [
+        "df",
+        "-B1",
+        "/"
+      ],
+      "returncode": 0,
+      "stdout": "文件系统            1B的块        已用        可用 已用% 挂载点\n/dev/sda1      84362952704 18197577728 62512918528   23% /\n",
+      "stderr": ""
+    },
+    "allocate_swapfile": {
+      "argv": [
+        "dd",
+        "if=/dev/zero",
+        "of=/swapfile",
+        "bs=1M",
+        "count=2048",
+        "status=none"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "mkswap": {
+      "argv": [
+        "mkswap",
+        "/swapfile"
+      ],
+      "returncode": 0,
+      "stdout": "Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)\nno label, UUID=a4defe79-a149-4a0a-a64a-fa6ea976af85\n",
+      "stderr": ""
+    },
+    "fstab_verify": {
+      "argv": [
+        "findmnt",
+        "--verify",
+        "--verbose"
+      ],
+      "returncode": 0,
+      "stdout": "/\n   [ ] target exists\n   [ ] FS options: errors=remount-ro\n   [ ] UUID=6c71c483-9f62-4e01-9f86-c5c2fa3e4050 translated to /dev/sda1\n   [ ] source /dev/sda1 exists\n   [ ] FS type is ext4\n/media/cdrom0\n   [ ] target exists\n   [ ] userspace options: user,noauto\n   [ ] source /dev/sr0 exists\n   [W] cannot detect on-disk filesystem type (找不到介质)\n/mnt/hgfs\n   [ ] target exists\n   [ ] FS options: allow_other,uid=1000\n   [W] unreachable source: .host:/: 没有那个文件或目录\n   [W] fuse.vmhgfs-fuse seems unsupported by the current kernel\n   [W] cannot detect on-disk filesystem type (没有那个文件或目录)\nnone\n   [W] non-bind mount source /swapfile is a directory or regular file\n   [ ] FS type is swap\n   [W] your fstab has been modified, but systemd still uses the old version;\n       use 'systemctl daemon-reload' to reload\n",
+      "stderr": "\n0 parse errors, 0 errors, 6 warnings\n"
+    },
+    "daemon_reload": {
+      "argv": [
+        "systemctl",
+        "daemon-reload"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "swapon": {
+      "argv": [
+        "swapon",
+        "/swapfile"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "swap": {
+      "argv": [
+        "swapon",
+        "--show",
+        "--bytes"
+      ],
+      "returncode": 0,
+      "stdout": "NAME      TYPE       SIZE USED PRIO\n/swapfile file 2147479552    0   -2\n",
+      "stderr": ""
+    },
+    "disk_final": {
+      "argv": [
+        "df",
+        "-B1",
+        "/"
+      ],
+      "returncode": 0,
+      "stdout": "文件系统            1B的块        已用        可用 已用% 挂载点\n/dev/sda1      84362952704 20345065472 60365430784   26% /\n",
+      "stderr": ""
+    },
+    "lsblk": {
+      "argv": [
+        "lsblk",
+        "-b",
+        "-J",
+        "-o",
+        "NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS,UUID,PTTYPE"
+      ],
+      "returncode": 0,
+      "stdout": "{\n   \"blockdevices\": [\n      {\n         \"name\": \"sda\",\n         \"type\": \"disk\",\n         \"size\": 85899345920,\n         \"fstype\": null,\n         \"mountpoints\": [],\n         \"uuid\": null,\n         \"pttype\": \"dos\",\n         \"children\": [\n            {\n               \"name\": \"sda1\",\n               \"type\": \"part\",\n               \"size\": 85898297344,\n               \"fstype\": \"ext4\",\n               \"mountpoints\": [\n                   \"/\"\n               ],\n               \"uuid\": \"6c71c483-9f62-4e01-9f86-c5c2fa3e4050\",\n               \"pttype\": \"dos\"\n            }\n         ]\n      },{\n         \"name\": \"sr0\",\n         \"type\": \"rom\",\n         \"size\": 1073741312,\n         \"fstype\": null,\n         \"mountpoints\": [],\n         \"uuid\": null,\n         \"pttype\": null\n      }\n   ]\n}\n",
+      "stderr": ""
+    },
+    "sync": {
+      "argv": [
+        "sync"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "root_start": 2048,
+  "root_uuid_preserved": true,
+  "swapfile_bytes": 2147483648,
+  "swapfile_mode": "0o600",
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 21.547
+}

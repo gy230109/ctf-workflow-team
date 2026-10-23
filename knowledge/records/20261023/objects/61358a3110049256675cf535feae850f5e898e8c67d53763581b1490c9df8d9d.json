@@ -1,0 +1,23 @@
+{
+  "run_id": "20261013T064938Z-3a473dc5",
+  "case_root": "/home/kali/ctf-workbench/cases/specialists_56ec196bb36b489c8cb7f23c",
+  "cwd": "/home/kali/ctf-workbench/cases/specialists_56ec196bb36b489c8cb7f23c/work",
+  "command": [
+    "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+    "../input/specialist-worker-17b5e90dcaaff0d1.py",
+    "../input/request-cd743079e21a4926b2e6b7c632320e5b.json"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-13T06:49:38.949966+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.235,
+  "stdout_bytes": 206,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "{\"header\": {\"alg\": \"none\", \"typ\": \"JWT\"}, \"payload\": {\"sub\": \"regression\", \"iat\": 1781000000}, \"signature_verified\": false, \"note\": \"decoded claims are untrusted; no signature/authentication verification\"}\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/specialists_56ec196bb36b489c8cb7f23c/results/20261013T064938Z-3a473dc5.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.547
+}

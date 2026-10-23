@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-15 20:02:02",
+  "call_id": "1792065722383758400-118c5580",
+  "args": {
+    "case": "ctf-e8edeb7a86d0afe0",
+    "text": "CTFd 第一题「How to pronounce GIF」(DownUnderCTF 2021 forensics, id=1) 本地复现完成。手法来源：官方仓库 WRITEUP.md（https://github.com/DownUnderCTF/Challenges_2021_Public/blob/e29fbc5bed67550d6f85bc74c63a4712f764b34a/forensics/how-to-pronounce-gif/WRITEUP.md）。题面附件 000_challenge.gif（本机 sha256 a60e268f7ce989d6700b0228d8903bec5468b85c399f6ddd3deed434408ff8b2，106214B，GIF89a 300x22，120 帧，帧延迟全 5，无尾部附加数据；官方原件 sha256 26e6aab5…，内容同、字节不同=被重编码）。关键结构：120 帧 = 10 个 QR 码 × 12 条带交错播放，每帧只是同一窗口的一条 22px 横带。解法（本机 Python+PIL/cv2/pyzbar 实...(1285 chars)",
+    "status": "observed",
+    "source_step": 3
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 4,
+      "case": "ctf-e8edeb7a86d0afe0",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 18.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792065722383758400-118c5580.json"
+  }
+}

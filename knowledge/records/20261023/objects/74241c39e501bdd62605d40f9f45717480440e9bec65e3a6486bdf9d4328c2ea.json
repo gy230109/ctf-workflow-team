@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-11 23:14:39",
+  "call_id": "1791731679389740300-e5f95d14",
+  "args": {
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0
+    },
+    "tool": "kali_nmap",
+    "dangerous": true,
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791731679389740300-e5f95d14.json"
+  }
+}

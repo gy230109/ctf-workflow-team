@@ -1,0 +1,909 @@
+{
+  "items": {
+    "Beneath-the-Text-Bluetooth": {
+      "set": "2023-qwbS6qsn",
+      "file": "Beneath-the-Text-Bluetooth.7z",
+      "category": "?",
+      "bytes": 85995262,
+      "status": "todo",
+      "note": ""
+    },
+    "Dream-Concerto": {
+      "set": "2023-qwbS6qsn",
+      "file": "Dream-Concerto.zip",
+      "category": "?",
+      "bytes": 370963718,
+      "status": "todo",
+      "note": ""
+    },
+    "Mystery-Unresolved": {
+      "set": "2023-qwbS6qsn",
+      "file": "Mystery-Unresolved.zip",
+      "category": "?",
+      "bytes": 1466,
+      "status": "todo",
+      "note": ""
+    },
+    "One-in-a-Thousand-Router": {
+      "set": "2023-qwbS6qsn",
+      "file": "One-in-a-Thousand-Router.7z",
+      "category": "?",
+      "bytes": 5882469,
+      "status": "todo",
+      "note": ""
+    },
+    "PhoneBook_e36f068236871a78050334c966254f2e": {
+      "set": "2023-qwbS6qsn",
+      "file": "PhoneBook_e36f068236871a78050334c966254f2e.zip",
+      "category": "?",
+      "bytes": 884577,
+      "status": "todo",
+      "note": ""
+    },
+    "Reverse-Directional-Chong-RFID": {
+      "set": "2023-qwbS6qsn",
+      "file": "Reverse-Directional-Chong-RFID.7z",
+      "category": "Reverse",
+      "bytes": 5858650,
+      "status": "todo",
+      "note": ""
+    },
+    "Sin-Termination": {
+      "set": "2023-qwbS6qsn",
+      "file": "Sin-Termination.zip",
+      "category": "?",
+      "bytes": 7709700,
+      "status": "todo",
+      "note": ""
+    },
+    "eazygo_90ea2deef4f678e5b396299d05caf634": {
+      "set": "2023-qwbS6qsn",
+      "file": "eazygo_90ea2deef4f678e5b396299d05caf634.zip",
+      "category": "?",
+      "bytes": 1227600,
+      "status": "todo",
+      "note": ""
+    },
+    "ezdja_0746aaaf3f445332d392a3ebd30c7fd2": {
+      "set": "2023-qwbS6qsn",
+      "file": "ezdja_0746aaaf3f445332d392a3ebd30c7fd2.zip",
+      "category": "?",
+      "bytes": 2975496,
+      "status": "todo",
+      "note": ""
+    },
+    "fuond_cms_233843b4d2265b1ce6b4663b93b6717f": {
+      "set": "2023-qwbS6qsn",
+      "file": "fuond_cms_233843b4d2265b1ce6b4663b93b6717f.zip",
+      "category": "?",
+      "bytes": 23298914,
+      "status": "todo",
+      "note": ""
+    },
+    "Crypto-1515": {
+      "set": "2023-qwbs7",
+      "file": "Crypto-1515.zip",
+      "category": "Crypto",
+      "bytes": 412,
+      "status": "blocked",
+      "note": "动态附件仅给 1515.sage, 缺 para.py(m/n/q/v) 与运行时 A0/u; 无可复现真实参数 -> 未复现; 已沉淀 SIS 格求解手法到 06-密码SOP"
+    },
+    "Crypto-babyrsa": {
+      "set": "2023-qwbs7",
+      "file": "Crypto-babyrsa.zip",
+      "category": "Crypto",
+      "bytes": 745,
+      "status": "solved",
+      "note": "练题复现: 复数RSA+共享低100位; 真机Kali sage 二元格(45x45,LLL 51s)由(n,e)独立解出p,q且p*q==n; 解密flag=flag{62b1a28d70e11d27b1cb1e2102b7e858},重加密==c; 沉淀=战例库/QWB2023-Crypto-babyrsa + 06-密码SOP §9; 注:附件无n/e/c,数值取自公开题解并标注来源"
+    },
+    "Crypto-discrete_log_task1": {
+      "set": "2023-qwbs7",
+      "file": "Crypto-discrete_log_task1.zip",
+      "category": "Crypto",
+      "bytes": 947,
+      "status": "todo",
+      "note": ""
+    },
+    "Crypto-guess_game": {
+      "set": "2023-qwbs7",
+      "file": "Crypto-guess_game.zip",
+      "category": "Crypto",
+      "bytes": 1160,
+      "status": "todo",
+      "note": ""
+    },
+    "Crypto-not_only_rsa_task1": {
+      "set": "2023-qwbs7",
+      "file": "Crypto-not_only_rsa_task1.zip",
+      "category": "Crypto",
+      "bytes": 1048,
+      "status": "solved",
+      "note": "练题复现完成: n=p^5 且 e|p-1; 用 e 次根+单位根枚举+Hensel; 真机 crypto_factor 确认 p^5、math_modpow 复算与附件 c 逐位一致; flag=flag{c19c3ec0-d489-4bbb-83fc-bc0419a6822a}; 沉淀=战例库/QWB2023-Crypto-not_only_rsa + 06-密码SOP §8"
+    },
+    "Crypto-recovery": {
+      "set": "2023-qwbs7",
+      "file": "Crypto-recovery.zip",
+      "category": "Crypto",
+      "bytes": 1270,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-Pyjail.It.s.myAST": {
+      "set": "2023-qwbs7",
+      "file": "Misc-Pyjail.It.s.myAST.zip",
+      "category": "Misc",
+      "bytes": 746,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-Pyjail.It.s.myFILTER": {
+      "set": "2023-qwbs7",
+      "file": "Misc-Pyjail.It.s.myFILTER.zip",
+      "category": "Misc",
+      "bytes": 753,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-Pyjail.It.s.myRevenge": {
+      "set": "2023-qwbs7",
+      "file": "Misc-Pyjail.It.s.myRevenge.zip",
+      "category": "Misc",
+      "bytes": 778,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-The.Bourne.Identity.2.0.zip": {
+      "set": "2023-qwbs7",
+      "file": "Misc-The.Bourne.Identity.2.0.zip.zip",
+      "category": "Misc",
+      "bytes": 8031,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-The.Bourne.Identity.3.0.zip": {
+      "set": "2023-qwbs7",
+      "file": "Misc-The.Bourne.Identity.3.0.zip.zip",
+      "category": "Misc",
+      "bytes": 60826,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-The.Bourne.Identity.4.0.zip": {
+      "set": "2023-qwbs7",
+      "file": "Misc-The.Bourne.Identity.4.0.zip.zip",
+      "category": "Misc",
+      "bytes": 60826,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-Wabby.Wabbo.Radio": {
+      "set": "2023-qwbs7",
+      "file": "Misc-Wabby.Wabbo.Radio.zip",
+      "category": "Misc",
+      "bytes": 5453951,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-easyfuzz": {
+      "set": "2023-qwbs7",
+      "file": "Misc-easyfuzz.zip",
+      "category": "Misc",
+      "bytes": 261,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-html": {
+      "set": "2023-qwbs7",
+      "file": "Misc-html.zip",
+      "category": "Misc",
+      "bytes": 54773,
+      "status": "todo",
+      "note": ""
+    },
+    "Misc-html_again": {
+      "set": "2023-qwbs7",
+      "file": "Misc-html_again.zip",
+      "category": "Misc",
+      "bytes": 49306,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-A-rtsp": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-A-rtsp.zip",
+      "category": "Pwn",
+      "bytes": 290368,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-EZNN": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-EZNN.zip",
+      "category": "Pwn",
+      "bytes": 497740,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-WTOA": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-WTOA.zip",
+      "category": "Pwn",
+      "bytes": 51776,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-chatting": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-chatting.zip",
+      "category": "Pwn",
+      "bytes": 899873,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-minipy": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-minipy.zip",
+      "category": "Pwn",
+      "bytes": 74515474,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-qrc": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-qrc.zip",
+      "category": "Pwn",
+      "bytes": 311659,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-qvm": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-qvm.zip",
+      "category": "Pwn",
+      "bytes": 989640,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-simpleinterpreter": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-simpleinterpreter.zip",
+      "category": "Pwn",
+      "bytes": 887968,
+      "status": "todo",
+      "note": ""
+    },
+    "Pwn-warmup23": {
+      "set": "2023-qwbs7",
+      "file": "Pwn-warmup23.zip",
+      "category": "Pwn",
+      "bytes": 949530,
+      "status": "todo",
+      "note": ""
+    },
+    "Reverse-ZZtransfer": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-ZZtransfer.zip",
+      "category": "Reverse",
+      "bytes": 1418956,
+      "status": "todo",
+      "note": ""
+    },
+    "Reverse-dotdot": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-dotdot.zip",
+      "category": "Reverse",
+      "bytes": 317265,
+      "status": "todo",
+      "note": ""
+    },
+    "Reverse-ezre": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-ezre.zip",
+      "category": "Reverse",
+      "bytes": 11025,
+      "status": "solved",
+      "note": "已解压到D:\\Temp\\qwb_x"
+    },
+    "Reverse-fancy": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-fancy.zip",
+      "category": "Reverse",
+      "bytes": 371580,
+      "status": "extracted",
+      "note": "已解压到D:\\Temp\\qwb_x"
+    },
+    "Reverse-sol": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-sol.zip",
+      "category": "Reverse",
+      "bytes": 3944,
+      "status": "extracted",
+      "note": "已解压到D:\\Temp\\qwb_x"
+    },
+    "Reverse-unname": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-unname.zip",
+      "category": "Reverse",
+      "bytes": 797841,
+      "status": "todo",
+      "note": ""
+    },
+    "Reverse-xrtFuze": {
+      "set": "2023-qwbs7",
+      "file": "Reverse-xrtFuze.zip",
+      "category": "Reverse",
+      "bytes": 201570,
+      "status": "todo",
+      "note": ""
+    },
+    "Vanguard-Rock.Paper.Scissors": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-Rock.Paper.Scissors.zip",
+      "category": "?",
+      "bytes": 2614,
+      "status": "todo",
+      "note": ""
+    },
+    "Vanguard-SpeedUp": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-SpeedUp.zip",
+      "category": "?",
+      "bytes": 22204,
+      "status": "todo",
+      "note": ""
+    },
+    "Vanguard-babyre": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-babyre.zip",
+      "category": "?",
+      "bytes": 14287,
+      "status": "solved",
+      "note": "已解 flag -encodedCommand VwAzADEAYwBvAG0AMwBfADIAXwBUAGgAMwBfAFEAdwBiAFMANwBfADQAbgBkAF8ASAA0AHYAMwBfAEYAdQBuAA== -inputFormat xml -outputFormat text"
+    },
+    "Vanguard-ez_fmt": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-ez_fmt.zip",
+      "category": "?",
+      "bytes": 858947,
+      "status": "todo",
+      "note": ""
+    },
+    "Vanguard-ezre": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-ezre.zip",
+      "category": "?",
+      "bytes": 6710,
+      "status": "solved",
+      "note": "已解 flag -encodedCommand VwAzAGwAYwAwAG0AZQAuAC4ALgA= -inputFormat xml -outputFormat text"
+    },
+    "Vanguard-hellospring": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-hellospring.zip",
+      "category": "?",
+      "bytes": 16229875,
+      "status": "todo",
+      "note": ""
+    },
+    "Vanguard-png": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-png.zip",
+      "category": "?",
+      "bytes": 442813737,
+      "status": "todo",
+      "note": ""
+    },
+    "Vanguard-trie": {
+      "set": "2023-qwbs7",
+      "file": "Vanguard-trie.zip",
+      "category": "?",
+      "bytes": 4258,
+      "status": "blocked",
+      "note": "远程flag不可得(服务端./flag)；越界读利用链已在Kali真机验证：两轮合并读全64字节secret，与测试串逐字节一致；WP=qwb-vanguard-trie",
+      "wp_case": "qwb-vanguard-trie"
+    },
+    "Web-happygame": {
+      "set": "2023-qwbs7",
+      "file": "Web-happygame.zip",
+      "category": "Web",
+      "bytes": 17122858,
+      "status": "todo",
+      "note": ""
+    },
+    "Web-thinkshop": {
+      "set": "2023-qwbs7",
+      "file": "Web-thinkshop.zip",
+      "category": "Web",
+      "bytes": 329303627,
+      "status": "todo",
+      "note": ""
+    },
+    "Web-thinkshopping": {
+      "set": "2023-qwbs7",
+      "file": "Web-thinkshopping.zip",
+      "category": "Web",
+      "bytes": 331058955,
+      "status": "todo",
+      "note": ""
+    },
+    "21steps_bc5fdd8883fc146d72248fad5e041570": {
+      "set": "2024-qwbs8",
+      "file": "21steps_bc5fdd8883fc146d72248fad5e041570.zip",
+      "category": "?",
+      "bytes": 678,
+      "status": "todo",
+      "note": ""
+    },
+    "AbstractMaze-strategy": {
+      "set": "2024-qwbs8",
+      "file": "AbstractMaze-strategy.py",
+      "category": "?",
+      "bytes": 7627,
+      "status": "todo",
+      "note": ""
+    },
+    "AbstractMaze_9fbbb21ec2aae970e6fbdd54fa9ed8ff": {
+      "set": "2024-qwbs8",
+      "file": "AbstractMaze_9fbbb21ec2aae970e6fbdd54fa9ed8ff.zip",
+      "category": "?",
+      "bytes": 64639,
+      "status": "todo",
+      "note": ""
+    },
+    "ECRandom_game_311f7ce1b59713c49f896be5c689c2b4": {
+      "set": "2024-qwbs8",
+      "file": "ECRandom_game_311f7ce1b59713c49f896be5c689c2b4.7z",
+      "category": "?",
+      "bytes": 2568,
+      "status": "todo",
+      "note": ""
+    },
+    "EasyRSA_87bfab599c0b8c249766b04cab44bbbb": {
+      "set": "2024-qwbs8",
+      "file": "EasyRSA_87bfab599c0b8c249766b04cab44bbbb.zip",
+      "category": "?",
+      "bytes": 626,
+      "status": "todo",
+      "note": ""
+    },
+    "PyBlockly_3c0f83fae6937f4147d3bc7ae84ce3e2": {
+      "set": "2024-qwbs8",
+      "file": "PyBlockly_3c0f83fae6937f4147d3bc7ae84ce3e2.zip",
+      "category": "?",
+      "bytes": 2943,
+      "status": "todo",
+      "note": ""
+    },
+    "The.Bourne.Identity.5.0_193f3b847198fb1ef9014587ce7af786": {
+      "set": "2024-qwbs8",
+      "file": "The.Bourne.Identity.5.0_193f3b847198fb1ef9014587ce7af786.zip",
+      "category": "?",
+      "bytes": 4402721,
+      "status": "todo",
+      "note": ""
+    },
+    "apbq_32565f594b77f39c316e21460845ddf1": {
+      "set": "2024-qwbs8",
+      "file": "apbq_32565f594b77f39c316e21460845ddf1.zip",
+      "category": "?",
+      "bytes": 13335,
+      "status": "todo",
+      "note": ""
+    },
+    "baby_heap_9a1b773b8406335f895bef78b2d8b8f3": {
+      "set": "2024-qwbs8",
+      "file": "baby_heap_9a1b773b8406335f895bef78b2d8b8f3.zip",
+      "category": "?",
+      "bytes": 956958,
+      "status": "todo",
+      "note": ""
+    },
+    "boxx_6dbfbc09f29eb2736c0a9c2c5a8a3f49": {
+      "set": "2024-qwbs8",
+      "file": "boxx_6dbfbc09f29eb2736c0a9c2c5a8a3f49.zip",
+      "category": "?",
+      "bytes": 9098,
+      "status": "todo",
+      "note": ""
+    },
+    "chat-with-me_934b0b561b67a1ae243c90b393cb6939": {
+      "set": "2024-qwbs8",
+      "file": "chat-with-me_934b0b561b67a1ae243c90b393cb6939.zip",
+      "category": "?",
+      "bytes": 375748,
+      "status": "todo",
+      "note": ""
+    },
+    "electronic_game_b91e85fdf0cd7d9c5846c04d41a7b074": {
+      "set": "2024-qwbs8",
+      "file": "electronic_game_b91e85fdf0cd7d9c5846c04d41a7b074.zip",
+      "category": "?",
+      "bytes": 1149,
+      "status": "todo",
+      "note": ""
+    },
+    "expect_number_cf786f84f8b86260b7eac1628ad682a8": {
+      "set": "2024-qwbs8",
+      "file": "expect_number_cf786f84f8b86260b7eac1628ad682a8.zip",
+      "category": "?",
+      "bytes": 5519,
+      "status": "todo",
+      "note": ""
+    },
+    "ez_vm_a1774a181b73b74e6428c2c80ecf6b63": {
+      "set": "2024-qwbs8",
+      "file": "ez_vm_a1774a181b73b74e6428c2c80ecf6b63.zip",
+      "category": "?",
+      "bytes": 327145,
+      "status": "todo",
+      "note": ""
+    },
+    "ezcalc_8ee865d286fa0fbfeea3346f8534f535": {
+      "set": "2024-qwbs8",
+      "file": "ezcalc_8ee865d286fa0fbfeea3346f8534f535.zip",
+      "category": "?",
+      "bytes": 12862886,
+      "status": "todo",
+      "note": ""
+    },
+    "homomor_game_ba3b3829f75c237415126a07684dddc9": {
+      "set": "2024-qwbs8",
+      "file": "homomor_game_ba3b3829f75c237415126a07684dddc9.zip",
+      "category": "?",
+      "bytes": 543872,
+      "status": "blocked",
+      "note": "SEAL BFV 在线题: 附件只有 main.py/parms/public_key, 缺 secret_key/ciphertext_a/b/flag, 需连服务端交互 -> 本地无法复现"
+    },
+    "master_of_dfir": {
+      "set": "2024-qwbs8",
+      "file": "master_of_dfir.zip",
+      "category": "?",
+      "bytes": 25018001,
+      "status": "todo",
+      "note": ""
+    },
+    "mips_3d32379f02c813611af760afd504cbdb": {
+      "set": "2024-qwbs8",
+      "file": "mips_3d32379f02c813611af760afd504cbdb.zip",
+      "category": "?",
+      "bytes": 2772910,
+      "status": "todo",
+      "note": ""
+    },
+    "old_fashion_apache_1a386383d7da693e7b86ac45cc8eea43": {
+      "set": "2024-qwbs8",
+      "file": "old_fashion_apache_1a386383d7da693e7b86ac45cc8eea43.zip",
+      "category": "?",
+      "bytes": 10443891,
+      "status": "todo",
+      "note": ""
+    },
+    "pickle_jail_d82c0abf4a3ebd7386a9fc27fa37d417": {
+      "set": "2024-qwbs8",
+      "file": "pickle_jail_d82c0abf4a3ebd7386a9fc27fa37d417.zip",
+      "category": "?",
+      "bytes": 1032,
+      "status": "todo",
+      "note": ""
+    },
+    "playground_0fc355826a425716ec93af569955da9c": {
+      "set": "2024-qwbs8",
+      "file": "playground_0fc355826a425716ec93af569955da9c.zip",
+      "category": "?",
+      "bytes": 73867082,
+      "status": "todo",
+      "note": ""
+    },
+    "proxy_07278b504261e34870a22c2cbc6e7341": {
+      "set": "2024-qwbs8",
+      "file": "proxy_07278b504261e34870a22c2cbc6e7341.zip",
+      "category": "?",
+      "bytes": 6908457,
+      "status": "todo",
+      "note": ""
+    },
+    "proxy_2d9810ced31e5adc3f38f74517063c9b": {
+      "set": "2024-qwbs8",
+      "file": "proxy_2d9810ced31e5adc3f38f74517063c9b.zip",
+      "category": "?",
+      "bytes": 6894938,
+      "status": "todo",
+      "note": ""
+    },
+    "prpr_a189731c1d42ff33f954f5d9ff98a386": {
+      "set": "2024-qwbs8",
+      "file": "prpr_a189731c1d42ff33f954f5d9ff98a386.zip",
+      "category": "?",
+      "bytes": 5884,
+      "status": "todo",
+      "note": ""
+    },
+    "qroute_f4719da9f2e700e2188f8429e7adead1": {
+      "set": "2024-qwbs8",
+      "file": "qroute_f4719da9f2e700e2188f8429e7adead1.zip",
+      "category": "?",
+      "bytes": 882910,
+      "status": "todo",
+      "note": ""
+    },
+    "remem_fb7716d075e3a953415d6c733e8d762a": {
+      "set": "2024-qwbs8",
+      "file": "remem_fb7716d075e3a953415d6c733e8d762a.zip",
+      "category": "Re",
+      "bytes": 347947,
+      "status": "todo",
+      "note": ""
+    },
+    "snake_21a0430b4b819bf42b2c9fb1e446aa48": {
+      "set": "2024-qwbs8",
+      "file": "snake_21a0430b4b819bf42b2c9fb1e446aa48.zip",
+      "category": "?",
+      "bytes": 16913,
+      "status": "todo",
+      "note": ""
+    },
+    "solve2-apk_41ac7f37aa226f33c5dbddc0e51fd012": {
+      "set": "2024-qwbs8",
+      "file": "solve2-apk_41ac7f37aa226f33c5dbddc0e51fd012.zip",
+      "category": "?",
+      "bytes": 927295,
+      "status": "todo",
+      "note": ""
+    },
+    "traditional_game_d2775dfa87b286d974fb296614a10277": {
+      "set": "2024-qwbs8",
+      "file": "traditional_game_d2775dfa87b286d974fb296614a10277.zip",
+      "category": "?",
+      "bytes": 1132,
+      "status": "todo",
+      "note": ""
+    },
+    "6.0_0e603d136d7edd20ad6008a0c5d03eab": {
+      "set": "2025-qwbs9-quals",
+      "file": "6.0_0e603d136d7edd20ad6008a0c5d03eab.7z",
+      "category": "?",
+      "bytes": 25350558,
+      "status": "todo",
+      "note": ""
+    },
+    "ABabyChal_0ea21b0fcbf6dfa96c69930ee08039c2": {
+      "set": "2025-qwbs9-quals",
+      "file": "ABabyChal_0ea21b0fcbf6dfa96c69930ee08039c2.zip",
+      "category": "?",
+      "bytes": 13315515,
+      "status": "todo",
+      "note": ""
+    },
+    "Blurred_5d5817be5544b76d0040caf3f909f523": {
+      "set": "2025-qwbs9-quals",
+      "file": "Blurred_5d5817be5544b76d0040caf3f909f523.zip",
+      "category": "?",
+      "bytes": 751,
+      "status": "todo",
+      "note": ""
+    },
+    "CeleRace_2ecd32259d16b7619d2266334f4bfdf9": {
+      "set": "2025-qwbs9-quals",
+      "file": "CeleRace_2ecd32259d16b7619d2266334f4bfdf9.zip",
+      "category": "?",
+      "bytes": 44730,
+      "status": "todo",
+      "note": ""
+    },
+    "Interrogation_Room_528fdef4b8b2245cd32aa71b36148dea": {
+      "set": "2025-qwbs9-quals",
+      "file": "Interrogation_Room_528fdef4b8b2245cd32aa71b36148dea.zip",
+      "category": "?",
+      "bytes": 2506,
+      "status": "todo",
+      "note": ""
+    },
+    "PTertar_c36d2ee4bb5be0b95877b7ae611ac970.tar": {
+      "set": "2025-qwbs9-quals",
+      "file": "PTertar_c36d2ee4bb5be0b95877b7ae611ac970.tar.gz",
+      "category": "?",
+      "bytes": 7046851,
+      "status": "todo",
+      "note": ""
+    },
+    "PolyEncryption_ab7eba4e0df3f9fef49e88a233d0394c": {
+      "set": "2025-qwbs9-quals",
+      "file": "PolyEncryption_ab7eba4e0df3f9fef49e88a233d0394c.zip",
+      "category": "?",
+      "bytes": 26248,
+      "status": "blocked",
+      "note": "自包含(flag.enc+.NET dll)但本机无.NET反编译器(Windows仅runtime/Kali无NuGet); 26常量+各类派生爆破未命中; 确认为逐块AES(ECB)且密钥在dll内派生 -> 未复现; 手法已沉淀 06-密码SOP §10"
+    },
+    "Qcalc_eb3f9ac28072cf56d98cd59c10024580": {
+      "set": "2025-qwbs9-quals",
+      "file": "Qcalc_eb3f9ac28072cf56d98cd59c10024580.zip",
+      "category": "?",
+      "bytes": 5525442,
+      "status": "todo",
+      "note": ""
+    },
+    "SecretVaulttar_48aebf7ba1672d666f4c5a9fc3e40ad8.tar": {
+      "set": "2025-qwbs9-quals",
+      "file": "SecretVaulttar_48aebf7ba1672d666f4c5a9fc3e40ad8.tar.gz",
+      "category": "?",
+      "bytes": 63299,
+      "status": "todo",
+      "note": ""
+    },
+    "Web-.-api": {
+      "set": "2025-qwbs9-quals",
+      "file": "Web-.-api.php",
+      "category": "Web",
+      "bytes": 2046,
+      "status": "todo",
+      "note": ""
+    },
+    "adventure_64eb286ec8bf2ed16ec392003c82dc7d": {
+      "set": "2025-qwbs9-quals",
+      "file": "adventure_64eb286ec8bf2ed16ec392003c82dc7d.zip",
+      "category": "?",
+      "bytes": 1011836,
+      "status": "todo",
+      "note": ""
+    },
+    "attachments": {
+      "set": "2025-qwbs9-quals",
+      "file": "attachments.zip",
+      "category": "?",
+      "bytes": 82158445,
+      "status": "todo",
+      "note": ""
+    },
+    "babybus_177d199a4d358b2cc4a42b0ef019db50": {
+      "set": "2025-qwbs9-quals",
+      "file": "babybus_177d199a4d358b2cc4a42b0ef019db50.zip",
+      "category": "?",
+      "bytes": 4706764,
+      "status": "todo",
+      "note": ""
+    },
+    "babyjs_3d58c718fd46d58089c318ec17ff6431": {
+      "set": "2025-qwbs9-quals",
+      "file": "babyjs_3d58c718fd46d58089c318ec17ff6431.zip",
+      "category": "?",
+      "bytes": 2025201,
+      "status": "todo",
+      "note": ""
+    },
+    "bbjv_bc4ff9919583580cd2476ebd25b3f409": {
+      "set": "2025-qwbs9-quals",
+      "file": "bbjv_bc4ff9919583580cd2476ebd25b3f409.zip",
+      "category": "?",
+      "bytes": 18286106,
+      "status": "todo",
+      "note": ""
+    },
+    "bph_16458b9d1cc48d68ba00aa2836012b81": {
+      "set": "2025-qwbs9-quals",
+      "file": "bph_16458b9d1cc48d68ba00aa2836012b81.zip",
+      "category": "?",
+      "bytes": 3823,
+      "status": "todo",
+      "note": ""
+    },
+    "butterfly_44d89317a6da81649c8a96862c0094dd": {
+      "set": "2025-qwbs9-quals",
+      "file": "butterfly_44d89317a6da81649c8a96862c0094dd.7z",
+      "category": "?",
+      "bytes": 260570,
+      "status": "todo",
+      "note": ""
+    },
+    "check-little_247c15a53b0770ecdc102b6bb39d7551": {
+      "set": "2025-qwbs9-quals",
+      "file": "check-little_247c15a53b0770ecdc102b6bb39d7551.zip",
+      "category": "?",
+      "bytes": 1629,
+      "status": "solved",
+      "note": "练题复现: p=gcd(N,c)泄露因子; phi->d=3^-1->key=c^d; AES-CBC(key[:16],iv)解出 flag{m_m4y_6e_divIS1b1e_by_p?!},重加密==ciphertext; 真机 math_gcd 校验一致; 沉淀=战例库/QWB2025-Crypto-check-little + 06-密码SOP §11"
+    },
+    "ez-stack_bbd95e84e69dcd047d17a0f8aff94571": {
+      "set": "2025-qwbs9-quals",
+      "file": "ez-stack_bbd95e84e69dcd047d17a0f8aff94571.zip",
+      "category": "?",
+      "bytes": 1039720,
+      "status": "todo",
+      "note": ""
+    },
+    "ezran_2f83a04b73ebe1e0dd02942ac5b95ee4": {
+      "set": "2025-qwbs9-quals",
+      "file": "ezran_2f83a04b73ebe1e0dd02942ac5b95ee4.7z",
+      "category": "?",
+      "bytes": 7201,
+      "status": "todo",
+      "note": ""
+    },
+    "file-system_c61014a7f2fefc089faa0524b09f1df9": {
+      "set": "2025-qwbs9-quals",
+      "file": "file-system_c61014a7f2fefc089faa0524b09f1df9.zip",
+      "category": "?",
+      "bytes": 5923,
+      "status": "todo",
+      "note": ""
+    },
+    "flag-market_132094483790172a9904bfda43d9c29d": {
+      "set": "2025-qwbs9-quals",
+      "file": "flag-market_132094483790172a9904bfda43d9c29d.zip",
+      "category": "?",
+      "bytes": 4310,
+      "status": "todo",
+      "note": ""
+    },
+    "go2php_a249097552d0e25758075235a7b41a25": {
+      "set": "2025-qwbs9-quals",
+      "file": "go2php_a249097552d0e25758075235a7b41a25.zip",
+      "category": "?",
+      "bytes": 762538,
+      "status": "todo",
+      "note": ""
+    },
+    "iked_a4775c7b0dc30e6715b1dce1c2c9bc3c": {
+      "set": "2025-qwbs9-quals",
+      "file": "iked_a4775c7b0dc30e6715b1dce1c2c9bc3c.zip",
+      "category": "?",
+      "bytes": 1899661,
+      "status": "todo",
+      "note": ""
+    },
+    "legacyOLED_8538f2ce222f4af0dd871c323352013b": {
+      "set": "2025-qwbs9-quals",
+      "file": "legacyOLED_8538f2ce222f4af0dd871c323352013b.zip",
+      "category": "?",
+      "bytes": 10237,
+      "status": "todo",
+      "note": ""
+    },
+    "sk_029e0d8e7b021803948a3d299333f120": {
+      "set": "2025-qwbs9-quals",
+      "file": "sk_029e0d8e7b021803948a3d299333f120.zip",
+      "category": "?",
+      "bytes": 1186,
+      "status": "todo",
+      "note": ""
+    },
+    "sockserver_7d14c7c8501162321745a9b27a0a2b5a": {
+      "set": "2025-qwbs9-quals",
+      "file": "sockserver_7d14c7c8501162321745a9b27a0a2b5a.zip",
+      "category": "?",
+      "bytes": 11812,
+      "status": "todo",
+      "note": ""
+    },
+    "theorezhnp_2ca30345b20024baf4aa65470a9279ed": {
+      "set": "2025-qwbs9-quals",
+      "file": "theorezhnp_2ca30345b20024baf4aa65470a9279ed.zip",
+      "category": "?",
+      "bytes": 1249,
+      "status": "todo",
+      "note": ""
+    },
+    "tradpwn_a537fa466ab6a588c9528e6a20fa8bcd": {
+      "set": "2025-qwbs9-quals",
+      "file": "tradpwn_a537fa466ab6a588c9528e6a20fa8bcd.zip",
+      "category": "?",
+      "bytes": 1003755,
+      "status": "todo",
+      "note": ""
+    },
+    "tradre_b9fee4eb2a0a9d36c3732c971e0b56e1": {
+      "set": "2025-qwbs9-quals",
+      "file": "tradre_b9fee4eb2a0a9d36c3732c971e0b56e1.zip",
+      "category": "?",
+      "bytes": 10678,
+      "status": "todo",
+      "note": ""
+    },
+    "yamcs._7068d92e129733d3b22e0f2daf2447b2": {
+      "set": "2025-qwbs9-quals",
+      "file": "yamcs._7068d92e129733d3b22e0f2daf2447b2.zip",
+      "category": "?",
+      "bytes": 699,
+      "status": "todo",
+      "note": ""
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "vmx": "D:\\huahuan\\kali\\kali.vmx",
+  "backup": "D:\\huahuan\\kali\\kali.vmx.bak-20261011-before-nat",
+  "previous_connection_type": "unspecified (VMware default bridged)",
+  "new_connection_type": "nat",
+  "start": {
+    "argv": [
+      "D:/虚拟机/vmrun.exe",
+      "-T",
+      "ws",
+      "start",
+      "D:\\huahuan\\kali\\kali.vmx",
+      "nogui"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

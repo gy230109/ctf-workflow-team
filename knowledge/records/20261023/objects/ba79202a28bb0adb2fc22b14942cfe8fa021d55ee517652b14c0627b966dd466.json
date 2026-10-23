@@ -1,0 +1,30 @@
+{
+  "profiles": [
+    {
+      "profile_id": "c2api-claude-glm53-local",
+      "engine": "claude",
+      "backend": "container",
+      "status": "ok",
+      "layer": null,
+      "blocker": null,
+      "detail": "binding ok",
+      "model": "glm-5.3",
+      "account_id": "c2api-claude",
+      "binding_kind": "explicit",
+      "effective_credential_id": "c2api-claude"
+    },
+    {
+      "profile_id": "c2api-claude-dsv41flash-local",
+      "engine": "claude",
+      "backend": "container",
+      "status": "ok",
+      "layer": null,
+      "blocker": null,
+      "detail": "binding ok",
+      "model": "deepseek-v4.1-flash",
+      "account_id": "c2api-ds-claude",
+      "binding_kind": "explicit",
+      "effective_credential_id": "c2api-ds-claude"
+    }
+  ]
+}

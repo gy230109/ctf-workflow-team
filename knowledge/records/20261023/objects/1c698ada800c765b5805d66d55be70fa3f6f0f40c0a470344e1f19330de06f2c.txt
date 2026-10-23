@@ -1,0 +1,15 @@
+已生成：
+   [CTF_ROOT]\战例库\Muteki席位切换-三席\after\identity-body.json seats = 8
+   [CTF_ROOT]\战例库\Muteki席位切换-三席\after\workers-body.json
+
+席位摘要：
+   seat_claude_67cf03             claude                      en=False roles=race,bootstrap,explore,respond,review                max_run=2
+   seat_codex_bf1f7c              codex                       en=False roles=race,bootstrap,explore,review                        max_run=1
+   seat_cursor_d4ac52             cursor                      en=False roles=race,bootstrap,explore,review                        max_run=2
+   seat_pi_b710d8                 pi     global:glm-5.3       en=False roles=race,bootstrap,explore,respond,review                max_run=1
+   seat_omp_8231c0                omp                         en=False roles=race,bootstrap,explore,review                        max_run=1
+   c2api-claude-glm53-local       claude glm-5.3              en=True  roles=race,bootstrap,explore,respond                       max_run=1
+   c2api-claude-dsv41flash-local  claude deepseek-v4.1-flash  en=True  roles=review                                               max_run=1
+   c2api-claude-step5p-local      claude step-5-preview       en=False roles=race,bootstrap,explore,respond                       max_run=1
+
+预期派生 max_workers = 1

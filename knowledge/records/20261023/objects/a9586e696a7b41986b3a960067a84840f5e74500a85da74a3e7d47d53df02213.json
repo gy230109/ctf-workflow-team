@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-14 23:29:53",
+  "call_id": "1791991793541990400-0343c057",
+  "args": {
+    "case": "ctf-f54dbd1bf0e2a3a2",
+    "text": "自建验收调用 misc_archive_list 实际通过。",
+    "status": "observed",
+    "source_step": 4
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 7,
+      "case": "ctf-f54dbd1bf0e2a3a2",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 31.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991793541990400-0343c057.json"
+  }
+}

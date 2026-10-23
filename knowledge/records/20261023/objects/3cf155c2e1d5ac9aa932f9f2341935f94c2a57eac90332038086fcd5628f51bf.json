@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-12 00:07:14",
+  "call_id": "1791734834147828200-bc1ceb31",
+  "args": {
+    "target": "[CTF_ROOT]\\题目库\\pwn.college\\reversing-hell\\babyrev\\level02\\main"
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "exit": 1,
+      "timed_out": false,
+      "stdout": "",
+      "stderr": "objdump: Warning: could not locate 'D:\\ǿ������ʦ\\��Ŀ��\\pwn.college\\reversing-hell\\babyrev\\level02\\main'.  reason: Illegal byte sequence\r\n",
+      "stdout_bytes": 0,
+      "stderr_bytes": 139,
+      "output_truncated": false,
+      "command": [
+        "objdump",
+        "-d",
+        "-M",
+        "intel",
+        "[CTF_ROOT]\\题目库\\pwn.college\\reversing-hell\\babyrev\\level02\\main"
+      ],
+      "on": "local"
+    },
+    "tool": "local_objdump",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 278.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791734834147828200-bc1ceb31.json"
+  }
+}

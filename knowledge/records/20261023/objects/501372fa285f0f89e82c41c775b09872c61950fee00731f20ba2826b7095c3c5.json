@@ -1,0 +1,24 @@
+{
+  "ts": "2026-10-16 12:36:15",
+  "call_id": "1792125375309194300-c80b6bb9",
+  "args": {
+    "p": 61,
+    "q": 53,
+    "e": 17,
+    "c": 2790
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "n": 3233,
+      "d": 2753,
+      "m": 65,
+      "bytes_hex": "41",
+      "printable": "A"
+    },
+    "tool": "crypto_rsa_decrypt",
+    "dangerous": false,
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125375309194300-c80b6bb9.json"
+  }
+}

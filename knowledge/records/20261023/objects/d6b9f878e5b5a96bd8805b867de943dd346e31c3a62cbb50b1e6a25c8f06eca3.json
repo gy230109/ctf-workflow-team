@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-13 13:50:22",
+  "call_id": "1791870622871163700-1d2baa78",
+  "args": {
+    "case": "specialists_verify_20261013",
+    "status": "todo",
+    "text": "真实比赛题型覆盖率、复杂样本、匹配符号的内存镜像分析和新客户端自行调用仍需独立验收。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 73,
+      "case": "specialists_verify_20261013",
+      "status": "todo"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 85.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791870622871163700-1d2baa78.json"
+  }
+}

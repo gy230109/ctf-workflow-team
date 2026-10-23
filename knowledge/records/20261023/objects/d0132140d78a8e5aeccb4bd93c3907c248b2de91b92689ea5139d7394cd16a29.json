@@ -1,0 +1,45 @@
+{
+  "ts": "2026-10-15 00:24:13",
+  "call_id": "1791995053283448200-02c89a1b",
+  "args": {
+    "confirm": true,
+    "cmd": "echo === aarch64 cross libs ===; ls -la /usr/aarch64-linux-gnu/lib 2>&1 | head -20\necho === find ld.so ===; find /usr/aarch64-linux-gnu -maxdepth 3 -name 'ld-linux*' -o -maxdepth 3 -name 'libc.so*' 2>/dev/null | head\nD=/usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1\necho === file $D ===; file $D 2>&1\necho === try qemu on real aarch64 ld.so ===; qemu-aarch64 -L /usr/aarch64-linux-gnu $D --version 2>&1 | head -6; echo rc=$?\necho === sanity: qemu-x86_64 /bin/true ===; qemu-x86_64 /bin/true; echo r...(613 chars)",
+    "timeout": 180,
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T162352Z-0748e650",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+      "command": [
+        "bash",
+        "-c",
+        "echo === aarch64 cross libs ===; ls -la /usr/aarch64-linux-gnu/lib 2>&1 | head -20\necho === find ld.so ===; find /usr/aarch64-linux-gnu -maxdepth 3 -name 'ld-linux*' -o -maxdepth 3 -name 'libc.so*' 2>/dev/null | head\nD=/usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1\necho === file $D ===; file $D 2>&1\necho === try qemu on real aarch64 ld.so ===; qemu-aarch64 -L /usr/aarch64-linux-gnu $D --version 2>&1 | head -6; echo rc=$?\necho === sanity: qemu-x86_64 /bin/true ===; qemu-x86_64 /bin/true; echo rc_x86=$?\necho === any aarch64 elf in kali pkgs ===; find / -xdev -name '*aarch64*' -type f 2>/dev/null | head -10"
+      ],
+      "timeout_seconds": 180,
+      "started_at_utc": "2026-10-14T16:23:53.967313+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 19.75,
+      "stdout_bytes": 2692,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "=== aarch64 cross libs ===\n总计 4008\ndrwxr-xr-x 2 root root    4096 10月14日 23:47 .\ndrwxr-xr-x 3 root root    4096 10月14日 23:47 ..\n-rwxr-xr-x 1 root root  200688  8月20日 11:18 ld-linux-aarch64.so.1\n-rw-r--r-- 1 root root   67712  8月20日 11:18 libanl.so.1\n-rw-r--r-- 1 root root   67784  8月20日 11:18 libBrokenLocale.so.1\n-rw-r--r-- 1 root root   70112  8月20日 11:18 libc_malloc_debug.so.0\n-rwxr-xr-x 1 root root 1716624  8月20日 11:18 libc.so.6\n-rw-r--r-- 1 root root   67712  8月20日 11:18 libdl.so.2\n-rw-r--r-- 1 root root   67776  8月20日 11:18 libmemusage.so\n-rw-r--r-- 1 root root  723144  8月20日 11:18 libm.so.6\n-rw-r--r-- 1 root root  264392  8月20日 11:18 libmvec.so.1\n-rw-r--r-- 1 root root  133320  8月20日 11:18 libnsl.so.1\n-rw-r--r-- 1 root root   68176  8月20日 11:18 libnss_compat.so.2\n-rw-r--r-- 1 root root   67712  8月20日 11:18 libnss_dns.so.2\n-rw-r--r-- 1 root root   67712  8月20日 11:18 libnss_files.so.2\n-rw-r--r-- 1 root root   67784  8月20日 11:18 libnss_hesiod.so.2\n-rw-r--r-- 1 root root   67704  8月20日 11:18 libpcprofile.so\n-rw-r--r-- 1 root root   67712  8月20日 11:18 libpthread.so.0\n-rw-r--r-- 1 root root   68000  8月20日 11:18 libresolv.so.2\n=== find ld.so ===\n/usr/aarch64-linux-gnu/lib/libc.so.6\n/usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1\n=== file /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 ===\n/usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[sha1]=f24820164e6cfa7adf0ccfe2f2bc7be2b93fe299, stripped\n=== try qemu on real aarch64 ld.so ===\nld.so (Debian GLIBC 2.43-3) stable release version 2.43.\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.\nThere is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A\nPARTICULAR PURPOSE.\nrc=0\n=== sanity: qemu-x86_64 /bin/true ===\nrc_x86=0\n=== any aarch64 elf in kali pkgs ===\n/usr/bin/qemu-aarch64_be\n/usr/bin/qemu-aarch64\n/usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1\n/usr/share/qemu/binfmt.d/qemu-aarch64_be.conf\n/usr/share/qemu/binfmt.d/qemu-aarch64.conf\n/usr/share/go-1.26/src/debug/elf/testdata/go-relocation-test-gcc482-aarch64.obj\n/usr/share/ghidra/Ghidra/Processors/AARCH64/data/aarch64-pltThunks.xml\n/usr/share/ghidra/Ghidra/Features/PyGhidra/pypkg/dist/jpype1-1.5.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl\n/usr/share/ghidra/Ghidra/Features/PyGhidra/pypkg/dist/jpype1-1.5.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl\n/usr/share/ghidra/Ghidra/Features/PyGhidra/pypkg/dist/jpype1-1.5.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162352Z-0748e650.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 20.391,
+      "bridge_exit": 0,
+      "case": "ctf-b37c81c14eb6b825",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 21382.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995053283448200-02c89a1b.json"
+  }
+}

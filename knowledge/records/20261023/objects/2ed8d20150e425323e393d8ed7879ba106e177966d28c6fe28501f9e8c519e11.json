@@ -1,0 +1,23 @@
+{
+  "ts": "2026-10-11 23:19:16",
+  "call_id": "1791731956051243300-d3ba4792",
+  "args": {
+    "rom": "ctfos-synthetic-missing.gb",
+    "start": 0
+  },
+  "response": {
+    "ok": false,
+    "result": {
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"[CTF_ROOT]\\tools\\gbdis.py\", line 150, in <module>\n    main()\n    ~~~~^^\n  File \"[CTF_ROOT]\\tools\\gbdis.py\", line 125, in main\n    rom = open(sys.argv[1], \"rb\").read()\n          ~~~~^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'ctfos-synthetic-missing.gb'\n",
+      "output_truncated": false
+    },
+    "tool": "gb_disasm",
+    "dangerous": false,
+    "error_code": "execution_failed",
+    "error": "工具执行失败；读取 result 中退出码与 stderr",
+    "duration_ms": 137.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791731956051243300-d3ba4792.json"
+  }
+}

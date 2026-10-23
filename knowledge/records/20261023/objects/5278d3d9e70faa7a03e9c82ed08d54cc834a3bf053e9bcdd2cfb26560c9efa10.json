@@ -1,0 +1,11 @@
+{
+  "tool": "kali_run",
+  "arguments": {
+    "confirm": true,
+    "cmd": "echo \"=== Kali VM ===\"\necho -n \"CPU核: \"; nproc\necho -n \"型号: \"; grep -m1 'model name' /proc/cpuinfo | cut -d: -f2\nfree -h | head -2\necho -n \"OS: \"; . /etc/os-release; echo \"$PRETTY_NAME\"\nuname -r\necho \"磁盘:\"; df -h / | tail -1\necho \"专项venv:\"; ls -d /home/kali/ctf-workbench/.venv-specialists 2>/dev/null && du -sh /home/kali/ctf-workbench 2>/dev/null",
+    "timeout": 120,
+    "wp_case": "ctf-e8edeb7a86d0afe0",
+    "case": "ctf-e8edeb7a86d0afe0"
+  },
+  "operation_id": "3444d2359b294ab2bccc9790333baac0"
+}

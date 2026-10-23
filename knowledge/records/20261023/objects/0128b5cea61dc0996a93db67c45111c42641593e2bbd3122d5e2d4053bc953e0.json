@@ -1,0 +1,23 @@
+{
+  "run_id": "20261009T152337Z-c6c099ae",
+  "case_root": "/home/kali/ctf-workbench/cases/bridgecheck",
+  "cwd": "/home/kali/ctf-workbench/cases/bridgecheck/work",
+  "command": [
+    "python3",
+    "-c",
+    "import sys; print(\"expected failure\", file=sys.stderr); sys.exit(7)"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-09T15:23:38.431217+00:00",
+  "returncode": 7,
+  "timed_out": false,
+  "duration_seconds": 0.044,
+  "stdout_bytes": 0,
+  "stderr_bytes": 17,
+  "output_truncated": false,
+  "stdout": "",
+  "stderr": "expected failure\n",
+  "guest_log": "/home/kali/ctf-workbench/cases/bridgecheck/results/20261009T152337Z-c6c099ae.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.422
+}

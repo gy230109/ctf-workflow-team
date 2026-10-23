@@ -1,0 +1,13 @@
+{
+  "tool": "math_gcd",
+  "arguments": {
+    "values": [
+      48,
+      60
+    ],
+    "wp_purpose": "验证真实工具输出进入同题 WP，不测试比赛解题能力",
+    "wp_expectation": "返回整数 12",
+    "wp_case": "ctf-23e45f890c213167"
+  },
+  "operation_id": "9f3ea568d3c04acaa858e522daa67bee"
+}

@@ -1,0 +1,208 @@
+{
+  "ts": "2026-10-12 01:55:44",
+  "call_id": "1791741344496540700-50b56feb",
+  "args": {
+    "query": "Run"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 10,
+      "tools": [
+        {
+          "name": "GetDebugState",
+          "description": "Returns the current debugger state: whether a binary is loaded, whether it is running or paused, the PID, current instruction pointer, and current module. Always available. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ExecuteDebuggerCommand",
+          "description": "Executes a native x64dbg command string (like 'erun', 'analr', 'graph'). This is for x64dbg-internal commands ONLY — do NOT pass MCP tool names here. MCP tools (WaitForEvent, GetDebugState, Disassemble, etc.) must be called directly as tools.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The x64dbg command to execute."
+              }
+            },
+            "required": [
+              "command"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AttachProcess",
+          "description": "Attaches the debugger to a running process by PID.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pid": {
+                "type": "integer",
+                "description": "Process ID to attach to."
+              }
+            },
+            "required": [
+              "pid"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WaitForEvent",
+          "description": "Blocks until a debugger event fires (breakpoint hit, paused, resumed, exception, session start/stop) or timeout. Returns all events that occurred. Use this to monitor debugger state changes in real-time over HTTP — call it after 'run' or while waiting for the user to interact with the debugger.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum wait time in milliseconds (default 30000, max 120000).",
+                "default": 30000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "WaitForPause",
+          "description": "Blocks until the debuggee stops running (hits a breakpoint, exception, or exits). Returns the reason for the pause and the current address. Use after 'run' to wait for the target to break.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum wait time in milliseconds.",
+                "default": 30000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "run",
+          "description": "Resumes execution and waits for the target to pause (breakpoint, exception, or exit). Blocks until a pause event occurs or timeout. Use timeoutMs to control how long to wait (default 120s). Always returns the reason for the pause and current state.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Maximum time to wait for target to pause after resuming (default 300000ms = 5 minutes, max 600000ms = 10 minutes). The tool blocks until a breakpoint/exception fires or timeout.",
+                "default": 300000
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "StepOut",
+          "description": "Runs until the current function returns to its caller (Ctrl+F9). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "PauseDebug",
+          "description": "Pauses (suspends) the running debuggee, equivalent to Debug > Pause (F12). Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "RunToAddress",
+          "description": "Sets a temporary breakpoint at the target address, resumes execution, and waits for the debuggee to hit it.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address to run to."
+              },
+              "timeoutMs": {
+                "type": "integer",
+                "description": "Timeout ms (default 30000).",
+                "default": 30000
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AnalyzeCode",
+          "description": "Runs x64dbg code analysis on a module or address range. This populates the function list, enables GetFunctions/GetReferences/DisassembleFunction. Must be run before those tools return useful results.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address or module to analyze. If omitted, analyzes the current module."
+              },
+              "type": {
+                "type": "string",
+                "description": "Analysis type: 'function' (analr - analyze single function), 'module' (anal - analyze module), 'controlflow' (cfanal - control flow analysis). Default: module.",
+                "default": "module"
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 98.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741344496540700-50b56feb.json"
+  }
+}

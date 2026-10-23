@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-12 15:01:56",
+  "call_id": "1791788516304113000-b4773178",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "status": "todo",
+    "text": "本验收不解比赛题、不调用模型、不判定 flag。浏览器/调试器的客户端截图导入尚未端到端测试。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 6,
+      "case": "wp_system_demo_20261012",
+      "status": "todo"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 9.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788516304113000-b4773178.json"
+  }
+}

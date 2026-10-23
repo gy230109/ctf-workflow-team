@@ -1,0 +1,43 @@
+{
+  "arguments": {
+    "source": "awesome-ctf",
+    "query": "ghidra",
+    "limit": 2,
+    "wp_case": "ctf-33f2fd155e777d12"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "ghidra",
+      "source": "awesome-ctf",
+      "normalized_terms": [
+        "ghidra"
+      ],
+      "match_mode": "all_terms",
+      "count": 1,
+      "matches": [
+        {
+          "source": "awesome-ctf",
+          "path": "README.md",
+          "title": "Awesome CTF [![Build Status](https://travis-ci.org/apsdehal/awesome-ctf.svg?branch=master)](https://travis-ci.org/apsdehal/awesome-ctf) [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)",
+          "heading": "Reversing",
+          "start_line": 197,
+          "end_line": 245,
+          "local_path": "[CTF_ROOT]\\references\\awesome-ctf\\README.md",
+          "file_sha256": "e942dd868d44fdbb4f78e1fe4186282cdefbaea72ed54c4eb1341e5cccb46804",
+          "commit": "eb504b242be3918cbd46e1a5a6274671f477071f",
+          "reference_only": false,
+          "url": "https://github.com/apsdehal/awesome-ctf/blob/eb504b242be3918cbd46e1a5a6274671f477071f/README.md#L197-L245",
+          "excerpt": " … Dynamic Code Injection.\n- [GDB](https://www.gnu.org/software/gdb/) - The GNU project debugger.\n- [GEF](https://github.com/hugsy/gef) - GDB plugin.\n- [[Ghidra]](https://[ghidra]-sre.org/) - Open Source suite of reverse engineering tools.  Similar to IDA Pro.\n- [Hopper](http://www.hopperapp.com/) - Reverse engineering tool (disassembler) for … ",
+          "rank": -2.43594
+        }
+      ],
+      "trusted_instructions": false,
+      "usage": "kb_read 需携带同一 source/path；Crypto-Cat 还需 allow_reference=true。检索命中不代表工具已安装、脚本已运行或答案已验证。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 7.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064022473412200-f70c549f.json"
+  }
+}

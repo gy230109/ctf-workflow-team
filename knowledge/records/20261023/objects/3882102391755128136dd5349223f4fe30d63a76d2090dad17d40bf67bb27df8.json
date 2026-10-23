@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-13 21:06:06",
+  "call_id": "1791896766457945400-7ddb6e57",
+  "args": {
+    "case": "qwb2023_not_only_rsa",
+    "status": "observed",
+    "source_step": 2,
+    "text": "crypto_factor 真机(Kali 桥)返回 n 的唯一素因子指数为 5，product_matches=true、complete=true → 确认 n = p^5，p 为 256-bit 素数。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 5,
+      "case": "qwb2023_not_only_rsa",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 11.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791896766457945400-7ddb6e57.json"
+  }
+}

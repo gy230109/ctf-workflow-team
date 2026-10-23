@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-15 00:34:44",
+  "call_id": "1791995684106967500-53d655e7",
+  "args": {
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-b37c81c14eb6b825",
+      "records": 38,
+      "integrity_verified": true,
+      "calls": 36,
+      "captures": 1,
+      "solved_verified": false
+    },
+    "tool": "wp_status",
+    "dangerous": false,
+    "duration_ms": 51.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995684106967500-53d655e7.json"
+  }
+}

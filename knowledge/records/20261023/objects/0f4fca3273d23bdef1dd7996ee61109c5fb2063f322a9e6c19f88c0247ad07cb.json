@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-13 21:06:27",
+  "call_id": "1791896787334118500-1799a3e3",
+  "args": {
+    "case": "qwb2023_not_only_rsa",
+    "status": "observed",
+    "source_step": 2,
+    "text": "附件证据：out.txt 给 n(1279-bit)/e=641747/c；task.py 显示 m=bytes_to_long(flag + 随机填充到 158 字节)，c=m^e mod n。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 8,
+      "case": "qwb2023_not_only_rsa",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 13.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791896787334118500-1799a3e3.json"
+  }
+}

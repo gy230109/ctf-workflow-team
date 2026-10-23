@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-15 21:26:05",
+  "call_id": "1792070765982445500-1b018e69",
+  "args": {
+    "case": "ctf-9f14d2187a3d8030",
+    "include_images": true,
+    "summary": "自建网页点击后显示 42；真实 PTY 终端与 GDB MI 过程已录制；预设失败动作保留原始错误和证据；Windows 实际目标窗口已采集并人工核对。此为记录链验收，不计比赛题解成功。",
+    "bundle": true,
+    "private_bundle": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-9f14d2187a3d8030",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\reports\\20261015T132603Z-9619b6aa\\writeup.md",
+      "bundle_path": "[CTF_ROOT]\\wp\\cases\\ctf-9f14d2187a3d8030\\reports\\20261015T132603Z-9619b6aa.zip",
+      "records": 25,
+      "integrity_verified": true,
+      "images_included": 5,
+      "recordings_included": 10,
+      "recording_complete": true,
+      "capture_errors": [],
+      "pending_operations": [],
+      "solved_verified": false,
+      "platform_answer_verified": false,
+      "review_required_before_sharing": "原始证据、正文语义与图片像素须另行检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 2162.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070765982445500-1b018e69.json"
+  }
+}

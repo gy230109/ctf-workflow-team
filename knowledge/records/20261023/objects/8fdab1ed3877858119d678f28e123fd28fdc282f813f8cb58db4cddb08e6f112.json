@@ -1,0 +1,25 @@
+{
+  "ts": "2026-10-13 00:25:46",
+  "call_id": "1791822346420148700-9a2a384a",
+  "args": {},
+  "response": {
+    "ok": true,
+    "result": {
+      "configured": true,
+      "enabled": true,
+      "runtime_present": true,
+      "credential_present": true,
+      "model": "jev-latest",
+      "backend": "typesafe",
+      "last_live_check": "2026-10-12: HTTP 451 region_unavailable; adapter configured, live inference unavailable",
+      "status_is_not_live_inference": true,
+      "scope": "本机判断入口，在线 Jev 服务；不执行下一步",
+      "config_path": "[CTF_ROOT]\\config\\ctf_jev.local.json",
+      "fallback": "main_agent"
+    },
+    "tool": "jev_status",
+    "dangerous": false,
+    "duration_ms": 13.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791822346420148700-9a2a384a.json"
+  }
+}

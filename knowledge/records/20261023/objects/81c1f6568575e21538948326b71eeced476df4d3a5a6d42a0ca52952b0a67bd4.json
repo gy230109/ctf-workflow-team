@@ -1,0 +1,70 @@
+{
+  "records": {
+    "reload_generators": {
+      "argv": [
+        "systemctl",
+        "daemon-reload"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "remount_service": {
+      "argv": [
+        "systemctl",
+        "start",
+        "systemd-remount-fs.service"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "root_mount": {
+      "argv": [
+        "findmnt",
+        "-n",
+        "-o",
+        "OPTIONS",
+        "/"
+      ],
+      "returncode": 0,
+      "stdout": "rw,relatime,errors=remount-ro\n",
+      "stderr": ""
+    },
+    "persist_remount_dependency": {
+      "argv": [
+        "systemctl",
+        "add-wants",
+        "local-fs.target",
+        "systemd-remount-fs.service"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Created symlink '/etc/systemd/system/local-fs.target.wants/systemd-remount-fs.service' → '/usr/lib/systemd/system/systemd-remount-fs.service'.\n"
+    },
+    "verify_remount_dependency": {
+      "argv": [
+        "systemctl",
+        "show",
+        "local-fs.target",
+        "-p",
+        "Wants"
+      ],
+      "returncode": 0,
+      "stdout": "Wants=systemd-remount-fs.service tmp.mount systemd-fsck-root.service\n",
+      "stderr": ""
+    },
+    "sync": {
+      "argv": [
+        "sync"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "root_writable": true,
+  "dependency": "/etc/systemd/system/local-fs.target.wants/systemd-remount-fs.service",
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 1.281
+}

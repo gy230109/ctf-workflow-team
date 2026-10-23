@@ -1,0 +1,35 @@
+{
+  "ts": "2026-10-15 19:35:09",
+  "call_id": "1792064109402082300-efa54293",
+  "args": {
+    "challenge_id": 1
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "challenge": {
+        "id": 1,
+        "name": "How to pronounce GIF",
+        "category": "forensics",
+        "description": "> 本题已导入题面与附件，尚未配置可信判题规则。题目环境按题面另行准备；不要将未判题的候选记为已解。\n\nOur machine that makes QR Codes started playing up then it just said \"PC LOAD LETTER\" and died. This is all we could recover...\n\nAuthor: xXl33t_h@x0rXx\n\n\n来源：https://github.com/DownUnderCTF/Challenges_2021_Public/tree/e29fbc5bed67550d6f85bc74c63a4712f764b34a/forensics/how-to-pronounce-gif",
+        "value": 0,
+        "files": [
+          "/files/6d62d4cd0aa1ea597f35309a7d922cfb/000_challenge.gif?token=eyJ1c2VyX2lkIjoyLCJ0ZWFtX2lkIjpudWxsLCJmaWxlX2lkIjoxfQ.atC6bg.iYRk_kJ-aH11PZb6QX_RLCz6fHU"
+        ],
+        "tags": [],
+        "hints": [],
+        "max_attempts": 0,
+        "attempts": 0,
+        "solved_by_me": false,
+        "source": "CTFd",
+        "grading_configured": false,
+        "challenge_url": "http://127.0.0.1:8800/challenges#1"
+      }
+    },
+    "tool": "ctfd_challenge",
+    "dangerous": false,
+    "duration_ms": 848.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064109402082300-efa54293.json"
+  }
+}

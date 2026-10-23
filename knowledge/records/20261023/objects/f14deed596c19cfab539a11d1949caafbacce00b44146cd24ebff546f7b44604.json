@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T163037Z-2acbf8db",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/work",
+  "command": [
+    "bash",
+    "-c",
+    "binwalk ./p | head -50; echo SEP; strings -n 8 ./p | grep -i -e ctf -e flag -e pico -e HTB -e welcome -e Correct -e Nope -e invalid | sort -u | head -30"
+  ],
+  "timeout_seconds": 180,
+  "started_at_utc": "2026-10-11T16:30:38.166825+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 4.705,
+  "stdout_bytes": 2190,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "\nDECIMAL       HEXADECIMAL     DESCRIPTION\n--------------------------------------------------------------------------------\n0             0x0             ELF, 64-bit LSB executable, AMD x86-64, version 1 (GNU/Linux)\n1751315       0x1AB913        bix header, header size: 64 bytes, header CRC: 0x31C948, created: 2000-09-19 07:02:29, image size: 1476395007 bytes, Data Address: 0x4D8B7424, Entry Point: 0x20884DC8, data CRC: 0x4D85F60F, image type: Standalone Program, compression type: none, image name: \"\"\n1901718       0x1D0496        Unix path: /usr/lib/getconf\n1904282       0x1D0E9A        Unix path: /usr/share/locale\n1953264       0x1DCDF0        Unix path: /usr/share/locale\n1962199       0x1DF0D7        Unix path: /usr/lib/x86_64-linux-gnu/\n2026568       0x1EEC48        ESP Image (ESP32): segment count: 3, flash mode: QUIO, flash speed: 40MHz, flash size: 1MB, entry address: 0x0, hash: none\n2028032       0x1EF200        ESP Image (ESP32): segment count: 4, flash mode: QUIO, flash speed: 40MHz, flash size: 1MB, entry address: 0x0, hash: none\n2238346       0x22278A        JBOOT STAG header, image id: 0, timestamp 0x21FFEB, image size: 1157627904 bytes, image JBOOT checksum: 0x100E, header JBOOT checksum: 0x283\n\nSEP\ncorrection >= 0\nELF file ABI version invalid\nELF file OS ABI invalid\nFatal error: glibc detected an invalid stdio handle\nFatal error: invalid format in exception string\nFatal glibc error: invalid allocation buffer of size %zu\nfree(): invalid next size (fast)\nfree(): invalid next size (normal)\nfree(): invalid pointer\nfree(): invalid size\nInvalid argument\nInvalid argument (UC_ERR_ARG)\nInvalid cross-device link\ninvalid ELF header\nInvalid exchange\ninvalid fastbin entry (free)\n! \"invalid format specifier\"\nInvalid handle (UC_ERR_HANDLE)\nInvalid hook type (UC_ERR_HOOK)\nInvalid instruction (UC_ERR_INSN_INVALID)\nInvalid memory fetch (UC_ERR_FETCH_UNMAPPED)\nInvalid memory mapping (UC_ERR_MAP)\nInvalid memory read (UC_ERR_READ_UNMAPPED)\nInvalid memory write (UC_ERR_WRITE_UNMAPPED)\ninvalid mode for dlopen()\ninvalid mode parameter\nInvalid mode (UC_ERR_MODE)\n*** invalid %N$ use detected ***\ninvalid namespace\nInvalid or incomplete multibyte or wide character\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/results/20261011T163037Z-2acbf8db.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 5.531
+}

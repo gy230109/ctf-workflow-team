@@ -1,0 +1,35 @@
+{
+  "ts": "2026-10-12 01:45:06",
+  "call_id": "1791740706313000300-81ce01b7",
+  "args": {
+    "tool": "ReadMemory",
+    "params": {
+      "address": "0x7FF735944010",
+      "size": 4
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "ReadMemory",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[ReadMemory] 4 bytes at 0x7FF735944010:\n  7FF735944010: CD AB 34 12                                     ..4.\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x7FF9E82E14AA (ntdll) | jmp ntdll.7FF9E82E14AC"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 91.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740706313000300-81ce01b7.json"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "ts": "2026-10-14 20:37:14",
+  "call_id": "1791981434220447300-bc4308c6",
+  "args": {
+    "cmd": "cp $CTF_INPUT_DIR/emu2.py /tmp/emu2.py; cd /tmp && timeout 60 python3 emu2.py 2>&1 | tail -14",
+    "confirm": true,
+    "timeout": 180,
+    "local_file": "D:/Temp/apk2/emu2.py"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T123713Z-c9bb48e3",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_138b0e3744ebb2184a52bc4a",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_138b0e3744ebb2184a52bc4a/work",
+      "command": [
+        "bash",
+        "-c",
+        "cp $CTF_INPUT_DIR/emu2.py /tmp/emu2.py; cd /tmp && timeout 60 python3 emu2.py 2>&1 | tail -14"
+      ],
+      "timeout_seconds": 180,
+      "started_at_utc": "2026-10-14T12:37:14.302451+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.078,
+      "stdout_bytes": 482,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "rel.dyn applied: 6\nrel.plt applied: 9\nUcError: Invalid memory read (UC_ERR_READ_UNMAPPED) PC= 0x1012c4\nerr: Invalid memory read (UC_ERR_READ_UNMAPPED)\nR0 = 0x61\nstack dump SP0-0x40..SP0-0x10 = b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xaa\\x18\\x00\\x00\\x00\\x00\\x7fY0vAr3TimerM\\x003te7\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'\nbuf raw = b'Y0vAr3TimerM\\x003te7\\x00\\x00\\x00\\x00\\x00\\x00\\x00'\nstringFromJNI2(K) = b'Y0vAr3TimerM'\nPLT calls = []\nFLAG = alictf{Y0vAr3TimerM}\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_138b0e3744ebb2184a52bc4a/results/20261014T123713Z-c9bb48e3.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.578,
+      "bridge_exit": 0,
+      "case": "ctfos_138b0e3744ebb2184a52bc4a",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "138b0e3744ebb2184a52bc4a4fe6fe6fdfebc6fba4552a772cba3b51b73a5985",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 5127.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791981434220447300-bc4308c6.json"
+  }
+}

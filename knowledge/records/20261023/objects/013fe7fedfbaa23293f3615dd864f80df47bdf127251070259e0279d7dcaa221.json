@@ -1,0 +1,318 @@
+{
+  "sudo": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "package_audit": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "partition_table": {
+    "returncode": 0,
+    "stdout": "label: dos\nlabel-id: 0x953fee21\ndevice: /dev/sda\nunit: sectors\nsector-size: 512\n\n/dev/sda1 : start=        2048, size=    39682048, type=83, bootable\n/dev/sda2 : start=    39686142, size=     2254850, type=f\n/dev/sda5 : start=    39686144, size=     2254848, type=82\n",
+    "stderr": ""
+  },
+  "sfdisk_help": {
+    "returncode": 0,
+    "stdout": "\nUsage:\n sfdisk [options] <dev> [[-N] <part>]\n sfdisk [options] <command>\n\nDisplay or manipulate a disk partition table.\n\nCommands:\n -A, --activate <dev> [<part> ...] list or set bootable (P)MBR partitions\n -d, --dump <dev>                  dump partition table (usable for later input)\n -J, --json <dev>                  dump partition table in JSON format\n -B, --backup-pt-sectors <dev>     binary partition table backup (see -b and -O)\n -g, --show-geometry [<dev> ...]   list geometry of all or specified devices\n -l, --list [<dev> ...]            list partitions of each device\n -F, --list-free [<dev> ...]       list unpartitioned free areas of each device\n -r, --reorder <dev>               fix partitions order (by start offset)\n -s, --show-size [<dev> ...]       list sizes of all or specified devices\n -T, --list-types                  print the recognized types (see -X)\n -V, --verify [<dev> ...]          test whether partitions seem correct\n     --delete <dev> [<part> ...]   delete all or specified partitions\n\n --part-label <dev> <part> [<str>] print or change partition label\n --part-type <dev> <part> [<type>] print or change partition type\n --part-uuid <dev> <part> [<uuid>] print or change partition uuid\n --part-attrs <dev> <part> [<str>] print or change partition attributes\n\n --discard-free <dev>              discard (trim) unpartitioned areas\n --disk-id <dev> [<str>]           print or change disk label ID (UUID)\n --relocate <oper> <dev>           move partition header\n\nArguments:\n <dev>                     device (usually disk) path\n <part>                    partition number\n <type>                    partition type, GUID for GPT, hex for MBR\n\nOptions:\n -a, --append              append partitions to existing partition table\n -b, --backup              backup partition table sectors (see -O)\n     --bytes               print SIZE in bytes rather than in human readable format\n     --move-data[=<typescript>] move partition data after relocation (requires -N)\n     --move-use-fsync      use fsync after each write when move data\n -f, --force               disable all consistency checking\n     --color[=<when>]      colorize output (auto, always or never)\n                             colors are enabled by default\n     --sector-size <size>  physical and logical sector size\n     --lock[=<mode>]       use exclusive device lock (yes, no or nonblock)\n -N, --partno <num>        specify partition number\n -n, --no-act              do everything except write to device\n     --no-reread           do not check whether the device is in use\n     --no-tell-kernel      do not tell kernel about changes\n -O, --backup-file <path>  override default backup file name\n -o, --output <list>       output columns\n -q, --quiet               suppress extra info messages\n -w, --wipe <mode>         wipe signatures (auto, always or never)\n -W, --wipe-partitions <mode>  wipe signatures from new partitions (auto, always or never)\n -X, --label <name>        specify label type (dos, gpt, ...)\n -Y, --label-nested <name> specify nested label type (dos, bsd)\n\n -G, --show-pt-geometry    deprecated, alias to --show-geometry\n -L, --Linux               deprecated, only for backward compatibility\n -u, --unit S              deprecated, only sector unit is supported\n\n -h, --help                display this help\n -v, --version             display version\n\nAvailable output columns:\n gpt: Device Start End Sectors Size Type Type-UUID Attrs Name UUID\n dos: Device Start End Sectors Cylinders Size Type Id Attrs Boot End-C/H/S\n      Start-C/H/S\n bsd: Slice Start End Sectors Cylinders Size Type Bsize Cpg Fsize\n sgi: Device Start End Sectors Cylinders Size Type Id Attrs\n sun: Device Start End Sectors Cylinders Size Type Id Flags\n\nFor more details see sfdisk(8).\n",
+    "stderr": ""
+  },
+  "resize2fs_help": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "resize2fs 1.47.2 (1-Jan-2025)\nUsage: resize2fs [-d debug_flags] [-f] [-F] [-M] [-P] [-p] device [-b|-s|new_size] [-S RAID-stride] [-z undo_file]\n\n"
+  },
+  "disk_bytes": {
+    "returncode": 0,
+    "stdout": "21474836480\n",
+    "stderr": ""
+  },
+  "swap": {
+    "returncode": 0,
+    "stdout": "NAME      TYPE            SIZE USED PRIO\n/dev/sda5 partition 1154478080    0   -2\n",
+    "stderr": ""
+  },
+  "fstab": {
+    "returncode": 0,
+    "stdout": "# /etc/fstab: static file system information.\n#\n# Use 'blkid' to print the universally unique identifier for a\n# device; this may be used with UUID= as a more robust way to name devices\n# that works even if disks are added and removed. See fstab(5).\n#\n# systemd generates mount units based on this file, see systemd.mount(5).\n# Please run 'systemctl daemon-reload' after making changes here.\n#\n# <file system> <mount point>   <type>  <options>       <dump>  <pass>\n# / was on /dev/sda1 during installation\nUUID=6c71c483-9f62-4e01-9f86-c5c2fa3e4050 /               ext4    errors=remount-ro 0       1\n# swap was on /dev/sda5 during installation\nUUID=4b1dd16f-66bf-44fa-ba8a-1675ba8ada75 none            swap    sw              0       0\n/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0\n.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,uid=1000 0 0\n",
+    "stderr": ""
+  },
+  "lsblk": {
+    "returncode": 0,
+    "stdout": "{\n   \"blockdevices\": [\n      {\n         \"name\": \"sda\",\n         \"type\": \"disk\",\n         \"size\": 21474836480,\n         \"fstype\": null,\n         \"mountpoints\": [],\n         \"uuid\": null,\n         \"pttype\": \"dos\",\n         \"children\": [\n            {\n               \"name\": \"sda1\",\n               \"type\": \"part\",\n               \"size\": 20317208576,\n               \"fstype\": \"ext4\",\n               \"mountpoints\": [\n                   \"/\"\n               ],\n               \"uuid\": \"6c71c483-9f62-4e01-9f86-c5c2fa3e4050\",\n               \"pttype\": \"dos\"\n            },{\n               \"name\": \"sda2\",\n               \"type\": \"part\",\n               \"size\": 1024,\n               \"fstype\": null,\n               \"mountpoints\": [],\n               \"uuid\": null,\n               \"pttype\": \"dos\"\n            },{\n               \"name\": \"sda5\",\n               \"type\": \"part\",\n               \"size\": 1154482176,\n               \"fstype\": \"swap\",\n               \"mountpoints\": [\n                   \"[SWAP]\"\n               ],\n               \"uuid\": \"4b1dd16f-66bf-44fa-ba8a-1675ba8ada75\",\n               \"pttype\": \"dos\"\n            }\n         ]\n      },{\n         \"name\": \"sr0\",\n         \"type\": \"rom\",\n         \"size\": 1073741312,\n         \"fstype\": null,\n         \"mountpoints\": [],\n         \"uuid\": null,\n         \"pttype\": null\n      }\n   ]\n}\n",
+    "stderr": ""
+  },
+  "resume_configuration": {
+    "returncode": 0,
+    "stdout": "RESUME=UUID=4b1dd16f-66bf-44fa-ba8a-1675ba8ada75\n# If you change this file or any /etc/default/grub.d/*.cfg file,\n# run 'update-grub' afterwards to update /boot/grub/grub.cfg.\n# For full documentation of the options in these files, see:\n#   info -f grub -n 'Simple configuration'\n\nGRUB_DEFAULT=0\nGRUB_TIMEOUT=5\nGRUB_DISTRIBUTOR=`( . /etc/os-release && echo ${NAME} )`\nGRUB_CMDLINE_LINUX_DEFAULT=\"quiet\"\nGRUB_CMDLINE_LINUX=\"\"\n\n# If your computer has multiple operating systems installed, then you\n# probably want to run os-prober. However, if your computer is a host\n# for guest OSes installed via LVM or raw disk devices, running\n# os-prober can cause damage to those guest OSes as it mounts\n# filesystems to look for things.\n#GRUB_DISABLE_OS_PROBER=false\n\n# Uncomment to enable BadRAM filtering, modify to suit your needs\n# This works with Linux (no patch required) and with any kernel that obtains\n# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)\n#GRUB_BADRAM=\"0x01234567,0xfefefefe,0x89abcdef,0xefefefef\"\n\n# Uncomment to disable graphical terminal\n#GRUB_TERMINAL=console\n\n# The resolution used on graphical terminal\n# note that you can use only modes which your graphic card supports via VBE/GOP/UGA\n# you can see them in real GRUB with the command `videoinfo'\n#GRUB_GFXMODE=640x480\n\n# Uncomment if you don't want GRUB to pass \"root=UUID=xxx\" parameter to Linux\n#GRUB_DISABLE_LINUX_UUID=true\n\n# Uncomment to disable generation of recovery mode menu entries\n#GRUB_DISABLE_RECOVERY=\"true\"\n\n# Uncomment to get a beep at grub start\n#GRUB_INIT_TUNE=\"480 440 1\"\nBOOT_IMAGE=/boot/vmlinuz-6.18.12+kali-amd64 root=/dev/sda1 ro quiet splash\n",
+    "stderr": ""
+  },
+  "home_size": {
+    "returncode": 0,
+    "stdout": "2252800\t/home/kali/ctf-workbench\n",
+    "stderr": ""
+  },
+  "mbr_base64": "62OQEI7QvACwuAAAjtiOwPu+AHy/AAa5AALzpOohBgAAvr4HOAR1C4PGEIH+/gd18+sWtAKwAbsAfLKAinQBi0wCzRPqAHwAAOv+AAAAAAAAAAAAAAAAAAAAAIABAAAAAAAAAP/6kJD2woB0BfbCcHQCsoDqeXwAADHAjtiO0LwAIPugZHw8/3QCiMJSvoB96BcBvgV8tEG7qlXNE1pScj2B+1WqdTeD4QF0MjHAiUQEQIhE/4lEAscEEABmix5cfGaJXAhmix5gfGaJXAzHRAYAcLRCzRNyBbsAcOt2tAjNE3MNWoTSD4PYAL6LfemCAGYPtsaIZP9AZolEBA+20cHiAojoiPRAiUQID7bCwOgCZokEZqFgfGYJwHVOZqFcfGYx0mb3NIjRMdJm93QEO0QIfTf+wYjFMMDB6AIIwYjQWojGuwBwjsMx27gBAs0Tch6Mw2AeuQABjtsx9r8AgI7G/POlH2H/Jlp8voZ96wO+lX3oNAC+mn3oLgDNGOv+R1JVQiAAR2VvbQBIYXJkIERpc2sAUmVhZAAgRXJyb3INCgC7AQC0Ds0QrDwAdfTDAAAAAAAAAAAh7j+VAACABAEEg/7C/wAIAAAAgF0CAP7C/w/+wv/+j10CAmgiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVao=",
+  "fstab_sha256": "7de18636c974509a41f6ce439f2680953b674eea5b40389d87c5f6a53bab268d",
+  "workbench_files": [
+    {
+      "path": "/home/kali/ctf-workbench/cases/bridgecheck/results/20261009T152337Z-1d375148.json",
+      "bytes": 495,
+      "sha256": "455e67398c79b064cec2093f540ce301b7937c2d9e9c9980e0fccbddde223f61"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/bridgecheck/results/20261009T152337Z-c6c099ae.json",
+      "bytes": 558,
+      "sha256": "d7f6241a057e2922038f66ee13fcb15df32f991276ca2acac8cc677287da5dc0"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/envcheck/results/20261009T155513Z-8938da62.json",
+      "bytes": 4548,
+      "sha256": "fda03d52b1aa020263ef11c63c8183b84e8431fd58bc55391f041768ddc215bd"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/envcheck/results/20261009T155513Z-8938da62.py",
+      "bytes": 3883,
+      "sha256": "b77d71b95b0208db7f8fb8ca88122c06987139429344b013f9254611dbfd3f12"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/envcheck/work/kali_envcheck.json",
+      "bytes": 3526,
+      "sha256": "a6201d16375c60c0dc756a6a4d2c581e86c872c927f8143733839ea40aad4fac"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/factor-20261010/input/Factor.zip",
+      "bytes": 7435,
+      "sha256": "2d2504be6632fd4e272aa2af4032469528d0395ec14e730610e36ac17a7879fb"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/factor-20261010/results/20261009T160537Z-e2c436c0/manifest.json",
+      "bytes": 137,
+      "sha256": "ceaa86c6d1ad9c512f00bcbdd89feeaba8908af82f4ec002744c0f37c0e74579"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/factor-20261010/results/20261009T160547Z-3bd79a28.json",
+      "bytes": 874,
+      "sha256": "70b83278f0fb509f9599fab758c41ff46edf666fa174f8d1f51399e88e6a4339"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/factor-20261010/results/20261009T160547Z-3bd79a28.py",
+      "bytes": 4043,
+      "sha256": "0134bc51b22491c7c66d0db697f02561394240582480639bdc625e0284713f2b"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/factor-20261010/work/flag.txt",
+      "bytes": 42,
+      "sha256": "91040b29a90687954b113cbe5adaba4cb5247cd41f20d22b0e3190392ccfb9da"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/factor-20261010/work/solution.json",
+      "bytes": 5787,
+      "sha256": "866e4228ecebb07de33175e80f373568eadc06ede513d002698cf5fa7eb70f92"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/input/Blackjack.dll",
+      "bytes": 14336,
+      "sha256": "f074c0e99506c833c9dea3be18cc74c826b5cd62b91a4bedd8e469c293062da0"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/input/BlackjackConsole.exe",
+      "bytes": 388096,
+      "sha256": "a087e40d098422cdbc00a507234398c7d2aedd8d3068b4cfedf5dfbcd1ffbf92"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/input/gamemessage",
+      "bytes": 11344,
+      "sha256": "d83ccf9915c56c7d153d59b88b13ac25ba305ab421b768810b9273fd7d2a6809"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/results/20261009T152302Z-edbd6415/manifest.json",
+      "bytes": 425,
+      "sha256": "9fd660075e1701936b9df61d2ada20c605aa51deb3b7fbab91cf2dadabeab7fd"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/results/20261009T152324Z-703b54ff.json",
+      "bytes": 1546,
+      "sha256": "44c684153f1f1ce0dfec36b4d5670126909a7fdc8d2928fa5cf490dd935223ce"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/results/20261009T152324Z-703b54ff.py",
+      "bytes": 842,
+      "sha256": "5805f55a8d8e3ccff7f9e63df7d59e1b1f2fdf26f0c0103060be6bc3d916e3a7"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/results/20261009T152326Z-e6ce6ae1.json",
+      "bytes": 819,
+      "sha256": "628bea316dc10fab166cf5680fcac772ce62afbe42e2b9e4d638c3d00ef3d392"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/gamemaster/work/analysis.json",
+      "bytes": 936,
+      "sha256": "a4c8ff7be87ea7d16b7ec016bbc670efafa5690fff42f08aa3bb16aa4cf4470c"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011/input/input.txt",
+      "bytes": 71,
+      "sha256": "35ce12ffc41c3b5e402c343176057b15da91078cc24daf387d65bf713ff3ce92"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011/results/20261011T082620Z-e4c6d650/manifest.json",
+      "bytes": 134,
+      "sha256": "17dbf8c9d469c944aacaef2c4dff7e7696d74961f639f60975e7747754f5b500"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011/results/20261011T082627Z-3779775a.json",
+      "bytes": 835,
+      "sha256": "e06e92ed274cd6fa68cae2f9d83181dccb6b96d1489d5888105004aa9cda6013"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011/results/20261011T082627Z-3779775a.py",
+      "bytes": 716,
+      "sha256": "6a0cd4ba471cc66f22cf843c369605a4d5dbc2937e1cc8846923b338afa669af"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/kali_bridgecheck_20261011/work/bridgecheck.json",
+      "bytes": 247,
+      "sha256": "8761efde95ad53e3ccb0489eb919234c84884b960a998a3fb9c3fd20e95c15df"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/input/Blackjack.dll",
+      "bytes": 14336,
+      "sha256": "f074c0e99506c833c9dea3be18cc74c826b5cd62b91a4bedd8e469c293062da0"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/input/BlackjackConsole.exe",
+      "bytes": 388096,
+      "sha256": "a087e40d098422cdbc00a507234398c7d2aedd8d3068b4cfedf5dfbcd1ffbf92"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/input/gamemessage",
+      "bytes": 11344,
+      "sha256": "d83ccf9915c56c7d153d59b88b13ac25ba305ab421b768810b9273fd7d2a6809"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154401Z-119a88bd.json",
+      "bytes": 577,
+      "sha256": "35c707b1d720aa6fc6f248e5918dc65f59eee51cea0dcd20b2de80b3e0598b2c"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154403Z-9d2da224.json",
+      "bytes": 608,
+      "sha256": "ecd9425b1046ee37b03205cc893e8f4fbe30ae68d37c1783813004572c305070"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154403Z-9d2da224.py",
+      "bytes": 6903,
+      "sha256": "c765cfa9b7e8f4df7739ec1d9c48bc601bafdbca68ace54780f4de7c1b7a821a"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154840Z-df1159c3/manifest.json",
+      "bytes": 425,
+      "sha256": "9fd660075e1701936b9df61d2ada20c605aa51deb3b7fbab91cf2dadabeab7fd"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154844Z-bb4d97ac.json",
+      "bytes": 1834,
+      "sha256": "770393f574b14c77befd54e4c647750a99616d0d49530055d16b4eeed85d33f3"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/results/20261009T154844Z-bb4d97ac.py",
+      "bytes": 6903,
+      "sha256": "c765cfa9b7e8f4df7739ec1d9c48bc601bafdbca68ace54780f4de7c1b7a821a"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/work/kali_verify_report.json",
+      "bytes": 2356,
+      "sha256": "f2d2c2f422bf5499302baa53504f217021f91c15308e4b13195ffa2b60843f62"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/work/x22.bin",
+      "bytes": 11344,
+      "sha256": "dbb190872bf17ffffb0c5cef8515567f2c52d3b93e492d7fa0cb5774c0ad79a8"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag-1/input/description.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag-1/input/flag-1",
+      "bytes": 17056,
+      "sha256": "38e83940cc977a537e616e28915024fb62116d231251a40575e430352d20f03d"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag-1/input/flag-1.c",
+      "bytes": 802,
+      "sha256": "4354343d739afb334e6a5dd54aec33a0f019b8f2444d447d53318d4b9f8956df"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag-1/results/20261009T172859Z-484064d8/manifest.json",
+      "bytes": 402,
+      "sha256": "1521c7817222a784c548b808398173c61b89c01f22c15c06d12905e2791185ff"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/input/description.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/input/flag0",
+      "bytes": 1016616,
+      "sha256": "245fc66e5ea98d632dcee4bbc2c675d37196d5090621d5357e0be972ec55cfc7"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/input/flag0.c",
+      "bytes": 1162,
+      "sha256": "2c229a3460813de3b330b869b87d643d7c18e86b1b0d15b70884aa3566f5d8ee"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/input/md5_crack.py",
+      "bytes": 7308,
+      "sha256": "d88fcad8d07943012566b11d2fc484584eadb25a391c911a34a2c72cd8ba0880"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/results/20261009T173749Z-3c44a441/manifest.json",
+      "bytes": 403,
+      "sha256": "4a1d063f8d0725996cda223cd22d6f3fb47d52a1478cbf447029e3cf268ccac4"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/results/20261009T175701Z-18b1058a/manifest.json",
+      "bytes": 139,
+      "sha256": "0d7f847651a0c16e1bef26d7131d2627c2dc940fb22a2cd9dc51cee9342a196b"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/results/20261009T175753Z-c7058a59/manifest.json",
+      "bytes": 139,
+      "sha256": "0d7f847651a0c16e1bef26d7131d2627c2dc940fb22a2cd9dc51cee9342a196b"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/results/20261009T175756Z-feb30c1a.json",
+      "bytes": 1081,
+      "sha256": "a499b688db74b779c72a6e903197058dcaa4604f33b1bedd6f6c346d3157b20f"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/results/20261009T175756Z-feb30c1a.py",
+      "bytes": 7308,
+      "sha256": "d88fcad8d07943012566b11d2fc484584eadb25a391c911a34a2c72cd8ba0880"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/work/cracked.txt",
+      "bytes": 8,
+      "sha256": "1e4330b1382a5d9ae72b451a496f3c06628fc6e99ee1af8587cf55c994d8f568"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/work/md5_result.json",
+      "bytes": 1087,
+      "sha256": "b1dc503819ad9e1a5f00298ab1732c1a7236ce89cf70733b628566eef42272f6"
+    },
+    {
+      "path": "/home/kali/ctf-workbench/cases/reversing-hell_welcome_flag0/work/target.hash",
+      "bytes": 33,
+      "sha256": "4c1c50b2371a240a08e7e9a78c831c0101fe677dd687f11252b160e0269189c9"
+    }
+  ],
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 1.422
+}

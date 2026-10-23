@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-10-11T09:03:33.233935+00:00",
+  "vmx": "D:\\huahuan\\kali\\kali.vmx",
+  "guest_offline": true,
+  "disk_lock_released": true,
+  "remaining_configuration_locks": [
+    "D:\\huahuan\\kali\\kali.vmx.lck"
+  ],
+  "snapshots": {
+    "argv": [
+      "D:/虚拟机/vmrun.exe",
+      "-T",
+      "ws",
+      "listSnapshots",
+      "D:\\huahuan\\kali\\kali.vmx"
+    ],
+    "returncode": 0,
+    "stdout": "Total snapshots: 0\n",
+    "stderr": ""
+  },
+  "backup_folder": "D:\\VM-Backups\\kali-before-repair-20261011-170301",
+  "files": [
+    {
+      "source": "D:\\huahuan\\kali\\kali.vmdk",
+      "backup": "D:\\VM-Backups\\kali-before-repair-20261011-170301\\kali.vmdk",
+      "bytes": 19828375552,
+      "sha256": "4ab21610d977de7f845430e7393bed355c35d7f8b5d1df3a5f169f7026f433b9",
+      "verified": true
+    },
+    {
+      "source": "D:\\huahuan\\kali\\kali.vmx",
+      "backup": "D:\\VM-Backups\\kali-before-repair-20261011-170301\\kali.vmx",
+      "bytes": 4055,
+      "sha256": "9f7bbffa3a4e59c1fa651f17856ea5ce852c296a69c68a79ec2124923fb961d9",
+      "verified": true
+    },
+    {
+      "source": "D:\\huahuan\\kali\\kali.nvram",
+      "backup": "D:\\VM-Backups\\kali-before-repair-20261011-170301\\kali.nvram",
+      "bytes": 8684,
+      "sha256": "27d3b5674d07b85b6c704fd2aeddd77e92a6ce023d58be2d785279c3ef8af749",
+      "verified": true
+    },
+    {
+      "source": "D:\\huahuan\\kali\\kali.vmsd",
+      "backup": "D:\\VM-Backups\\kali-before-repair-20261011-170301\\kali.vmsd",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true
+    },
+    {
+      "source": "D:\\huahuan\\kali\\kali.vmxf",
+      "backup": "D:\\VM-Backups\\kali-before-repair-20261011-170301\\kali.vmxf",
+      "bytes": 362,
+      "sha256": "b83f80364222d3f1e63bd12ad27a2a1c5528ee3b4365aa6aafd0efb2b846837b",
+      "verified": true
+    }
+  ],
+  "complete": true
+}

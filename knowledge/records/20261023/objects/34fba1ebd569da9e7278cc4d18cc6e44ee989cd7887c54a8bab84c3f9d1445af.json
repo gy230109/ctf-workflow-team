@@ -1,0 +1,46 @@
+{
+  "ts": "2026-10-12 01:45:07",
+  "call_id": "1791740707292537800-ac335e75",
+  "args": {
+    "tool": "run",
+    "params": {
+      "timeoutMs": 5000
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x64",
+      "debugger_tool": "run",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "PAUSED immediately (hit breakpoint or system event).\nAddress: 0x7FF735941959 (ctf_debug_probe)\nInstruction: push rbp\nNext: 0x7FF73594195A  mov rbp,rsp"
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debugger resumed. Target is now RUNNING."
+          },
+          {
+            "type": "text",
+            "text": "[event:warning] Breakpoint hit. Target is now PAUSED. Call GetDebugState to inspect."
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debugger paused. Target is now PAUSED. Call GetDebugState to inspect."
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x7FF735941959 (ctf_debug_probe) | push rbp"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 326.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740707292537800-ac335e75.json"
+  }
+}

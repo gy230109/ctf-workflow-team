@@ -1,0 +1,12 @@
+{
+  "tool": "math_gcd",
+  "arguments": {
+    "values": [
+      48,
+      60
+    ],
+    "wp_purpose": "自建重复检测验收，预期第三次收到提示",
+    "wp_case": "ctf-04fca725df3de1d8"
+  },
+  "operation_id": "91dd536753434d5e99b05eb63b9057c4"
+}

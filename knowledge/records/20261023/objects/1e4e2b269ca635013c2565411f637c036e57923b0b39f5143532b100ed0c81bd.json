@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/envcheck/work/kali_envcheck.json",
+  "sha256": "a6201d16375c60c0dc756a6a4d2c581e86c872c927f8143733839ea40aad4fac",
+  "bytes": 3526,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.547,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\envcheck\\downloads\\20261009T155611Z-b2b7875f\\kali_envcheck.json",
+  "verified": true
+}

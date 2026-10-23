@@ -1,0 +1,45 @@
+{
+  "ts": "2026-10-15 00:23:01",
+  "call_id": "1791994981349616700-a1bca048",
+  "args": {
+    "confirm": true,
+    "cmd": "python3 - <<'PY'\nimport struct, subprocess\nBASE=0x400000; msg=b\"OK-ARM64\\n\"\ndef movz(xd,i): return 0xD2800000|((i&0xffff)<<5)|(xd&31)\ndef build(code_off=0x78, e_type=2, base=BASE, extra=None, align=0x1000, flags=5):\n    code=[movz(0,1),None,movz(2,len(msg)),movz(8,64),0xD4000001,movz(0,0),movz(8,93),0xD4000001]\n    msg_off=code_off+4*len(code)\n    imm=((base+msg_off)-(base+code_off+4))//4\n    code[1]=0x58000000|((imm&0x7ffff)<<5)|1\n    blob=b\"\".join(struct.pack(\"<I\",x) for x in code)\n    ident=b...(1607 chars)",
+    "timeout": 180,
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T162300Z-f99b6a08",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+      "command": [
+        "bash",
+        "-c",
+        "python3 - <<'PY'\nimport struct, subprocess\nBASE=0x400000; msg=b\"OK-ARM64\\n\"\ndef movz(xd,i): return 0xD2800000|((i&0xffff)<<5)|(xd&31)\ndef build(code_off=0x78, e_type=2, base=BASE, extra=None, align=0x1000, flags=5):\n    code=[movz(0,1),None,movz(2,len(msg)),movz(8,64),0xD4000001,movz(0,0),movz(8,93),0xD4000001]\n    msg_off=code_off+4*len(code)\n    imm=((base+msg_off)-(base+code_off+4))//4\n    code[1]=0x58000000|((imm&0x7ffff)<<5)|1\n    blob=b\"\".join(struct.pack(\"<I\",x) for x in code)\n    ident=b\"\\x7fELF\"+bytes([2,1,1,0])+b\"\\x00\"*8\n    total=msg_off+len(msg)\n    ph=[struct.pack(\"<IIQQQQQQ\",1,flags,0,base,base,total,total,align)]\n    if extra: ph.append(extra)\n    eh=ident+struct.pack(\"<HHIQQQIHHHHHH\",e_type,183,1,base+code_off,64,0,0,64,56,len(ph),0,0,0)\n    o=bytearray(eh+b\"\".join(ph)); o+=b\"\\x00\"*(code_off-len(o)); o+=blob; o+=msg\n    return bytes(o)\nV={\n \"exec_RX\": build(),\n \"exec_RWX\": build(flags=7),\n \"dyn_base0\": build(base=0,e_type=3),\n \"gnustack\": build(extra=struct.pack(\"<IIQQQQQQ\",0x6474e551,6,0,0,0,0,0,0x10)),\n \"align64k\": build(align=0x10000),\n \"align_no\": build(align=0),\n}\nfor k,v in V.items():\n    p=\"/tmp/%s.elf\"%k; open(p,\"wb\").write(v)\n    r=subprocess.run([\"qemu-aarch64\",p],capture_output=True)\n    o=(r.stdout+r.stderr).decode(\"utf-8\",\"replace\").strip().replace(\"\\n\",\" | \")\n    print(\"%-12s rc=%-3s %s\" % (k, r.returncode, o[:110]))\nprint(\"=== lld ===\")\nprint(subprocess.run([\"bash\",\"-lc\",\"ls /usr/lib/llvm-18/bin 2>/dev/null | grep -i lld; command -v ld.lld lld; dpkg -l 2>/dev/null | grep -iE 'lld|clang' | awk '{print $2,$3}'\"],capture_output=True).stdout.decode())\nPY"
+      ],
+      "timeout_seconds": 180,
+      "started_at_utc": "2026-10-14T16:23:01.491988+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.292,
+      "stdout_bytes": 843,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "exec_RX      rc=1   Error while loading /tmp/exec_RX.elf: Exec format error\nexec_RWX     rc=1   Error while loading /tmp/exec_RWX.elf: Exec format error\ndyn_base0    rc=1   Error while loading /tmp/dyn_base0.elf: Exec format error\ngnustack     rc=1   Error while loading /tmp/gnustack.elf: Exec format error\nalign64k     rc=1   Error while loading /tmp/align64k.elf: Exec format error\nalign_no     rc=1   Error while loading /tmp/align_no.elf: Exec format error\n=== lld ===\nclang 1:21.1.6-70\nclang-18 1:18.1.8-20+b3\nclang-21 1:21.1.8-3+b1\nclang-tools-21 1:21.1.8-3+b1\nlibclang-common-18-dev:amd64 1:18.1.8-20+b3\nlibclang-common-21-dev:amd64 1:21.1.8-3+b1\nlibclang-cpp18 1:18.1.8-20+b3\nlibclang-cpp21 1:21.1.8-3+b1\nlibclang-rt-18-dev:amd64 1:18.1.8-20+b3\nlibclang-rt-21-dev 1:21.1.8-3+b1\nlibclang1-18 1:18.1.8-20+b3\nlibclang1-21 1:21.1.8-3+b1\n\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162300Z-f99b6a08.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.016,
+      "bridge_exit": 0,
+      "case": "ctf-b37c81c14eb6b825",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 1908.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791994981349616700-a1bca048.json"
+  }
+}

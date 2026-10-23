@@ -1,0 +1,62 @@
+{
+  "packages": [
+    "gdb",
+    "checksec",
+    "strace",
+    "ltrace",
+    "python3-pwntools",
+    "python3-z3",
+    "python3-gmpy2",
+    "python3-venv"
+  ],
+  "python_modules": {
+    "pwn": false,
+    "Crypto": false,
+    "Cryptodome": true,
+    "z3": false,
+    "gmpy2": false,
+    "dnfile": false
+  },
+  "apt_update": {
+    "argv": [
+      "sudo",
+      "-n",
+      "apt-get",
+      "update",
+      "-o",
+      "APT::Update::Error-Mode=any",
+      "-o",
+      "Acquire::Retries=1",
+      "-o",
+      "Acquire::http::Timeout=30",
+      "-o",
+      "Acquire::https::Timeout=30"
+    ],
+    "returncode": 0,
+    "stdout": "获取:1 http://kali.download/kali kali-rolling InRelease [34.0 kB]\n获取:2 http://kali.download/kali kali-rolling/main amd64 Packages [21.6 MB]\n获取:3 http://download.zerotier.com/debian/trixie trixie InRelease [20.5 kB]\n获取:4 http://kali.download/kali kali-rolling/main amd64 Contents (deb) [54.2 MB]\n获取:5 http://kali.download/kali kali-rolling/contrib amd64 Packages [104 kB]\n获取:6 http://kali.download/kali kali-rolling/contrib amd64 Contents (deb) [183 kB]\n获取:7 http://kali.download/kali kali-rolling/non-free amd64 Packages [170 kB]\n获取:8 http://kali.download/kali kali-rolling/non-free amd64 Contents (deb) [893 kB]\n获取:9 http://kali.download/kali kali-rolling/non-free-firmware amd64 Packages [16.0 kB]\n获取:10 http://kali.download/kali kali-rolling/non-free-firmware amd64 Contents (deb) [42.3 kB]\n已下载 77.3 MB，耗时 20秒 (3,899 kB/s)\n正在读取软件包列表...\n",
+    "stderr": ""
+  },
+  "install_plan": {
+    "argv": [
+      "sudo",
+      "-n",
+      "apt-get",
+      "-s",
+      "install",
+      "--no-install-recommends",
+      "gdb",
+      "checksec",
+      "strace",
+      "ltrace",
+      "python3-pwntools",
+      "python3-z3",
+      "python3-gmpy2",
+      "python3-venv"
+    ],
+    "returncode": 0,
+    "stdout": "正在读取软件包列表...\n正在分析软件包的依赖关系树...\n正在读取状态信息...\n正在解析依赖...\n下列软件包是自动安装的并且现在不需要了：\n  gir1.2-ayatanaappindicator3-0.1 libpython3.13-dev onboard-common\n  python3-talloc python3-tdb python3.13 python3.13-dev python3.13-minimal\n  python3.13-tk python3.13-venv rpcsvc-proto tdb-tools\n使用'sudo apt autoremove'来卸载它(它们)。\n将会同时安装下列软件：\n  blueman curl libc-bin libc-dev-bin libc-gconv-modules-extra libc-l10n libc6\n  libc6-dev libc6-i386 libcurl3t64-gnutls libcurl4-gnutls libcurl4t64\n  libdebuginfod-common libdebuginfod1t64 libdw1t64 libelf1t64 libexpat1\n  libexpat1-dev libipt2 libjs-sphinxdoc libngtcp2-16 libngtcp2-crypto-gnutls8\n  libngtcp2-crypto-ossl0 libpython3-dev libpython3-stdlib libpython3.14\n  libpython3.14-dev libpython3.14-minimal libpython3.14-stdlib\n  libsource-highlight-common libsource-highlight4t64 libunicorn2t64 libz3-4\n  libz3-dev locales python-gmpy2-common python3 python3-aardwolf\n  python3-colored-traceback python3-dev python3-intervaltree python3-minimal\n  python3-nassl python3-plumbum python3-pyelftools python3-ropgadget\n  python3-rpyc python3-talloc python3-tdb python3-tk python3-unicorn\n  python3.14 python3.14-dev python3.14-minimal python3.14-tk python3.14-venv\n建议安装：\n  gdb-doc gdbserver libc-dbg python-gmpy2-doc gdb-multiarch qemu-user-static\n  python3-rpyc-doc python3.14-doc binfmt-support\n推荐安装：\n  gdbserver\n下列软件包将被【卸载】：\n  onboard onboard-data python3-ldb python3-samba\n下列【新】软件包将被安装：\n  checksec gdb libcurl4-gnutls libdebuginfod-common libdebuginfod1t64 libipt2\n  libpython3.14 libpython3.14-dev libpython3.14-minimal libpython3.14-stdlib\n  libsource-highlight-common libsource-highlight4t64 libunicorn2t64 ltrace\n  python-gmpy2-common python3-colored-traceback python3-gmpy2\n  python3-intervaltree python3-plumbum python3-pwntools python3-pyelftools\n  python3-ropgadget python3-rpyc python3-unicorn python3-z3 python3.14\n  python3.14-dev python3.14-minimal python3.14-venv strace\n下列软件包将被升级：\n  blueman curl libc-bin libc-dev-bin libc-gconv-modules-extra libc-l10n libc6\n  libc6-dev libc6-i386 libcurl3t64-gnutls libcurl4t64 libdw1t64 libelf1t64\n  libexpat1 libexpat1-dev libjs-sphinxdoc libngtcp2-16\n  libngtcp2-crypto-gnutls8 libngtcp2-crypto-ossl0 libpython3-dev\n  libpython3-stdlib libz3-4 libz3-dev locales python3 python3-aardwolf\n  python3-dev python3-minimal python3-nassl python3-talloc python3-tdb\n  python3-tk python3-venv python3.14-tk\n升级了 34 个软件包，新安装了 30 个软件包，要卸载 4 个软件包，有 2011 个软件包未被升级。\nInst libc-gconv-modules-extra [2.42-13] (2.43-6 kali-rolling [amd64]) [libc6:amd64 ]\nConf libc-gconv-modules-extra (2.43-6 kali-rolling [amd64]) [libc6:amd64 ]\nInst libc-l10n [2.42-13] (2.43-6 kali-rolling [all]) [libc6:amd64 ]\nInst locales [2.42-13] (2.43-6 kali-rolling [all]) [libc6:amd64 ]\nInst libc6 [2.42-13] (2.43-6 kali-rolling [amd64]) [libc6-i386:amd64 libc-dev-bin:amd64 libc-bin:amd64 libc6-dev:amd64 ]\nConf libc6 (2.43-6 kali-rolling [amd64]) [libc6-i386:amd64 libc-dev-bin:amd64 libc-bin:amd64 libc6-dev:amd64 ]\nInst libc-bin [2.42-13] (2.43-6 kali-rolling [amd64]) [libc6-i386:amd64 libc-dev-bin:amd64 libc6-dev:amd64 ]\nConf libc-bin (2.43-6 kali-rolling [amd64]) [libc6-i386:amd64 libc-dev-bin:amd64 libc6-dev:amd64 ]\nInst libc-dev-bin [2.42-13] (2.43-6 kali-rolling [amd64]) [libc6-i386:amd64 libc6-dev:amd64 ]\nInst libc6-dev [2.42-13] (2.43-6 kali-rolling [amd64]) [libc6-i386:amd64 ]\nInst libc6-i386 [2.42-13] (2.43-6 kali-rolling [amd64])\nRemv onboard-data [1.4.3+git20260213+ds-2]\nRemv onboard [1.4.3+git20260213+ds-2]\nRemv python3-samba [2:4.23.6+dfsg-1+b1]\nRemv python3-ldb [2:2.11.0+samba4.23.6+dfsg-1+b1]\nInst libdebuginfod-common (0.196-1 kali-rolling [all])\nInst libexpat1-dev [2.7.4-1] (2.8.4-1 kali-rolling [amd64]) []\nInst libexpat1 [2.7.4-1] (2.8.4-1 kali-rolling [amd64])\nInst libpython3.14-minimal (3.14.7-4 kali-rolling [amd64])\nInst python3.14-minimal (3.14.7-4 kali-rolling [amd64])\nInst libpython3-dev [3.13.9-3] (3.14.7-3 kali-rolling [amd64]) [python3-dev:amd64 ]\nInst python3-dev [3.13.9-3] (3.14.7-3 kali-rolling [amd64]) []\nInst python3-venv [3.13.9-3] (3.14.7-3 kali-rolling [amd64]) []\nInst python3-tdb [2:1.4.14+samba4.23.6+dfsg-1+b1] (2:1.4.15+samba4.24.6+dfsg-1 kali-rolling [amd64]) []\nInst python3-talloc [2:2.4.3+samba4.23.6+dfsg-1+b1] (2:2.4.4+samba4.24.6+dfsg-1 kali-rolling [amd64]) []\nInst python3-nassl [5.3.1-0kali1] (5.4.0-0kali3 kali-rolling [amd64]) []\nInst python3-aardwolf [0.2.8-0kali3+b1] (0.2.8-0kali3+b2 kali-rolling [amd64]) []\nInst blueman [2.4.4-1] (2.4.4-1+b1 kali-rolling [amd64]) []\nConf libpython3.14-minimal (3.14.7-4 kali-rolling [amd64]) []\nConf libexpat1 (2.8.4-1 kali-rolling [amd64]) []\nConf python3.14-minimal (3.14.7-4 kali-rolling [amd64]) []\nInst python3-minimal [3.13.9-3] (3.14.7-3 kali-rolling [amd64]) [python3:amd64 on python3-minimal:amd64] [python3:amd64 ]\nConf python3-minimal (3.14.7-3 kali-rolling [amd64]) [python3:amd64 ]\nInst python3 [3.13.9-3] (3.14.7-3 kali-rolling [amd64]) []\nInst libpython3.14-stdlib (3.14.7-4 kali-rolling [amd64]) []\nInst libpython3.14 (3.14.7-4 kali-rolling [amd64]) []\nInst libpython3.14-dev (3.14.7-4 kali-rolling [amd64]) []\nInst python3.14 (3.14.7-4 kali-rolling [amd64]) []\nInst python3.14-dev (3.14.7-4 kali-rolling [amd64]) []\nInst libjs-sphinxdoc [8.2.3-12] (9.1.0-8 kali-rolling [all]) []\nInst python3.14-venv (3.14.7-4 kali-rolling [amd64]) []\nInst libpython3-stdlib [3.13.9-3] (3.14.7-3 kali-rolling [amd64])\nInst checksec (2.6.0-2 kali-rolling [all])\nInst libngtcp2-16 [1.16.0-1] (1.24.0-1 kali-rolling [amd64])\nInst libngtcp2-crypto-ossl0 [1.16.0-1] (1.24.0-1 kali-rolling [amd64])\nInst curl [8.18.0-2] (8.22.0-1 kali-rolling [amd64]) []\nInst libcurl4t64 [8.18.0-2] (8.22.0-1 kali-rolling [amd64])\nInst libcurl3t64-gnutls [8.18.0-2] (8.22.0-1 kali-rolling [amd64]) []\nInst libngtcp2-crypto-gnutls8 [1.16.0-1] (1.24.0-1 kali-rolling [amd64]) []\nInst libcurl4-gnutls (8.22.0-1 kali-rolling [amd64])\nInst libdw1t64 [0.194-1] (0.196-1 kali-rolling [amd64]) []\nInst libelf1t64 [0.194-1] (0.196-1 kali-rolling [amd64])\nInst libdebuginfod1t64 (0.196-1 kali-rolling [amd64])\nInst libipt2 (2.2-1 kali-rolling [amd64])\nInst libsource-highlight-common (3.1.9-4.3 kali-rolling [all])\nInst libsource-highlight4t64 (3.1.9-4.3+b2 kali-rolling [amd64])\nInst gdb (17.2-1+b1 kali-rolling [amd64])\nInst libunicorn2t64 (2.1.4-4 kali-rolling [amd64])\nInst libz3-4 [4.13.3-1+b1] (4.13.3-1.1 kali-rolling [amd64]) [libz3-dev:amd64 ]\nInst libz3-dev [4.13.3-1+b1] (4.13.3-1.1 kali-rolling [amd64])\nInst ltrace (0.7.91~git20230705.8eabf68-4+b1 kali-rolling [amd64])\nInst python-gmpy2-common (2.2.1-5 kali-rolling [all])\nInst python3-colored-traceback (0.4.2-2 kali-rolling [all])\nInst python3-gmpy2 (2.2.1-5+b1 kali-rolling [amd64])\nInst python3-intervaltree (3.0.2-1.1 kali-rolling [all])\nInst python3-plumbum (2.0.2-1 kali-rolling [all])\nInst python3-pyelftools (0.33-1 kali-rolling [all])\nInst python3-ropgadget (7.7+dfsg-1 kali-rolling [all])\nInst python3-rpyc (6.0.2-1 kali-rolling [all])\nInst python3-unicorn (2.1.4-4 kali-rolling [all])\nInst python3-pwntools (4.15.0-1 kali-rolling [all])\nInst python3.14-tk [3.14.3-1] (3.14.7-4 kali-rolling [amd64])\nInst python3-tk [3.13.9-3] (3.14.7-3 kali-rolling [amd64])\nInst python3-z3 (4.13.3-1.1 kali-rolling [amd64])\nInst strace (7.0+ds-1 kali-rolling [amd64])\nConf libc-l10n (2.43-6 kali-rolling [all])\nConf locales (2.43-6 kali-rolling [all])\nConf libc-dev-bin (2.43-6 kali-rolling [amd64])\nConf libc6-dev (2.43-6 kali-rolling [amd64])\nConf libc6-i386 (2.43-6 kali-rolling [amd64])\nConf libdebuginfod-common (0.196-1 kali-rolling [all])\nConf libexpat1-dev (2.8.4-1 kali-rolling [amd64])\nConf libpython3-dev (3.14.7-3 kali-rolling [amd64])\nConf python3-dev (3.14.7-3 kali-rolling [amd64])\nConf python3-venv (3.14.7-3 kali-rolling [amd64])\nConf python3-tdb (2:1.4.15+samba4.24.6+dfsg-1 kali-rolling [amd64])\nConf python3-talloc (2:2.4.4+samba4.24.6+dfsg-1 kali-rolling [amd64])\nConf python3-nassl (5.4.0-0kali3 kali-rolling [amd64])\nConf python3-aardwolf (0.2.8-0kali3+b2 kali-rolling [amd64])\nConf blueman (2.4.4-1+b1 kali-rolling [amd64])\nConf python3 (3.14.7-3 kali-rolling [amd64])\nConf libpython3.14-stdlib (3.14.7-4 kali-rolling [amd64])\nConf libpython3.14 (3.14.7-4 kali-rolling [amd64])\nConf libpython3.14-dev (3.14.7-4 kali-rolling [amd64])\nConf python3.14 (3.14.7-4 kali-rolling [amd64])\nConf python3.14-dev (3.14.7-4 kali-rolling [amd64])\nConf libjs-sphinxdoc (9.1.0-8 kali-rolling [all])\nConf python3.14-venv (3.14.7-4 kali-rolling [amd64])\nConf libpython3-stdlib (3.14.7-3 kali-rolling [amd64])\nConf checksec (2.6.0-2 kali-rolling [all])\nConf libngtcp2-16 (1.24.0-1 kali-rolling [amd64])\nConf libngtcp2-crypto-ossl0 (1.24.0-1 kali-rolling [amd64])\nConf curl (8.22.0-1 kali-rolling [amd64])\nConf libcurl4t64 (8.22.0-1 kali-rolling [amd64])\nConf libcurl3t64-gnutls (8.22.0-1 kali-rolling [amd64])\nConf libngtcp2-crypto-gnutls8 (1.24.0-1 kali-rolling [amd64])\nConf libcurl4-gnutls (8.22.0-1 kali-rolling [amd64])\nConf libdw1t64 (0.196-1 kali-rolling [amd64])\nConf libelf1t64 (0.196-1 kali-rolling [amd64])\nConf libdebuginfod1t64 (0.196-1 kali-rolling [amd64])\nConf libipt2 (2.2-1 kali-rolling [amd64])\nConf libsource-highlight-common (3.1.9-4.3 kali-rolling [all])\nConf libsource-highlight4t64 (3.1.9-4.3+b2 kali-rolling [amd64])\nConf gdb (17.2-1+b1 kali-rolling [amd64])\nConf libunicorn2t64 (2.1.4-4 kali-rolling [amd64])\nConf libz3-4 (4.13.3-1.1 kali-rolling [amd64])\nConf libz3-dev (4.13.3-1.1 kali-rolling [amd64])\nConf ltrace (0.7.91~git20230705.8eabf68-4+b1 kali-rolling [amd64])\nConf python-gmpy2-common (2.2.1-5 kali-rolling [all])\nConf python3-colored-traceback (0.4.2-2 kali-rolling [all])\nConf python3-gmpy2 (2.2.1-5+b1 kali-rolling [amd64])\nConf python3-intervaltree (3.0.2-1.1 kali-rolling [all])\nConf python3-plumbum (2.0.2-1 kali-rolling [all])\nConf python3-pyelftools (0.33-1 kali-rolling [all])\nConf python3-ropgadget (7.7+dfsg-1 kali-rolling [all])\nConf python3-rpyc (6.0.2-1 kali-rolling [all])\nConf python3-unicorn (2.1.4-4 kali-rolling [all])\nConf python3-pwntools (4.15.0-1 kali-rolling [all])\nConf python3.14-tk (3.14.7-4 kali-rolling [amd64])\nConf python3-tk (3.14.7-3 kali-rolling [amd64])\nConf python3-z3 (4.13.3-1.1 kali-rolling [amd64])\nConf strace (7.0+ds-1 kali-rolling [amd64])\n",
+    "stderr": ""
+  },
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 36.843
+}

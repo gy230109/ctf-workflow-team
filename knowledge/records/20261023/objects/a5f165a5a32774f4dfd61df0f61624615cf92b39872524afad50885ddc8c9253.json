@@ -1,0 +1,23 @@
+{
+  "case": "jev_system_demo_20261012",
+  "timeline_head": "a670ea25f85e44e66742a1fdcef1460fdf31ba91d5fe6ff8e660757e1eb318d9",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "ec7fb0d96f7c89496e6c02cc0bc06145b39336dbf902122c23c353e0204dc09c",
+      "kind": "log_render"
+    },
+    {
+      "path": "images/0003-log.png",
+      "sha256": "f1c8548240c4cb2a652a62cd44687c24fb12d81e385976b36a0fdb291afafda0",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "673cc21611aa0ed7cadb2dac5b7435d22004b03a05285732e37c0d1dd3bf02e2",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

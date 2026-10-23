@@ -1,0 +1,311 @@
+{
+  "task_id": "ctf-fca56ff3a53c802b",
+  "title": "Tower2-php源码泄漏-b64-LFI",
+  "description": "目标: http://160.202.254.160:10986/   (PHP/5.5.9-1ubuntu4.6)\n\n首页 highlight_file(__FILE__) 直接泄漏 PHP 源码:\n$zero=$_REQUEST['zero']; $first=$_REQUEST['first']; $second=$zero.$first;\nif(preg_match_all(\"/Yeedo|wants|a|girl|friend|or|a|flag/i\",$second)){\n  if(preg_match(\"/\\.\\.|flag/\",$second)) die(\"Noooood hacker!\");\n  else { $third=$first;\n    if(preg_match(\"/\\\\|\\056\\160\\150\\x70/i\",$third)){\n      $end=substr($third,5);\n      highlight_file(base64_decode($zero).$end); }}}\nelse highlight_file(__FILE__);\n\n解题要点:\n1) PHP 双引号里 \\\\ 变成一个反斜杠, 正则实际是字面量 \"|.php\" 而不是 \".php\";\n   若按 \".php\" 构造会被 die 掉或匹配不到。\n2) $end=substr($third,5) 丢弃 first 前 5 个字符, 所以 first 固定前缀 \"|.php\", 其后才是路径后缀。\n3) 第一正则要求 $second 含关键词(列表里有单个字母 a), 但 base64(\"flag.php\") 不含 a。\n   利用 PHP base64_decode 的宽容性, 在 == 填充之后追加 a: 既让正则命中, 又不改变解码结果。\n4) 第二正则只拦明文 \"..\" 和 \"flag\", base64 编码后自然绕过。\n\npayload: ?zero=<base64(path)>a&first=|.php\n  base64_decode 后得到 path, substr(first,5) 为空, 最终 highlight_file(path)。\n\nVERIFIED: /var/www/html/flag.php -> flag{2b1eb9b028236b576b9bac30bbf15f8e}\n",
+  "category": "web",
+  "created_at": "2026-10-17T15:32:20.338633+00:00",
+  "updated_at": "2026-10-17T15:44:46.620103+00:00",
+  "state": "in_progress",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-17T15:34:52.572567+00:00",
+      "tool": "web_http_inspect",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251292483911900-5bdc7b70.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0004-call.json",
+        "assets": 0,
+        "operation_id": "b35bd3caad174941a7235ee5e219fc21",
+        "capture_errors": []
+      },
+      "error_code": "operation_failed",
+      "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+    },
+    {
+      "at": "2026-10-17T15:34:57.383697+00:00",
+      "tool": "py_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251297290123600-2857e2cd.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 6,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0006-call.json",
+        "assets": 0,
+        "operation_id": "091674ca1cca467a839de0210a6a8889",
+        "capture_errors": []
+      },
+      "error_code": "execution_failed",
+      "error": "工具执行失败；读取 result 中退出码与 stderr"
+    },
+    {
+      "at": "2026-10-17T15:35:18.443731+00:00",
+      "tool": "py_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251318328420200-4c49f3e8.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 8,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0008-call.json",
+        "assets": 0,
+        "operation_id": "5b2e52c6d5864b5cb9ab103b81823cb7",
+        "capture_errors": []
+      },
+      "error_code": "execution_failed",
+      "error": "工具执行失败；读取 result 中退出码与 stderr"
+    },
+    {
+      "at": "2026-10-17T15:35:36.833010+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251336731739000-5593db5f.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 10,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0010-call.json",
+        "assets": 0,
+        "operation_id": "0796e8359c6a4886a68dec00f6199c8e",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:38:04.875551+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251484764315600-d711f693.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 12,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0012-call.json",
+        "assets": 0,
+        "operation_id": "a5ca2314cef64a0b85e872de33e979cd",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:38:16.681808+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251496581796800-086f6531.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 14,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0014-call.json",
+        "assets": 0,
+        "operation_id": "23f51250c0b94e838c7a7ac385cdaa43",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:38:29.968728+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251509846279600-a6537995.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 16,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0016-call.json",
+        "assets": 0,
+        "operation_id": "1036e47ef3ee4b0d93f2635cda09bf9e",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:38:43.801502+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251523675688900-1339a4d5.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 18,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0018-call.json",
+        "assets": 0,
+        "operation_id": "d2fb0ce57b0941ce93aedc1892677eec",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:39:02.010249+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251541875191500-d4efe2e1.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 20,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0020-call.json",
+        "assets": 0,
+        "operation_id": "bf21f1a9a2894cb5b5dc2f4f47e8498f",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:39:22.427647+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251562298456900-c277b43c.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 22,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0022-call.json",
+        "assets": 0,
+        "operation_id": "dce1fec06d0e4679bff9821f04e4265e",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:39:40.647432+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251580511679200-208cf4c0.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 24,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0024-call.json",
+        "assets": 0,
+        "operation_id": "73648d2d7d2948d88e2bfaa439f9a592",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:40:00.396578+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251600262847100-1777d1cc.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 26,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0026-call.json",
+        "assets": 0,
+        "operation_id": "5d6925b1f57944328fb71669ec7a30d0",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:40:19.086718+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251618950216500-27ff75d6.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 28,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0028-call.json",
+        "assets": 0,
+        "operation_id": "ec0c9da1895846009f71c0340d224bdc",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:40:28.899944+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251628448460000-9e18e0b2.json",
+      "wp_record": null,
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:40:58.728844+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251658567739600-387c5743.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 31,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0031-call.json",
+        "assets": 0,
+        "operation_id": "b57f009cec874ce3ab2a47a190febdb9",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:41:36.773424+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251696616517500-a4ef9f3c.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 33,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0033-call.json",
+        "assets": 0,
+        "operation_id": "b74a37c5e9f049ecac9ad86fa050b680",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:41:58.362218+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251718191168100-91ac3524.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 35,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0035-call.json",
+        "assets": 0,
+        "operation_id": "79058a0046e047a9a38161324eaba011",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:42:31.848241+00:00",
+      "tool": "py_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251751666395300-39b4515b.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 37,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0037-call.json",
+        "assets": 0,
+        "operation_id": "8b251fa92c9c415bbad2f1cc59371a80",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-17T15:44:46.620078+00:00",
+      "tool": "py_run",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792251886451357700-0807e983.json",
+      "wp_record": {
+        "case": "ctf-fca56ff3a53c802b",
+        "step": 39,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-fca56ff3a53c802b\\raw\\0039-call.json",
+        "assets": 0,
+        "operation_id": "55a96806353047779e4270a9fc29b220",
+        "capture_errors": []
+      },
+      "error_code": "execution_failed",
+      "error": "执行超时"
+    }
+  ],
+  "answer_verified": false,
+  "wp_context_signature": "a8684069f1a7b905edea17778f0f65e72e4d4a8cb6603a193dab49b08be5e586"
+}

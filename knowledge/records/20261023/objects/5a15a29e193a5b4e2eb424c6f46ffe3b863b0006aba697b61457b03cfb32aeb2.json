@@ -1,0 +1,38 @@
+{
+  "arguments": {
+    "limit": 2,
+    "wp_case": "ctf-be53732c839da95a"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "challenges": [
+        {
+          "id": 1,
+          "name": "How to pronounce GIF",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        },
+        {
+          "id": 2,
+          "name": "Do the loop!",
+          "category": "forensics",
+          "value": 0,
+          "solved_by_me": false,
+          "solves": 0,
+          "grading_configured": false
+        }
+      ],
+      "matched": 66,
+      "returned": 2
+    },
+    "tool": "ctfd_list",
+    "dangerous": false,
+    "duration_ms": 108.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062744834756500-b0a06749.json"
+  }
+}

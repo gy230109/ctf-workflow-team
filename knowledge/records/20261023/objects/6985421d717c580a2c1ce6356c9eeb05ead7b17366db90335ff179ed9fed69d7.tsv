@@ -1,0 +1,7 @@
+frame.number	frame.len	frame.protocols	ip.src	ipv6.src	ip.dst	ipv6.dst	tcp.stream	udp.stream
+"1"	"54"	"eth:ethertype:ip:tcp"	"192.0.2.1"		"192.0.2.2"		"0"	
+"2"	"54"	"eth:ethertype:ip:tcp"	"192.0.2.2"		"192.0.2.1"		"0"	
+"3"	"54"	"eth:ethertype:ip:tcp"	"192.0.2.1"		"192.0.2.2"		"0"	
+"4"	"108"	"eth:ethertype:ip:tcp:http"	"192.0.2.1"		"192.0.2.2"		"0"	
+"5"	"153"	"eth:ethertype:ip:tcp:http:data-text-lines"	"192.0.2.2"		"192.0.2.1"		"0"	
+"6"	"76"	"eth:ethertype:ip:udp:dns"	"192.0.2.1"		"192.0.2.2"			"0"

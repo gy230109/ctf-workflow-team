@@ -1,0 +1,30 @@
+{
+  "ts": "2026-10-16 14:08:12",
+  "call_id": "1792130892018216400-8402a68c",
+  "args": {
+    "case": "ctf-23e45f890c213167",
+    "description": "这是一份系统自建验收输入，不是比赛题。要求通过现有 CTF系统 MCP 记录真实工具调用、有来源的观察、真实截图和复现说明，随后从同一模型导出 Markdown、HTML、Word 和 PDF。没有 flag 或平台判题，不宣称解题成功。",
+    "source": {},
+    "attachments": [
+      {
+        "path": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-23e45f890c213167\\attachments\\fixture-handout.txt",
+        "name": "fixture-handout.txt",
+        "sha256": "1df284368069245c3b81e2247dd0cca435130661a96b2fd243b61e4819174a32"
+      }
+    ]
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-23e45f890c213167",
+      "step": 2,
+      "attachments": 1,
+      "bytes": 114,
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-23e45f890c213167\\intake\\388a7e0a62b743d782dd19b75cfcc17f\\context.json"
+    },
+    "tool": "wp_intake",
+    "dangerous": false,
+    "duration_ms": 212.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792130892018216400-8402a68c.json"
+  }
+}

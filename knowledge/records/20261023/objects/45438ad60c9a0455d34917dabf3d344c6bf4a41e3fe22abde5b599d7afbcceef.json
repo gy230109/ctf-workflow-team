@@ -1,0 +1,136 @@
+{
+  "arguments": {
+    "action": "summary",
+    "local_file": "[CTF_ROOT]\\.local\\ctf-system\\tasks\\ctf-bdd93eaa303223fd\\attachments\\offline-demo.pcap",
+    "wp_purpose": "核对自建 PCAP 包数与协议汇总",
+    "wp_case": "ctf-bdd93eaa303223fd",
+    "case": "ctf-bdd93eaa303223fd"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "ok": true,
+        "action": "summary",
+        "max_packets": 20000,
+        "input_sha256": "6f3f02be4f944a14e2bb796d84bf6c74ae3299fc9faef8d9f6ebc44030e17bed",
+        "scope": "仅离线分析所读包；不是穷尽检查或答案验证。",
+        "packets_read": 6,
+        "captured_frame_bytes": 499,
+        "protocols": {
+          "eth:ethertype:ip:tcp": 3,
+          "eth:ethertype:ip:tcp:http": 1,
+          "eth:ethertype:ip:tcp:http:data-text-lines": 1,
+          "eth:ethertype:ip:udp:dns": 1
+        },
+        "output_truncated": false,
+        "command": [
+          "tshark",
+          "-n",
+          "-r",
+          "/home/kali/ctf-workbench/cases/ctf-bdd93eaa303223fd/input/offline-demo.pcap",
+          "-c",
+          "20000",
+          "-T",
+          "fields",
+          "-E",
+          "header=y",
+          "-E",
+          "quote=d",
+          "-E",
+          "separator=/t",
+          "-e",
+          "frame.number",
+          "-e",
+          "frame.len",
+          "-e",
+          "frame.protocols",
+          "-e",
+          "ip.src",
+          "-e",
+          "ipv6.src",
+          "-e",
+          "ip.dst",
+          "-e",
+          "ipv6.dst",
+          "-e",
+          "tcp.stream",
+          "-e",
+          "udp.stream"
+        ],
+        "stderr": "",
+        "evidence_artifacts": [
+          {
+            "artifact": "work/pcap-summary-27093e02ea54.tsv",
+            "sha256": "6985421d717c580a2c1ce6356c9eeb05ead7b17366db90335ff179ed9fed69d7",
+            "kind": "data",
+            "source": "Actual offline TShark output; original PCAP preserved"
+          }
+        ],
+        "artifact": "work/pcap-summary-27093e02ea54.tsv",
+        "sha256": "6985421d717c580a2c1ce6356c9eeb05ead7b17366db90335ff179ed9fed69d7"
+      },
+      "execution": {
+        "run_id": "20261016T043106Z-64eb33b6",
+        "case_root": "/home/kali/ctf-workbench/cases/ctf-bdd93eaa303223fd",
+        "cwd": "/home/kali/ctf-workbench/cases/ctf-bdd93eaa303223fd/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/extension-worker-b62fce103f2c501c.py",
+          "../input/request-016f9b86e3b8459d8adfc8f52266e8b8.json"
+        ],
+        "timeout_seconds": 60,
+        "started_at_utc": "2026-10-16T04:31:07.647771+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 3.736,
+        "stdout_bytes": 1199,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"ok\": true, \"action\": \"summary\", \"max_packets\": 20000, \"input_sha256\": \"6f3f02be4f944a14e2bb796d84bf6c74ae3299fc9faef8d9f6ebc44030e17bed\", \"scope\": \"仅离线分析所读包；不是穷尽检查或答案验证。\", \"packets_read\": 6, \"captured_frame_bytes\": 499, \"protocols\": {\"eth:ethertype:ip:tcp\": 3, \"eth:ethertype:ip:tcp:http\": 1, \"eth:ethertype:ip:tcp:http:data-text-lines\": 1, \"eth:ethertype:ip:udp:dns\": 1}, \"output_truncated\": false, \"command\": [\"tshark\", \"-n\", \"-r\", \"/home/kali/ctf-workbench/cases/ctf-bdd93eaa303223fd/input/offline-demo.pcap\", \"-c\", \"20000\", \"-T\", \"fields\", \"-E\", \"header=y\", \"-E\", \"quote=d\", \"-E\", \"separator=/t\", \"-e\", \"frame.number\", \"-e\", \"frame.len\", \"-e\", \"frame.protocols\", \"-e\", \"ip.src\", \"-e\", \"ipv6.src\", \"-e\", \"ip.dst\", \"-e\", \"ipv6.dst\", \"-e\", \"tcp.stream\", \"-e\", \"udp.stream\"], \"stderr\": \"\", \"evidence_artifacts\": [{\"artifact\": \"work/pcap-summary-27093e02ea54.tsv\", \"sha256\": \"6985421d717c580a2c1ce6356c9eeb05ead7b17366db90335ff179ed9fed69d7\", \"kind\": \"data\", \"source\": \"Actual offline TShark output; original PCAP preserved\"}], \"artifact\": \"work/pcap-summary-27093e02ea54.tsv\", \"sha256\": \"6985421d717c580a2c1ce6356c9eeb05ead7b17366db90335ff179ed9fed69d7\"}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/ctf-bdd93eaa303223fd/results/20261016T043106Z-64eb33b6.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 4.265,
+        "bridge_exit": 0,
+        "case": "ctf-bdd93eaa303223fd",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "ctf-bdd93eaa303223fd",
+      "upload_verified": true,
+      "evidence_artifacts": [
+        {
+          "path": "[WORKSPACE]\\ctf-workbench\\cases\\ctf-bdd93eaa303223fd\\downloads\\20261016T043111Z-5a1ef584\\pcap-summary-27093e02ea54.tsv",
+          "sha256": "6985421d717c580a2c1ce6356c9eeb05ead7b17366db90335ff179ed9fed69d7",
+          "kind": "data",
+          "source": "Actual offline TShark output; original PCAP preserved"
+        }
+      ],
+      "capture_errors": []
+    },
+    "tool": "forensics_pcap",
+    "dangerous": false,
+    "wp_operation": {
+      "operation_id": "ca65c1bca9ca46d09942fa31af4c25ff",
+      "step": 2
+    },
+    "duration_ms": 11376.1,
+    "task_health": {
+      "ok": true,
+      "case": "ctf-bdd93eaa303223fd",
+      "calls": 1,
+      "failed_calls": 0,
+      "active_tool_seconds": 11.376,
+      "recent_failure_streak": 0,
+      "warnings": [],
+      "policy": "advisory_only",
+      "execution_blocked": false,
+      "model_tokens": null,
+      "model_cost": null,
+      "scope": "仅统计经过本系统的新调用；不含模型推理时间或费用，不证明答案正确。"
+    },
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125072260952300-48592667.json"
+  }
+}

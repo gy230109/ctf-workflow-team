@@ -1,0 +1,16 @@
+{
+  "ts": "2026-10-12 15:01:56",
+  "call_id": "1791788516293137300-ec65443c",
+  "args": {
+    "case": "wp_system_demo_20261012",
+    "caption": "验收时 Kali VM 的实际显示画面"
+  },
+  "response": {
+    "ok": false,
+    "tool": "wp_capture",
+    "error": "RuntimeError('VMware 截图失败: Error: 此虚拟机不允许执行匿名客户机操作。必须先调用 VixVM_LoginInGuest，才能执行客户机操作\\r\\n')",
+    "error_code": "execution_failed",
+    "duration_ms": 676.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791788516293137300-ec65443c.json"
+  }
+}

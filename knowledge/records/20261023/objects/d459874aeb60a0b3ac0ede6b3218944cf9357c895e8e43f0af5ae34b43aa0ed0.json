@@ -1,0 +1,82 @@
+{
+  "root_mount": {
+    "returncode": 0,
+    "stdout": "/dev/sda1 ext4 rw,relatime,errors=remount-ro\n",
+    "stderr": ""
+  },
+  "disk": {
+    "returncode": 0,
+    "stdout": "文件系统            1B的块        已用        可用 已用% 挂载点\n/dev/sda1      84362952704 20667731968 60042764288   26% /\n",
+    "stderr": ""
+  },
+  "swap": {
+    "returncode": 0,
+    "stdout": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority\n/swapfile                               file\t\t2097148\t\t0\t\t-2\n",
+    "stderr": ""
+  },
+  "desktop": {
+    "returncode": 0,
+    "stdout": "● lightdm.service - Light Display Manager\n     Loaded: loaded (/usr/lib/systemd/system/lightdm.service; enabled; preset: disabled)\n     Active: active (running) since Sun 2026-10-11 17:57:03 CST; 1min 8s ago\n Invocation: 58a8a515be4740e29f0c800dae4d4472\n       Docs: man:lightdm(1)\n   Main PID: 820 (lightdm)\n      Tasks: 7 (limit: 4411)\n     Memory: 224.7M (peak: 226.7M)\n        CPU: 2.406s\n     CGroup: /system.slice/lightdm.service\n             ├─ 820 /usr/sbin/lightdm\n             ├─ 832 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch\n             └─1093 lightdm --session-child 13 20\n\n10月 11 17:57:03 kali systemd[1]: Starting lightdm.service - Light Display Manager...\n10月 11 17:57:03 kali systemd[1]: Started lightdm.service - Light Display Manager.\n10月 11 17:57:07 kali lightdm[933]: pam_unix(lightdm-greeter:session): session opened for user lightdm(uid=118) by (uid=0)\n10月 11 17:57:08 kali lightdm[933]: pam_unix(lightdm-greeter:session): session opened for user lightdm(uid=118) by (uid=0)\n",
+    "stderr": ""
+  },
+  "remount": {
+    "returncode": 0,
+    "stdout": "● systemd-remount-fs.service - Remount Root and Kernel File Systems\n     Loaded: loaded (/usr/lib/systemd/system/systemd-remount-fs.service; enabled; preset: disabled)\n     Active: active (exited) since Sun 2026-10-11 17:56:58 CST; 1min 13s ago\n Invocation: 82202103de2e4f499c12f441f9d6e98e\n       Docs: man:systemd-remount-fs.service(8)\n             https://systemd.io/API_FILE_SYSTEMS\n    Process: 443 ExecStart=/usr/lib/systemd/systemd-remount-fs (code=exited, status=0/SUCCESS)\n   Main PID: 443 (code=exited, status=0/SUCCESS)\n   Mem peak: 2M\n        CPU: 22ms\n\nNotice: journal has been rotated since unit was started, output may be incomplete.\n",
+    "stderr": ""
+  },
+  "failed_units": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "fstab": {
+    "returncode": 0,
+    "stdout": "# /etc/fstab: static file system information.\n#\n# Use 'blkid' to print the universally unique identifier for a\n# device; this may be used with UUID= as a more robust way to name devices\n# that works even if disks are added and removed. See fstab(5).\n#\n# systemd generates mount units based on this file, see systemd.mount(5).\n# Please run 'systemctl daemon-reload' after making changes here.\n#\n# <file system> <mount point>   <type>  <options>       <dump>  <pass>\n# / was on /dev/sda1 during installation\nUUID=6c71c483-9f62-4e01-9f86-c5c2fa3e4050 /               ext4    errors=remount-ro 0       1\n# swap was on /dev/sda5 during installation\n/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0\n.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,uid=1000 0 0\n\n# Swapfile installed during verified Kali disk expansion, 2026-10-11.\n/swapfile none swap sw 0 0\n",
+    "stderr": ""
+  },
+  "package_audit": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "boot_errors": {
+    "returncode": 0,
+    "stdout": "[    1.783412] core: CPUID marked event: 'cpu cycles' unavailable\n[    1.783430] core: CPUID marked event: 'instructions' unavailable\n[    1.783448] core: CPUID marked event: 'bus cycles' unavailable\n[    1.783466] core: CPUID marked event: 'cache references' unavailable\n[    1.783485] core: CPUID marked event: 'cache misses' unavailable\n[    1.783503] core: CPUID marked event: 'branch instructions' unavailable\n[    1.783521] core: CPUID marked event: 'branch misses' unavailable\n[   11.201123] piix4_smbus 0000:00:07.3: SMBus Host Controller not enabled!\n[   12.124974] sd 5:0:0:0: [sda] Assuming drive cache: write through\n[   15.068142] systemd-sslh-generator: Configuration directory '/etc/sslh/' does not exist! No units generated.\n[   15.212480] systemd-sysv-generator[421]: SysV service '/etc/init.d/stunnel4' lacks a native systemd unit file, automatically generating a unit file for compatibility.\n[   15.212488] systemd-sysv-generator[421]: Please update package to include a native systemd unit file.\n[   15.212492] systemd-sysv-generator[421]: ! This compatibility logic is deprecated, expect removal soon. !\n[   23.201883] Bluetooth: hci0: unexpected cc 0x0c12 length: 2 < 3\n[   23.201904] Bluetooth: hci0: Opcode 0x0c12 failed: -38\n",
+    "stderr": ""
+  },
+  "package_versions": {
+    "returncode": 0,
+    "stdout": "checksec 2.6.0-2 ii \ngdb 17.1-3 ii \nlibc6 2.42-13 ii \nltrace 0.7.91~git20230705.8eabf68-4+b1 ii \npython3 3.13.9-3 ii \npython3.13-venv 3.13.12-1 ii \nstrace 7.0+ds-1 ii \n",
+    "stderr": ""
+  },
+  "data_preservation": {
+    "checked": 51,
+    "mismatches": [],
+    "all_match": true
+  },
+  "write_read_verified": true,
+  "zsh_history_write": {
+    "returncode": 0,
+    "stderr": "",
+    "file_created": false
+  },
+  "resources": {
+    "cpu_count": 2,
+    "disk": {
+      "total": 84362952704,
+      "used": 20667731968,
+      "free": 60042764288
+    }
+  },
+  "python_modules": {
+    "pwn": true,
+    "Crypto": true,
+    "Cryptodome": true,
+    "z3": true,
+    "gmpy2": true,
+    "dnfile": true,
+    "sympy": true
+  },
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 1.203
+}

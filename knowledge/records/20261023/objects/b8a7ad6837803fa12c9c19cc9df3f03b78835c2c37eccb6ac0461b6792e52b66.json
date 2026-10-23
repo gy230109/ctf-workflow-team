@@ -1,0 +1,21 @@
+{
+  "ts": "2026-10-13 21:06:06",
+  "call_id": "1791896766488832700-c87c08c8",
+  "args": {
+    "case": "qwb2023_not_only_rsa",
+    "status": "hypothesis",
+    "text": "关键判断：n 是素数幂 → φ(n)=p^(k-1)(p-1)；又 e | (p-1) 且 gcd(e,(p-1)/e)=1 → 标准 RSA 求 d 会报 base is not invertible，必须改用 e 次根。"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 6,
+      "case": "qwb2023_not_only_rsa",
+      "status": "hypothesis"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 29.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791896766488832700-c87c08c8.json"
+  }
+}

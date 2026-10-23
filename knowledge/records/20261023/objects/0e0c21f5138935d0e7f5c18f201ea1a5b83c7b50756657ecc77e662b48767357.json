@@ -1,0 +1,22 @@
+{
+  "ts": "2026-10-14 23:18:42",
+  "call_id": "1791991122139110000-d34600e7",
+  "args": {
+    "case": "ctf-dcf8677aeacda424",
+    "text": "反编译结论（kali_jadx，/tmp/jadx-out）：App 自身只有 com.example.xman.easymobile 的 MainActivity + encode 两个类；MainActivity 在按钮点击时调用 encode.check(input)，true 显示 correct。encode.check 是『不动点』校验：temp[i]=(byte)((input[i]+b[i])%61)，再 temp[i]=(byte)(temp[i]*2-i)，最后 return new String(temp).equals(str)。b=[23,22,26,26,25,25,25,26,27,28,30,30,29,30,32,32]。唯一 16 字节解 = LOHILMNMLKHILKHI（逐位唯一：76,79,72,73,76,77,78,77,76,75,72,73,76,75,72,73）。本地按 Java byte 语义独立复算：check('LOHILMNMLKHILKHI')==true；且 flag{...} 形状的 16 字符串（如 flag{aa...(574 chars)",
+    "status": "observed",
+    "source_step": 6
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "step": 13,
+      "case": "ctf-dcf8677aeacda424",
+      "status": "observed"
+    },
+    "tool": "wp_note",
+    "dangerous": false,
+    "duration_ms": 144.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991122139110000-d34600e7.json"
+  }
+}

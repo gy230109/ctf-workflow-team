@@ -1,0 +1,128 @@
+{
+  "ts": "2026-10-12 02:04:22",
+  "call_id": "1791741862208748900-2afb00b7",
+  "args": {
+    "query": "Symbol"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 5,
+      "tools": [
+        {
+          "name": "EvalExpression",
+          "description": "Evaluates an x64dbg expression (address, register, arithmetic, symbol) and returns the result in hex and decimal.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "expression": {
+                "type": "string",
+                "description": "x64dbg expression (e.g. cip, eax+4, kernel32:CreateFileA)."
+              }
+            },
+            "required": [
+              "expression"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SetBreakpoint",
+          "description": "Sets a software execution breakpoint (INT3) at an address or API symbol.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Hex address or API symbol to break on."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DeleteBreakpoint",
+          "description": "Removes a breakpoint at an address or API symbol.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "Hex address or API symbol of the breakpoint to remove."
+              }
+            },
+            "required": [
+              "target"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SearchSymbols",
+          "description": "Searches for symbols (labels) matching a pattern in a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Symbol name pattern to search for (substring match)."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to search in (default: all modules)."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListSymbols",
+          "description": "Lists exported symbols of a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name to list symbols from."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 171.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741862208748900-2afb00b7.json"
+  }
+}

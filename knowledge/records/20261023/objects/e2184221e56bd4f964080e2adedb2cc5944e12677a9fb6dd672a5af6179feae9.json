@@ -1,0 +1,178 @@
+{
+  "task_id": "ctf-a4595e3240dcc28b",
+  "title": "WP 自动留证部署验收（自建样例）",
+  "description": "Only local self-built GUI, web, terminal and debugger evidence checks; no CTF solution or model evaluation.",
+  "category": "unknown",
+  "created_at": "2026-10-15T13:16:06.652879+00:00",
+  "updated_at": "2026-10-15T13:28:48.335245+00:00",
+  "state": "analysis_complete",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-15T13:16:35.706364+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070195599447100-96fdb101.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0003-call.json",
+        "assets": 2,
+        "operation_id": "aa5d8659e9ea47358bf380197d77a382",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:16:43.845329+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070203727753600-903d41db.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0005-call.json",
+        "assets": 2,
+        "operation_id": "ad410686557443438d5ebb5c118c16da",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:16:44.703992+00:00",
+      "kind": "note",
+      "text": "自建页面按钮点击后显示 42；该结论引用实际浏览器返回。",
+      "status": "observed",
+      "source_step": 5
+    },
+    {
+      "at": "2026-10-15T13:17:00.799542+00:00",
+      "tool": "web_browser_session",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070220720074400-98377f13.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 8,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0008-call.json",
+        "assets": 2,
+        "operation_id": "fd33509036d64ed6aef919cb3d4d3ffb",
+        "capture_errors": []
+      },
+      "error_code": "browser_action_failed",
+      "error": "Locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waiting for locator(\"#does-not-exist\")\n"
+    },
+    {
+      "at": "2026-10-15T13:17:09.113703+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070228991956800-7ca6d0d1.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 10,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0010-call.json",
+        "assets": 2,
+        "operation_id": "040263a8026c4b43804ab63cf8db5321",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:17:14.322538+00:00",
+      "tool": "kali_terminal_record",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070234223001700-8f8cf602.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 12,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0012-call.json",
+        "assets": 0,
+        "operation_id": "a6aa2e720ae34b7cb2c173969bc84e67",
+        "capture_errors": [
+          {
+            "kind": "terminal_recording",
+            "error": "Recording missing or exceeds 16 MiB"
+          }
+        ]
+      },
+      "error_code": "terminal_command_failed",
+      "error": "Recorded command failed or timed out"
+    },
+    {
+      "at": "2026-10-15T13:17:19.505016+00:00",
+      "tool": "web_browser_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070239401255700-17465938.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 14,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0014-call.json",
+        "assets": 0,
+        "operation_id": "a4ff6fc592224924a39d3b8075cd4f27",
+        "capture_errors": [
+          {
+            "kind": "browser_recording",
+            "error": "Existing session has not loaded recording support; close it when idle before a new start",
+            "action_replayed": false
+          }
+        ]
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T13:17:24.413570+00:00",
+      "tool": "kali_debug_session",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070244301549500-0f571978.json",
+      "wp_record": {
+        "case": "ctf-a4595e3240dcc28b",
+        "step": 16,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\raw\\0016-call.json",
+        "assets": 0,
+        "operation_id": "144f753d66644a719df11c66f146b975",
+        "capture_errors": []
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false,
+  "summary": "部署期间的首次自建留证检查：网页实际留证完成；asciinema 2.4 不支持 --return，终端录制因此失败。失败证据保留；兼容修复后在独立验收任务 ctf-9f14d2187a3d8030 完成全链路验证。本任务不是成功解题。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-a4595e3240dcc28b",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\reports\\20261015T132847Z-ca016bb2\\writeup.md",
+      "bundle_path": "[CTF_ROOT]\\wp\\cases\\ctf-a4595e3240dcc28b\\reports\\20261015T132847Z-ca016bb2.zip",
+      "records": 16,
+      "integrity_verified": true,
+      "images_included": 0,
+      "recordings_included": 0,
+      "recording_complete": false,
+      "capture_errors": [
+        {
+          "step": 12,
+          "error": "Recording missing or exceeds 16 MiB",
+          "kind": "terminal_recording"
+        },
+        {
+          "step": 14,
+          "action_replayed": false,
+          "error": "Existing session has not loaded recording support; close it when idle before a new start",
+          "kind": "browser_recording"
+        }
+      ],
+      "pending_operations": [],
+      "solved_verified": false,
+      "platform_answer_verified": false,
+      "review_required_before_sharing": "原始证据、正文语义与图片像素须另行检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 1190.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070928300251100-ee8dba61.json"
+  }
+}

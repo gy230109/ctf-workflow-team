@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport urllib.request, urllib.parse, time\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get():\n    with op.open(BASE, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\ndef post(content):\n    data = urllib.parse.urlencode({\"content\": content}).encode()\n    with op.open(BASE, data=data, timeout=20) as r:\n        r.read()\n\nchars = list(\"<>/\\\"'()_=&;#:[]{}$%*+-.,!?@~^|\\\\`\") + [\"\\n\", \"\\t\", \"\\r\"]\nresults = []\nfor ch in chars:\n    mark = \"M%02xMARK\" % ord(ch)\n    try:\n        post(mark + ch + \"END\")\n        time.sleep(0.06)\n        body = get()\n    except Exception as e:\n        results.append((ch, \"ERR\", str(e)[:40])); continue\n    i = body.find(mark)\n    if i < 0:\n        results.append((ch, \"未找到\", \"\")); continue\n    seg = body[i+len(mark): i+len(mark)+10]\n    results.append((ch, \"原样\" if seg.startswith(ch) else \"转义\", seg))\n\nfor ch, verdict, seg in results:\n    print(\"  %-6r %-6s %r\" % (ch, verdict, seg))\n",
+    "timeout": 240,
+    "wp_purpose": "逐字符确认过滤映射（POST后重新GET）",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "5d6925b1f57944328fb71669ec7a30d0"
+}

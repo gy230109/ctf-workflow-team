@@ -1,0 +1,49 @@
+{
+  "ts": "2026-10-12 18:22:04",
+  "call_id": "1791800524881119400-db8288ac",
+  "args": {
+    "confirm": true,
+    "case": "qwb_ezre_v1",
+    "local_file": "D:\\Temp\\qwb_x\\Vanguard-ezre\\ezre",
+    "timeout": 40,
+    "argv": [
+      "bash",
+      "-c",
+      "ls -la /home/kali/ctf-workbench/cases/qwb_ezre_v1/input/; file /home/kali/ctf-workbench/cases/qwb_ezre_v1/input/ezre"
+    ]
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261012T102204Z-77bc1296",
+      "case_root": "/home/kali/ctf-workbench/cases/qwb_ezre_v1",
+      "cwd": "/home/kali/ctf-workbench/cases/qwb_ezre_v1/work",
+      "command": [
+        "bash",
+        "-c",
+        "ls -la /home/kali/ctf-workbench/cases/qwb_ezre_v1/input/; file /home/kali/ctf-workbench/cases/qwb_ezre_v1/input/ezre"
+      ],
+      "timeout_seconds": 40,
+      "started_at_utc": "2026-10-12T10:22:05.333990+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.051,
+      "stdout_bytes": 255,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "总计 8\ndrwxrwxr-x 2 kali kali 4096 10月12日 18:21 .\ndrwxrwxr-x 5 kali kali 4096 10月12日 18:21 ..\n/home/kali/ctf-workbench/cases/qwb_ezre_v1/input/ezre: cannot open `/home/kali/ctf-workbench/cases/qwb_ezre_v1/input/ezre' (No such file or directory)\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwb_ezre_v1/results/20261012T102204Z-77bc1296.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.375,
+      "bridge_exit": 0,
+      "case": "qwb_ezre_v1",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 1212.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791800524881119400-db8288ac.json"
+  }
+}

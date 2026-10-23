@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T162821Z-d559a585",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/work",
+  "command": [
+    "bash",
+    "-c",
+    "objdump -d -M intel ./p > /tmp/d.txt; wc -l /tmp/d.txt; grep -A 60 -e 401b30 /tmp/d.txt | head -70"
+  ],
+  "timeout_seconds": 180,
+  "started_at_utc": "2026-10-11T16:28:21.928735+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 1.001,
+  "stdout_bytes": 3338,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "488509 /tmp/d.txt\n  401b30:\tf3 0f 1e fa          \tendbr64\n  401b34:\t31 ed                \txor    ebp,ebp\n  401b36:\t49 89 d1             \tmov    r9,rdx\n  401b39:\t5e                   \tpop    rsi\n  401b3a:\t48 89 e2             \tmov    rdx,rsp\n  401b3d:\t48 83 e4 f0          \tand    rsp,0xfffffffffffffff0\n  401b41:\t50                   \tpush   rax\n  401b42:\t54                   \tpush   rsp\n  401b43:\t45 31 c0             \txor    r8d,r8d\n  401b46:\t31 c9                \txor    ecx,ecx\n  401b48:\t48 c7 c7 60 1c 40 00 \tmov    rdi,0x401c60\n  401b4f:\t67 e8 fb d8 11 00    \taddr32 call 0x51f450\n  401b55:\tf4                   \thlt\n  401b56:\t66 2e 0f 1f 84 00 00 \tcs nop WORD PTR [rax+rax*1+0x0]\n  401b5d:\t00 00 00 \n  401b60:\tf3 0f 1e fa          \tendbr64\n  401b64:\tc3                   \tret\n  401b65:\t66 2e 0f 1f 84 00 00 \tcs nop WORD PTR [rax+rax*1+0x0]\n  401b6c:\t00 00 00 \n  401b6f:\t90                   \tnop\n  401b70:\tb8 60 e7 68 00       \tmov    eax,0x68e760\n  401b75:\t48 3d 60 e7 68 00    \tcmp    rax,0x68e760\n  401b7b:\t74 13                \tje     0x401b90\n  401b7d:\tb8 00 00 00 00       \tmov    eax,0x0\n  401b82:\t48 85 c0             \ttest   rax,rax\n  401b85:\t74 09                \tje     0x401b90\n  401b87:\tbf 60 e7 68 00       \tmov    edi,0x68e760\n  401b8c:\tff e0                \tjmp    rax\n  401b8e:\t66 90                \txchg   ax,ax\n  401b90:\tc3                   \tret\n  401b91:\t66 66 2e 0f 1f 84 00 \tdata16 cs nop WORD PTR [rax+rax*1+0x0]\n  401b98:\t00 00 00 00 \n  401b9c:\t0f 1f 40 00          \tnop    DWORD PTR [rax+0x0]\n  401ba0:\tbe 60 e7 68 00       \tmov    esi,0x68e760\n  401ba5:\t48 81 ee 60 e7 68 00 \tsub    rsi,0x68e760\n  401bac:\t48 89 f0             \tmov    rax,rsi\n  401baf:\t48 c1 ee 3f          \tshr    rsi,0x3f\n  401bb3:\t48 c1 f8 03          \tsar    rax,0x3\n  401bb7:\t48 01 c6             \tadd    rsi,rax\n  401bba:\t48 d1 fe             \tsar    rsi,1\n  401bbd:\t74 11                \tje     0x401bd0\n  401bbf:\tb8 00 00 00 00       \tmov    eax,0x0\n  401bc4:\t48 85 c0             \ttest   rax,rax\n  401bc7:\t74 07                \tje     0x401bd0\n  401bc9:\tbf 60 e7 68 00       \tmov    edi,0x68e760\n  401bce:\tff e0                \tjmp    rax\n  401bd0:\tc3                   \tret\n  401bd1:\t66 66 2e 0f 1f 84 00 \tdata16 cs nop WORD PTR [rax+rax*1+0x0]\n  401bd8:\t00 00 00 00 \n  401bdc:\t0f 1f 40 00          \tnop    DWORD PTR [rax+0x0]\n  401be0:\tf3 0f 1e fa          \tendbr64\n  401be4:\t80 3d 75 cb 28 00 00 \tcmp    BYTE PTR [rip+0x28cb75],0x0        # 0x68e760\n  401beb:\t75 2b                \tjne    0x401c18\n  401bed:\t55                   \tpush   rbp\n  401bee:\t48 89 e5             \tmov    rbp,rsp\n  401bf1:\te8 7a ff ff ff       \tcall   0x401b70\n  401bf6:\tb8 40 ce 5c 00       \tmov    eax,0x5cce40\n  401bfb:\t48 85 c0             \ttest   rax,rax\n  401bfe:\t74 0a                \tje     0x401c0a\n  401c00:\tbf 90 f2 5f 00       \tmov    edi,0x5ff290\n  401c05:\te8 36 b2 1c 00       \tcall   0x5cce40\n--\n  55f37d:\t48 8d 05 ac 27 ea ff \tlea    rax,[rip+0xffffffffffea27ac]        # 0x401b30\n  55f384:\t48 c7 85 90 fe ff ff \tmov    QWORD PTR [rbp-0x170],0x1000\n  55f38b:\t00 10 00 00 \n  55f38f:\t48 89 85 a8 fe ff ff \tmov    QWORD PTR [rbp-0x158],rax\n  55f396:\t48 8b 02             \tmov    rax,QWORD PTR [rdx]\n  55f399:\t48 c7 85 f0 fe ff ff \tmov    QWORD PTR [rbp-0x110],0x37f\n  55f3a0:\t7f 03 00 00 \n  55f3a4:\t48 85 c0             \ttest   rax,rax\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/results/20261011T162821Z-d559a585.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 1.359
+}

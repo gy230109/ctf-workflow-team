@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T095940Z-0f612b2b",
+  "case_root": "/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810",
+  "cwd": "/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/work",
+  "command": [
+    "python3",
+    "-c",
+    "import json,sys,Crypto,pwn,z3,gmpy2,dnfile; print(json.dumps({python:sys.executable,ready:True}))"
+  ],
+  "timeout_seconds": 60,
+  "started_at_utc": "2026-10-11T09:59:41.518595+00:00",
+  "returncode": 1,
+  "timed_out": false,
+  "duration_seconds": 0.525,
+  "stdout_bytes": 0,
+  "stderr_bytes": 289,
+  "output_truncated": false,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import json,sys,Crypto,pwn,z3,gmpy2,dnfile; print(json.dumps({python:sys.executable,ready:True}))\n                                                                  ^^^^^^\nNameError: name 'python' is not defined\n",
+  "guest_log": "/home/kali/ctf-workbench/cases/kali_recovery_20261011_175810/results/20261011T095940Z-0f612b2b.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.828
+}

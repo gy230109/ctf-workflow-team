@@ -1,0 +1,18 @@
+{
+  "case": "ctf-5fab17e3a76442dc",
+  "timeline_head": "7693ced74f48a6736773a721715466a3bc4e28f089feb97f3d4bb1ab7280e0ab",
+  "files": [
+    {
+      "path": "images/0002-log.png",
+      "sha256": "c49ee6b4d1757153f3e3f1c7c9c5bb7df0fb8b322c0da6fe2a46fe6c468c1551",
+      "kind": "log_render"
+    },
+    {
+      "path": "writeup.md",
+      "sha256": "8c0d1ed08d9d79ddfd8d497a0344dc538ec38a588ba8d8910efbe399e5fb43a5",
+      "kind": "markdown"
+    }
+  ],
+  "text_redaction": "best_effort",
+  "images_reviewed": false
+}

@@ -1,0 +1,351 @@
+[17:21:07] #2 blackboard.delta race_started
+[17:21:07] #3 blackboard.delta worker_spawned
+[17:21:07] #4 blackboard.delta race_concurrent_handoff
+[17:21:07] #6 blackboard.delta phase_transition
+[17:21:07] #7 worker.lifecycle spawned
+[17:21:07] #8 blackboard.delta 题目信息:
+这是一道 CTF 比赛题（类别：杂项 + 逆向混合）。工作目录里有三个附件：
+
+- game.gb  —— 32768 字节的 Game Boy ROM
+- kun.mp3  —— 128
+[17:21:07] #13 blackboard.delta context_manifest
+[17:21:07] #15 blackboard.delta observation_added
+[17:21:07] #16 blackboard.delta 题目信息:
+这是一道 CTF 比赛题（类别：杂项 + 逆向混合）。工作目录里有三个附件：
+
+- game.gb  —— 32768 字节的 Game Boy ROM
+- kun.mp3  —— 128
+[17:21:07] #17 blackboard.delta intent_proposed
+[17:21:07] #18 blackboard.delta intent_claimed
+[17:21:07] #19 blackboard.delta reason_start
+[17:22:34] #26 cost.update 
+[17:22:34] #27 blackboard.delta reason_retry_deferred
+[17:22:34] #28 blackboard.delta reason_done
+[17:23:45] #35 tool.start Bash: ls -la && md5sum * 2>/dev/null
+[17:23:46] #37 tool.start Bash: xxd -s 0x1C00 -l 0x200 game.gb
+[17:24:01] #41 tool.start Bash: python3 "$MUTEKI_BLACKBOARD_SCRIPT" context 2>&1 | head -100
+[17:24:01] #42 tool.start Bash: ls shared/ toolbox/ 2>/dev/null; ls ../../inputs/by-name/ 2>/dev/null
+[17:24:40] #49 cost.update 
+[17:24:50] #54 tool.start Bash: python3 "$MUTEKI_BLACKBOARD_SCRIPT" submit-fact 'FlappyPig隐藏串PS03R49UE576R421RE8的调用点与代码结构' 'ROM 0x1C92 处内联 19 个 tile 序列（游戏字体读出为 PS03R49UE576R421RE8），前后为 tile 0x8A/0
+[17:24:52] #56 tool.start Bash: timeout 120 python3 -c "
+from pyboy import PyBoy
+import numpy as np
+pb = PyBoy('game.gb', window='null', sound_emulated=False)
+pb.set_emulation_speed(0)
+# run title
+[17:24:55] #58 tool.start Bash: pip install --break-system-packages -q pyboy 2>&1 | tail -2; python3 -c "import pyboy; print(pyboy.__version__ if hasattr(pyboy,'__version__') else 'ok')"
+[17:25:55] #64 blackboard.delta worker_checkpoint
+[17:25:55] #66 cost.update 
+[17:25:55] #68 blackboard.delta intent_concluded
+[17:25:57] #69 worker.lifecycle exited
+[17:25:57] #72 blackboard.delta worker_finished
+[17:25:57] #73 blackboard.delta observation_added
+[17:25:57] #74 blackboard.delta intent_concluded
+[17:25:57] #75 blackboard.delta reason_start
+[17:26:15] #76 cost.update 
+[17:26:15] #77 blackboard.delta reason_done
+[17:26:15] #78 blackboard.delta intent_proposed
+[17:26:15] #79 blackboard.delta worker_spawned
+[17:26:15] #81 blackboard.delta ctf_batch_sealed
+[17:26:15] #82 worker.lifecycle spawned
+[17:26:15] #85 blackboard.delta intent_claimed
+[17:26:15] #88 blackboard.delta context_manifest
+[17:26:17] #91 blackboard.delta intent_claimed
+[17:26:21] #93 tool.start Bash: ls -la; echo "---"; python3 "$MUTEKI_BLACKBOARD_SCRIPT" context 2>&1 | head -80
+[17:26:21] #94 tool.start Bash: xxd -s 0x1C40 -l 0x200 game.gb
+[17:26:25] #97 tool.start Bash: xxd -s 0x1B00 -l 0x190 game.gb
+[17:26:25] #99 tool.start Bash: xxd -s 0x1E00 -l 0x200 game.gb
+[17:26:30] #102 tool.start Bash: r2 -a gb -q -c 'e asm.bytes=true; s 0x1bf0; pd 60' game.gb 2>/dev/null | head -80
+[17:26:31] #105 tool.start Bash: r2 -a gb -q -c 'axt 0x1c9d; s 0x1c9d; pd 8; pd -1 @ 0x1c9d' game.gb 2>/dev/null; echo ===; r2 -a gb -q -c 's 0x1d5e; pd 10' game.gb 2>/dev/null
+[17:26:35] #107 tool.start Bash: r2 -a gb -q -c 's 0x1c5e; pd 30' game.gb 2>/dev/null
+[17:26:36] #109 tool.start Bash: python3 - <<'EOF'
+rom = open('game.gb','rb').read()
+# find all pointers (little-endian) into 0x1c90-0x1d00 in ROM
+import struct
+for off in range(0, 0x4000-1):
+    w
+[17:26:42] #111 tool.start Bash: r2 -a gb -q -c 'aa; axt 0x1b41' game.gb 2>/dev/null | grep -i xref | head; echo '--- full func start search ---'; r2 -a gb -q -c 's 0x1b31; pd 20' game.gb 2>/dev/nu
+[17:26:49] #114 tool.start Bash: python3 - <<'EOF'
+rom = open('game.gb','rb').read()
+# search all CD xx xx (call) and C3 xx xx (jp) targeting 0x1b41..0x1c8f
+targets = {}
+for off in range(0x150, 0x4
+[17:26:52] #116 tool.start Bash: r2 -a gb -q -c 's 0x2e20; pd 40' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:27:01] #119 tool.start Bash: r2 -a gb -q -c 'aa; axt 0x2e32' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | grep -iv 'CALL\|unknown' | head; echo ---; python3 - <<'EOF'
+rom = open('game.gb',
+[17:27:05] #121 tool.start Bash: r2 -a gb -q -c 's 0x2d70; pd 25' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'; echo ====; r2 -a gb -q -c 's 0x2a80; pd 15' game.gb 2>/dev/null | sed 's/\x1b\[[0-
+[17:27:09] #123 tool.start Bash: r2 -a gb -q -c 's 0x2a80; pd 15' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:27:09] #125 tool.start Bash: r2 -a gb -q -c 's 0x2d40; pd 12' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:27:15] #127 tool.start Bash: python3 - <<'EOF'
+rom = open('game.gb','rb').read()
+import re
+# candidate flag charset: letters+digits+underscore+braces
+pat = re.compile(rb'[\x20-\x7e]{6,}')
+hits 
+[17:27:22] #130 tool.start Bash: r2 -a gb -q -c 's 0x3390; pd 12' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'; echo; r2 -a gb -q -c 's 0x3380; pd 6' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m/
+[17:27:42] #133 tool.start Bash: cat > /tmp/trig.py <<'EOF'
+from pyboy import PyBoy
+import sys, time
+
+FONT = {}
+letters = {'P':65,'R':66,'E':67,'S':68,'T':69,'A':70,'U':86,'L':87,'B':88}
+for ch,t i
+[17:27:42] #135 tool.start Bash: pip install --break-system-packages -q pyboy 2>&1 | tail -1; python3 -c "import pyboy; print('ok')"
+[17:29:44] #145 tool.start Bash: ls toolbox/ toolbox/bin 2>/dev/null; find / -name "pyboy*" -path "*site-packages*" -maxdepth 8 2>/dev/null | head; python3 -c "import sys; print(sys.path)"
+[17:30:02] #149 tool.start Bash: sleep 60; cat /tmp/claude-1000/-home-kali-workspace-workers-cli-c2api-claude-glm53-local-2/abb44864-c037-41bd-9580-3a1a25a1cf14/tasks/bhq2m04d5.output 2>/dev/null; 
+[17:31:06] #155 tool.start Bash: sleep 90; python3 -c "import pyboy; print('ok')" 2>&1; tail -5 "/tmp/claude-1000/-home-kali-workspace-workers-cli-c2api-claude-glm53-local-2/abb44864-c037-41bd-9580
+[17:32:40] #163 tool.start Bash: sleep 120; python3 -c "import pyboy; print('ok')" 2>&1 | tail -1
+[17:34:48] #174 tool.start Bash: ls /tmp/claude-1000/-home-kali-workspace-workers-cli-c2api-claude-glm53-local-2/abb44864-c037-41bd-9580-3a1a25a1cf14/tasks/; cat /tmp/claude-1000/-home-kali-workspa
+[17:34:53] #176 tool.start Bash: sleep 180; python3 -c "import pyboy; print('ok')" 2>&1 | tail -1
+[17:36:15] #183 cost.update 
+[17:36:15] #184 blackboard.delta worker_soft_reminder
+[17:36:22] #188 tool.start Bash: ls -la; ls shared/ toolbox/bin 2>/dev/null; python3 "$MUTEKI_BLACKBOARD_SCRIPT" context 2>&1 | head -80
+[17:36:22] #189 tool.start Bash: xxd -s 0x1C40 -l 0x120 game.gb
+[17:37:11] #196 tool.start Bash: r2 -a gb -q -c 'e asm.bytes=true; pd 60 @ 0x1C7D' game.gb 2>/dev/null
+[17:37:13] #198 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+# find CALL xx (CD lo hi) targets pointing into 0x1B00-0x1E00
+from collections import Counter
+c=Counter()
+for i in
+[17:37:17] #201 tool.start Bash: r2 -a gb -q -c 'pd 40 @ 0x1BF6; echo ====; pd 30 @ 0x2E00' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:37:24] #203 tool.start Bash: r2 -a gb -q -c 'af @ 0x1BF6; pdf @ 0x1BF6' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | head -120
+[17:37:26] #205 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+# find all references (jp/call) to 0x1BF6 or addresses within 0x1BF6..0x1E00
+import re
+tgts=set(range(0x1BF6,0x1E0
+[17:37:32] #208 tool.start Bash: r2 -a gb -q -c 'pd 80 @ 0x2E38' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:37:39] #210 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+def find callers of 0x2xxx region: scan for call to addresses in 0x2C00..0x3000
+EOF
+# actual: find who calls the f
+[17:37:43] #212 tool.start Bash: r2 -a gb -q -c 'pd 200 @ 0x2EF8' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' > /tmp/f2.txt; wc -l /tmp/f2.txt; head -150 /tmp/f2.txt
+[17:37:57] #215 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+# find function start below 0x2E38: search backwards for a ret (0xC9) boundary
+i=0x2E38
+# print bytes 0x2D00-0x2E4
+[17:38:03] #218 tool.start Bash: r2 -a gb -q -c 'pd 250 @ 0x2C00' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' > /tmp/f3.txt; grep -n "0x00002e38\|cd f61b\|cdf61b" /tmp/f3.txt; head -120 /tmp/f3
+[17:38:10] #220 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+def rd(a): return rom[a-0x8000] if False else None
+# find where SP-relative arg is set before 0x2E38; search backw
+[17:38:15] #222 tool.start Bash: r2 -a gb -q -c 'pd 30 @ 0x2299; echo ====; pd 40 @ 0x2EED' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:38:20] #225 tool.start Bash: r2 -a gb -q -c 'pd 60 @ 0x2ED0; echo ====; pd 20 @ 0x28C0' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:38:26] #227 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+# scan for call targets in 0x2600-0x2C00
+for i in range(0x150,0x4000-2):
+    if rom[i]==0xCD:
+        t=rom[i+1]|(
+[17:38:34] #230 tool.start Bash: python3 - <<'EOF'
+rom=open('game.gb','rb').read()
+# find jp/ret boundaries: search backwards from 0x2E38 for "c9" preceded by add sp big, but simply print region 0x
+[17:38:40] #232 tool.start Bash: r2 -a gb -q -c 'pd 120 @ 0x2780' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' > /tmp/f4.txt; head -130 /tmp/f4.txt
+[17:38:51] #237 cost.update 
+[17:39:51] #246 tool.start Bash: r2 -a gb -q -c 'pd 40 @ 0x1D6B' game.gb 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g'
+[17:40:17] #250 tool.start Bash: cat > notes.md <<'EOF'
+# FlappyPig CTF — 本轮笔记（Step: hidden-string-code-path）
+
+## 已确认（静态分析，ROM 只读，未跑模拟器）
+
+### 1. 隐藏串绘制代码的真实触发条件（推翻"不可达"猜想）
+- 0x1C8F `jp C, 0x1D6B`：C=
+[17:40:29] #253 tool.start Bash: python3 "$MUTEKI_BLACKBOARD_SCRIPT" submit-fact '隐藏串绘制分支0x1C92的真实触发条件与调用链（静态分析确认）' 'ROM game.gb 静态反汇编（r2 -a gb）确认三点：(1) 0x1C8F "jp C,0x1D6B" 的 fall-through 分支 C=0 时
+[17:40:35] #255 tool.start Bash: python3 "$MUTEKI_BLACKBOARD_SCRIPT" commit-step
+[17:40:35] #257 blackboard.delta worker_checkpoint
+[17:40:35] #259 cost.update 
+[17:40:35] #260 worker.lifecycle exited
+[17:40:37] #263 blackboard.delta worker_finished
+[17:40:37] #264 blackboard.delta observation_added
+[17:40:37] #265 blackboard.delta 隐藏串绘制分支0x1C92的真实触发条件与调用链（静态分析确认）
+ROM game.gb 静态反汇编（r2 -a gb）确认三点：(1) 0x1C8F "jp C,0x1D6B" 的 fall-thr
+[17:40:37] #266 blackboard.delta intent_concluded
+[17:40:37] #267 blackboard.delta reason_start
+[17:40:55] #268 cost.update 
+[17:40:55] #269 blackboard.delta reason_retry_scheduled
+[17:40:55] #270 blackboard.delta reason_done
+[17:40:59] #271 blackboard.delta reason_start
+[17:41:17] #273 cost.update 
+[17:41:17] #274 blackboard.delta reason_retry_scheduled
+[17:41:17] #275 blackboard.delta reason_done
+[17:41:23] #276 blackboard.delta reason_start
+[17:41:41] #277 cost.update 
+[17:41:41] #278 blackboard.delta reason_retry_scheduled
+[17:41:41] #279 blackboard.delta reason_done
+[17:41:51] #280 blackboard.delta reason_start
+[17:42:09] #281 cost.update 
+[17:42:09] #282 blackboard.delta reason_retry_scheduled
+[17:42:09] #283 blackboard.delta reason_done
+[17:42:27] #284 blackboard.delta reason_start
+[17:42:46] #285 cost.update 
+[17:42:46] #286 blackboard.delta reason_retry_scheduled
+[17:42:46] #287 blackboard.delta reason_done
+[17:43:18] #288 blackboard.delta reason_start
+[17:43:38] #289 cost.update 
+[17:43:38] #290 blackboard.delta reason_retry_scheduled
+[17:43:38] #291 blackboard.delta reason_done
+[17:44:13] #292 blackboard.delta reason_start
+[17:44:32] #293 cost.update 
+[17:44:32] #294 blackboard.delta reason_retry_scheduled
+[17:44:32] #295 blackboard.delta reason_done
+[17:45:04] #296 blackboard.delta reason_start
+[17:45:22] #297 cost.update 
+[17:45:22] #298 blackboard.delta reason_retry_scheduled
+[17:45:22] #299 blackboard.delta reason_done
+[17:45:55] #300 blackboard.delta reason_start
+[17:46:13] #301 cost.update 
+[17:46:13] #302 blackboard.delta reason_retry_scheduled
+[17:46:13] #303 blackboard.delta reason_done
+[17:46:46] #304 blackboard.delta reason_start
+[17:47:04] #305 cost.update 
+[17:47:04] #306 blackboard.delta reason_retry_scheduled
+[17:47:04] #307 blackboard.delta reason_done
+[17:47:35] #308 blackboard.delta reason_start
+[17:47:54] #309 cost.update 
+[17:47:54] #310 blackboard.delta reason_retry_scheduled
+[17:47:54] #311 blackboard.delta reason_done
+[17:48:27] #312 blackboard.delta reason_start
+[17:48:45] #313 cost.update 
+[17:48:45] #314 blackboard.delta reason_retry_scheduled
+[17:48:45] #315 blackboard.delta reason_done
+[17:49:17] #316 blackboard.delta reason_start
+[17:49:37] #317 cost.update 
+[17:49:37] #318 blackboard.delta reason_retry_scheduled
+[17:49:37] #319 blackboard.delta reason_done
+[17:50:11] #320 blackboard.delta reason_start
+[17:50:29] #321 cost.update 
+[17:50:29] #322 blackboard.delta reason_retry_scheduled
+[17:50:29] #323 blackboard.delta reason_done
+[17:51:02] #324 blackboard.delta reason_start
+[17:51:20] #325 cost.update 
+[17:51:20] #326 blackboard.delta reason_retry_scheduled
+[17:51:20] #327 blackboard.delta reason_done
+[17:51:52] #328 blackboard.delta reason_start
+[17:52:10] #329 cost.update 
+[17:52:10] #330 blackboard.delta reason_retry_scheduled
+[17:52:10] #331 blackboard.delta reason_done
+[17:52:42] #332 blackboard.delta reason_start
+[17:53:00] #333 cost.update 
+[17:53:00] #334 blackboard.delta reason_retry_scheduled
+[17:53:00] #335 blackboard.delta reason_done
+[17:53:32] #336 blackboard.delta reason_start
+[17:53:50] #337 cost.update 
+[17:53:50] #338 blackboard.delta reason_retry_scheduled
+[17:53:50] #339 blackboard.delta reason_done
+[17:54:21] #340 blackboard.delta reason_start
+[17:54:40] #341 cost.update 
+[17:54:40] #342 blackboard.delta reason_retry_scheduled
+[17:54:40] #343 blackboard.delta reason_done
+[17:55:14] #344 blackboard.delta reason_start
+[17:55:35] #345 cost.update 
+[17:55:35] #346 blackboard.delta reason_retry_scheduled
+[17:55:35] #347 blackboard.delta reason_done
+[17:56:08] #348 blackboard.delta reason_start
+[17:56:26] #349 cost.update 
+[17:56:26] #350 blackboard.delta reason_retry_scheduled
+[17:56:26] #351 blackboard.delta reason_done
+[17:56:58] #352 blackboard.delta reason_start
+[17:57:16] #353 cost.update 
+[17:57:16] #354 blackboard.delta reason_retry_scheduled
+[17:57:16] #355 blackboard.delta reason_done
+[17:57:48] #356 blackboard.delta reason_start
+[17:58:06] #357 cost.update 
+[17:58:06] #358 blackboard.delta reason_retry_scheduled
+[17:58:06] #359 blackboard.delta reason_done
+[17:58:38] #360 blackboard.delta reason_start
+[17:58:56] #361 cost.update 
+[17:58:56] #362 blackboard.delta reason_retry_scheduled
+[17:58:56] #363 blackboard.delta reason_done
+[17:59:27] #364 blackboard.delta reason_start
+[17:59:46] #365 cost.update 
+[17:59:46] #366 blackboard.delta reason_retry_scheduled
+[17:59:46] #367 blackboard.delta reason_done
+[18:00:17] #368 blackboard.delta reason_start
+[18:00:36] #369 cost.update 
+[18:00:36] #370 blackboard.delta reason_retry_scheduled
+[18:00:36] #371 blackboard.delta reason_done
+[18:01:08] #372 blackboard.delta reason_start
+[18:01:26] #373 cost.update 
+[18:01:26] #374 blackboard.delta reason_retry_scheduled
+[18:01:26] #375 blackboard.delta reason_done
+[18:01:58] #376 blackboard.delta reason_start
+[18:02:16] #377 cost.update 
+[18:02:16] #378 blackboard.delta reason_retry_scheduled
+[18:02:16] #379 blackboard.delta reason_done
+[18:02:48] #380 blackboard.delta reason_start
+[18:03:06] #381 cost.update 
+[18:03:06] #382 blackboard.delta reason_retry_scheduled
+[18:03:06] #383 blackboard.delta reason_done
+[18:03:37] #384 blackboard.delta reason_start
+[18:03:55] #385 cost.update 
+[18:03:55] #386 blackboard.delta reason_retry_scheduled
+[18:03:55] #387 blackboard.delta reason_done
+[18:04:28] #388 blackboard.delta reason_start
+[18:04:47] #389 cost.update 
+[18:04:47] #390 blackboard.delta reason_retry_scheduled
+[18:04:47] #391 blackboard.delta reason_done
+[18:05:19] #392 blackboard.delta reason_start
+[18:05:38] #393 cost.update 
+[18:05:38] #394 blackboard.delta reason_retry_scheduled
+[18:05:38] #395 blackboard.delta reason_done
+[18:06:13] #396 blackboard.delta reason_start
+[18:06:34] #397 cost.update 
+[18:06:34] #398 blackboard.delta reason_retry_scheduled
+[18:06:34] #399 blackboard.delta reason_done
+[18:07:07] #400 blackboard.delta reason_start
+[18:07:24] #401 cost.update 
+[18:07:24] #402 blackboard.delta reason_retry_scheduled
+[18:07:24] #403 blackboard.delta reason_done
+[18:07:56] #404 blackboard.delta reason_start
+[18:08:14] #405 cost.update 
+[18:08:14] #406 blackboard.delta reason_retry_scheduled
+[18:08:14] #407 blackboard.delta reason_done
+[18:08:45] #408 blackboard.delta reason_start
+[18:09:03] #409 cost.update 
+[18:09:03] #410 blackboard.delta reason_retry_scheduled
+[18:09:03] #411 blackboard.delta reason_done
+[18:09:35] #412 blackboard.delta reason_start
+[18:09:53] #413 cost.update 
+[18:09:53] #414 blackboard.delta reason_retry_scheduled
+[18:09:53] #415 blackboard.delta reason_done
+[18:10:25] #416 blackboard.delta reason_start
+[18:10:44] #417 cost.update 
+[18:10:44] #418 blackboard.delta reason_retry_scheduled
+[18:10:44] #419 blackboard.delta reason_done
+[18:11:17] #420 blackboard.delta reason_start
+[18:11:37] #421 cost.update 
+[18:11:37] #422 blackboard.delta reason_retry_scheduled
+[18:11:37] #423 blackboard.delta reason_done
+[18:12:09] #424 blackboard.delta reason_start
+[18:12:27] #425 cost.update 
+[18:12:27] #426 blackboard.delta reason_retry_scheduled
+[18:12:27] #427 blackboard.delta reason_done
+[18:12:59] #428 blackboard.delta reason_start
+[18:13:17] #429 cost.update 
+[18:13:17] #430 blackboard.delta reason_retry_scheduled
+[18:13:17] #431 blackboard.delta reason_done
+[18:13:49] #432 blackboard.delta reason_start
+[18:14:07] #433 cost.update 
+[18:14:07] #434 blackboard.delta reason_retry_scheduled
+[18:14:07] #435 blackboard.delta reason_done
+[18:14:39] #436 blackboard.delta reason_start
+[18:14:57] #437 cost.update 
+[18:14:57] #438 blackboard.delta reason_retry_scheduled
+[18:14:57] #439 blackboard.delta reason_done
+[18:15:29] #440 blackboard.delta reason_start
+[18:15:47] #441 cost.update 
+[18:15:47] #442 blackboard.delta reason_retry_scheduled
+[18:15:47] #443 blackboard.delta reason_done
+[18:16:18] #444 blackboard.delta reason_start
+[18:16:36] #445 cost.update 
+[18:16:36] #446 blackboard.delta reason_retry_scheduled
+[18:16:36] #447 blackboard.delta reason_done
+[18:17:08] #448 blackboard.delta reason_start
+[18:17:27] #449 cost.update 
+[18:17:27] #450 blackboard.delta reason_retry_scheduled
+[18:17:27] #451 blackboard.delta reason_done
+[18:17:31] #455 blackboard.delta operator_paused
+调度结束，事件已落 [CTF_ROOT]\战例库\比赛-GameBoy\run\run-0889.jsonl 游标 457

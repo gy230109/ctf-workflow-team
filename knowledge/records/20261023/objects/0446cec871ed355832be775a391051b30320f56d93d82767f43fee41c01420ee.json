@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/symbol_image_20261013",
+  "files": [
+    {
+      "name": "substitution.cpp",
+      "bytes": 1936,
+      "sha256": "2b9958622d6dfc613adf2979de232dc52717676096106046687ed206cd450e62"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.36
+}

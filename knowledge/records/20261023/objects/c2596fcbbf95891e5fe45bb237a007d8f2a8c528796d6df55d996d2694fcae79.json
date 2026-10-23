@@ -1,0 +1,388 @@
+{
+  "ts": "2026-10-12 02:04:20",
+  "call_id": "1791741860286728100-cc42cd4e",
+  "args": {
+    "query": "Module"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "server": {
+        "name": "x64dbg-MCP Server",
+        "version": "1.5"
+      },
+      "total": 80,
+      "count": 19,
+      "tools": [
+        {
+          "name": "GetDebugState",
+          "description": "Returns the current debugger state: whether a binary is loaded, whether it is running or paused, the PID, current instruction pointer, and current module. Always available. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetCurrentAddress",
+          "description": "Returns the current instruction pointer (EIP/RIP), the module it belongs to, and its label/comment. Takes no arguments.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListModules",
+          "description": "Lists all loaded modules (DLLs/EXE) with base addresses and sizes.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetMemoryMap",
+          "description": "Returns the memory map showing all memory regions with base address, size, protection, and module info.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetImports",
+          "description": "Shows the import table of a loaded module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetExports",
+          "description": "Shows the export table of a loaded module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FindPattern",
+          "description": "Scans module memory for a byte pattern with ?? wildcards. Returns matching addresses. Example: FindPattern pattern='E8 ?? ?? ?? ?? 85 C0 74'",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Hex bytes with ?? wildcards, e.g. 'E8 ?? ?? ?? ?? 85 C0'."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to scan (default: main exe)."
+              },
+              "maxResults": {
+                "type": "integer",
+                "description": "Max results (default 10).",
+                "default": 10
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetStrings",
+          "description": "Scans a module's memory for ASCII strings and returns them with their addresses.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module to scan (default: main exe)."
+              },
+              "minLength": {
+                "type": "integer",
+                "description": "Min string length (default 4).",
+                "default": 4
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetReferences",
+          "description": "Finds code references (CALL/JMP) to a target address within a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Target address to find references to."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to search in (default: main exe)."
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetFunctions",
+          "description": "Lists analyzed functions in a module with start addresses, sizes, and labels. Requires prior analysis (Ctrl+A in x64dbg).",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "FollowPointer",
+          "description": "Dereferences a pointer chain N levels deep, showing each level's address and value with module info.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Starting address or expression."
+              },
+              "depth": {
+                "type": "integer",
+                "description": "Dereference depth (default 1, max 16).",
+                "default": 1
+              }
+            },
+            "required": [
+              "address"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetSEHChain",
+          "description": "Walks the Structured Exception Handler chain (x32 only) and shows each handler's address and module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SearchSymbols",
+          "description": "Searches for symbols (labels) matching a pattern in a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Symbol name pattern to search for (substring match)."
+              },
+              "module": {
+                "type": "string",
+                "description": "Module to search in (default: all modules)."
+              }
+            },
+            "required": [
+              "pattern"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "ListSymbols",
+          "description": "Lists exported symbols of a module.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name to list symbols from."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "DumpModule",
+          "description": "Dumps an entire loaded module to a file on disk.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name to dump."
+              },
+              "filePath": {
+                "type": "string",
+                "description": "Output file path."
+              }
+            },
+            "required": [
+              "module",
+              "filePath"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AnalyzeModule",
+          "description": "Shows PE structure analysis: sections, entry point, image size, characteristics.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "module": {
+                "type": "string",
+                "description": "Module name (e.g. kernel32, ntdll)."
+              }
+            },
+            "required": [
+              "module"
+            ]
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "GetDumpableRegions",
+          "description": "Lists memory regions that can be dumped (committed, readable) for a module or the entire process.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "AnalyzeCode",
+          "description": "Runs x64dbg code analysis on a module or address range. This populates the function list, enables GetFunctions/GetReferences/DisassembleFunction. Must be run before those tools return useful results.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "Address or module to analyze. If omitted, analyzes the current module."
+              },
+              "type": {
+                "type": "string",
+                "description": "Analysis type: 'function' (analr - analyze single function), 'module' (anal - analyze module), 'controlflow' (cfanal - control flow analysis). Default: module.",
+                "default": "module"
+              }
+            },
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "SaveDatabase",
+          "description": "Saves the x64dbg database (labels, comments, breakpoints, analysis) for the current module. Persists your work across sessions.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "tool": "win_debug_tools",
+    "dangerous": false,
+    "duration_ms": 106.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741860286728100-cc42cd4e.json"
+  }
+}

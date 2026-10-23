@@ -1,0 +1,40 @@
+{
+  "challenge": "AB-longprompt",
+  "attempts": 1,
+  "solved_count": 1,
+  "flags": [
+    "GWHT{gixkJl7SJTcpLOL9zqwo}"
+  ],
+  "total_elapsed_s": 66.7,
+  "ledger": [
+    {
+      "outcome": "terminal",
+      "solved": true,
+      "flag": "GWHT{gixkJl7SJTcpLOL9zqwo}",
+      "reason": "solved",
+      "report": {
+        "verdict": "DONE",
+        "verdict_desc": "已完成（无需关注）",
+        "events": 66,
+        "tool_starts": 8,
+        "tools_in_flight": 1,
+        "duration_s": 66.6,
+        "since_last_tool_s": 1.0,
+        "gap_median_s": 7.0,
+        "gap_max_s": 12.8,
+        "terminal_event": "run.finished",
+        "thresholds": {
+          "warn": 180.0,
+          "dead": 600.0,
+          "grace": 300.0,
+          "tool_timeout": 600.0
+        }
+      },
+      "final_status": "solved",
+      "attempt": 1,
+      "run_id": "run-2250",
+      "elapsed_s": 66.7
+    }
+  ],
+  "pass_rate": 1.0
+}

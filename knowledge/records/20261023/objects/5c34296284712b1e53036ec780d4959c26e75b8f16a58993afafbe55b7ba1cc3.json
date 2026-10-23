@@ -1,0 +1,23 @@
+{
+  "run_id": "20261011T163651Z-fa28dc71",
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636",
+  "cwd": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/work",
+  "command": [
+    "/home/kali/ctf-workbench/.venv/bin/python3",
+    "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/results/20261011T163651Z-fa28dc71.py"
+  ],
+  "timeout_seconds": 180,
+  "started_at_utc": "2026-10-11T16:36:51.793134+00:00",
+  "returncode": 0,
+  "timed_out": false,
+  "duration_seconds": 0.334,
+  "stdout_bytes": 2070,
+  "stderr_bytes": 0,
+  "output_truncated": false,
+  "stdout": "Breakpoint 1 at 0x402172\n\nBreakpoint 1, 0x0000000000402172 in ?? ()\n\n===AT-EMU-START===\nr14=0x64c3f0 r15=0x64c6c0 rbx=0x64c68b r13=0x64c6ed\n0x64c3f0:\t0x1d\t0x71\t0xa2\t0xec\t0xa6\t0xe8\t0xca\t0xe4\n0x64c3f8:\t0xce\t0xe0\t0x52\t0xfc\t0x03\t0xc6\t0x05\t0x00\n0x64c400:\t0x01\t0xce\t0x85\t0x05\t0x05\t0x47\t0xb3\t0x06\n0x64c408:\t0xc7\t0x40\t0x03\t0xc6\t0x05\t0x00\t0x16\t0x07\n0x64c410:\t0x15\t0x8f\t0x85\t0x05\t0x6d\t0xfa\t0x11\t0xa0\n0x64c418:\t0x05\t0x47\t0xb7\t0xa6\t0x57\t0x13\t0x13\t0x56\n0x64c420:\t0x07\t0x01\t0x2c\t0x00\t0x11\t0x05\t0x93\t0x88\n0x64c428:\t0xf6\t0xbd\t0x13\t0x08\t0x81\t0x03\t0x46\t0xda\n\n\n=== blob_at.bin hexdump ===\n0000  1d 71 a2 ec a6 e8 ca e4 ce e0 52 fc 03 c6 05 00  .q........R.....\n0010  01 ce 85 05 05 47 b3 06 c7 40 03 c6 05 00 16 07  .....G...@......\n0020  15 8f 85 05 6d fa 11 a0 05 47 b7 a6 57 13 13 56  ....m....G..W..V\n0030  07 01 2c 00 11 05 93 88 f6 bd 13 08 81 03 46 da  ..,...........F.\n0040  d2 56 d2 57 03 64 41 03 03 69 41 03 83 64 41 03  .V.W.dA..iA..dA.\n0050  03 6a 41 03 83 69 41 03 83 6f 41 03 03 6f 41 03  .jA..iA..oA..oA.\n0060  83 6e 41 03 03 6e 41 03 83 63 41 03 03 63 41 03  .nA..nA..cA..cA.\n0070  83 62 41 03 46 da 3b 76 d6 02 d2 56 bb 76 d7 02  .bA.F.;v...V.v..\n0080  3b 77 f6 02 d2 57 bb f7 f6 02 02 16 02 17 33 37  ;w...W........37\n0090  c7 02 33 77 87 02 03 64 41 03 82 16 82 17 b3 b7  ..3w...dA.......\n00a0  d7 02 b3 f7 87 02 03 64 41 03 01 92 33 07 c7 02  .......dA...3...\n00b0  33 77 27 03 81 92 b3 87 d7 02 b3 f7 87 02 03 64  3w'............d\n00c0  41 03 33 07 c7 02 33 77 97 02 b3 87 d7 02 b3 f7  A.3...3w........\n00d0  87 02 03 64 41 03 33 07 c7 02 33 77 47 03 b3 87  ...dA.3...3wG...\n00e0  d7 02 b3 f7 87 02 03 64 41 03 33 07 c7 02 33 77  .......dA.3...3w\n00f0  37 03 b3 87 d7 02 b3 f7 87 02 03 64 41 03 33 07  7..........dA.3.\n0100  c7 02 33 77 f7 03 b3 87 d7 02 b3 f7 87 02 83 64  ..3w...........d\n0110  41 03 33 07 c7 02 33 77 e7 03 b3 87 d7 02 b3 f7  A.3...3w........\n\n=== compare blob_at vs earlier dump (0x64c3f0) ===\nsame as at-scanf dump? True\nold[0:16]: 1d 71 a2 ec a6 e8 ca e4 ce e0 52 fc 03 c6 05 00\n\n=== riscv64 decode of blob_at ===\n[rv64] 0 insns\n[rv32] 0 insns\n",
+  "stderr": "",
+  "guest_log": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/results/20261011T163651Z-fa28dc71.json",
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.672,
+  "source_sha256": "bf5994551a954afbeb1aea75b6132c0c8df96b1aca053966aeb22146c2d0356d"
+}

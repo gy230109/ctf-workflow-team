@@ -1,0 +1,10 @@
+{
+  "tool": "kali_debug_session",
+  "arguments": {
+    "action": "close",
+    "confirm": true,
+    "wp_case": "ctf-9f14d2187a3d8030",
+    "case": "ctf-9f14d2187a3d8030"
+  },
+  "operation_id": "150b99ed17ff4b50abd99ceec1f38e3c"
+}

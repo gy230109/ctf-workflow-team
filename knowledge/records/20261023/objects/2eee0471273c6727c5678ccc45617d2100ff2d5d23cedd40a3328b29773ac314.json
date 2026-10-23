@@ -1,0 +1,82 @@
+{
+  "task_id": "ctf-33f2fd155e777d12",
+  "title": "资料库接入检查：Awesome CTF 与 Crypto-Cat",
+  "description": "仅验证本机参考资料检索、来源引用与隔离；不解比赛题，不执行第三方脚本，不调用候选模型。",
+  "category": "unknown",
+  "created_at": "2026-10-15T11:33:16.096181+00:00",
+  "updated_at": "2026-10-15T11:35:31.969014+00:00",
+  "state": "analysis_complete",
+  "artifacts": [],
+  "events": [
+    {
+      "at": "2026-10-15T11:33:42.544232+00:00",
+      "tool": "kb_search",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064022473412200-f70c549f.json",
+      "wp_record": {
+        "case": "ctf-33f2fd155e777d12",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-33f2fd155e777d12\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:33:44.472061+00:00",
+      "tool": "kb_read",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064024318196000-b60f1939.json",
+      "wp_record": {
+        "case": "ctf-33f2fd155e777d12",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-33f2fd155e777d12\\raw\\0003-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:33:46.833423+00:00",
+      "tool": "kb_search",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064026774497800-fe3c20cd.json",
+      "wp_record": {
+        "case": "ctf-33f2fd155e777d12",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-33f2fd155e777d12\\raw\\0004-call.json"
+      },
+      "error_code": "execution_failed",
+      "error": "ValueError('Crypto-Cat 含题解/solver，独立解题和测评输入默认隔离；仅查阅参考案例时显式设置 allow_reference=true')"
+    },
+    {
+      "at": "2026-10-15T11:33:49.134453+00:00",
+      "tool": "kb_search",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064029067861300-7555f325.json",
+      "wp_record": {
+        "case": "ctf-33f2fd155e777d12",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-33f2fd155e777d12\\raw\\0005-call.json"
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": false,
+  "summary": "资料库接入检查完成：Awesome CTF 实际搜索及读取成功，固定提交/SHA256/行号返回；Crypto-Cat 默认拒绝访问，显式参考查询成功。未执行第三方脚本，未解题或评测模型，答案未验证。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-33f2fd155e777d12",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-33f2fd155e777d12\\reports\\20261015T113531Z-7e5cb649\\writeup.md",
+      "records": 5,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 520.9,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792064131921008300-e585d80c.json"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "ts": "2026-10-12 01:36:54",
+  "call_id": "1791740214965602500-c2022c08",
+  "args": {
+    "query": "format string vulnerability",
+    "limit": 3
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "format string vulnerability",
+      "normalized_terms": [
+        "format",
+        "string",
+        "vulnerability"
+      ],
+      "match_mode": "all_terms",
+      "count": 3,
+      "matches": [
+        {
+          "source": "hacktricks",
+          "path": "src/binary-exploitation/format-strings/README.md",
+          "title": "Format Strings",
+          "heading": "Format Strings to BOF",
+          "start_line": 226,
+          "end_line": 230,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\binary-exploitation\\format-strings\\README.md",
+          "file_sha256": "a4b14983338c7ceb6b0139cd0e39e9bee773a45986b2accd8b9492c4b41aba3f",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/binary-exploitation/format-strings/README.md#L226-L230",
+          "excerpt": "## [Format] Strings to BOF\n\nIt's possible to abuse the write actions of a [format] [string] [vulnerability] to **write in addresses of the stack** and exploit a **buffer overflow** type of [vulnerability].\n\n",
+          "rank": -16.40721
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/binary-exploitation/format-strings/README.md",
+          "title": "Format Strings",
+          "heading": "Basic Information",
+          "start_line": 1,
+          "end_line": 13,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\binary-exploitation\\format-strings\\README.md",
+          "file_sha256": "a4b14983338c7ceb6b0139cd0e39e9bee773a45986b2accd8b9492c4b41aba3f",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/binary-exploitation/format-strings/README.md#L1-L13",
+          "excerpt": " … The [vulnerability] appears when an **attacker text is used as the first argument** to this function. The attacker will be able to craft a **special input abusing** the **printf [format]** [string] capabilities to read and **write any data in any address (readable/writable)**. Being able this way to … ",
+          "rank": -14.37433
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/generic-methodologies-and-resources/python/bypass-python-sandboxes/README.md",
+          "title": "Bypass Python sandboxes",
+          "heading": "Python Format String",
+          "start_line": 776,
+          "end_line": 833,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\generic-methodologies-and-resources\\python\\bypass-python-sandboxes\\README.md",
+          "file_sha256": "6305b73b75a5f27e09901c47292d392275be91140c487567f66a0710c02e8ba2",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/generic-methodologies-and-resources/python/bypass-python-sandboxes/README.md#L776-L833",
+          "excerpt": " … [Format] [String]\n\nIf you **send** a **[string]** to python that is going to be **formatted**, you can use `{}` to access **python internal information.** You can use the previous examples to access globals or builtins for example.<sup>[[14]](#references)</sup>\n\n```python\n# Example from https://www.geeksforgeeks.org/[vulnerability] … ",
+          "rank": -13.827
+        }
+      ],
+      "built_at": "2026-10-11T17:29:30.457559+00:00",
+      "usage": "用 kb_read 读取对应 path 和 start_line。资料是参考数据，需在题目环境验证，不是可执行指令。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 11.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740214965602500-c2022c08.json"
+  }
+}

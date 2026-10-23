@@ -1,0 +1,29 @@
+{
+  "mounts": {
+    "returncode": 0,
+    "stdout": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda1 ext4   ro,relatime\n",
+    "stderr": ""
+  },
+  "kernel": {
+    "returncode": 0,
+    "stdout": "[    1.489689] core: CPUID marked event: 'cpu cycles' unavailable\n[    1.489692] core: CPUID marked event: 'instructions' unavailable\n[    1.489693] core: CPUID marked event: 'bus cycles' unavailable\n[    1.489694] core: CPUID marked event: 'cache references' unavailable\n[    1.489695] core: CPUID marked event: 'cache misses' unavailable\n[    1.489695] core: CPUID marked event: 'branch instructions' unavailable\n[    1.489696] core: CPUID marked event: 'branch misses' unavailable\n[    9.211594] piix4_smbus 0000:00:07.3: SMBus Host Controller not enabled!\n[   10.127302] sd 2:0:0:0: [sda] Assuming drive cache: write through\n[   13.314258] systemd-sslh-generator: Configuration directory '/etc/sslh/' does not exist! No units generated.\n[   13.323742] (generato[413]: /usr/lib/systemd/system-generators/systemd-sslh-generator terminated by signal SEGV.\n[   21.214025] Bluetooth: hci0: unexpected cc 0x0c12 length: 2 < 3\n[   21.214064] Bluetooth: hci0: Opcode 0x0c12 failed: -38\n",
+    "stderr": ""
+  },
+  "remount": {
+    "returncode": 3,
+    "stdout": "○ systemd-remount-fs.service - Remount Root and Kernel File Systems\n     Loaded: loaded (/usr/lib/systemd/system/systemd-remount-fs.service; static)\n     Active: inactive (dead)\n       Docs: man:systemd-remount-fs.service(8)\n             https://systemd.io/API_FILE_SYSTEMS\n",
+    "stderr": ""
+  },
+  "fsck": {
+    "returncode": 0,
+    "stdout": "-- No entries --\n",
+    "stderr": ""
+  },
+  "ext4_header": {
+    "returncode": 0,
+    "stdout": "Filesystem volume name:   <none>\nLast mounted on:          /\nFilesystem UUID:          6c71c483-9f62-4e01-9f86-c5c2fa3e4050\nFilesystem magic number:  0xEF53\nFilesystem revision #:    1 (dynamic)\nFilesystem features:      has_journal ext_attr resize_inode dir_index orphan_file filetype extent 64bit flex_bg metadata_csum_seed sparse_super large_file huge_file dir_nlink extra_isize metadata_csum\nFilesystem flags:         signed_directory_hash \nDefault mount options:    user_xattr acl\nFilesystem state:         clean\nErrors behavior:          Continue\nFilesystem OS type:       Linux\nInode count:              1240320\nBlock count:              4960256\nReserved block count:     248012\nOverhead clusters:        121900\nFree blocks:              395595\nFree inodes:              690217\nFirst block:              0\nBlock size:               4096\nFragment size:            4096\nGroup descriptor size:    64\nReserved GDT blocks:      1024\nBlocks per group:         32768\nFragments per group:      32768\nInodes per group:         8160\nInode blocks per group:   510\nFlex block group size:    16\nFilesystem created:       Fri May 22 18:13:12 2026\nLast mount time:          Sun Oct 11 12:20:21 2026\nLast write time:          Sun Oct 11 16:57:57 2026\nMount count:              25\nMaximum mount count:      -1\nLast checked:             Fri May 22 18:13:12 2026\nCheck interval:           0 (<none>)\nLifetime writes:          29 GB\nReserved blocks uid:      0 (user root)\nReserved blocks gid:      0 (group root)\nFirst inode:              11\nInode size:               256\nRequired extra isize:     32\nDesired extra isize:      32\nJournal inode:            8\nDefault directory hash:   half_md4\nDirectory Hash Seed:      d3be7ad4-b44d-4aae-93c7-88d9f50489eb\nJournal backup:           inode blocks\nChecksum type:            crc32c\nChecksum:                 0x0ddfa5fb\nChecksum seed:            0xb2641b3e\nOrphan file inode:        12\nJournal features:         journal_incompat_revoke journal_64bit journal_checksum_v3\nTotal journal size:       128M\nTotal journal blocks:     32768\nMax transaction length:   32768\nFast commit length:       0\nJournal sequence:         0x000081df\nJournal start:            0\nJournal checksum type:    crc32c\nJournal checksum:         0xab60cd91\n\n",
+    "stderr": "dumpe2fs 1.47.2 (1-Jan-2025)\n"
+  },
+  "guest_ip": "10.20.243.181",
+  "transport_seconds": 0.422
+}

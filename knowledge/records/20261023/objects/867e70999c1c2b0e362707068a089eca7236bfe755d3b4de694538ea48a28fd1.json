@@ -1,0 +1,33 @@
+{
+  "ts": "2026-10-16 12:34:11",
+  "call_id": "1792125251834104400-1ad5ec10",
+  "args": {
+    "case": "ctf-04fca725df3de1d8",
+    "include_images": true,
+    "summary": "自建 PCAP：6包、1个TCP流及1个UDP流、HTTP对象导出、DNS查询和USB原始字段提取；所有数据导出由固定桥回传到D盘并自动附入WP。重复提醒与NoobCTF显式参考开关通过。不调用模型、不提交flag、不计比赛解题。",
+    "bundle": true,
+    "private_bundle": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-04fca725df3de1d8",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\reports\\20261016T043410Z-0ed4a458\\writeup.md",
+      "bundle_path": "[CTF_ROOT]\\wp\\cases\\ctf-04fca725df3de1d8\\reports\\20261016T043410Z-0ed4a458.zip",
+      "records": 28,
+      "integrity_verified": true,
+      "images_included": 0,
+      "recordings_included": 0,
+      "recording_complete": true,
+      "capture_errors": [],
+      "pending_operations": [],
+      "solved_verified": false,
+      "platform_answer_verified": false,
+      "review_required_before_sharing": "原始证据、正文语义与图片像素须另行检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 963.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792125251834104400-1ad5ec10.json"
+  }
+}

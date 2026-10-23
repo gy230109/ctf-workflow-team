@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport re, urllib.request, urllib.parse\nBASE = \"http://160.202.254.160:15880/\"\nPROXY = {\"http\": \"http://127.0.0.1:12001\", \"https\": \"http://127.0.0.1:12001\"}\nop = urllib.request.build_opener(urllib.request.ProxyHandler(PROXY))\n\ndef get(data=None):\n    d = urllib.parse.urlencode(data).encode() if data is not None else None\n    with op.open(BASE, data=d, timeout=20) as r:\n        return r.read().decode(\"gb18030\", \"replace\")\n\nbody = get()\nblocks = re.findall(r\"<pre>(.*?)</pre>\", body, re.S)\nprint(\"消息条数:\", len(blocks))\nfor i, b in enumerate(blocks[-6:]):\n    print(\"  [%d] %s\" % (i, b[:200].replace(\"\\n\", \" \")))\n    print(\"      ^-- raw repr:\", repr(b[:200]))\n",
+    "timeout": 120,
+    "wp_purpose": "确认 script 标签是否被过滤以及消息顺序",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "d2fb0ce57b0941ce93aedc1892677eec"
+}

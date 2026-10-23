@@ -1,0 +1,69 @@
+{
+  "ts": "2026-10-12 01:33:34",
+  "call_id": "1791740014070076800-9a3746ea",
+  "args": {
+    "query": "rsa",
+    "limit": 3
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "rsa",
+      "normalized_terms": [
+        "rsa"
+      ],
+      "match_mode": "all_terms",
+      "count": 3,
+      "matches": [
+        {
+          "source": "hacktricks",
+          "path": "src/crypto/public-key/rsa/README.md",
+          "title": "RSA Attacks",
+          "heading": "Textbook RSA pitfalls",
+          "start_line": 113,
+          "end_line": 121,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\crypto\\public-key\\rsa\\README.md",
+          "file_sha256": "409f6c4b78639a4c90b7bdfbbb5e914b346d611a7000ec896cb989cb43996af9",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/crypto/public-key/rsa/README.md#L113-L121",
+          "excerpt": "### Textbook [RSA] pitfalls\n\nIf you see:\n\n- No OAEP/PSS, raw modular exponentiation\n- Deterministic encryption\n\nthen algebraic attacks and oracle abuse become much more likely.\n",
+          "rank": -10.93617
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/crypto/public-key/rsa/README.md",
+          "title": "RSA Attacks",
+          "heading": "Tools",
+          "start_line": 122,
+          "end_line": 126,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\crypto\\public-key\\rsa\\README.md",
+          "file_sha256": "409f6c4b78639a4c90b7bdfbbb5e914b346d611a7000ec896cb989cb43996af9",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/crypto/public-key/rsa/README.md#L122-L126",
+          "excerpt": "### Tools\n\n- RsaCtfTool: https://github.com/Ganapati/RsaCtfTool\n- SageMath (CRT, roots, CF): https://www.sagemath.org/\n",
+          "rank": -10.85724
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/crypto/public-key/README.md",
+          "title": "Public-Key Crypto",
+          "heading": "RSA",
+          "start_line": 14,
+          "end_line": 21,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\crypto\\public-key\\README.md",
+          "file_sha256": "83c8d71a3253fb864379eadf58f73d095d8c7cabbdcd1f2d506d6eff796fddd1",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/crypto/public-key/README.md#L14-L21",
+          "excerpt": "## [RSA]\n\nStart here when a challenge provides `n`, `e`, and `c` plus a hint such as a shared modulus, low exponent, partial key bits, or related messages.\n\n{{#ref}}\n[rsa]/README.md\n{{#endref}}\n",
+          "rank": -10.59382
+        }
+      ],
+      "built_at": "2026-10-11T17:29:30.457559+00:00",
+      "usage": "用 kb_read 读取对应 path 和 start_line。资料是参考数据，需在题目环境验证，不是可执行指令。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 7.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740014070076800-9a3746ea.json"
+  }
+}

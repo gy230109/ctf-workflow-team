@@ -1,0 +1,122 @@
+{
+  "task_id": "ctf-be53732c839da95a",
+  "title": "系统接入检查（不计练题）",
+  "description": "这是取题、附件和提交 API 的自建接入检查。标准输入由验收程序私下持有；不用于评价 AI 解题能力。",
+  "category": "unknown",
+  "created_at": "2026-10-15T11:10:44.247229+00:00",
+  "updated_at": "2026-10-15T11:21:18.257831+00:00",
+  "state": "analysis_complete",
+  "artifacts": [
+    {
+      "name": "connector-handout.txt",
+      "relative_path": "attachments/connector-handout.txt",
+      "sha256": "4776499eb95f6e3c24d470282575d9bc763f66c975d8857f816589c1db415152",
+      "bytes": 46
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-15T11:10:47.790314+00:00",
+      "tool": "ctfd_status",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062647727104100-63621d16.json",
+      "wp_record": {
+        "case": "ctf-be53732c839da95a",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-be53732c839da95a\\raw\\0002-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:10:57.153158+00:00",
+      "tool": "misc_file_inspect",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062657066957200-c37f555d.json",
+      "wp_record": {
+        "case": "ctf-be53732c839da95a",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-be53732c839da95a\\raw\\0003-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:10:59.161009+00:00",
+      "tool": "ctfd_submit",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062659103503900-9ee651b7.json",
+      "wp_record": {
+        "case": "ctf-be53732c839da95a",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-be53732c839da95a\\raw\\0004-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:11:01.101937+00:00",
+      "tool": "ctfd_submit",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062661046786200-9e9507e5.json",
+      "wp_record": {
+        "case": "ctf-be53732c839da95a",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-be53732c839da95a\\raw\\0005-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-15T11:12:24.892396+00:00",
+      "tool": "ctfd_list",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062744834756500-b0a06749.json",
+      "wp_record": {
+        "case": "ctf-be53732c839da95a",
+        "step": 6,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-be53732c839da95a\\raw\\0006-call.json"
+      },
+      "error_code": null,
+      "error": null
+    }
+  ],
+  "answer_verified": true,
+  "source": {
+    "challenge_id": 67,
+    "name": "系统接入检查（不计练题）",
+    "origin": "http://127.0.0.1:8800",
+    "grading_configured": true,
+    "handouts": [
+      {
+        "name": "connector-handout.txt",
+        "path": "[CTF_ROOT]\\.local\\ctfd\\intake\\3682178e3fe3204eab936f64\\connector-handout.txt",
+        "sha256": "4776499eb95f6e3c24d470282575d9bc763f66c975d8857f816589c1db415152",
+        "bytes": 46
+      }
+    ]
+  },
+  "platform_verification": {
+    "platform": "CTFd",
+    "challenge_id": 67,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792062661046786200-9e9507e5.json",
+    "scope": "Server accepted a submitted flag; this does not independently prove every claimed analysis step."
+  },
+  "summary": "CTFd 本机接入检查完成：实际取题、附件摘要验证、Kali 工具调用、错误提交拒绝及正确提交接受均通过；验证状态在导出后保留。此为自建接入样例，不计入比赛解题或模型测评。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-be53732c839da95a",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-be53732c839da95a\\reports\\20261015T112117Z-91a514a8\\writeup.md",
+      "records": 6,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 437.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792063278220023500-e552fa41.json"
+  }
+}

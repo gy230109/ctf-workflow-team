@@ -1,0 +1,162 @@
+{
+  "ts": "2026-10-14 19:50:19",
+  "call_id": "1791978619844254700-d8101c3f",
+  "args": {
+    "x": 1
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "checked_at": "2026-10-14 19:50:12",
+      "items": [
+        {
+          "name": "Muteki",
+          "kind": "比赛套",
+          "ok": false,
+          "detail": "ModuleNotFoundError(\"No module named 'requests'\")"
+        },
+        {
+          "name": "Kali",
+          "kind": "Linux 执行环境",
+          "ok": true,
+          "bridge_status": {
+            "user": "kali",
+            "hostname": "kali",
+            "python": "3.13.12",
+            "python_executable": "/home/kali/ctf-workbench/.venv/bin/python3",
+            "memory_bytes": {
+              "MemTotal": 4072505344,
+              "MemAvailable": 3328733184
+            },
+            "disk_bytes": {
+              "total": 84362952704,
+              "used": 29411790848,
+              "free": 51298705408
+            },
+            "tools": {
+              "python3": "/usr/bin/python3",
+              "gcc": "/usr/bin/gcc",
+              "objdump": "/usr/bin/objdump",
+              "readelf": "/usr/bin/readelf",
+              "file": "/usr/bin/file",
+              "strings": "/usr/bin/strings",
+              "burpsuite": "/usr/bin/burpsuite",
+              "wireshark": "/usr/bin/wireshark",
+              "tshark": "/usr/bin/tshark",
+              "binwalk": "/usr/bin/binwalk",
+              "exiftool": "/usr/bin/exiftool",
+              "7z": "/usr/bin/7z",
+              "unzip": "/usr/bin/unzip",
+              "gdb": "/usr/bin/gdb",
+              "checksec": "/usr/bin/checksec",
+              "strace": "/usr/bin/strace",
+              "ltrace": "/usr/bin/ltrace",
+              "ghidra": "/usr/bin/ghidra"
+            },
+            "python_modules": {
+              "sympy": true,
+              "pwn": true,
+              "Crypto": true,
+              "Cryptodome": true,
+              "z3": true,
+              "gmpy2": true,
+              "dnfile": true
+            },
+            "guest_ip": "192.168.26.129",
+            "transport_seconds": 3.0,
+            "bridge_exit": 0
+          },
+          "verified_scope": "SSH 桥及客机状态；不代表完成解题"
+        },
+        {
+          "name": "gbdis.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "final_verify.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "ctf_mcp_server.py",
+          "kind": "本地工具",
+          "ok": true,
+          "verified_scope": "脚本存在；功能未逐项执行"
+        },
+        {
+          "name": "战例库",
+          "ok": true,
+          "count": 16,
+          "cases": [
+            "EasyRsa",
+            "Factor-20261010",
+            "HTV2020-adobesecretreader",
+            "HTV2020-x96",
+            "Muteki席位切换-三席",
+            "Muteki首跑-EasyRsa",
+            "QWB-crackme-task_qwxf",
+            "QWB2021-threebody",
+            "QWB2022-GameMaster-Blackjack",
+            "QWB2023-Crypto-babyrsa",
+            "QWB2023-Crypto-not_only_rsa",
+            "QWB2023-Reverse-ezre",
+            "QWB2025-Crypto-check-little",
+            "pwn.college",
+            "比赛-GameBoy",
+            "自出-xxd-png"
+          ]
+        },
+        {
+          "name": "HackTricks",
+          "kind": "本地技术参考",
+          "ok": true,
+          "knowledge_status": {
+            "source": "hacktricks",
+            "repo_url": "https://github.com/HackTricks-wiki/hacktricks",
+            "repo_path": "[CTF_ROOT]\\references\\hacktricks",
+            "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+            "branch": "master",
+            "built_at": "2026-10-11T17:29:30.457559+00:00",
+            "markdown_files": 1093,
+            "sections": 15287,
+            "language": "en",
+            "expected_markdown_files": 1093,
+            "excluded_files": [],
+            "retrieval": "local_keyword_fts5",
+            "trusted_instructions": false,
+            "ready": true,
+            "index_path": "[CTF_ROOT]\\references\\indexes\\hacktricks.sqlite3",
+            "index_bytes": 33914880
+          },
+          "verified_scope": "本地索引可读；资料不是解题成功证据"
+        },
+        {
+          "name": "x64dbg",
+          "kind": "Windows 动态调试（按需启动）",
+          "ok": true,
+          "service_reachable": false,
+          "debugger_status": {
+            "arch": "x64",
+            "executable": "D:\\Apps\\x64dbg-MCP\\release\\x64\\x64dbg.exe",
+            "installed": true,
+            "endpoint": "http://127.0.0.1:9094/",
+            "reachable": false,
+            "verified_scope": "调试服务和当前状态；不代表题目已解出",
+            "service_detail": "x64dbg 连接失败或超时；执行状态可能已变化，先查状态，不要自动重试动作"
+          },
+          "verified_scope": "安装与本机 MCP 状态；不代表完成题目分析"
+        }
+      ],
+      "registered_tools": 88,
+      "all_items_available": false,
+      "solving_workflow_verified": false
+    },
+    "tool": "status",
+    "dangerous": false,
+    "duration_ms": 7533.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791978619844254700-d8101c3f.json"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ts": "2026-10-12 02:06:39",
+  "call_id": "1791741999233198700-5a9e8abd",
+  "args": {
+    "arch": "x32",
+    "tool": "Disassemble",
+    "params": {
+      "address": "0xe0100d",
+      "count": 12
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "Disassemble",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "0xE0100D: 6A 08 | push 8\n0xE0100F: E8 EC FF FF FF | call probe32.E01000\n0xE01014: 83 C4 04 | add esp,4\n0xE01017: EB F4 | jmp <probe32.OptionalHeader.AddressOfEntryPoint>\n0xE01019: 00 00 | add byte ptr ds:[eax],al\n0xE0101B: 00 00 | add byte ptr ds:[eax],al\n0xE0101D: 00 00 | add byte ptr ds:[eax],al\n0xE0101F: 00 00 | add byte ptr ds:[eax],al\n0xE01021: 00 00 | add byte ptr ds:[eax],al\n0xE01023: 00 00 | add byte ptr ds:[eax],al\n0xE01025: 00 00 | add byte ptr ds:[eax],al\n0xE01027: 00 00 | add byte ptr ds:[eax],al\n"
+          },
+          {
+            "type": "text",
+            "text": "[state] PAUSED at 0x770E57F9 (ntdll) | jmp ntdll.770E5802"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 80.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741999233198700-5a9e8abd.json"
+  }
+}

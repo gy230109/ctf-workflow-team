@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "challenge_id": 67,
+  "judge_status": "incorrect",
+  "candidate_verified": false,
+  "platform_previously_solved": false,
+  "judge": "CTFd player submission API",
+  "submission_sha256": "3f4aecd3fd13471d5de2eb2f3b7f31582c4cc644d28b865720ebe9ab805b7a41"
+}

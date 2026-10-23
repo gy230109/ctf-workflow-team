@@ -1,0 +1,43 @@
+{
+  "arguments": {
+    "confirm": true,
+    "cmd": "J=$(find /usr/share /usr/lib/python3* -name '*.jpg' -o -name '*.jpeg' 2>/dev/null | head -1)\necho \"JPEG found: $J\"\nif [ -n \"$J\" ]; then cp \"$J\" ../input/stego.jpg; else\n  python3 -c \"\nfrom PIL import Image; import random\nim=Image.new('RGB',(320,240))\nim.putdata([(random.randrange(256),random.randrange(256),random.randrange(256)) for _ in range(320*240)])\nim.save('../input/stego.jpg',quality=95)\nprint('generated jpeg')\n\" 2>&1\nfi\nls -la ../input/stego.jpg\nprintf 'SECRET-OK-20261015\\n' > /tmp/secret.txt\nsteghide embed -cf ../input/stego.jpg -ef /tmp/secret.txt -p qwbpass -f 2>&1\necho \"steghide rc=$?\"\nsha256sum ../input/stego.jpg\nsteghide info ../input/stego.jpg -p qwbpass 2>&1 | head -8",
+    "timeout": 180,
+    "wp_case": "ctf-b37c81c14eb6b825",
+    "case": "ctf-b37c81c14eb6b825"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T162645Z-d259b1cc",
+      "case_root": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825",
+      "cwd": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/work",
+      "command": [
+        "bash",
+        "-c",
+        "J=$(find /usr/share /usr/lib/python3* -name '*.jpg' -o -name '*.jpeg' 2>/dev/null | head -1)\necho \"JPEG found: $J\"\nif [ -n \"$J\" ]; then cp \"$J\" ../input/stego.jpg; else\n  python3 -c \"\nfrom PIL import Image; import random\nim=Image.new('RGB',(320,240))\nim.putdata([(random.randrange(256),random.randrange(256),random.randrange(256)) for _ in range(320*240)])\nim.save('../input/stego.jpg',quality=95)\nprint('generated jpeg')\n\" 2>&1\nfi\nls -la ../input/stego.jpg\nprintf 'SECRET-OK-20261015\\n' > /tmp/secret.txt\nsteghide embed -cf ../input/stego.jpg -ef /tmp/secret.txt -p qwbpass -f 2>&1\necho \"steghide rc=$?\"\nsha256sum ../input/stego.jpg\nsteghide info ../input/stego.jpg -p qwbpass 2>&1 | head -8"
+      ],
+      "timeout_seconds": 180,
+      "started_at_utc": "2026-10-14T16:26:46.337111+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 1.189,
+      "stdout_bytes": 507,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "JPEG found: /usr/share/matplotlib/mpl-data/sample_data/grace_hopper.jpg\n-rw-r--r-- 1 kali kali 61306 10月15日 00:26 ../input/stego.jpg\n\rembedding \"/tmp/secret.txt\" in \"../input/stego.jpg\"... 0.5%\rembedding \"/tmp/secret.txt\" in \"../input/stego.jpg\"... done\nsteghide rc=0\n83de8824f01e8497f5de6bd2d3f107ee8391462a0c7cfb9ef4830d22b714c9a8  ../input/stego.jpg\n\"stego.jpg\":\n  format: jpeg\n  capacity: 3.6 KB\n  embedded file \"secret.txt\":\n    size: 19.0 Byte\n    encrypted: rijndael-128, cbc\n    compressed: yes\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctf-b37c81c14eb6b825/results/20261014T162645Z-d259b1cc.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 1.859,
+      "bridge_exit": 0,
+      "case": "ctf-b37c81c14eb6b825",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 2766.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791995207083209600-4e9aa74b.json"
+  }
+}

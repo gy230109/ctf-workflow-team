@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_e713dcefd211926cd7fedc94",
+  "files": [
+    {
+      "name": "main",
+      "bytes": 14408,
+      "sha256": "e713dcefd211926cd7fedc94817106a67f6a90a046b24c92d9b37f4d38453708"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.438
+}

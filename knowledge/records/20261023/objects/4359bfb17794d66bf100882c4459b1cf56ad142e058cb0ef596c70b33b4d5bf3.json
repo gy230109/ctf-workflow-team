@@ -1,0 +1,44 @@
+{
+  "ts": "2026-10-12 00:28:38",
+  "call_id": "1791736118858319800-2ba01aa6",
+  "args": {
+    "case": "ctfos_c1bb6db9b316b4cbad082636",
+    "cmd": "timeout 10 ./p < /dev/null | head -40; echo RC; echo \\True; echo SEP; grep -A 110 -e 401c60 /tmp/d.txt | head -120",
+    "confirm": true,
+    "timeout": 120
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261011T162837Z-cfa5ec4b",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/work",
+      "command": [
+        "bash",
+        "-c",
+        "timeout 10 ./p < /dev/null | head -40; echo RC; echo \\True; echo SEP; grep -A 110 -e 401c60 /tmp/d.txt | head -120"
+      ],
+      "timeout_seconds": 120,
+      "started_at_utc": "2026-10-11T16:28:39.060607+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.079,
+      "stdout_bytes": 6477,
+      "stderr_bytes": 52,
+      "output_truncated": false,
+      "stdout": "RC\nTrue\nSEP\n  401b48:\t48 c7 c7 60 1c 40 00 \tmov    rdi,0x401c60\n  401b4f:\t67 e8 fb d8 11 00    \taddr32 call 0x51f450\n  401b55:\tf4                   \thlt\n  401b56:\t66 2e 0f 1f 84 00 00 \tcs nop WORD PTR [rax+rax*1+0x0]\n  401b5d:\t00 00 00 \n  401b60:\tf3 0f 1e fa          \tendbr64\n  401b64:\tc3                   \tret\n  401b65:\t66 2e 0f 1f 84 00 00 \tcs nop WORD PTR [rax+rax*1+0x0]\n  401b6c:\t00 00 00 \n  401b6f:\t90                   \tnop\n  401b70:\tb8 60 e7 68 00       \tmov    eax,0x68e760\n  401b75:\t48 3d 60 e7 68 00    \tcmp    rax,0x68e760\n  401b7b:\t74 13                \tje     0x401b90\n  401b7d:\tb8 00 00 00 00       \tmov    eax,0x0\n  401b82:\t48 85 c0             \ttest   rax,rax\n  401b85:\t74 09                \tje     0x401b90\n  401b87:\tbf 60 e7 68 00       \tmov    edi,0x68e760\n  401b8c:\tff e0                \tjmp    rax\n  401b8e:\t66 90                \txchg   ax,ax\n  401b90:\tc3                   \tret\n  401b91:\t66 66 2e 0f 1f 84 00 \tdata16 cs nop WORD PTR [rax+rax*1+0x0]\n  401b98:\t00 00 00 00 \n  401b9c:\t0f 1f 40 00          \tnop    DWORD PTR [rax+0x0]\n  401ba0:\tbe 60 e7 68 00       \tmov    esi,0x68e760\n  401ba5:\t48 81 ee 60 e7 68 00 \tsub    rsi,0x68e760\n  401bac:\t48 89 f0             \tmov    rax,rsi\n  401baf:\t48 c1 ee 3f          \tshr    rsi,0x3f\n  401bb3:\t48 c1 f8 03          \tsar    rax,0x3\n  401bb7:\t48 01 c6             \tadd    rsi,rax\n  401bba:\t48 d1 fe             \tsar    rsi,1\n  401bbd:\t74 11                \tje     0x401bd0\n  401bbf:\tb8 00 00 00 00       \tmov    eax,0x0\n  401bc4:\t48 85 c0             \ttest   rax,rax\n  401bc7:\t74 07                \tje     0x401bd0\n  401bc9:\tbf 60 e7 68 00       \tmov    edi,0x68e760\n  401bce:\tff e0                \tjmp    rax\n  401bd0:\tc3                   \tret\n  401bd1:\t66 66 2e 0f 1f 84 00 \tdata16 cs nop WORD PTR [rax+rax*1+0x0]\n  401bd8:\t00 00 00 00 \n  401bdc:\t0f 1f 40 00          \tnop    DWORD PTR [rax+0x0]\n  401be0:\tf3 0f 1e fa          \tendbr64\n  401be4:\t80 3d 75 cb 28 00 00 \tcmp    BYTE PTR [rip+0x28cb75],0x0        # 0x68e760\n  401beb:\t75 2b                \tjne    0x401c18\n  401bed:\t55                   \tpush   rbp\n  401bee:\t48 89 e5             \tmov    rbp,rsp\n  401bf1:\te8 7a ff ff ff       \tcall   0x401b70\n  401bf6:\tb8 40 ce 5c 00       \tmov    eax,0x5cce40\n  401bfb:\t48 85 c0             \ttest   rax,rax\n  401bfe:\t74 0a                \tje     0x401c0a\n  401c00:\tbf 90 f2 5f 00       \tmov    edi,0x5ff290\n  401c05:\te8 36 b2 1c 00       \tcall   0x5cce40\n  401c0a:\tc6 05 4f cb 28 00 01 \tmov    BYTE PTR [rip+0x28cb4f],0x1        # 0x68e760\n  401c11:\t5d                   \tpop    rbp\n  401c12:\tc3                   \tret\n  401c13:\t0f 1f 44 00 00       \tnop    DWORD PTR [rax+rax*1+0x0]\n  401c18:\tc3                   \tret\n  401c19:\t0f 1f 80 00 00 00 00 \tnop    DWORD PTR [rax+0x0]\n  401c20:\tf3 0f 1e fa          \tendbr64\n  401c24:\tb8 90 cb 5c 00       \tmov    eax,0x5ccb90\n  401c29:\t48 85 c0             \ttest   rax,rax\n  401c2c:\t74 22                \tje     0x401c50\n  401c2e:\t55                   \tpush   rbp\n  401c2f:\tbe 80 e7 68 00       \tmov    esi,0x68e780\n  401c34:\tbf 90 f2 5f 00       \tmov    edi,0x5ff290\n  401c39:\t48 89 e5             \tmov    rbp,rsp\n  401c3c:\te8 4f af 1c 00       \tcall   0x5ccb90\n  401c41:\t5d                   \tpop    rbp\n  401c42:\te9 59 ff ff ff       \tjmp    0x401ba0\n  401c47:\t66 0f 1f 84 00 00 00 \tnop    WORD PTR [rax+rax*1+0x0]\n  401c4e:\t00 00 \n  401c50:\te9 4b ff ff ff       \tjmp    0x401ba0\n  401c55:\t66 2e 0f 1f 84 00 00 \tcs nop WORD PTR [rax+rax*1+0x0]\n  401c5c:\t00 00 00 \n  401c5f:\t90                   \tnop\n  401c60:\t55                   \tpush   rbp\n  401c61:\t48 89 e5             \tmov    rbp,rsp\n  401c64:\t41 57                \tpush   r15\n  401c66:\t41 56                \tpush   r14\n  401c68:\t41 55                \tpush   r13\n  401c6a:\t41 54                \tpush   r12\n  401c6c:\t53                   \tpush   rbx\n  401c6d:\t48 81 ec 38 01 00 00 \tsub    rsp,0x138\n  401c74:\t48 8d 0d 65 af 24 00 \tlea    rcx,[rip+0x24af65]        # 0x64cbe0\n  401c7b:\t48 89 8d d0 fe ff ff \tmov    QWORD PTR [rbp-0x130],rcx\n  401c82:\tc7 45 94 00 00 00 00 \tmov    DWORD PTR [rbp-0x6c],0x0\n  401c89:\t8b 05 21 cb 28 00    \tmov    eax,DWORD PTR [rip+0x28cb21]        # 0x68e7b0\n  401c8f:\t89 45 98             \tmov    DWORD PTR [rbp-0x68],eax\n  401c92:\tc7 45 bc a1 8e 4a 0d \tmov    DWORD PTR [rbp-0x44],0xd4a8ea1\n  401c99:\t48 8d 45 bc          \tlea    rax,[rbp-0x44]\n  401c9d:\t48 89 45 c8          \tmov    QWORD PTR [rbp-0x38],rax\n  401ca1:\t48 63 45 94          \tmovsxd rax,DWORD PTR [rbp-0x6c]\n  401ca5:\t48 8b 95 d0 fe ff ff \tmov    rdx,QWORD PTR [rbp-0x130]\n  401cac:\t48 8b 04 c2          \tmov    rax,QWORD PTR [rdx+rax*8]\n  401cb0:\t48 89 8d d8 fe ff ff \tmov    QWORD PTR [rbp-0x128],rcx\n  401cb7:\tc7 45 9c 01 00 00 00 \tmov    DWORD PTR [rbp-0x64],0x1\n  401cbe:\t48 8d 15 bb af 24 00 \tlea    rdx,[rip+0x24afbb]        # 0x64cc80\n  401cc5:\t48 89 95 e0 fe ff ff \tmov    QWORD PTR [rbp-0x120],rdx\n  401ccc:\t48 8d 15 bd af 24 00 \tlea    rdx,[rip+0x24afbd]        # 0x64cc90\n  401cd3:\t48 89 95 e8 fe ff ff \tmov    QWORD PTR [rbp-0x118],rdx\n  401cda:\t48 8d 15 bf af 24 00 \tlea    rdx,[rip+0x24afbf]        # 0x64cca0\n  401ce1:\t48 89 95 f0 fe ff ff \tmov    QWORD PTR [rbp-0x110],rdx\n  401ce8:\t48 8d 15 c1 af 24 00 \tlea    rdx,[rip+0x24afc1]        # 0x64ccb0\n  401cef:\t48 89 95 f8 fe ff ff \tmov    QWORD PTR [rbp-0x108],rdx\n  401cf6:\t48 8d 15 c3 af 24 00 \tlea    rdx,[rip+0x24afc3]        # 0x64ccc0\n  401cfd:\t48 89 95 00 ff ff ff \tmov    QWORD PTR [rbp-0x100],rdx\n  401d04:\t48 8d 15 c5 af 24 00 \tlea    rdx,[rip+0x24afc5]        # 0x64ccd0\n  401d0b:\t48 89 95 08 ff ff ff \tmov    QWORD PTR [rbp-0xf8],rdx\n  401d12:\t48 8d 15 c7 af 24 00 \tlea    rdx,[rip+0x24afc7]        # 0x64cce0\n  401d19:\t48 89 95 10 ff ff ff \tmov    QWORD PTR [rbp-0xf0],rdx\n  401d20:\t48 8d 15 c9 af 24 00 \tlea    rdx,[rip+0x24afc9]        # 0x64ccf0\n  401d27:\t48 89 95 18 ff ff ff \tmov    QWORD PTR [rbp-0xe8],rdx\n  401d2e:\t48 8d 15 cb af 24 00 \tlea    rdx,[rip+0x24afcb]        # 0x64cd00\n  401d35:\t48 89 95 20 ff ff ff \tmov    QWORD PTR [rbp-0xe0],rdx\n  401d3c:\t48 8d 15 cd af 24 00 \tlea    rdx,[rip+0x24afcd]        # 0x64cd10\n  401d43:\t48 89 95 28 ff ff ff \tmov    QWORD PTR [rbp-0xd8],rdx\n  401d4a:\t48 8d 15 cf af 24 00 \tlea    rdx,[rip+0x24afcf]        # 0x64cd20\n  401d51:\t48 89 95 30 ff ff ff \tmov    QWORD PTR [rbp-0xd0],rdx\n  401d58:\t48 89 8d 38 ff ff ff \tmov    QWORD PTR [rbp-0xc8],rcx\n  401d5f:\tc7 45 a0 13 00 00 00 \tmov    DWORD PTR [rbp-0x60],0x13\n  401d66:\t48 89 8d 40 ff ff ff \tmov    QWORD PTR [rbp-0xc0],rcx\n",
+      "stderr": "timeout: 无法运行命令 ‘./p’: 权限不够\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636/results/20261011T162837Z-cfa5ec4b.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.953,
+      "bridge_exit": 0,
+      "case": "ctfos_c1bb6db9b316b4cbad082636",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 1895.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791736118858319800-2ba01aa6.json"
+  }
+}

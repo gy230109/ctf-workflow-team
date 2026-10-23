@@ -1,0 +1,46 @@
+{
+  "ts": "2026-10-14 20:38:17",
+  "call_id": "1791981497764550500-c39abd73",
+  "args": {
+    "cmd": "cp $CTF_INPUT_DIR/emu3.py /tmp/emu3.py; cd /tmp && timeout 60 python3 emu3.py 2>&1 | tail -12",
+    "confirm": true,
+    "timeout": 180,
+    "local_file": "D:/Temp/apk2/emu3.py"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261014T123817Z-2bb614f3",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_a7ad8881d2658e11491ddcba",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_a7ad8881d2658e11491ddcba/work",
+      "command": [
+        "bash",
+        "-c",
+        "cp $CTF_INPUT_DIR/emu3.py /tmp/emu3.py; cd /tmp && timeout 60 python3 emu3.py 2>&1 | tail -12"
+      ],
+      "timeout_seconds": 180,
+      "started_at_utc": "2026-10-14T12:38:17.843162+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 0.091,
+      "stdout_bytes": 222,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "rel.dyn applied: 6\nrel.plt applied: 9\nerr: None\nR0 = 0x400000\nbuf raw = b'Y0vAr3TimerMa3te7\\x00\\x00\\x00\\x00\\x00\\x00\\x00'\nstringFromJNI2(K) = b'Y0vAr3TimerMa3te7'\nR0(ret jstring) = 0x400000\nFLAG = alictf{Y0vAr3TimerMa3te7}\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_a7ad8881d2658e11491ddcba/results/20261014T123817Z-2bb614f3.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 0.625,
+      "bridge_exit": 0,
+      "case": "ctfos_a7ad8881d2658e11491ddcba",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "a7ad8881d2658e11491ddcbab9c4de96ce0cf8f7a11e6e4905fb0484393c15db",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 5059.8,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791981497764550500-c39abd73.json"
+  }
+}

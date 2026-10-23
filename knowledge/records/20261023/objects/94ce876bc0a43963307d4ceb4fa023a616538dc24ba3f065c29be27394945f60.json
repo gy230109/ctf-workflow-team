@@ -1,0 +1,30 @@
+{
+  "ts": "2026-10-15 21:17:14",
+  "call_id": "1792070234658369700-f8440b4f",
+  "args": {
+    "wp_case": "automatic",
+    "values": [
+      1,
+      2
+    ]
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "evidence_artifacts": [
+        {
+          "path": "D:\\Temp\\tmp6hoqmjoo\\actual-fixture.png",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "kind": "browser_screenshot"
+        }
+      ]
+    },
+    "wp_operation": {
+      "operation_id": "17ab7fc8517b47369e33198dd7a3dfe8",
+      "step": 2
+    },
+    "tool": "math_gcd",
+    "duration_ms": 33.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792070234658369700-f8440b4f.json"
+  }
+}

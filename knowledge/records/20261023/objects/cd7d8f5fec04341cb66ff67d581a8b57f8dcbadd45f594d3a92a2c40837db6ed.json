@@ -1,0 +1,56 @@
+{
+  "worker_backend": "container",
+  "worker_network": "bridge",
+  "engines": [
+    "c2api-claude-glm53-local"
+  ],
+  "start_workers": 1,
+  "max_total_workers": 0,
+  "stage_policy": {
+    "prepare": {},
+    "race": {
+      "enabled": true,
+      "timeout": 300,
+      "engines": [
+        "seat_pi_b710d8"
+      ]
+    },
+    "coordinator": {
+      "dispatch_mode": "fixed",
+      "wall_clock_budget": 0,
+      "review": {
+        "enabled": true,
+        "engine": "c2api-claude-dsv41flash-local",
+        "reasoning_effort": "inherit",
+        "after_race": false,
+        "after_fruitless_workers": 3,
+        "after_duplicate_intents": 2,
+        "on_course_correct": false,
+        "on_candidate_spike": true,
+        "on_operator_hint": false,
+        "on_evidence_conflict": true,
+        "on_semantic_duplicate": false,
+        "every_completed_workers": 0,
+        "candidate_spike_threshold": 5,
+        "max_concurrent": 1,
+        "allow_review_fallback": false,
+        "cooldown_events": 8,
+        "timeout": 90,
+        "max_review_workers": 12
+      },
+      "verifier": {
+        "enabled": false,
+        "engine": "seat_pi_b710d8",
+        "reasoning_effort": "inherit",
+        "max_concurrent": 0,
+        "allow_verifier_fallback": false,
+        "timeout": 240,
+        "max_verifier_workers": 24
+      }
+    },
+    "budgets": {
+      "max_total_workers": 0,
+      "cost_budget_usd": 0.0
+    }
+  }
+}

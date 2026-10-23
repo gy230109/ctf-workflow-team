@@ -1,0 +1,177 @@
+=== game.gb (32768 B) ===
+  -- 头部 --
+    entry_point    @0100 = '.�P\x01'          (int 22070016)
+    title          @0104 = '��ff�\r.\x0b\x03s.�.\x0c.\r' (int 17280207374662229582669194089894178254)
+    manufacturer   @013F = '....'             (int 0)
+    cgb_flag       @0143 = '.'                (int 0)
+    new_licensee   @0144 = '..'               (int 0)
+    sgb_flag       @0146 = '.'                (int 0)
+    cart_type      @0147 = '.'                (int 0) -> ROM ONLY
+    rom_size       @0148 = '.'                (int 0) -> 32KB(2 bank)
+    ram_size       @0149 = '.'                (int 0)
+    dest_code      @014A = '.'                (int 0)
+    old_licensee   @014B = '.'                (int 0)
+    version        @014C = '\x01'             (int 1)
+    header_csum    @014D = '�'                (int 204)
+    global_csum    @014E = '�\x0e'            (int 3715)
+    头校验复算 = CC（文件里是 CC）一致
+  -- ASCII 字符串（>=5）--
+    共 183 条
+      @0132  '3>GAME'
+      @0266  '``@ @aA'
+      @02D0  '` ` ` ` ` ` ` ` '
+      @0329  '` ` ` ` ` '
+      @0497  'p` ` ` ` ` '
+      @04F4  '  CCGG'
+      @0516  'LL``88'
+      @0540  'LLLL  '
+      @056F  '<<<<<<<<'
+      @0660  "c'b f"
+      @0730  '||ffff||``````'
+      @074B  '||ffff||ffffff'
+      @0766  '~~````~~````~~'
+      @0781  '<<bbpp<<'
+      @07B7  '<<ffff~~ffffff'
+      @0859  '<<ffnnvvffff<<'
+      @0897  '88pp~~'
+      @08C9  ',,LL~~'
+      @08E0  '~~``||'
+      @08FD  '  ``||ffff<<'
+      @0931  '<<ffff<<ffff<<'
+      @094C  '<<ffff>>'
+      @0967  'ffffffffffff<<'
+      @0982  '````````````||'
+      @099D  '||ffff||ffff||'
+      @09D7  ' !"#$%&\'()*+,-./'
+      @0D40  '"s+^#V!'
+      @0D57  '#2^#V'
+      @0D66  'G+^#V!'
+      @0E26  '"s+^#V'
+      @0E52  '"s+^#V!'
+      @0EB9  '+^#V#*fo'
+      @0EC6  '"r+~+2+q#6'
+      @0ED1  '+~++w'
+      @0ED8  '~++w>'
+      @0EF2  '+^#V#*fo'
+      @0EFF  '"r+~+w'
+      @0F62  '++^#Vh&'
+      @0F93  '++^#Vi&'
+      @100B  '++^#Vi&'
+      @10A8  'Wkb))'
+      @10B2  '"r+*#w'
+      @10EF  '"r+^#V#n&'
+      @10FE  '"r+^#V>'
+      @110E  '"#^#V'
+      @1126  '"#^#V'
+      @1135  '"r+^#V>'
+      @113E  '#^#V>'
+      @115C  '"r+^#V>'
+      @117C  '"r+^#V>'
+      @11C9  '"r+^#V'
+      @11D9  '"r+^#V>'
+      @11E9  '2+^#V#n&'
+      @11F7  '"r+^#V>'
+      @1207  '2+^#V#n&'
+      @1215  '"r+^#V>'
+      @1225  '2+^#V#n&'
+      @1233  '"r+^#V>'
+      @1243  '2+^#V#n&'
+      @1251  '"r+^#V>'
+      @1278  '"r+^#V'
+      @1288  '"r+^#V>'
+      @1298  '2+^#V#n&'
+      @12A6  '"r+^#V>'
+      @12B6  '2+^#V#n&'
+      @12C4  '"r+^#V>'
+      @12D4  '2+^#V#n&'
+      @12E2  '"r+^#V>'
+      @12F2  '2+^#V#n&'
+      @1300  '"r+^#V>'
+      @1343  '"r+^#V'
+      @1353  '"r+^#V>'
+      @1363  '2+^#V#n&'
+      @137A  '2+^#V#n&'
+      @1388  '"r+^#V>'
+      @13A0  '2+^#V#n&'
+      @13AE  '"r+^#V>'
+      @13BE  '2+^#V#n&'
+      @13CC  '"r+^#V>'
+      @13FE  '"r+^#V'
+  -- 关键词扫描 --
+    b'{'     x31  首次 @0275
+    b'}'     x102 首次 @026F
+  -- 分 bank 统计（每 16KB）--
+    bank 0: 唯一字节 253, 0x00  1582(10%), 0xFF  3407(21%)
+    bank 1: 唯一字节   1, 0x00     0(0%), 0xFF 16384(100%)
+
+=== kun.mp3 (3567418 B) ===
+  头 16 字节: 49 44 33 04 00 00 00 00 01 00 54 58 58 58 00 00
+  ID3v2: 有
+    版本 2.4  flags 00  声明大小 256
+    ID3 区结束 @266
+  标签内 ASCII 片段:
+      b'TXXX'
+      b'major_brand'
+      b'mp42'
+      b'TXXX'
+      b'minor_version'
+      b'TXXX'
+      b'compatible_brands'
+      b'isommp42'
+      b'TSSE'
+      b'Lavf56.25.101'
+      b'Info'
+      b'!$&),.0358;=@CEHJLORTWZ\\_acfiknqsvxz}'
+  首个帧头 @138: ver=3 layer=1 bitrate_idx=9 srate_idx=0 pad=0
+  前几个帧头偏移: [138, 555, 972]
+  尾部 64 字节: aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa
+  尾 ASCII: b'................................................................'
+  文件内 >=16 长可打印串（前 20 条）:
+     @76        b'compatible_brands'
+     @203       b'!$&),.0358;=@CEHJLORTWZ\\_acfiknqsvxz}'
+     @591       b'LAME3.99.5UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @1008      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+
+=== man.mp3 (3651846 B) ===
+  头 16 字节: 49 44 33 04 00 00 00 00 01 00 54 58 58 58 00 00
+  ID3v2: 有
+    版本 2.4  flags 00  声明大小 256
+    ID3 区结束 @266
+  标签内 ASCII 片段:
+      b'TXXX'
+      b'major_brand'
+      b'mp42'
+      b'TXXX'
+      b'minor_version'
+      b'TXXX'
+      b'compatible_brands'
+      b'isommp42'
+      b'TSSE'
+      b'Lavf56.25.101'
+      b'Info'
+      b'!$&),.0369;=@BEHKLORUWZ\\_adgiknqsvx{}'
+  首个帧头 @138: ver=3 layer=1 bitrate_idx=9 srate_idx=0 pad=0
+  前几个帧头偏移: [138, 555, 972]
+  尾部 64 字节: aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa
+  尾 ASCII: b'................................................................'
+  文件内 >=16 长可打印串（前 20 条）:
+     @76        b'compatible_brands'
+     @203       b'!$&),.0369;=@BEHKLORUWZ\\_adgiknqsvx{}'
+     @591       b'LAME3.99.5UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @1008      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @1426      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @1844      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @2262      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @2680      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @3098      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @3516      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @3934      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @4352      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @4770      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @5188      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @5606      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @6024      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @6442      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @6860      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @7278      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'
+     @7696      b'UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU'

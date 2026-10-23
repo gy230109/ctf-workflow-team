@@ -1,0 +1,104 @@
+{
+  "platform": "linux",
+  "python": "3.13.12",
+  "cwd": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/work",
+  "input_dir": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/input",
+  "work_dir": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/work",
+  "all_ok": true,
+  "failed": [],
+  "steps": [
+    {
+      "step": "00_locate_input",
+      "ok": true,
+      "file": "gamemessage",
+      "size": 11344
+    },
+    {
+      "step": "01_input_sha256",
+      "ok": true,
+      "sha256": "d83ccf9915c56c7d153d59b88b13ac25ba305ab421b768810b9273fd7d2a6809"
+    },
+    {
+      "step": "02_triage",
+      "ok": true,
+      "total_blocks": 709,
+      "mod16": 0,
+      "unique_blocks": 581,
+      "dup_first": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          12,
+          2
+        ]
+      ],
+      "mode": "ECB"
+    },
+    {
+      "step": "03_xor_0x22",
+      "ok": true,
+      "out": "work/x22.bin",
+      "head": "f44eb15bbb5532a1805c5e2adff5a20e"
+    },
+    {
+      "step": "04_aes_ecb_zeros",
+      "ok": true,
+      "tool": "openssl",
+      "key_ascii": "Brainstorming!!!",
+      "out_len": 11344,
+      "head": "0001000000ffffffff01000000000000",
+      "nrbf_header_ok": true,
+      "stderr": ""
+    },
+    {
+      "step": "05_embedded_pe",
+      "ok": true,
+      "offset": 5099,
+      "pe_sections": 3,
+      "size": 5632,
+      "sha256": "ee76e6b456cba898"
+    },
+    {
+      "step": "06_static_arrays",
+      "ok": true,
+      "arr19_off": "0xfbc",
+      "arr19": "3c64245633fba76c74f5cfdf2867223e16fbe3",
+      "arr40_off": "0xfd4",
+      "arr40_head": "650550d5a31a3b261306adbdc6a68cb7",
+      "gap_bytes": 5,
+      "gap_all_zero": true,
+      "note": "offsets from Windows-side FieldRVA parse; content re-read here"
+    },
+    {
+      "step": "07_check1_recompute",
+      "ok": true,
+      "a": 156324965,
+      "b": 868387187,
+      "c": 3131229747,
+      "keystream_sha256": "ebc0a6ee956aa459",
+      "equals_arr40": true
+    },
+    {
+      "step": "08_flag",
+      "ok": true,
+      "key12": "655451097389c23333c6a2ba",
+      "plaintext_hex": "5930755f4072655f47336d654d337337657221",
+      "plaintext": "Y0u_@re_G3meM3s7er!",
+      "flag": "flag{Y0u_@re_G3meM3s7er!}"
+    }
+  ]
+}

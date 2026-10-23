@@ -1,0 +1,51 @@
+{
+  "ts": "2026-10-13 21:37:00",
+  "call_id": "1791898620231460100-321e3878",
+  "args": {
+    "argv": [
+      "bash",
+      "-lc",
+      "export PATH=$PATH:$HOME/.dotnet/tools; dotnet tool install -g ilspycmd 2>&1 | tail -3; ilspycmd --version 2>&1 | head -2; ilspycmd ../input/polyencrypt.dll > out.cs 2>err.txt; wc -l out.cs; echo '--- err ---'; head -5 err.txt"
+    ],
+    "local_file": "D:\\Temp\\qwb_x\\qwb_solve\\PolyEncryption\\app\\polyencrypt.dll",
+    "confirm": true,
+    "timeout": 600,
+    "case": "qwb2025_polyencryption"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261013T133645Z-c69b3eb6",
+      "case_root": "/home/kali/ctf-workbench/cases/qwb2025_polyencryption",
+      "cwd": "/home/kali/ctf-workbench/cases/qwb2025_polyencryption/work",
+      "command": [
+        "bash",
+        "-lc",
+        "export PATH=$PATH:$HOME/.dotnet/tools; dotnet tool install -g ilspycmd 2>&1 | tail -3; ilspycmd --version 2>&1 | head -2; ilspycmd ../input/polyencrypt.dll > out.cs 2>err.txt; wc -l out.cs; echo '--- err ---'; head -5 err.txt"
+      ],
+      "timeout_seconds": 600,
+      "started_at_utc": "2026-10-13T13:36:45.860575+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 14.379,
+      "stdout_bytes": 225,
+      "stderr_bytes": 0,
+      "output_truncated": false,
+      "stdout": "* 工具名称输入错误。\r\n\r\n有关更多原因(包括强制包命名)，请访问 https://aka.ms/failure-installing-tool\nbash: 行 1: ilspycmd: 未找到命令\n0 out.cs\n--- err ---\nbash: 行 1: ilspycmd: 未找到命令\n",
+      "stderr": "",
+      "guest_log": "/home/kali/ctf-workbench/cases/qwb2025_polyencryption/results/20261013T133645Z-c69b3eb6.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 14.688,
+      "bridge_exit": 0,
+      "case": "qwb2025_polyencryption",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "input_sha256": "a17f216d5e781987b339c03dc9c22ed6b314714e3a8a1810c04dfbb941e9857e",
+      "upload_verified": true
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 17539.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791898620231460100-321e3878.json"
+  }
+}

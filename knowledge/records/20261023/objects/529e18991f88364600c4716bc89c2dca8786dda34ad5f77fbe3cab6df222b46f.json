@@ -1,0 +1,53 @@
+{
+  "ts": "2026-10-13 13:31:59",
+  "call_id": "1791869519706261800-595173b2",
+  "args": {
+    "category": "web",
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "category": "web",
+      "packages": [
+        "requests",
+        "beautifulsoup4",
+        "playwright"
+      ],
+      "modules": [
+        "requests",
+        "bs4",
+        "playwright"
+      ],
+      "commands": [
+        "chromium",
+        "sqlmap",
+        "ffuf"
+      ],
+      "tools": [
+        "web_http_inspect",
+        "web_html_parse",
+        "web_jwt_decode",
+        "web_browser_capture"
+      ],
+      "route": [
+        "读取题面与已授权 URL/源码",
+        "分析 HTTP、表单和 JWT",
+        "针对证据验证假设",
+        "采集真实网页截图并留 WP"
+      ],
+      "environment": "Kali specialist venv through existing bridge",
+      "next_step": "ctf_specialist_status 检查实际依赖；每题 wp_init，后续调用加同一 wp_case",
+      "route_is_not_a_solution": true,
+      "limits": {
+        "default_timeout_seconds": 60,
+        "default_memory_mb": 1536
+      }
+    },
+    "tool": "ctf_profile",
+    "dangerous": false,
+    "duration_ms": 45.1,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791869519706261800-595173b2.json"
+  }
+}

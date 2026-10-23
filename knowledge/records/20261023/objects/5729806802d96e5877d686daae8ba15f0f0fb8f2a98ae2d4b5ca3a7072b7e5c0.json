@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/qwb2022_gamemaster/work/kali_verify_report.json",
+  "sha256": "f2d2c2f422bf5499302baa53504f217021f91c15308e4b13195ffa2b60843f62",
+  "bytes": 2356,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.484,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\qwb2022_gamemaster\\downloads\\20261009T154848Z-dacef24e\\kali_verify_report.json",
+  "verified": true
+}

@@ -1,0 +1,43 @@
+{
+  "ts": "2026-10-11 23:32:41",
+  "call_id": "1791732761646589800-c8df7f87",
+  "args": {
+    "cmd": "echo ---PKG---; which conda mamba micromamba; echo ---PIP---; python3 -m pip --version; echo ---NET---; curl -sI --max-time 15 https://github.com | head -1; echo ---SAGE_MIT---; curl -sI --max-time 20 https://mirrors.mit.edu/sage/linux/64bit/sage-10.6.tar.bz2 | head -3; echo ---SAGE_PAGE---; curl -s --max-time 20 https://www.sagemath.org/download-linux.html | head -5; echo ---MF---; curl -sI --max-time 20 -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_6...(546 chars)",
+    "confirm": true,
+    "timeout": 180
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "run_id": "20261011T153201Z-5571062a",
+      "case_root": "/home/kali/ctf-workbench/cases/ctfos_commands",
+      "cwd": "/home/kali/ctf-workbench/cases/ctfos_commands/work",
+      "command": [
+        "bash",
+        "-c",
+        "echo ---PKG---; which conda mamba micromamba; echo ---PIP---; python3 -m pip --version; echo ---NET---; curl -sI --max-time 15 https://github.com | head -1; echo ---SAGE_MIT---; curl -sI --max-time 20 https://mirrors.mit.edu/sage/linux/64bit/sage-10.6.tar.bz2 | head -3; echo ---SAGE_PAGE---; curl -s --max-time 20 https://www.sagemath.org/download-linux.html | head -5; echo ---MF---; curl -sI --max-time 20 -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh | grep -iE HTTP/|content-length | tail -3"
+      ],
+      "timeout_seconds": 180,
+      "started_at_utc": "2026-10-11T15:32:02.791800+00:00",
+      "returncode": 0,
+      "timed_out": false,
+      "duration_seconds": 39.531,
+      "stdout_bytes": 363,
+      "stderr_bytes": 45,
+      "output_truncated": false,
+      "stdout": "---PKG---\n---PIP---\npip 26.1.2 from /home/kali/ctf-workbench/.venv/lib/python3.13/site-packages/pip (python 3.13)\n---NET---\n---SAGE_MIT---\nHTTP/2 404 \r\nalt-svc: h3=\":443\"; ma=2592000\r\nserver: Caddy\r\n---SAGE_PAGE---\n<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n<head>\n <title>SageMath - Download for Linux\n </title>\n---MF---\n",
+      "stderr": "bash: 行 1: content-length: 未找到命令\n",
+      "guest_log": "/home/kali/ctf-workbench/cases/ctfos_commands/results/20261011T153201Z-5571062a.json",
+      "guest_ip": "192.168.26.129",
+      "transport_seconds": 40.328,
+      "bridge_exit": 0,
+      "case": "ctfos_commands",
+      "on": "kali",
+      "transport": "verified_bridge"
+    },
+    "tool": "kali_run",
+    "dangerous": true,
+    "duration_ms": 41258.4,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791732761646589800-c8df7f87.json"
+  }
+}

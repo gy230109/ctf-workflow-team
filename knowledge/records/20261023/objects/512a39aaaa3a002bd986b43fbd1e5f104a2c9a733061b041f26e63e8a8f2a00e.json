@@ -1,0 +1,17 @@
+{
+  "ts": "2026-10-12 20:05:38",
+  "call_id": "1791806738086500700-8e21bc2a",
+  "args": {
+    "case": "qwb-vanguard-babyre",
+    "text": "observed：回调2(0x1400118c0) 在进程附加时对 0x14001e03f 处常量做原地解密：buf[i+1]^=i (i=0..31)。",
+    "status": "observed"
+  },
+  "response": {
+    "ok": false,
+    "tool": "wp_note",
+    "error": "ValueError('观察必须引用实际调用或截图的 source_step')",
+    "error_code": "execution_failed",
+    "duration_ms": 5.5,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791806738086500700-8e21bc2a.json"
+  }
+}

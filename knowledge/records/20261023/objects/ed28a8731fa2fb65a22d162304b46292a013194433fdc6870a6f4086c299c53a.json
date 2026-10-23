@@ -1,0 +1,62 @@
+{
+  "ts": "2026-10-13 13:32:43",
+  "call_id": "1791869563907407200-b2650dd8",
+  "args": {
+    "target": "fixture.elf",
+    "stdin_length": 4,
+    "find_text": "ACCEPTED",
+    "max_steps": 200,
+    "timeout": 90,
+    "case": "specialists_verify_20261013",
+    "wp_case": "specialists_verify_20261013"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "found": true,
+        "candidate_hex": "44454d4f",
+        "stdout": "ACCEPTED\n",
+        "candidate_verified": false,
+        "note": "symbolic candidate only; replay in challenge VM before treating it as a solution"
+      },
+      "execution": {
+        "run_id": "20261013T053237Z-36c6c69f",
+        "case_root": "/home/kali/ctf-workbench/cases/specialists_verify_20261013",
+        "cwd": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/work",
+        "command": [
+          "/home/kali/ctf-workbench/.venv-specialists/bin/python3",
+          "../input/specialist-worker-616cad1724a4384f.py",
+          "../input/request-c614a48586bf417a99edce3aadf5c569.json"
+        ],
+        "timeout_seconds": 90,
+        "started_at_utc": "2026-10-13T05:32:38.382146+00:00",
+        "returncode": 0,
+        "timed_out": false,
+        "duration_seconds": 5.906,
+        "stdout_bytes": 190,
+        "stderr_bytes": 0,
+        "output_truncated": false,
+        "stdout": "{\"found\": true, \"candidate_hex\": \"44454d4f\", \"stdout\": \"ACCEPTED\\n\", \"candidate_verified\": false, \"note\": \"symbolic candidate only; replay in challenge VM before treating it as a solution\"}\n",
+        "stderr": "",
+        "guest_log": "/home/kali/ctf-workbench/cases/specialists_verify_20261013/results/20261013T053237Z-36c6c69f.json",
+        "guest_ip": "192.168.26.129",
+        "transport_seconds": 6.187,
+        "bridge_exit": 0,
+        "case": "specialists_verify_20261013",
+        "on": "kali",
+        "transport": "verified_bridge"
+      },
+      "case": "specialists_verify_20261013",
+      "on": "kali",
+      "transport": "verified_bridge",
+      "upload_verified": true,
+      "source_status": "local compatibility implementation while original cloud export is pending"
+    },
+    "tool": "reverse_symbolic",
+    "dangerous": false,
+    "duration_ms": 9395.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791869563907407200-b2650dd8.json"
+  }
+}

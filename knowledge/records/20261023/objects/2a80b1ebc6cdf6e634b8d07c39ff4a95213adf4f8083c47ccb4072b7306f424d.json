@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/qwbtrie",
+  "files": [
+    {
+      "name": "probe5.txt",
+      "bytes": 44,
+      "sha256": "129ea2d1036cd227c5729c3cba731a53574374f0f62f0a103c43b506206703ff"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.312
+}

@@ -1,0 +1,13 @@
+{
+  "ts": "2026-10-12 01:29:42",
+  "call_id": "1791739782484573400-a31797ca",
+  "args": [],
+  "response": {
+    "ok": false,
+    "error": "参数必须是对象",
+    "error_code": "invalid_arguments",
+    "tool": "math_gcd",
+    "duration_ms": 0.0,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791739782484573400-a31797ca.json"
+  }
+}

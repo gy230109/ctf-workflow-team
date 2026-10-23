@@ -1,0 +1,16 @@
+{
+  "ts": "2026-10-12 01:22:29",
+  "call_id": "1791739349492162300-fdbec98d",
+  "args": {
+    "query": "ssti jinja2",
+    "limit": 3
+  },
+  "response": {
+    "ok": false,
+    "tool": "kb_search",
+    "error": "ValueError('知识索引不存在，请先运行 tools/ctf_knowledge.py --build')",
+    "error_code": "execution_failed",
+    "duration_ms": 0.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791739349492162300-fdbec98d.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/specialists_setup_20261013/work/specialists-freeze-final.txt",
+  "sha256": "d41da967d4668258340b793f67d587e8d5dcad477fd3f7db6f8c6d53ec47e27b",
+  "bytes": 1339,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 1.101,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\specialists_setup_20261013\\downloads\\20261013T055810Z-743caa4b\\specialists-freeze-final.txt",
+  "verified": true
+}

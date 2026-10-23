@@ -1,0 +1,9 @@
+{
+  "path": "/home/kali/ctf-workbench/cases/factor-20261010/work/solution.json",
+  "sha256": "866e4228ecebb07de33175e80f373568eadc06ede513d002698cf5fa7eb70f92",
+  "bytes": 5787,
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.344,
+  "local_path": "[WORKSPACE]\\ctf-workbench\\cases\\factor-20261010\\downloads\\20261009T160621Z-0cc39eef\\solution.json",
+  "verified": true
+}

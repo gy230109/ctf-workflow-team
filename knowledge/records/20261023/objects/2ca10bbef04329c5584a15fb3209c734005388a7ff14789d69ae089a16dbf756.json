@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "case_root": "/home/kali/ctf-workbench/cases/ctfos_c1bb6db9b316b4cbad082636",
+  "files": [
+    {
+      "name": "vvvmmm",
+      "bytes": 1133076,
+      "sha256": "c1bb6db9b316b4cbad0826367f4e88cb767f03b18541be405985726060161d91"
+    }
+  ],
+  "guest_ip": "192.168.26.129",
+  "transport_seconds": 0.328
+}

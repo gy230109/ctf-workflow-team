@@ -1,0 +1,70 @@
+{
+  "ts": "2026-10-12 01:33:33",
+  "call_id": "1791740013855849400-73d33d14",
+  "args": {
+    "query": "堆溢出",
+    "limit": 3
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "堆溢出",
+      "normalized_terms": [
+        "heap",
+        "overflow"
+      ],
+      "match_mode": "all_terms",
+      "count": 3,
+      "matches": [
+        {
+          "source": "hacktricks",
+          "path": "src/binary-exploitation/libc-heap/heap-overflow.md",
+          "title": "Heap Overflow",
+          "heading": "Other examples",
+          "start_line": 44,
+          "end_line": 49,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\binary-exploitation\\libc-heap\\heap-overflow.md",
+          "file_sha256": "ad587b61ba555fbb724296c10436a4e6ccdcfdb0087401bdf1aae0694a9a2a52",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/binary-exploitation/libc-heap/heap-overflow.md#L44-L49",
+          "excerpt": " … Hack The Box**](https://7rocky.github.io/en/ctf/htb-challenges/pwn/auth-or-out/)<sup>[[8]](#references)</sup>\n  - We use an Integer [Overflow] vulnerability to get a [Heap] [Overflow].\n  - We corrupt pointers to a function inside a `struct` of the overflowed chunk to set a function such … ",
+          "rank": -15.80188
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/binary-exploitation/stack-overflow/README.md",
+          "title": "Stack Overflow",
+          "heading": "Heap Overflows",
+          "start_line": 100,
+          "end_line": 108,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\binary-exploitation\\stack-overflow\\README.md",
+          "file_sha256": "82c351647878c2f5a199bcbbddc86b873c05d87aba07a0464107df294539d88f",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/binary-exploitation/stack-overflow/README.md#L100-L108",
+          "excerpt": "## [Heap] Overflows\n\nAn [overflow] is not always going to be in the stack, it could also be in the **[heap]** for example:\n\n\n{{#ref}}\n../libc-[heap]/[heap]-[overflow].md\n{{#endref}}\n",
+          "rank": -15.7974
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/binary-exploitation/ios-exploiting/ios-example-heap-exploit.md",
+          "title": "iOS/macOS Example Heap Overflow Exploit",
+          "heading": "iOS/macOS Example Heap Overflow Exploit",
+          "start_line": 1,
+          "end_line": 13,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\binary-exploitation\\ios-exploiting\\ios-example-heap-exploit.md",
+          "file_sha256": "0ec96ab578bfabd6108af8ef4d708017e65d6efd62a9387cb5928a75caa89cc3",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/binary-exploitation/ios-exploiting/ios-example-heap-exploit.md#L1-L13",
+          "excerpt": "# iOS/macOS Example [Heap] [Overflow] Exploit\n\n{{#include ../../banners/hacktricks-training.md}}\n\nThis page is a **small Apple-platform [heap]-[overflow] lab**: a [heap] buffer [overflow] corrupts a callback pointer in the next chunk and turns that primitive into code execution. It is intentionally simple, but it is still … ",
+          "rank": -15.7208
+        }
+      ],
+      "built_at": "2026-10-11T17:29:30.457559+00:00",
+      "usage": "用 kb_read 读取对应 path 和 start_line。资料是参考数据，需在题目环境验证，不是可执行指令。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 12.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791740013855849400-73d33d14.json"
+  }
+}

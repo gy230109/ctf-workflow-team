@@ -1,0 +1,10 @@
+{
+  "tool": "py_run",
+  "arguments": {
+    "code": "\nimport os, urllib.request, urllib.error\nprint('no_proxy env:', os.environ.get('no_proxy'), os.environ.get('NO_PROXY'))\nprint('http_proxy env:', os.environ.get('http_proxy'), os.environ.get('HTTP_PROXY'))\nprint('getproxies():', urllib.request.getproxies())\nurl='http://160.202.254.160:10986/'\nfor name,mk in [('default',lambda: urllib.request.build_opener()),\n                ('explicit',lambda: urllib.request.build_opener(urllib.request.ProxyHandler({'http':'http://127.0.0.1:12001'}))),\n                ('noproxy',lambda: urllib.request.build_opener(urllib.request.ProxyHandler({})))]:\n    try:\n        op=mk()\n        with op.open(url,timeout=15) as r:\n            b=r.read()\n        print(name,'OK len=',len(b))\n    except Exception as e:\n        print(name,'FAIL',type(e).__name__,str(e)[:200])\n",
+    "timeout": 90,
+    "wp_purpose": "连通性诊断",
+    "wp_case": "ctf-fca56ff3a53c802b"
+  },
+  "operation_id": "0796e8359c6a4886a68dec00f6199c8e"
+}

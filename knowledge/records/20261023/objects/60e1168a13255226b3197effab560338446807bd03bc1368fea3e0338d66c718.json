@@ -1,0 +1,39 @@
+{
+  "ts": "2026-10-12 02:06:38",
+  "call_id": "1791741998415732400-7c2f67aa",
+  "args": {
+    "arch": "x32",
+    "tool": "LoadBinary",
+    "params": {
+      "filePath": "D:\\Temp\\x64dbg-x32-fixture\\probe32.exe"
+    },
+    "confirm": true
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "arch": "x32",
+      "debugger_tool": "LoadBinary",
+      "mcp_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "SUCCESS: Binary loaded. Paused at 0x77049A2C. Use 'run' to continue."
+          },
+          {
+            "type": "text",
+            "text": "[event:info] Debug session started. Binary loaded."
+          },
+          {
+            "type": "text",
+            "text": "[state] RUNNING — call WaitForPause before inspecting"
+          }
+        ]
+      }
+    },
+    "tool": "win_debug_call",
+    "dangerous": true,
+    "duration_ms": 572.2,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791741998415732400-7c2f67aa.json"
+  }
+}

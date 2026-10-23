@@ -1,0 +1,26 @@
+{
+  "ts": "2026-10-18 11:30:21",
+  "call_id": "1792294221635166000-4f993178",
+  "args": {
+    "section": "overview",
+    "text": "这是自建接入验收样例，输入为 48 和 60，无附件。",
+    "source_steps": [
+      4
+    ],
+    "case": "ctf-e9c09fae2e96eca4"
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "case": "ctf-e9c09fae2e96eca4",
+      "step": 6,
+      "section": "overview",
+      "latest_revision": true,
+      "independent_verification": false
+    },
+    "tool": "wp_section",
+    "dangerous": false,
+    "duration_ms": 18.3,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1792294221635166000-4f993178.json"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "challenge": "AB-misc",
+  "attempts": 1,
+  "solved_count": 0,
+  "flags": [],
+  "total_elapsed_s": 120.8,
+  "ledger": [
+    {
+      "outcome": "terminal",
+      "solved": false,
+      "flag": null,
+      "reason": "preflight_failed",
+      "report": {
+        "verdict": "DONE",
+        "verdict_desc": "已完成（无需关注）",
+        "events": 2,
+        "tool_starts": 0,
+        "tools_in_flight": 0,
+        "duration_s": 120.8,
+        "since_last_tool_s": 120.8,
+        "gap_median_s": null,
+        "gap_max_s": null,
+        "terminal_event": "run.finished",
+        "thresholds": {
+          "warn": 180.0,
+          "dead": 600.0,
+          "grace": 300.0,
+          "tool_timeout": 600.0
+        }
+      },
+      "final_status": "finished",
+      "attempt": 1,
+      "run_id": "run-2462",
+      "elapsed_s": 120.8
+    }
+  ],
+  "pass_rate": 0.0
+}

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+char* a(char* s);
+
+char t[65536];
+
+void b()
+{
+	printf("%s\n\nint main()\n{\n\tstrcpy(t, \"%s\");\n\tb();\n\treturn 0;\n}\n\nchar* a(char* s)\n{\n\tint l=strlen(s);\n\tchar* n=malloc(l*2+1);\n\tchar* p=n;\n\tfor(int i=0; i<l; i++)\n\t\tswitch(s[i])\n\t\t{\n\t\t\tcase '\\n':\n\t\t\t\t*p++='\\\\'; *p++='n'; break;\n\t\t\tcase '\\t':\n\t\t\t\t*p++='\\\\'; *p++='t'; break;\n\t\t\tcase '\\\\':\n\t\t\t\t*p++='\\\\'; *p++='\\\\'; break;\n\t\t\tcase '\\\"':\n\t\t\t\t*p++='\\\\'; *p++='\\\"'; break;\n\t\t\tdefault:\n\t\t\t\t*p++=s[i]; break;\n\t\t}\n\t\t*p=0;\n\n\treturn n;\n}\n", t, a(t)); 		  		  		 		   		    	 		  			 				 		 	   	    		   	 		 		 	 	   	 	 		 			   		 	 	 		 	  	  		     		 			  	     	 		 		   	 					 	 	     			  	   		      		 		   		   	 		  	 	 		 		 	 					 	
+}
+
+int main()
+{
+	strcpy(t, "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nchar* a(char* s);\n\nchar t[65536];\n\nvoid b()\n{\n\tprintf(\"%s\\n\\nint main()\\n{\\n\\tstrcpy(t, \\\"%s\\\");\\n\\tb();\\n\\treturn 0;\\n}\\n\\nchar* a(char* s)\\n{\\n\\tint l=strlen(s);\\n\\tchar* n=malloc(l*2+1);\\n\\tchar* p=n;\\n\\tfor(int i=0; i<l; i++)\\n\\t\\tswitch(s[i])\\n\\t\\t{\\n\\t\\t\\tcase '\\\\n':\\n\\t\\t\\t\\t*p++='\\\\\\\\'; *p++='n'; break;\\n\\t\\t\\tcase '\\\\t':\\n\\t\\t\\t\\t*p++='\\\\\\\\'; *p++='t'; break;\\n\\t\\t\\tcase '\\\\\\\\':\\n\\t\\t\\t\\t*p++='\\\\\\\\'; *p++='\\\\\\\\'; break;\\n\\t\\t\\tcase '\\\\\\\"':\\n\\t\\t\\t\\t*p++='\\\\\\\\'; *p++='\\\\\\\"'; break;\\n\\t\\t\\tdefault:\\n\\t\\t\\t\\t*p++=s[i]; break;\\n\\t\\t}\\n\\t\\t*p=0;\\n\\n\\treturn n;\\n}\\n\", t, a(t));\n}");
+	b();
+	return 0;
+}
+
+char* a(char* s)
+{
+	int l=strlen(s);
+	char* n=malloc(l*2+1);
+	char* p=n;
+	for(int i=0; i<l; i++)
+		switch(s[i])
+		{
+			case '\n':
+				*p++='\\'; *p++='n'; break;
+			case '\t':
+				*p++='\\'; *p++='t'; break;
+			case '\\':
+				*p++='\\'; *p++='\\'; break;
+			case '\"':
+				*p++='\\'; *p++='\"'; break;
+			default:
+				*p++=s[i]; break;
+		}
+		*p=0;
+
+	return n;
+}

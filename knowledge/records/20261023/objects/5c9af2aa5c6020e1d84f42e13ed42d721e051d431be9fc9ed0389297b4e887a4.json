@@ -1,0 +1,187 @@
+{
+  "task_id": "ctf-dcf8677aeacda424",
+  "title": "APK逆向-07bfacf2",
+  "description": "用户上传的 APK 附件：07bfacf2-82df-4eab-8b41-a34aa7486c5a.apk（1,292,064 字节，含 AndroidManifest.xml + classes.dex 2.6MB + AppCompat 资源）。任务：找到真实 flag 并验证。",
+  "category": "mobile",
+  "created_at": "2026-10-14T15:10:45.326602+00:00",
+  "updated_at": "2026-10-14T15:30:04.351049+00:00",
+  "state": "analysis_complete",
+  "artifacts": [
+    {
+      "name": "07bfacf2-82df-4eab-8b41-a34aa7486c5a.apk",
+      "relative_path": "attachments/07bfacf2-82df-4eab-8b41-a34aa7486c5a.apk",
+      "sha256": "2a753d2530f775145d2a6248442e98bb84d5d36f9b388263caf68009d42d7e0f",
+      "bytes": 1292064
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-14T15:11:28.000064+00:00",
+      "tool": "ctf_profile",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990687963006400-9dccfef4.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 2,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0002-call.json"
+      },
+      "error_code": "execution_failed",
+      "error": "ValueError('category must be web/pwn/reverse/crypto/misc/forensics')"
+    },
+    {
+      "at": "2026-10-14T15:11:57.309533+00:00",
+      "tool": "ctf_profile",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990717272232600-ac6a6e0b.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 3,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0003-call.json"
+      },
+      "error_code": "execution_failed",
+      "error": "ValueError('subtype must be pe-native,pe-managed,elf,android,source,unknown')"
+    },
+    {
+      "at": "2026-10-14T15:12:14.521027+00:00",
+      "tool": "ctf_profile",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990734479005200-995fe4c5.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 4,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0004-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:12:42.151441+00:00",
+      "tool": "kali_jadx",
+      "ok": false,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990762089226100-6314ca1f.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 5,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0005-call.json"
+      },
+      "error_code": "execution_failed",
+      "error": "工具执行失败；读取 result 中退出码与 stderr"
+    },
+    {
+      "at": "2026-10-14T15:13:08.065906+00:00",
+      "tool": "kali_jadx",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990788027010400-9581a9ad.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 6,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0006-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:14:03.753765+00:00",
+      "tool": "kali_jadx",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990843706314400-d63d7ac0.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 7,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0007-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:14:33.872676+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990873826325400-74d4a65f.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 8,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0008-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:14:55.436079+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990895381605500-44396f61.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 9,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0009-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:15:11.443056+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990911386374900-59f718b9.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 10,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0010-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:16:28.764899+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791990988712952900-cab1dc54.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 11,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0011-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:17:14.451274+00:00",
+      "tool": "kali_run",
+      "ok": true,
+      "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991034397325700-b2a34a5b.json",
+      "wp_record": {
+        "case": "ctf-dcf8677aeacda424",
+        "step": 12,
+        "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\raw\\0012-call.json"
+      },
+      "error_code": null,
+      "error": null
+    },
+    {
+      "at": "2026-10-14T15:18:42.159188+00:00",
+      "kind": "note",
+      "text": "反编译结论（kali_jadx，/tmp/jadx-out）：App 自身只有 com.example.xman.easymobile 的 MainActivity + encode 两个类；MainActivity 在按钮点击时调用 encode.check(input)，true 显示 correct。encode.check 是『不动点』校验：temp[i]=(byte)((input[i]+b[i])%61)，再 temp[i]=(byte)(temp[i]*2-i)，最后 return new String(temp).equals(str)。b=[23,22,26,26,25,25,25,26,27,28,30,30,29,30,32,32]。唯一 16 字节解 = LOHILMNMLKHILKHI（逐位唯一：76,79,72,73,76,77,78,77,76,75,72,73,76,75,72,73）。本地按 Java byte 语义独立复算：check('LOHILMNMLKHILKHI')==true；且 flag{...} 形状的 16 字符串（如 flag{aaaaaaaaaa}）不满足。dex 字符串里无 'flag{' 常量，APK 内无 lib/、无 assets/，故 flag 即该被接受的输入串。",
+      "status": "observed",
+      "source_step": 6
+    }
+  ],
+  "answer_verified": false,
+  "summary": "APK（EasyMobile，com.example.xman.easymobile）逆向完成。链路：ctf_profile(reverse/android) 定路线 -> kali_jadx 反编译 classes.dex -> MainActivity 在按钮点击时调用 encode.check(input)，true 显示 correct -> encode.check 为『不动点』校验：temp[i]=(byte)((input[i]+b[i])%61)；temp[i]=(byte)(temp[i]*2-i)；return new String(temp).equals(str)，其中 b=[23,22,26,26,25,25,25,26,27,28,30,30,29,30,32,32]。逐位独立求解，16 字节固定点唯一：LOHILMNMLKHILKHI（字节 76,79,72,73,76,77,78,77,76,75,72,73,76,75,72,73）。【已验证】本地按 Java byte 语义独立复算 check('LOHILMNMLKHILKHI')==true；逐位置解唯一（每位仅一个 0..255 解）=> 16 字节固定点唯一；flag{} 形状 16 字符串（如 flag{aaaaaaaaaa}）不满足。dex 内无 'flag{' 常量；APK 无 lib/、无 assets/，故 flag 即该被接受的输入串。【未验证】未经真机 UI（模拟器/设备）提交确认，也未经平台校验；APK 未强制任何 flag{} 格式，若平台要求包裹，其形式由平台规则决定，不代为编造。原文工件：任务 ctf-dcf8677aeacda424，附件 sha256 2a753d2530f775145d2a6248442e98bb84d5d36f9b388263caf68009d42d7e0f。",
+  "report": {
+    "ok": true,
+    "result": {
+      "case": "ctf-dcf8677aeacda424",
+      "path": "[CTF_ROOT]\\wp\\cases\\ctf-dcf8677aeacda424\\reports\\20261014T153003Z-f19fc1e7\\writeup.md",
+      "records": 13,
+      "integrity_verified": true,
+      "images_included": 0,
+      "solved_verified": false,
+      "review_required_before_sharing": "正文语义、非标准 flag 格式、图片像素须人工检查"
+    },
+    "tool": "wp_build",
+    "dangerous": false,
+    "duration_ms": 1023.7,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791991804328979700-4c23d873.json"
+  }
+}

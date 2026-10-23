@@ -1,0 +1,69 @@
+{
+  "ts": "2026-10-12 01:29:42",
+  "call_id": "1791739782964766400-3bdee744",
+  "args": {
+    "query": "模板注入",
+    "limit": 3
+  },
+  "response": {
+    "ok": true,
+    "result": {
+      "query": "模板注入",
+      "normalized_terms": [
+        "ssti"
+      ],
+      "match_mode": "all_terms",
+      "count": 3,
+      "matches": [
+        {
+          "source": "hacktricks",
+          "path": "src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md",
+          "title": "Jinja2 SSTI",
+          "heading": "**Dump all config variables**",
+          "start_line": 49,
+          "end_line": 68,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\pentesting-web\\ssti-server-side-template-injection\\jinja2-ssti.md",
+          "file_sha256": "6619cd7b0744646ff0befcd018ba8d06d4f1b46f16e9cd8e30519b5e72591402",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/pentesting-web/ssti-server-side-template-injection/jinja2-ssti.md#L49-L68",
+          "excerpt": "### **Dump all config variables**\n\n```python\n{{ config }} #In these object you can find all the configured env variables\n\n\n{% raw %}\n{% for key, value in config.items() %}\n    <dt>{{ key|e }}</dt>\n    <dd>{{ value|e }}</dd>\n{% endfor %}\n{% endraw %}\n\n\n\n\n\n\n```\n",
+          "rank": -10.7092
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/pentesting-web/ssti-server-side-template-injection/README.md",
+          "title": "SSTI (Server Side Template Injection)",
+          "heading": "Brute-Force Detection List",
+          "start_line": 1194,
+          "end_line": 1200,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\pentesting-web\\ssti-server-side-template-injection\\README.md",
+          "file_sha256": "c67f3ab0e03ad16c045a6589312e5d36739d64a4679082e22cabf89c6bb1fbe0",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/pentesting-web/ssti-server-side-template-injection/README.md#L1194-L1200",
+          "excerpt": "## Brute-Force Detection List\n\n\n{{#ref}}\nhttps://github.com/carlospolop/Auto_Wordlists/blob/main/wordlists/[ssti].txt\n{{#endref}}\n",
+          "rank": -10.70604
+        },
+        {
+          "source": "hacktricks",
+          "path": "src/pentesting-web/ssti-server-side-template-injection/README.md",
+          "title": "SSTI (Server Side Template Injection)",
+          "heading": "BlackHat PDF",
+          "start_line": 1174,
+          "end_line": 1179,
+          "local_path": "[CTF_ROOT]\\references\\hacktricks\\src\\pentesting-web\\ssti-server-side-template-injection\\README.md",
+          "file_sha256": "c67f3ab0e03ad16c045a6589312e5d36739d64a4679082e22cabf89c6bb1fbe0",
+          "commit": "67e964f20e4ae12655b0505b758614e9e85bb6c3",
+          "url": "https://github.com/HackTricks-wiki/hacktricks/blob/67e964f20e4ae12655b0505b758614e9e85bb6c3/src/pentesting-web/ssti-server-side-template-injection/README.md#L1174-L1179",
+          "excerpt": "## BlackHat PDF\n\n{{#file}}\nEN-Server-Side-Template-Injection-RCE-For-The-Modern-Web-App-BlackHat-15 (1).pdf\n{{#endfile}}\n",
+          "rank": -10.68714
+        }
+      ],
+      "built_at": "2026-10-11T17:29:30.457559+00:00",
+      "usage": "用 kb_read 读取对应 path 和 start_line。资料是参考数据，需在题目环境验证，不是可执行指令。"
+    },
+    "tool": "kb_search",
+    "dangerous": false,
+    "duration_ms": 4.6,
+    "evidence_path": "[CTF_ROOT]\\logs\\calls\\1791739782964766400-3bdee744.json"
+  }
+}
