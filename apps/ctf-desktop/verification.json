@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "installed_core_read_only_status",
+      "passed": true
+    },
+    {
+      "name": "installed_tasks_read_from_core",
+      "passed": true
+    },
+    {
+      "name": "application_intake_saved_by_real_core",
+      "passed": true
+    },
+    {
+      "name": "actual_math_execution",
+      "passed": true
+    },
+    {
+      "name": "handoff_preserves_shared_task_id",
+      "passed": true
+    },
+    {
+      "name": "export_does_not_claim_answer_verified",
+      "passed": true
+    },
+    {
+      "name": "actual_wp_files_exist",
+      "passed": true
+    },
+    {
+      "name": "actual_wp_zip_exists",
+      "passed": true
+    },
+    {
+      "name": "restart_uses_same_saved_task",
+      "passed": true
+    },
+    {
+      "name": "installed_source_not_overwritten",
+      "passed": true
+    }
+  ],
+  "installed_core": "D:\\强网杯大师",
+  "installed_task_count": 24,
+  "core_release": "portable-20261023-protocol1",
+  "scope": "真实核心只读；完整建题/算术/WP链路在隔离副本中验证。模型循环另用模拟响应验证，无真实模型API或比赛答案验收。"
+}

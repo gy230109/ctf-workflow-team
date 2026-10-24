@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "generated_patch_is_valid_yaml",
+      "passed": true
+    },
+    {
+      "name": "existing_profile_remains_parseable",
+      "passed": true
+    },
+    {
+      "name": "configured_route_mode_is_after_intake",
+      "passed": true
+    },
+    {
+      "name": "installed_plugin_allows_ctf_intake",
+      "passed": true
+    },
+    {
+      "name": "installed_plugin_blocks_native_body",
+      "passed": true
+    },
+    {
+      "name": "installed_plugin_keeps_system_calls",
+      "passed": true
+    }
+  ],
+  "scope": "Generated YAML entry and installed file URL, actual Harness ToolRuntime; fixture tool bodies and no live model call."
+}

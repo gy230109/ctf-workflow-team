@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CTF 系统 · 解题工作台</title><link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><span class="brand-icon">C<span>_</span></span><div>CTF 系统<small>LOCAL WORKSPACE</small></div></div>
+  <div class="nav-label">工作空间</div>
+  <button class="nav active" id="nav-work"><span>▦</span> 解题工作台</button>
+  <button class="nav" id="nav-ai"><span>◇</span> AI 接入</button>
+  <div class="sidebar-bottom"><span class="status-dot" id="core-dot"></span><div id="core-label">正在连接本机核心<small id="core-version">读取运行状态</small></div></div>
+</aside>
+<main>
+  <section id="workspace">
+    <header><div><div class="eyebrow">WORKSPACE / 工作台</div><h1>每一道题，都有迹可循<span class="accent">。</span></h1><p class="muted">题目、过程与证据保存在同一个系统，换一个 AI 也能接着做。</p></div><div class="header-actions"><button class="button quiet" id="refresh">刷新</button><button class="button primary" id="new-task">＋ 新建题目</button></div></header>
+    <div class="metrics"><div class="metric"><span>最近题目</span><strong id="count-total">—</strong><small>读取核心最近 30 项</small></div><div class="metric"><span>进行中</span><strong id="count-active">—</strong><small>真实任务状态</small></div><div class="metric"><span>待处理错误</span><strong id="count-errors">—</strong><small>保留失败与恢复记录</small></div><div class="metric"><span>核心工具</span><strong id="count-tools">—</strong><small>注册数量，具体依赖按题检查</small></div></div>
+    <div class="work-grid">
+      <section class="panel task-panel"><div class="panel-heading"><h2>题目列表</h2><span class="counter" id="task-count">—</span></div><label class="search"><span>⌕</span><input id="search" placeholder="搜索题名" aria-label="搜索题名"></label><div id="task-list" class="task-list"><div class="empty">正在读取本机题目…</div></div></section>
+      <section class="panel detail-panel" id="detail"><div class="empty large"><div class="empty-mark">[ _ ]</div><h2>从一道题开始</h2><p>选择已有题目读取进度，或新建题目保存题面和附件。</p></div></section>
+    </div>
+  </section>
+  <section id="settings" hidden>
+    <header><div><div class="eyebrow">CONNECTIONS / AI 接入</div><h1>模型可切换，进度留在这里<span class="accent">。</span></h1><p class="muted">直接连接模型，或让你已有的 AI 客户端接续同一题目。</p></div></header>
+    <div class="settings-grid">
+      <section class="panel settings-panel"><div class="panel-heading"><h2>直接连接模型</h2><span class="tag">API</span></div><p class="muted">支持 Chat Completions 工具调用格式。模型负责分析，所有工具操作交给本机 CTF 核心。</p><form id="model-form"><label>API 地址<input name="base_url" id="base-url" type="url" placeholder="填写服务商的兼容 API 基础地址"></label><label>模型名称<input name="model" id="model-name" placeholder="填写账户实际可用的模型 ID"></label><label>API 密钥<input name="api_key" id="api-key" type="password" autocomplete="off" placeholder="仅在本次程序运行期间保存"></label><div class="field-row"><label>每轮模型调用上限<input id="max-turns" name="max_turns" type="number" min="1" max="50" value="12"></label><div class="field-note" id="key-status">密钥不会写入配置文件</div></div><div class="actions"><button class="button primary" type="submit">保存连接</button><button class="button" id="test-model" type="button">测试模型回复</button></div><p class="small muted">测试会调用一次所填模型。切换模型前请先暂停，已有题目与证据继续保留。</p></form></section>
+      <div class="settings-stack"><section class="panel settings-panel"><div class="panel-heading"><h2>已有 AI 客户端</h2><span class="tag">共享核心</span></div><div class="connector"><div class="connector-icon">D</div><div><strong>DeepSeek Harness</strong><p id="harness-state">正在读取接入配置</p></div></div><p class="small muted">配置存在与运行中的客户端已加载是两项检查。可从题目页复制接续指令，让客户端读取同一任务编号。</p><div class="connector"><div class="connector-icon alt">↗</div><div><strong>ChatGPT / Codex / 其他 MCP 客户端</strong><p>连接同一套系统，即可读取同一题目的进度。</p></div></div></section><section class="panel settings-panel"><div class="panel-heading"><h2>这台电脑</h2><span class="tag">本机</span></div><dl class="paths"><dt>CTF 核心位置</dt><dd id="core-path">—</dd><dt>应用数据位置</dt><dd id="app-path">—</dd><dt>应用版本</dt><dd id="app-version">—</dd></dl><button class="button danger-subtle" id="shutdown">退出本次程序</button></section></div>
+    </div>
+  </section>
+  <footer><span>CTF SYSTEM <span class="footer-sep">/</span> 同一核心 · 持续记录</span><span id="footer-state">正在连接</span></footer>
+</main>
+<dialog id="new-dialog"><form id="new-form"><div class="dialog-head"><div><div class="eyebrow">NEW CHALLENGE</div><h2>新建题目</h2></div><button class="close" type="button" data-close="new-dialog" aria-label="关闭">×</button></div><label>题目名称<input name="title" required maxlength="200" placeholder="例如：pwn · fmt"></label><label>题型<select name="category"><option value="unknown">自动判断</option value="pwn">Pwn</option><option value="web">Web</option><option value="reverse">Reverse</option><option value="crypto">Crypto</option><option value="misc">Misc</option><option value="forensics">Forensics</option><option value="mobile">Mobile</option></select></label><label>题面与连接信息<textarea name="description" rows="5" placeholder="粘贴题面、nc 地址、已知条件和题目要求"></textarea></label><label class="upload">＋ 添加题目附件<input type="file" id="attachments" multiple><small>每个文件最大 32 MB，上传后由核心保留原件和摘要</small></label><div id="upload-list" class="small muted"></div><div class="actions end"><button class="button" type="button" data-close="new-dialog">取消</button><button class="button primary" type="submit">保存到 CTF 系统</button></div></form></dialog>
+<dialog id="handoff-dialog"><div class="dialog-head"><div><div class="eyebrow">CONTINUE WITH AI</div><h2>交给已有 AI 继续</h2></div><button class="close" data-close="handoff-dialog" aria-label="关闭">×</button></div><p class="muted">把下面的指令发给已连接这套核心的 AI。它会先读取原有题目、过程与证据。</p><textarea id="handoff-text" rows="7" readonly aria-label="AI 接续指令"></textarea><div class="actions end"><button class="button primary" id="copy-handoff">复制接续指令</button></div></dialog>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<script src="/app.js"></script>
+</body></html>

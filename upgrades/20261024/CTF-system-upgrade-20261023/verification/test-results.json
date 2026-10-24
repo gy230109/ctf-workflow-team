@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "python_unittest": {
+    "command": "python -X utf8 -B -m unittest discover -s tests -p test_*.py",
+    "tests": 57,
+    "failures": 0,
+    "errors": 0,
+    "scope": "Protocol transitions, provider-format adapters, worker framing, specialist validation, installer and rollback using disposable directories."
+  },
+  "harness_route_guard": {
+    "command": "node --test tests/test_harness_guard.mjs",
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "scope": "Actual installed Harness ToolRuntime with self-built fixture tool bodies."
+  },
+  "additional_reports": [
+    "real-runtime-verification.json",
+    "install-roundtrip.json",
+    "harness-patch-verification.json"
+  ],
+  "live_model_inference_tested": false,
+  "deployed_to_D_installation": false,
+  "active_Harness_profile_modified": false
+}

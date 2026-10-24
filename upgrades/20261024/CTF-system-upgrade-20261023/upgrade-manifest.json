@@ -1,0 +1,41 @@
+{
+  "release": "portable-20261023-protocol1",
+  "protocol": "ctf-system/1.1",
+  "files": [
+    {
+      "path": "tools/ctf_protocol.py",
+      "sha256": "55e5bb7be5b8e09fb08a9f3d27f1d832b6e731f892b4fdba6a67191e7da281b9",
+      "previous_sha256": null
+    },
+    {
+      "path": "tools/ctf_client_adapter.py",
+      "sha256": "8f8d9eb6a2b5a876f06ec43e8698fce110127c769b86e727b308322deaad70bc",
+      "previous_sha256": null
+    },
+    {
+      "path": "tools/ctf_product.py",
+      "sha256": "a6771d332783a2b3a75b8964e21cb4b29c7abcfc2cc2f965b93ba04a09e5407a",
+      "previous_sha256": "11b222fcf9b1567103bba891aa588243a14655efb117992742c23e16ce6e054d"
+    },
+    {
+      "path": "tools/ctf_version.py",
+      "sha256": "9580c3ae23f01f9002b46ce0d9440e91c53c75fc76f76c5b5b1cec99033196e6",
+      "previous_sha256": "d7f98a1fe5e267937a05a33620b5b87513ee91366ec1b72088ae38f59fa90c3b"
+    },
+    {
+      "path": "tools/ctf_specialist_worker.py",
+      "sha256": "fa616f60b845a474a152a613135010568bb186aa2fe59ddd8c2d932d236ba5b1",
+      "previous_sha256": "17b5e90dcaaff0d1cb06245bc31488f604e9564053d2fdfa3a48d10d09c2e665"
+    },
+    {
+      "path": "integrations/deepseek-harness/ctf-route-guard.mjs",
+      "sha256": "4f93b2021d4337aaa8f5c162ee5082ed28be9cdcafc397fc258e2954d517241c",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/UNIFIED_INTERFACE.md",
+      "sha256": "6488709bc56581c24f4c73e23903d4fd0e43aa57c054d233c08f3aa522cd1fde",
+      "previous_sha256": null
+    }
+  ]
+}

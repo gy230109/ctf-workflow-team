@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "real_installation_baseline_matches",
+      "passed": true
+    },
+    {
+      "name": "real_entry_loads_after_upgrade",
+      "passed": true
+    },
+    {
+      "name": "real_109_tools_after_upgrade",
+      "passed": true
+    },
+    {
+      "name": "new_protocol_after_upgrade",
+      "passed": true
+    },
+    {
+      "name": "task_bytes_preserved_during_upgrade",
+      "passed": true
+    },
+    {
+      "name": "profile_original_bytes_preserved",
+      "passed": true
+    },
+    {
+      "name": "installed_Harness_plugin_loads_from_generated_patch",
+      "passed": true
+    },
+    {
+      "name": "repeat_install_does_not_duplicate_policy",
+      "passed": true
+    },
+    {
+      "name": "rollback_completed",
+      "passed": true
+    },
+    {
+      "name": "all_patched_files_restored_or_removed",
+      "passed": true
+    },
+    {
+      "name": "profile_restored_exactly",
+      "passed": true
+    },
+    {
+      "name": "task_bytes_preserved_after_rollback",
+      "passed": true
+    },
+    {
+      "name": "actual_D_installation_untouched",
+      "passed": true
+    },
+    {
+      "name": "actual_Harness_profile_untouched",
+      "passed": true
+    }
+  ],
+  "scope": "Real source copy, actual installer, real MCP runtime and exact rollback; D installation and active Harness profile were read only."
+}

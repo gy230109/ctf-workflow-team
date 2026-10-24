@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "same_provider_neutral_schemas",
+      "passed": true
+    },
+    {
+      "name": "real_109_tool_catalog",
+      "passed": true
+    },
+    {
+      "name": "server_requires_triage",
+      "passed": true
+    },
+    {
+      "name": "real_profile",
+      "passed": true
+    },
+    {
+      "name": "actual_gcd_output",
+      "passed": true
+    },
+    {
+      "name": "actual_wp_evidence",
+      "passed": true
+    },
+    {
+      "name": "same_request_returns_same_evidence",
+      "passed": true
+    },
+    {
+      "name": "actual_noninvertible_error",
+      "passed": true
+    },
+    {
+      "name": "other_provider_sees_same_failure",
+      "passed": true
+    },
+    {
+      "name": "failure_blocks_further_execution",
+      "passed": true
+    },
+    {
+      "name": "real_recovery_note",
+      "passed": true
+    },
+    {
+      "name": "analysis_after_recovery",
+      "passed": true
+    },
+    {
+      "name": "report_does_not_claim_verified_answer",
+      "passed": true
+    }
+  ],
+  "task_id": "ctf-71a000ffa3677f46",
+  "source_root": "C:\\Users\\Lenovo\\Documents\\ChatGPT\\创业\\ctf-system-portable-20261023",
+  "contract": {
+    "version": "ctf-system/1.1",
+    "namespace": "ctf_system",
+    "operations": [
+      "ctf_system_status",
+      "ctf_start",
+      "ctf_tools",
+      "ctf_call",
+      "ctf_analyze",
+      "ctf_note",
+      "ctf_progress",
+      "ctf_finish"
+    ],
+    "schema_sha256": "719704131d72dde30e1659424428879a9f4b8497b0cb157e9162e89ea3d5a328",
+    "workflow_owner": "CTF_system",
+    "model_binding": "external_replaceable",
+    "native_client_tools_managed": false,
+    "client_requirement": "Route CTF execution through these operations; native tool restrictions require a client adapter."
+  },
+  "scope": "Real stdio entry, core tools, shared task state and WP receipts; provider envelopes only, no live AI/model calls."
+}
