@@ -345,6 +345,14 @@ TOOLS={
  'ctf_finish':('CTF系统：默认导出包含已采集图片与回放文件的本机中文 WP/ZIP，并保存交接进度；对外分享前须另审原始证据与像素。不接受自报 solved。',schema(dict(TASK,summary=TEXT,include_images={'type':'boolean','default':True},state=dict(TEXT,enum=['analysis_complete','needs_input','blocked'])),['task_id']),'finish'),
 }
 
+# BEGIN PURGE-FUSION (MCP surface)
+try:
+    import ctf_redteam_mcp as _purge_mcp
+    PURGE_TOOLS = _purge_mcp.catalog()
+except Exception:  # 红队模块缺失时不拖垮原产品面
+    PURGE_TOOLS = {}
+# END PURGE-FUSION (MCP surface)
+
 ANALYSIS_TOOLS={'math_gcd','math_modpow','math_modinv','crypto_shared_factors','crypto_rsa_decrypt',
  'util_hex','util_unhex','util_b64','util_rot','util_int_bytes','flag_format_check','ctf_profile',
  'rea_status','rea_ops','rea_run','kali_file','kali_strings','kali_objdump','reverse_binary_info','kb_search','kb_read',
@@ -381,10 +389,22 @@ def handle(request,product=None):
         result={'protocolVersion':requested if requested in {'2024-11-05','2025-03-26','2025-06-18','2025-11-25'} else '2025-06-18',
                 'serverInfo':{'name':'CTF系统','version':'1.0.0-preview'},'instructions':INSTRUCTIONS,'capabilities':{'tools':{}}}
     elif method=='ping':result={}
-    elif method=='tools/list':result={'tools':[{'name':n,'description':d,'inputSchema':s,
+    elif method=='tools/list':
+        _catalog={'tools':[{'name':n,'description':d,'inputSchema':s,
         'annotations':{'readOnlyHint':n in {'ctf_tools','ctf_progress','ctf_team_role'},'destructiveHint':n=='ctf_call','openWorldHint':n in {'ctf_call','ctf_system_status'}}} for n,(d,s,_) in TOOLS.items()]}
+        _catalog['tools']+=[{'name':n,'description':d,'inputSchema':s,
+            'annotations':{'readOnlyHint':False,'destructiveHint':False,'openWorldHint':False}} for n,(d,s,_) in PURGE_TOOLS.items()]
+        result=_catalog
     elif method=='tools/call':
         name=params.get('name');args=params.get('arguments',{})
+        if name in PURGE_TOOLS and isinstance(args,dict):
+            try:
+                value=PURGE_TOOLS[name][2](args)
+            except Exception as e:
+                value={'ok':False,'error':str(e),'error_code':type(e).__name__,
+                       'action':'Read this error; do not claim success.'}
+            return {'jsonrpc':'2.0','id':rid,'result':{'isError':not value.get('ok',False),
+                'content':[{'type':'text','text':json.dumps(value,ensure_ascii=False)}],'structuredContent':value}}
         if name not in TOOLS or not isinstance(args,dict):
             return {'jsonrpc':'2.0','id':rid,'error':{'code':-32602,'message':'Unknown tool or invalid arguments'}}
         _,s,target=TOOLS[name]

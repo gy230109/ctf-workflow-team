@@ -71,7 +71,7 @@
 `config/purge-redteam-preset.md`、`docs/purge-redteam-scoring.md`。
 
 装到**你自己的** CTF 系统（别人的机器）：下载 [Release](release/) 里的
-`ctf-purge-fusion-1.0.0.zip`，解压后 `python install.py --root <CTF 根目录>`；
+`ctf-purge-fusion-1.0.1.zip`，解压后 `python install.py --root <CTF 根目录>`；
 回滚 `python install.py --root <CTF 根目录> --uninstall`。
 
 要求：Python ≥ 3.9；Node ≥ 22（runtime 用 `node:sqlite`，缺失时工具执行会报缺运行时）。
