@@ -1,4 +1,8 @@
 <!-- BEGIN PURGE-REDTEAM-PRESET -->
+> **适用边界（CTF 系统默认关闭此口径）**：以下是破甲红队预设的原始 persona 段，面向「单位靶标渗透演练」。
+> 本系统是 CTF 系统，**单题解题不加载这套口径**：不套五阶段、不派角色、不写渗透报告，交付物是 `ctf_finish` 的 WP。
+> 只有当题目本身就是内网/多主机演练时，才把本文当作参考。
+
 # 破甲红队预设（Purge 1.6.60 · upstream 27919a32）
 
 来源：`integrations/purge-redteam/upstream/presets/redteam/agent.cordis.yml` 的 persona 段
