@@ -1111,3 +1111,23 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# BEGIN PURGE-FUSION（managed by ctf-purge-fusion 1.0.0）
+try:
+    import ctf_redteam_fusion as _purge_redteam_fusion
+    ALL_TOOLS.update(_purge_redteam_fusion.TOOLS)
+except Exception:  # 模块缺失/降级时不拖垮原系统
+    pass
+try:
+    import ctf_redteam_semantics as _purge_redteam_semantics
+    ALL_TOOLS.update(_purge_redteam_semantics.TOOLS)
+except Exception:
+    pass
+try:
+    import ctf_redteam as _purge_redteam_compat
+    ALL_TOOLS.update(_purge_redteam_compat.TOOLS)
+    DANGEROUS.update(getattr(_purge_redteam_compat, 'DANGEROUS', set()))
+except Exception:
+    pass
+# END PURGE-FUSION

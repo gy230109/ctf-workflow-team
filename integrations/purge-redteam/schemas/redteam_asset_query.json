@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_asset_query",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "assets",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      cidr: { type: 'string', description: 'C 段，例如 203.0.113.0/24' },\n      port: { type: 'number', description: '开放端口' },\n      service: { type: 'string', description: '服务/产品名关键词，例如 nginx' },\n      fingerprint: { type: 'string', description: '指纹关键词，例如 Tomcat / Spring' },\n      provenance: { type: 'string', enum: ['passive', 'active'], description: '只看被动或主动来源' },\n      q: { type: 'string', description: '全文检索词（空格分隔多词为 AND）' },\n      state: { type: 'string', enum: ['live', 'dead', 'unknown'] },\n      scope: { type: 'string', enum: ['internal', 'external'], description: '内外网维度：internal=内网/私网地址，external=互联网可达' },\n      sort: { type: 'string', enum: ['priority', 'todo', 'ports', 'ip'], description: '排序：priority=易打性优先（默认），todo=待测优先，ports=端口多优先，ip=按 IP' },\n      limit: { type: 'number', description: '返回条数上限，默认 50，最大 200' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

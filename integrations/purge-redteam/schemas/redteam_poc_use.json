@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_poc_use",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "pocUse",
+  "parameters_js": "{\n      id: { type: 'number' },\n      code: { type: 'string' },\n      used_on: { type: 'string', description: '用在哪：靶标名 / 目标 IP / URL' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

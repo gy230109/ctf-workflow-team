@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_asset_stats",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "stats",
+  "parameters_js": "{ engagement: { type: 'string' } }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

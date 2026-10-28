@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_poc_update",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "pocUpdate",
+  "parameters_js": "{\n      id: { type: 'number', description: '知识库条目 id' },\n      code: { type: 'string', description: '或用 code 指定条目' },\n      patch: {\n        type: 'object', additionalProperties: true,\n        description: '{ verified, verified_note, versions, usage, description, content, tags, severity, component, cve, source, source_url, language }',\n      },\n      verified: { type: 'boolean', description: '便捷写法：直接传 verified' },\n      verified_note: { type: 'string', description: '便捷写法：直接传验证证据' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

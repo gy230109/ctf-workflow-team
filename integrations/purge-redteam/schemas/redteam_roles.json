@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_roles",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "prompts",
+  "parameters_js": "{}",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

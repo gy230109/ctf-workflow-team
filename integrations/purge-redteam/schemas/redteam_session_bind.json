@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_session_bind",
+  "ctf_tool": null,
+  "operation": null,
+  "parameters_js": "{\n      engagement: { type: 'string', description: '靶标 id 或单位名称；省略只列出候选' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

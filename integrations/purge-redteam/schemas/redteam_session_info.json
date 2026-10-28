@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_session_info",
+  "ctf_tool": null,
+  "operation": null,
+  "parameters_js": "{}",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_tunnel_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addTunnel",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      agent: AGENT_PARAM,\n      kind: { type: 'string', required: true, description: 'suo5（首选，走 WebShell/HTTP）| socks5 | ssh-r | frp | chisel | other' },\n      listen: { type: 'string', required: true, description: '本地监听地址 host:port' },\n      entry: { type: 'string', description: '入口：WebShell URL / 跳板机 / 命令' },\n      reach: { type: 'string', description: '可达网段，例如 10.0.0.0/8' },\n      entry_kind: { type: 'string', description: '【重要】通道的目标侧那一端是什么：target-outbound（目标反弹 shell 到我方/目标上跑 frp 客户端）| target-http（经目标 WebShell 的 suo5/Neo-ReGeorg）| target-agent（经目标已控进程转发）| self-only（只在自己 VPS/自建服务器上，**不算突破**）' },\n      webshell_id: { type: 'number', description: '由哪个 WebShell 建立' },\n      asset_id: { type: 'number' },\n      command: { type: 'string', description: '建立命令，便于重建' },\n      pid: { type: 'string' },\n      note: { type: 'string' },\n      found_by_agent: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

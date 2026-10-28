@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_access_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addAccess",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      host: { type: 'string', required: true },\n      username: { type: 'string' },\n      method: { type: 'string', required: true, description: '获得访问的方式' },\n      privilege: { type: 'string' },\n      asset_id: { type: 'number' },\n      session_ref: { type: 'string', description: '会话/证据引用，例如 runs/session-vnc-10.0.0.5.md' },\n      note: { type: 'string' },\n      found_by_agent: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

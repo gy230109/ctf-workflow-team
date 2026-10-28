@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_score_report",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "scoreReport",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      limit: { type: 'number', description: '最多多少项，默认 500' },\n      markdown: { type: 'boolean', description: 'true=返回 markdown 全文（默认 true）；false=只返回条目摘要' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

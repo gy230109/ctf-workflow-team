@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_vuln_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addVuln",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      agent: AGENT_PARAM,\n      asset_id: { type: 'number', description: '资产 id（来自 redteam_asset_query）' },\n      cve: { type: 'string', description: 'CVE / CNVD 编号（无编号可省略）' },\n      title: { type: 'string', required: true, description: '漏洞标题' },\n      severity: { type: 'string', required: true, enum: ['critical', 'high', 'medium', 'low', 'info'] },\n      status: { type: 'string', enum: ['candidate', 'confirmed', 'false-positive', 'exploited', 'fixed'] },\n      target: { type: 'string', description: '受影响的目标，如 https://host:443/path 或 ip:port' },\n      source: { type: 'string', description: '发现方式：nuclei / sqlmap / curl / manual …' },\n      confidence: { type: 'number', description: '0–1' },\n      evidence: { type: 'string', description: '证据：请求/响应摘要、命令、证据文件路径' },\n      found_by_agent: { type: 'string', description: '发现角色，默认 vuln-scan' },\n      gained: { type: 'string', description: '【重要】通过这个漏洞拿到了什么权限/成果，写得分口径的短标签，多项用顿号或逗号分隔，例如「服务器权限、内网隧道」「后台管理员账号」「数据库权限」' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

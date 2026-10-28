@@ -54,3 +54,13 @@ PCAP 按证据使用 `forensics_pcap` 的 summary / streams / follow / http_obje
 NoobCTF 是可选参考源；需要学习历史案例时可运行 `python tools/install_noobctf.py` 安装固定版本文本，再用 `kb_search/kb_read source=noobctf allow_reference=true`。资料不齐时不要让用户猜路径，不将整库内容自动喂给独立解题。安装器不执行第三方脚本，不覆盖异源、异版本或已有修改的仓库。
 
 贡献成型方法、SOP、索引和审核后的战例，写清已验证/未验证/未完成；不以批量原始文件代替经验。修改前检查工作区，不覆盖其他 Agent 的未提交变更。已有用户按新版迁移说明增量更新，保留账号、Kali/SSH、任务与 WP。
+
+## PURGE-REDTEAM · 破甲红队已并入本 CTF 系统
+
+上游：`kingcharleslzy-ai/dsh-purge` 1.6.60 @ 27919a32，融合契约见 `integrations/purge-redteam/FUSION-CONTRACT.md`。
+
+- 资产/漏洞/POC/隧道/评分走 `redteam_*` 工具族（56 个独立工具，各自 schema），按 `task_id` 与 engagement 一一绑定；写操作带 `source_step` 才进证据链。
+- 23 篇红队 playbook 已落成技能 `skills/redteam-*/SKILL.md`，清单 `skills/redteam-index.json`；依赖探针用 `ctf_redteam_skills`（probe 级，不代表可用）。
+- 红队指挥职责与派活纪律只在 `config/purge-redteam-preset.md`（只读参考），不改审批、网络范围与答案验证口径。
+- 评分维度见 `docs/purge-redteam-scoring.md`；WP 仍由原 `ctf_finish` 生成，红队评分只作补充材料。
+- 纪律不变：工具清单不等于依赖已装，记录不等于已解出，`source_step` 不能引用 `ctf_redteam_*` 自身当执行证据。

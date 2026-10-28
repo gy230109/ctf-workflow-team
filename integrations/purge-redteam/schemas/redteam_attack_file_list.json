@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_attack_file_list",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "attackFiles",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      target: { type: 'string', description: '只看某个目标' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

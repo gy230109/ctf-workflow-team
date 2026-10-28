@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_engagement_open",
+  "ctf_tool": null,
+  "operation": null,
+  "parameters_js": "{\n      target: { type: 'string', required: true, description: '靶标单位名称，例如「示例科技有限公司」' },\n      scope: {\n        type: 'array',\n        description: '授权范围 CIDR 列表（可选：用户没给就不用问，按公开可见资产面自主推进）',\n        items: { type: 'string' },\n      },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

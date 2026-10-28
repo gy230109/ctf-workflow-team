@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_session_check",
+  "ctf_tool": "ctf_redteam_session_check",
+  "operation": "probeSessions",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      timeoutMs: { type: 'number', description: '单次探测超时，默认 6000ms' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

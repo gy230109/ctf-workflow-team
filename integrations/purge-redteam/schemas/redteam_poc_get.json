@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_poc_get",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "pocGet",
+  "parameters_js": "{\n      id: { type: 'number', description: '知识库条目 id' },\n      code: { type: 'string', description: '知识库条目的稳定标识（search 结果里的 code）' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

@@ -1,0 +1,209 @@
+[
+    {
+        "name":  "redteam-active-scan",
+        "source_name":  "active-scan",
+        "description":  "主动端口与服务扫描（nmap/masscan），严格遵守授权范围\r",
+        "path":  "skills\\redteam-active-scan\\SKILL.md",
+        "sha256":  "5d5743a0d3baad6598b31216eb1b4b6d6002bead66bd31f37b7957ddc976722f",
+        "bytes":  1776,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/active-scan.md"
+    },
+    {
+        "name":  "redteam-asset-correlation",
+        "source_name":  "asset-correlation",
+        "description":  "资产关联：域名↔IP↔C 段↔证书↔服务的图谱化\r",
+        "path":  "skills\\redteam-asset-correlation\\SKILL.md",
+        "sha256":  "da285cb2773501cd70957a08f5fcad9a34e835457d99899e0c71bcecf1a078d5",
+        "bytes":  534,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/asset-correlation.md"
+    },
+    {
+        "name":  "redteam-browser-automation",
+        "source_name":  "browser-automation",
+        "description":  "无依赖驱动 Chrome/Chromium 抓取 JS 渲染页面、截图、执行 JS、抓接口清单（headless 兜底 + playwright-cli）\r",
+        "path":  "skills\\redteam-browser-automation\\SKILL.md",
+        "sha256":  "432265231a9d3cb1b1fca0d2b400c9eeb9328c4bfb4d0f4fd8258b25ccd0f477",
+        "bytes":  4475,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/browser-automation.md"
+    },
+    {
+        "name":  "redteam-chisel-tunnel",
+        "source_name":  "chisel-tunnel",
+        "description":  "chisel 隧道：HTTP/WebSocket 封装的多路复用隧道，最易穿透出网限制与反向代理\r",
+        "path":  "skills\\redteam-chisel-tunnel\\SKILL.md",
+        "sha256":  "d1091a94a66050eda92c33db91bb47a5db596593b528f0c07a6c79b15b3ae7b9",
+        "bytes":  6190,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/chisel-tunnel.md"
+    },
+    {
+        "name":  "redteam-cn-proxy-pool",
+        "source_name":  "cn-proxy-pool",
+        "description":  "国内免费 HTTP/SOCKS5 代理池：抓取、验活、按需轮换；只用命令级代理参数，绝不改动本机网络与代理配置\r",
+        "path":  "skills\\redteam-cn-proxy-pool\\SKILL.md",
+        "sha256":  "79c1f382cd28e8ec22fefe9ad4b164fd0d0cb3a4165f57db8205ecd6f22e28df",
+        "bytes":  5038,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/cn-proxy-pool.md"
+    },
+    {
+        "name":  "redteam-credential-attack",
+        "source_name":  "credential-attack",
+        "description":  "凭据攻击：在线弱口令爆破（hydra）与离线哈希破解（hashcat/john），覆盖 SSH/FTP/RDP/SMB/数据库/Web 后台\r",
+        "path":  "skills\\redteam-credential-attack\\SKILL.md",
+        "sha256":  "d321653972da79e931700451cd84d9f5d504679c2fcbdb865c99eedc9ea87ce4",
+        "bytes":  8928,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/credential-attack.md"
+    },
+    {
+        "name":  "redteam-dir-bruteforce",
+        "source_name":  "dir-bruteforce",
+        "description":  "目录与文件爆破：后台入口、备份文件、配置泄露、源码与版本库暴露（ffuf/feroxbuster/dirsearch/gobuster）\r",
+        "path":  "skills\\redteam-dir-bruteforce\\SKILL.md",
+        "sha256":  "b4fc08a664c444e4f6738066441e11677ab500082d49277c46b0e2bd9e4207b9",
+        "bytes":  6727,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/dir-bruteforce.md"
+    },
+    {
+        "name":  "redteam-fofa-recon",
+        "source_name":  "fofa-recon",
+        "description":  "用 FOFA API 批量测绘靶标资产（域名/IP/端口/标题/指纹）；内置限速客户端，严格单线程 + 最小间隔 + 退避重试，避免触发 45012\r",
+        "path":  "skills\\redteam-fofa-recon\\SKILL.md",
+        "sha256":  "2861bceba1d46537dd85e03d7e7389429e4e1c7ee7ff0fbb8e1cbf754f8ad2de",
+        "bytes":  8207,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/fofa-recon.md"
+    },
+    {
+        "name":  "redteam-frp-tunnel",
+        "source_name":  "frp-tunnel",
+        "description":  "frp 内网穿透：在自有 VPS 上跑 frps，在目标上跑 frpc，得到稳定 socks5 与端口映射\r",
+        "path":  "skills\\redteam-frp-tunnel\\SKILL.md",
+        "sha256":  "dfe3a9c8d50eb7bdc04ff91fdcef2b4c69c1f82597955cfa7994eb4bad37818e",
+        "bytes":  6417,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/frp-tunnel.md"
+    },
+    {
+        "name":  "redteam-fscan-intranet",
+        "source_name":  "fscan-intranet",
+        "description":  "fscan v2.2.1 内网综合扫描：存活探测、端口/服务识别、28 类弱口令爆破、未授权访问与高危漏洞（MS17-010/SMBGhost）、Redis 利用与 SOCKS5 隧道\r",
+        "path":  "skills\\redteam-fscan-intranet\\SKILL.md",
+        "sha256":  "2099075ad370146ca74730b22f81253401acbf569f19a8ad550eaf7c12975a6c",
+        "bytes":  9287,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/fscan-intranet.md"
+    },
+    {
+        "name":  "redteam-gogo-intranet",
+        "source_name":  "gogo-intranet",
+        "description":  "gogo v2.15.0 高性能内网扫描引擎：智能/超智能模式、主动+被动指纹、关键信息提取（title/cert/JWT/邮箱/身份证）、nuclei 模板 POC、发包可控低噪声\r",
+        "path":  "skills\\redteam-gogo-intranet\\SKILL.md",
+        "sha256":  "02f5c8326a3e12e8dc8d58c11b0082f6760b9ee69b6684c2b6af1a6cf5e72f19",
+        "bytes":  10035,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/gogo-intranet.md"
+    },
+    {
+        "name":  "redteam-kimi-webbridge",
+        "source_name":  "kimi-webbridge",
+        "description":  "用月之暗面 Kimi 浏览器扩展（WebBridge）驱动用户真实 Chrome/Chromium：导航、读取页面、点击、填表、执行 JS、截图\r",
+        "path":  "skills\\redteam-kimi-webbridge\\SKILL.md",
+        "sha256":  "4d9e71f5903cb523e198e75f7cbd32edfa3d58285883b5c30e9032b9e67c11e7",
+        "bytes":  5889,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/kimi-webbridge.md"
+    },
+    {
+        "name":  "redteam-lateral-movement",
+        "source_name":  "lateral-movement",
+        "description":  "内网横向与提权：Impacket 套件（PtH/PsExec/WMI/DCOM/Kerberos/凭据转储）+ enum4linux/smbclient 信息枚举\r",
+        "path":  "skills\\redteam-lateral-movement\\SKILL.md",
+        "sha256":  "455e9596acd4d5176a3312532be04a345bd9d66bb8fc5e13915136064a66aee1",
+        "bytes":  8140,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/lateral-movement.md"
+    },
+    {
+        "name":  "redteam-nuclei-scan",
+        "source_name":  "nuclei-scan",
+        "description":  "nuclei 模板化漏洞扫描：13,000+ 模板覆盖 CVE/暴露面/配置缺陷/默认口令，Nday 与 1day 的主力检测手段\r",
+        "path":  "skills\\redteam-nuclei-scan\\SKILL.md",
+        "sha256":  "f76ef9af5a1e1f5c5b5750fef8c9683e58cb7e88d998017c6ce58cc8c149552e",
+        "bytes":  6355,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/nuclei-scan.md"
+    },
+    {
+        "name":  "redteam-passive-recon",
+        "source_name":  "passive-recon",
+        "description":  "被动信息收集：不接触目标主机，仅使用公开数据源\r",
+        "path":  "skills\\redteam-passive-recon\\SKILL.md",
+        "sha256":  "bae74f2ce87ba59d5e7aabb74c965e382d222c8ca201f8d1b072088fd562b4c8",
+        "bytes":  736,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/passive-recon.md"
+    },
+    {
+        "name":  "redteam-recon-pipeline",
+        "source_name":  "recon-pipeline",
+        "description":  "ProjectDiscovery 信息收集流水线：subfinder→dnsx→naabu→httpx→katana 一键铺开域名资产面\r",
+        "path":  "skills\\redteam-recon-pipeline\\SKILL.md",
+        "sha256":  "090b38437d1a1a8052f06e126729eeb5f0b4dbff8117aa75631d8ae1a94c4cbf",
+        "bytes":  6190,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/recon-pipeline.md"
+    },
+    {
+        "name":  "redteam-redteam-setup",
+        "source_name":  "redteam-setup",
+        "description":  "首次使用引导：引导提供 FOFA_KEY 与 VPS 登录方式、验证通道可用、给出降级口径（工具链由工具箱附件按需获取）\r",
+        "path":  "skills\\redteam-redteam-setup\\SKILL.md",
+        "sha256":  "7464c7579ef83a0def93b6df6314e9175d2e43baaeec46afa569ec5ef557c365",
+        "bytes":  6828,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/redteam-setup.md"
+    },
+    {
+        "name":  "redteam-shell-handler",
+        "source_name":  "shell-handler",
+        "description":  "反弹 Shell 与载荷投递：VPS 上起 MSF/nc/socat 监听接收 shell，或从目标主动拉取载荷落地\r",
+        "path":  "skills\\redteam-shell-handler\\SKILL.md",
+        "sha256":  "3f39d32069b1e400d811b9a0854dbdb9db8d72c98092ea6cd73c2b365e04690f",
+        "bytes":  8081,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/shell-handler.md"
+    },
+    {
+        "name":  "redteam-suo5-tunnel",
+        "source_name":  "suo5-tunnel",
+        "description":  "用 suo5 通过 WebShell/HTTP 建立 SOCKS5 隧道，把内网流量代理出来（内网突破核心工具）\r",
+        "path":  "skills\\redteam-suo5-tunnel\\SKILL.md",
+        "sha256":  "be70c472bcd553fcd8bb2fb1801b2945644510ff56b91dfd9e0f85dd9bd4ee1d",
+        "bytes":  3325,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/suo5-tunnel.md"
+    },
+    {
+        "name":  "redteam-unauth-exploit",
+        "source_name":  "unauth-exploit",
+        "description":  "未授权访问与信息泄露利用链：Redis/MySQL/MSSQL/ES/Docker/MongoDB 等暴露服务直取数据或写马\r",
+        "path":  "skills\\redteam-unauth-exploit\\SKILL.md",
+        "sha256":  "134e3d6f161bd4238e70b49d8bf85934cd38a196c5c68bf2d091e691b3589567",
+        "bytes":  8449,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/unauth-exploit.md"
+    },
+    {
+        "name":  "redteam-vps-reverse-shell",
+        "source_name":  "vps-reverse-shell",
+        "description":  "用自建 VPS（\u003c你的VPS_IP\u003e，SSH 私钥登录）做反弹 Shell 落地与中转：9000-9999 端口监听、非交互会话驱动、载荷投递、反向隧道\r",
+        "path":  "skills\\redteam-vps-reverse-shell\\SKILL.md",
+        "sha256":  "bab2f8f6c7cafdbd4a9bab4127d025ed4afd7586cc12a25f7ebf1076b8562560",
+        "bytes":  9623,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/vps-reverse-shell.md"
+    },
+    {
+        "name":  "redteam-web-fingerprint",
+        "source_name":  "web-fingerprint",
+        "description":  "Web 服务指纹识别：框架、中间件、CMS、组件版本\r",
+        "path":  "skills\\redteam-web-fingerprint\\SKILL.md",
+        "sha256":  "83ea36b87a6595a7e845068cd78544bacf26d2f44641f0eaa8e18a742042536c",
+        "bytes":  980,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/web-fingerprint.md"
+    },
+    {
+        "name":  "redteam-webshell-toolkit",
+        "source_name":  "webshell-toolkit",
+        "description":  "冰蝎 / 哥斯拉 / 中国蚁剑 的启动与用法，用于上传并管理 WebShell、维持访问、操作目标服务器\r",
+        "path":  "skills\\redteam-webshell-toolkit\\SKILL.md",
+        "sha256":  "d52cfca0ff7da49bf0cc982686b99af08528ef0b5b1d4900d5fa6ee5c51cf0ee",
+        "bytes":  6221,
+        "source":  "purge@27919a326b6615b1968661a3e749760cec3a2e07 skills/redteam/webshell-toolkit.md"
+    }
+]

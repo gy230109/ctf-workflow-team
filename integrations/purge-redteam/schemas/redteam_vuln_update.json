@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_vuln_update",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "updateVuln",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      id: { type: 'number', required: true, description: '漏洞 id' },\n      status: { type: 'string', enum: ['candidate', 'confirmed', 'false-positive', 'exploited', 'fixed'] },\n      severity: { type: 'string', enum: ['critical', 'high', 'medium', 'low', 'info'] },\n      evidence: { type: 'string' },\n      confidence: { type: 'number' },\n      gained: { type: 'string', description: '通过这个漏洞拿到了什么权限/成果（得分口径短标签，多项用顿号分隔）' },\n      title: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

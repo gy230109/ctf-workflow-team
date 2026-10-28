@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_score_point_save",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "saveScorePoint",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      id: { type: 'number', description: '已有得分点 id（修改时传）' },\n      name: { type: 'string', required: true },\n      code: { type: 'string', description: '短代码（新增时建议给，便于记录得分）' },\n      category: { type: 'string', description: '分类，如 账号权限 / 服务器权限 / 数据库 / 网络突破 / 数据 / 核心目标' },\n      points: { type: 'number', description: '分值' },\n      description: { type: 'string', description: '得分条件说明' },\n      enabled: { type: 'boolean' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

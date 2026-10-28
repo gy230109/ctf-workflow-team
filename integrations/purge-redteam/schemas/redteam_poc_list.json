@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_poc_list",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "pocList",
+  "parameters_js": "{\n      kind: { type: 'string' }, source: { type: 'string' }, component: { type: 'string' },\n      verified: { type: 'boolean' }, limit: { type: 'number' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

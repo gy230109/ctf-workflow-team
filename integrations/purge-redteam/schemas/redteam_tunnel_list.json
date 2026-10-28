@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_tunnel_list",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "tunnels",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      status: { type: 'string', description: 'active | down | unknown' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_role_prompt",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "prompts",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      role: { type: 'string', required: true, /* 角色白名单**从 ROLE_ORDER 派生**：写死 4 个值曾漏掉 assess，\n          而预设明确要求主会话用本工具取资产梳理角色的提示词 —— 结果 enum 直接拒绝，\n          资产梳理子智能体永远拿不到角色约束。派生后新增角色不会再漏。 */\n      enum: ROLE_ORDER },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

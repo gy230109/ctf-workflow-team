@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_asset_timeline",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "discoveryTimeline",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      limit: { type: 'number', description: '最近资产条数，默认 50' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

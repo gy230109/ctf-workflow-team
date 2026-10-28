@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_http_evidence_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addHttpEvidence",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      vuln_id: { type: 'number', description: '关联的漏洞 id（建议填）' },\n      asset_id: { type: 'number' },\n      label: { type: 'string', description: '这条证据的用途，例如「越权读取用户列表」' },\n      method: { type: 'string', description: 'GET/POST/…' },\n      url: { type: 'string' },\n      status: { type: 'number', description: '响应状态码' },\n      request: { type: 'string', required: true, description: '原始请求全文（Burp 可直接粘贴）' },\n      response: { type: 'string', description: '响应全文或关键片段' },\n      note: { type: 'string' },\n      captured_by: { type: 'string', description: '采集角色' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

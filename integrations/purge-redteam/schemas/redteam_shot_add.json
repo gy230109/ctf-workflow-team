@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_shot_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "shotAdd",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      agent: AGENT_PARAM,\n      path: { type: 'string', description: '图片在本机的路径（相对靶标目录或绝对路径）；与 data_base64 二选一' },\n      data_base64: { type: 'string', description: '图片内容（base64，可带 data: 前缀）；截图工具没落盘时用这个' },\n      label: { type: 'string', description: '图片说明，例如「域控 WEB-SHDC1 atexec 回显 nt authority\\\\system」' },\n      kind: { type: 'string', description: 'screenshot（现场截图，默认）| card（由记录生成的证据摘录卡，报告里会标注）' },\n      point_code: { type: 'string', description: '关联的得分点 code，如 terminal-access / central-system' },\n      hit_id: { type: 'number', description: '关联到具体某条得分命中（score_hit id）；给了它这张图就只挂在那一条上' },\n      asset_id: { type: 'number' },\n      target: { type: 'string', description: '这张图对应的目标（IP / URL）' },\n      note: { type: 'string', description: '补充说明：这张图证明了什么' },\n      source_ref: { type: 'string', description: '原始来源：截图的落盘路径或 runs/ 下的证据文件' },\n      captured_at: { type: 'string', description: '截图时间（ISO），缺省用当前时间' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

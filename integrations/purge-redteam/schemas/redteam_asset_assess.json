@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_asset_assess",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "assessAsset",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      asset_id: { type: 'number' },\n      ip: { type: 'string' },\n      priority: { type: 'string', enum: ['high', 'medium', 'low'], description: 'high 容易出成果 / medium 一般 / low 难打或价值低' },\n      potential: { type: 'string', description: '预期成果，如「账号权限+RCE」「数据库权限」「大量敏感信息」' },\n      reason: { type: 'string', description: '判断理由：指纹版本命中 Nday、接口未鉴权、口令弱、暴露数据库、WAF 强弱等' },\n      assessed_by: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

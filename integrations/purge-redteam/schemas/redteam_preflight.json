@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_preflight",
+  "ctf_tool": null,
+  "operation": null,
+  "parameters_js": "{\n      include: { type: 'string', description: '只检查这些技能（逗号分隔）；省略则检查全部红队技能' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

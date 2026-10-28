@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_sessions",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "sessions",
+  "parameters_js": "{ engagement: { type: 'string' } }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

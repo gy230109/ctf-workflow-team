@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_webshell_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addWebshell",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      agent: AGENT_PARAM,\n      url: { type: 'string', required: true, description: 'WebShell 完整 URL' },\n      shell_type: { type: 'string', description: 'godzilla（哥斯拉）| behinder（冰蝎）；其它形式才用 antsword/other 并说明原因' },\n      pass_key: { type: 'string', description: '连接密码 / 密钥（冰蝎马写 pass，哥斯拉写 key）' },\n      privilege: { type: 'string', description: '当前权限，例如 www-data / root / iis' },\n      secret_ref: { type: 'string', description: '凭据/证据引用，例如 runs/ws-10.0.0.5.txt（不要把明文口令写进库）' },\n      asset_id: { type: 'number' },\n      note: { type: 'string' },\n      found_by_agent: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

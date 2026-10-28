@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_tunnel_update",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "updateTunnel",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      id: { type: 'number', required: true },\n      status: { type: 'string', description: 'active | down | closed | unknown' },\n      listen: { type: 'string' },\n      reach: { type: 'string' },\n      entry: { type: 'string', description: '入口：WebShell URL / 跳板机 / 命令' },\n      entry_kind: { type: 'string', description: '补声明目标侧那一端：target-outbound | target-http | target-agent | self-only（只在自己服务器上，不算突破）' },\n      note: { type: 'string' },\n      check_note: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

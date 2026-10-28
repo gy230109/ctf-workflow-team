@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_poc_search",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "pocSearch",
+  "parameters_js": "{\n      q: { type: 'string', description: '关键字：组件+版本、漏洞名、路径片段、正文里的特征串都行' },\n      cve: { type: 'string', description: 'CVE / CNVD 编号，例如 CVE-2023-21839' },\n      component: { type: 'string', description: '组件/产品名，例如 Weblogic、Shiro、泛微 OA、Nacos' },\n      kind: { type: 'string', description: 'poc | exp | script | template | payload' },\n      category: { type: 'string', description: '按**归类**筛（可多值，逗号分隔）：rce | deserialization | file-upload | sqli | unauthorized | auth-bypass | weak-password | ssrf | xxe | path-traversal | info-leak | privesc | tunnel | other' },\n      engagement: { type: 'string', description: '按**来源靶标**筛（靶标 id 或名称关键词）：只看\"在某个单位上验证过的\"经验' },\n      asset_target: { type: 'string', description: '按**发现资产**筛（IP / 域名 / URL 片段）' },\n      language: { type: 'string', description: 'python | go | java | bash | http | nuclei | js | php' },\n      source: { type: 'string', description: 'web（互联网）| self（手搓）| manual（人工）| nuclei-template' },\n      verified: { type: 'boolean', description: 'true 只看实测验证过的（优先用这些）' },\n      templateLimit: { type: 'number', description: '本机 nuclei 模板最多返回几条，默认 20' },\n      limit: { type: 'number', description: '知识库条目上限，默认 200' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

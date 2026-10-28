@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_attack_file_add",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addAttackFile",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      target: { type: 'string', required: true, description: '目标：IP、URL 或 C 段（同一 IP 的多个端口会归到该 IP 文件夹）' },\n      name: { type: 'string', required: true, description: '文件名，例如 cve-2021-22893.sh / vnc_brute.py' },\n      kind: { type: 'string', enum: ['poc', 'exp', 'script', 'wordlist', 'other'], description: '类型：poc 验证 / exp 利用 / script 脚本 / wordlist 字典' },\n      description: { type: 'string', description: '这个文件做什么（一句话）' },\n      evidence: { type: 'string', required: true, description: '有效性证据：实际打通的输出/回显/影响，或对应漏洞/证据 id' },\n      content: { type: 'string', description: '文件内容（与 path 二选一）' },\n      path: { type: 'string', description: '已存在的文件路径（相对靶标目录或绝对路径），会复制进目标文件夹（与 content 二选一）' },\n      asset_id: { type: 'number' },\n      vuln_id: { type: 'number' },\n      created_by: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_report",
+  "ctf_tool": "ctf_redteam_report",
+  "operation": "report",
+  "parameters_js": "{ engagement: { type: 'string' } }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

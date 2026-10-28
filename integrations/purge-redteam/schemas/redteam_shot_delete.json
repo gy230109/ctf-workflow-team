@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_shot_delete",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "shotDelete",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      id: { type: 'number', required: true, description: 'shot id（redteam_shot_list 里返回的 id）' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

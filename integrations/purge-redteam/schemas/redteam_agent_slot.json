@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_agent_slot",
+  "ctf_tool": null,
+  "operation": null,
+  "parameters_js": "{\n      action: { type: 'string', required: true, enum: ['status', 'acquire', 'release'], description: 'status 查看 / acquire 占用 / release 释放' },\n      label: { type: 'string', description: 'acquire 时的任务标签，例如「信息收集：主域与 C 段」' },\n      key: { type: 'string', description: 'release 时指定要释放的键（省略则释放最早的一个预留）' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

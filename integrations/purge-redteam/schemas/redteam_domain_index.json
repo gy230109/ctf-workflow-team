@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_domain_index",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "domains",
+  "parameters_js": "{ engagement: { type: 'string' } }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

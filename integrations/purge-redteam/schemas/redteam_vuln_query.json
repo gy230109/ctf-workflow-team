@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_vuln_query",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "vulns",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      severity: { type: 'string', enum: ['critical', 'high', 'medium', 'low', 'info'] },\n      status: { type: 'string', enum: ['candidate', 'confirmed', 'false-positive', 'exploited', 'fixed'] },\n      cve: { type: 'string' },\n      asset_id: { type: 'number' },\n      cidr: { type: 'string' },\n      q: { type: 'string', description: '标题/CVE/目标/证据关键词' },\n      limit: { type: 'number', description: '默认 50，最大 200' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_asset_link",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "assetLink",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      src_kind: { type: 'string', required: true, description: 'segment | asset | domain | port …' },\n      src_id: { type: 'string', required: true },\n      dst_kind: { type: 'string', required: true },\n      dst_id: { type: 'string', required: true },\n      relation: { type: 'string', required: true },\n      confidence: { type: 'number' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

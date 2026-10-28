@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_score_hit",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "addScoreHit",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      code: { type: 'string', description: '得分点 code（或 point_id / point_name 任选其一）；先用 redteam_score_list 核对实际 code' },\n      point_id: { type: 'number' },\n      point_name: { type: 'string' },\n      points: { type: 'number', description: '【多档条目必填】本次命中按哪一档计分（如服务器主机权限：普通权限填 10、管理员填 50；域名控制：一级 50、二级 20）。不填则用该条主档默认值。' },\n      target: { type: 'string', description: '目标资产：URL / ip:port / 主机名（**带上端口**，服务/系统口径按它判定）' },\n      asset_id: { type: 'number', description: '目标资产在库里的 id' },\n      port: { type: 'number', description: '【建议填】这条得分落在哪个端口（口径判定按「资产 + 端口」；target 里已带端口时可不填）' },\n      vuln_id: { type: 'number', description: '【建议填】用哪个漏洞拿到的分（报告据此附原始请求）' },\n      step_id: { type: 'number', description: '对应的攻击链步骤 id（可选）' },\n      evidence: { type: 'string', required: true, description: '【必填】结果：拿到的东西，例如「后台管理员 tomcat/Tomcat@2024（已实测浏览器可登录）」「数据库账号 root/xxx」「导出 132 万条用户数据」。多档条目请写明档位（如\"管理员权限\"）。' },\n      self_created: { type: 'boolean', description: '【重要】这个账号/权限是不是**自己注册、自己创建**的？是则填 true —— 只作过程记录，不计分、不进报告。拿到别人已有的账号/权限不要填（默认 false）。' },\n      note: { type: 'string' },\n      recorded_by: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

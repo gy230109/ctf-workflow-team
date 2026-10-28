@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_web_list",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "web",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      cidr: { type: 'string' },\n      limit: { type: 'number' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

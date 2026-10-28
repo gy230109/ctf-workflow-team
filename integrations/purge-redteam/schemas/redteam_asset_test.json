@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_asset_test",
+  "ctf_tool": "ctf_redteam_record",
+  "operation": "assetTest",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      asset_id: { type: 'number', description: '资产 id（与 ip 二选一，优先 asset_id）' },\n      ip: { type: 'string', description: '资产 IP' },\n      status: { type: 'string', enum: ['untested', 'testing', 'tested', 'blocked', 'abandoned', 'no_surface'], description: '测试状态：未测试/测试中/已测试/被封禁/已放弃/无攻击面' },\n      test: { type: 'string', description: '本次做了什么测试（**追加**到测试记录，例如「nmap 全端口 + nuclei cve 模板 + 接口越权」）。排除结论、登录失败原因、重测理由都写这里。' },\n      notes: { type: 'string', description: 'test 的兼容别名（老提示词里的写法），效果与 test 相同，会一并追加到测试记录。' },\n      surface: { type: 'string', description: '还剩什么攻击面可测（覆盖式，例如「SMB 445 未测；Web /api 未做越权」）' },\n      blocked: { type: 'boolean', description: '本次是否被 WAF/防护封禁（true 时封禁计数 +1）' },\n      updated_by: { type: 'string', description: '记录角色，例如 recon / vuln-scan' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

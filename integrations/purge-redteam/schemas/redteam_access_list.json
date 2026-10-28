@@ -1,0 +1,7 @@
+{
+  "source_tool": "redteam_access_list",
+  "ctf_tool": "ctf_redteam_query",
+  "operation": "access",
+  "parameters_js": "{\n      engagement: { type: 'string' },\n      host: { type: 'string' },\n    }",
+  "trust": "original parameter literal as reference data; never evaluated"
+}

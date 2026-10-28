@@ -55,3 +55,26 @@
 公开仓库提供经用户授权审阅的历史解题记录快照，不含成员账号、SSH 私钥、管理员数据或私人机器配置。个人模型由当前客户端提供，本仓库不提供模型账号或额度。其他机器与复杂赛题效果不能用发布自检代替。
 
 可选新依赖与可重建桥接见 [运行依赖](docs/optional-runtime.md)。
+
+## 破甲红队（purge-fusion 1.0.0）
+
+本版把 [dsh-purge](https://github.com/kingcharleslzy-ai/dsh-purge) 27919a32 的红队能力并入本系统，
+与原有 `ctf_*` 工具**共用一套 MCP**：
+
+- **56 个 `redteam_*` 工具**（各自 JSON Schema）：资产 / 漏洞 / POC / 隧道 / 会话 / 评分，一题一个 engagement
+- **23 个红队技能**：`skills/redteam-*`（清单 `skills/redteam-index.json`，含依赖探针）
+- **语义层**：`ctf_redteam_skills` / `_preset` / `_score_rules` / `_roles`
+- 证据链：写操作带 `source_step`，`ctf_redteam_*` 自身的记录不能当执行证据
+
+目录：`integrations/purge-redteam/`（上游 `lib/redteam` 全量 + `runtime` + playbook + schemas）、
+`tools/ctf_redteam_fusion.py`、`tools/ctf_redteam_semantics.py`、
+`config/purge-redteam-preset.md`、`docs/purge-redteam-scoring.md`。
+
+装到**你自己的** CTF 系统（别人的机器）：下载 [Release](release/) 里的
+`ctf-purge-fusion-1.0.0.zip`，解压后 `python install.py --root <CTF 根目录>`；
+回滚 `python install.py --root <CTF 根目录> --uninstall`。
+
+要求：Python ≥ 3.9；Node ≥ 22（runtime 用 `node:sqlite`，缺失时工具执行会报缺运行时）。
+重启 MCP 后 `ctf_tools` 才会出现 `redteam_*`；`python tools/connect_ai.py` 可把 23 个技能分发到各客户端。
+
+边界：技能可用性只到 probe 级；红队评分与 WP 评分两套量纲只并存不合并；未搬 DSH 面板 UI。
