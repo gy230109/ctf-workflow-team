@@ -32,14 +32,20 @@ ROUTES = {
 def plan_for(root, task):
     category = task.get('category', 'unknown')
     return {'enabled': True, 'adapter_version': '0.2.0', 'case': task['task_id'],
-        'category': category, 'candidate_execution_tools': ROUTES.get(category, ROUTES['unknown']),
-        'flow': ['保留原题与附件，完成 ctf_plan', '用 ctf_redteam_capabilities 和 ctf_profile 核对当前工具',
-                 '按证据选择工具，经 ctf_analyze/ctf_call 执行',
-                 '用 ctf_redteam_record 关联已完成步骤中的资产、漏洞、方法与链路',
-                 '查询图谱和失败记录，调整假设；按原规则 checkpoint',
-                 '用原程序或平台验证答案，经原 ctf_finish 导出 WP'],
+        'mode': 'ctf-first',
+        'deliverable': 'ctf_finish 导出的 WP（md/html/docx）。本系统是 CTF 系统，不产出渗透测试报告。',
+        'redteam_role': 'auxiliary-only',
+        'category': category,
+        'candidate_execution_tools': ROUTES.get(category, ROUTES['unknown']),
+        'flow': ['保留原题与附件，完成 ctf_plan',
+                 '用 ctf_analyze(tool=ctf_profile) 确认题型与依赖',
+                 '按题型选工具，经 ctf_analyze/ctf_call 执行并留证',
+                 '只有需要记录资产/漏洞/POC/隧道时才用 redteam_*，写操作带 source_step',
+                 '按需 ctf_checkpoint；没解出来就如实记 blocked / needs_input',
+                 '用原程序或平台验证答案，经 ctf_finish 导出 WP'],
+        'not_required': ['五阶段渗透推进', '角色派单 ctf_suite_dispatch', '渗透测试报告'],
+        'role_policy': 'CTF 单题默认不需要角色派单；只有题目本身是内网/多主机时才用 redteam_agent_slot。',
         'storage_isolation': 'one engagement per CTF task; original shared POC knowledge retained',
-        'role_policy': '使用 ctf_suite_dispatch 将角色任务交给已启动的本地服务；以真实作业状态与原 CTF 工具回执核对执行。',
         'limits': '工具清单和原仓库资料不代表依赖已安装或题目已解；不改变宿主审批、网络范围或答案验证。'}
 
 def _case(args):
@@ -165,10 +171,10 @@ def schema(extra=None, required=()):
 
 TOOLS = {
  'ctf_redteam_capabilities':(capabilities,'检查融合模块的功能映射和实际注册工具；不扫描网络、不声称依赖已就绪。',schema()),
- 'ctf_redteam_plan':(plan,'按当前 CTF 题型生成红队协同与证据路线；执行仍用既有 CTF 工具。',schema()),
+ 'ctf_redteam_plan':(plan,'按题型给建议路线（可选参考）。CTF 解题照常走 ctf_analyze/ctf_call，不需要渗透流程。',schema()),
  'ctf_redteam_query':(query,'查询同题上游资产/漏洞/POC/图谱/链路/计分记录，严格按 task_id 隔离。',schema({'operation':{'type':'string','enum':READ_OPS},'data':{'type':'object'}},('operation',))),
  'ctf_redteam_record':(record,'调用原红队写入/文件/角色/配置操作；可关联 source_step，无步骤时明确为未关联的元数据。',schema({'operation':{'type':'string','enum':WRITE_OPS},'data':{'type':'object'},'source_step':{'type':'integer','minimum':1}},('operation','data'))),
- 'ctf_redteam_report':(report,'生成同题红队成果补充材料；不认证 flag、不替代原 WP。',schema()),
+ 'ctf_redteam_report':(report,'红队成果附录（可选）。CTF 系统交付物是 ctf_finish 导出的 WP，本工具不写渗透测试报告；非必要不要调用。',schema()),
  'ctf_redteam_playbook':(playbook,'读取上游红队参考流程的有界文本；命令不会自动执行。',schema({'name':{'type':'string'},'start_line':{'type':'integer'},'lines':{'type':'integer'}},('name',))),
  'ctf_redteam_session_check':(session_check,'原版 probeSessions 的已记录会话连通性检查；沿用 CTF 主动操作 confirm=true。',schema({'data':{'type':'object'},'confirm':{'type':'boolean'}},('confirm',))),
  'ctf_redteam_schema':(original_schema,'查询上游工具原始参数定义和 CTF 调用映射，避免猜测嵌套 data 字段。',schema({'source_tool':{'type':'string'}},('source_tool',)))
