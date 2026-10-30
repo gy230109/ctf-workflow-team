@@ -124,15 +124,154 @@ def _runtime_argv(node: str):
 
 
 def _read_json(path: Path):
+    """读 JSON；``utf-8-sig`` 兼顾带 BOM 的文件。
+
+    ``runtime/catalogue.json`` 是 Node 侧用 ``writeFileSync`` 落盘的，Windows 上常带 BOM。
+    早先这里按 ``utf-8`` 解码会抛 ``Unexpected UTF-8 BOM``，被 ``except ValueError`` 吞成
+    ``None``，于是这份「一级目录源」被静默跳过 —— 排查时会误以为它没被写过。
+    """
     try:
-        data = json.loads(path.read_text(encoding='utf-8'))
+        data = json.loads(path.read_text(encoding='utf-8-sig'))
     except (OSError, ValueError):
         return None
     return data if isinstance(data, dict) else None
 
 
+#: JSON Schema 里允许出现在 ``type`` 上的标量名。
+_TYPE_NAMES = frozenset({
+    'object', 'array', 'string', 'number', 'integer', 'boolean', 'null',
+})
+
+#: 只在本层是 schema 时有意义的保留字。出现在 ``properties`` 的键位上、**且值不是 schema**
+#: 时，说明这一整层被当成一个「属性」包了起来。
+_SCHEMA_KEYWORDS = frozenset({
+    'type', 'properties', 'items', 'required', 'additionalProperties',
+    'enum', 'pattern', 'format', 'minimum', 'maximum', 'anyOf', 'oneOf',
+    'allOf', 'not', '$ref', 'default', 'title',
+})
+
+
+def _looks_wrapped(props: dict) -> bool:
+    """判断 ``properties`` 是否被整层包了一层。
+
+    关键点：**不能只看键名**。``title`` / ``format`` / ``default`` 这些都是合法的字段名，
+    真正的判别依据是「键是 schema 保留字，而值不像 schema」——``properties`` 的值必须
+    是 schema（dict）或 boolean，所以 ``"type": "object"`` 这种字符串值一定是包壳。
+    """
+    for key, value in props.items():
+        if not isinstance(key, str) or key not in _SCHEMA_KEYWORDS:
+            continue
+        if isinstance(value, dict):
+            continue                       # 字段名恰好叫 title，值是 schema —— 正常
+        if key == 'additionalProperties' and isinstance(value, bool):
+            return True
+        if isinstance(value, (str, list, int, float, bool)):
+            return True
+    return False
+
+
+def repair_schema(node, _depth=0):
+    """就地修复一份 JSON Schema，返回 ``(schema, problems)``。
+
+    规则（只做结构性修复，不猜参数名、不删参数）：
+      1. ``properties`` 只能是 ``{name: schema}``，禁止出现 ``type``/``properties`` 等保留字键位；
+      2. ``additionalProperties`` 只能是 bool 或 schema，绝不能是字符串；
+      3. ``type`` 只能是类型名，不能是对象；
+      4. ``items`` 只能是 schema 或 schema 数组。
+    """
+    problems = []
+    if not isinstance(node, dict):
+        return node, problems
+    if _depth > 32:                       # 防御自引用/病态嵌套
+        return node, problems
+
+    props = node.get('properties')
+    if isinstance(props, dict) and props and _looks_wrapped(props):
+        problems.append('properties carries schema keywords instead of field names')
+        wrapped = dict(props)
+        inner = wrapped.get('properties')
+        if isinstance(inner, dict) and inner:
+            node['properties'] = {}
+            node['properties'].update(inner)
+        else:
+            node['properties'] = {}
+        if 'required' not in node and isinstance(wrapped.get('required'), list):
+            node['required'] = [r for r in wrapped['required'] if isinstance(r, str)]
+        if 'additionalProperties' not in node and isinstance(
+                wrapped.get('additionalProperties'), bool):
+            node['additionalProperties'] = wrapped['additionalProperties']
+        props = node.get('properties')
+
+    if isinstance(props, dict):
+        node['properties'] = {}
+        for key, value in props.items():
+            if not isinstance(key, str):
+                problems.append('non-string property name dropped')
+                continue
+            if not isinstance(value, dict):
+                value = {}
+            fixed, sub = repair_schema(value, _depth + 1)
+            problems.extend(sub)
+            node['properties'][key] = fixed
+
+    ap = node.get('additionalProperties')
+    if isinstance(ap, str):
+        problems.append('additionalProperties was a string')
+        lowered = ap.strip().lower()
+        node['additionalProperties'] = lowered in ('true', '1', 'yes')
+    elif ap is not None and not isinstance(ap, (bool, dict)):
+        problems.append('additionalProperties was not bool/object')
+        node.pop('additionalProperties', None)
+    elif isinstance(ap, dict):
+        fixed, sub = repair_schema(ap, _depth + 1)
+        problems.extend(sub)
+        node['additionalProperties'] = fixed
+
+    declared = node.get('type')
+    if isinstance(declared, dict):
+        problems.append('type was an object')
+        node['type'] = 'object' if isinstance(declared.get('properties'), dict) else 'string'
+    elif isinstance(declared, list):
+        cleaned = [t for t in declared if isinstance(t, str) and t in _TYPE_NAMES]
+        if not cleaned:
+            problems.append('type list had no valid member')
+            node.pop('type', None)
+        elif len(cleaned) != len(declared):
+            problems.append('type list had invalid members')
+            node['type'] = cleaned
+
+    items = node.get('items')
+    if isinstance(items, dict):
+        fixed, sub = repair_schema(items, _depth + 1)
+        problems.extend(sub)
+        node['items'] = fixed
+    elif isinstance(items, list):
+        fixed_items = []
+        for entry in items:
+            fixed, sub = repair_schema(entry if isinstance(entry, dict) else {}, _depth + 1)
+            problems.extend(sub)
+            fixed_items.append(fixed)
+        node['items'] = fixed_items
+    elif items is not None:
+        problems.append('items was not object/array')
+        node.pop('items', None)
+
+    req = node.get('required')
+    if req is not None and not (isinstance(req, list) and all(isinstance(r, str) for r in req)):
+        problems.append('required was not a string array')
+        if isinstance(props, dict):
+            node['required'] = [r for r in (req if isinstance(req, list) else []) if isinstance(r, str)]
+        else:
+            node.pop('required', None)
+    return node, problems
+
+
 def _norm_tools(raw) -> list:
-    """把任意来源的 tools 列表规范成 ``[{name, description, parameters}]``。"""
+    """把任意来源的 tools 列表规范成 ``[{name, description, parameters}]``。
+
+    任何来源（runtime 现取、磁盘缓存、静态解析）的 schema 都过一遍 ``repair_schema``，
+    保证下发给模型网关的 ``properties`` 永远是「字段名 → schema」，不会把类型名当成字段名。
+    """
     out = []
     seen = set()
     if not isinstance(raw, list):
@@ -149,6 +288,9 @@ def _norm_tools(raw) -> list:
         params = item.get('parameters')
         if not isinstance(params, dict) or params.get('type') != 'object':
             params = {'type': 'object', 'properties': {}}
+        params, _problems = repair_schema(deepcopy(params))
+        if not isinstance(params.get('properties'), dict):
+            params['properties'] = {}
         out.append({
             'name': name,
             'description': str(item.get('description') or ''),

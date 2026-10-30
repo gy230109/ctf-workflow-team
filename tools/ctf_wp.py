@@ -665,9 +665,9 @@ TOOLS = {
             {"type": "string"}, {"type": "object", "properties": {
                 "path": {"type": "string"}, "name": {"type": "string"}, "sha256": {"type": "string"}},
                 "required": ["path"]}]}}})),
-    "wp_section": (section, "追加有来源的 WP 章节；同章节最新版生效，文字不能代替真实验证回执", schema({
+    "wp_section": (section, "按真实线索、操作、输出及判断写WP，引用source_steps；简洁自然，不编经历或套话。最新版生效，文字不认证答案", schema({
         "section": {"type": "string", "enum": ["overview", "analysis", "solution", "validation", "reproduction"]},
-        "text": {"type": "string"}, "source_steps": {"type": "array", "items": {"type": "integer"}}},
+        "text": {"type": "string", "description": "写清具体证据和推导关系；概述从简、分析解释路线依据、解法写关键操作、验证写真实回执、复现给环境和命令。代码用围栏保留原文，正文不堆Markdown符号或重复总结。"}, "source_steps": {"type": "array", "items": {"type": "integer"}}},
         ["section", "text"])),
     "wp_review": (review, "只读检查 WP 的题面、目的、结论、章节及采集缺项；普通草稿缺项不作为工具失败", schema()),
     "wp_capture": (capture, "采集 Kali VM 或指定 Windows 进程的实际截图，或导入客户端 PNG；不生成假截图", schema({

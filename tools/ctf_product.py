@@ -68,6 +68,22 @@ have no visible terminal: use kali_terminal_record(capture_window=true) to run
 once inside a real xterm and capture its original window at execution time when
 a screenshot is needed; do not later print logs into a window to manufacture one.
 Use all five wp_section sections and actual source_steps, embed images in Word.
+Write the WP as an evidence-backed account of this actual solve. For each decisive
+step explain the observed clue, why it led to the action, the exact input or
+script, the actual output and what that output establishes. Reference source_steps
+for claims and explain what each real screenshot shows next to that action.
+Use short natural Chinese paragraphs; avoid generic introductions, repeated
+summaries, decorative symbols and tool-status boilerplate. Never invent thoughts,
+experiences, actions, outputs or success to make a smoother story. State missing
+evidence explicitly. Keep overview brief, analysis about the evidence behind the
+route, solution about the operations, validation about actual checks and receipts,
+and reproduction about the environment, commands and saved scripts. Do not repeat
+the same solution in all five sections. Use prose and fenced code for technical
+literals; Word renders headings/paragraphs without exposing Markdown markers.
+Before delivering the Word file, render it to page images and inspect every page
+for Chinese glyphs, clipped code/tables, readable screenshots, figure captions,
+page breaks and stray Markdown. Fix defects and render again. A successful export
+or structural check alone is not a visual layout review; state if that is pending.
 Missing captures remain explicit draft gaps; do not replay side effects for photos.
 The system owns workflow rules independently of the AI provider. After intake,
 call ctf_profile through ctf_analyze before solving tools. Read workflow.phase
@@ -512,7 +528,11 @@ class Product:
                             'workflow':protocol.view(task)}
             export_args={'case':task_id,'include_images':include_images,'include_log_renders':False,
                 'expose_flag':expose_flag,'summary':summary,'formats':['docx'],'bundle':False,'private_bundle':True}
-            key=competition.export_key(task,export_args)
+            # Reuse is valid only for the same formatter, as well as the same
+            # evidence and arguments. An upgrade must not return the old WP.
+            renderer_files = ('ctf_wp_report.py', 'ctf_wp_formats.py', 'ctf_wp_policy.py')
+            renderer_revision = {name: sha(Path(__file__).with_name(name)) for name in renderer_files}
+            key=competition.export_key(task,dict(export_args, renderer_revision=renderer_revision))
             cached=task.get('competition_export') or {}
             delivery=task.get('delivery') or {}
             if cached.get('key')==key and delivery.get('path') and Path(delivery['path']).is_file() and competition.digest(delivery['path'])==delivery.get('sha256'):

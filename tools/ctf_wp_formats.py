@@ -18,7 +18,7 @@ import unicodedata
 from xml.sax.saxutils import escape
 
 
-GENERATOR_VERSION = "ctf-wp-formats/2.0.0"
+GENERATOR_VERSION = "ctf-wp-formats/2.1.0"
 TEMPLATE_VERSION = "ctf-wp-letter/1.0.0"
 FORMATS = ("docx", "pdf")
 _BLOCKS = {"heading", "paragraph", "code", "image", "table", "link"}
@@ -151,8 +151,8 @@ def _docx(model, folder, target):
         formatting.keep_with_next = True
     code_style = document.styles.add_style("CTF Code", 1)
     set_font(code_style, 9, "Consolas")
-    code_style.paragraph_format.space_after = shared.Pt(5)
-    code_style.paragraph_format.line_spacing = 1.05
+    code_style.paragraph_format.space_after = shared.Pt(0)
+    code_style.paragraph_format.line_spacing = 1.1
     code_style.paragraph_format.keep_together = False
     code_style.paragraph_format.widow_control = False
     caption_style = document.styles.add_style("CTF Caption", 1)
@@ -178,16 +178,26 @@ def _docx(model, folder, target):
     for run in footer.runs:
         run.font.size = shared.Pt(9)
 
-    for block in model["blocks"]:
+    for block_index, block in enumerate(model["blocks"]):
         kind = block["type"]
         if kind == "heading":
             document.add_paragraph(_text(block.get("text")), "Heading " + str(block.get("level", 1)))
         elif kind == "paragraph":
-            document.add_paragraph(_text(block.get("text")))
+            paragraph = document.add_paragraph(_text(block.get("text")))
+            if block_index + 1 < len(model['blocks']) and model['blocks'][block_index + 1]['type'] == 'code':
+                paragraph.paragraph_format.keep_with_next = True
         elif kind == "code":
             # Newlines below are display wraps; original scripts remain separate evidence.
-            for line in _wrap_cells(block.get("text")).split("\n"):
-                document.add_paragraph(line or " ", "CTF Code")
+            lines = _wrap_cells(block.get("text")).split("\n")
+            for index, line in enumerate(lines):
+                paragraph = document.add_paragraph(line or " ", "CTF Code")
+                # Keep a useful opening with its heading, rather than one brace
+                # at the bottom of a page. Long blocks can still span pages.
+                paragraph.paragraph_format.keep_with_next = (
+                    (len(lines) <= 20 and index < len(lines) - 1)
+                    or index < min(2, len(lines) - 1) or index == len(lines) - 2)
+                if index == len(lines) - 1:
+                    paragraph.paragraph_format.space_after = shared.Pt(7)
         elif kind == "link":
             paragraph = document.add_paragraph()
             hyperlink = xml.OxmlElement("w:hyperlink")
@@ -242,6 +252,8 @@ def _docx(model, folder, target):
                 borders.append(border)
             table._tbl.tblPr.append(borders)
             for row_index, row in enumerate(table.rows):
+                no_split = xml.OxmlElement("w:cantSplit")
+                row._tr.get_or_add_trPr().append(no_split)
                 for column_index, cell in enumerate(row.cells):
                     cell.width = shared.Inches(6.5 * weights[column_index])
                     cell.vertical_alignment = tables.WD_CELL_VERTICAL_ALIGNMENT.CENTER

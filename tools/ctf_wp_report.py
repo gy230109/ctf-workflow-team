@@ -12,6 +12,81 @@ import subprocess
 import sys
 
 
+def inline_text(value):
+    """Remove prose markup, preserving literal inline code and technical symbols."""
+    literals = []
+    def protect(match):
+        literals.append(match.group(2))
+        return '\ue000%d\ue001' % (len(literals) - 1)
+    text = re.sub(r'(`+)([^\n]*?)\1', protect, str(value))
+    text = re.sub(r'!?\[([^\]\n]+)\]\(([^\n)]+)\)', r'\1（\2）', text)
+    for pattern in (r'\*\*(\S(?:.*?\S)?)\*\*', r'(?<!\w)__(\S(?:.*?\S)?)__(?!\w)',
+                    r'(?<![\w*])\*(\S(?:.*?\S)?)\*(?![\w*])'):
+        text = re.sub(pattern, r'\1', text)
+    for index, literal in enumerate(literals):
+        text = text.replace('\ue000%d\ue001' % index, literal)
+    return text
+
+
+def prose_blocks(value):
+    """Parse a small, inert Markdown subset into the shared report model.
+
+    Never load images/URLs supplied in prose. Only the reviewed evidence pipeline
+    may create image blocks. Code fences bypass prose cleanup byte for byte.
+    """
+    lines = str(value).splitlines()
+    blocks, paragraph = [], []
+    def flush():
+        if paragraph:
+            blocks.append(dict(type='paragraph', text=inline_text('\n'.join(paragraph))))
+            paragraph.clear()
+    def cells(line):
+        return [inline_text(cell.strip().replace('\\|', '|'))
+                for cell in re.split(r'(?<!\\)\|', line.strip().strip('|'))]
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        fence = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', line)
+        if fence:
+            flush()
+            marker, code = fence.group(1), []
+            index += 1
+            while index < len(lines):
+                if re.fullmatch(r' {0,3}' + re.escape(marker[0]) + '{%d,} *' % len(marker), lines[index]):
+                    index += 1
+                    break
+                code.append(lines[index])
+                index += 1
+            blocks.append(dict(type='code', text='\n'.join(code)))
+            continue
+        if not line.strip() or re.fullmatch(r'\s*(?:-{3,}|\*{3,}|_{3,})\s*', line):
+            flush()
+        elif re.match(r'^ {0,3}#{1,6}\s+\S', line):
+            flush()
+            title = re.sub(r'^ {0,3}#{1,6}\s+', '', line)
+            title = re.sub(r'\s+#+\s*$', '', title)
+            blocks.append(dict(type='heading', level=2, text=inline_text(title)))
+        elif (index + 1 < len(lines) and '|' in line
+              and re.fullmatch(r'\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*', lines[index + 1])
+              and 1 < len(cells(line)) <= 8):
+            flush()
+            headers, rows = cells(line), []
+            index += 2
+            while index < len(lines) and '|' in lines[index] and len(cells(lines[index])) == len(headers):
+                rows.append(cells(lines[index]))
+                index += 1
+            blocks.append(dict(type='table', headers=headers, rows=rows))
+            continue
+        elif re.match(r'^\s*(?:[-*+]\s+|>\s?)', line):
+            flush()
+            blocks.append(dict(type='paragraph', text=inline_text(re.sub(r'^\s*(?:[-*+]\s+|>\s?)', '', line))))
+        else:
+            paragraph.append(line)
+        index += 1
+    flush()
+    return blocks
+
+
 def redact(value, keep_flags=False):
     """Redact values without running text substitutions across JSON syntax.
 
@@ -71,6 +146,21 @@ def excerpt(value, limit=3600, lines=48):
     text = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, indent=2)
     shown = '\n'.join(text.splitlines()[:lines])[:limit]
     return shown, len(shown) < len(text), len(text)
+
+
+def output_text(value):
+    """Display actual stdout/stderr as lines, never as JSON-escaped strings."""
+    if not isinstance(value, dict):
+        return value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
+    parts = []
+    for key, item in value.items():
+        if key in {'stdout', 'stderr'} and isinstance(item, str):
+            if item: parts.append(key + ':\n' + item.rstrip('\n'))
+        elif key == 'execution' and isinstance(item, dict):
+            parts.append('execution:\n' + output_text(item))
+        else:
+            parts.append(key + ': ' + json.dumps(item, ensure_ascii=False))
+    return '\n'.join(parts)
 
 
 def brief(value, limit=110):
@@ -148,16 +238,14 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     blocks = []
     def add(kind, **kw):
         blocks.append(dict(type=kind, **kw))
-    def para(text): add('paragraph', text=str(text))
+    def para(text): blocks.extend(prose_blocks(text))
     def heading(text, level=1): add('heading', level=level, text=text)
     def narrative(section, fallback):
         value = sections.get(section)
         if value:
             para(value['text'])
-            return
-        purposes = [e['data']['purpose'] for e in rows if e['kind'] == 'call' and e['data'].get('purpose')]
-        if purposes:
-            for line in purposes: para('· ' + line)
+            if value.get('source_steps'):
+                para('证据记录：' + '、'.join('步骤 %d' % step for step in value['source_steps']) + '。')
             return
         para(fallback)
     heading('题目信息')
@@ -181,10 +269,15 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     narrative('solution', '未记录解题主线；可在执行时补 wp_section(section=solution)。')
     heading('解题过程')
     selected = {step for name, section in sections.items() if name != 'overview' for step in section.get('source_steps', [])}
-    key_steps = set()
+    key_steps, linked_captures = set(), {}
+    call_steps = {event['seq'] for event in rows if event['kind'] == 'call'}
     for event in rows:
         if event['kind'] == 'capture':
             key_steps.add(event['seq'])
+            source = event['data'].get('source_step')
+            if source in call_steps:
+                key_steps.add(source)
+                linked_captures.setdefault(source, []).append(event)
         elif event['kind'] == 'call':
             try:
                 raw = json.loads((folder / event['files'][0]['path']).read_text(encoding='utf-8'))
@@ -193,7 +286,7 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
             if has_flag(raw.get('response', {})):
                 key_steps.add(event['seq'])
     steps, evidence = [], []
-    displayed = 0
+    displayed, figure_number = 0, 0
     for event in rows:
         data, seq = event['data'], event['seq']
         for item in event.get('files', []):
@@ -202,37 +295,48 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
         if event['kind'] not in {'call', 'capture'}:
             continue
         in_main = not selected or seq in selected or seq in key_steps
+        attached_capture = event['kind'] == 'capture' and data.get('source_step') in linked_captures
+        if attached_capture:
+            in_main = False
         number = None
         if in_main:
             displayed += 1
             number = displayed
         block_start = len(blocks)
         if in_main:
-            heading('第 %d 步　%s' % (number, '画面采集' if event['kind'] == 'capture'
-                                    else (data.get('tool') or '画面采集')), 2)
+            action = data.get('purpose') or data.get('caption') or data.get('tool') or '采集关键画面'
+            heading('第 %d 步　%s' % (number, inline_text(brief(action, 90))), 2)
         shown_observations = [text for text in observations.get(seq, []) if observation_text(text)]
         entry = dict(display_no=number, source_seq=seq, observations=shown_observations, asset_refs=[])
         if event['kind'] == 'call':
             raw = json.loads((folder / event['files'][0]['path']).read_text(encoding='utf-8'))
             response = raw['response']
             state = '成功返回' if response.get('ok') is True else '失败（保留错误，不当作成功）'
-            para('执行状态：' + state)
+            if response.get('ok') is not True:
+                para('本次调用失败，错误输出保留如下。')
             args = {k: v for k, v in raw['arguments'].items() if not k.startswith('wp_')}
-            operation = ', '.join('%s=%s' % (k, brief(v)) for k, v in args.items() if k not in {'case', 'wp_case'}) or '(无参数)'
+            operation = json.dumps(dict(tool=data.get('tool'), arguments={k: v for k, v in args.items()
+                                   if k not in {'case', 'wp_case'}}), ensure_ascii=False, indent=2)
             view = output_view(response)
             symbols = ((view.get('data') or {}).get('symbols') if isinstance(view, dict) else None)
             if isinstance(symbols, dict):
                 view = dict(view, data=dict(view['data'],
                     symbols={k: v for k, v in symbols.items() if k.startswith('got.')}))
-            output, cut, size = excerpt(view, 1400, 22)
-            if data.get('purpose'): para('目的：' + data['purpose'])
-            add('code', text=operation)
+            output, cut, size = excerpt(output_text(view), 1400, 22)
+            # Preserve code's actual line breaks instead of printing a JSON
+            # string containing literal backslash-n and escaped path slashes.
+            display_operation = args['code'] if data.get('tool') == 'py_run' and isinstance(args.get('code'), str) else operation
+            if display_operation != operation: para('实际执行的 Python 代码')
+            shown_operation, args_cut, _ = excerpt(display_operation, 2600, 42)
+            add('code', text=shown_operation)
+            if args_cut: para('以上参数为节选，完整输入见本步原始记录。')
             add('code', text=output)
+            if cut: para('以上输出为节选，完整输出见本步原始记录。')
             raw_rel = 'evidence/' + event['files'][0]['path']
             if not (report / raw_rel).is_file():
                 raw_rel = 'redacted/%04d-call.json' % seq
                 wp.write_json(report / raw_rel, redact(raw))
-            add('link', text='完整输出', target=raw_rel)
+            add('link', text='原始记录 步骤 %d' % seq, target=raw_rel)
             receipt = {key: response[key] for key in ('task_health', 'warnings', 'error_code') if key in response}
             if receipt and response.get('ok') is not True: add('code', text=json.dumps(receipt, ensure_ascii=False))
             entry.update(tool=data.get('tool'), operation_id=data.get('operation_id'), status=state,
@@ -241,15 +345,21 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
                          output_characters=size, evidence_ref=raw_rel,
                          receipt_metadata={key: response[key] for key in ('task_health', 'warnings', 'error_code') if key in response})
         for text in shown_observations: para(text)
-        for item in event.get('files', []):
+        for capture_event in linked_captures.get(seq, []):
+            for text in observations.get(capture_event['seq'], []):
+                if observation_text(text): para(text)
+        image_events = [event] + linked_captures.get(seq, [])
+        for image_event, item in [(image_event, item) for image_event in image_events for item in image_event.get('files', [])]:
             kind = item['kind']
             if kind in {'vm_screenshot', 'imported_image', 'windows_screenshot', 'browser_screenshot', 'terminal_screenshot'}:
-                target = report / 'images' / ('%04d-' % seq + Path(item['path']).name)
+                image_seq, image_data = image_event['seq'], image_event['data']
+                target = report / 'images' / ('%04d-' % image_seq + Path(item['path']).name)
                 if a.get('include_images') is True and target.is_file():
-                    caption = data.get('caption') or item.get('source') or '实际采集画面'
-                    origin = data.get('source_step') or seq
+                    caption = image_data.get('caption') or item.get('source') or '实际采集画面'
+                    origin = image_data.get('source_step') or image_seq
+                    if in_main: figure_number += 1
                     add('image', path=target.relative_to(report).as_posix(),
-                        caption='图 %d（证据步骤 %d，关联调用 %d）：%s' % (number or displayed, seq, origin, caption))
+                        caption='图 %d（原始记录 %d，来源步骤 %d）：%s' % (figure_number, image_seq, origin, caption))
                     entry['asset_refs'].append(target.relative_to(report).as_posix())
                 else:
                     para('图片证据已保存，本次未导出。')
@@ -277,7 +387,7 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
         for flag in flags: add('code', text='flag：' + flag)
         para('flag 取自工具的真实回显，未经改写。')
     else:
-        para('未从工具输出中提取到 flag 形态的字符串；本题可能尚未解出。')
+        para('解题结果以原始回显和下节验证记录为依据。')
     closing = None
     result_images = quality['screenshot_evidence']['images']
     result_images = [item for item in result_images if item['stage'] in {'result', 'process_and_result'}]
@@ -287,28 +397,25 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     if closing and a.get('include_images') is True:
         seq, item, caption = closing
         target = report / 'images' / ('%04d-' % seq + Path(item['path']).name)
-        if target.is_file() and seq not in step_no:
+        if target.is_file() and not any(block['type'] == 'image' and block['path'] == target.relative_to(report).as_posix() for block in blocks):
+            figure_number += 1
             tail = '；' + caption if caption else ''
             label = step_no.get(seq)
             add('image', path=target.relative_to(report).as_posix(),
-                caption=('结果截图（第 %d 步）' % label if label else '结果截图') + tail)
+                caption=('图 %d 结果截图' % figure_number) + tail)
     elif flags:
         if not result_images:
             para('已记录 flag 回显，但缺少关联结果步骤的截图；本稿保留截图缺项。')
     heading('结果验证')
     narrative('validation', '未填写结果验证说明；以下仅列实际平台回执。')
-    heading('已验证')
     if verification:
         for item in verification:
             para('CTFd 第 %s 题在证据步骤 %d 返回 correct。' % (item['challenge_id'], item['step']))
     else:
         para('已保存原始工具输出；尚无真实平台正确回执。')
-    heading('未验证')
-    para('未记录真实平台正确回执；候选 flag 不能仅凭文字判对。' if not verification else '平台回执不独立认证每一步推理。')
-    heading('未完成')
     document_gaps = [item['message'] for item in quality['issues'] if item['code'] != 'answer_not_verified']
+    if document_gaps: heading('证据缺项')
     for message in document_gaps: para(message)
-    if not document_gaps: para('正文和截图未发现结构缺项；仍需检查复现步骤与截图像素。')
     heading('复现说明')
     narrative('reproduction', '未记录复现说明；请按证据中的原附件摘要与命令复现。')
     names = {(item['source_seq'], item.get('kind')): item.get('original_name')
@@ -329,9 +436,8 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     if hypotheses:
         heading('待验证的猜测')
         for text in hypotheses: para(text)
-    heading('说明')
+    heading('原始材料')
     add('link', text='完整技术记录（含失败与重试）', target='technical.md')
-    add('link', text='机器可读稿件与证据索引', target='report.json')
     if a.get('include_images') is not True:
         # 口径统一：只有存在已核验的真实截图却未嵌入时才算"图片缺项"；
         # 本题本来就没有可嵌入图片时不重复压低 screenshots_complete，
@@ -346,7 +452,7 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
         quality['submission_ready'] = False
         quality['status'] = 'draft'
     suffix = ' 解题记录' if quality['quality']['document_complete'] else ' 解题记录（草稿·待补证据）'
-    model = dict(schema_version=2, title=metadata['title'] + suffix, subtitle='CTF系统 中文 WP',
+    model = dict(schema_version=2, title=metadata['title'] + suffix, subtitle='',
                  include_images=a.get('include_images') is True, challenge=dict(metadata, **context),
                  summary=a.get('summary') or '', steps=steps, sections=sections, verification=verification,
                  quality=quality, gaps=errors, pending_operations=[x['data'] for x in pending],

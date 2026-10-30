@@ -86,6 +86,20 @@ class FormatTests(unittest.TestCase):
         self.assertIn("CTF 自建验收记录", text)
         self.assertIn("第 1 页", text)
 
+    @unittest.skipUnless(HAS_DOCX, "python-docx is optional")
+    def test_code_opening_stays_together_and_lines_have_no_extra_paragraph_gaps(self):
+        from docx import Document
+        self.model['blocks'] = [{'type': 'heading', 'level': 2, 'text': '检查实际输出'},
+                                {'type': 'code', 'text': '{\n  "first": 1,\n  "second": 2\n}'}]
+        result = formats.export(self.model, self.folder, ['docx'])
+        self.assertTrue(result['ok'], result)
+        document = Document(self.folder / 'writeup.docx')
+        lines = [p for p in document.paragraphs if p.style.name == 'CTF Code']
+        self.assertTrue(lines[0].paragraph_format.keep_with_next)
+        self.assertTrue(lines[1].paragraph_format.keep_with_next)
+        self.assertEqual(lines[0].style.paragraph_format.space_after, 0)
+        self.assertGreater(lines[-1].paragraph_format.space_after, 0)
+
     @unittest.skipUnless(HAS_DOCX and HAS_PDF, "render libraries are optional")
     def test_tall_image_fits_and_can_be_disabled(self):
         self.model["blocks"].append(self.image())

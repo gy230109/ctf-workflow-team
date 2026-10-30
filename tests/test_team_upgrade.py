@@ -37,8 +37,13 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaises(ValueError):upgrade.apply(self.source,self.target)
         self.assertEqual(list(self.target.iterdir()),[])
     def test_private_configs_and_traversal_never_in_release(self):
-        for name in ('config/ctf_os.json','bridge/config/kali.json','../escape','logs/private.txt','ctf-questionbank/answers/x'):
+        for name in ('config/ctf_os.json','bridge/config/kali.json','../escape','logs/private.txt','ctf-questionbank/answers/x',
+                     'integrations/other/private.json','integrations/purge-redteam/.local/private.json'):
             with self.subTest(name=name),self.assertRaises(ValueError):upgrade.managed_path(name)
+    def test_public_purge_integration_and_preset_are_upgradeable(self):
+        for name in ('config/purge-redteam-preset.md','integrations/purge-redteam/CTF-WP-POLICY.md',
+                     'integrations/purge-redteam/upgrade-installer.py','integrations/purge-redteam/upstream/src/mcp.mjs'):
+            with self.subTest(name=name):self.assertEqual(upgrade.managed_path(name).as_posix(),name)
     def test_failure_restores_previous_files(self):
         (self.target/'tools').mkdir();(self.target/'tools/ctf_os.py').write_bytes(b'old code')
         (self.target/'README.md').write_bytes(b'old docs')

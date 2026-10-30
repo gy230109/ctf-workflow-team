@@ -66,6 +66,15 @@ def install(root=ROOT,home=None,python=None,project=None):
                     if digest!=owned.get(str(target)) and target.read_text(encoding='utf-8')!=data:
                         raise ValueError('Skill modified outside this installer: '+str(target))
                 planned.append((target,data))
+            for red in sorted((root/'skills').glob('redteam-*/SKILL.md')):
+                data=red.read_text(encoding='utf-8')
+                target=folder/'skills'/red.parent.name/'SKILL.md'
+                if target.is_symlink():raise ValueError('Refusing to replace linked skill: '+str(target))
+                if target.exists():
+                    digest=hashlib.sha256(target.read_bytes()).hexdigest()
+                    if digest!=owned.get(str(target)) and target.read_text(encoding='utf-8')!=data:
+                        raise ValueError('Skill modified outside this installer: '+str(target))
+                planned.append((target,data))
         config=folder/('config.toml' if client=='codex' else 'mcp.json')
         if client=='claude':config=home/'.claude.json'
         # Trae CN config location varies. Use detected config or the skill fallback.

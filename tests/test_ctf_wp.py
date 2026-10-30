@@ -59,9 +59,9 @@ class EvidenceTests(unittest.TestCase):
         self.record(False)
         path = Path(wp.build({"case": "fixture"})["path"])
         text = path.read_text(encoding="utf-8")
-        self.assertIn("失败（保留错误，不当作成功）", text)
+        self.assertIn("本次调用失败", text)
         self.assertIn("real failure", text)
-        self.assertIn('"exit": 1', text)
+        self.assertIn('exit: 1', text)
         self.assertFalse(list(path.parent.glob("images/*-log.png")))
 
     def test_raw_mutation_blocks_export(self):
@@ -141,7 +141,9 @@ class EvidenceTests(unittest.TestCase):
         result = wp.build({"case": "fixture"})
         self.assertFalse(result["solved_verified"])
         text = Path(result["path"]).read_text(encoding="utf-8")
-        self.assertTrue(all(heading in text for heading in ("## 已验证", "## 未验证", "## 未完成")))
+        self.assertIn('尚无真实平台正确回执', text)
+        self.assertIn('## 证据缺项', text)
+        self.assertNotIn('## 已验证', text)
 
 
 if __name__ == "__main__":

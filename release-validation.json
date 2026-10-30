@@ -1,106 +1,134 @@
 {
   "ok": true,
-  "release": "2026.10.23-records1",
+  "release": "2026.10.30-wpevidence1",
   "verified": {
-    "record_snapshot_files": 3534,
-    "record_snapshot_unique_objects": 3089,
-    "record_restore_full_tree": true,
-    "record_helper_tests": 3,
-    "privacy_scan_text_and_nested_entries": 3113,
-    "privacy_scan_findings": 0,
-    "image_ocr_unique_streams": 493,
-    "visual_contact_sheets_reviewed": 14,
-    "upgrade_preservation_tests": 8,
-    "actual_full_release_upgrade": true,
-    "private_state_markers_preserved": 4
+    "wp_tests": {
+      "run": 75,
+      "passed": 71,
+      "skipped": 4
+    },
+    "schema_tests": {
+      "run": 9,
+      "passed": 7,
+      "skipped": 2
+    },
+    "word_pdf_format_tests": {
+      "run": 11,
+      "passed": 10,
+      "skipped": 1
+    },
+    "visually_reviewed_word_pages": 11,
+    "installed_wp_files_verified": 5,
+    "running_source_matches_disk": true
   },
   "unverified": [
-    "other teammates computers",
-    "models solving complete live challenges",
-    "new records created after snapshot"
-  ],
-  "unfinished": [
-    "teammates pull/update and restore on their own machines"
+    "Other computers and their local dependencies, source notes and rendered documents",
+    "Entire live competition challenge solving"
   ],
   "previous_release_validation": {
     "ok": true,
-    "release": "2026.10.16-wp2",
+    "release": "2026.10.23-records1",
     "verified": {
-      "python_compile": true,
-      "targeted_tests": 55,
-      "actual_cli_upgrade_preserves_private_state": true,
-      "actual_stdio_role": "B -> pwn and verified reading paths",
-      "actual_kali_bridge": true,
-      "actual_wp_export": true,
-      "knowledge_hashes_verified": 73,
-      "windows_unit_checks": {
-        "run": 55,
-        "passed": 54,
-        "skipped_linux_specific": 1
-      },
-      "kali_export_budget_checks": {
-        "run": 9,
-        "passed": 9,
-        "includes_real_process_termination": true
-      },
-      "portable_pcap_without_extensions_config": true,
-      "portable_required_artifact_sha256_and_wp": true,
-      "noobctf_fresh_install_and_idempotency": {
-        "indexed_files": 626,
-        "sections": 2399,
-        "pinned_commit": "0d9d8721f1c86f6529363fc63a6b915a1073ff77"
-      },
-      "ctf_system_skill_validated": true,
-      "public_private_path_scan": true,
-      "role_skill_targeted_checks": 16,
-      "four_roles_actual_stdio_paths": true,
-      "actual_isolated_skill_install_clients": [
-        "codex",
-        "trae",
-        "workbuddy"
-      ],
-      "all_four_guides_installed_with_unified_entry": true,
-      "idempotent_role_skill_install": true,
-      "legacy_three_file_skill_upgrade_checked": true,
-      "actual_role_guide_cli_migration_preserves_identity_and_client_ownership": true,
-      "wp_upgrade": {
-        "append_only_problem_and_handout_intake": true,
-        "pre_execution_input_snapshots_and_drift_detection": true,
-        "capture_failure_events": true,
-        "source_linked_narrative_sections_and_read_only_review": true,
-        "readable_mainline_and_full_technical_evidence": true,
-        "shared_model_markdown_html_docx_pdf": true,
-        "actual_mcp_call_and_kali_screen_capture": true,
-        "actual_four_format_export": true,
-        "docx_visual_review_pages": 5,
-        "pdf_visual_review_pages": 4,
-        "real_platform_answer_certified": false,
-        "portable_upgrade_preserves_private_state": true,
-        "format_renderer_checks": {
-          "passed": 9,
-          "skipped_windows_symlink_privilege": 1
-        },
-        "review_fixes": [
-          "structured redaction preserves JSON",
-          "versioned input-script reproduction links",
-          "capture-stage labels do not overstate provenance"
-        ]
-      }
+      "record_snapshot_files": 3534,
+      "record_snapshot_unique_objects": 3089,
+      "record_restore_full_tree": true,
+      "record_helper_tests": 3,
+      "privacy_scan_text_and_nested_entries": 3113,
+      "privacy_scan_findings": 0,
+      "image_ocr_unique_streams": 493,
+      "visual_contact_sheets_reviewed": 14,
+      "upgrade_preservation_tests": 8,
+      "actual_full_release_upgrade": true,
+      "private_state_markers_preserved": 4
     },
     "unverified": [
-      "other teammates machines and client model inference",
-      "all optional third-party dependencies",
-      "full challenge-solving success rate",
-      "whole-machine cold start",
-      "HTTP export budgets are sampled at 100 ms; they are not a filesystem hard quota",
-      "Custom contest Word templates are not implemented; fixed plain-v1 Letter template only.",
-      "Default textual flag/credential redaction and unreviewed pixels require final submission/privacy review."
+      "other teammates computers",
+      "models solving complete live challenges",
+      "new records created after snapshot"
     ],
     "unfinished": [
-      "per-machine dependency and challenge readiness checks"
+      "teammates pull/update and restore on their own machines"
     ],
-    "scope": "self-built fixture, actual stdio role lookup, actual CLI migration preserving private state, real existing Kali bridge and WP export; no real challenge or model benchmark",
-    "previous_release": "2026.10.16-role-guides"
-  },
-  "scope": "unrestricted all-category team access and credential-scrubbed historical solving records; no new challenge-solving claim"
+    "previous_release_validation": {
+      "ok": true,
+      "release": "2026.10.16-wp2",
+      "verified": {
+        "python_compile": true,
+        "targeted_tests": 55,
+        "actual_cli_upgrade_preserves_private_state": true,
+        "actual_stdio_role": "B -> pwn and verified reading paths",
+        "actual_kali_bridge": true,
+        "actual_wp_export": true,
+        "knowledge_hashes_verified": 73,
+        "windows_unit_checks": {
+          "run": 55,
+          "passed": 54,
+          "skipped_linux_specific": 1
+        },
+        "kali_export_budget_checks": {
+          "run": 9,
+          "passed": 9,
+          "includes_real_process_termination": true
+        },
+        "portable_pcap_without_extensions_config": true,
+        "portable_required_artifact_sha256_and_wp": true,
+        "noobctf_fresh_install_and_idempotency": {
+          "indexed_files": 626,
+          "sections": 2399,
+          "pinned_commit": "0d9d8721f1c86f6529363fc63a6b915a1073ff77"
+        },
+        "ctf_system_skill_validated": true,
+        "public_private_path_scan": true,
+        "role_skill_targeted_checks": 16,
+        "four_roles_actual_stdio_paths": true,
+        "actual_isolated_skill_install_clients": [
+          "codex",
+          "trae",
+          "workbuddy"
+        ],
+        "all_four_guides_installed_with_unified_entry": true,
+        "idempotent_role_skill_install": true,
+        "legacy_three_file_skill_upgrade_checked": true,
+        "actual_role_guide_cli_migration_preserves_identity_and_client_ownership": true,
+        "wp_upgrade": {
+          "append_only_problem_and_handout_intake": true,
+          "pre_execution_input_snapshots_and_drift_detection": true,
+          "capture_failure_events": true,
+          "source_linked_narrative_sections_and_read_only_review": true,
+          "readable_mainline_and_full_technical_evidence": true,
+          "shared_model_markdown_html_docx_pdf": true,
+          "actual_mcp_call_and_kali_screen_capture": true,
+          "actual_four_format_export": true,
+          "docx_visual_review_pages": 5,
+          "pdf_visual_review_pages": 4,
+          "real_platform_answer_certified": false,
+          "portable_upgrade_preserves_private_state": true,
+          "format_renderer_checks": {
+            "passed": 9,
+            "skipped_windows_symlink_privilege": 1
+          },
+          "review_fixes": [
+            "structured redaction preserves JSON",
+            "versioned input-script reproduction links",
+            "capture-stage labels do not overstate provenance"
+          ]
+        }
+      },
+      "unverified": [
+        "other teammates machines and client model inference",
+        "all optional third-party dependencies",
+        "full challenge-solving success rate",
+        "whole-machine cold start",
+        "HTTP export budgets are sampled at 100 ms; they are not a filesystem hard quota",
+        "Custom contest Word templates are not implemented; fixed plain-v1 Letter template only.",
+        "Default textual flag/credential redaction and unreviewed pixels require final submission/privacy review."
+      ],
+      "unfinished": [
+        "per-machine dependency and challenge readiness checks"
+      ],
+      "scope": "self-built fixture, actual stdio role lookup, actual CLI migration preserving private state, real existing Kali bridge and WP export; no real challenge or model benchmark",
+      "previous_release": "2026.10.16-role-guides"
+    },
+    "scope": "unrestricted all-category team access and credential-scrubbed historical solving records; no new challenge-solving claim"
+  }
 }
