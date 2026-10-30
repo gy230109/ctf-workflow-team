@@ -5,7 +5,7 @@ import shutil
 import uuid
 from datetime import datetime, timezone
 
-IMAGE_KINDS = {'vm_screenshot','imported_image','windows_screenshot','browser_screenshot'}
+IMAGE_KINDS = {'vm_screenshot','imported_image','windows_screenshot','browser_screenshot','terminal_screenshot'}
 REPLAY_KINDS = {'browser_trace','terminal_recording'}
 
 
@@ -13,7 +13,9 @@ def build(a):
     import ctf_wp as wp
     a = dict(a)
     a.setdefault('include_images', True)
-    a.setdefault('include_log_renders', False)
+    if a.get('include_log_renders') is True:
+        raise ValueError('规范WP已禁用日志渲染图；保留原始文本，采集实际工具画面。旧报告不会自动变成真实截图。')
+    a['include_log_renders'] = False
     folder = wp.case_dir(a['case'])
     if not wp.exists(a['case']): raise ValueError('先 wp_init')
     from ctf_wp_report import ensure_task_context
@@ -26,6 +28,10 @@ def build(a):
         report = folder/'reports'/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ-')+uuid.uuid4().hex[:8])
         (report/'images').mkdir(parents=True)
         generated, captures, replays, errors = [], 0, 0, []
+        from ctf_wp_capture_review import eligible
+        reviewed_frames = eligible(folder, rows)
+        approved = {(x['step'], x['path']) for x in reviewed_frames if x['accepted']}
+        copied_images = set()
         completed = {e['data'].get('operation_id') for e in rows if e['kind']=='call'}
         pending = [e for e in rows if e['kind']=='operation_started' and e['data']['operation_id'] not in completed]
         notes = {}
@@ -49,6 +55,11 @@ def build(a):
             nonlocal captures, replays
             kind=item['kind']; source=folder/item['path']
             if kind in IMAGE_KINDS:
+                if (event['seq'], item['path']) not in approved:
+                    lines.extend(['该图尚未核验或已排除，不计有效截图；原图仍在私有证据中。', '']);return
+                if item['sha256'] in copied_images:
+                    return
+                copied_images.add(item['sha256'])
                 if not include_images:
                     lines.extend(['图片证据已保存，本次未导出。','']);return
                 target=report/'images'/('%04d-'%event['seq']+source.name)
@@ -90,10 +101,6 @@ def build(a):
                 lines.extend(['**实际操作与结果：**',wp.fence(command+'\n'+output),'',
                     '原始证据 SHA256：`'+event['files'][0]['sha256']+'`。',''])
                 for note in notes.get(seq,[]):lines.extend(['**观察结论（Agent 引用本步骤）：** '+wp.scrub(note),''])
-                pic=report/'images'/('%04d-log.png'%seq)
-                if include_images and a.get('include_log_renders',True) is True and wp.render_log(command+'\n'+output,pic):
-                    lines.extend(['![步骤 %d 的日志渲染图（非屏幕截图）](images/%s)'%(seq,pic.name),''])
-                    generated.append(wp.file_record(report,pic,'log_render'))
                 for item in event['files'][1:]: copy_asset(event,item)
                 for error in data.get('capture_errors',[]):
                     errors.append({'step':seq,**error});lines.extend(['证据采集缺项：'+wp.scrub(json.dumps(error,ensure_ascii=False))+'。原动作未为补证据重跑。',''])
@@ -154,7 +161,9 @@ def build(a):
                     'report.json':'report_model','writeup.html':'html','writeup.docx':'docx','writeup.pdf':'pdf'}.get(rel,'redacted_evidence'))
         generated=[wp.file_record(report,report/rel,kind) for rel,kind in sorted(kinds.items())]
         manifest={'case':a['case'],'timeline_head':rows[-1]['sha256'],'files':generated,'private_bundle':private,
-            'text_redaction':'best_effort','images_reviewed':False,'capture_errors':errors,
+            'text_redaction':'best_effort','images_reviewed':bool(captures),
+            'image_review_scope':'Recorded reviewer observations bound to original SHA256; no automatic authenticity certification',
+            'excluded_images':sum(not x['accepted'] for x in reviewed_frames),'capture_errors':errors,
             'pending_operations':[e['data']['operation_id'] for e in pending],
             'recording_complete':not errors and not pending,'platform_verification':verification,
             'images_included':captures,'recordings_included':replays,'scripts_included':sum(f['kind']=='script_snapshot' for f in generated),

@@ -17,6 +17,7 @@ FILES+=['ctf_protocol.py','ctf_client_adapter.py','ctf_experience.py']
 FILES+=['ctf_enhancements.py','ctf_envprep.py','ctf_fox.py']
 
 FILES+=['ctf_vuln_audit.py','ctf_vuln_worker.py','ctf_redteam.py','ctf_suite.py']
+FILES+=['ctf_wp_capture_review.py']
 FILES+=['ctf_wp_policy.py','ctf_redteam_fusion.py','ctf_redteam_mcp.py','ctf_redteam_semantics.py']
 
 def fingerprint():
@@ -32,6 +33,6 @@ LOADED_AT=datetime.now(timezone.utc).isoformat()
 
 def info(count):
     current=fingerprint()
-    return {'release':'portable-20261030-two-modules1','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
+    return {'release':'portable-20261030-real-capture3','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
         'reload_required':current!=LOADED_FINGERPRINT,'tool_count':count,'source_root':str(BASE),
         'python':sys.executable,'pid':os.getpid(),'loaded_at':LOADED_AT}

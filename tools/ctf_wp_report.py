@@ -243,7 +243,7 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
         for text in shown_observations: para(text)
         for item in event.get('files', []):
             kind = item['kind']
-            if kind in {'vm_screenshot', 'imported_image', 'windows_screenshot', 'browser_screenshot'}:
+            if kind in {'vm_screenshot', 'imported_image', 'windows_screenshot', 'browser_screenshot', 'terminal_screenshot'}:
                 target = report / 'images' / ('%04d-' % seq + Path(item['path']).name)
                 if a.get('include_images') is True and target.is_file():
                     caption = data.get('caption') or item.get('source') or '实际采集画面'

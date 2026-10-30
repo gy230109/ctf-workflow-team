@@ -306,6 +306,8 @@ class Browser:
 
 
 def terminal_record(a):
+    if a.get('capture_window') is True:
+        return terminal_window(a)
     import shlex
     if a.get('confirm') is not True:raise ValueError('confirm=true required')
     executable=shutil.which('asciinema')
@@ -349,6 +351,118 @@ def terminal_record(a):
     else:result['capture_errors'].append({'kind':'terminal_recording','error':'Recording missing or exceeds 16 MiB'})
     if not result['ok']:result.update(error='Recorded command failed or timed out',error_code='terminal_command_failed')
     return result
+
+def terminal_window(a):
+    """Execute once in a real xterm; capture its original X11 window, not logs."""
+    import shlex
+    if a.get('confirm') is not True:
+        raise ValueError('confirm=true required')
+    argv = bounded_argv(a.get('argv'))
+    if not argv:
+        raise ValueError('argv is required')
+    programs = {name: shutil.which(name) for name in ['Xvfb', 'xterm', 'xauth', 'xdpyinfo', 'xdotool', 'import', 'asciinema']}
+    missing = [name for name, path in programs.items() if not path]
+    if missing:
+        raise ValueError('Live terminal capture dependencies missing; command NOT executed: ' + ', '.join(missing))
+    budget = a.get('timeout', 60)
+    if type(budget) is not int or not 20 <= budget <= 195:
+        raise ValueError('Live terminal capture timeout must be 20..195 seconds including setup')
+    token = secrets.token_hex(8)
+    cast = WORK / ('live-terminal-' + token + '.cast')
+    image = WORK / ('live-terminal-' + token + '.png')
+    exit_file = WORK / ('live-terminal-' + token + '.exit')
+    auth = WORK / ('.xauth-' + token)
+    auth.touch(mode=0o600)
+    display = ':' + str(100 + secrets.randbelow(30000))
+    # Authenticated local display: cookie is sent on stdin and never shown.
+    added = subprocess.run([programs['xauth'], '-f', str(auth)],
+        input='add ' + display + ' MIT-MAGIC-COOKIE-1 ' + secrets.token_hex(16) + '\n',
+        capture_output=True, text=True, timeout=4)
+    if added.returncode:
+        auth.unlink(missing_ok=True)
+        raise RuntimeError('Cannot authenticate private display; command NOT executed')
+    env = dict(os.environ, DISPLAY=display, XAUTHORITY=str(auth), TERM='xterm-256color', SHELL='/bin/bash')
+    server = terminal = None
+    started, executed = time.monotonic(), False
+    result = {'ok': False, 'argv': argv, 'capture_errors': [], 'evidence_artifacts': [],
+              'transport': 'Actual xterm on authenticated private X11; command executed once',
+              'action_replayed': False, 'command_executed': False}
+    try:
+        with tempfile.TemporaryFile() as server_log, tempfile.TemporaryFile() as terminal_log:
+            server = subprocess.Popen([programs['Xvfb'], display, '-screen', '0', '1600x1000x24',
+                '-nolisten', 'tcp', '-auth', str(auth)], stdout=server_log, stderr=server_log, start_new_session=True)
+            ready = False
+            for _ in range(40):
+                if server.poll() is not None:
+                    break
+                probe = subprocess.run([programs['xdpyinfo']], env=env, capture_output=True, timeout=1)
+                if probe.returncode == 0:
+                    ready = True
+                    break
+                time.sleep(0.1)
+            if not ready:
+                raise RuntimeError('Private display unavailable; command NOT executed')
+            bounded = ['timeout', '--signal=TERM', '--kill-after=2s', str(budget - 15), *argv]
+            # xtrace displays the command at execution time. No saved output is
+            # printed into a later window, and the original command runs once.
+            shell = ('set -x; ' + shlex.join(bounded) + ' </dev/null; live_exit=$?; set +x; '
+                     'printf "%s" "$live_exit" > ' + shlex.quote(str(exit_file)) + '; exit "$live_exit"')
+            terminal = subprocess.Popen([programs['xterm'], '-hold', '-geometry', '132x36',
+                '-xrm', 'XTerm*renderFont:false', '-fn', '10x20', '-title', 'CTF live command ' + token,
+                '-e', programs['asciinema'], 'rec', '--quiet', '--command', shell, str(cast)],
+                cwd=WORK, env=env, stdin=subprocess.DEVNULL, stdout=terminal_log, stderr=terminal_log,
+                start_new_session=True)
+            executed = True
+            result['command_executed'] = None  # launched; receipt still unknown
+            deadline = started + budget - 5
+            while not exit_file.exists() and time.monotonic() < deadline and terminal.poll() is None:
+                time.sleep(0.1)
+            if terminal.poll() is not None and not exit_file.exists():
+                terminal_log.seek(0)
+                raise RuntimeError('Original xterm exited before command receipt; status=' + str(terminal.returncode)
+                                   + '; ' + terminal_log.read(2000).decode('utf-8', 'replace'))
+            status = int(exit_file.read_text()) if exit_file.exists() else None
+            result['command_executed'] = True if status is not None else None
+            result.update(returncode=status, timed_out=status in (None, 124, 137), ok=status == 0)
+            time.sleep(0.2)  # original terminal/recorder flush, not a replay
+            windows = subprocess.run([programs['xdotool'], 'search', '--pid', str(terminal.pid), '--class', 'XTerm'],
+                                     env=env, capture_output=True, text=True, timeout=3)
+            window = next((w for w in windows.stdout.splitlines() if w.isdigit()), None)
+            if not window:
+                raise RuntimeError('Original terminal not found; command may have executed; DO NOT replay')
+            shot = subprocess.run([programs['import'], '-window', window, str(image)],
+                                  env=env, capture_output=True, timeout=4)
+            if shot.returncode or not image.is_file():
+                raise RuntimeError('Original terminal capture failed; command already executed; DO NOT replay')
+            result['evidence_artifacts'].append(dict(artifact(image), kind='terminal_screenshot',
+                source='Actual live xterm window ' + window + ' on private X11; same single command execution; no log replay'))
+            if cast.is_file() and cast.stat().st_size <= 16777216:
+                text = ''.join(str(e[2]) for line in cast.read_text().splitlines()[1:]
+                               if (e := json.loads(line))[1] == 'o')
+                result.update(terminal_output=text[:32768], output_truncated=len(text) > 32768)
+                result['evidence_artifacts'].append(dict(artifact(cast), kind='terminal_recording',
+                    source='Original PTY recording inside the same live xterm during the same execution'))
+            if not result['ok']:
+                result.update(error='Original command failed or timed out; not replayed', error_code='terminal_command_failed')
+    except Exception as exc:
+        result.update(ok=False, error=str(exc), error_code='live_terminal_capture_failed')
+        result['capture_errors'].append({'kind': 'terminal_screenshot', 'error': str(exc),
+                                          'command_may_have_executed': executed, 'action_replayed': False})
+    finally:
+        for process in [terminal, server]:
+            if process is not None and process.poll() is None:
+                try:
+                    os.killpg(process.pid, signal.SIGTERM)
+                    process.wait(timeout=2)
+                except ProcessLookupError:
+                    pass
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait(timeout=2)
+        auth.unlink(missing_ok=True)
+    result['duration_seconds'] = round(time.monotonic() - started, 3)
+    return result
+
 
 def descendant_rss(pid):
     total=0;todo=[pid];seen=set()
@@ -412,6 +526,7 @@ def status(a):
     library=Path(cfg['crypto_library']);count=len(list((library/'attacks').rglob('*.py')))
     return {'ok':all(actual.values()) and all(p['ok'] for p in probes.values()) and count>0,'commands':actual,'version_probes':probes,
         'crypto_library':{'root':str(library),'method_files':count,'commit':cfg['crypto_commit']},'sysroots':{k:Path(v).is_dir() for k,v in cfg.get('sysroots',{}).items()},
+        'live_terminal_capture': {name: shutil.which(name) for name in ['xterm', 'Xvfb', 'xauth', 'xdpyinfo', 'xdotool', 'import', 'asciinema']},
         'sessions':{k:session(k,{'action':'status'}) for k in ('debug','browser')},'scope':'Installation, command loading and session connection checks; no challenge/model evaluation'}
 
 if __name__=='__main__':

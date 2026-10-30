@@ -59,7 +59,14 @@ its actual content supports both (stage=process_and_result). Save real key-step
 screenshots immediately, then save a result screenshot linked to the actual result
 source_step. Browser/debugger automatic screenshots are reused. For other visible
 tools use wp_capture(mode=kali_vm|windows_window|file, source_step=..., stage=process|result|process_and_result).
-Inspect the real pixels; a terminal recording or log render is not a screenshot.
+Open each original image with an image-viewing tool, inspect visible content and
+its relation to source_step, then record wp_capture_review with its original SHA256.
+Unreviewed images do not count toward WP completeness. Reject login/lock screens,
+empty desktops, rendered logs and reconstructed evidence pages. A real screenshot
+of a fabricated page is not evidence of the original solving action. SSH commands
+have no visible terminal: use kali_terminal_record(capture_window=true) to run
+once inside a real xterm and capture its original window at execution time when
+a screenshot is needed; do not later print logs into a window to manufacture one.
 Use all five wp_section sections and actual source_steps, embed images in Word.
 Missing captures remain explicit draft gaps; do not replay side effects for photos.
 The system owns workflow rules independently of the AI provider. After intake,

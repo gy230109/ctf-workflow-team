@@ -83,7 +83,7 @@ SPECS={
  'web_browser_session':('browser','本题连续 Playwright 会话：start/navigate/snapshot/click/fill/screenshot/status/close；独立 profile、同源约束。须 confirm=true',{'action':dict(S,enum=['start','navigate','snapshot','click','fill','screenshot','status','close']),'url':S,'allow_origins':A,'selector':S,'text':S,'confirm':B}),
  'crypto_library':('crypto','固定版本 crypto-attacks 方法目录、源码和 Sage 模块导入；算法条件由 Agent 判断，未调用题解',{'action':dict(S,enum=['list','read','import']),'query':S,'method':S,'start_line':I,'lines':I}),
  'misc_stego':('stego','本题 PNG/BMP/JPEG/WAV 隐写入口：zsteg/steghide/stegseek；提取文件留摘要。须 confirm=true',{'action':dict(S,enum=['zsteg','info','extract','seek']),'passphrase':S,'wordlist':S,'wordlist_file':S,'confirm':B}),
- 'kali_terminal_record':('terminal','Kali 本题 PTY 命令自动由 asciinema 录制为 .cast；适合需要终端回放的命令，stdin 关闭，需 confirm=true。普通 JSON 工具保留原入口。',{'argv':A,'confirm':B}),
+ 'kali_terminal_record':('terminal','Kali 本题 PTY 命令自动由 asciinema 录制为 .cast；capture_window=true时在隔离X11真实xterm中执行一次并采集原窗口；默认仅录制回放。需confirm=true。',{'argv':A,'confirm':B,'capture_window':B}),
 }
 TOOLS={}
 for name,(op,description,props) in SPECS.items():

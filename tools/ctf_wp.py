@@ -582,6 +582,8 @@ def schema(extra=None, required=None):
     return {"type": "object", "properties": dict(CASE, **(extra or {})), "required": ["case"] + (required or [])}
 
 
+from ctf_wp_capture_review import TOOLS as CAPTURE_REVIEW_TOOLS
+
 TOOLS = {
     "wp_init": (init, "初始化一题的私有 WP 记录；后续调用加 wp_case 自动记录", schema({
         "title": {"type": "string"}, "category": {"type": "string"}, "competition": {"type": "string"}})),
@@ -613,3 +615,5 @@ TOOLS = {
         'expose_flag': {'type':'boolean', 'default':False}})),
     "wp_status": (status, "验证 WP 时间线及文件摘要并查看采集数量", schema()),
 }
+
+TOOLS.update(CAPTURE_REVIEW_TOOLS)

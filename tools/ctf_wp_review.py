@@ -82,7 +82,7 @@ def analyze(folder, rows):
                         "calls_without_purpose": no_purpose,
                         "calls_without_observation": no_observed,
                         'screenshots_complete': screenshots['complete'],
-                        "review_scope": "正文、截图及证据引用检查；未审判文字语义或截图像素内容"},
+                        "review_scope": "正文、截图摘要及已记录的逐图内容核验；系统不自动认证画面真实性或文字语义"},
             "issues": issues, "submission_ready": not issues,
             "integrity_verified": True, "recording_complete": not errors and not pending,
             "platform_answer_verified": bool(receipts), "verification_receipts": receipts,

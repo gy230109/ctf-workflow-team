@@ -109,7 +109,7 @@ class EvidenceTests(unittest.TestCase):
         wp.capture({"case": "fixture", "mode": "file", "file_path": str(image), "source": "self-created test image"})
         included = wp.build({"case": "fixture", "include_images": True})
         excluded = wp.build({"case": "fixture", "include_images": False})
-        self.assertEqual(included["images_included"], 1)
+        self.assertEqual(included["images_included"], 0)  # unreviewed image is retained privately, not shown as solving evidence
         self.assertEqual(excluded["images_included"], 0)
         self.assertNotEqual(included["path"], excluded["path"])
         self.assertFalse(list(Path(excluded["path"]).parent.glob("images/*capture.png")))

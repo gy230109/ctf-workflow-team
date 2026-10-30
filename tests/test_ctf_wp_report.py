@@ -93,7 +93,9 @@ class ReportTests(unittest.TestCase):
 
     def test_disabling_images_also_disables_log_pngs(self):
         wp.record_call('fixture', {}, {'tool': 'fixture', 'ok': True, 'result': 'real fixture output'})
-        result = wp.build({'case': 'fixture', 'formats': [], 'include_images': False, 'include_log_renders': True})
+        with self.assertRaisesRegex(ValueError, '日志渲染'):
+            wp.build({'case': 'fixture', 'formats': [], 'include_images': False, 'include_log_renders': True})
+        result = wp.build({'case': 'fixture', 'formats': [], 'include_images': False})
         self.assertFalse(list(Path(result['path']).parent.rglob('*.png')))
 
     def test_revised_input_scripts_keep_distinct_reproduction_links(self):

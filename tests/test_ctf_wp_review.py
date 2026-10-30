@@ -145,12 +145,18 @@ class ReviewTests(unittest.TestCase):
         recorded = self.call(result={"tool": "ctfd_submit", "result": {
             "candidate_verified": True, "judge_status": "correct", "challenge_id": "synthetic-fixture"}})
         wp.note({"case": "fixture", "status": "observed", "source_step": recorded["step"], "text": "读取自建结构化正确回执"})
-        from PIL import Image
+        from PIL import Image, ImageDraw
         image = self.root / 'ready-fixture.png'
-        Image.new('RGB', (24, 24), 'white').save(image)
-        wp.capture({'case':'fixture', 'mode':'file', 'file_path':str(image),
+        frame = Image.new('RGB', (640, 240), 'white')
+        ImageDraw.Draw(frame).text((20, 20), 'SOFTWARE TEST FIXTURE ONLY', fill='black')
+        frame.save(image)
+        captured = wp.capture({'case':'fixture', 'mode':'file', 'file_path':str(image),
                     'source':'Software test image fixture only; not a real challenge screenshot',
                     'source_step':recorded['step'], 'stage':'process_and_result'})
+        wp.TOOLS['wp_capture_review'][0]({'case':'fixture', 'image_step':captured['step'],
+            'image_sha256':wp.digest(image), 'verdict':'accepted','capture_origin':'live_screen',
+            'observed_content':'Software fixture only for unit testing review records',
+            'reason':'Synthetic review fixture, not actual screenshot acceptance'})
         for name in ("overview", "analysis", "solution", "validation", "reproduction"):
             wp.section({"case": "fixture", "section": name, "text": "自建验收章节",
                         "source_steps": [recorded["step"]]})

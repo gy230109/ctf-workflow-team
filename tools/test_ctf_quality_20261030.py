@@ -127,7 +127,10 @@ class ScreenshotWPTests(unittest.TestCase):
         wp.init({'case': 'fixture', 'title': '自建截图规范验收'})
         wp.intake({'case': 'fixture', 'description': '仅用于软件回归的自建样例，不计真实解题率。'})
         self.image = self.root / 'fixture.png'
-        self.image.write_bytes(PNG)
+        from PIL import Image, ImageDraw
+        fixture = Image.new('RGB', (640, 240), 'white')
+        ImageDraw.Draw(fixture).text((20, 20), 'SOFTWARE TEST FIXTURE ONLY', fill='black')
+        fixture.save(self.image)
 
     def tearDown(self):
         self.patcher.stop()
@@ -142,9 +145,14 @@ class ScreenshotWPTests(unittest.TestCase):
         return result['step']
 
     def capture(self, step, stage='process'):
-        return wp.capture({'case': 'fixture', 'mode': 'file', 'file_path': str(self.image),
+        captured = wp.capture({'case': 'fixture', 'mode': 'file', 'file_path': str(self.image),
             'source': 'Software test PNG fixture, not a real challenge screenshot',
             'source_step': step, 'stage': stage, 'caption': '仅为回归测试的图像样例'})
+        wp.TOOLS['wp_capture_review'][0]({'case':'fixture', 'image_step':captured['step'],
+            'image_sha256':wp.digest(captured['path']), 'verdict':'accepted', 'capture_origin':'live_screen',
+            'observed_content':'Software fixture only; exercises review bookkeeping, no actual challenge',
+            'reason':'Unit test review fixture; never reported as real screenshot acceptance'})
+        return captured
 
     def sections(self, step):
         for name in ['overview', 'analysis', 'solution', 'validation', 'reproduction']:
