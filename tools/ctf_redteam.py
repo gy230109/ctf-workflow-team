@@ -21,7 +21,7 @@ WRITE_OPS = ['assetAdd','assetLink','addVuln','updateVuln','addCredential','addA
 ROUTES = {
  'web': ['web_http_inspect','web_html_parse','web_jwt_decode','web_browser_session','audit_semgrep','audit_gitleaks','web_nuclei_audit'],
  'pwn': ['pwn_elf_info','pwn_cyclic','pwn_rop_search','kali_debug_session','qemu_run'],
- 'reverse': ['reverse_binary_info','reverse_disassemble','rea_inspect','reverse_symbolic','win_debug_tools'],
+ 'reverse': ['reverse_binary_info','reverse_disassemble','rea_run','reverse_symbolic','win_debug_tools'],
  'crypto': ['crypto_diagnose','crypto_attack','crypto_factor','crypto_crt','crypto_z3','crypto_lll','crypto_aes_decrypt'],
  'misc': ['misc_file_inspect','misc_archive_list','misc_image_inspect','misc_stego','cracktools_run'],
  'forensics': ['forensics_pcap','forensics_pcap_summary','forensics_volatility'],
@@ -30,21 +30,25 @@ ROUTES = {
 }
 
 def plan_for(root, task):
+    from ctf_wp_policy import contract
+    modules = contract()['modules']
     category = task.get('category', 'unknown')
     return {'enabled': True, 'adapter_version': '0.2.0', 'case': task['task_id'],
         'mode': 'ctf-first',
         'deliverable': 'ctf_finish 导出的 WP（md/html/docx）。本系统是 CTF 系统，不产出渗透测试报告。',
-        'redteam_role': 'auxiliary-only',
+        'redteam_role': 'fully-integrated', 'modules': modules,
         'category': category,
         'candidate_execution_tools': ROUTES.get(category, ROUTES['unknown']),
+        'routing_hints_are_allowlists': False,
+        'redteam_discovery': 'ctf_tools(query=redteam_) discovers all fused interfaces; select by evidence and actual dependencies, not by an auxiliary-only label.',
         'flow': ['保留原题与附件，完成 ctf_plan',
                  '用 ctf_analyze(tool=ctf_profile) 确认题型与依赖',
-                 '按题型选工具，经 ctf_analyze/ctf_call 执行并留证',
-                 '只有需要记录资产/漏洞/POC/隧道时才用 redteam_*，写操作带 source_step',
+                 '融合传统CTF与破甲能力，按证据选择工具、POC、工具链或角色协作，经统一入口执行',
+                 '破甲能力可承担主力；需要的记录关联source_step，关键合适页面同步保留真实截图',
                  '按需 ctf_checkpoint；没解出来就如实记 blocked / needs_input',
                  '用原程序或平台验证答案，经 ctf_finish 导出 WP'],
-        'not_required': ['五阶段渗透推进', '角色派单 ctf_suite_dispatch', '渗透测试报告'],
-        'role_policy': 'CTF 单题默认不需要角色派单；只有题目本身是内网/多主机时才用 redteam_agent_slot。',
+        'workflow_selection': '按本题需要选择单工具、完整工具链、阶段流程或角色协作，以获得并验证flag为准。',
+        'role_policy': '需要专业分工、并行路线或交叉验证时可选角色协作；不限定于内网/多主机题，是否采用由题目需要、时限及成本决定。',
         'storage_isolation': 'one engagement per CTF task; original shared POC knowledge retained',
         'limits': '工具清单和原仓库资料不代表依赖已安装或题目已解；不改变宿主审批、网络范围或答案验证。'}
 
@@ -64,13 +68,23 @@ def _existing_names():
         module = sys.modules.get(key)
         if module is not None and isinstance(getattr(module, 'ALL_TOOLS', None), dict):
             return set(module.ALL_TOOLS)
-    return set()
+    # Public MCP handlers can run without ctf_os loaded in this interpreter.
+    # Resolve the owned registry instead of interpreting that as zero tools.
+    import importlib
+    module = importlib.import_module('ctf_os')
+    registry = getattr(module, 'ALL_TOOLS', None)
+    if not isinstance(registry, dict) or not registry:
+        raise RuntimeError('Current CTF tool registry is unavailable; capability inventory is unknown.')
+    return set(registry)
 
 def capabilities(args):
     manifest = json.loads((INTEGRATION / 'manifest.json').read_text(encoding='utf-8'))
     names = _existing_names()
     return {'adapter_version':'0.2.0', 'upstream':manifest['upstream'],
-        'registration_only': True, 'execution_tools': {k:[n for n in v if n in names] for k,v in ROUTES.items()},
+        'registration_only': True, 'inventory_source':'ctf_os.ALL_TOOLS',
+        'registered_tool_count':len(names),
+        'execution_tools': {k:[n for n in v if n in names] for k,v in ROUTES.items()},
+        'missing_route_tools': {k:[n for n in v if n not in names] for k,v in ROUTES.items()},
         'read_operations':READ_OPS, 'record_operations':WRITE_OPS,
         'playbooks':manifest['playbooks'], 'source_tools':manifest['tool_mapping'],
         'node_executable_present':bool(shutil.which('node')), 'node_sqlite_runtime_checked':False,

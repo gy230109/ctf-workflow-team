@@ -11,6 +11,9 @@ REPLAY_KINDS = {'browser_trace','terminal_recording'}
 
 def build(a):
     import ctf_wp as wp
+    a = dict(a)
+    a.setdefault('include_images', True)
+    a.setdefault('include_log_renders', False)
     folder = wp.case_dir(a['case'])
     if not wp.exists(a['case']): raise ValueError('先 wp_init')
     from ctf_wp_report import ensure_task_context

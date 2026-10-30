@@ -73,15 +73,19 @@ def analyze(folder, rows):
               sorted({e["step"] for e in errors}))
     if not receipts:
         issue("answer_not_verified", "尚无结构化的真实平台正确回执；章节文字不认证答案。")
+    from ctf_wp_policy import inspect
+    screenshots = inspect(folder, rows, platform_verified=bool(receipts))
+    issues.extend(screenshots['issues'])
     return {"ok": True, "status": "ready" if not issues else "draft",
             "quality": {"document_complete": not any(x["code"] != "answer_not_verified" for x in issues),
                         "missing_sections": missing_sections,
                         "calls_without_purpose": no_purpose,
                         "calls_without_observation": no_observed,
-                        "review_scope": "结构与证据引用检查；未审判 Agent 文字的语义正确性"},
+                        'screenshots_complete': screenshots['complete'],
+                        "review_scope": "正文、截图及证据引用检查；未审判文字语义或截图像素内容"},
             "issues": issues, "submission_ready": not issues,
             "integrity_verified": True, "recording_complete": not errors and not pending,
             "platform_answer_verified": bool(receipts), "verification_receipts": receipts,
-            "solved_verified": False, "capture_errors": errors,
+            "solved_verified": False, 'screenshot_evidence': screenshots, "capture_errors": errors,
             "pending_operations": pending, "context": context, "sections": sections,
             "review_required": "提交或公开前仍需审阅正文、原件及图片像素。"}

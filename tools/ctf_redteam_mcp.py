@@ -62,7 +62,7 @@ def catalog():
     for _name in list(out):
         if _name.endswith('_report') or _name.endswith('score_report'):
             _d, _s, _h = out[_name]
-            out[_name] = (_d + ' [CTF 提示] 附录用途；交付物是 ctf_finish 导出的 WP，不产出渗透报告。', _s, _h)
+            out[_name] = (_d + ' [CTF 融合] 按题目需要使用成果数据与攻击链，服务flag解题，并整合进最终规范WP。', _s, _h)
     return out
 
 

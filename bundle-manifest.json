@@ -1,8 +1,8 @@
 {
-  "version": "2026.10.23-records1",
-  "registered_tools": 103,
-  "mcp_entry_tools": 9,
-  "local_source_tools": 109,
+  "version": "2026.10.30-two-modules",
+  "registered_tools": 181,
+  "mcp_entry_tools": 81,
+  "local_source_tools": 202,
   "excluded_tools": [
     "final_verify",
     "gb_flag_verify",
@@ -20,13 +20,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "aa744e02fe2d2b1f1db3ea8a6076666d980c743aa54a176b722302b189b769cc",
-      "bytes": 6558
+      "sha256": "e9b5f2510cd5f607a5e1ed413186b3e4fc19e9b16a67a4fca7dd2e640cf0d38e",
+      "bytes": 46161
     },
     {
       "path": "README.md",
-      "sha256": "cf2d432fc0b0ef5f8f49f34685d80dbfaf87242efaffaf6f3546a5d6656aa8cb",
-      "bytes": 5500
+      "sha256": "858f5b9d5573b0ba2f7efb1b907c448edb2eceaeee0ab72a95a1d980fb3c24e2",
+      "bytes": 7934
     },
     {
       "path": "TEAM_ROLES.md",
@@ -67,6 +67,11 @@
       "path": "config/ctfd.example.json",
       "sha256": "3b46c0eab2f24beebf35b4e13d69a0350ddf1178462493faab31a4e7ebade894",
       "bytes": 117
+    },
+    {
+      "path": "config/purge-redteam-preset.md",
+      "sha256": "c58dbd45459739cca57e2e96b31695eae0f3bad318a5c321aeaaf81780518439",
+      "bytes": 12801
     },
     {
       "path": "config/rea.example.json",
@@ -144,6 +149,11 @@
       "bytes": 3212
     },
     {
+      "path": "docs/upgrade-20261030.md",
+      "sha256": "361adf24619ae0274837165a54b6009b935d394b41521b11434166d96a35ce00",
+      "bytes": 1966
+    },
+    {
       "path": "docs/wp-guide.md",
       "sha256": "c9edecdbf9a1e21c1c27e6d49e6875b9ce72d571897b6857e6ed311c331ab76f",
       "bytes": 4190
@@ -157,6 +167,16 @@
       "path": "install-trae.ps1",
       "sha256": "12c0628104c0ad03c81778dcc88a32fd1a97e4c48f1d9930e3cedc6c53ea2102",
       "bytes": 499
+    },
+    {
+      "path": "integrations/purge-redteam/CTF-WP-POLICY.md",
+      "sha256": "1ef89f0a0b82823b78483e75e3fc1b8ba35ee013148c3a90ff7a2ec69cfe646f",
+      "bytes": 2535
+    },
+    {
+      "path": "integrations/purge-redteam/upgrade-installer.py",
+      "sha256": "a6d8f19c0c3d023abb6bf408321b28bc8b9e69535b5a4d2a025b5429198f1bca",
+      "bytes": 7169
     },
     {
       "path": "knowledge/README.md",
@@ -16145,8 +16165,8 @@
     },
     {
       "path": "tests/test_ctf_wp.py",
-      "sha256": "5fa57a30b2ef1574308fc6a4fc945134219ba8f11975734e041b69e06a0e9c0a",
-      "bytes": 6000
+      "sha256": "1d22bbcf74f6e3a6dc9b12a2349f1aefb8527ceb0954c6ad444e490c02791008",
+      "bytes": 6047
     },
     {
       "path": "tests/test_ctf_wp_formats.py",
@@ -16160,8 +16180,8 @@
     },
     {
       "path": "tests/test_ctf_wp_review.py",
-      "sha256": "35c2a63d1cd51bb5fcaf4ee2ea92280a531e633847f19b3642725c0231508ddf",
-      "bytes": 8745
+      "sha256": "3dffd78c21bf733a7d9f372f34096bc6c433c77b463e4b6a8ce0a25c5b5fa31b",
+      "bytes": 9166
     },
     {
       "path": "tests/test_install_skill.py",
@@ -16197,6 +16217,11 @@
       "path": "tests/test_wp_automatic.py",
       "sha256": "25345cba81435088bfc473ffd5b9ae1831b20fefdd18fa5823a89c589ecde94d",
       "bytes": 4817
+    },
+    {
+      "path": "tools/check_env.py",
+      "sha256": "7d80cc2790384f3b13d42a31d55318ea2a0e1d1e7dc339c9670bf6db9fd8f371",
+      "bytes": 7230
     },
     {
       "path": "tools/connect_ai.py",
@@ -16399,6 +16424,11 @@
       "bytes": 1101
     },
     {
+      "path": "tools/ctf_competition.py",
+      "sha256": "4984030ee54bc6c9ea52e8988c89b16e6ef01d4b9748e0cc0ae172d83ddbaf45",
+      "bytes": 14331
+    },
+    {
       "path": "tools/ctf_cracktools.py",
       "sha256": "2702a255d26998f20b0f018dc397d12d091b6462e27bd35a940f6a4aaf0c3896",
       "bytes": 7250
@@ -16422,6 +16452,11 @@
       "path": "tools/ctf_entry.py",
       "sha256": "217f4a0c60a6a0a1048974d6472855f8f315e59d544b2b3671e56d5f578437bc",
       "bytes": 1511
+    },
+    {
+      "path": "tools/ctf_envprep.py",
+      "sha256": "33f95d44bf197c66c32f6f0fa679f62f613a0f411b546b07aca33aeab9ef8e71",
+      "bytes": 27185
     },
     {
       "path": "tools/ctf_extension_worker.py",
@@ -16450,8 +16485,8 @@
     },
     {
       "path": "tools/ctf_os.py",
-      "sha256": "cbe3e11b7c4612f69e2351a21f38dfae74fec17d34e3bd70a283720660ad8bbb",
-      "bytes": 48093
+      "sha256": "b3bdd57610f294471898c73da4ab89c17e6fe34a75577d8212b8623f74c055f1",
+      "bytes": 49025
     },
     {
       "path": "tools/ctf_os_runtime.py",
@@ -16480,13 +16515,28 @@
     },
     {
       "path": "tools/ctf_product.py",
-      "sha256": "c1b6be6b595283f751d2742d3f16048c936c778b0b93ce1c8161f36c138bde3e",
-      "bytes": 28250
+      "sha256": "d39e6ff51e7c21b82e7fa2e99a79da39969ad708797220cafe591284557fbd99",
+      "bytes": 44351
+    },
+    {
+      "path": "tools/ctf_protocol.py",
+      "sha256": "f6ae6e4abf63059cca8325367b41909bbdb9fb6bf54e37239e4ebed0c709920b",
+      "bytes": 7507
     },
     {
       "path": "tools/ctf_rea.py",
       "sha256": "56f33da946a525d77f867ea8b5f51053427f42baa085191652f6a235c78f0bf7",
       "bytes": 7369
+    },
+    {
+      "path": "tools/ctf_redteam.py",
+      "sha256": "746a1b10c19a19db889d3ce4441e3e90afd3a0750052039b63181b20e6ff7e11",
+      "bytes": 13422
+    },
+    {
+      "path": "tools/ctf_redteam_mcp.py",
+      "sha256": "affb64d48ac2e3df2d4487a38180bc074ab1aa7c743bf38987237861697b97be",
+      "bytes": 2935
     },
     {
       "path": "tools/ctf_reference_sources.py",
@@ -16519,6 +16569,11 @@
       "bytes": 15004
     },
     {
+      "path": "tools/ctf_suite.py",
+      "sha256": "1a0c23af51d5139344733d44f090f795623431e4a563e43eac4b17324490e598",
+      "bytes": 38295
+    },
+    {
       "path": "tools/ctf_task_health.py",
       "sha256": "10fa13d3acf689d26bd064f6a3745f457ff8e8320d95c995f69e8cbc1a769b23",
       "bytes": 4953
@@ -16530,8 +16585,8 @@
     },
     {
       "path": "tools/ctf_version.py",
-      "sha256": "ed05af3196d710490715e82ccffea912c641ec5df99522a99e70630d9f7f8b12",
-      "bytes": 1594
+      "sha256": "5d31883867be4155192bb6aa4d61d11d83f14c8ad95b4a626c997723fc78064c",
+      "bytes": 2225
     },
     {
       "path": "tools/ctf_worker_call.py",
@@ -16550,8 +16605,8 @@
     },
     {
       "path": "tools/ctf_wp.py",
-      "sha256": "09598faac70b782c68f0cf503365f49a90614796d0d90f61cd66c587bf6e6063",
-      "bytes": 30481
+      "sha256": "ff83cc060b10e19c666af8771c88f0e830a677eeea82814bfb69823672c35887",
+      "bytes": 31626
     },
     {
       "path": "tools/ctf_wp_assets.py",
@@ -16560,8 +16615,8 @@
     },
     {
       "path": "tools/ctf_wp_export.py",
-      "sha256": "29660dd49469df1ba9eaacaed0231384dae5d04616bd93a6c0b4dc4ee7f69ec3",
-      "bytes": 14068
+      "sha256": "6540a429d5ba26b6eef7ffedba28a855eab75e0a6dfb3ed700b2488239dbd2fe",
+      "bytes": 14172
     },
     {
       "path": "tools/ctf_wp_formats.py",
@@ -16569,14 +16624,19 @@
       "bytes": 22495
     },
     {
+      "path": "tools/ctf_wp_policy.py",
+      "sha256": "1953456a91e0284969ff7dfebbd408888800b306f7d6cdf96ca8d7b3524c0102",
+      "bytes": 6262
+    },
+    {
       "path": "tools/ctf_wp_report.py",
-      "sha256": "dbd84b4ded752c3a70d3a49b8fa531c64af7f392440ee0ffebd8c51662f94f9f",
-      "bytes": 19338
+      "sha256": "ce1a6b692bfd5e8aea5e3f6027311a658593df5b6f570f58cdb3e4277e95165f",
+      "bytes": 23786
     },
     {
       "path": "tools/ctf_wp_review.py",
-      "sha256": "16cd2ca4dc69544bbb24f5892095c432c9e2b6792cd63aa5979517cc1851920b",
-      "bytes": 5230
+      "sha256": "44d511c9381768907e38299443c306e0218c45dc1f9bbe2e25d60a282ac77167",
+      "bytes": 5503
     },
     {
       "path": "tools/ctf_wp_windows.py",
@@ -16674,6 +16734,11 @@
       "bytes": 9053
     },
     {
+      "path": "tools/test_ctf_quality_20261030.py",
+      "sha256": "d4a0304486a718063c9fb93f3838d2c3842a9ca6f98e0be269fe9a64a156b3d1",
+      "bytes": 12967
+    },
+    {
       "path": "tools/upgrade_install.py",
       "sha256": "ddcbf02905aca9b16e9e4713555a10718d6d0c6c7dc30c5f62ca9083082edaec",
       "bytes": 874
@@ -16698,7 +16763,7 @@
     "reference_clones",
     "local_only_answer_probes"
   ],
-  "scope": "portable tools, selected shared experience, and reviewed historical solving-record snapshot; all members may use all categories; machine dependencies require per-computer verification",
+  "scope": "Traditional CTF and Purge tool interfaces are fully integrated; solve and validate the challenge flag, keep appropriate real screenshots and deliver a reproducible WP. Dependencies and optional local adapters require machine-specific checks.",
   "shared_record_files": 3534,
   "shared_record_objects": 3089,
   "shared_records_encrypted": false

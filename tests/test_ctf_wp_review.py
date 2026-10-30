@@ -12,7 +12,7 @@ import ctf_wp as wp
 
 class ReviewTests(unittest.TestCase):
     def setUp(self):
-        temp_root = Path("D:/Temp") if sys.platform == "win32" else Path(tempfile.gettempdir())
+        temp_root = Path("D:/Temp") if sys.platform == "win32" and Path("D:/Temp").is_dir() else Path(tempfile.gettempdir())
         self.temp = tempfile.TemporaryDirectory(prefix="wp-review-", dir=temp_root)
         self.root = Path(self.temp.name)
         self.patch = patch.object(wp, "ROOT", self.root / "cases")
@@ -145,6 +145,12 @@ class ReviewTests(unittest.TestCase):
         recorded = self.call(result={"tool": "ctfd_submit", "result": {
             "candidate_verified": True, "judge_status": "correct", "challenge_id": "synthetic-fixture"}})
         wp.note({"case": "fixture", "status": "observed", "source_step": recorded["step"], "text": "读取自建结构化正确回执"})
+        from PIL import Image
+        image = self.root / 'ready-fixture.png'
+        Image.new('RGB', (24, 24), 'white').save(image)
+        wp.capture({'case':'fixture', 'mode':'file', 'file_path':str(image),
+                    'source':'Software test image fixture only; not a real challenge screenshot',
+                    'source_step':recorded['step'], 'stage':'process_and_result'})
         for name in ("overview", "analysis", "solution", "validation", "reproduction"):
             wp.section({"case": "fixture", "section": name, "text": "自建验收章节",
                         "source_steps": [recorded["step"]]})

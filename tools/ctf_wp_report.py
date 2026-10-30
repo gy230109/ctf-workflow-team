@@ -12,14 +12,26 @@ import subprocess
 import sys
 
 
-def redact(value):
-    """Redact values without running text substitutions across JSON syntax."""
+def redact(value, keep_flags=False):
+    """Redact values without running text substitutions across JSON syntax.
+
+    keep_flags=True preserves flag literals (needed by shareable write-ups) while
+    still hiding credentials, keys and cookies.
+    """
     import ctf_wp as wp
     if isinstance(value, dict):
         return {key: '[已遮盖]' if re.fullmatch(r'(?i)(password|passwd|token|api[_-]?key|authorization|cookie|secret|submission_flag)', str(key))
-                else redact(item) for key, item in value.items()}
-    if isinstance(value, list): return [redact(item) for item in value]
-    if isinstance(value, str): return wp.scrub(value)
+                else redact(item, keep_flags) for key, item in value.items()}
+    if isinstance(value, list): return [redact(item, keep_flags) for item in value]
+    if isinstance(value, str):
+        if not keep_flags: return wp.scrub(value)
+        marks = []
+        def hold(match):
+            marks.append(match.group(0))
+            return '\x00FLAG%d\x00' % (len(marks) - 1)
+        out = wp.scrub(re.sub(r'(?i)\b(?:flag|ctf|gwht|qwb|pwn\.college)\{[^}\n]*\}', hold, value))
+        for index, flag in enumerate(marks): out = out.replace('\x00FLAG%d\x00' % index, flag)
+        return out
     return value
 
 
@@ -61,6 +73,26 @@ def excerpt(value, limit=3600, lines=48):
     return shown, len(shown) < len(text), len(text)
 
 
+def brief(value, limit=110):
+    """One-line rendering of an argument for the narrative step block."""
+    text = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
+    text = text.replace('\n', ' ')
+    return text if len(text) <= limit else text[:limit] + '…'
+
+
+def observation_text(text):
+    """Drop recorder bookkeeping notes; keep notes that describe the target.
+
+    Some notes quote a WP tool call verbatim to explain why a later export or
+    section write failed. That is process bookkeeping, not a solving
+    observation, so it does not belong in the main narrative.
+    """
+    text = str(text).strip()
+    if re.match(r'(?i)^(?:ctf|wp)_[a-z_]+\s*[（(]', text):
+        return ''
+    return text
+
+
 def output_view(response):
     """Avoid repeating JSON embedded in execution.stdout and data."""
     detail = response.get('result', response)
@@ -68,11 +100,13 @@ def output_view(response):
         return detail
     view = {}
     for key in ('error', 'error_code', 'stderr', 'exit', 'returncode', 'exit_code', 'timed_out', 'truncated'):
-        if key in detail:
+        if key in detail and (detail[key] not in ('', None, False) or key in {'returncode', 'exit_code'}):
             view[key] = detail[key]
     execution = detail.get('execution')
     if isinstance(execution, dict):
-        execution = dict(execution)
+        execution = {key: value for key, value in execution.items()
+                     if key in {'returncode', 'exit_code', 'timed_out', 'stdout', 'stderr', 'truncated'}
+                     and (value not in ('', False, None) or key in {'returncode', 'exit_code'})}
         if 'data' in detail and isinstance(execution.get('stdout'), str):
             try:
                 if json.loads(execution['stdout']) == detail['data']:
@@ -82,6 +116,13 @@ def output_view(response):
         view['execution'] = execution
     for key, value in detail.items():
         if key not in view and key not in {'execution', 'evidence_artifacts'}:
+            if 'run_id' in detail and key in {'run_id', 'case_root', 'cwd', 'command', 'timeout_seconds',
+                                              'started_at_utc', 'duration_seconds', 'stdout_bytes', 'stderr_bytes',
+                                              'output_truncated', 'guest_log', 'guest_ip', 'transport_seconds'}:
+                continue
+            if key in {'bridge_exit', 'case', 'on', 'transport', 'input_sha256', 'upload_verified'}:
+                continue
+            if value in ('', False, None) and key not in {'returncode', 'exit_code', 'stdout'}: continue
             view[key] = value
     for key in ('error', 'error_code', 'evidence_error', 'wp_record_error'):
         if key in response:
@@ -91,6 +132,7 @@ def output_view(response):
 
 def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     import ctf_wp as wp
+    from ctf_wp_policy import has_flag, flags_in
     from ctf_wp_review import analyze
     quality = analyze(folder, rows)
     intake = [e for e in rows if e['kind'] == 'intake']
@@ -110,13 +152,16 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     def heading(text, level=1): add('heading', level=level, text=text)
     def narrative(section, fallback):
         value = sections.get(section)
-        para(value['text'] if value else fallback)
-        if value and value.get('source_steps'):
-            para('Agent 撰写说明，引用证据步骤：' + ', '.join(map(str, value['source_steps'])) + '。引用关联不等于记录器独立验证解释。')
+        if value:
+            para(value['text'])
+            return
+        purposes = [e['data']['purpose'] for e in rows if e['kind'] == 'call' and e['data'].get('purpose')]
+        if purposes:
+            for line in purposes: para('· ' + line)
+            return
+        para(fallback)
     heading('题目信息')
     para('题型：%s　比赛：%s　题号：%s' % (metadata['category'], metadata['competition'], a['case']))
-    para('解题状态：' + ('CTFd 已接受本次候选，见结果验证。' if verification else '尚无记录器识别的可信平台接受回执。'))
-    para('正文已对常见凭据和 flag 作文本遮盖；私有原始证据可能含原值。图片像素未经自动去密。')
     heading('原题面', 2)
     para(context.get('description') or '未记录完整题面；请从原题补充，不能从输出反推原题。')
     if context.get('source'):
@@ -129,18 +174,26 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
             if (report / rel).is_file():
                 add('link', text='原附件 ' + item['name'], target=rel)
     heading('解题概述')
-    para(a.get('summary') or sections.get('overview', {}).get('text') or '尚未补充解题概述。以下按真实记录排列，不能等同于已提炼的完整解法。')
+    para(a.get('summary') or sections.get('overview', {}).get('text') or '未填写概述；以下按真实记录排列。')
     heading('分析思路')
-    narrative('analysis', '尚未填写有证据引用的分析思路。')
+    narrative('analysis', '未记录分析思路；可在执行时补 wp_section(section=analysis)。')
     heading('解题方法')
-    narrative('solution', '尚未填写有证据引用的解题主线。')
-    heading('已验证')
-    para('已核对时间线、检查点和所记录文件的 SHA256。该检查发现本地意外改动，不是第三方签名，也不证明推理正确。')
-    heading('实际步骤')
+    narrative('solution', '未记录解题主线；可在执行时补 wp_section(section=solution)。')
+    heading('解题过程')
     selected = {step for name, section in sections.items() if name != 'overview' for step in section.get('source_steps', [])}
-    if selected:
-        para('正文展示分析、解法、验证或复现章节引用的步骤；所有调用、失败和重试仍完整保存在技术附录及证据索引。')
+    key_steps = set()
+    for event in rows:
+        if event['kind'] == 'capture':
+            key_steps.add(event['seq'])
+        elif event['kind'] == 'call':
+            try:
+                raw = json.loads((folder / event['files'][0]['path']).read_text(encoding='utf-8'))
+            except (OSError, ValueError, IndexError):
+                continue
+            if has_flag(raw.get('response', {})):
+                key_steps.add(event['seq'])
     steps, evidence = [], []
+    displayed = 0
     for event in rows:
         data, seq = event['data'], event['seq']
         for item in event.get('files', []):
@@ -148,93 +201,153 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
             evidence.append(dict(item, source_seq=seq, relative_path=rel if (report / rel).is_file() else None))
         if event['kind'] not in {'call', 'capture'}:
             continue
+        in_main = not selected or seq in selected or seq in key_steps
+        number = None
+        if in_main:
+            displayed += 1
+            number = displayed
         block_start = len(blocks)
-        number = len(steps) + 1
-        heading('步骤 %d  %s' % (number, data.get('tool') or data.get('caption') or '画面采集'), 2)
-        para('证据步骤 %d　时间 %s' % (seq, event['at']))
-        entry = dict(display_no=number, source_seq=seq, observations=observations.get(seq, []), asset_refs=[])
+        if in_main:
+            heading('第 %d 步　%s' % (number, '画面采集' if event['kind'] == 'capture'
+                                    else (data.get('tool') or '画面采集')), 2)
+        shown_observations = [text for text in observations.get(seq, []) if observation_text(text)]
+        entry = dict(display_no=number, source_seq=seq, observations=shown_observations, asset_refs=[])
         if event['kind'] == 'call':
             raw = json.loads((folder / event['files'][0]['path']).read_text(encoding='utf-8'))
             response = raw['response']
             state = '成功返回' if response.get('ok') is True else '失败（保留错误，不当作成功）'
-            para('状态：%s；耗时：%s ms。' % (state, data.get('duration_ms')))
-            para('行动目的：' + (data.get('purpose') or '未补充'))
-            if data.get('expectation'): para('预期检查：' + data['expectation'] + '（预期不是已验证结论）')
+            para('执行状态：' + state)
             args = {k: v for k, v in raw['arguments'].items() if not k.startswith('wp_')}
-            operation, op_cut, op_size = excerpt(args, 1800, 22)
-            output, cut, size = excerpt(output_view(response))
-            add('code', text='实际参数\n' + operation)
-            add('code', text='实际返回预览\n' + output)
-            if cut or op_cut: para('预览已截短；输出显示 %d / %d 字符。完整参数和回执见证据。' % (len(output), size))
+            operation = ', '.join('%s=%s' % (k, brief(v)) for k, v in args.items() if k not in {'case', 'wp_case'}) or '(无参数)'
+            view = output_view(response)
+            symbols = ((view.get('data') or {}).get('symbols') if isinstance(view, dict) else None)
+            if isinstance(symbols, dict):
+                view = dict(view, data=dict(view['data'],
+                    symbols={k: v for k, v in symbols.items() if k.startswith('got.')}))
+            output, cut, size = excerpt(view, 1400, 22)
+            if data.get('purpose'): para('目的：' + data['purpose'])
+            add('code', text=operation)
+            add('code', text=output)
             raw_rel = 'evidence/' + event['files'][0]['path']
             if not (report / raw_rel).is_file():
                 raw_rel = 'redacted/%04d-call.json' % seq
                 wp.write_json(report / raw_rel, redact(raw))
-            add('link', text='完整调用证据 步骤 %d' % seq, target=raw_rel)
-            para('原始证据 SHA256：' + event['files'][0]['sha256'])
-            for key in ('task_health', 'warnings', 'error_code'):
-                if key not in response: continue
-                if key == 'task_health' and isinstance(response[key], dict):
-                    health = response[key]
-                    para('回执 task_health：累计调用 %s 次，失败 %s 次，工具耗时 %s 秒。%s' % (
-                        health.get('calls', '?'), health.get('failed_calls', '?'), health.get('active_tool_seconds', '?'),
-                        '提醒：' + json.dumps(health['warnings'], ensure_ascii=False) if health.get('warnings') else '无新增健康提醒。'))
-                elif response[key]: para('回执提示 ' + key + '：' + excerpt(response[key], 1000, 12)[0])
+            add('link', text='完整输出', target=raw_rel)
+            receipt = {key: response[key] for key in ('task_health', 'warnings', 'error_code') if key in response}
+            if receipt and response.get('ok') is not True: add('code', text=json.dumps(receipt, ensure_ascii=False))
             entry.update(tool=data.get('tool'), operation_id=data.get('operation_id'), status=state,
                          purpose=data.get('purpose'), duration_ms=data.get('duration_ms'),
                          operation_text=operation, output_excerpt=output, output_truncated=cut,
                          output_characters=size, evidence_ref=raw_rel,
                          receipt_metadata={key: response[key] for key in ('task_health', 'warnings', 'error_code') if key in response})
-        for text in observations.get(seq, []): para('观察结论（Agent 引用此步骤）：' + text)
-        if not observations.get(seq): para('观察结论：未补充。')
+        for text in shown_observations: para(text)
         for item in event.get('files', []):
             kind = item['kind']
             if kind in {'vm_screenshot', 'imported_image', 'windows_screenshot', 'browser_screenshot'}:
                 target = report / 'images' / ('%04d-' % seq + Path(item['path']).name)
                 if a.get('include_images') is True and target.is_file():
                     caption = data.get('caption') or item.get('source') or '实际采集画面'
-                    add('image', path=target.relative_to(report).as_posix(), caption='证据步骤 %d；%s；%s' % (seq, kind, caption))
+                    origin = data.get('source_step') or seq
+                    add('image', path=target.relative_to(report).as_posix(),
+                        caption='图 %d（证据步骤 %d，关联调用 %d）：%s' % (number or displayed, seq, origin, caption))
                     entry['asset_refs'].append(target.relative_to(report).as_posix())
                 else:
                     para('图片证据已保存，本次未导出。')
-        entry['in_main_text'] = not selected or seq in selected
+        entry['in_main_text'] = in_main
         if not entry['in_main_text']:
             del blocks[block_start:]
         steps.append(entry)
     if not steps: para('尚无实际调用或截图记录。')
+    step_no = {entry['source_seq']: entry['display_no'] for entry in steps if entry['display_no']}
+    flags, failures = [], []
+    for event in rows:
+        if event['kind'] != 'call': continue
+        try:
+            raw = json.loads((folder / event['files'][0]['path']).read_text(encoding='utf-8'))
+        except (OSError, ValueError, IndexError):
+            continue
+        response = raw.get('response', {})
+        for flag in flags_in(response):
+            if flag not in flags: flags.append(flag)
+        if response.get('ok') is not True:
+            failures.append((event['seq'], event['data'].get('tool') or '未知工具',
+                             str(response.get('error') or response.get('error_code') or '未返回原因')[:180]))
+    heading('最终结果')
+    if flags:
+        for flag in flags: add('code', text='flag：' + flag)
+        para('flag 取自工具的真实回显，未经改写。')
+    else:
+        para('未从工具输出中提取到 flag 形态的字符串；本题可能尚未解出。')
+    closing = None
+    result_images = quality['screenshot_evidence']['images']
+    result_images = [item for item in result_images if item['stage'] in {'result', 'process_and_result'}]
+    if result_images:
+        image = result_images[-1]
+        closing = (image['step'], image, image['caption'])
+    if closing and a.get('include_images') is True:
+        seq, item, caption = closing
+        target = report / 'images' / ('%04d-' % seq + Path(item['path']).name)
+        if target.is_file() and seq not in step_no:
+            tail = '；' + caption if caption else ''
+            label = step_no.get(seq)
+            add('image', path=target.relative_to(report).as_posix(),
+                caption=('结果截图（第 %d 步）' % label if label else '结果截图') + tail)
+    elif flags:
+        if not result_images:
+            para('已记录 flag 回显，但缺少关联结果步骤的截图；本稿保留截图缺项。')
     heading('结果验证')
-    for item in verification:
-        para('CTFd 第 %s 题在证据步骤 %d 返回 correct，证明本次候选被平台接受；不自动证明所有分析解释正确。' % (item['challenge_id'], item['step']))
-    if not verification: para('尚无可信平台接受回执。工具成功、格式匹配和 Agent 观察均不能代替答案判对。')
-    narrative('validation', '尚未补充原程序对照或独立回放的验证说明。')
-    heading('复现说明')
-    narrative('reproduction', '请按实际证据中的原附件摘要、命令和脚本复现；尚未补充完整复现说明。')
-    for subdir in ('scripts', 'requests', 'data', 'recordings'):
-        for path in sorted((report / subdir).glob('*')):
-            if path.is_file(): add('link', text=subdir + ' ' + path.name, target=path.relative_to(report).as_posix())
+    narrative('validation', '未填写结果验证说明；以下仅列实际平台回执。')
+    heading('已验证')
+    if verification:
+        for item in verification:
+            para('CTFd 第 %s 题在证据步骤 %d 返回 correct。' % (item['challenge_id'], item['step']))
+    else:
+        para('已保存原始工具输出；尚无真实平台正确回执。')
     heading('未验证')
-    hypotheses = [e['data']['text'] for e in rows if e['kind'] == 'note' and e['data']['status'] == 'hypothesis']
-    for text in hypotheses or ['没有单独记录的假设；记录器不判断推理正确性。']: para(text)
+    para('未记录真实平台正确回执；候选 flag 不能仅凭文字判对。' if not verification else '平台回执不独立认证每一步推理。')
     heading('未完成')
-    todos = [e['data']['text'] for e in rows if e['kind'] == 'note' and e['data']['status'] == 'todo']
-    for text in todos: para(text)
-    for item in quality.get('issues', []): para('稿件缺项：' + json.dumps(item, ensure_ascii=False))
-    for item in errors: para('证据采集缺项：' + json.dumps(item, ensure_ascii=False) + '。原动作未为补证据重跑。')
-    for item in pending: para('操作 ' + item['data']['operation_id'] + ' 已开始但没有完成回执；先检查原状态。')
-    if not todos and not errors and not pending: para('未新增待办；仍须核对正文及比赛提交要求。')
-    heading('复现与证据')
-    para('日志渲染图属于非屏幕截图；实际截图、日志渲染和回放分别标注。完整技术记录包含失败与重试，不自动重演原操作。')
-    add('link', text='完整技术记录和失败过程', target='technical.md')
-    add('link', text='机器可读稿件和证据索引', target='report.json')
-    if a.get('private_bundle') is True:
-        para('本包包含私有原始记录。对外分享前审阅正文、原始文件和图片像素；请勿直接上传完整证据 ZIP 到公开仓库。')
-    model = dict(schema_version=2, title=metadata['title'] + ' 解题记录', subtitle='CTF系统 中文 WP',
+    document_gaps = [item['message'] for item in quality['issues'] if item['code'] != 'answer_not_verified']
+    for message in document_gaps: para(message)
+    if not document_gaps: para('正文和截图未发现结构缺项；仍需检查复现步骤与截图像素。')
+    heading('复现说明')
+    narrative('reproduction', '未记录复现说明；请按证据中的原附件摘要与命令复现。')
+    names = {(item['source_seq'], item.get('kind')): item.get('original_name')
+             for item in evidence if item.get('original_name')}
+    for subdir, label in (('scripts', '脚本'), ('requests', '请求文件'), ('data', '数据导出'), ('recordings', '过程回放')):
+        for path in sorted((report / subdir).glob('*')):
+            if not path.is_file(): continue
+            match = re.match(r'(\d+)-', path.name)
+            seq = int(match.group(1)) if match else None
+            original = next((name for (source, _), name in names.items() if source == seq), None)
+            add('link', text='%s %s' % (label, original or path.name), target=path.relative_to(report).as_posix())
+    if failures:
+        heading('踩坑与排障')
+        for seq, tool, reason in failures:
+            show = step_no.get(seq)
+            para((('第 %d 步 ' % show) if show else '') + '%s 报错：%s' % (tool, reason))
+    hypotheses = [e['data']['text'] for e in rows if e['kind'] == 'note' and e['data']['status'] == 'hypothesis']
+    if hypotheses:
+        heading('待验证的猜测')
+        for text in hypotheses: para(text)
+    heading('说明')
+    add('link', text='完整技术记录（含失败与重试）', target='technical.md')
+    add('link', text='机器可读稿件与证据索引', target='report.json')
+    if a.get('include_images') is not True:
+        quality['quality']['document_complete'] = False
+        quality['quality']['screenshots_complete'] = False
+        quality['issues'].append({'code':'images_not_included', 'severity':'needs_attention',
+                                 'message':'本次未嵌入真实截图，仅可作为草稿。', 'steps':[]})
+        quality['submission_ready'] = False
+        quality['status'] = 'draft'
+    suffix = ' 解题记录' if quality['quality']['document_complete'] else ' 解题记录（草稿·待补证据）'
+    model = dict(schema_version=2, title=metadata['title'] + suffix, subtitle='CTF系统 中文 WP',
                  include_images=a.get('include_images') is True, challenge=dict(metadata, **context),
                  summary=a.get('summary') or '', steps=steps, sections=sections, verification=verification,
                  quality=quality, gaps=errors, pending_operations=[x['data'] for x in pending],
-                 evidence=evidence, blocks=blocks, text_redaction='best_effort', images_reviewed=False)
+                 evidence=evidence, blocks=blocks, text_redaction='best_effort', images_reviewed=False,
+                 flags_exposed=a.get('expose_flag') is True)
     # A redacted structured model is shareable only after an actual review.
-    return redact(model)
+    return redact(model, a.get('expose_flag') is True)
 
 
 def write_markdown(model, path):
@@ -244,7 +357,7 @@ def write_markdown(model, path):
         kind = block['type']
         if kind == 'heading': lines.append('#' * (1 + block['level']) + ' ' + block['text'])
         elif kind == 'paragraph': lines.append(block['text'])
-        elif kind == 'code': lines.append(wp.fence(block['text']))
+        elif kind == 'code': lines.append(wp.fence(block['text'], model.get('flags_exposed') is True))
         elif kind == 'image': lines.append('![%s](%s)' % (block['caption'].replace(']', ''), block['path']))
         elif kind == 'link': lines.append('[%s](%s)' % (block['text'].replace(']', ''), block['target']))
         elif kind == 'table':

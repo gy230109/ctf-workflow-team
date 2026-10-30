@@ -391,16 +391,20 @@ Volatility3 安装/离线插件入口已验，真实内存镜像与匹配符号�
 2. **`fox_list`**（只读）：query 模糊 / category 精确 / kind=local|web 检索，返回 id/name/exists/dangerous。
 3. **`fox_open`**：按 name 或 id 拉起。网页入口直接开浏览器；本地按扩展名选启动方式（exe 直接启动、jar 用自带 Java 8（回退 11）、py 用自带 Python、bat/vbs 经 cmd start），缺失路径一律拒绝。
 4. **红线**：(a) 工具箱许可禁止复制/分发/拆分——只引用原位路径，`build_team_bundle.py` 的显式白名单天然排除本模块，**永远不要把 ctf_fox.py 或工具箱文件加进分发**；(b) 敏感类别（后渗透/免杀/WebShell 管理/爆破/框架利用/漏扫利用，共 6 类）的 fox_open 必须 `confirm=true`，定位是**人工在 VM 内使用**，不编进 agent 自动化解题链路，拉起后 wp_capture 留证；(c) 工具箱捆绑软件来源复杂（其免责声明自述未逐一查验），**不要给工具箱目录加 Defender 排除项**，宿主机不执行其中不认识的二进制——这条同样进 env_prep_check 的纪律。
-## PURGE-REDTEAM · 破甲红队已并入本 CTF 系统（辅助位）
+## 当前统一要求 两个模块 解题能力与 WP 书写（2026-10-30 用户确认）
 
 上游：`kingcharleslzy-ai/dsh-purge` 1.6.60 @ 27919a32，融合契约见 `integrations/purge-redteam/FUSION-CONTRACT.md`。
 
-**本系统是 CTF 系统，红队能力是副武器。**
+**模块一：传统 CTF 与破甲能力完整融合，提高取得并验证 flag 的能力。模块二：解题时同步留证，完成规范、可复现的 WP。**
 
 - 默认路线：`ctf_start → ctf_plan → ctf_analyze(tool=ctf_profile) → ctf_analyze/ctf_call → ctf_finish 出 WP`。
 - 交付物是 **`ctf_finish` 导出的 WP**；不写渗透测试报告。`ctf_redteam_report` / `redteam_score_report` 只是可选附录。
-- **不需要**五阶段渗透推进，**不需要**角色派单（`ctf_suite_dispatch` / `redteam_agent_slot`）——除非题目本身就是内网/多主机。
-- 什么时候用 `redteam_*`：要留档脚本/POC（`redteam_attack_file_add`）、要记资产面（`redteam_asset_*`）、要记漏洞点（`redteam_vuln_*`）、题目有内网需要隧道（`redteam_tunnel_*`）。写操作带 `source_step` 才进证据链。
+- 两套能力均按题目需要充分调用，破甲可以承担主力；不设“只能辅助”“只准少量记录功能”或“仅内网题可用角色协作”的限制。
+- 根据本题证据选择工具、POC、跨工具链、阶段流程及角色协作，以拿到并验证 flag 为目标。题型路线是建议，不是工具白名单；注册、依赖就绪、真实执行和答案验证分别核对。
+- `redteam_*` 保留完整接口；工具/角色按实际需要选择，写入证据关联 `source_step`。具体执行继续走统一 CTF 入口，保留已有确认、范围及任务隔离要求。
+- 在必要且合适的关键页面保留真实截图，例如关键线索、关键操作/调试画面、flag 结果及验证回执；不对每次状态查询或记账机械截图，不为凑图重复操作。
+- 原图与来源、时间线步骤、SHA256 一起保存，正文按解题主线引用并嵌入 Word。复用已采原图，一张图确实覆盖过程与结果时可用 `stage=process_and_result` 共同引用；日志渲染与回放不冒充截图。
+- WP 统一包含概述、分析、解法、验证和复现说明；截图或正文缺项明确标记草稿。截图/成稿完整与 flag 是否已验证分别记录。
 - 23 篇红队 playbook 在 `skills/redteam-*/SKILL.md`；用法边界见 `skills/ctf-redteam-helper/SKILL.md`。
-- 红队指挥口径（五阶段/派活）只存在于 `config/purge-redteam-preset.md`，**仅当题目是内网演练时才参考**。
+- `config/purge-redteam-preset.md` 保留原有流程，按题目需要选用。本节与运行时双模块规则取代旧文档中“辅助位/副武器/仅内网”的调用限制；原始上游资料保留不改写。
 - 纪律不变：工具清单不等于依赖已装，记录不等于已解出，`source_step` 不能引用 `ctf_redteam_*` 自身当执行证据。

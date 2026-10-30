@@ -1,4 +1,4 @@
-"""Team CTF workflow component. See README.md for configuration and verified scope."""
+"""Runtime fingerprint of loaded source; a catalogue count alone is insufficient."""
 from datetime import datetime,timezone
 import hashlib,json,os,sys
 from pathlib import Path
@@ -12,10 +12,19 @@ FILES+=['ctf_cracktools.py']
 FILES+=['ctf_wp_export.py','ctf_wp_assets.py','ctf_wp_windows.py']
 FILES+=['ctf_pcap.py','ctf_pcap_worker.py','ctf_task_health.py']
 FILES+=['ctf_wp_report.py','ctf_wp_review.py','ctf_wp_formats.py','ctf_product.py']
-FILES+=['ctf_roles.py','ctf_product.py']
+FILES+=['ctf_protocol.py','ctf_client_adapter.py','ctf_experience.py']
+
+FILES+=['ctf_enhancements.py','ctf_envprep.py','ctf_fox.py']
+
+FILES+=['ctf_vuln_audit.py','ctf_vuln_worker.py','ctf_redteam.py','ctf_suite.py']
+FILES+=['ctf_wp_policy.py','ctf_redteam_fusion.py','ctf_redteam_mcp.py','ctf_redteam_semantics.py']
 
 def fingerprint():
     records={name:hashlib.sha256((BASE/'tools'/name).read_bytes()).hexdigest() for name in FILES if (BASE/'tools'/name).is_file()}
+    integration=BASE/'integrations/purge-redteam'
+    for file in sorted(integration.rglob('*')) if integration.exists() else []:
+        if file.is_file() and file.suffix in {'.js','.mjs','.json','.md','.html','.ps1','.cmd','.py'}:
+            records['purge/'+file.relative_to(integration).as_posix()]=hashlib.sha256(file.read_bytes()).hexdigest()
     return hashlib.sha256(json.dumps(records,sort_keys=True).encode()).hexdigest()
 
 LOADED_FINGERPRINT=fingerprint()
@@ -23,6 +32,6 @@ LOADED_AT=datetime.now(timezone.utc).isoformat()
 
 def info(count):
     current=fingerprint()
-    return {'release':'team-20261023-records1','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
+    return {'release':'portable-20261030-two-modules1','source_fingerprint':LOADED_FINGERPRINT,'disk_fingerprint':current,
         'reload_required':current!=LOADED_FINGERPRINT,'tool_count':count,'source_root':str(BASE),
         'python':sys.executable,'pid':os.getpid(),'loaded_at':LOADED_AT}

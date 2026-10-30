@@ -1109,8 +1109,7 @@ def main():
     return 0
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+
 
 
 # BEGIN PURGE-FUSION（managed by ctf-purge-fusion 1.0.0）
@@ -1131,3 +1130,18 @@ try:
 except Exception:
     pass
 # END PURGE-FUSION
+
+
+# Shared workflow services and Windows environment checks.
+import ctf_suite as _ctf_suite
+ALL_TOOLS.update(_ctf_suite.TOOLS)
+DANGEROUS.update(_ctf_suite.DANGEROUS)
+try:
+    import ctf_envprep as _ctf_envprep
+except ImportError as exc:
+    if exc.name != "winreg": raise
+else:
+    ALL_TOOLS.update(_ctf_envprep.TOOLS)
+
+if __name__ == "__main__":
+    sys.exit(main())

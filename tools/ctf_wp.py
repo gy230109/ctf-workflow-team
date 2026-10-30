@@ -393,7 +393,17 @@ def _capture(a):
     if not exists(a["case"]):
         raise ValueError("先 wp_init")
     with locked(folder):
-        seq = len(verify(folder)) + 1
+        rows = verify(folder)
+        stage = a.get('stage', 'process')
+        source_step = a.get('source_step')
+        if stage not in {'process', 'result', 'process_and_result'}:
+            raise ValueError('stage 只能为 process、result 或 process_and_result')
+        if source_step is not None and (type(source_step) is not int or not 1 <= source_step <= len(rows)
+                                       or rows[source_step-1]['kind'] != 'call'):
+            raise ValueError('截图 source_step 必须引用本题实际调用步骤')
+        if stage in {'result', 'process_and_result'} and source_step is None:
+            raise ValueError('结果截图必须用 source_step 关联产生结果的实际调用')
+        seq = len(rows) + 1
         path = folder / "images" / ("%04d.png" % seq)
         path.parent.mkdir(exist_ok=True)
         mode = a.get("mode", "kali_vm")
@@ -445,8 +455,10 @@ def _capture(a):
         if not path.is_file() or path.read_bytes()[:8] != b"\x89PNG\r\n\x1a\n":
             raise ValueError("截图未生成有效 PNG")
         event = append(folder, "capture", {"source": source, "image_kind": image_kind,
-                       "caption": str(a.get("caption") or "关键画面")}, [file_record(folder, path, image_kind)])
-    return {"case": a["case"], "step": event["seq"], "path": str(path), "kind": image_kind}
+                       "caption": str(a.get("caption") or "关键画面"),
+                       'source_step': source_step, 'stage': stage}, [file_record(folder, path, image_kind)])
+    return {"case": a["case"], "step": event["seq"], "path": str(path), "kind": image_kind,
+            'source_step': source_step, 'stage': stage}
 
 
 GUEST_SCREEN = r'''import json, os, pathlib, subprocess, tempfile
@@ -505,8 +517,8 @@ def scrub(text):
     return text
 
 
-def fence(text):
-    text = scrub(text)
+def fence(text, keep_flags=False):
+    if not keep_flags: text = scrub(text)
     marker = "`" * max(3, 1 + max([len(x) for x in re.findall(r"`+", text)] or [0]))
     return marker + "text\n" + text + "\n" + marker
 
@@ -590,11 +602,14 @@ TOOLS = {
     "wp_capture": (capture, "采集 Kali VM 或指定 Windows 进程的实际截图，或导入客户端 PNG；不生成假截图", schema({
         "mode": {"type": "string", "enum": ["kali_vm", "windows_window", "file"]}, "file_path": {"type": "string"},
         'process_id': {'type': 'integer'},
-        "source": {"type": "string"}, "caption": {"type": "string"}})),
-    "wp_build": (build, "验证证据并生成中文 WP，默认不导出截图；不判定解题成功", schema({
-        "include_images": {"type": "boolean", "default": False}, 'summary': {'type':'string'},
-        'include_log_renders': {'type':'boolean','default':True},
+        "source": {"type": "string"}, "caption": {"type": "string"},
+        'source_step': {'type': 'integer', 'minimum': 1},
+        'stage': {'type': 'string', 'enum': ['process', 'result', 'process_and_result'], 'default': 'process'}})),
+    "wp_build": (build, "验证证据并生成带真实截图的规范中文 WP；缺截图或正文明确标记草稿，不判定解题成功", schema({
+        "include_images": {"type": "boolean", "default": True}, 'summary': {'type':'string'},
+        'include_log_renders': {'type':'boolean','default':False},
         'formats': {'type':'array','items':{'type':'string','enum':['docx','pdf']},'description':'默认 Word/PDF；[] 只导出 Markdown/HTML'},
-        'bundle': {'type':'boolean', 'default':True}, 'private_bundle':{'type':'boolean','default':False}})),
+        'bundle': {'type':'boolean', 'default':True}, 'private_bundle':{'type':'boolean','default':False},
+        'expose_flag': {'type':'boolean', 'default':False}})),
     "wp_status": (status, "验证 WP 时间线及文件摘要并查看采集数量", schema()),
 }

@@ -62,7 +62,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertIn("失败（保留错误，不当作成功）", text)
         self.assertIn("real failure", text)
         self.assertIn('"exit": 1', text)
-        self.assertIn("非屏幕截图", text)
+        self.assertFalse(list(path.parent.glob("images/*-log.png")))
 
     def test_raw_mutation_blocks_export(self):
         result = self.record()
@@ -108,7 +108,7 @@ class EvidenceTests(unittest.TestCase):
         Image.new("RGB", (20, 20), "red").save(image)
         wp.capture({"case": "fixture", "mode": "file", "file_path": str(image), "source": "self-created test image"})
         included = wp.build({"case": "fixture", "include_images": True})
-        excluded = wp.build({"case": "fixture"})
+        excluded = wp.build({"case": "fixture", "include_images": False})
         self.assertEqual(included["images_included"], 1)
         self.assertEqual(excluded["images_included"], 0)
         self.assertNotEqual(included["path"], excluded["path"])
