@@ -266,10 +266,12 @@ class Product:
 
     def tools(self, query='', name=None):
         catalog=self.catalog();rows=catalog['tools']
-        if name is not None:rows=[x for x in rows if x['name']==name]
-        elif query:rows=[x for x in rows if all(word in (x['name']+' '+x['description']).casefold() for word in query.casefold().split())]
+        # 空字符串是"列出全部"的默认值，不是要找名为 "" 的工具；
+        # 只有非空 name 才按精确名称过滤，否则空查询会错误返回 0 个工具。
+        if isinstance(name,str) and name.strip():rows=[x for x in rows if x['name']==name]
+        elif isinstance(query,str) and query.strip():rows=[x for x in rows if all(word in (x['name']+' '+x['description']).casefold() for word in query.strip().casefold().split())]
         rows=[dict(row,description='历史 embedded.dll 题专用验证器；未绑定的通用比赛任务禁止调用。') if row['name']=='final_verify' else row for row in rows]
-        return {'ok':True,'tools':rows,'count':len(rows),'runtime':catalog.get('version'),'contract':protocol.contract(TOOLS),
+        return {'ok':True,'tools':rows,'count':len(rows),'total':len(catalog['tools']),'runtime':catalog.get('version'),'contract':protocol.contract(TOOLS),
                 'next':'Use ctf_analyze for supported arithmetic/static tools with task_id and matching arguments. General ctf_call retains client approval requirements.'}
 
     def analyze(self,task_id,tool,arguments=None,request_id=None):
@@ -473,7 +475,25 @@ class Product:
         rows=ctf_wp.verify(ctf_wp.case_dir(Path(folder).name))
         from ctf_wp_review import analyze
         review = analyze(ctf_wp.case_dir(Path(folder).name), rows)
-        return [item['message'] for item in review['issues'] if item['code'] != 'answer_not_verified']
+        hints = {
+            'missing_purpose': '用 ctf_note(status=observed, source_step=<该步骤>, amend_purpose=true, text=<目的>) 显式补记（会标记为事后补记）。',
+            'missing_observation': '用 ctf_note(status=observed, source_step=<该步骤>, text=<引用该步原输出的结论>) 补观察。',
+            'missing_sections': '用 ctf_call(tool=wp_section, arguments={section, text, source_steps}) 补章节；source_steps 填 wp_record.step 步骤号。',
+            'missing_process_screenshot': '对关键调用用 wp_capture(source_step=<调用步骤>, stage=process) 采真实画面，或 kali_terminal_record(capture_window=true)。',
+            'missing_result_screenshot': '对出 flag 的调用用 wp_capture(source_step=<该调用步骤>, stage=result) 采结果画面；可加 auto_review=true 自动像素预检。',
+            'capture_failed': '截图失败如实留缺项；不重放有副作用的动作，用 allow_incomplete=true 导出标记草稿。',
+            'pending_operations': '检查未收回结果的操作状态；禁止盲目重跑。',
+        }
+        gaps = []
+        for item in review['issues']:
+            if item['code'] == 'answer_not_verified':
+                continue
+            text = item['message']
+            hint = hints.get(item['code'])
+            if hint:
+                text += ' 补法：' + hint
+            gaps.append(text)
+        return gaps
 
     def finish(self, task_id, summary='', state='analysis_complete', include_images=True, expose_flag=False, allow_incomplete=False):
         if state not in {'analysis_complete','needs_input','blocked'}:raise ValueError('Unsupported completion state; solved cannot be self-declared.')

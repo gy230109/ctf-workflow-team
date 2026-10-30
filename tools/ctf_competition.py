@@ -245,16 +245,32 @@ def deliver(task, response, cfg, root):
         name = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', task['title']).strip(' .')[:65] or 'CTF'
         target = directory / (name + '-WP-' + task['task_id'][-8:] + '.docx')
         # Never replace an unrelated pre-existing document.
-        previous = task.get('delivery', {})
+        previous = task.get('delivery') or {}
         if target.exists() and (previous.get('path') != str(target) or digest(target) != previous.get('sha256')):
-            raise ValueError('Delivery file exists or was edited; preserve it and choose a new delivery directory')
+            target = _alternate_delivery_path(directory, name, task['task_id'][-8:])
         temporary = target.with_name(target.name + '.tmp')
         try:
             shutil.copyfile(source, temporary)
             if digest(temporary) != digest(source):
                 raise ValueError('Document copy checksum mismatch')
             temporary.replace(target)
+        except PermissionError as exc:
+            # 目标被 Word/预览/索引占用（WinError 32）：自动换新文件名交付，
+            # 不阻塞导出；旧文件保留原样，避免误删用户正打开的文档。
+            fallback = _alternate_delivery_path(directory, name, task['task_id'][-8:])
+            temporary.unlink(missing_ok=True)
+            shutil.copyfile(source, fallback)
+            if digest(fallback) != digest(source):
+                raise ValueError('Document copy checksum mismatch')
+            target = fallback
+            exc.add_note('目标文件被占用，已改存新文件名：' + str(fallback))
         finally:
             temporary.unlink(missing_ok=True)
     return {'path': str(target), 'sha256': digest(target), 'bytes': target.stat().st_size,
             'format': 'docx', 'platform_verified': task.get('answer_verified') is True}
+
+
+def _alternate_delivery_path(directory, name, suffix):
+    """Timestamped sibling name; keeps every delivered version distinct."""
+    stamp = datetime.now(timezone.utc).strftime('%H%M%S')
+    return directory / ('%s-WP-%s-%s.docx' % (name, suffix, stamp))

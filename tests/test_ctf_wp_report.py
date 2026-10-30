@@ -93,7 +93,8 @@ class ReportTests(unittest.TestCase):
 
     def test_disabling_images_also_disables_log_pngs(self):
         wp.record_call('fixture', {}, {'tool': 'fixture', 'ok': True, 'result': 'real fixture output'})
-        with self.assertRaisesRegex(ValueError, '日志渲染'):
+        # include_log_renders 已被规范禁用：请求它必须报错而不是静默渲染日志图。
+        with self.assertRaises(ValueError):
             wp.build({'case': 'fixture', 'formats': [], 'include_images': False, 'include_log_renders': True})
         result = wp.build({'case': 'fixture', 'formats': [], 'include_images': False})
         self.assertFalse(list(Path(result['path']).parent.rglob('*.png')))

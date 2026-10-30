@@ -120,17 +120,24 @@ class HealthTests(unittest.TestCase):
 
 class ScreenshotWPTests(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory(dir=r'D:\Temp' if sys.platform == 'win32' and Path(r'D:\Temp').is_dir() else None)
+        self.tmp = tempfile.TemporaryDirectory(dir=r'D:\Temp' if sys.platform == 'win32' else None)
         self.root = Path(self.tmp.name)
         self.patcher = patch.object(wp, 'ROOT', self.root / 'cases')
         self.patcher.start()
         wp.init({'case': 'fixture', 'title': '自建截图规范验收'})
         wp.intake({'case': 'fixture', 'description': '仅用于软件回归的自建样例，不计真实解题率。'})
         self.image = self.root / 'fixture.png'
-        from PIL import Image, ImageDraw
-        fixture = Image.new('RGB', (640, 240), 'white')
-        ImageDraw.Draw(fixture).text((20, 20), 'SOFTWARE TEST FIXTURE ONLY', fill='black')
-        fixture.save(self.image)
+        # 20261030 口径：截图须通过像素核验（尺寸>=200x100、非纯色），
+        # 1x1 的 PNG fixture 会被 frame_check 拒绝；改用可读噪声图。
+        from PIL import Image
+        import random as _random
+        img = Image.new('RGB', (400, 200))
+        px = img.load()
+        _random.seed(20261030)
+        for y in range(200):
+            for x in range(400):
+                px[x, y] = (_random.randint(0, 255), _random.randint(0, 255), _random.randint(0, 255))
+        img.save(self.image)
 
     def tearDown(self):
         self.patcher.stop()
@@ -148,10 +155,13 @@ class ScreenshotWPTests(unittest.TestCase):
         captured = wp.capture({'case': 'fixture', 'mode': 'file', 'file_path': str(self.image),
             'source': 'Software test PNG fixture, not a real challenge screenshot',
             'source_step': step, 'stage': stage, 'caption': '仅为回归测试的图像样例'})
-        wp.TOOLS['wp_capture_review'][0]({'case':'fixture', 'image_step':captured['step'],
-            'image_sha256':wp.digest(captured['path']), 'verdict':'accepted', 'capture_origin':'live_screen',
-            'observed_content':'Software fixture only; exercises review bookkeeping, no actual challenge',
-            'reason':'Unit test review fixture; never reported as real screenshot acceptance'})
+        # 20261030 口径：图片须先经 wp_capture_review accepted 才计入有效截图。
+        from ctf_wp_capture_review import review
+        review({'case': 'fixture', 'image_step': captured['step'],
+                'image_sha256': wp.digest(wp.case_dir('fixture') / 'images' / ('%04d.png' % captured['step'])),
+                'verdict': 'accepted', 'capture_origin': 'live_screen', 'stage': stage,
+                'observed_content': '自建样例：400x200 噪声图，验证截图规范链路',
+                'reason': '回归测试样例，非真实赛题截图'})
         return captured
 
     def sections(self, step):

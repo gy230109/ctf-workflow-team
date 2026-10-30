@@ -22,7 +22,16 @@ class AutomaticWPTests(unittest.TestCase):
         self.patcher.stop();self.tmp.cleanup()
     def image(self):
         from PIL import Image
-        p=self.root/'actual-fixture.png';Image.new('RGB',(100,80),'blue').save(p);return p
+        import random as _random
+        # 20261030 口径：截图须通过像素核验（>=200x100、非纯色）；
+        # 100x80 纯蓝图会被 frame_check 拒绝，改用可读噪声图。
+        p=self.root/'actual-fixture.png'
+        img=Image.new('RGB',(400,200));px=img.load()
+        _random.seed(42)
+        for y in range(200):
+            for x in range(400):
+                px[x,y]=(_random.randint(0,255),_random.randint(0,255),_random.randint(0,255))
+        img.save(p);return p
     def test_begin_without_completion_is_pending_and_never_replayed(self):
         started=wp.begin_call('automatic','fixture',{})
         state=wp.status({'case':'automatic'})
@@ -45,6 +54,12 @@ class AutomaticWPTests(unittest.TestCase):
         assets=[{'path':str(p),'sha256':wp.digest(p),'kind':kind,'source':'self-built fixture'} for p,kind in [(image,'browser_screenshot'),(cast,'terminal_recording')]]
         result=wp.record_call('automatic',{}, {'tool':'fixture','ok':True,'result':{'evidence_artifacts':assets}})
         self.assertEqual(result['assets'],2)
+        # 20261030 口径：图片须先经 wp_capture_review accepted 才计入嵌入。
+        from ctf_wp_capture_review import review
+        review({'case':'automatic','image_step':result['step'],'image_sha256':wp.digest(image),
+                'verdict':'accepted','capture_origin':'live_browser',
+                'observed_content':'自建样例：400x200 噪声图，验证资产复制链路',
+                'reason':'回归测试样例，非真实赛题截图'})
         report=wp.build({'case':'automatic','include_images':True,'private_bundle':True})
         self.assertEqual(report['images_included'],1);self.assertEqual(report['recordings_included'],1)
         with zipfile.ZipFile(report['bundle_path']) as archive:

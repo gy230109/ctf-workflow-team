@@ -12,7 +12,7 @@ import ctf_wp as wp
 
 class ReviewTests(unittest.TestCase):
     def setUp(self):
-        temp_root = Path("D:/Temp") if sys.platform == "win32" and Path("D:/Temp").is_dir() else Path(tempfile.gettempdir())
+        temp_root = Path("D:/Temp") if sys.platform == "win32" else Path(tempfile.gettempdir())
         self.temp = tempfile.TemporaryDirectory(prefix="wp-review-", dir=temp_root)
         self.root = Path(self.temp.name)
         self.patch = patch.object(wp, "ROOT", self.root / "cases")
@@ -145,18 +145,26 @@ class ReviewTests(unittest.TestCase):
         recorded = self.call(result={"tool": "ctfd_submit", "result": {
             "candidate_verified": True, "judge_status": "correct", "challenge_id": "synthetic-fixture"}})
         wp.note({"case": "fixture", "status": "observed", "source_step": recorded["step"], "text": "读取自建结构化正确回执"})
-        from PIL import Image, ImageDraw
+        from PIL import Image
+        import random
         image = self.root / 'ready-fixture.png'
-        frame = Image.new('RGB', (640, 240), 'white')
-        ImageDraw.Draw(frame).text((20, 20), 'SOFTWARE TEST FIXTURE ONLY', fill='black')
-        frame.save(image)
+        img = Image.new('RGB', (400, 200))
+        px = img.load()
+        random.seed(7)
+        for y in range(200):
+            for x in range(400):
+                px[x, y] = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        img.save(image)
         captured = wp.capture({'case':'fixture', 'mode':'file', 'file_path':str(image),
                     'source':'Software test image fixture only; not a real challenge screenshot',
                     'source_step':recorded['step'], 'stage':'process_and_result'})
-        wp.TOOLS['wp_capture_review'][0]({'case':'fixture', 'image_step':captured['step'],
-            'image_sha256':wp.digest(image), 'verdict':'accepted','capture_origin':'live_screen',
-            'observed_content':'Software fixture only for unit testing review records',
-            'reason':'Synthetic review fixture, not actual screenshot acceptance'})
+        # 新口径：图片须先经像素核验 accepted 才计入有效截图。
+        from ctf_wp_capture_review import review
+        review({'case':'fixture', 'image_step':captured['step'],
+                'image_sha256': wp.digest(wp.case_dir('fixture') / 'images' / ('%04d.png' % captured['step'])),
+                'verdict':'accepted', 'capture_origin':'live_screen', 'stage':'process_and_result',
+                'observed_content':'自建样例：400x200 噪声图，验证 ready 判定链路',
+                'reason':'回归测试样例，非真实赛题截图'})
         for name in ("overview", "analysis", "solution", "validation", "reproduction"):
             wp.section({"case": "fixture", "section": name, "text": "自建验收章节",
                         "source_steps": [recorded["step"]]})

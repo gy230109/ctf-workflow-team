@@ -333,10 +333,16 @@ def model_for(a, folder, report, rows, metadata, verification, errors, pending):
     add('link', text='完整技术记录（含失败与重试）', target='technical.md')
     add('link', text='机器可读稿件与证据索引', target='report.json')
     if a.get('include_images') is not True:
+        # 口径统一：只有存在已核验的真实截图却未嵌入时才算"图片缺项"；
+        # 本题本来就没有可嵌入图片时不重复压低 screenshots_complete，
+        # 避免 wp_status 与 wp_build 对同一时间线给出矛盾的完成度。
+        has_reviewed = bool(quality['screenshot_evidence']['images'])
         quality['quality']['document_complete'] = False
-        quality['quality']['screenshots_complete'] = False
+        if has_reviewed:
+            quality['quality']['screenshots_complete'] = False
         quality['issues'].append({'code':'images_not_included', 'severity':'needs_attention',
-                                 'message':'本次未嵌入真实截图，仅可作为草稿。', 'steps':[]})
+                                 'message':('本次未嵌入真实截图（存在 %d 张已核验图片），仅可作为草稿。' % len(quality['screenshot_evidence']['images']))
+                                 if has_reviewed else '本次未嵌入图片；本题暂无已核验截图，按截图缺项口径处理。','steps':[]})
         quality['submission_ready'] = False
         quality['status'] = 'draft'
     suffix = ' 解题记录' if quality['quality']['document_complete'] else ' 解题记录（草稿·待补证据）'

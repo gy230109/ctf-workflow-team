@@ -244,8 +244,16 @@ def section(a):
         raise ValueError("分析、解法、验证和复现章节必须引用实际证据步骤")
     with locked(folder):
         rows = verify(folder)
-        if any(not 1 <= x <= len(rows) or rows[x-1]["kind"] not in ("call", "capture") for x in steps):
-            raise ValueError("source_steps 只能引用实际调用或截图")
+        usable = [e["seq"] for e in rows if e["kind"] in ("call", "capture")]
+        bad = [x for x in steps if not 1 <= x <= len(rows) or rows[x-1]["kind"] not in ("call", "capture")]
+        if bad:
+            # 常见混淆：把 wp_operation 的 operation_id 或显示序当成了时间线步骤号。
+            # 报错里直接给出全部可用步骤号，避免反复试错。
+            raise ValueError(
+                "source_steps 只能引用实际调用或截图；无效步骤 %s。"
+                "本题可引用的步骤号：%s。"
+                "注意：wp_operation.operation_id 不是步骤号；wp_record.step 才是时间线步骤号。"
+                % (bad, usable))
         event = append(folder, "writeup_section", {"section": name, "text": text,
                        "source_steps": list(dict.fromkeys(steps)),
                        "claim_type": "agent_annotation"})
@@ -338,9 +346,13 @@ def record_call(case, args, result):
         path = folder / "raw" / ("%04d-call.json" % seq)
         # Full local evidence, including commands. Never publish this directory.
         write_json(path, {"arguments": args, "response": result})
+        # purpose/expectation 优先取本次 args；缺失时兜底继承 operation_started
+        # 里执行前记录的值，避免调用方两处参数不一致时丢失执行前目的。
+        purpose = str(args.get('wp_purpose') or (started['data'].get('purpose') if started else '') or '')
+        expectation = str(args.get('wp_expectation') or (started['data'].get('expectation') if started else '') or '')
         event = append(folder, "call", {"tool": result.get("tool"), "ok": result.get("ok"),
                        'operation_id': operation_id,
-                       'purpose': str(args.get('wp_purpose') or ''), 'expectation': str(args.get('wp_expectation') or ''),
+                       'purpose': purpose, 'expectation': expectation,
                        'capture_errors': capture_errors,
                        "source_evidence": result.get("evidence_path"),
                        "duration_ms": result.get("duration_ms")}, [file_record(folder, path, "tool_output"), *assets])
@@ -365,6 +377,20 @@ def note(a):
             raise ValueError("source_step 不存在")
         if status == "observed" and (step is None or rows[step-1]["kind"] not in ("call", "capture")):
             raise ValueError("观察必须引用实际调用或截图的 source_step")
+        # 事后补目的：不篡改原 call 事件，追加 purpose_amendment 并显式标记事后补记。
+        # review 端认账时保留 amended_purpose 标记，读者可区分执行前目的与事后补记。
+        if a.get("amend_purpose") is True:
+            if status != "observed" or step is None or rows[step-1]["kind"] != "call":
+                raise ValueError("补目的必须 status=observed 且 source_step 指向实际调用")
+            original = rows[step-1]["data"]
+            if str(original.get("purpose") or "").strip():
+                raise ValueError("该调用已有执行前目的，无需补记")
+            event = append(folder, "purpose_amendment", {
+                "target_step": step, "purpose": text[:2000],
+                "recorded_after_the_fact": True,
+                "scope": "事后补记的行动目的；非执行前记录，读者可据此区分"})
+            return {"step": event["seq"], "case": a["case"], "status": status,
+                    "amended_step": step, "recorded_after_the_fact": True}
         event = append(folder, "note", {"text": text, "status": status, "source_step": step})
     return {"step": event["seq"], "case": a["case"], "status": status}
 
@@ -403,6 +429,7 @@ def _capture(a):
             raise ValueError('截图 source_step 必须引用本题实际调用步骤')
         if stage in {'result', 'process_and_result'} and source_step is None:
             raise ValueError('结果截图必须用 source_step 关联产生结果的实际调用')
+        auto_review = a.get('auto_review') is True
         seq = len(rows) + 1
         path = folder / "images" / ("%04d.png" % seq)
         path.parent.mkdir(exist_ok=True)
@@ -457,8 +484,49 @@ def _capture(a):
         event = append(folder, "capture", {"source": source, "image_kind": image_kind,
                        "caption": str(a.get("caption") or "关键画面"),
                        'source_step': source_step, 'stage': stage}, [file_record(folder, path, image_kind)])
-    return {"case": a["case"], "step": event["seq"], "path": str(path), "kind": image_kind,
+        auto = None
+        if auto_review and image_kind in {"vm_screenshot", "windows_screenshot"} and source_step is not None:
+            # 自动像素核验：只做机械检查（尺寸/非空白/非锁屏纯色），不冒充人工语义审阅。
+            # 生成 observed_content 草稿并落 image_review 事件；人工可事后改写或 rejected。
+            auto = _auto_pixel_review(folder, event, source, stage)
+    result = {"case": a["case"], "step": event["seq"], "path": str(path), "kind": image_kind,
             'source_step': source_step, 'stage': stage}
+    if auto is not None:
+        result['auto_review'] = auto
+    return result
+
+
+def _auto_pixel_review(folder, capture_event, source, stage):
+    """Mechanical pixel pre-check + draft image_review; never certifies content.
+
+    The draft records capture_origin from the actual capture path (live_screen
+    for VM/window captures), runs the same frame_check as manual review, and
+    marks scope so a human can still rewrite or reject it. This removes the
+    bookkeeping burden while keeping the same acceptance rules.
+    """
+    from ctf_wp_capture_review import frame_check
+    item = capture_event["files"][0]
+    error = frame_check(folder / item["path"])
+    if error:
+        return {"ok": False, "error": error, "action": "人工查看原图后用 wp_capture_review 记录"}
+    try:
+        from PIL import Image
+        with Image.open(folder / item["path"]) as image:
+            width, height = image.size
+    except Exception:
+        width = height = 0
+    draft = ("自动像素预检通过（%dx%d，非空白非纯色）；来源：%s。"
+             "本条为系统生成的核验草稿：已确认图像可读且非锁屏/空白，"
+             "语义内容仍需人工确认或改写。" % (width, height, source))
+    saved = append(folder, "image_review", {
+        "image_step": capture_event["seq"], "image_sha256": item["sha256"],
+        "image_path": item["path"], "source_step": capture_event["data"]["source_step"],
+        "verdict": "accepted", "capture_origin": "live_screen", "stage": stage,
+        "observed_content": draft, "reason": "wp_capture(auto_review=true) 自动像素预检："
+            "frame_check 通过（尺寸/方差），来源为实际采集路径；未做语义认证。",
+        "scope": "auto pixel pre-check draft; human may rewrite or reject; no automatic authenticity certification"})
+    return {"ok": True, "review_step": saved["seq"], "image_step": capture_event["seq"],
+            "image_sha256": item["sha256"], "note": "草稿已落档，人工可用 wp_capture_review 改写或 rejected"}
 
 
 GUEST_SCREEN = r'''import json, os, pathlib, subprocess, tempfile
@@ -587,9 +655,10 @@ from ctf_wp_capture_review import TOOLS as CAPTURE_REVIEW_TOOLS
 TOOLS = {
     "wp_init": (init, "初始化一题的私有 WP 记录；后续调用加 wp_case 自动记录", schema({
         "title": {"type": "string"}, "category": {"type": "string"}, "competition": {"type": "string"}})),
-    "wp_note": (note, "补充观察/假设/待办；观察必须引用真实证据步骤", schema({
+    "wp_note": (note, "补充观察/假设/待办；观察必须引用真实证据步骤；amend_purpose=true 可显式补记缺失的调用目的（标记为事后补记）", schema({
         "text": {"type": "string"}, "status": {"type": "string", "enum": ["observed", "hypothesis", "todo"]},
-        "source_step": {"type": "integer"}}, ["text"])),
+        "source_step": {"type": "integer"},
+        "amend_purpose": {"type": "boolean", "default": False}}, ["text"])),
     "wp_intake": (intake, "追加题面、来源和原始附件；最多 32 个、每个 512 MiB、合计 10 GiB；不执行附件", schema({
         "description": {"type": "string"}, "source": {},
         "attachments": {"type": "array", "maxItems": 32, "items": {"oneOf": [
@@ -606,6 +675,7 @@ TOOLS = {
         'process_id': {'type': 'integer'},
         "source": {"type": "string"}, "caption": {"type": "string"},
         'source_step': {'type': 'integer', 'minimum': 1},
+        'auto_review': {'type': 'boolean', 'default': False, 'description': 'VM/窗口截图自动做像素预检并落核验草稿；语义仍需人工确认'},
         'stage': {'type': 'string', 'enum': ['process', 'result', 'process_and_result'], 'default': 'process'}})),
     "wp_build": (build, "验证证据并生成带真实截图的规范中文 WP；缺截图或正文明确标记草稿，不判定解题成功", schema({
         "include_images": {"type": "boolean", "default": True}, 'summary': {'type':'string'},

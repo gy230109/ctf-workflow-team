@@ -47,6 +47,9 @@ def analyze(folder, rows):
     completed = {e["data"].get("operation_id") for e in calls if e["data"].get("operation_id")}
     pending = [dict(e["data"], step=e["seq"]) for e in rows
                if e["kind"] == "operation_started" and e["data"].get("operation_id") not in completed]
+    # 事后补记的目的：显式标记 recorded_after_the_fact，读者可区分；不再算缺失。
+    amended = {e["data"].get("target_step"): e["data"].get("purpose")
+               for e in rows if e["kind"] == "purpose_amendment"}
 
     def issue(code, message, steps=None):
         issues.append({"code": code, "severity": "needs_attention", "message": message,
@@ -56,7 +59,8 @@ def analyze(folder, rows):
         issue("missing_description", "缺少原始题面；用 wp_intake 追加原文及来源。")
     if not calls:
         issue("missing_calls", "尚无实际工具调用记录。")
-    no_purpose = [e["seq"] for e in calls if not str(e["data"].get("purpose") or "").strip()]
+    no_purpose = [e["seq"] for e in calls
+                  if not str(e["data"].get("purpose") or "").strip() and e["seq"] not in amended]
     if no_purpose:
         issue("missing_purpose", "这些调用未记录行动目的；勿用事后猜测冒充执行前记录。", no_purpose)
     no_observed = [e["seq"] for e in calls if e["seq"] not in observed]
@@ -81,6 +85,7 @@ def analyze(folder, rows):
                         "missing_sections": missing_sections,
                         "calls_without_purpose": no_purpose,
                         "calls_without_observation": no_observed,
+                        "purposes_amended_after_the_fact": sorted(amended),
                         'screenshots_complete': screenshots['complete'],
                         "review_scope": "正文、截图摘要及已记录的逐图内容核验；系统不自动认证画面真实性或文字语义"},
             "issues": issues, "submission_ready": not issues,

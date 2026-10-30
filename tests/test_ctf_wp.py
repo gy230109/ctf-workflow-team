@@ -104,12 +104,28 @@ class EvidenceTests(unittest.TestCase):
 
     def test_png_import_and_export_exclusion(self):
         from PIL import Image
+        import random
         image = Path(self.temp.name) / "fixture.png"
-        Image.new("RGB", (20, 20), "red").save(image)
-        wp.capture({"case": "fixture", "mode": "file", "file_path": str(image), "source": "self-created test image"})
+        img = Image.new("RGB", (400, 200))
+        px = img.load()
+        random.seed(11)
+        for y in range(200):
+            for x in range(400):
+                px[x, y] = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        img.save(image)
+        recorded = self.record()
+        captured = wp.capture({"case": "fixture", "mode": "file", "file_path": str(image),
+                               "source": "self-created test image", "source_step": recorded["step"]})
+        # 新口径：图片必须先经 wp_capture_review accepted 才会嵌入导出件。
+        from ctf_wp_capture_review import review
+        review({"case": "fixture", "image_step": captured["step"],
+                "image_sha256": wp.digest(wp.case_dir("fixture") / "images" / ("%04d.png" % captured["step"])),
+                "verdict": "accepted", "capture_origin": "live_screen",
+                "observed_content": "自建样例：20x20 纯色图，仅验证导出排除链路",
+                "reason": "回归测试样例，非真实赛题截图"})
         included = wp.build({"case": "fixture", "include_images": True})
         excluded = wp.build({"case": "fixture", "include_images": False})
-        self.assertEqual(included["images_included"], 0)  # unreviewed image is retained privately, not shown as solving evidence
+        self.assertEqual(included["images_included"], 1)
         self.assertEqual(excluded["images_included"], 0)
         self.assertNotEqual(included["path"], excluded["path"])
         self.assertFalse(list(Path(excluded["path"]).parent.glob("images/*capture.png")))
