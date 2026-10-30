@@ -20,6 +20,8 @@ wp/cases/
 team-member.private.json
 *.private.json
 team/identity*
+release/*.zip
+release/*.tar.gz
 tools/cracktools_bridge/target/
 ctf-questionbank/attachments/
 ctf-questionbank/downloads/
