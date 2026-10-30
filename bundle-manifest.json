@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.30-wpboost1",
+  "version": "2026.10.30-wpboost1.1",
   "registered_tools": 182,
   "mcp_entry_tools": 81,
   "local_source_tools": 203,
@@ -16565,8 +16565,8 @@
     },
     {
       "path": "tools/ctf_specialist_worker.py",
-      "sha256": "27028366e7bc6a7b8566adf262f5b4728e4cb623e1eaf04d77622598c02f67b6",
-      "bytes": 29364
+      "sha256": "b7623c87c74ae5890893f5d310c17196a9fc3b9da1f732abdd33d3e15a23458b",
+      "bytes": 29733
     },
     {
       "path": "tools/ctf_specialists.py",

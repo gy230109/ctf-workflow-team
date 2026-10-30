@@ -1,2 +1,2 @@
-4a2f1abd5879f9c70507378e79aaf7cb6bc2128f1b958be6bc44d84fe9dbe60b  ctf-purge-fusion-1.1.0.zip
-f15fe50a60aa9e9d9e0d89b5bfff8e8ad4cefce2a7e7aa56384d36268bebba1d  ctf-purge-fusion-1.1.0.tar.gz
+fca38054656fbf17e0d33facd6f97e22fd07d8c229a5983025c2b7def7037725  ctf-purge-fusion-1.1.1.zip
+6408d88f66a6c772754aa8642082517e33dbec39711864ac7595ff19e6c6b5dd  ctf-purge-fusion-1.1.1.tar.gz

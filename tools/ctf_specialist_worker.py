@@ -2,6 +2,7 @@
 import ast
 import base64
 from collections import Counter
+import contextlib
 import hashlib
 import importlib
 import importlib.metadata as metadata
@@ -176,7 +177,7 @@ def web_capture(a):
 
 
 def pwn_elf(a):
-    from pwn import ELF
+    from pwnlib.elf.elf import ELF
     elf=ELF(str(file_path(a)),checksec=False)
     return {"arch":elf.arch,"bits":elf.bits,"endian":elf.endian,"entry":elf.entry,
             "pie":elf.pie,"nx":elf.nx,"canary":elf.canary,"relro":elf.relro,
@@ -184,7 +185,7 @@ def pwn_elf(a):
 
 
 def pwn_cyclic(a):
-    from pwn import cyclic
+    from pwnlib.util.cyclic import cyclic
     n=bounded(a.get("n",4),4,8,"n")
     if n not in (4,8):raise ValueError("n must be 4 or 8")
     action=a.get("action","generate")
@@ -523,9 +524,20 @@ def main():
     return OPS[operation](args)
 
 
-if __name__=="__main__":
+def cli():
+    """Keep dependency diagnostics on stderr and emit exactly one JSON result."""
     try:
-        result=main();print(json.dumps(result,ensure_ascii=False,default=str));sys.exit(1 if result.get("ok") is False else 0)
+        # Some dependencies configure their logger with the active stdout during
+        # import. Redirect before main imports them, retaining their warnings.
+        with contextlib.redirect_stdout(sys.stderr):
+            result=main()
+        status=1 if result.get("ok") is False else 0
     except Exception as exc:
-        print(json.dumps({"ok":False,"error":str(exc),"error_code":"dependency_missing" if isinstance(exc,ImportError) else "operation_failed"},ensure_ascii=False))
-        sys.exit(1)
+        result={"ok":False,"error":str(exc),"error_code":"dependency_missing" if isinstance(exc,ImportError) else "operation_failed"}
+        status=1
+    print(json.dumps(result,ensure_ascii=False,default=str))
+    return status
+
+
+if __name__=="__main__":
+    sys.exit(cli())
